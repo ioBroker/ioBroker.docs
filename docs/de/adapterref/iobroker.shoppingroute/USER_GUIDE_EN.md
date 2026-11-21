@@ -4,13 +4,128 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shoppingroute/USER_GUIDE_EN.md
 title: ShoppingRoute - Benutzerhandbuch
-hash: 4FUQIxMfYc+0hxcKKI70ZOhnPDhTi5zYDGnTjpH6y6M=
+hash: NqmeIGE7Ifc1YFWBv19hQcV6yzdpJO0YBJpwW0PxRtQ=
 ---
 # ShoppingRoute – Benutzerhandbuch
 
-**Gilt für Version 0.5.0 und neuer**
+**Leitfaden für ShoppingRoute 0.6.3 (20. November 2026)**
 
-ShoppingRoute hilft dabei, eine normale Alexa-Einkaufsliste in eine Liste umzuwandeln, die Ihrem tatsächlichen Einkaufsverhalten entspricht.
+**Neu in Version 0.6.3:** Die Einkaufslistenansicht verwendet den aktuellsten bestätigten Alexa-Snapshot anstelle veralteter Browserentwürfe. Abgeschlossene oder gelöschte Artikel werden nicht mehr erneut angezeigt. Gültige, ausstehende Bestellungen werden mit der aktuellen Liste abgeglichen; bei einem Fehler wird eine Fehlermeldung angezeigt, anstatt veraltete Daten als aktuell darzustellen. ShoppingRoute bietet außerdem eine schreibgeschützte Hilfemeldung für Skripte und KI-Agenten.
+
+### Nachrichten für Skripte und KI-Agenten
+
+Anruf `sendTo('shoppingroute.0', 'help', {}, response => ...)` um zu erhalten `{ help, commands }`. Der `help` Das Feld beschreibt die Nachrichtenformate in Englisch; `commands` listet die unterstützten Meldungen auf. Ein Eintrag ist markiert `write: true` Daten ändern können, während `write: false` ist schreibgeschützt. KI-Agenten sollten Listen oder Konfigurationen nur auf explizite Benutzeranfrage ändern. Bestehende Testläufe, Statusprüfungen, Bestätigungsmechanismen und konfigurierbare Amazon-Schreiblimits bleiben aktiv. Aufruf `help` Verändert weder Alexa- noch Bring!-Daten.
+
+**Wartungsrelease 0.6.2:** Die Entwicklungsabhängigkeit für die ioBroker-Testumgebung wurde auf Version 6.3.2 aktualisiert (Repository-Checker W0037, Problem Nr. 85). Bestehende Laufzeitfunktionen und Sicherheitsvorkehrungen von Alexa und Bring! bleiben erhalten.
+
+**Schnellere Bring!-Synchronisierung (0.6.1):** ShoppingRoute reagiert jetzt auf bestätigte Aktualisierungen der Bring!-Adapterliste und Alexa-Listenereignisse, ohne den bisherigen 90-Sekunden-Timer abzuwarten. Fallback-Prüfungen werden alle 30 Sekunden durchgeführt; Bestätigungen können bei einem Ereignis früher geprüft werden, ohne den Schreibschutz von Amazon zu deaktivieren. Wenn ein Benutzer während einer älteren Transaktion einen weiteren Artikel hinzufügt, werden nachfolgende Änderungen nicht mehr blockiert, sobald die ursprünglichen Schreibvorgänge verifiziert wurden. Eine blockierte Bridge erzeugt nach drei Minuten eine Warnung, nach einem Timeout einen Fehler und eine Wiederherstellungsbenachrichtigung anstelle von Log-Spam. `shoppingroute.0.info.bringSyncStatus` Und `shoppingroute.0.data.bringSyncJournal` Wenn sich Änderungen nicht mehr verbreiten, setzen Sie das Journal niemals zurück, ohne vorher eine Sicherungskopie beider Listen anzulegen und diese zu überprüfen.
+
+**Wichtig: ShoppingRoute hat keinen Einfluss auf diese Verzögerung.** Der separate ioBroker Bring!-Adapter 1.9.1 aktualisiert seine Cloud-Liste etwa **alle 90 Sekunden** . **ShoppingRoute kann dieses Abfrageintervall weder konfigurieren, verkürzen noch auslösen.** Das Hinzufügen oder Abschließen eines Artikels in der Bring!-Mobil-App wird für ShoppingRoute erst sichtbar, nachdem der Bring!-Adapter seinen ioBroker-Status aktualisiert hat; Verzögerungen durch Provider und Netzwerk können die Dauer verlängern. ShoppingRoute 0.6.1 reagiert **nach** dieser Aktualisierung umgehend, die 30-Sekunden-Fallback-Prüfung kann den externen Bring!-Adapter jedoch nicht veranlassen, Cloud-Änderungen früher abzurufen.
+
+## Bringen Sie Einkaufslisten und Routenplanung in ShoppingRoute 0.6.0 mit!
+
+Die Bring!-Bridge ist **standardmäßig deaktiviert** . Bestehende Alexa-Nutzer werden keine Änderung bemerken.
+
+**Einrichtung:** Öffnen Sie **die Einstellungen Ihrer ShoppingRoute-Instanz → Bring!-Integration** , wählen Sie Ihre installierte ioBroker Bring!-Instanz aus, **speichern Sie die Einstellungen** und wählen Sie anschließend die gewünschte Bring!-Liste aus. Wählen Sie für die unidirektionale oder bidirektionale Synchronisierung auch die bereits aktivierte Alexa-Einkaufsliste aus. Lassen Sie **den Testlauf** zunächst aktiviert.
+
+Wählen Sie einen Modus:
+
+1. **Aus:** Das bisherige Verhalten von Alexa bleibt unverändert.
+2. **Bring! → Alexa:** Verwenden Sie Bring! als Quelle. Neue Bring!-Einträge erscheinen in Alexa; zuvor in Bring! gespiegelte und später abgeschlossene Einträge werden ebenfalls aus Alexa entfernt. Nur Alexa-Einträge bleiben erhalten.
+3. **Bring!-Artikel:** Keine Alexa-Installation erforderlich. ShoppingRoute zeigt Bring!-Artikel auf einer eigenen **Einkaufsliste** an, gruppiert nach Geschäft und Ihrer konfigurierten Route. Diese Ansicht ist schreibgeschützt; Artikel können direkt in Bring! bearbeitet werden.
+4. **Bring! ↔ Alexa:** Neue und abgeschlossene Einträge werden in beide Richtungen synchronisiert. Bei der **ersten Synchronisierung** behält jede Liste ihren gesamten Inhalt; nur fehlende Einträge werden hinzugefügt.
+
+### Kurze Sprachbefehle ohne Aktivierung der Bring!-Fähigkeit
+
+Im **Bring! ↔ Alexa-** Modus sagen Sie einfach **„Alexa, füge Milch zu meiner Einkaufsliste hinzu“.** Der Artikel wird in die normale Alexa-Liste aufgenommen, ShoppingRoute wendet Ihre Filial-/Routensortierung an und sendet ihn bei der nächsten bestätigten Synchronisierung an Bring!. Für diesen Workflow benötigen Sie nicht den längeren Befehl **„Alexa, bitte Bring!, Milch hinzuzufügen …“** . Sobald Sie den Artikel in Bring! als erledigt markieren, entfernt ShoppingRoute das entsprechende Element aus der aktiven Alexa-Einkaufsliste. Dabei wird der Alexa-Artikel entfernt, anstatt ihn als erledigt zu markieren. Beide Dienste müssen verbunden sein, die bidirektionale Synchronisierung muss aktiviert sein und die Sicherheitsprüfungen müssen das Schreiben zulassen.
+
+Bring! gruppiert Artikel in Kategorien und **unterstützt keine beliebige Reihenfolge einzelner Artikel** . Für eine präzise Einkaufsroute nutzen Sie bitte die ShoppingRoute-Seite oder die Alexa-App. Innerhalb von Bring! können Sie die bestehende Kategorienreihenfolge manuell anpassen.
+
+**Sicherheit:** Ein bestätigter, ausreichend aktueller Bring!-Snapshot ist erforderlich. Doppelte Namen, widersprüchliche Mengen/Spezifikationen, zu große Batches und unsichere Remote-Zustände blockieren Schreibvorgänge. Unterbrochene Transaktionen werden in einem persistenten Journal gespeichert und nicht automatisch wiederholt, bis beide Provider den erwarteten Listeninhalt bestätigt haben. Löschen Sie niemals ein ausstehendes Journal, ohne beide Listen geprüft zu haben. Der Dry Run blockiert Schreibvorgänge auf **beiden** Diensten.
+
+Status: `shoppingroute.0.info.bringSyncStatus`. Bring! Routenvorschau: `shoppingroute.0.info.bringSyncPreview` Zeitschrift: `shoppingroute.0.data.bringSyncJournal` Die
+
+Der unabhängige Bring!-Adapter liest seine Cloud-Liste etwa alle 90 Sekunden. Diese Wartezeit liegt außerhalb des Einflussbereichs von ShoppingRoute; die ereignisgesteuerte Synchronisierung startet erst, sobald die aktualisierte Liste ioBroker erreicht. Im Benutzertest wurden bestehende Bring!-Listen und neu hinzugefügte Bring!-Artikel in ShoppingRoute importiert und beim nächsten Sortierlauf in die Einkaufsroute eingefügt. Automatische Tests umfassen Abgleich und Sicherheitsvorkehrungen. Der Benutzertest simuliert weder Live-Vervollständigung noch Löschung oder alle bidirektionalen Konfliktszenarien; die bidirektionale Synchronisierung wird mit gesicherten Testlisten gestartet.
+
+## Neu in Version 0.5.3: Ändern Sie Ihre Einkaufsliste direkt in der Alexa-App.
+
+**Sie sind beim Einkaufen, entdecken ein Sonderangebot und möchten Ihre Einkaufsliste ändern? Das geht ganz einfach auf Ihrem Smartphone.** Sie benötigen lediglich die gewohnte Alexa-App.
+
+### Beispiel 1: Kaufe dieses Mal Käse bei LIDL.
+
+Ihre Einkaufsliste zeigt:
+
+```text
+25> Cheese
+```
+
+Normalerweise kaufst du deinen Käse bei ALDI, aber heute hat LIDL ein besseres Angebot.
+
+**So geht's:** Tippen Sie in Ihrer Alexa-Einkaufsliste **auf „Artikel hinzufügen“** und geben Sie Folgendes ein:
+
+```text
+25WLIDL
+```
+
+**Das war's.** ShoppingRoute bringt den Käse **nur für diesen Einkauf** zu LIDL. Beim nächsten Mal geht er wieder in seinen gewohnten Laden.
+
+### Beispiel 2: Kaufen Sie Käse ab sofort immer bei LIDL
+
+Soll LIDL der Standardladen für Käse sein? Fügen Sie stattdessen Folgendes hinzu:
+
+```text
+25FLIDL
+```
+
+**Der Unterschied:** **W** steht nur für diese Reise. **F** merkt sich den neuen Laden dauerhaft.
+
+### Beispiel 3: Ein Element in der Liste nach oben verschieben
+
+Stellen Sie sich vor, Ihre LIDL-Einkaufsliste sieht so aus:
+
+```text
+10> Cucumbers
+20> Bananas
+25> Cheese
+30> Milk
+40> Butter
+```
+
+Sie möchten den Käse **zwei Stufen höher platzieren** . Hinzufügen:
+
+```text
+25H2
+```
+
+Käse wird nun vor Gurken und Bananen serviert:
+
+```text
+Cheese
+Cucumbers
+Bananas
+Milk
+Butter
+```
+
+Um den Käse stattdessen **um zwei Stellen nach unten** zu verschieben, fügen Sie Folgendes hinzu:
+
+```text
+25R2
+```
+
+**H = höher, R = niedriger.** Entscheidend ist die Anzahl der **Artikel** , nicht die Differenz ihrer angezeigten Anzahl. Artikel bleiben im aktuellen Lager; ein Umzug endet oben oder unten. Ihre gespeicherten Laufwege und Produktgruppen bleiben unverändert.
+
+### Gut zu wissen
+
+**Die Artikelnummer dient nur als Beispiel.** Überprüfen Sie immer die **zweistellige Nummer, die aktuell vor Ihrem Artikel angezeigt wird** . Käse kann beim nächsten Mal eine andere Nummer haben. Nummern in den Regalüberschriften dürfen nicht zur Warenbewegung verwendet werden.
+
+Sie können **mehrere Befehle** gleichzeitig hinzufügen. Groß- oder Kleinschreibung spielt keine Rolle: `25wlidl` Funktioniert auch. Kleine, eindeutige Tippfehler in Ladennamen werden automatisch korrigiert.
+
+**Einen Moment Geduld:** ShoppingRoute **sortiert nicht sofort** . Je nach Ihrer Internetverbindung und Alexa kann dies **bis zu fünf Minuten** dauern. Es ist normal, dass der Befehl währenddessen in der Liste angezeigt wird. Sobald er verarbeitet ist, verschwindet er automatisch.
+
+**Immer noch da nach fünf Minuten?** Überprüfen Sie Ihre Internet-/Alexa-Verbindung sowie Artikelnummer, Buchstaben und Filialnamen. **Markieren Sie einen fehlerhaften Befehl einfach als ausgeführt und geben Sie ihn erneut ein** . Wenn ShoppingRoute einen Befehl nicht eindeutig versteht, bleibt der Artikel an Ort und Stelle, anstatt den falschen Artikel zu verschieben.
+
+**Vier Aktionen, mit deutschen und englischen Buchstaben:** `W/C` (vorübergehende Änderung), `F/E` (dauerhafte Änderung), `H/U` (Hoch), `R/D` (Abwärts). Zum Beispiel: `25WLIDL` Und `25CLIDL` Das Gleiche tun; `25FLIDL` Und `25ELIDL` Den Laden dauerhaft retten. `25D2` Das bedeutet **zwei Positionen weniger** , keine dauerhafte Veränderung.
 
 ## Warum ShoppingRoute das Einkaufen tatsächlich einfacher macht
 
@@ -285,6 +400,8 @@ Falls ShoppingRoute einen Artikel dem falschen Markt zugeordnet hat, können Sie
 
 Je nach Ansicht können Sie Drag & Drop, Pfeiltasten oder eine Marktauswahl verwenden.
 
+Manuelle Änderungen an der Einkaufsliste bleiben als Entwurf im Browser gespeichert. Verschieben Sie alle gewünschten Artikel und klicken Sie anschließend auf **„Änderungen an Alexa übertragen“** . Nur diese Schaltfläche startet eine verifizierte Alexa-Sortiertransaktion für die gesamte Liste. Bei einer fehlgeschlagenen Übertragung bleibt der Entwurf erhalten; **„Änderungen verwerfen“** lädt die aktuelle Liste neu. Solange ein Entwurf aussteht, sind das Wechseln zwischen Listen, Hinzufügen, Löschen und Zurücksetzen deaktiviert, um den Entwurf zu erhalten. Durch das Neuladen desselben Browser-Tabs werden nur gültige Änderungen in die neu abgerufene Alexa-Liste übernommen. Abgeschlossene, gelöschte oder umbenannte Artikel können nicht durch einen alten Entwurf wiederhergestellt werden. Die geöffnete Ansicht wird in kurzen Abständen aktualisiert, solange sie sichtbar ist und wenn Sie zum Tab zurückkehren. Wenn Alexa nicht erreichbar ist, zeigt die Benutzeroberfläche eine Fehlermeldung und eine Option zum erneuten Versuch an, anstatt eine alte Liste als aktuelle Liste anzuzeigen. Das Leeren des Caches ist nicht erforderlich.
+
 Eine manuelle Änderung hat Vorrang vor der automatischen Zuweisung.
 
 ### Löschen eines Elements
@@ -453,7 +570,7 @@ Zum Beispiel:
 - 6x Wasser
 - ein halbes Kilo Hackfleisch
 
-ShoppingRoute versucht, das eigentliche Produkt zu erkennen und gleichzeitig die Menge sichtbar zu halten.
+ShoppingRoute versucht, das tatsächliche Produkt zu erkennen und gleichzeitig die Menge sichtbar zu halten.
 
 ---
 
@@ -516,7 +633,7 @@ Verwenden Sie **„Ignorieren“** , wenn ShoppingRoute dies nicht lernen soll.
 
 Die meisten Nutzer müssen sich darüber keine Gedanken machen.
 
-Wenn Sie aber verstehen möchten, warum ein Artikel in einem bestimmten Geschäft gelandet ist, folgt ShoppingRoute in etwa dieser Reihenfolge:
+Wenn Sie aber verstehen möchten, warum ein Artikel in einem bestimmten Geschäft gelandet ist, folgt ShoppingRoute grob dieser Reihenfolge:
 
 1. ein Markt, den Sie über Alexa explizit genannt haben.
 2. der Standardmarkt des Produkts,

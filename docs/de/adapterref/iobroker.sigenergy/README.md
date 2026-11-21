@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
+hash: HRZddRNzlGL6SdOE8ObYgbG7p8YmPCmxvmTVi3sM9C0=
 ---
 # ioBroker Sigenergy Adapter
 
@@ -35,8 +35,8 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 - 🔍 **PID** (PV-Isolationserkennung) — Optional
 - 🌡️ **ESS-Vorheizung** — Zeitgesteuerter Tarif, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
 - 📈 **Erweiterte Register** – Intelligente Lasten 1–24, kumulative Energie, Netzanschlussparameter
-- ☀️ **SigenMicro** — Unterstützung für Mikro-Wechselrichter (automatischer Scan)
 - 📊 **Berechnete Werte** – Abgeleitete Statistiken werden in jedem Wahlzyklus aktualisiert.
+- ☁️ **SigenMicro via Cloud** — Optional: Live-Werte der SigenMicro-Mikrowechselrichter aus der Sigenergy-Cloud
 - 🖥️ **VIS Widgets** – Energiefluss, Batteriestatus, Statistikpanels
 
 ---
@@ -63,14 +63,14 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 
 ## Standard-Modbus-Adressen
 
-| Gerät                                            | Adresse                          |
-| ------------------------------------------------ | -------------------------------- |
-| Pflanze (lesen/schreiben)                        | **247**                          |
-| Pflanzenrundschreiben (schreiben, keine Antwort) | **0**                            |
-| Wechselrichter                                   | **1**                            |
-| AC-Ladegerät (EVAC)                              | **2**                            |
-| PSS (Kraftwerksschalter)                         | **5** (Standard, konfigurierbar) |
-| PID (PV-Isolationserkennung)                     | **6** (Standard, konfigurierbar) |
+| Gerät                                       | Adresse                          |
+| ------------------------------------------- | -------------------------------- |
+| Pflanze (lesen/schreiben)                   | **247**                          |
+| Pflanzen-Sendung (schreiben, keine Antwort) | **0**                            |
+| Wechselrichter                              | **1**                            |
+| AC-Ladegerät (EVAC)                         | **2**                            |
+| PSS (Kraftwerksschalter)                    | **5** (Standard, konfigurierbar) |
+| PID (PV-Isolationserkennung)                | **6** (Standard, konfigurierbar) |
 
 ---
 
@@ -78,17 +78,16 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 
 Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **einen** Sigenergy-Systemtyp (entweder/oder). Wählen Sie den Typ im Reiter „Komponenten“ aus oder verwenden Sie **die automatische Geräteerkennung,** um ihn von der Hardware auszulesen. Die Registersätze sind gemäß den Modellfußnoten des offiziellen Modbus-Protokolls V2.9 geschützt.
 
-| Fähigkeit                         | SignStor | Sigen Hybrid | Sigen PV M1-HYB | PV-only (PV Max) | Nur für SigenMicro |
-| --------------------------------- | -------- | ------------ | --------------- | ---------------- | ------------------ |
-| ESS / Batterieregister            | stets    | optional     | optional        | —                | —                  |
-| Gleichstromladegerät              | ✓        | ✓            | —               | —                | —                  |
-| Grid-Code (40051-40068)           | ✓        | ✓            | —               | —                | —                  |
-| ESS-Vorwärmung (50000-50183)      | —        | —            | ✓               | —                | —                  |
-| PCC-Leistungsfaktor (40157/40158) | —        | —            | ✓               | —                | —                  |
-| Anlagenregister (Slave 247)       | ✓        | ✓            | ✓               | ✓                | —                  |
-| SigenMicro Mikro-Wechselrichter   | optional | optional     | optional        | optional         | ✓                  |
+| Fähigkeit                         | SignStor | Sigen Hybrid | Sigen PV M1-HYB | PV-only (PV Max) |
+| --------------------------------- | -------- | ------------ | --------------- | ---------------- |
+| ESS / Batterieregister            | stets    | optional     | optional        | —                |
+| Gleichstromladegerät              | ✓        | ✓            | —               | —                |
+| Grid-Code (40051-40068)           | ✓        | ✓            | —               | —                |
+| ESS-Vorwärmung (50000-50183)      | —        | —            | ✓               | —                |
+| PCC-Leistungsfaktor (40157/40158) | —        | —            | ✓               | —                |
+| Anlagenregister (Slave 247)       | ✓        | ✓            | ✓               | ✓                |
 
-Ein Modbus-Endpunkt (IP/Bus) entspricht einer Instanz. Ein SigenStor mit zusätzlichen SigenMicro-Mikrowechselrichtern gehört zu einer **einzigen** Instanz – die Mikrowechselrichter sind eine additive Komponente, kein separater Typ. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmalig die Registerkarte „Komponenten“).
+Ein Modbus-Endpunkt (IP/Bus) = eine Instanz. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmal die Registerkarte „Komponenten“).
 
 ## Konfiguration
 
@@ -111,7 +110,8 @@ Wählen Sie die installierten Geräte aus:
 - PSS (Kraftwerksschalter)
 - PID (PV-Isolationserkennung)
 - ESS-Vorwärmung (nur M1-HYA/HYB)
-- SigenMicro (Mikro-Wechselrichter)
+
+> **SigenMicro:** SigenMicro-Mikrowechselrichter sind nicht Teil des Sigenergy Modbus-Protokolls (V2.9). Sie kommunizieren ausschließlich über WLAN mit der Sigenergy-Cloud, daher gibt es keine Modbus-Adresse oder kein auslesbares Register. Ihre Messwerte können optional aus der Sigenergy-Cloud abgerufen werden (siehe [Registerkarte „SigenMicro (Cloud)“)](#sigenmicro-cloud-tab) .
 
 ### Statistik-Registerkarte
 
@@ -123,6 +123,26 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 - Akkulaufzeit
 - Eigenverbrauchsquote
 - Autarkierate
+
+### SigenMicro (Cloud) Tab
+
+Optional. Liest die Live-Werte von SigenMicro-Mikrowechselrichtern aus der Sigenergy-Cloud mit Ihrem mySigen-Konto. Alle Mikrowechselrichter des Kontos werden automatisch erkannt. Die Cloud-Abfrage erfolgt unabhängig von der Modbus-Verbindung.
+
+| Einstellung                                                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Lesen Sie SigenMicro-Mikrowechselrichter über die Sigenergy-Cloud. | Aktiviert das Cloud-Polling                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Cloud-Schnittstelle                                                | **Offizielle Sigen OpenAPI** (Standard) – von Sigenergy dokumentiert, schreibgeschützt. Sigenergy beschränkt die Live-Daten des Geräts auf etwa einmal alle 5 Minuten.<br> **mySigen App-Oberfläche** – die Oberfläche der mySigen App ermöglicht schnellere Updates, ist aber **nicht offiziell dokumentiert** : Sigenergy kann sie jederzeit ohne Vorankündigung ändern oder blockieren.                                     |
+| Wolkenregion                                                       | Server Ihres mySigen-Kontos (Europa =`api-eu.sigencloud.com`)                                                                                                                                                                                                                                                                                                                                                                 |
+| mySigen-Konto / Passwort                                           | Ihre mySigen-Anmeldedaten. Diese werden ausschließlich an die Sigenergy-Cloud gesendet; das Passwort wird verschlüsselt gespeichert.                                                                                                                                                                                                                                                                                           |
+| Cloud-Abfrageintervall                                             | Mindestens 300 Sekunden für die OpenAPI, 30 Sekunden für die App-Schnittstelle. Durch Ändern der Cloud-Schnittstelle wird der entsprechende Standardwert festgelegt (300 Sekunden für die OpenAPI, 60 Sekunden für die App-Schnittstelle).                                                                                                                                                                                     |
+| Testanmeldung                                                      | Meldet sich einmalig mit den eingegebenen Einstellungen in der Sigenergy-Cloud an (es werden keine Gerätedaten gelesen). **Wichtig:** Solange die Cloud aktiviert ist, können die Einstellungen erst nach einem erfolgreichen Test gespeichert werden. Der Test muss nach jeder Änderung des Kontos, des Passworts, der Schnittstelle oder der Region wiederholt werden. Die Instanz muss während des Tests ausgeführt werden. |
+
+Anmerkungen:
+
+- Der Adapter kann nur lesen. Es ist kein Entwicklerkonto und kein „Onboarding“ des Systems erforderlich (die Anmeldung mit dem OpenAPI-Konto gewährt lediglich Lesezugriff auf die Systeme des eigenen Kontos).
+- Der Adapter fragt die Cloud nur mit Einstellungen ab, deren Anmeldung getestet wurde. Wurden die Einstellungen ohne Test geändert (z. B. direkt im Instanzobjekt), wird eine Warnung protokolliert und die Cloud-Abfrage deaktiviert.
+- Falsche Anmeldedaten unterbrechen die Cloud-Abfrage, bis die Einstellungen erneut gespeichert werden. Sigenergy sperrt ein mySigen-Konto für 3 Minuten nach 5 fehlgeschlagenen Anmeldeversuchen innerhalb von 60 Minuten, sodass der Adapter ein abgelehntes Passwort niemals selbstständig erneut versucht.
+- Nachts werden die Mikro-Wechselrichter abgeschaltet; `online` ist dann `false` und die Werte sind leer.
 
 ---
 
@@ -160,6 +180,28 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 | `statistics.autarkyRate`          | Autarkierate                                     | %       |
 | `statistics.housePower`           | Berechneter Hausverbrauch                        | kW      |
 
+### SigenMicro (`sigenmicro.*`)
+
+Nur wenn der [SigenMicro (Cloud)-Tab](#sigenmicro-cloud-tab) aktiviert ist. Ein Gerät pro Mikro-Wechselrichter, benannt nach seiner Seriennummer:
+
+| Zustand                                                           | Einheit    | Beschreibung                                         |
+| ----------------------------------------------------------------- | ---------- | ---------------------------------------------------- |
+| `sigenmicro.totalPower`                                           | kW         | Wechselstromversorgung aller SignMicro zusammen      |
+| `sigenmicro.<serial>.online`                                      | —          | Mikro-Wechselrichter meldet Live-Werte               |
+| `sigenmicro.<serial>.activePower`                                 | kW         | Wechselstrom-Wirkleistung                            |
+| `sigenmicro.<serial>.reactivePower`                               | kvar       | Blindleistung                                        |
+| `sigenmicro.<serial>.pvPower`                                     | kW         | PV (DC) Leistung                                     |
+| `sigenmicro.<serial>.pv1.*` /`pv2.*`                              | V / A / kW | Spannung, Stromstärke und Leistung jedes PV-Eingangs |
+| `sigenmicro.<serial>.gridVoltage` /`gridCurrent` /`gridFrequency` | V / A / Hz | Gitterseite                                          |
+| `sigenmicro.<serial>.powerFactor`                                 | —          | Leistungsfaktor                                      |
+| `sigenmicro.<serial>.temperature`                                 | °C         | Innentemperatur                                      |
+| `sigenmicro.<serial>.insulationResistance`                        | MΩ         | Isolationswiderstand gegen Erde                      |
+| `sigenmicro.<serial>.dailyYield` /`totalYield`                    | kWh        | PV-Ertrag heute / gesamt (gesamt: nur OpenAPI)       |
+| `sigenmicro.<serial>.ratedPower`, `serialNumber`, `firmware`      |            | Gerätedaten                                          |
+| `sigenmicro.<serial>.lastUpdate`                                  |            | Zeitpunkt der letzten Cloud-Aktualisierung           |
+
+`info.cloudConnection` zeigt an, ob der letzte Wolkenzyklus erfolgreich war.
+
 ---
 
 ## Notschaltung – Schutz externer PV-Systeme
@@ -185,7 +227,7 @@ Der Adapter überwacht die `plant.onOffGridStatus` in jedem Wahlzyklus.
 - Alle konfigurierten Notfallgeräte werden sofort umgeschaltet.
 - Es wird eine Telegram-Benachrichtigung gesendet (optional).
 
-**Bei Rückkehr ins Netz** (`onOffGridStatus` = 0):
+**Bei Netzrückkehr** (`onOffGridStatus` = 0):
 
 - Ein konfigurierbarer Stabilitätstimer startet (Standard: 10 Minuten).
 - Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
@@ -287,6 +329,37 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 - 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.5.1 (2026-11-17)
+- (ssbingo) feat: SigenMicro (Cloud) tab — changing the cloud interface sets the matching polling interval (300 s OpenAPI, 60 s app interface), so a fast app interval is not kept by mistake
+- (ssbingo) feat: SigenMicro (Cloud) tab — new button "Test login" that logs in once with the entered settings. It is required: with the cloud enabled the settings can only be saved after a successful test, and the adapter starts the cloud polling only with tested settings. **Note for 3.5.0 users:** press "Test login" once and save, otherwise the cloud polling stays off after the update
+- (ssbingo) fix: admin translations added for four help texts of the extended register tab (V2.6–V2.9 groups, PSS, PID, ESS preheating) that were shown in English in every language
+
+### 3.5.0 (2026-11-17)
+- (ssbingo) feat: SigenMicro micro-inverters via the Sigenergy cloud (optional, new tab "SigenMicro (Cloud)"). Uses the official Sigen OpenAPI with the mySigen account (read-only, no onboard, about every 5 minutes) or, optionally, the unofficial mySigen app interface (faster). The micro-inverters of the account are found automatically; new states `sigenmicro.<serial>.*` (power, PV inputs, grid values, temperature, yield), `sigenmicro.totalPower` and `info.cloudConnection`. The password is stored encrypted (`encryptedNative`/`protectedNative`)
+- (ssbingo) fix: admin translations completed — 11 section headers (pt, nl, fr, it, es, pl, uk, zh-cn) and the "9600 (default)" baud-rate label were still in English
+
+### 3.4.0 (2026-11-16)
+- (ssbingo) **breaking:** SigenMicro support removed. SigenMicro micro-inverters communicate via WLAN/cloud only and are not part of the Sigenergy Modbus protocol (V2.9: no device class, no slave address, no registers), so the scan could never find them and the previous register map had no source. Removed: the SigenMicro scan, the SigenMicro admin tab, the `SigenMicro only` device type, the config keys `hasSigenMicro`/`sigenMicroScanFrom`/`sigenMicroScanTo`/`sigenMicroDevices` and the states `info.scanProgress`/`info.scanStatus`. Existing `sigenmicro.*` objects are deleted on startup; an instance still set to `SigenMicro only` logs an error and stays idle. Micro yield is at most included as a total in `plant.pvPower` or `plant.statistics.thirdPartyInverterPower`
+- (ssbingo) chore: Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#84, via template PR #85); dependencies updated via #81, #82, #83, #87, #89, #91
+- (ssbingo) chore: lockfile refreshed (`zod`) and scoped `overrides` for `glob`/`minimatch` added — `npm audit` back to 0
+
+### 3.3.4 (2026-09-27)
+- (ssbingo) chore: development dependencies updated via #79 and #80 — `@iobroker/testing` 6.2.1 → 6.2.2, `@types/node` 22.20.2 → 22.20.4. Tooling only, the adapter code is unchanged
+- (ssbingo) chore: `common.news` kept at the seven entries the ioBroker repository builder retains (**[W1032]**); the full history stays in this changelog
+
+### 3.3.3 (2026-09-12)
+- (ssbingo) fix: `io-package.json` names `ssbingo <s.sternitzke@online.de>` as maintainer instead of the placeholder "ioBroker Community", which carried no contact address — reported as **[E4048]** by the ioBroker repository checker. The entry now matches `author` in `package.json`
+- (ssbingo) fix: `common.news` trimmed to the seven most recent versions (**[W1032]**); the ioBroker repository builder truncates there anyway. The full history stays in this changelog
+
+### 3.3.2 (2026-09-12)
+- (ioBroker-Bot) chore: the CI test matrix now also covers Node.js 26 (22/24/26 on ubuntu, windows and macOS) — all three run green, so the adapter is ready for the October 2026 LTS
+- (ssbingo) chore: `@iobroker/testing` updated from 5.3.0 to 6.2.1
+- (ssbingo) chore: raised the `deepl-node` override to 1.28.0 and `adm-zip` to 0.6.1. 1.28.0 no longer depends on `js-yaml` and accepts the patched `adm-zip`, which clears the two advisories the updated tooling pulled in — `npm audit` is back to 0. Development tooling only; `npm audit --omit=dev` was 0 throughout
 
 ### 3.3.1 (2026-09-07)
 - (ssbingo) fix: registers the device marks as not valid are no longer turned into plausible looking measurements. The protocol signals this by setting all bits ("Range:[0, 0xFFFFFFFE]. With value 0xFFFFFFFF, register is not valid.") and a device answers that way for a register that does not currently apply or that its firmware does not implement. The raw sentinel was scaled by the register gain, so it arrived as a reading that looks real: observed on a SigenStor EC 10.0 TP **with** a DC charger installed, `dcCharger.runningState` = 65535 (Appendix 14 only defines 0x00-0x0A), `dcCharger.dischargingCurrent` = 6553.5 A, `dcCharger.currentDischargingCapacity` = 42949672.95 kWh and `dcCharger.currentDischargingDuration` = 4294967295 s, while the neighbouring DC charger registers (rated power, PV generation, totals) returned real values. The same pattern appears outside the DC charger, e.g. `plant.currentCtrlCmdValue` = 655.35 %, `plant.mergedAlarm7` = 65535, `inverter.essMaxBatteryCellVoltage` = 65.535 V and the ESS/PCS/grid limit registers as 4294967.295 kW. Such registers now report no value instead
@@ -432,10 +505,7 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 ### 2.0.0 (2026-06-09)
 - (ssbingo) feat: Modbus Protocol V2.9 — new plant/inverter/DC charger registers, remove deprecated registers, extend enums
 
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

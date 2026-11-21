@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: ubglOi+4ilw7XP8I0dZPmzF6vYBD+F5cU60ShwNrVFY=
+hash: knr3QhlUTpEgCguJ4S4evUL0tHdcZkXZDZ27zo7yi6I=
 ---
 ![Логотип](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
-![Количество установок](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
+![Количество установок](https://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 
 # Специальные виджеты Jaeger Design для ioBroker.vis 2.0
@@ -73,3 +73,83 @@ Es können auch frei definierte Oberflächen erstellt werden, wie zB die Verbrau
 ### Видеоуроки на YouTube
 
 Для получения подробной информации и получения дополнительной информации см. ссылки на обучающие материалы YouTube.
+
+## Die Widgets
+
+Адаптер стал новым виджетом в двухцветной палитре в **дизайне Satz Jaeger** . Когда человек в дер Palette über ein Widget fährt, seht unter der der Vorschau eine kurze Beschreibung.
+
+Все виджеты доступны в Farbschema. Nur das Layout-Widget перейдет к желаемой схеме; jedes andere Widget übernimmt die Farben entweder von ihm ( _Палитра → Vom Widget_ ) или legt eigene fest. Любимые темы и их особенности: `green`, `blue`, `green-dark`, `blue-dark` унд `aurora` (Nachtblau mit Mint).
+
+### Макет
+
+![Макет-виджет](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_layout.png)
+
+Der Rahmen um alles andere. Это полное описание: ссылки главного меню, статусный документ, этагенаусваль, стартовая страница с показаниями и действиями, свободный доступ к разделу и — на Handy или Tablet — eine wschbare Schublade statt der Menuspalte.
+
+Это ваши собственные атрибуты, **Einstellungen** , das den Editor öffnet, в dem die ganze Oberfläche beschrieben wird: Menupunkte, Etagen und ihre Views, Szenen, Aktionen, Info-Gruppen und die Farben. Pro View доступен в Layout-Widget; Standardmäßig Füllt es die View vollständig aus.
+
+### Состояние
+
+![Виджет состояния](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_state.png)
+
+Квадратный символ вкуса для вашего объекта — der Baustein der Grundrisse. Ein Klick schaltet den Wert um; mit _Bestimmten Wert schreiben_ wird stattdessen ein Fester Wert Geschrieben, und _Anzeigen, ob Wert gesetzt ist_ hebt die Taste hervor, solange dieser Wert aktiv ist.
+
+- **Anzahl der Werte** — mehrere Werte, jeder mit eigenem Symbol, eigener Farbe, Hintergrundfarbe und Tooltip.
+- **Steuerungsdialog anzeigen** — statt umzuschalten öffnet sich ein Dialog mit allen Werten.
+- **Keine Kontrolle** — nur Anzeige, die Taste lässt sich nicht drücken.
+- **Nachfragen** vor dem Schreiben, mit eigenem Text.
+- Wahlweise eine Beschriftung über или unter dem Symbol.
+
+### Диммер
+
+![Виджет диммера](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_dimmer.png)
+
+Helligkeitssteuerung für eine dimmbare Leuchte. Das Widget seigt den aktuellen Stand als senkrechten Balken; языки Drücken ( _Drückendauer für Popup_ ) öffnet das Popup mit dem Regler, aufgeteilt in die eingestellte Zahl von **Abschnitten** .
+
+- **Speichertasten** — Попробуйте праздничный праздник Helligkeitswerte unter dem Regler, jede mit собственнго символа и текста. Der Wert kommt entweder aus einem Objekt или Wird Direct Geschrieben.
+- **Идентификатор объекта для EIN/AUS** и **Wert für EIN** для Leuchten, deren Ein-/Ausschalter ein eigenes Objekt ist.
+- Wahlweise den Wert im Widget anzeigen, das Symbol Drehen и das Popup nach dem Setzen schließen.
+
+### Затвор
+
+![Виджет жалюзи](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_shutter.png)
+
+Dasselbe Prinzip für Rollladen und Jalousien. Этот символ соответствует актуальному положению, а также символу Rollladen-, Jalousien- или Beschattungssymbol. Mit **Schattenverschluss-ID** прикрепляется к объекту для ламинирования, газированные напитки Höhe und Lamellen в отдельных всплывающих окнах.
+
+Если актер не был в безопасности, было 0 %, и он был не в состоянии сделать это и получить доступ к ламелям. Speichertasten legen Höhe und Lamellenwinkel gemeinsam ab.
+
+### Термостат
+
+![Виджет термостата](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_thermostat.png)
+
+Die Wunschtemperatur als Drehanzeige. Диалог, в котором указаны Ist-Temperatur, Luftfeuchtigkeit и Ventilstellung, не может быть использован в режиме «Sollwert» и «Minus-/Plus-Tasten» и «Einen Regler». Минимум, Максимум, Schrittweite и Einheit sind einstellbar, а также Dezimaltrennzeichen kann ein Komma verwendet werden.
+
+Darunter ist Platz für zusätzliche **Tasten** — Boost, Abwesend, Klimaanlage — был die Heizung eben hergibt. Jede Hat ein eigenes Objekt, einen eigenen Wert, ein Symbol, eine Beschriftung und einen eigenen Stil.
+
+### Сцена
+
+![Виджет сцены](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_scene.png)
+
+Eine breite Taste mit Titel und Untertitel, die eine Szene des `scenes` -Адаптеры начинаются или исчезают. Mit **Speichern** kommt rechts eine zweite Taste dazu (das Zahnrad im Bild): Sie schreibt die aktuellen Zustände aller Mitglieder zurück in die Szene.
+
+Возможные варианты: kein aktiver Zustand, `false` статт `true` schreiben, Nachfrage mit eigenem Text und die Anzeige der letzten Änderungszeit.
+
+### Камеры
+
+![Виджет камер](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_cameras.png)
+
+Eine Karte mit einem Raster von Kamerabildern. Джеде Камера присоединяется к ним `cameras` -Адаптер или свободный URL-адрес, а также ваш объект, который может быть установлен, и его собственные актуальные интервалы.
+
+_Vollbild zulassen_ öffnet eine einzelne Kamera Groß, с собственным URL и собственным интервалом для Vollbild — так что können die Vorschaubilder klein bleiben. «Mehr anzeigen» verlinkt auf ein anderes Widget или eine andere Seite.
+
+### Актуальные новости
+
+![Виджет новостей](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_news.png)
+
+Eine Karte mit einem RSS-Feed: Bild, Überschrift und Anriss pro Eintrag, полоса прокрутки. URL-адрес Feed-URL будет доступен напрямую или для вашего желаемого объекта, а также для вашего удобства. Интервал актуализации — это панель, и «Mehr» доступна на виджете или на вашем сайте.
+
+### Игрок
+
+![Виджет плеера](../../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/src-widgets/public/img/prev_player.png)
+
+Eine Medienspieler-Karte: Title, Interpret, Cover, Play/Pause, vorheriger/nächster Titel, Zufallswiedergabe, Stummschaltung, ein Lautstärkeregler und der Balken mit abgelaufener und Gesamter Spielzeit. Jedes Element содержит собственный объект, который позволяет использовать виджет с помощью адаптера проигрывателя — Sonos, Squeezebox, Alexa и других. Элементы, на которых объект не виден, не имеют значения.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: wJZRoVU4WUt58hQdpwss4fwBwaCUpLYH7t4QlUytQ0Q=
+hash: MceHkl9YGBMfYtXEaFXteax10k/nkpRnD6jR9Bn/rm8=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -28,6 +28,12 @@ Adapter für Samsung Smartthings
 ## Kontrolle
 
 smartthings.0.id.capabilities entweder auf „true“ setzen oder einen vordefinierten Wert festlegen
+
+## Kompaktmodus
+
+Aktivieren Sie **den Kompaktmodus** in den Adaptereinstellungen, um leere Statuswerte zu überspringen (`null`, `undefined` (leere Zeichenketten, leere Objekte und leere Arrays). Werte wie `0` Und `false` werden erhalten.
+
+Wird ein zuvor aussagekräftiger Wert leer, wird dieser leere Wert einmalig geschrieben, sodass ein bestehender ioBroker-Status gelöscht wird, anstatt zu veralten. Der Kompaktmodus wirkt sich auf neu verarbeitete Nutzdaten aus; Objekte, die vor der Aktivierung dieser Option erstellt wurden, werden nicht automatisch gelöscht.
 
 ## Diskussion und Fragen:
 

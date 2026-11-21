@@ -21,7 +21,7 @@ This adapter retrieves weather forecast data from the free [Open-Meteo API](http
 ## Highlights
 
 ### Weather notifications via ioBroker notification manager
-The adapter sends individual notifications for configurable weather events — storm warnings, thunderstorm alerts, and official warnings from national meteorological services (DWD for Germany, MeteoAlarm for Europe). All notification targets (Telegram, email, Pushover, …) are configured centrally via the **ioBroker notification manager** — no per-adapter setup required.
+The adapter sends individual notifications for configurable weather events — storm warnings, thunderstorm alerts, and official warnings from national meteorological services (DWD for Germany, MeteoAlarm for Europe). They go to the **ioBroker notification system** (forwarded by the notification manager) and/or directly to messengers: Telegram, e-mail, Pushover, Pushsafer, Gotify, WhatsApp and Signal (CallMeBot), SMS (gsmsms, seven.io), Discord, MAX, the ioBroker Visu app (iot) and Synology Chat — each in its own format with the fields it needs (recipient, phone number, channel, …). Only installed messengers are offered; any other messenger can be used via the notification manager.
 
 ### Configurable HTML widget
 The adapter generates a ready-to-use HTML data point (`widget`) that can be embedded directly in VIS, vis-2 or any ioBroker dashboard — no external tools or manual CSS needed. Theme (light/dark), background transparency, card transparency, font size and card color are all configurable directly in the adapter settings.
@@ -46,8 +46,8 @@ The adapter generates a self-contained, animated weather wallpaper per location 
 - Configurable via a dedicated **admin "Wallpaper" tab** (position, colors, font sizes, clock, warnings) with a live preview that simulates common screen resolutions
 - Reachable directly as a URL per web instance (`current.wallpaper_url_<instance>`) — no VIS binding required
 
-### Web components for AURA, vis-2 and devices
-The weather widget and the screensaver are also available as web components (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ recommended), vis-2 (2.20.7+) and the devices adapter (4.3.0+) list them in their widget palette — no HTML binding needed.
+### Widgets (web components) for AURA, vis-2, devices and other visualisations
+The weather widget and the screensaver are also available as web components (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ recommended), vis-2 (2.20.7+), the devices adapter (4.3.0+) and every other visualisation that supports web components list them in their widget palette — no HTML binding needed.
 - **Open-Meteo weather** — either a widget from the adapter settings, or set up right in the visualization: location, variant (simple/detailed/chart), days, icon set, colors, sizes and chart options
 - optionally takes the text color of the visualization's theme
 - shrinks to fit its tile instead of scrolling
@@ -313,8 +313,14 @@ This adapter is an independent community project and is not affiliated with or e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (ipod86) chore: description and keywords mention the widgets for vis-2 and AURA
+### 0.6.1 (2026-11-18)
+* (ipod86) feat: messengers sent to directly in their own format: in addition Gotify, SMS (gsmsms, seven.io), Discord, MAX, ioBroker Visu app and Synology Chat; only supported and installed messengers can be chosen, each with its own fields
+* (ipod86) change: no more generic notification format and free instance input – other messengers via the notification manager
+
+### 0.6.0 (2026-11-18)
+* (ipod86) feat: notifications also directly to messengers (Telegram, e-mail, Pushover, Pushsafer, WhatsApp/Signal cmb and every adapter that receives ioBroker notifications); the notification system stays on by default and can be switched off
+* (ipod86) feat: messages `getLocations` and `getWidgets` for the web components (prepares dropdowns instead of the object browser)
+* (ipod86) chore: description and keywords mention the widgets for vis-2, AURA and other visualisations
 
 ### 0.5.1 (2026-11-12)
 * (ipod86) fix: build script of the web components throws instead of process.exit (repochecker E5050)
@@ -325,7 +331,7 @@ This adapter is an independent community project and is not affiliated with or e
 * (ipod86) feat: option to hide excluded official warnings in widgets and screensaver too (data points unchanged)
 * (ipod86) fix: negative frost threshold can be typed in the settings
 * (ipod86) fix: excluded official warnings no longer send "lifted" or update messages
-* (ipod86) feat: web components for AURA (0.106.0+), vis-2 (2.20.7+) and devices (4.3.0+) – weather widget and screensaver
+* (ipod86) feat: widgets (web components) for AURA (0.106.0+), vis-2 (2.20.7+), devices (4.3.0+) and other visualisations – weather widget and screensaver
 * (ipod86) feat: own icon set per widget (web component)
 * (ipod86) fix: a widget never draws more days than the forecast has (empty second row)
 * (ipod86) fix: WMO symbols light on dark backgrounds with an own text color
@@ -333,19 +339,6 @@ This adapter is an independent community project and is not affiliated with or e
 
 ### 0.4.1 (2026-10-22)
 * (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged
-
-### 0.4.0 (2026-10-21)
-* (ipod86) fix: suncalc 2.1.1 – corrected moon phase, moonrise/moonset now assigned to the local calendar day
-* (ipod86) feat: optional 15-minute forecast for the next 1–4 hours with its own interval and "precipitation starts soon" notification
-* (ipod86) fix: moonrise/moonset in local time of the location like sunrise/sunset (was UTC)
-* (ipod86) fix: wallpaper URL data points of removed web instances are deleted
-* (ipod86) feat: showers (convective precipitation) also current and hourly; sunshine minutes per hour; lightning potential in the 15-minute forecast
-
-### 0.3.1 (2026-10-21)
-* (ipod86) fix: much smaller widget data points – built-in icons are loaded via their path instead of being embedded as Base64, custom icons are embedded only once, smaller basmilius/moon PNGs (detailed widget e.g. 841 KB → 83 KB)
-* (ipod86) fix: warning badge could not be opened when a dashboard card displays the widget in a shadow DOM
-* (ipod86) feat: warning window: heading and dates in the system language, scrolling stays inside the window on mobile
-* (ipod86) feat: screensaver warning banner: identical warnings combined, highest level first, at most 2 lines with "+N more"
 
 Older changelogs are available in CHANGELOG_OLD.md.
 

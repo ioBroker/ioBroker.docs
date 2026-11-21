@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.assistant/README.md
 title: ioBroker.assistant
-hash: g44CUL3WLacTNb790bSUNbCxZlE5dRrWjAtY5HKi1Ik=
+hash: 2e1xP5xYhicsKkfkHwjXtLp6KlUoH9dcN+miU29ZTmQ=
 ---
 <img src="admin/assistant.svg" alt="ioBroker.assistant" width="200"/>
 
@@ -53,7 +53,7 @@ Der erkannte Text und die Antwort erscheinen auch in `assistant.0.text.request` 
 
 **Ankündigungen / TTS:** Schreiben Sie an `assistant.0.tts.text` auf **allen** Satelliten sprechen, oder `assistant.0.satellites.<id>.tts` Zum **Beispiel** wird der Wert als Text (über die konfigurierte TTS-Engine) vorgelesen, oder – falls es sich um eine URL/einen Pfad zu einer Audiodatei handelt (`.mp3` /`.wav` /…) — wiedergegeben.
 
-> **Zum Abspielen von Audiodateien wird [ffmpeg](https://ffmpeg.org/) auf dem Host-System benötigt** (Windows und Linux): Linux →`sudo apt install ffmpeg` Windows → ffmpeg installieren und hinzufügen `PATH` Für die Text-to-Speech-Funktion (TTS) in reinem Text ist dies nicht erforderlich – nur für die Wiedergabe von Audiodateien (mp3/wav/…).
+> **Zum Abspielen von Audiodateien wird [ffmpeg](https://ffmpeg.org/) auf dem Host-System benötigt** (Windows und Linux): Linux →`sudo apt install ffmpeg` Windows → ffmpeg installieren und hinzufügen `PATH` Alternativ können Sie den vollständigen Pfad unter **„Pfad zu ffmpeg“** auf der Registerkarte „Sprache“ eingeben. Andernfalls lädt die Option **„ffmpeg herunterladen“** auf der Registerkarte „Sprache“ eine statische Version (ffmpeg-static, 20–30 MB) in das Datenverzeichnis der Instanz herunter. Für reine Text-Sprachausgabe (TTS) ist dies nicht erforderlich – nur für die Wiedergabe von Audiodateien (MP3/WAV/…).
 
 ### Starten Sie einen Hannah-Satelliten, der auf diesen Adapter ausgerichtet ist.
 
@@ -94,7 +94,7 @@ Registrierung, Audio und TTS laufen alle über UDP, sodass nur die (optionale) M
   --mic 0 --speaker 0 --sample-rate 16000 --tts-rate 48000
 ```
 
-### Native Node.js-Satellite
+### Native Node.js satellite
 
 Ein eigenständiger **Node.js-Satellit** ist verfügbar – kein ioBroker, kein MQTT-Broker erforderlich. Auf einem Raspberry Pi (oder einem beliebigen Linux-/Windows-/macOS-Rechner) mit Mikrofon und Lautsprecher:
 
@@ -117,7 +117,7 @@ Aktivieren Sie im Reiter „Sprache **“ die Option „Wyoming-Clients (TCP) ak
 
 ### ESPHome-Sprachsatelliten
 
-Geräte, auf denen der **Sprachassistent ESPHome** läuft – der [ThirdReality Voice & Music Assistant (Dev Edition)](https://www.thirdreality.com/products/voice-music-assistant-dev-edition) , **Home Assistant Voice PE** oder ein beliebiges Gerät mit [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant) – verbinden sich nicht mit einem Server, sondern _sind_ selbst einer und warten auf **TCP-Port 6053.** Der Adapter fungiert hier als Client und wählt die Verbindung, genau wie Home Assistant. Aktivierungswort, Echounterdrückung und Wiedergabe erfolgen auf dem Gerät; Spracherkennung, Anrufannahme und Sprachausgabe übernimmt der Adapter.
+Geräte, auf denen der **Sprachassistent ESPHome** läuft – der [ThirdReality Voice & Music Assistant (Entwicklerversion)](https://www.thirdreality.com/products/voice-music-assistant-dev-edition) , **Home Assistant Voice PE** oder ein beliebiges Gerät mit [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant) – verbinden sich nicht mit einem Server, sondern _sind_ selbst ein Server und warten auf **TCP-Port 6053.** Der Adapter fungiert hier als Client und wählt die Verbindung, genau wie Home Assistant. Aktivierungswort, Echounterdrückung und Wiedergabe erfolgen auf dem Gerät; Spracherkennung, Anrufannahme und Sprachausgabe übernimmt der Adapter.
 
 Aktivieren Sie im Tab „Sprache“ die Option **„ESPHome-Sprachsatelliten ansteuern** “ und fügen Sie pro Gerät eine Zeile hinzu (Adresse, optionaler Port, Raum). Es muss nichts auf dem Gerät installiert oder geflasht werden, und es werden keine ESPHome-Tools benötigt – „ESPHome native API“ ist lediglich der Protokollname.
 
@@ -129,6 +129,46 @@ Zwei Dinge unterscheiden sie von den anderen Transportmitteln:
 Ankündigungen (`tts.text`, `satellites.<id>.tts` (Timer und Alarme) erreichen auch diese Satelliten, und jeder einzelne wird angezeigt unter `assistant.0.satellites.*` wie jeder andere.
 
 > Entwickelt anhand der Firmware-Quellen des ThirdReality-Lautsprechers und abgedeckt durch einen Loopback-Test mit einem simulierten Gerät; Feedback von realer Hardware ist willkommen.
+
+### Aktivierungswort: Welches Modell für welchen Satelliten?
+
+Das Aktivierungswort wird immer **vom Satelliten** erkannt, daher hängt das Modellformat vom Satellitentyp ab. Es gibt zwei Modellfamilien, und beide können als `.tflite` Sie sind **nicht austauschbar** : Ein für den einen Satellitentyp trainiertes Modell funktioniert nicht auf dem anderen. Um denselben Ausdruck auf beiden Satellitentypen verwenden zu können, muss er zweimal trainiert werden.
+
+| Satellit                                                                         | Motor                                                      | Kundenspezifisches Modell                                           | Wohin es geht                                                                               |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| ESPHome (ThirdReality-Lautsprecher)                                              | [microWakeWord](https://github.com/kahrendt/microWakeWord) | `.tflite` optional mit seinem `.json`                                | Dieser Adapter: Registerkarte **„Satelliten“** → ⚙ → _Eigenes Aktivierungswort hochladen_   |
+| Native Satellit (`assistant-satellite` Adapter, `@iobroker/assistant-satellite`) | [openWakeWord](https://github.com/dscripka/openWakeWord)   | ein in sich geschlossenes `.onnx`                                    | Satelliteneinstellungen: Hochladen, dann auswählen. `wakewordModel` (oder eine URL/ein Pfad) |
+| Hannah Pi Satellit (UDP)                                                         | openWakeWord                                               | `.onnx` (`.tflite` nur mit `inference_framework: tflite` auf armv7l) | `--wakeword-model <path>`                                                                   |
+| Kunden aus Wyoming                                                               | was auch immer der Client ausführt                         | —                                                                   | auf Clientseite; wird nicht von diesem Adapter verwaltet                                    |
+
+**microWakeWord (ESPHome)**
+
+- Das Modell benötigt 40 Spektrogrammmerkmale pro Frame: Eingabe `[1, n, 40]`, **quantisiert** (int8 in, uint8 out) — wie die offiziellen Modelle in [esphome/micro-wake-word-models](https://github.com/esphome/micro-wake-word-models) .
+
+- Bilden Sie Ihre eigenen mit microWakeWords aus. `notebooks/basic_training_notebook.ipynb` (Python 3.10, eine GPU ist sehr hilfreich). Das Ergebnis ist `trained_models/wakeword/tflite_stream_state_internal_quant/stream_state_internal_quant.tflite` — Benennen Sie es nach dem Ausdruck um, z. B. `vita_nova.tflite` wird zu "Vita Nova".
+
+- Der `.json` ist optional. Ohne diese Angabe übernimmt der Adapter den Ausdruck aus dem Dateinamen und die Sprache aus dem Dateinamen. `voiceLanguage`, der Grenzwert `0.97` und ein Schiebefenster `5` Geben Sie eine an, um einen anderen Wert festzulegen. `micro.probability_cutoff`:
+
+  ```json
+  {
+    "type": "micro",
+    "wake_word": "Vita Nova",
+    "model": "vita_nova.tflite",
+    "trained_languages": ["de"],
+    "version": 2,
+    "micro": { "probability_cutoff": 0.97, "sliding_window_size": 5 }
+  }
+  ```
+
+- Der Upload überprüft das Modell und lehnt alles ab, was das Gerät nicht ausführen kann, mit der Begründung: Ein openWakeWord-Modell ist so benannt.
+
+- Das Gerät lädt beim **Aktivieren** des Chips das Aktivierungswort vom Medienserver herunter; maximal zwei Aktivierungswörter können gleichzeitig aktiv sein. Ein heruntergeladenes Aktivierungswort verbleibt auf dem Gerät (die API kann es nicht löschen). Geräte, deren Firmware keine externen Aktivierungswörter unterstützt, listen das hochgeladene Aktivierungswort nicht auf.
+
+**openWakeWord (native und Hannah-Satelliten)**
+
+- Das Modell verwendet Sprachvektoren mit 96 Werten, z. B. Eingabe `[1, 16, 96]`, float — weshalb es nicht auf ESPHome-Geräten läuft.
+- Exporte des Trainingsnotizbuchs von openWakeWord `.onnx` Und `.tflite` Der einheimische Satellit benötigt den `.onnx` als **eine** Datei – ein Modell aufgeteilt in `.onnx` +`.onnx.data` wird nicht unterstützt.
+- Im nativen Satelliten integriert: `hey_jarvis`, `alexa`, `hey_mycroft`, `hey_rhasspy`; bis zu drei Aktivierungswörter gleichzeitig.
 
 ## Roadmap
 
@@ -145,36 +185,32 @@ Ankündigungen (`tts.text`, `satellites.<id>.tts` (Timer und Alarme) erreichen a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.2.0 (2026-10-04)
-* (@GermanBluefox) Added routines: a phrase ("good night") runs a list of actions and answers once. Matched before the offline rule engine and before the LLM, so a macro you wrote down is never reinterpreted
-* (@GermanBluefox) The offline rule engine now answers questions about a kind of measurement without a device being named: "how is the air in here", "how warm is it everywhere", "how bright is it" are answered from every sensor of that kind, with a word for the air-quality number
-* (@GermanBluefox) Spoken text is cached on disk, so repeated replies ("Okay.", "Timer finished") cost no cloud call and no latency. An answer over 400 characters is cut at the last sentence that fits, and `<speak>…</speak>` is now spoken as real SSML by Azure and Polly
-* (@GermanBluefox) Added an optional second speech engine per direction: if the configured provider fails (outage, expired key, empty quota), speech-to-text and text-to-speech fall back to another one — with Vosk/Piper behind a cloud provider the house keeps working without the internet
-* (@GermanBluefox) Added two optional settings for switch commands: confirm with a short beep instead of a spoken sentence, and verify the device's acknowledgement before reporting success
-* (@GermanBluefox) An ESPHome satellite's own measurements (temperature, presence, status texts) now appear as read-only states under `satellites.<id>.controls.*`
-* (@GermanBluefox) Announcements can address a group of rooms or a person: name a set of satellites in the new "Announcement targets" table and use it anywhere a target is accepted (`notify`, `askUser`, a trigger's room, the per-satellite `tts` state). The LLM also got an `announce` tool, so "tell Denis that dinner is ready" reaches his speakers — the configured names are part of the tool description. A question asked to a group counts the first answer, and the text is synthesised once for the whole group
-* (@GermanBluefox) The assistant can now know who is at home: point the new "Presence" table at the states you already have (the residents adapter, a phone ping, your own flag) and name the person. It tells the LLM who is around, holds back announcements to an empty house on request (`notify` with `onlyWhenHome`), and exposes `presence.anyoneHome` / `presence.list` / `presence.lastArrival` — so greeting somebody on arrival is just a trigger on that state
-* (@GermanBluefox) System notifications can now be spoken: write to `notify.text` / `notify.alert`, call `sendTo('assistant.0', 'notify', { text, severity })`, or pick the assistant in the ioBroker notification manager. The LLM turns the raw text into one natural sentence whose tone follows the severity (`info`/`notify`/`alert`, plus `direct` to speak it verbatim)
-* (@GermanBluefox) Added Do-Not-Disturb, enforced by the adapter for every transport: `dnd` globally and `satellites.<id>.dnd` per satellite. Announcements are suppressed while it is on; alerts and texts starting with `!` are still played, and answers to your own questions are never affected
-* (@GermanBluefox) Added proactive triggers (new "Triggers" tab): a trigger watches states or the clock and then announces something, writes a state, or asks you a question and acts on your answer ("The fryer has been on for 5 hours. Shall I switch it off?" — the LLM classifies the spoken reply against the configured response rules). Supports alternative conditions, `also`/`unless` refinements, a delay with `cancelWhen`, and a cooldown; each trigger has `triggers.items.<id>.{enabled,fire,lastFired,nextFireAt}` states plus a `triggers.enabled` master switch
-* (@GermanBluefox) The assistant can now ask a question and wait for the answer: `sendTo('assistant.0', 'askUser', { question, room })` speaks it on a satellite, re-opens the microphone without a wake word and returns what was said. While a question is open that answer is routed to the caller instead of being read as a new command
-* (@GermanBluefox) Added a fourth voice transport: ESPHome voice satellites (ThirdReality Voice & Music Assistant, Home Assistant Voice PE, linux-voice-assistant). The adapter dials the devices on TCP 6053, detects the end of speech itself and serves the spoken reply over a small HTTP media server
+### **WORK IN PROGRESS**
+* (@GermanBluefox) 3D plan: "zeig Unterdeck", "show the galley", "покажи кухню", "zeig das ganze Haus" make every open 3D view of home3d fly there (writes `home3d.N.show`); only names the plan knows (`home3d.N.places`) are taken, everything else goes on as before
 
-### 0.1.6 (2026-08-26)
-* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
-* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
-* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
-* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
-* (@GermanBluefox) Documented the weather source selection in the user documentation
+### 1.13.0 (2026-11-20)
+* (@GermanBluefox) Music from Spotify: "play Bohemian Rhapsody by Queen", "spiel das Album … in der Küche", "spiel meine Playlist …" find the song, album, artist or playlist and play it on a Spotify Connect device (table "Spotify players" on the Services tab, needs spotify-premium 3.3.0 or newer); LLM tools `play_music` and `music_player`, message `playMusic`
+* (@GermanBluefox) Music clips on the TV: "spiel den Clip Bohemian Rhapsody von Queen", "play the music video … by …", "включи клип …" search the clip on YouTube and play it on the YouTube player; so does a song for a TV
 
-### 0.1.5 (2026-08-19)
-* (@GermanBluefox) Corrected credentials
+### 1.12.1 (2026-11-19)
+* (@GermanBluefox) Voice per answer language: the language is a drop-down now. A language picked from the suggestions was saved as its label (e.g. "de – Deutsch") and the row was never used; such rows get the language code on the first start
+* (@GermanBluefox) Spoken requests: the speech recognition no longer waits for the device names it gets as hints (up to 3 s on large installations each time a minute had passed since the last request); the last list is used while a new one is built
+* (@GermanBluefox) Request details: the speech recognition step shows the language it really got (that of the wake word) and the ioBroker.voice instance instead of the unrelated Vosk model; the speech synthesis step shows the voice, model and language that really spoke (a row of "voice per answer language" or the reserve) instead of the main voice of the settings
 
-### 0.1.3 (2026-08-15)
-* (@GermanBluefox) Updated packages
+### 1.12.0 (2026-11-19)
+* (@GermanBluefox) Device commands can be understood by the adapter smart-text2command instead of the built-in rules (tab Commands, "Device commands understood by"): it runs only the actions approved there and asks back when the room or the device is unclear; the next utterance of the same satellite or chat answers. What it does not understand goes on to the local and the cloud model; timers, alarms, time, weather and volume stay with the built-in rules
+* (@GermanBluefox) New first tab "Flow": the way of a request as a diagram (sources → speech recognition → local decision → local LLM → cloud LLM / pi-agent → speech output), each step can be set up with a click
 
-### 0.1.2 (2026-08-03)
-* (@GermanBluefox) Initial commit
+### 1.11.0 (2026-11-18)
+* (@sadam6752-tech) ESPHome satellites: a language per wake word (tab Satellites, "Language per wake word", e.g. Alisa → Russian, Hey Bro → German): speech recognition, the reply voice and the follow-ups of that conversation use it, and pi-agent asks its yes/no questions in it
+* (@sadam6752-tech) ESPHome satellites on an ESP32: two wake words can be active at once (the firmware reports a limit of one, but runs every wake word it is sent)
+* (@sadam6752-tech) ioBroker.voice gets the language of the speech (its model Canary 1B v2 uses it, Parakeet ignores it) and only the hints in the alphabet of the language
+* (@sadam6752-tech) Whisper (OpenAI and compatible servers) gets only the device and room names in Latin letters as hints for a language written in them: Russian names pulled German speech towards Cyrillic letters
+
+### 1.10.0 (2026-11-17)
+* (@GermanBluefox) ESPHome satellites: the adapter ships microWakeWord models ("ioBroker", "Hey Bro", "Alisa"); one click in the satellite settings puts one on the device and switches it on, replacing an older version of the same word
+* (@GermanBluefox) Wake words from a training run get a short name with their date, e.g. `261103_iobroker` instead of "20261103 085427 9b0f Microwakeword Iobroker"
+* (@GermanBluefox) A wake word selected right after it was uploaded is no longer dropped as unknown
 
 ## License
 

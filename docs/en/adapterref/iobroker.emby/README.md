@@ -19,45 +19,63 @@
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml)
 
 > [!IMPORTANT]
-> This adapter cannot be installed from github
+> This adapter cannot be installed from GitHub. Install it from the adapter list in ioBroker Admin. The files on GitHub are only the source code, the program files are created when a release is published to npm.
 
 ## Emby adapter for ioBroker
 
-Connects ioBroker to an [Emby](https://emby.media) media server. The adapter receives the active client sessions via WebSocket (what is playing, playback state, user) and can control clients that support remote control (play/pause, mute, volume, messages, navigation).
+Connects ioBroker to your [Emby](https://emby.media) media server. You see in ioBroker what is playing on your Emby apps (TV, phone, tablet, web browser) and can control them, for example:
+
+- show the title and poster of the current film or episode in your visualisation,
+- pause the TV when the doorbell rings,
+- show a message on the TV ("Someone is at the door"),
+- turn the volume down at night.
 
 ## Credits
 
 This adapter would not have been possible without the great work of @thewhobox <iobroker@mikegerst.de>, who wrote the initial versions of this adapter and donated it to the iobroker-community-adapters organization.
 
-## Requirements
+## Quick start
 
-- Node.js >= 22.19.0
-- js-controller >= 6.0.11, admin >= 7.7.22
-- Emby Server (tested with 4.10) reachable from the ioBroker host
-- An Emby API key for controlling clients (Emby dashboard > Advanced > API Keys)
+1. **Install the adapter** from the adapter list in ioBroker Admin and create an instance.
+2. **Create an API key in Emby:** open the Emby web interface, go to *Settings (gear icon) > Advanced > API Keys*, click *New API Key* (+) and enter a name, e.g. `ioBroker`. Copy the key. Without a key you can only see what is playing, but not control anything.
+3. **Fill in the instance settings:**
+   - *Address of the Emby server*: the IP address or host name **with port**, e.g. `192.168.0.100:8096`. You see it in the address bar of your browser when the Emby web interface is open.
+   - *Secure connection (https)*: only tick it if you open Emby with `https://` (e.g. behind a reverse proxy).
+   - *API key*: paste the key from step 2.
+   - Save and close. The instance turns green as soon as it is connected to the server.
+4. **Open an Emby app** (TV, phone, browser) and start something. Within a few seconds a folder with the name of the device appears in the object tree under `emby.0`. Emby only reports apps that are open, so every device appears the first time it is used.
+5. **Use the objects** in your visualisation or scripts: what is playing is under `media`, the buttons and settings for controlling the device under `command` (see [Objects](#objects)).
 
-## Configuration
+Requirements: Emby Server (tested with 4.10) that ioBroker can reach, Node.js 22.19 or newer, js-controller 6.0.11 or newer, Admin 7.7.22 or newer.
 
-| Setting | Description |
-| ------------- | ------------- |
-| IP/Domain | Address of the Emby server **with port**, e.g. `192.168.0.100:8096` |
-| Connection requires SSL | Use `https`/`wss` (e.g. behind a reverse proxy) |
-| API Key | Key from the Emby dashboard. Stored encrypted. Without a key the adapter only receives data and cannot control clients. |
-| Session or device IDs to ignore | Comma separated list. Matches the session ID (object name below `emby.0`) or the Emby device ID. |
-| Delay for pause/idle | Time in ms before `media.state` changes from `playing` to `paused`/`idle`. Prevents flickering between two episodes. |
-| Poll interval for sessions | Seconds between REST queries of the sessions (default 60, 0 = off). Emby pushes only changes, the poll keeps `info.lastActivity` current and runs the cleanup. Requires the API key. |
-| Remove objects of clients deleted in Emby | Default on. When a client is removed in the Emby dashboard (Devices), its objects are deleted as soon as the server no longer reports its session. |
-| Remove objects of inactive clients after | Days without activity after which the objects of a client the server no longer reports are deleted (default 0 = off). Scripts and history settings on these objects are lost. |
+## Settings
 
-The adapter creates a device for every client the server reports. The object ID is derived from the Emby device ID, so it stays the same when the client reconnects (device IDs with only letters, digits, `-` and `_` up to 40 characters are used as they are, longer ones such as those of web browsers are shortened to a 16 character hash). The object name is the device name shown in Emby (it can be changed in the Emby dashboard under Devices). Emby only reports a session while the client is connected, so open an Emby app or the web client once to see the first device.
+| Setting | What it does | Recommendation |
+| ------------- | ------------- | ------------- |
+| Address of the Emby server | IP address or host name of the Emby server with port | e.g. `192.168.0.100:8096` |
+| Secure connection (https) | Connects with https instead of http | Only if you open Emby with `https://` |
+| API key | Allows ioBroker to control your Emby apps. Stored encrypted. | Always enter one |
+| Devices to ignore | Devices that should not be shown in ioBroker, separated by commas. Enter the folder name under `emby.0` (or the value of `info.deviceId`). Folders already created can then be deleted in the object tree. | Leave empty |
+| Delay before "paused" / "idle" | When playback stops, `media.state` waits this long before it changes. Between two episodes the state then stays `playing` instead of flickering. | 500 ms; increase (e.g. 3000) if the state still flickers between episodes |
+| Update interval | How often ioBroker asks the server for the current state of all devices. Emby reports changes immediately anyway; this keeps `info.lastActivity` up to date and is needed for the automatic cleanup. | 60 s |
+| Remove devices deleted in Emby | If you delete a device in Emby (*Settings > Devices*), its folder in ioBroker is removed too. | On |
+| Remove inactive devices after (days) | Removes the folders of devices that have not been used for this many days, e.g. old phones or browsers. Scripts and history settings on these objects are lost. | 0 (never); e.g. 90 if many old devices pile up |
 
-If a client has several sessions at the same time (e.g. two browser tabs), the session that is playing, supports remote control or was active last is shown. Devices of clients that are not seen again are kept with `info.online = false`; they are removed when the client is deleted in the Emby dashboard or after the configured number of inactive days (see Configuration), or can be deleted manually.
+## Devices in ioBroker
+
+Every Emby app gets its own folder under `emby.0`. The folder name is derived from the device ID that Emby assigns to the app, so it stays the same after restarts and reconnects. The display name of the folder is the device name in Emby; you can change it in Emby under *Settings > Devices*.
+
+- Several browser tabs with Emby count as one device.
+- Devices that are switched off keep their folder with `info.online = false`, so scripts and visualisations keep working. They are removed as described in [Settings](#settings) or can be deleted by hand.
+- Long device IDs (e.g. of web browsers) are shortened to a 16-character code.
 
 ### Upgrade from 2.x to 3.0.0
 
-Up to version 2.x the object IDs were the Emby session IDs, which change when a client reconnects. From 3.0.0 on the object ID is derived from the device ID. Existing objects are migrated automatically on the first start (version 2.x) or as soon as the client is reported again (version 1.3.0), including values, history settings and room/function assignments. Scripts, visualisations and aliases that use the old IDs have to be adjusted, the log shows `Migrated objects of "…" from <old id> to <new id>` for every client. History data already recorded stays under the old IDs.
+Up to version 2.x the folder names were the Emby session IDs, which change when an app reconnects. From 3.0.0 on they are derived from the device ID. Existing objects are moved automatically on the first start (version 2.x) or as soon as the app is used again (version 1.3.0), including values, history settings and room/function assignments. Scripts, visualisations and aliases that use the old IDs have to be adjusted; the log shows `Migrated objects of "…" from <old id> to <new id>` for every device. History data already recorded stays under the old IDs.
 
 ## Objects
+
+The tables are a reference for scripts and visualisations. `x` stands for the folder of a device.
 
 ### Adapter
 
@@ -170,12 +188,28 @@ The adapter sends the same commands to every client; what happens depends on the
 
 Web browsers may block playback that is started without a click in the tab (autoplay).
 
+## Problems?
+
+| Problem | Solution |
+| ------------- | ------------- |
+| The instance stays red / yellow | Check the address and port (open `http://<address>` in a browser on the same network) and the *Secure connection* setting. The log of the instance shows the reason. |
+| No device appears | Emby only reports apps that are open. Open an Emby app or the web interface and start something. Check that the device is not in *Devices to ignore*. |
+| There is no `command` folder / buttons do nothing | Enter an API key. Some apps do not support remote control at all; the commands an app supports are listed in `info.supportedCommands`. |
+| Volume and mute have no effect on the TV | The Emby apps for Android TV (NVIDIA Shield, Fire TV) ignore these commands, see [Tested clients](#tested-clients). |
+| A message disappears after 2-3 seconds | That is decided by the app. Use `command.dialog` or `sendTo` without `timeoutMs`, see [Messages from scripts](#messages-from-scripts-sendto). |
+| `media.state` jumps to `idle` between two episodes | Increase *Delay before "paused" / "idle"*. |
+| Old devices pile up | Delete them in Emby (*Settings > Devices*) or set *Remove inactive devices after (days)*. |
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.2 (2026-11-17)
+- (Schimi1983) Repository checker suggestions: @iobroker/testing updated to 6.3.2, .vscode/settings.json with JSON schemas added
+- (Schimi1983) README rewritten for users without technical background (quick start, settings with recommendations, problem solving); texts of the settings page made clearer in all languages
+
 ### 3.1.1 (2026-11-04)
 - (Schimi1983) Roles of existing states corrected to the official ioBroker state roles (e.g. button.play, media.genre, media.cover, text); object IDs and values are unchanged
 
@@ -215,12 +249,6 @@ Web browsers may block playback that is started without a click in the tab (auto
 - (GermanBluefox) Dependencies updated (@iobroker/adapter-core 3.4.3)
 - (GermanBluefox) Package content defined via "files" in package.json, tsconfig added for type checking
 - (GermanBluefox) The adapter was refactored to TypeScript
-
-### 1.3.0 (2026-03-03)
-- (mcm1957) Adapter requires node.js >= 20 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (mcm1957) Dependencies have been updated
 
 ## License
 

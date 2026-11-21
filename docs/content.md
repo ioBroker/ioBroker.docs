@@ -69,6 +69,7 @@
   * [vis](viz/vis)
   * [webui](viz/webui)
   * [en:Visu app;de:Visu App;ru:Приложение Visu;zh-cn:Visu 应用](viz/app)
+  * [en:Photo frame and screensaver;de:Bilderrahmen und Bildschirmschoner;ru:Фоторамка и заставка;zh-cn:相框和屏保](viz/screensaver)
   * en:Widgets for vis and vis-2;de:Widgets für vis und vis-2;ru:Виджеты для vis и vis-2;zh-cn:vis 和 vis-2 的小部件
     * [en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集](viz/widgetsets)
     * [en:Included widgets;de:Mitgelieferte Widgets;ru:Встроенные виджеты;zh-cn:内置小部件](viz/basic)

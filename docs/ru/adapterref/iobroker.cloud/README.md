@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
 title: облачный адаптер ioBroker
-hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
+hash: xszmW+E0YWADNBq80MTgRrTglgnitPpQZYA5c6Ndeig=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
-![Количество установок](http://iobroker.live/badges/cloud-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.cloud.svg)
+![Количество установок](https://iobroker.live/badges/cloud-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cloud.svg)
 ![НПМ](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
@@ -33,6 +33,18 @@ hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
 
 Все запросы от облачного адаптера будут направляться на конкретный веб-экземпляр. Пользователь должен указать здесь веб-экземпляр; он будет показан пользователю при входе на сайт <https://iobroker.net> .
 
+### Права
+
+Пользователь, зарегистрированный на iobroker.net или iobroker.pro, не определяет, к чему ему можно получить доступ в ioBroker. Права доступа предоставляются пользователем, указанным в поле "доступ как". `defaultUser`) из случаев:
+
+- Запросы к страницам и файлам веб-сайта, административной панели и Lovelace поступают от пользователя соответствующего экземпляра.
+- Состояния Lovelace считываются и записываются пользователем экземпляра Lovelace.
+- Объекты, состояния и файлы, запрашиваемые страницами веб-интерфейса и административной панели, выполняются от имени пользователя веб-экземпляра. Веб-интерфейс и административная панель используют одно и то же соединение, поэтому для обоих существует только один пользователь. Без веб-экземпляра используется пользователь административной панели, в противном случае — пользователь экземпляра Lovelace.
+
+Если вы разрешите административный доступ, и в веб-экземпляре будет другой пользователь, отличный от пользователя, управляющего веб-экземпляром, администратор будет иметь только права пользователя веб-экземпляра. В этом случае адаптер запишет предупреждение в журнал.
+
+Пользователи с ограниченными правами не проверяются на каждое отдельное событие изменения: если такой пользователь может подписываться на состояния или объекты, он получает изменения всего, что соответствует шаблону, как и на любом другом веб-сокете ioBroker.
+
 ### Разрешить использование самоподписанных сертификатов
 
 Если вы используете стандартное облако iobroker.net, вы можете его отключить. Эта опция важна только в том случае, если вы используете собственное облако.
@@ -53,7 +65,7 @@ _**Alexa не поддерживается в `cloud` Больше не нуже
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Если в настройках в поле «Белый список для сервисов» указать имя _custom\_test_ и вызвать сервис, указав в качестве имени "custom\_test", то состояние `cloud.0.services.custom_test` будет установлено на `myString`.
+Если в настройках в поле «Белый список для сервисов» указать имя _custom\_test_ и вызвать сервис, указав в качестве имени сервиса «custom\_test», то состояние `cloud.0.services.custom_test` будет установлено на `myString`.
 
 Вы можете добавить символ "\*" в белый список, и все сервисы будут разрешены.
 
@@ -128,23 +140,26 @@ ssh -J <email>@iobroker.pro pi@localhost
 -->
 
 ## Changelog
-### 6.2.5 (2026-09-24)
-* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
-* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
+### 6.4.0 (2026-11-15)
+* (@GermanBluefox) Prepared the switch to socket.io 4: a cloud address with `wss://` is connected with socket.io 4. If it cannot be reached, the adapter goes back to the current cloud
+* (@GermanBluefox) A cloud address counts as one of ioBroker.pro if it contains "iobroker.pro", whatever protocol and port it names. Before, only `https://iobroker.pro:<port>` did, so a pro key with `wss://iobroker.pro:<port>` was sent to `https://iobroker.pro:10555`
+* (@GermanBluefox) After a big answer (e.g. all objects for the editor of vis-2 via the cloud) the adapter waits longer for the pong of the cloud: as long as a slow upload needs for what was sent, at most 160 seconds. Before, it disconnected with "Ping timeout" while the answer was still on its way, and the editor never got its objects
+* (@GermanBluefox) After a lost connection the adapter always comes back: if it cannot get its app-key at the start because the network or the server is away (timeout, no DNS, reset, 5xx), it tries again after 10 seconds, then twice as long each time, at most every 5 minutes. Before, only "connection refused" was retried; any other network error (e.g. `ETIMEDOUT`) ended the start, and the instance stayed alive without a connection to the cloud. The request for the app-key now gives up after 15 seconds instead of minutes. A wrong login still stops with an error
 
-### 6.2.4 (2026-09-21)
-* (@GermanBluefox) Updated packages
+### 6.3.0 (2026-11-09)
+* (@GermanBluefox) Commands from the cloud run as the "access as" user of the web instance and no longer always as admin. If this user is restricted, the pages of web and admin only have its rights via cloud
 
-### 6.2.1 (2026-09-17)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Clear subscriptions on cloud disconnection
+### 6.2.11 (2026-10-16)
+* (@GermanBluefox) The adapter is stopped with `terminate()` only, `process.exit()` is no longer used (compact mode)
+* (@GermanBluefox) Added the missing translations and the Ukrainian words for the blockly block
+* (@GermanBluefox) Corrected the responsive sizes of the settings dialog
+* (@GermanBluefox) Removed the unused dependency `cookie-parser`
 
-### 6.1.3 (2026-08-26)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Migrated blockly to TypeScript
+### 6.2.10 (2026-10-14)
+* (@GermanBluefox) Corrected the loading of materialized configurations on ioBroker.pro
 
-### 6.1.2 (2026-06-13)
-* (@GermanBluefox) Added support of credentials manager
+### 6.2.8 (2026-10-12)
+* (@GermanBluefox) The states `alive` and `onScreen` of an app device are corrected to type boolean if an earlier version created them as string, so values written to them are no longer refused
 
 ## License
 The MIT License (MIT)

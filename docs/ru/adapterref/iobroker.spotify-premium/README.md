@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.spotify-premium/README.md
 title: ioBroker.spotify-premium
-hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
+hash: zobam6jmI4Y6R2Pyf62K94Dc1EH83++MtkkGqhmoS80=
 ---
 ![Логотип](../../../en/adapterref/iobroker.spotify-premium/admin/spotify-premium.png)
 
@@ -15,7 +15,7 @@ hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
 ![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.spotify-premium/latest)
 ![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.spotify-premium)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.spotify-premium)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.spotify-premium.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/spotify-premium-stable.svg)
 ![Количество установок](https://iobroker.live/badges/spotify-premium-installed.svg)
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml/badge.svg)
@@ -40,20 +40,22 @@ hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
 ### Настройка / Авторизация
 
 1. Войдите в систему по адресу <https://developer.spotify.com/dashboard/>
-2. Создайте приложение, и вы получите идентификатор клиента (Client ID) и секретный ключ клиента (Client Secret) (см. [инструкцию](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png) ).
-3. Установите URI перенаправления на `https://oauth2.iobroker.in/spotify` в настройках вашего приложения Spotify, которое вы создали.
-4. Введите идентификатор клиента (Client ID) и секретный ключ клиента (Client Secret) в поля ниже.
-5. Запустите экземпляр
-6. Перейдите на вкладку «Объект» и нажмите кнопку «Получить авторизацию» в... `spotify-premium.0.authorization`
-7. Скопируйте появившийся URL-адрес из `spotify-premium.0.authorization.authorizationUrl` откройте его в своем веб-браузере и назовите его.
-8. Возможно, вам потребуется войти в Spotify и предоставить доступ.
-9. Браузер будет перенаправлен на недействительный URL-адрес. Если возникнет ошибка... `invalid redirect uri` происходит, пожалуйста, проверьте шаг 3
-10. Скопируйте этот URL-адрес и вставьте его в... `spotify-premium.0.authorization.authorizationReturnUri`
-11. Значение в `spotify-premium.0.authorization.authorized` становится истинным, если все прошло успешно.
+2. Создайте приложение, и вы получите идентификатор клиента (Client ID) и секретный ключ клиента (Client Secret) (см. [инструкцию](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png) ). Выберите **Web API** в качестве API, используемого приложением.
+3. Установите URI перенаправления на `https://oauth2.iobroker.in/spotify` в настройках вашего приложения Spotify.
+4. Откройте настройки адаптера в административной панели ioBroker и введите Client ID и Client Secret.
+5. Сохраните настройки и нажмите кнопку **«Получить доступ к Spotify».**
+6. Следуйте инструкциям по авторизации во всплывающем окне (возможно, вам потребуется войти в Spotify и предоставить доступ).
+7. Значение в `spotify-premium.0.authorization.authorized` становится истинным, если все прошло успешно.
+
+Нет никакого `getAuthorization` Кнопка в объектах больше не активна, авторизация выполняется только в настройках экземпляра. Если вы откроете `https://oauth2.iobroker.in/spotify` прямо в браузере вы увидите `Internal Server Error` — Это ожидаемо, URL-адрес работает только как цель перенаправления для входа в Spotify.
 
 Нам необходимо указать URI перенаправления HTTPS, поскольку с декабря 2025 года Spotify больше не разрешает использовать незащищенные URI.
 
-#### [Видеоурок](https://www.youtube.com/watch?v=n0m9201qABU)
+Начиная с июля 2026 года, токены обновления Spotify истекают через 6 месяцев. В этом случае адаптер регистрирует ошибку и устанавливает... `spotify-premium.0.authorization.authorized` ложный, указывает причину `spotify-premium.0.authorization.error` и прекращает опрос. Просто авторизуйте адаптер еще раз в настройках экземпляра.
+
+Приложения Spotify в режиме разработчика могут читать только плейлисты, принадлежащие авторизованному пользователю. Другие плейлисты (например, плейлисты, на которые подписаны другие пользователи) отвечают... `403 Forbidden` Адаптер регистрирует это один раз на информационном уровне и пропускает эти плейлисты.
+
+#### [Видеоурок](https://www.youtube.com/watch?v=n0m9201qABU) (демонстрирует более старую версию авторизации)
 
 [![Как авторизоваться](https://img.youtube.com/vi/n0m9201qABU/0.jpg "https://www.youtube.com/watch?v=n0m9201qABU")](https://www.youtube.com/watch?v=n0m9201qABU)
 
@@ -61,7 +63,37 @@ hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
 
 Все штаты описаны в административном разделе.
 
+### Сообщения (sendTo)
+
+Скрипты, другие адаптеры (например, ioBroker.assistant) и агенты ИИ могут искать сообщения и взаимодействовать с ними. На каждое сообщение дается ответ; на сообщение об ошибке также дается ответ. `{error, reason}`.
+
+| Сообщение      | Данные                                                                               | Отвечать                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| `search`       | `{query?, track?, artist?, album?, year?, genre?, type?, limit?, offset?}` или текст | `{items: [{type, uri, id, name, artists, album, ...}]}`                                       |
+| `play`         | `{uri?, offset?, positionMs?, device?}` или URI                                      | `{ok: true, device: {id, name}}`                                                              |
+| `getDevices`   | -                                                                                    | `{devices: [{id, name, type, isActive, isRestricted, volume, supportsVolume}]}`               |
+| `getPlaylists` | `{search?}`                                                                          | `{playlists: [{uri, id, name, ownerId, tracksTotal, image}]}`                                 |
+| `help`         | -                                                                                    | `{help, commands}`: состояния и сообщения, описываемые для агента искусственного интеллекта. |
+
+`help` Он предназначен для агентов искусственного интеллекта (например, ioBroker.pi-agent) и авторов скриптов: в нем описываются состояния и сообщения. `commands` перечисляет все сообщения, на которые отвечает экземпляр. `write: true` для тех, кто что-то меняет.
+
+- `search`: `query` это свободный текст, `track`, `artist`, `album`, `year` и `genre` сузить область поиска. `type` является `track` (по умолчанию), `album`, `artist`, `playlist`, `show`, `episode` или `audiobook` Разделенные несколькими запятыми. Spotify выдает не более 10 результатов на запрос с февраля 2026 года. `limit` 1-10 (по умолчанию 5), сначала выбирается наилучшее совпадение.
+- `play`: `uri` является ли это URI Spotify или `open.spotify.com` ссылка. Трек или эпизод воспроизводится отдельно, альбом, исполнитель, плейлист или шоу целиком; массив URI треков воспроизводит их подряд. `offset` Это номер трека в нем (0 = первый) или URI трека в нем. `device` Это имя или идентификатор устройства Spotify Connect; без него воспроизведение ведётся с активного устройства. Без него воспроизведение не происходит. `uri` Воспроизведение возобновляется. Если устройство, которое некоторое время не воспроизводило музыку, отклоняет команду, воспроизведение сначала передается на него. `reason` ошибка: `NO_ACTIVE_DEVICE`, `DEVICE_NOT_FOUND`, `DEVICE_NOT_CONTROLLABLE`, `PREMIUM_REQUIRED`, `NOT_AUTHORIZED`, `RATE_LIMITED`, `BAD_REQUEST`, ...
+- `getDevices` Теперь запрашивает информацию у Spotify (и обновляет данные о состоянии устройства). Устройство известно только тогда, когда оно подключено к сети: телефон или компьютер, пока открыто приложение Spotify, колонка, пока оно включено.
+
+```js
+sendTo('spotify-premium.0', 'search', { track: 'Bohemian Rhapsody', artist: 'Queen', limit: 3 }, result => {
+    if (result.items?.length) {
+        sendTo('spotify-premium.0', 'play', { uri: result.items[0].uri, device: 'Kitchen' }, answer => {
+            log(answer.error ? `${answer.reason}: ${answer.error}` : `plays on ${answer.device.name}`);
+        });
+    }
+});
+```
+
 ### Примеры использования VIS
+
+Адаптер предоставляет только 5 собственных виджетов VIS (набор виджетов). `spotify-premium`): **Воспроизведение/Пауза** , **Предыдущий** , **Следующий** , **Повтор** и **Перемешать** . Все остальные примеры ниже созданы с использованием стандартных виджетов. `jqui` и `basic` наборы виджетов (например) `tplJquiSelectList`, `tplJquiButtonState`, `tplValueStringImg`) и состояния этого адаптера.
 
 Нажмите, чтобы открыть исходный код виджета.
 
@@ -110,40 +142,38 @@ hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
 <pre><code>[{"tpl":"tplJquiSelectList","data":{"oid":"spotify-premium.0.playlists.playlistList","g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","values":"{spotify-premium.0.playlists.playlistListIds}","texts":"{spotify-premium.0.playlists.playlistListString}","height":"100","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"571px","top":"509px"},"widgetSet":"jqui"}]</code></pre>
 </details>
 
-## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+## Changelog
+
+### 3.3.1 (2026-11-20)
+- (GermanBluefox) Code formatting fixed: 3.3.0 failed the lint check and was not published, this version has the same changes
+
+### 3.3.0 (2026-11-20)
+- (GermanBluefox) Added the messages `search` (Spotify catalog, at most 10 results since February 2026), `play` (a URI on a device given by name or id, with an answer and the reason of a failure), `getDevices` and `getPlaylists`, e.g. for ioBroker.assistant; `help` describes them, an unknown message answers with an error and the list of messages
+- (GermanBluefox) Fixed: a player command that Spotify refuses with a reason (e.g. pause while paused, `PREMIUM_REQUIRED`) set the instance to disconnected; an HTTP error of Spotify is no longer logged as "network request error"
+- (GermanBluefox) Fixed: `player.state` = false pauses and `player.shuffleBool` = false turns shuffle off (false was ignored)
+- (GermanBluefox) Fixed: writing `player.playlist.owner` no longer restarts the current playlist (and no longer stops the adapter with an unhandled error when no playlist plays); the next write of `player.playlist.id` uses it
+- (GermanBluefox) Fixed: the descriptions of `trackListIdMap` and `trackListIds` were swapped
+- (GermanBluefox) Fixed: writing `player.playlist.trackNo` or `player.playlist.trackList` while no playlist plays (or starting a playlist without ID) stopped the adapter with an unhandled error "no playlist no"; now a warning is logged and nothing happens
+
+### 3.2.0 (2026-11-19)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (GermanBluefox) Added the message "help": a description of the states for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 3.1.0 (2026-10-26)
+* (GermanBluefox) Use /playlists/{id}/items instead of the removed /tracks endpoint (Spotify API change Feb 2026); 403 on single playlists no longer sets the instance to error (#630)
+* (GermanBluefox) Handle expired/revoked refresh tokens (`invalid_grant`, Spotify limits refresh tokens to 6 months since July 2026): the token is discarded, polling stops and the user is asked to authorize again instead of retrying the refresh (#588)
+* (GermanBluefox) State roles corrected according to the ioBroker role definitions (e.g. `text`, `indicator`, `json` instead of `value`), existing objects are updated on start (#628)
+* (GermanBluefox) Podcast episodes are shown in the player states (episode as track, show as album, publisher as artist); `player.playUri` also accepts single track or episode URIs like `spotify:episode:...` (#260)
+* (GermanBluefox) Timers and waits use the adapter methods (`this.setTimeout`, `this.delay`), so they are cleaned up when the adapter stops
+
 ### 3.0.1 (2026-06-21)
 - (mcm1957) Linter issues fixed blocking release process
 - (mcm1957) Dependencies have been updated
-
-### 3.0.0 (2026-05-17)
-- (copilot) Adapter requires node.js >= 22 now
-- (@GermanBluefox) Updated packages
-
-### 2.0.3 (2026-04-06)
-- (mcm1957) Adapter requires admin >= 7.8.9 now
-- (mcm1957) adapter requires js-controller >= 6.0.11 now
-- (mcm1957) Dependencies have been updated
-
-### 2.0.1 (2026-03-31)
-- (@GermanBluefox) Rewrite adapter to TypeScript
-- (@GermanBluefox) An Authorization process was changed and user must authenticate anew
-
-### 1.6.0 (2026-02-28)
-- (mcm1957) Issues reported by repository checker have been fixed
-- (mightymurphy) stabilized token refresh and improved widget behavior
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep
-- (copilot) Improved error handling and logging for token refresh
-- (copilot) Device polling now continues during temporary authentication issues (401) instead of stopping.
-- (copilot) Next Track button widget name corrected
-- (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
-- (mcm1957) Dependencies have been updated
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

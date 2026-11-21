@@ -38,6 +38,10 @@ Every widget with all its settings and screenshots: [English](/#/docs/adapterref
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.2 (2026-11-20)
+* (bluefox) Radial gauge: color and size of the label on the dial and of the unit, the label takes line breaks (`\n` or `<br>`)
+* (bluefox) Units, labels and minimum/maximum follow the text color of the widget instead of only the theme, which vis-2 picks per browser - on a dark dial they were unreadable in a light theme. Arc, linear gauge, thermometer, compass and rings got a unit color, arc, rings and color gauge a label color
+
 ### 3.0.1 (2026-11-02)
 * (bluefox) Thermometer, linear, radial and tank gauge: the labels of the scale show no more digits after the comma than the value. A scale from -10 to 40 in 6 steps was labelled "31.6667" next to a value of "18.9"
 
@@ -58,9 +62,6 @@ Every widget with all its settings and screenshots: [English](/#/docs/adapterref
 
 ### 2.0.2 (2025-08-26)
 * (bluefox) Support for older Android devices
-
-### 2.0.1 (2025-07-01)
-* (bluefox) Rewritten with TypeScript
 
 ## License
 The MIT License (MIT)

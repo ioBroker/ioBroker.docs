@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md
 title: Technische Arbeitsgrundlage und Offene Umsetzung
-hash: r79EK4xBJ8o155XBl/4NZMQuE+scgoTCVND932G93UU=
+hash: +alqqlkYSE1LL29LYQY3vDZhxb/3T71CKmOA4cASlSY=
 ---
 # Technische Arbeitsgrundlage und Offene Umsetzung
 
@@ -53,7 +53,7 @@ Diese Grenzen machen Quota-Verwaltung, persiste Zeitfenster, адаптивны�
 - Antwortheader sindie Quelle der Wahrheit für Limit, Restbudget und Reset-Zeit.
 - Опрос verwendet die Befehlsreserve nicht.
 - Ein unveränderter `carCapturedTimestamp` verdoppelt die Poll-Kadenz bis zur configurierten Obergrenze.
-- Активируйте или принимайте меры для того, чтобы установить режим «Kadenz zurück».
+- Активируйте или начните с того, что вы должны начать работу.
 - Опрос-Durchläufe и сериализация; ein angeforderter Verifikations-Poll geht während eines laufenden Durchlaufs nicht verloren.
 - Quota-Daten liegen unter `<vin>.rateLimit.*` und überleben Neustarts.
 - Scheduler-Änderungen werden ohne zusätzliche API-Abfragen über `onScheduleChange` и это было сделано в StateWriter. Die Diagnose-Schreibvorgänge werden je VIN серийный номер и vom Adaptor-Lebenszyklus überwacht; sie Blockieren keine Fahrzeugabfragen.
@@ -144,6 +144,10 @@ Vor einem Release:
 
 Адаптер выйдет в сентябре 2026 г. `latest`. `bluefox` унд `tmarthy` sind als npm-Maintainer eingetragen. Версия `0.1.11` ist veröffentlicht.
 
+### Первая стабильная запись
+
+Die öffentlich getestete Версия `0.1.11` 11 октября 2026 г. [, репозиторий-PR № 6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832) в `stable` дополнительные. Die Sichtbarkeit im Admin folgt nach Aktualisierung des ausgelieferten Katalogs; dessen geprüfter Stand lag noch vor dem Merge. Положительные отзывы для Octavia 2.0 TDI einschließlich Standheizung, zwei Superb-Hybride и einen Elroq (Modelljahr 2027) vor. Testnachweise und der Abschluss der Aufnahme stehen в[`stable-release.md`](/#/docs/adapterref/iobroker.skoda-public-api/docs/stable-release.md) . Новые функции продукта доступны в новых выпусках. Die Entwicklungsabhängigkeit `@iobroker/testing` Wurde zur Behebung von W0037 auf `^6.3.0` актуальный. Die Vorbereitung ist mit [PR #7](https://github.com/tmarthy/ioBroker.skoda-public-api/pull/7) übernommen, die anschließende CI ist grün und [Checker-Issue #6](https://github.com/tmarthy/ioBroker.skoda-public-api/issues/6) Geschlossen.
+
 ### Zusätzliche Schreiboperationen
 
 Das Ladelimit ist über `charging.settings.targetStateOfChargeInPercent` umgesetzt: ein gemeinsamer Lese-/Schreib-State mit autotischer Migration bestehender Objekte, Validierung auf 50 bis 100 % в 10-Prozent-Schritten, eigene Coalescing-Gruppe und Verifikations-Poll. Der State entsteht, sobald das Fahrzeug die Zieleinstellung Lifert; API-Ablehnungen wie wie bei Start/Stop behandelt.
@@ -158,13 +162,13 @@ Modus und jedes Profil haben eigene Coalescing-Gruppen. Квота, TTL, обр�
 
 Umgesetzt: lokaler `edit` -Bereich mit Einzelfeldern für Name, vorhandene Einstellungen, Timer und Zeitfenster; Wochentage как Schalter. `apply` отправить профиль профиля в очередь, `reset` verwirft den Entwurf ohne Request. Ausgangssnapshot и Laufende Profilbefehle werden vor Versand geprüft. `dirty`, `conflict` унд `message` machen den Bearbeitungsstand sichtbar. Опросы erhalten geänderte Entwürfe; nach Neustart начинает умирать Bearbeitung mit neuen Fahrzeugdaten. Unit- und Integrationstests sichern die Bündelung mehrerer Änderungen und unveränderte API-Aufrufzahlen ab.
 
-Zusätzlich umgesetzt: специальные Einstellungsrollen, vollständige Feldbeschriftungen und Hilfetexte sowie localisierte Auswahlwerte. Alte Objekte werden ohne Verlust eigen Namen или History-Einstellungen migriert. Entfernte beziehungsweise noch nicht frisch bestätigte Editorfelder sind schreibgeschützt und als nicht verfügbar gekennzeichnet; `edit.available` Zeigt die Profilverfügbarkeit. Wiederkehrende Felder weerden reaktiviert. Тесты включают Rollen, Sprache, Migration, Neustart и Verfügbarkeitswechsel ab.
+Zusätzlich umgesetzt: специальные Einstellungsrollen, vollständige Feldbeschriftungen und Hilfetexte sowie localisierte Auswahlwerte. Alte Objekte werden ohne Verlust eigen Namen или History-Einstellungen migriert. Entfernte beziehungsweise noch nicht frisch bestätigte Editorfelder sind schreibgeschützt und als nicht verfügbar gekennzeichnet; `edit.available` Zeigt die Profilverfügbarkeit. Wiederkehrende Felder weeder reaktiviert. Тесты включают Rollen, Sprache, Migration, Neustart и Verfügbarkeitswechsel ab.
 
-Вы можете проверить регрессионные тесты, используя Rolle/Schreibrecht-Konsistenz, а также ничего не проверяя кнопки, а также подробные сведения о канале, чтобы увидеть Wiederherstellung nach Rückkehr. Editormeldungen und Diagnose-Labels in allen elf Sprachen verfügbar; Тестирует стабильные коды состояния и лучшую миграцию Label-Zuordnungen ab.
+Вы можете проверить регрессионные тесты, используя Rolle/Schreibrecht-Konsistenz, а также для них не использовать кнопки, а также подробные сведения о канале, чтобы увидеть Wiederherstellung nach Rückkehr. Editormeldungen und Diagnose-Labels in allen elf Sprachen verfügbar; Тестирует стабильные коды состояния и лучшую миграцию Label-Zuordnungen ab.
 
 ### Laufende Wartung
 
 - Änderungen der OpenAPI-`v0` -Spec prüfen und Codegen anpassen
 - Действия и действия GitHub для завершения работы Dependabot
 - Verhalten weiterer Fahrzeugtypen mit anonymisierten Fixtures absichern
-- Тест интеграции компактных групп для Linux и macOS; Проект PR № 5, лучший вариант для macOS с узлами 22, 24 и 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen
+- Тест интеграции компактных групп для Linux и macOS; Самый лучший PR № 5 для macOS с узлами 22, 24 и 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
+hash: zIKCZQA7YJbatsICen+OFouecuLVqFGtCiaqBfhlBUM=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,6 +26,7 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 ## Inhaltsverzeichnis
 
 - [Überblick](#overview)
+- [Was ist neu in Version 1.3.0?](#whats-new-in-v130)
 - [Was ist neu in Version 1.2.0?](#whats-new-in-v120)
 - [Schnellstart](#quick-start)
 - [Konfigurationsleitfaden](#configuration-guide)
@@ -63,6 +64,15 @@ Zwei Betriebsarten funktionieren unabhängig voneinander und können kombiniert 
 Welche Modi verfügbar sind, hängt von Ihrer Gerätetopologie ab. Details dazu finden Sie in der [Beschreibung der Gerätetopologie](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34) . Anregungen für die Verwendung des Adapters finden Sie in der [Beschreibung der Anwendungsfälle](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) .
 
 > Wichtige Teile dieses Adapters basieren auf dem [open3e-](https://github.com/open3e) Projekt. Eine Python-basierte Implementierung, die ausschließlich Daten sammelt und MQTT verwendet, ist unter [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) verfügbar.
+
+---
+
+## Was ist neu in Version 1.3.0?
+
+- **Scan-Statuszeile:** Geräte- und Datenpunkt-Scan laufen im Hintergrund. Eine Statuszeile unterhalb der Scan-Schaltflächen zeigt den Fortschritt und das Endergebnis an (grün bei Erfolg, rot bei Fehler). Der Geräte-Scan speichert die Geräteliste automatisch; laden Sie die Seite neu (F5), um sie anzuzeigen. Dies behebt auch eine leere Geräteliste nach einem Gateway-Scan mit Admin-Version 7.8.25 oder neuer.
+- **Gateway-Konfiguration:** Das Feld „MQTT-Broker“ heißt nun _„Vom Gateway verwendeter MQTT-Broker“_ und hat einen Standardwert von `mqtt://localhost` Die
+- **Datenpunkte und Aufzählungen** wurden auf den aktuellen open3e-Stand aktualisiert; die Texte von `OpStates` wurden korrigiert.
+- **Registerkarte „Datenpunkte“** : Beim Speichern werden die Beschreibungen der Zeitpläne in der Konfiguration nicht mehr gelöscht.
 
 ---
 
@@ -122,7 +132,9 @@ Falls Sie über einen zweiten CAN-Bus (z. B. einen internen Bus) verfügen, konf
 Anstelle eines lokalen CAN-Adapters kann ein Bus über ein [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway ausgelesen werden. Stellen Sie **den Verbindungstyp** für diesen Bus auf _open3e-esp32-Gateway_ ein und geben Sie Folgendes ein:
 
 - **Gateway-REST-URL** , z. B. `http://open3e-esp32.local`
-- **Gateway-MQTT-Broker-URL** , z. B. `mqtt://broker.local` und dem **MQTT-Basisthema** . Das Basisthema muss mit dem des Gateways übereinstimmen. `mqtt.baseTopic` Einstellung (Standard) `open3e`).
+- **vom Gateway verwendeter MQTT-Broker** , z. B. `mqtt://localhost` und das **MQTT-Basisthema** . Geben Sie denselben Broker an, der in den Gateway-Einstellungen festgelegt ist, häufig den MQTT-Adapter von ioBroker. Das Basisthema muss mit dem des Gateways übereinstimmen. `mqtt.baseTopic` Einstellung (Standard) `open3e`).
+
+  > **Notiz:** `localhost` Funktioniert aus Sicht des Adapters nur, wenn der Broker auf dem ioBroker-Host läuft. Geben Sie stattdessen in den Gateway-Einstellungen die Netzwerkadresse dieses Hosts ein. `localhost` Dort würde das Gateway den Broker selbst suchen.
 - **MQTT-Benutzername und -Passwort** , falls der Broker diese benötigt.
 
 Bei jedem Start teilt der Adapter dem Gateway mit, welche CAN-IDs unformatiert weitergeleitet werden sollen. Die Liste wird aus den Energiezählern und den Collect-IDs Ihrer Geräte abgeleitet, daher müssen Sie sie nicht am Gateway konfigurieren.
@@ -139,9 +151,9 @@ Regeln für den Gateway-Modus:
 
 Wechseln Sie zur Registerkarte **„Liste der UDS-Geräte“** und klicken Sie auf die Schaltfläche **„Scannen“** .
 
-- Der Scanvorgang dauert einige Sekunden. Sie können den Fortschritt im Adapterprotokoll verfolgen (öffnen Sie dazu einen zweiten Browsertab).
-- Alle im Bus gefundenen E3-Geräte werden aufgelistet. Sie können die Geräte in der zweiten Spalte umbenennen – diese Namen dienen als Kennungen im Objektbaum von ioBroker.
-- Klicken Sie auf **SPEICHERN** , wenn Sie fertig sind. Die Instanz wird neu gestartet.
+- Der Scan läuft im Hintergrund und dauert je nach Netzwerktyp (lokaler CAN-Bus) bis zu zwei Minuten (Gateway). Fortschritt und Ergebnis werden in der **Scan-Statuszeile** unterhalb der Schaltfläche angezeigt.
+- Nach Abschluss des Scans speichert der Adapter die Geräteliste in der Konfiguration und startet die Instanz neu. Laden Sie die Seite neu (F5), um die Liste im geöffneten Konfigurationsdialog anzuzeigen. Wenn sich nichts geändert hat, wird nichts gespeichert. Das Endergebnis des Scans wird grün angezeigt, andernfalls rot, falls der Scan fehlgeschlagen ist oder kein Gerät gefunden wurde.
+- Alle am Bus gefundenen E3-Geräte werden aufgelistet. Sie können die Geräte in der zweiten Spalte umbenennen – diese Namen dienen als Kennungen im Objektbaum von ioBroker. Klicken Sie nach dem Umbenennen auf **„** Speichern“.
 
 > Während des Gerätescans liest der Adapter auch die Datenformatkonfiguration des Geräts (Datenpunkt 382), einschließlich der Temperatureinheiten (°C oder °F) und des Datums-/Zeitformats. Diese Daten werden gespeichert und bei nachfolgenden Datenpunktscans verwendet.
 
@@ -156,7 +168,7 @@ Während der Gerätescan läuft, empfängt der Adapter passiv Signale vom CAN-Bu
 
 Wechseln Sie zur Registerkarte **„Liste der Datenpunkte“** , klicken Sie auf **„Scan starten…“** und bestätigen Sie mit **„OK“** .
 
-> **Bitte haben Sie Geduld** – der Scan kann bis zu 5 Minuten dauern. Der Fortschritt wird im Adapterprotokoll angezeigt.
+> **Bitte haben Sie Geduld** – der Scan kann bis zu 5 Minuten dauern. Er läuft im Hintergrund; Fortschritt und Ergebnis werden in der **Scan-Statuszeile** unterhalb der Schaltfläche angezeigt.
 
 Was der Scan bewirkt:
 
@@ -164,7 +176,7 @@ Was der Scan bewirkt:
 - Fügt jedem Datenpunktobjekt Metadaten (Beschreibung, Einheit, Lese-/Schreibzugriff) hinzu.
 - Legt die physikalischen Einheiten basierend auf der in Schritt 2 ermittelten Geräteformatkonfiguration fest.
 - Erstellt den vollständigen Objektbaum für jedes Gerät in ioBroker.
-- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-** Datenpunkteseite ein Stecknadelsymbol angezeigt.
+- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-Datenpunkteseite** ein Stecknadelsymbol angezeigt.
 
 Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderlich, wird aber **dringend empfohlen** – und **ist notwendig,** wenn Sie Datenpunkte beschreiben möchten.
 
@@ -345,13 +357,13 @@ Es werden bis zu zwei E380-Energiezähler unterstützt. Die Datenpunkt-IDs häng
 | 1385\_03 | Zustand: −1 = Einspeisung / +1 = Versorgung | —       |
 | 1385\_04 | Gesamte Wirkleistung                        | W       |
 | 1385\_08 | Wirkleistung L1                             | W       |
-| 1385\_12 | Wirkleistung L2                             | W       |
+| 1385\_12 | Aktive Leistung L2                          | W       |
 | 1385\_16 | Wirkleistung L3                             | W       |
 | 1385\_05 | Blindleistung gesamt                        | var     |
 | 1385\_09 | Blindleistung L1                            | var     |
 | 1385\_13 | Blindleistung L2                            | var     |
 | 1385\_17 | Blindleistung L3                            | var     |
-| 1385\_06 | Aktueller, absoluter L1                     | A       |
+| 1385\_06 | Aktueller, absoluter L1-Wert                | A       |
 | 1385\_10 | Aktueller, absoluter L2-Wert                | A       |
 | 1385\_14 | Aktueller, absoluter L3-Wert                | A       |
 | 1385\_07 | Spannung L1                                 | V       |
@@ -407,7 +419,16 @@ Ja. Bearbeiten Sie den Bundesstaat. `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und g
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-11-17)
+* (MyHomeMyData) Device scan and data point scan run in the background; progress and result are shown in a new scan status line below the scan buttons (states info.scanStatus and info.scanStatusHtml), the result in green on success and in red on failure. Fixes an empty device list after a device scan with admin 7.8.25 or newer, which drops answers after 30 s (ioBroker.admin#3737)
+* (MyHomeMyData) The device scan saves the list of devices to the configuration itself, and restarts the instance
+* (MyHomeMyData) Only one scan can run at a time
+* (MyHomeMyData) Gateway: the MQTT broker field is now labelled "MQTT broker used by the gateway" and defaults to mqtt://localhost; the old default suggested a broker on the gateway itself
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20261101 (common) and 20261022 (variant)
+* (MyHomeMyData) Update of enumerations to version 20261116; the values of OpStates were corrected (open3e#145)
+* (MyHomeMyData) Datapoints tab: saving no longer clears the descriptions of the schedules in the configuration
+
+### 1.2.0 (2026-10-15)
 * (MyHomeMyData) Added open3e-esp32 gateway as optional connection type per CAN bus (REST for UDS, MQTT for passively received frames)
 * (MyHomeMyData) Gateway: device and data point scan run on the gateway's scan engine, with progress in the log
 * (MyHomeMyData) Gateway: energy meters and Collect devices are detected as on a local bus
@@ -425,18 +446,6 @@ Ja. Bearbeiten Sie den Bundesstaat. `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und g
 ### 1.1.1 (2026-07-06)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
 * (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
-
-### 1.1.0 (2026-07-05)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260701 (common) and 20260630 (variant)
-* (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
-* (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
-* (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
-
-### 1.0.3 (2026-06-02)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#changelog-of-data-point-definitions)
-* (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
-* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
-* (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
 ### Older versions
 

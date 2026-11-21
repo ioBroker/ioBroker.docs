@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cec2/README.md
 title: ioBroker.cec2
-hash: Rmx4GQDadZ8GULbJaQqoSMazVslUlogjXT1efNgjQyk=
+hash: Qjtkr5uQDxoX3cb5sKmx1OyP1J1k5mL5Dg355xydd2Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.cec2/admin/cec2.png)
 
@@ -17,9 +17,11 @@ hash: Rmx4GQDadZ8GULbJaQqoSMazVslUlogjXT1efNgjQyk=
 
 # ioBroker.cec2
 
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
 Adapter für HDMI CEC
 
-Sie können Geräte mithilfe von HDMI CEC überwachen/steuern. Die meisten modernen Fernseher und Multimedia-Geräte unterstützen CEC zumindest teilweise.
+Sie können Geräte mithilfe von HDMI CEC überwachen/steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC zumindest teilweise.
 
 ## Info
 
@@ -73,11 +75,11 @@ Für jedes Gerät werden die folgenden Zustände erstellt:
 - info.Name = Name, den das Gerät im CEC-Bus setzt
 - info.physicalAddress = physische Adresse
 - info.Vendor = Hersteller des Geräts
-- activeSource = Ist das Gerät die aktive Quelle? Kann dieses Gerät als aktive Quelle festgelegt werden?
+- activeSource = Ist das Gerät die aktive Quelle? Auf „true“ setzen, um den TV-Eingang auf dieses Gerät umzuschalten (auf „false“ setzen, stattdessen ein anderes Gerät aktivieren).
 - menuStatus = ermöglicht die Steuerung des Geräts über die TV-Fernbedienung
 - Status = Energiezustand des Geräts (ermöglicht das Ein- und Ausschalten, sofern unterstützt)
 - createButtons = Hier klicken, um Zustände für Schaltflächen im Unterordner .buttons zu generieren.
-- buttons.time = Zeit, die eine Taste gedrückt werden soll (Standardwert 500 ms).
+- buttons.time = Zeit, die eine Taste gedrückt gehalten wird (Standardwert 500 ms). Während des Gedrückthaltens wird der Tastendruck gemäß CEC alle 450 ms wiederholt.
 
 ## Tasten
 
@@ -88,8 +90,9 @@ Tastendrücke funktionieren nicht bei allen Geräten, und einige benötigen mög
 Es gibt folgende globale Zustände:
 
 - aktive Quelle = physikalische Adresse der aktuell aktiven Quelle (kann zum Umschalten der Eingänge verwendet werden)
-- arc = Audio Return Channel ist (in)aktiv, kann hier möglicherweise (de)aktiviert werden.
+- arc = Audio Return Channel ist (in)aktiv (nur lesbar, ARC kann nur vom Audiosystem gesteuert werden)
 - Stumm = Audiosystem stumm schalten
+- osdMessage = zeigt eine Nachricht auf dem Fernseher an (max. 13 Zeichen, wird nicht von allen Fernsehern unterstützt)
 - raw-command = Befehle direkt an den CEC-Client senden (z. B. 'scan' oder tx + CEC-Befehl von <http://www.cec-o-matic.com/> )
 - standbyAll = Alle Geräte in den Standby-Modus versetzen
 - systemAudio = Audiosystem ist/ist nicht in Verwendung. Informiert Geräte darüber, dass sie Lautstärke-/Stummschaltungsbefehle an das Audiosystem senden sollen.
@@ -108,7 +111,7 @@ Der cec-Client muss installiert sein. Die Installation erfolgt üblicherweise mi
 sudo apt install cec-utils
 ```
 
-Der Benutzer, der iobroker ausführt (heute nur noch „iobroker“), benötigt Zugriff auf /dev/vchiq. Möglicherweise müssen Sie den Benutzer iobroker dazu der Gruppe „video“ hinzufügen:
+Der Benutzer, der iobroker (heute „iobroker“) ausführt, benötigt Zugriff auf das CEC-Gerät. Unter dem aktuellen Raspberry Pi OS (und anderen Linux-Systemen, die den Kernel-CEC-Treiber verwenden) ist dies `/dev/cec0` (`/dev/cec1` für den zweiten HDMI-Anschluss), auf alter Raspberry Pi Firmware `/dev/vchiq`, für Pulse-Eight USB-Adapter `/dev/ttyACM0` Möglicherweise müssen Sie den Benutzer iobroker der Videogruppe (bzw. der Dialout-Gruppe bei USB-Adaptern) hinzufügen:
 
 ```
 sudo usermod -a -G video iobroker
@@ -117,7 +120,10 @@ sudo usermod -a -G video iobroker
 ## Konfiguration
 
 - OSD-Name: Dieser Name wird anderen Geräten, z. B. Ihrem Fernseher, gemeldet. Möglicherweise müssen Sie dort ioBroker auswählen, um Fernbedienungsbefehle in ioBroker zu empfangen.
-- Gerätetyp: Sie können den Gerätetyp festlegen. Siehe dazu die obige Erläuterung zur logischen Adresse. Verwenden Sie einen Gerätetyp, von dem Sie nicht viele Exemplare besitzen.
+- Gerätetyp: Sie können den Gerätetyp festlegen. Siehe dazu die obige Erläuterung zur logischen Adresse. Verwenden Sie einen Gerätetyp, von dem Sie nicht viele Geräte besitzen. Standardmäßig ist die Wiedergabe ausgewählt. Einige Fernseher (z. B. von LG) haben Probleme mit Aufnahmegeräten.
+- Abfrage des Energiezustands / Intervall: Abfrage des Energiezustands des Fernsehers alle Intervall Millisekunden (Standard 60000).
+- CEC-Gerät: Gerät des CEC-Adapters, zum Beispiel `/dev/cec1` Um den zweiten HDMI-Anschluss eines Raspberry Pi 4/5 zu verwenden. Für die automatische Erkennung leer lassen.
+- HDMI-Anschluss: HDMI-Anschluss des Fernsehers (oder Receivers), an den der Adapter angeschlossen ist. Nur erforderlich, wenn die Adresse nicht automatisch erkannt werden kann. 0 für automatische Erkennung.
 - Verhindern Sie das Auftreten von Geräten ohne Namen: Manchmal melden Geräte in bestimmten Situationen ihren Namen nicht (z. B. meldet die Nintendo Switch im Standby-Modus ihren Namen nicht, gibt sich aber selbst an). In solchen Fällen kann der Adapter ein Duplikat des Geräts unter seiner physischen Adresse (z. B. für Zahlen) erstellen. Sie können diese Option aktivieren, um dies zu verhindern.
 
 ## Skriptbeispiele:
@@ -132,12 +138,28 @@ Unter [Beispielskripte](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) 
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
+- (Garfonso) Node.js 26 has been added to the test matrix
+- (Garfonso) Size attributes and i18n flag have been added to jsonConfig
+- (Garfonso) Dependencies have been updated
+- (Garfonso) Adapter timers (setTimeout/setInterval) are used now, so timers are cleaned up on unload
+- (Garfonso) Type checking errors have been fixed
+- (Garfonso) Translations have been converted to the short i18n format
+- (Garfonso) Fixed: button presses restarted the adapter, buttons are now held and repeated according to CEC spec
+- (Garfonso) Fixed: volume was parsed wrong, deck status was never parsed, power on/off did not work for logical addresses above 9
+- (Garfonso) Fixed: commands for inactive devices were broadcast to all devices
+- (Garfonso) Fixed: activeSource of other devices was not reset, OSD messages longer than 13 characters
+- (Garfonso) Messages are no longer sent with logical addresses of other devices (not supported by kernel CEC driver), arc is read only now
+- (Garfonso) CEC version emulation was removed
+- (Garfonso) cec-client is restarted if it stops, malformed messages no longer restart the adapter
+- (Garfonso) New options for CEC device and HDMI port, default device type is playback, default poll interval is 60s
+- (Garfonso) CEC communication is now behind an interface to allow other backends (libCEC binding) later
 
 ### 0.1.3 (2024-07-04)
 * remove unnecessary files from npm package

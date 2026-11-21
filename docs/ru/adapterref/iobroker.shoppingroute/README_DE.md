@@ -4,13 +4,21 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shoppingroute/README_DE.md
 title: ShoppingRoute für ioBroker
-hash: GeCm9k+Gi+DO4H9Z72+/b5rTCiKADqfWxh7l2KdQ/AM=
+hash: /mm8CAK3IlXph8sMqPua+bN7ThtdEow9hdUiE/F3wUE=
 ---
 # ShoppingRoute für ioBroker
 
-![Маршрут покупок](../../../en/adapterref/iobroker.shoppingroute/admin/shoppingroute.png)
+![ShoppingRoute](../../../en/adapterref/iobroker.shoppingroute/admin/shoppingroute.png)
 
-**Актуальная версия: 0.5.1**
+**Актуэлье Версия: 0.6.3 (20.11.2026).**
+
+**Новое в версии 0.6.3:** Die Einkaufslistenansicht verwendet frisch bestätigte Alexa-Date statt veralteter Browser-Entwürfe. Bereits erledigte или gelöschte Artikel werden nicht wieder eingeblendet; noch gültige manuelle Verschiebungen bleiben erhalten. Zusätzlich bietet ShoppingRoute für Skripte und KI-Agenten den lesenden `help` -Бефель.
+
+**Новинка в версии 0.6.1 – шнеллер и робастёр Bring!-/Alexa-Abgleich:** Sobald der Bring!-Adapter einen bestätigten Listenstand или Alexa eine Listenänderung одновременно, когда ShoppingRoute становится активным. Это entfällt die zusätzliche Wartezeit von zu 90 Sekunden im ShoppingRoute-Intervall. В течение 30 секунд после завершения процедуры, вы увидите, как будут проведены сортировочные мероприятия и время наилучшего действия. Bereits ausgeführte Schreibvorgänge werden unabhängig von zwischenzeitlich erledigten anderen Artikeln erkannt. Dadurchblockieren solche Erledigungen den nächsten Abgleich nicht mehr. В течение двух минут без лучшего предупреждения в журнале ioBroker-Log, по тайм-ауту в Фелере и после предупреждения – в вашем журнале.
+
+**Wichtige Geschwindigkeitsgrenze außerhalb von ShoppingRoute:** Der eigenständige ioBroker-Adapter **Bring! 1.9.1** фрагмент «Bring!-Cloud Standard» будет доступен **в течение 90 секунд** . **ShoppingRoute kann dieses Intervall weder einstellen noch verkürzen oder einen früheren Cloud-Abruf erzwingen.** Вы найдете статью в приложении Bring!-App, которая будет доступна или доступна, прежде чем вы получите доступ к ShoppingRoute, затем начните с Bring!-Adapter seine ioBroker-Liste actualisiert Hat. Die Verzögerung kann durch Netzwerk- oder Dienstprobleme auch länger sein. **Ab diesem Zeitpunkt** verarbeitet ShoppingRoute 0.6.1 die Änderung ereignisgesteuert, ohne weitere 90 Sekunden abzuwarten. Die Wartezeit des Bring!-Адаптеры также входят **в комплект поставки ShoppingRoute** . Amazon-API-Schreibsperren bleiben bestehen.
+
+Bei Problemen `shoppingroute.0.info.bringSyncStatus` унд `shoppingroute.0.data.bringSyncJournal` прюфен. Ein ausstehendes Journal niemals löschen, ohne vorher beide aktiven Listen und die erledigten Artikel zu sichern zu vergleichen. Сихэ, [выпуск №82](https://github.com/RaviniZib/ioBroker.shoppingroute/issues/82) .
 
 ShoppingRoute macht aus einernormalen Alexa-Einkaufsliste eine praktische Einkaufshilfe: **Alle Märkte können gemeinsam in einer einzigen Liste geführt or bewusst auf mehrere Listen verteilt werden.** Das besondere Merkmal ist das frei einstellbare **Marktrouting** : Für jeden Markt legt du deinen Laufweg durch die Abteilungen fest. Dadurch steht die Einkaufsliste in der Reihenfolge, in der du tatsächlich durch den Laden gehst – für weniger Zurücklaufen, wenigeruchen und **schnelleres, effizienteres Einkaufen** .
 
@@ -21,7 +29,61 @@ ShoppingRoute sortiert Alexa-Einkaufslisteneinträge nach Markt, Produktgruppe u
 🇩🇪 [**Deutsche Bedienungsanleitung**](/#/docs/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md)\
 &#x20;🇬🇧 [**Руководство пользователя на английском языке**](/#/docs/adapterref/iobroker.shoppingroute/USER_GUIDE_EN.md)
 
-## Новое в версии 0.5.1: bequem am Handy einkaufen
+## Новинки в версии 0.6.0: Bring!-Listen und ShoppingRoute-Sortierung
+
+ShoppingRoute unterstützt zusätzlich den ioBroker-Adapter **Bring.0** (Bring! 1.9.1) и может быть добавлен в список Bring!-Liste mit einer Alexa-Einkaufsliste verknüpfen. Die Funktion является **стандартным** , и его можно использовать в обычном режиме. Обновление лучше всего слушать.
+
+Die vier Betriebsarten stehen unter **Instanz-Einstellungen → Bring!-Integration** :
+
+- **Aus:** ShoppingRoute работает с Alexa.
+- **Приносить! → ShoppingRoute/Alexa:** Принесите! ist die Quelle. Neue Bring!-Artikel werden nach Alexa übernommen; zuvor gespiegelte und anschließend в Bring! erledigte Artikel werden auch в Alexa entfernt. Alexa-eigene Artikel bleiben erhalten.
+- **Nur Bring!:** ShoppingRoute zeigt die Bring!-Artikel auf seiner Verwaltungsseite nach Märkten, Produktgruppen und persönlichen Laufwegen sortiert an, ohne Alexa zu benötigen. Diese Ansicht ist absichtlich schreibgeschützt.
+- **Приносить! ↔ Alexa:** Новые статьи и новые статьи добавлены в дополнительные материалы. Beim **allerersten Abgleich** werden ausschließlich fehlende Einträge ergänzt; kein vorhandener Artikel wird gelöscht.
+
+### Alexa-Sprachkurzbefehl für Bring!-Nutzer
+
+**При активации режима «Принеси! ↔ Alexa» появится «Alexa, Milch auf die Einkaufsliste».** Алекса легла в статью, которая была добавлена в ее собственный список книг. ShoppingRoute berücksichtigt die Markt- und Laufwegregeln und gleicht den Artikel anschließend mit Bring! аб. Der bisher nötige Umweg über «Алекса, мудрец, принеси!…» entfällt bei dieser Nutzung. Wird der Artikel später в журнале Bring! Кроме того, вы можете включить ShoppingRoute в лучший раздел, связанный с активным Alexa-Liste. Das ist eine Entfernung des Eintrags und kein Setzen eines Alexa-Erledigt-Häkchens. Voraussetzung sind активная двунаправленная синхронизация, erreichbare Dienste und konfliktfreie Listen.
+
+### Wichtige Einschränkung von Bring!
+
+**Приносить! erlaubt keine freeie Reihenfolge einzelner Artikel.** Приложение Seine App имеет собственную категорию продуктов, которая соответствует требованиям Reihenfolge Nutzer dort einstellen können. ShoppingRoute поможет выбрать оптимальный вариант Reihenfolge в собственном приложении Verwaltungsoberfläche, **но не** в свободном сортировке Reihenfolge Internalhalb der Bring!-App. Eine identische Darstellung Beider Apps ничего не предлагает.
+
+### Шуцмеханизмы синхронизации
+
+- Для этого мы будем использовать Bestätigte Bring!- и актуальную возможность прослушивания Amazon. Bei nicht verfügbaren или veralteten Daten wird **nicht geschrieben** .
+- В двух артикульных названиях более широкое описание/спецификация или нестандартные варианты остановки. Unklarheiten werden nicht erraten.
+- Ein dauerhaftes lokales Journal verhindert, dass ein unterbrochener Schreibvorgang nach Neustart uncontrolliert wiederholt wird. Vor einem neuen Schreiblauf müssen beide Seiten das Ergebnis des vorherigen bestätigen.
+- Ein Schreiblauf verarbeitet höchstens 30 действий; die bisherige Alexa-Grenze von 99 Einträgen und die eingestellten Amazon-Zugriffslimits gelten weiterhin.
+- **Dry-Run** zeigt geplante Aktionen an, ohne etwas в Alexa или Bring! zu verändern.
+- Статус: `shoppingroute.0.info.bringSyncStatus`; Bring!-Laufwegvorschau: `shoppingroute.0.info.bringSyncPreview`; Wiederherstellungsjournal: `shoppingroute.0.data.bringSyncJournal`.
+
+Für die Einrichtung: Bring!-Instanz auswählen und speichern, Bring!-Liste auswählen, bei Verbindung zu Alexa eine aktivierte Zielliste angeben, zuerst Dry-Run prüfen und erst danach bewusst aktivieren. Die Bring!-Daten kommen aus der vorhandenen lokalen ioBroker-Instanz; ShoppingRoute benötigt kein eigenes Принесите!-Пароль.
+
+**Испытательный стенд (26.10.2026):** Автоматические испытания синхронизирующих, сортировочных и защитных механизмов в рабочем состоянии. Der Praxistest bestätigt die Übernahme von Bring!-Слушайте sowie neu in Bring! hinzugefügter Artikel, die beim nächsten Sortierlauf в ShoppingRoute eingeordnet werden. Бесплатное внутреннее артикулирование der Bring!-App не является техническим, но не может быть полезным. Abschließen, Löschen und sämtliche Konfliktfälle des beidseitigen Live-Abgleichs wurden mit diesem Praxistest nicht bestätigt. Для двунаправленного режима прохождения тестового прослушивания.
+
+## Hilfe для скриптов и KI-агентов
+
+Мит `sendTo('shoppingroute.0', 'help', {}, callback)` erhalten Skripte und KI-Agenten eine Beschreibung der unterstützten Nachrichten und die Liste `commands`. Dort zeigt `write: true` ан, welche Befehle Daten verändern können; `write: false` steht für reine Abfragen. Die vorhandenen Schutzmechanismen, Berechtigungen, Dry-Run-Einstellungen и Amazon-Zugriffslimits bleiben unverändert. Der Hilfeaufruf selbst schreibt weder nach Alexa noch nach Bring!. Weitere Einzelheiten enthält die [deutsche Bedienungsanleitung](/#/docs/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md) .
+
+## Мануэль Эйнкауфслистендерунген
+
+Мануэль Вершибунген в Einkaufsliste bleiben zunächst Entwurf im Browser. Verschiebe alle gewünschten Artikel und Drücke Dann **Änderungen an Alexa übertragen** . Сначала нажмите кнопку, чтобы начать работу с Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Если вы не хотите использовать вкладки браузера, вы не можете использовать их, чтобы получить доступ к фришному списку от Alexa. Erledigte oder entfernte Artikel tauchen durch alte Entwürfe nicht wieder auf. На вкладке «Sichtbare Tab» есть разбросанная и ненажатая кнопка Rückkehr. Schlägt das Laden fehl, erscheint eine Fehlermeldung mit erneuter Lademöglichkeit statt einer als aktuell dargestellten veralteten Liste. Удаление кешей браузера не является проблемой.
+
+## Новое в версии 0.5.3: Управление в приложении Alexa
+
+**Marktwechsel прямо в обычном Alexa-Einkaufsliste auf dem Handy – одно приложение и один Zugriff на ioBroker-Verwaltung.**
+
+**Vier Handy-Funktionen (немецкий/английский: W/C, F/E, H/U, R/D):** `13WNETTO` Wechselt Artikel 13 **vorübergehend** zu NETTO, `13FNETTO` ordnet ihn **dauerhaft** NETTO zu. `25H3` verschiebt Artikel 25 **Drei echte Artikelpositionen nach Oben** , `25R3` **Drei nach unten** – драгоценности на внутренних бирках, без маркировки. H/R verändern keine gespeicherten Laufwege или Produktgruppen.
+
+Füge einen Steuerbefehl wie `13WNETTO` как обычно Listeneintrag hinzu: `13` ist die **aktuell sichtbare zweistellige Number vor dem Artikel** , `W` bedeutet Wechsel und `NETTO` ist ein bereits angelegter Zielmarkt. Вы можете больше узнать об этом. Groß-/Kleinschreibung ist egal; eindeutige kleine Tippfehler im Marktnamen werden korrigiert.
+
+**Bitte Geduld:** Ein neuer Sortiervorgang erfolgt **niemals sofort** . Abhängig von Internetverbindung, Geschwindigkeit und Alexa может быть **эс цу fünf Minuten** dauern. Соланж дер Бефель сегодня в дер Einkaufsliste Steht, это нормально. **Сначала найдите минутный** Интернет-/Alexa-Verbindung, который будет содержать артикльный номер и торговое наименование. Bei einem Eingabefehler den Befehl в Alexa abhaken и korrigiert neu eingeben.
+
+Ein Wechsel mit **W** gilt nur für diesen Einkauf; **Fändert** die dauerhafte Marktzuordnung. Имеющиеся продукты и функции обучения не используются. Erfolgreiche Steuerbefehle verschwinden aus der Liste. Bleibt ein Befehl stehen, Number und Markt prüfen, den falschen Befehl в Alexa abhaken und richtig neu eingeben. **Номер vor Marktüberschriften können nicht zum Verschieben von Artikeln verwendet werden.** Bei mehrdeutigen Befehlen wird nichts geraten.
+
+Функция находится в версии 0.5.2 verfügbar.
+
+## Frühere Verbesserungen (0.5.1)
 
 Эта версия включает в себя Gemeldeten Speicher- und Verschiebefehler der neuen Verwaltungsseite. Im Mittelpunkt steht die Bedienung am Handy während des Einkaufs:
 
@@ -103,7 +165,7 @@ ShoppingRoute sortiert Alexa-Einkaufslisteneinträge nach Markt, Produktgruppe u
 
 Bei der Marktzuordnung gilt:
 
-1. ausdrücklich genannter Markt (`Milch von REWE`)
+1. ausdrücklich genannter Markt and beliebiger Stelle im Artikelnamen (`Milch REWE`, `REWE Milch`, `Milch vom REWE`); ohne fest vorgeschriebene Bindewörter
 2. Артикель-Стандарт
 3. temporärer Prioritätsmarkt
 4. Приоритетный рынок ювелирных изделий Alexa-Liste
@@ -111,7 +173,20 @@ Bei der Marktzuordnung gilt:
 6. erster erlaubter Markt aus «Verfügbare Märkte»
 7. Резервный рынок
 
-Anschließend kann ShoppingRoute Flexible Artikel marktübergreifend zusammenlegen, wenn ein zusätzlicher Markt die configurierte Mindestanzahl nicht erreicht. Dafür werden ausschließlich im Artikelstamm helperlegte verfügbare Märkte verwendet. Explizite Angaben wie `Milch von LIDL` Одер `Eier bei ALDI` werden niemals verschoben.
+### Intelligente Marktoptimierung – weniger Geschäfte, kürzere Einkaufswege
+
+ShoppingRoute sortiert nicht nur Artikel nach Märkten und Laufwegen, sondern kann auch **unnötige zusätzliche Marktbesuche vermeiden** . Если вы сконфигурируете Mindestanzahl и Artikeln für einen Markt unterschritten, вы можете получить дополнительную маркировку Zusammenlegung, а также приобрести Artikel в другом месте, где это необходимо. Dafür berücksichtigt ShoppingRoute ausschließlich die im Artikelstamm hinterlegten **altern verfügbaren Märkte** .
+
+**Пример:**
+
+| Маркт | Статья для оптимизации         |
+| ----- | ------------------------------ |
+| АЛДИ  | Мильх, Масло, Брот, Эйер, Кезе |
+| РЕВЕ  | Цукер                          |
+
+Это **ALDI для Zucker, который предлагает альтернативные рынки** и возможность настройки Mindestartikel-Regel, можно ShoppingRoute Zucker dem ALDI-Einkauf zuordnen. Дополнительные сведения: **6 статей ALDI, kein zusätzlicher REWE-Beuch notig.**
+
+Оптимизация не является обязательной и не является обязательной для использования в качестве альтернативного варианта. **Подробное описание Marktangaben** wie `Milch von LIDL` Одер `Eier bei ALDI` bleiben verbindlich und werden niemals autotisch in einen anderen Markt verschoben.
 
 ## Важные точки данных
 
@@ -125,7 +200,7 @@ Anschließend kann ShoppingRoute Flexible Artikel marktübergreifend zusammenleg
 - `info.versionInstalled` – установить версию адаптера
 - `info.feedbackReport` – bereinigter Diagnose-/Feedbackbericht ohne Einkaufsinhalte
 - `control.temporaryPriorityMarket` – временный Markt für den aktuellen Einkauf
-- `control.importConfigJson` – Импорт конфигурации
+- `control.importConfigJson` – Konfiguration importieren
 - `control.marketProfileImport` – Marktprofil importieren
 
 ## Лицензия
@@ -133,6 +208,48 @@ Anschließend kann ShoppingRoute Flexible Artikel marktübergreifend zusammenleg
 ShoppingRoute ведет под **[MIT-Lizez](https://github.com/RaviniZib/ioBroker.shoppingroute/blob/main/LICENSE)** veröffentlicht. Frühere bereits veröffentlichte Versionen bleiben unter der der jeweils damals gültigen Lizenz.
 
 ## Changelog
+
+### 0.6.3 (20.11.2026)
+- Einkaufslistenansicht gegen veraltete Browser-Entwürfe abgesichert: aktuelle Alexa-Artikel und erledigte Einträge werden korrekt angezeigt; gültige manuelle Verschiebungen bleiben erhalten (#90).
+- Lesenden `help`-Befehl für Skripte und KI-Agenten mit Übersicht der unterstützten Nachrichten und Schreibkennzeichnung ergänzt (#93).
+- Deutsche und englische Dokumentation aktualisiert; bestehende Schutzmechanismen und Zugriffslimits unverändert.
+
+### 0.6.2 (13.11.2026)
+- @iobroker/testing auf 6.3.2 aktualisiert (Repo-Checker-Warnung W0037, Issue #85).
+- Bisher unveröffentlichte Repo-Checker-Korrekturen aus #86 übernommen: README-Changelog, veraltete Changelog-Dateien und zu viele Versionsmeldungen bereinigt.
+- Zweisprachigen Hinweis zur eigenständigen, ungefähr 90-sekündigen Bring!-Cloud-Abfrage übernommen (#84).
+- Bereits zusammengeführte Aktualisierungen auf Vite 8.3.5 und @module-federation/vite 1.23.7 enthalten (#87, #88).
+- Versionsangaben im Laufzeitcode und in den Paketdateien abgeglichen; bewährte Alexa-/Bring!-Schutzmechanismen und Funktionen beibehalten.
+
+### 0.6.1 (27.10.2026)
+
+- **Bring! ↔ Alexa:** Bestätigte Schreibvorgänge einer offenen Transaktion werden auch dann anerkannt, wenn zwischenzeitlich andere Artikel erledigt oder hinzugefügt wurden. Anschließende Änderungen werden in einer neuen Transaktion sicher abgeglichen, ohne erledigte Artikel in Bring! wiederherzustellen.
+- **Sicherheitslogik:** Nicht bestätigte Schreibvorgänge bleiben weiterhin gesperrt. Das Transaktionsjournal wird nicht blind zurückgesetzt.
+- **Protokollierung:** Bei mehr als drei Minuten ausstehender Bestätigung wird einmalig eine Warnung, beim Timeout eine Fehlermeldung und nach erfolgreicher Wiederherstellung eine Entwarnung im normalen ioBroker-Log ausgegeben. Wiederholte Polls erzeugen keine Logflut.
+- **Tests und Dokumentation:** Automatische Regressionstests für konkurrierende Erledigungen, vollständige Bestätigung und ausstehende Schreibvorgänge; deutsche und englische Anleitungen aktualisiert.
+- **Geschwindigkeit:** Ereignisgesteuerte Aktualisierung nach Bring!- und Alexa-Statusänderungen, 30-Sekunden-Rückfallprüfung und verkürzte Bestätigungsprüfung. **Externe Grenze:** Der eigenständige Bring!-Adapter 1.9.1 fragt seine Cloud ungefähr alle **90 Sekunden** ab. **ShoppingRoute kann dieses Intervall nicht einstellen, verkürzen oder vorzeitig auslösen**; der schnelle ShoppingRoute-Abgleich beginnt erst nach dem aktualisierten Bring!-Datenpunkt.
+
+### 0.6.0 (26.10.2026)
+
+- Explizite Marktnamen werden als vollständige Begriffe an beliebiger Position im Artikel erkannt und haben stets Vorrang vor dem Standardmarkt; mehrdeutige Mehrfachnennungen werden nicht geraten.
+
+- Manuelle Einkaufslisten-Verschiebungen sammeln und mit **Änderungen an Alexa übertragen** gemeinsam senden. Entwürfe bleiben bei Fehlern erhalten; der ganze Auftrag wird vor dem Schreiben geprüft.
+
+- Optionale Bring!-Integration in vier Betriebsarten einschließlich einseitigem Import und bidirektionaler Synchronisierung.
+- Sicherheit: Journal, Konflikt- und Duplikatprüfung, Dry-Run und begrenzte Schreibaktionen.
+- Bring!-Laufwege als schreibgeschützte Ansicht für Nutzer ohne Alexa; Bring!-App kann einzelne Artikel nicht frei umsortieren.
+- Adapter-Konfiguration in allen elf Admin-Sprachen, neue Regressionstests und aktualisierte deutsche/englische Dokumentation.
+
+### 0.5.3 (2026-10-17)
+
+- Deutsche und englische Befehle: W/C temporär, F/E dauerhaft, H/U hoch, R/D runter.
+- D bedeutet nun Runter; F ersetzt das bisherige dauerhafte D.
+
+### 0.5.2 (2026-10-17)
+
+- Temporärer Marktwechsel über `NNWMARKT` direkt in der normalen Alexa-Handy-App.
+- Mehrere Befehle pro Sortierlauf, eindeutige Tippfehlerkorrektur und Schutz vor ungültigen Artikelnummern.
+- Dauerhafte Artikelzuordnungen, Lernfunktion und bisherige Sortierlogik bleiben erhalten.
 
 ### 0.5.1 (2026-10-07)
 - Neue Listen werden in Alexa angelegt und vor dem Speichern ihrer Verknüpfung bestätigt; Einkaufsartikel können direkt hinzugefügt werden, auch in leeren Listen.

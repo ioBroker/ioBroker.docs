@@ -237,172 +237,32 @@ train it twice.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.8.0 (2026-11-13)
-* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
-* (@GermanBluefox) The built-in answers (time, devices, timers, weather …) come in the language the question was asked in, not always in the voice language: "скажи, сколько сейчас времени" on a German satellite is answered in Russian, "what time is it" in English and with an English voice
+### **WORK IN PROGRESS**
+* (@GermanBluefox) 3D plan: "zeig Unterdeck", "show the galley", "покажи кухню", "zeig das ganze Haus" make every open 3D view of home3d fly there (writes `home3d.N.show`); only names the plan knows (`home3d.N.places`) are taken, everything else goes on as before
 
-### 1.7.0 (2026-11-12)
-* (@sadam6752-tech) A Piper voice set for one language is only used for it, a Russian answer on a German satellite gets a Russian voice instead of being spelled letter by letter; the language pi-agent 0.10.1 reports for an answer is used for its voice (#27)
-* (@GermanBluefox) The language of an answer is taken for every voice: UDP and Wyoming satellites, announcements and the voice test too, and Azure, AWS and OpenRouter voices set for one language are only used for it. New table "Voice per answer language" in the Voice tab (e.g. ru → ru_RU-dmitri-medium); Piper loads its voices at the start. The language pi-agent reports is also found for its questions to confirm, and a mark that the letters contradict is not believed
+### 1.13.0 (2026-11-20)
+* (@GermanBluefox) Music from Spotify: "play Bohemian Rhapsody by Queen", "spiel das Album … in der Küche", "spiel meine Playlist …" find the song, album, artist or playlist and play it on a Spotify Connect device (table "Spotify players" on the Services tab, needs spotify-premium 3.3.0 or newer); LLM tools `play_music` and `music_player`, message `playMusic`
+* (@GermanBluefox) Music clips on the TV: "spiel den Clip Bohemian Rhapsody von Queen", "play the music video … by …", "включи клип …" search the clip on YouTube and play it on the YouTube player; so does a song for a TV
 
-### 1.6.0 (2026-11-10)
-* (@GermanBluefox) Local LLM: new tab "Local models" to keep several models, pick the active one (saving restarts the instance), choose the folder, see sizes and free space, download presets (with description, size and languages) or own GGUF links, delete models, and see statistics per model (questions, answers, hand-overs, failures, tokens/s, time to the first token, load time). A benchmark on the host checks that the loaded model hands home questions over and answers general ones correctly. The model folder can be picked on the disk of the host (Admin 8.3.11+)
-* (@GermanBluefox) Settings split into topic tabs: AI, Commands, Local models, Devices (with the permissions), Services, Triggers, Voice, Satellites (with the connections of the satellites) and Chat as the last one; rarely needed options (max tokens and system prompt, ffmpeg, end of speech and diagnosis) are in sections that open on a click
-* (@GermanBluefox) Local LLM: refusals like "as an AI language model, I don't have the ability…" are handed over to the next tier instead of being said to the user (found with the new benchmark)
-* (@GermanBluefox) OpenAI reasoning models: reasoning effort from the system AI settings; when function tools are rejected, a chosen effort is kept over the Responses API, otherwise the request is retried with effort 'none' (#25)
-* (@GermanBluefox) A cloud model that runs out of tokens without a word (e.g. in its reasoning) is reported as an error instead of an empty answer that read as "done"
+### 1.12.1 (2026-11-19)
+* (@GermanBluefox) Voice per answer language: the language is a drop-down now. A language picked from the suggestions was saved as its label (e.g. "de – Deutsch") and the row was never used; such rows get the language code on the first start
+* (@GermanBluefox) Spoken requests: the speech recognition no longer waits for the device names it gets as hints (up to 3 s on large installations each time a minute had passed since the last request); the last list is used while a new one is built
+* (@GermanBluefox) Request details: the speech recognition step shows the language it really got (that of the wake word) and the ioBroker.voice instance instead of the unrelated Vosk model; the speech synthesis step shows the voice, model and language that really spoke (a row of "voice per answer language" or the reserve) instead of the main voice of the settings
 
-### 1.5.0 (2026-11-09)
-* (@GermanBluefox) Added an assistant chat and a live view of the voice satellites for Aura and other dashboards
+### 1.12.0 (2026-11-19)
+* (@GermanBluefox) Device commands can be understood by the adapter smart-text2command instead of the built-in rules (tab Commands, "Device commands understood by"): it runs only the actions approved there and asks back when the room or the device is unclear; the next utterance of the same satellite or chat answers. What it does not understand goes on to the local and the cloud model; timers, alarms, time, weather and volume stay with the built-in rules
+* (@GermanBluefox) New first tab "Flow": the way of a request as a diagram (sources → speech recognition → local decision → local LLM → cloud LLM / pi-agent → speech output), each step can be set up with a click
 
-### 1.4.15 (2026-11-08)
-* (@GermanBluefox) OpenAI: use `max_completion_tokens` so newer (reasoning) models like gpt-5-mini work (#21)
+### 1.11.0 (2026-11-18)
+* (@sadam6752-tech) ESPHome satellites: a language per wake word (tab Satellites, "Language per wake word", e.g. Alisa → Russian, Hey Bro → German): speech recognition, the reply voice and the follow-ups of that conversation use it, and pi-agent asks its yes/no questions in it
+* (@sadam6752-tech) ESPHome satellites on an ESP32: two wake words can be active at once (the firmware reports a limit of one, but runs every wake word it is sent)
+* (@sadam6752-tech) ioBroker.voice gets the language of the speech (its model Canary 1B v2 uses it, Parakeet ignores it) and only the hints in the alphabet of the language
+* (@sadam6752-tech) Whisper (OpenAI and compatible servers) gets only the device and room names in Latin letters as hints for a language written in them: Russian names pulled German speech towards Cyrillic letters
 
-### 1.4.14 (2026-11-07)
-* (@GermanBluefox) ESPHome satellites, dialog mode: a satellite that does not listen again after an answer (it stopped the answer itself — stop word, tap) ends the mode instead of leaving it on while nobody listens; the log says how much of the answer was played
-
-### 1.4.13 (2026-11-07)
-* (@GermanBluefox) If fullcalendar is installed, it must be 3.1.0 or later (the version with the event API that commands for later use)
-* (@GermanBluefox) Devices renamed in the device list keep their room, type and all their states again (`@iobroker/mcp-server` 1.9.2): before, such a device lost its room, so "the light in the kitchen" was not understood, and a light lost the switch next to its level
-* (@GermanBluefox) Devices in a room hidden from the smart home (iot, `smartName: false`) are no longer listed without a room
-* (@GermanBluefox) The AI sees what each state of a device is (switch, level, read-only) and that the level alone does not switch a device on
-* (@GermanBluefox) The AI (cloud model and pi-agent) is told to answer in the language of the question
-* (@GermanBluefox) Videos: `ask` also takes `video: { url }` with an `iobdisk://` URL - the video stays on the disk of the sender's host (js-controller 8.0+) and can be read from any host. `{ adapter, path }` of the file storage still works. Telegram sends the URL
-
-### 1.4.12 (2026-11-05)
-* (@GermanBluefox) ESPHome satellites: dialog mode — "ioBroker, Dialogmodus an" and the satellite listens again after every answer without the wake word (pauses are fine, nothing understood just listens on), "Dialogmodus aus" or a stop ends it, after 5 minutes without a request it ends by itself; state `satellites.<id>.dialog` shows and switches it
-
-### 1.4.11 (2026-11-05)
-* (@GermanBluefox) Speech recognition with the adapter ai-parakeet (NVIDIA Parakeet on the CPU, offline, 25 European languages) as provider or fallback — the audio goes to its instance over the message bus, so it may run on another host
-* (@GermanBluefox) Settings: buttons "Install pi-agent" and "Install ai-parakeet" install the adapter on the host of this instance if needed (from the repository, else from npm), create an instance and select it
-* (@GermanBluefox) Chat: dialog mode — the browser microphone stays open, everything said becomes a question (recognized by the assistant's speech recognition), the answer is read aloud, then it listens again
-
-### 1.4.10 (2026-11-05)
-* (@GermanBluefox) ESPHome satellites: internet radio and music from a URL — `controls.<media player>.url` plays it as media (replies and announcements only duck it, play/pause/stop/volume act on it), empty or `stop` stops. Playlists (.pls/.m3u) are resolved; a stream the device cannot decode (AAC, HLS, …) runs through ffmpeg and is served to it as FLAC; `transcode` forces that
-
-### 1.4.9 (2026-11-05)
-* (@GermanBluefox) ESPHome satellites with a screen: the yes/no button did not answer pi-agent's question — the follow-up microphone carries the last wake word (ESPHome never clears it) and was taken for a new request. A follow-up is now recognised by the open question (until the next answered request, at most 30 s after the reply), and a stop the firmware sends right after the press no longer drops the answer
-* (@GermanBluefox) pi-agent: a request from a satellite also carries `satellite` (its id under `satellites.*`) and `tts` (its `tts` state), so pi-agent can speak there later (reminders, background tasks)
-* (@GermanBluefox) Timers of a satellite: `setTimer` takes `satellite`, `seconds`, `name` and `announce` (said word for word when it fires); `listTimers`/`cancelTimer` take `satellite`. An ESPHome satellite shows and rings such a timer like one set there by voice
-
-### 1.4.8 (2026-11-05)
-* (@GermanBluefox) ESPHome satellites: a firmware update entity gets a "check" button (`controls.<update>.check`) that makes the device look for a new version now, instead of at its next boot or its 6-hour check
-* (@GermanBluefox) ESPHome satellites: `text` entities are mirrored as writable states (labels and units of a satellite with a screen can be set from ioBroker). Values outside the device's length or pattern are refused with a warning; a password text is not mirrored
-* (@GermanBluefox) Docs: the optional entities of a satellite with a screen (`confirm_answer`, `display_language`, `text`)
-
-### 1.4.7 (2026-11-04)
-* (@GermanBluefox) Voice messages: `ask` also takes a recording (`audio` as base64 plus `format`, e.g. `ogg`) instead of text. It is recognised with the speech recognition of the Voice tab and answered like a text question; the reply carries the recognised text as `heard`. Telegram uses it for voice messages
-* (@GermanBluefox) Path to ffmpeg can be set on the Voice tab (empty = from the search path), with a button that checks it
-* (@GermanBluefox) Hosts without ffmpeg: "Download ffmpeg" on the Voice tab fetches a static build of ffmpeg-static (20-30 MB, checked against a fixed SHA-256) into the data directory of the instance; it is used while no path is entered
-* (@GermanBluefox) Pictures: `ask` takes `images` (base64 JPEG/PNG/GIF/WebP, at most 4) and passes them to the cloud model (OpenAI-compatible, Anthropic, pi-agent); without a text the question is "What is in this picture?". Rules and the local model are skipped for them. Telegram uses it for photos
-* (@GermanBluefox) Videos: `ask` takes a reference `video: { adapter, path }` into the file storage (never the content). Videos are not looked at yet: without a question the answer says so, with one the model is told
-* (@GermanBluefox) ESPHome: after a reply that asked something, every later reply re-opened the microphone. The firmware keeps `continue_conversation` until it is told "0", so every reply now says it, like Home Assistant does
-* (@GermanBluefox) Satellites only listen again after a reply that asks something: a [[LISTEN]] marker (pi-agent's confirmations) or a question mark at the end. A question mark in the middle of a reply no longer opens the microphone
-* (@GermanBluefox) ESPHome satellites with a screen: yes/no buttons (event `confirm_answer`) answer the open question like a spoken "yes"/"no" - the microphone closes, the reply is announced on that satellite. A select `display_language` is set to the voice language when the satellite connects
-
-### 1.4.6 (2026-11-03)
-* (@GermanBluefox) Speech recognition: own OpenAI-compatible server (Voice tab, provider OpenAI, "Speech recognition server"), e.g. a local whisper-large-v3-turbo in speaches, faster-whisper-server or LocalAI. It needs no OpenAI key and never gets it; an own key for the server is optional
-
-### 1.4.5 (2026-11-03)
-* (@GermanBluefox) ESPHome satellites: spoken replies go out in the format the device's media player announces (FLAC at its sample rate, as Home Assistant does; MP3/Opus via ffmpeg). Since ESPHome 2026.10 the player is built with only the codecs its pipelines use, and a WAV reply did not play at all. Devices that announce no formats keep getting WAV
-* (@GermanBluefox) ESPHome satellites: when the device ends the conversation itself (button, or the wake word said again), it now gets its RUN_END. It stayed in the conversation, and every further wake word only sent another stop
-* (@GermanBluefox) ESPHome satellites: an utterance that is dropped (silence, or no text recognised) ends with the error `stt-no-text-recognized` before RUN_END, like Home Assistant. A RUN_END right after the end of speech was lost while the device was still stopping its microphone, and the device waited for an answer forever
-* (@GermanBluefox) ESPHome satellites: device controls get their state names from the entity names again. ESPHome 2026 (API 1.19) no longer sends `object_id`, so every control ended up as `satellites.<id>.controls.` and the log filled with errors. Latin names give the same ids as before
-* (@GermanBluefox) Satellites whose row was deleted from the ESPHome table are removed at the next start, and an offline satellite can be removed in the Satellites tab
-
-### 1.4.4 (2026-11-03)
-* (@GermanBluefox) ESPHome satellites: a sound only counts as speech once it has lasted about 200 ms. After a false wake a single click opened the gate, and Whisper made "и все просят." of the amplified silence around it
-* (@GermanBluefox) ESPHome satellites: when a device stops sending audio without ending the stream, the recording is closed after 2 seconds instead of the 30-second pipeline timeout, during which the satellite showed "listening"
-
-### 1.4.3 (2026-11-03)
-* (@GermanBluefox) An empty question sent with `sendTo('ask')` is rejected (`{error: 'empty question'}`) instead of going to the model with nothing but the time context, and the log names the sender once a minute. A script that asked on every answer looped about once a second and used pi-agent tokens. The log line of every `ask` now names the sender
-
-### 1.4.2 (2026-11-03)
-* (@GermanBluefox) ESPHome satellites: after 2.5 seconds of speech a pause may be half as long again before the request ends, so a pause for thought no longer cuts off a longer request. Short commands close as fast as before
-* (@GermanBluefox) ESPHome satellites: speech recognition gets the recording without the device's chirp or beep and without the silence around the speech, and quiet speech is amplified (up to ×10). Whisper made "Продолжение следует..." of the beep and the silence
-* (@GermanBluefox) The speech-to-text fallback also steps in when the first engine returns no text for speech
-* (@GermanBluefox) Request details: the speech recognition step shows the level profile of the recording (RMS per 100 ms), where speech started, why the recording ended and what went to the recognition
-
-### 1.4.1 (2026-11-03)
-* (@GermanBluefox) Satellite settings: compound controls show their name ("Firmware Update") instead of the object id ("thirdreality_firmware_update"), and values of ESPHome devices no longer carry float noise (0.5 instead of 0.5000000237487257, step 0.001 instead of 0.0010000000474974513). Existing number controls get the cleaned range on the next connect
-* (@GermanBluefox) Satellite settings, firmware update: the install button only appears when another version is available, and a running update shows its progress as a bar
-
-### 1.4.0 (2026-11-03)
-* (@GermanBluefox) ESPHome satellites: new column "Speech threshold" per device (empty = 250, as before). A device with a quiet microphone, for example a phone running a satellite app, reacted to the wake word but dropped the command as silence unless one spoke loudly right next to it. When an utterance is dropped although it came close to the threshold, the log now says so and suggests a value
-* (@GermanBluefox) Voice: the length limit for spoken answers is now a setting ("Longest spoken answer", Voice tab, default 400 characters ≈ 25–30 seconds, 0 = no limit). Longer answers stopped after about half a minute without notice; the log warning now names the setting. For a spoken request the AI model (cloud LLM and pi-agent) is told the limit and asked not to read out state ids or long numbers, so the answer fits instead of being cut
-* (@GermanBluefox) ESPHome satellites: the microphone closes again when nobody starts speaking within 5 s of the wake word (8 s after a follow-up question). A false wake kept it open for 12.6 s before
-* (@GermanBluefox) ESPHome satellites: new option "Keep dropped recordings for diagnosis". Recordings dropped as silence or returned empty by the speech recognition are stored as WAV plus a JSON with the detector levels under Files → assistant.N/captures (the newest 50), to find out what set a satellite off. Off by default: they contain audio from the room
-
-### 1.3.1 (2026-11-02)
-* (@GermanBluefox) pi-agent: the language of the satellites goes along with every request, so pi-agent asks its confirmation questions ("… Say yes or no.") in it instead of the system language. Before, a Russian satellite was asked "Sag ja oder nein", and the German "Ja" came back empty from the speech recognition: nothing happened. Needs a pi-agent version that knows the field
-* (@GermanBluefox) Requests about a script ("Skript", "script", "скрипт", also JavaScript/Blockly) always go to the cloud model: routines, rule engine and local LLM read their details as commands of their own ("write a script that switches the kitchen light every hour" was answered with the time). A reply to a question of the cloud model about the script goes there too
-* (@GermanBluefox) Voice: speech that the recognition returns as empty text is now logged ("Voice Q (…): (empty)") for ESPHome and native satellites too, instead of ending without a trace
-* (@GermanBluefox) Chat: opens at the newest entry, and a new request scrolls into view again. Before, the tab often opened at the oldest entries
-
-### 1.3.0 (2026-10-28)
-* (@GermanBluefox) Commands for later: "turn off the light in 2 hours" or "blinds to 50 % at 10 pm" becomes an event in the calendar (fullcalendar adapter) instead of running now; the AI can plan, list and cancel events. Before, the rule engine switched such commands at once. Needs a fullcalendar version with the new event API (>= 3.1.0)
-* (@GermanBluefox) Settings: the state of a presence row is picked with the object browser, the kind of a presence row or announcement target is a dropdown
-* (@GermanBluefox) New provider "System-wide AI settings (admin)", the default for new instances: provider, model and key come from the AI settings of the admin system settings, a change there restarts the instance. An instance without a key of its own takes them too
-* (@GermanBluefox) New provider OpenRouter
-* (@GermanBluefox) OpenRouter for speech recognition and voice: one key for the speech models of many vendors (Whisper, Deepgram, ElevenLabs, Gemini TTS, …), models and voices are listed in the settings (default voice model: ElevenLabs Flash v2.5)
-* (@GermanBluefox) Voice test on the Voice tab: speak a test sentence, and test speech recognition with the browser microphone, an audio file or a round trip, all with the unsaved settings
-* (@GermanBluefox) "Confirm switch commands with a tone" now also covers commands the AI (or pi-agent) carried out
-* (@GermanBluefox) Spelled-out numbers up to 100 in commands ("Lautstärke auf fünfzig Prozent", "twenty five percent", "двадцать пять процентов"), and the AI sees the volume of each voice satellite, so it no longer turns up a media device of the room instead
-* (@GermanBluefox) New provider "Adapter pi-agent": the durable agent of the pi-agent adapter answers what the local tiers cannot, with one conversation per satellite/chat
-
-### 1.2.0 (2026-10-26)
-* (@GermanBluefox) Own wake words for ESPHome satellites: upload a microWakeWord model in the satellite settings, the device downloads it when it is activated. Models the device cannot run (e.g. openWakeWord) are rejected on upload with the reason
-* (@GermanBluefox) Voice answers come faster: the device list for the offline rule engine is built once and shared for a minute instead of up to three times per spoken command
-* (@GermanBluefox) The local LLM is now the fallback for when the cloud LLM fails; "Ask the local model first" restores the old order. It is stopped after a configurable timeout, answers shorter and leaves one CPU core free
-* (@GermanBluefox) When an answer asks back, UDP satellites now keep the microphone open for the reply too (needs `@iobroker/assistant-satellite` 0.2.0)
-* (@GermanBluefox) "Louder", "quieter", "volume 5" change the volume of the satellite that heard it - ESPHome, ioBroker-native and UDP satellites
-* (@GermanBluefox) "How's the weather tomorrow?" is answered from the weather adapter without an LLM
-* (@GermanBluefox) Fixed: Russian questions with "будет" ("will it be …") were taken for alarm queries
-
-### 1.1.0 (2026-10-25)
-* (@GermanBluefox) YouTube on the TV: "play the channel XY" finds the channel, video or playlist on YouTube (no API key needed)
-
-### 1.0.3 (2026-10-23)
-* (@GermanBluefox) The Chat tab now shows every request of the last hours live - from satellites, Telegram, scripts and the chat itself - with the satellite, the detected wake word, which stage answered (rule-based NLU, routine, local LLM, cloud LLM), the tool calls and the state ids that were read and written. How many hours are kept is set in the settings (0 = record nothing)
-
-### 1.0.2 (2026-10-14)
-* (@GermanBluefox) Added the missing translations and the sizes for all screens to the settings. The tests run on Windows and macOS too
-* (@GermanBluefox) The ports the adapter really opens (UDP satellites, Wyoming, ESPHome media server) are reported to js-controller 8 as used resources; the satellite port in the settings is no longer listed as an occupied TCP port
-
-### 1.0.1 (2026-10-13)
-* (@GermanBluefox) Use first model if not set
-* (@GermanBluefox) Allowed to run only with local LLM
-
-### 0.2.0 (2026-10-04)
-* (@GermanBluefox) Added routines: a phrase ("good night") runs a list of actions and answers once. Matched before the offline rule engine and before the LLM, so a macro you wrote down is never reinterpreted
-* (@GermanBluefox) The offline rule engine now answers questions about a kind of measurement without a device being named: "how is the air in here", "how warm is it everywhere", "how bright is it" are answered from every sensor of that kind, with a word for the air-quality number
-* (@GermanBluefox) Spoken text is cached on disk, so repeated replies ("Okay.", "Timer finished") cost no cloud call and no latency. An answer over 400 characters is cut at the last sentence that fits, and `<speak>…</speak>` is now spoken as real SSML by Azure and Polly
-* (@GermanBluefox) Added an optional second speech engine per direction: if the configured provider fails (outage, expired key, empty quota), speech-to-text and text-to-speech fall back to another one — with Vosk/Piper behind a cloud provider the house keeps working without the internet
-* (@GermanBluefox) Added two optional settings for switch commands: confirm with a short beep instead of a spoken sentence, and verify the device's acknowledgement before reporting success
-* (@GermanBluefox) An ESPHome satellite's own measurements (temperature, presence, status texts) now appear as read-only states under `satellites.<id>.controls.*`
-* (@GermanBluefox) Announcements can address a group of rooms or a person: name a set of satellites in the new "Announcement targets" table and use it anywhere a target is accepted (`notify`, `askUser`, a trigger's room, the per-satellite `tts` state). The LLM also got an `announce` tool, so "tell Denis that dinner is ready" reaches his speakers — the configured names are part of the tool description. A question asked to a group counts the first answer, and the text is synthesised once for the whole group
-* (@GermanBluefox) The assistant can now know who is at home: point the new "Presence" table at the states you already have (the residents adapter, a phone ping, your own flag) and name the person. It tells the LLM who is around, holds back announcements to an empty house on request (`notify` with `onlyWhenHome`), and exposes `presence.anyoneHome` / `presence.list` / `presence.lastArrival` — so greeting somebody on arrival is just a trigger on that state
-* (@GermanBluefox) System notifications can now be spoken: write to `notify.text` / `notify.alert`, call `sendTo('assistant.0', 'notify', { text, severity })`, or pick the assistant in the ioBroker notification manager. The LLM turns the raw text into one natural sentence whose tone follows the severity (`info`/`notify`/`alert`, plus `direct` to speak it verbatim)
-* (@GermanBluefox) Added Do-Not-Disturb, enforced by the adapter for every transport: `dnd` globally and `satellites.<id>.dnd` per satellite. Announcements are suppressed while it is on; alerts and texts starting with `!` are still played, and answers to your own questions are never affected
-* (@GermanBluefox) Added proactive triggers (new "Triggers" tab): a trigger watches states or the clock and then announces something, writes a state, or asks you a question and acts on your answer ("The fryer has been on for 5 hours. Shall I switch it off?" — the LLM classifies the spoken reply against the configured response rules). Supports alternative conditions, `also`/`unless` refinements, a delay with `cancelWhen`, and a cooldown; each trigger has `triggers.items.<id>.{enabled,fire,lastFired,nextFireAt}` states plus a `triggers.enabled` master switch
-* (@GermanBluefox) The assistant can now ask a question and wait for the answer: `sendTo('assistant.0', 'askUser', { question, room })` speaks it on a satellite, re-opens the microphone without a wake word and returns what was said. While a question is open that answer is routed to the caller instead of being read as a new command
-* (@GermanBluefox) Added a fourth voice transport: ESPHome voice satellites (ThirdReality Voice & Music Assistant, Home Assistant Voice PE, linux-voice-assistant). The adapter dials the devices on TCP 6053, detects the end of speech itself and serves the spoken reply over a small HTTP media server
-
-### 0.1.6 (2026-08-26)
-* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
-* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
-* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
-* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
-* (@GermanBluefox) Documented the weather source selection in the user documentation
-
-### 0.1.5 (2026-08-19)
-* (@GermanBluefox) Corrected credentials
-
-### 0.1.3 (2026-08-15)
-* (@GermanBluefox) Updated packages
-
-### 0.1.2 (2026-08-03)
-* (@GermanBluefox) Initial commit
+### 1.10.0 (2026-11-17)
+* (@GermanBluefox) ESPHome satellites: the adapter ships microWakeWord models ("ioBroker", "Hey Bro", "Alisa"); one click in the satellite settings puts one on the device and switches it on, replacing an older version of the same word
+* (@GermanBluefox) Wake words from a training run get a short name with their date, e.g. `261103_iobroker` instead of "20261103 085427 9b0f Microwakeword Iobroker"
+* (@GermanBluefox) A wake word selected right after it was uploaded is no longer dropped as unknown
 
 ## License
 

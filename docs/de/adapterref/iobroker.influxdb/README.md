@@ -256,7 +256,16 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.3.0 (2026-11-04)
+### **WORK IN PROGRESS**
+* (GermanBluefox) Fixed: `getHistory` with `id: '*'` (or without ID) answers an error instead of an empty result. InfluxDB keeps one measurement per state and cannot read all states at once; the example in this README that used `'*'` reads one state now
+* (GermanBluefox) Fixed: `getHistory` with an aggregate (e.g. average) and without `start` answers instead of failing with "Invalid time value" (the step was NaN). Like the sql and history adapters, it takes the newest `count` values and builds the intervals from them. An unparsable `start` or `end` is refused with "is not a valid date", a time stamp as text ("1700000000000") is accepted
+
+### 5.4.0 (2026-11-19)
+* (GermanBluefox) Fixed: `delete` / `deleteRange` without a valid `ts` or range no longer deletes all values of the state. A single `{id, state: {start, end}}`, a state without `ts` or with `ts: 0` deleted everything (InfluxDB 1.x since 2000, 2.x since 1970, 3.x the whole table), an unparsable `start` everything up to `end`. Such a message is refused now with an error and nothing is deleted; `{id, state: {start, end}}` and `{id, start, end}` delete the range, `ts: 0` the value at 0
+* (GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 5.3.1 (2026-11-17)
+* (GermanBluefox) Fixed: timed relog leaked timers and wrote the skipped value multiple times when a state was set twice in quick succession (#595)
 * (GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range
 - (copilot) Adapter requires node.js >= 22.19.0 now
 * (GermanBluefox) InfluxDB 2.x: the `query` command with several Flux queries separated by `;` works again. Since 5.0 the queries were sent as one broken statement and InfluxDB answered with "invalid statement: ,". When one of several queries fails, the error names the failing query (#580)
@@ -271,9 +280,6 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 5.2.0 (2026-10-24)
 * (GermanBluefox) The cleanup dialog of the statistics tab has checkboxes, so only the selected datapoints are deleted (#565)
-
-### 5.1.8 (2026-10-23)
-* (@GermanBluefox) The timed relog (`changesRelogInterval`) starts right after the adapter start or a change of the datapoint settings, not only with the first update of the state
 
 ## License
 

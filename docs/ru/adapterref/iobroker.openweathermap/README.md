@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: KqS96qVOvaFO5plNp1uz68xyYBPYgrCYbC5hVGI/1/k=
+hash: Dtcf8zGZ9uNI3+/txua731SewLD7QwBYT6gaSKOYCA0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.svg)
 
-![Количество установок](http://iobroker.live/badges/openweathermap-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
+![Количество установок](https://iobroker.live/badges/openweathermap-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.openweathermap/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/openweathermap/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
@@ -21,32 +21,49 @@ hash: KqS96qVOvaFO5plNp1uz68xyYBPYgrCYbC5hVGI/1/k=
 
 Для доступа к данным вам потребуется ключ API. Ключ API вы можете получить бесплатно после регистрации [здесь](https://home.openweathermap.org/api_keys) .
 
+## виджет vis-2
+
+Виджет «Погода» отображает текущую погоду и прогноз на срок до шести дней. Кнопка «i» открывает диалоговое окно с более подробной информацией (ветер, давление, осадки). Температуру и влажность можно получать с реального датчика, а не из OpenWeatherMap (настройки «Идентификатор текущей температуры» и «Идентификатор текущей влажности»).
+
+Размер значков задается параметрами "Размер значка (текущий)" и "Размер значка (дни)" в пикселях. Пустые значения сохраняют размеры по умолчанию.
+
+![виджет vis-2](../../../en/adapterref/iobroker.openweathermap/img/vis2-widget-weather.png)
+
+## Веб-компонент
+
+Та же самая информация о погоде доступна и в виде веб-компонента. `<iob-openweathermap-weather>` (`@iobroker/web-components`, указан в `common.webComponents`) для Aura, admin, ioBroker.devices и любого другого набора веб-компонентов. vis-2 предлагает вместо этого свой собственный виджет «Погода», поскольку оба имеют одинаковое имя.
+
+Он отображает текущую погоду над прогнозируемыми днями (или рядом с ними в широком и низком прямоугольнике) и масштабируется вместе с этим прямоугольником. Щелчок мышью отображает подробную информацию — ветер, влажность, давление и осадки за сегодня и за каждый день — в диалоговом окне хоста. Настройки: экземпляр, заголовок, что отображать (все, только текущая погода, только дни), количество дней (1-6) и, при необходимости, идентификаторы реальных датчиков температуры и влажности. Единицы измерения соответствуют настройкам экземпляра (метрические или имперские). Размеры значков виджета vis-2 не требуются: значки масштабируются вместе с прямоугольником.
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### 2.0.1 (2026-09-08)
-* (@GermanBluefox) The weather widget is now shown as a live preview in the admin configuration too
 
-### 2.0.0 (2026-08-16)
-* (@JDCodes) Added feels_like temperature, visibility and the day name (long and short) as text
-* (@JDCodes) Daily rain and snow are now totals and not averages
-* (@JDCodes) Fixed NaN for rain and snow
-* (@GermanBluefox) Minimal supported Node.js version is now 22
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
-### 1.4.0 (2025-08-03)
-* (@tt-tom17) Added wind direction as text
+### 2.3.0 (2026-11-08)
+* (@GermanBluefox) Added the web component `iob-openweathermap-weather` for Aura and other hosts (`common.webComponents`)
+* (@GermanBluefox) Corrected wrong translations of the vis-2 widget and the web component, e.g. the weather "Clear" and the "Close" button
+* (@GermanBluefox) Corrected the Dutch wind direction south-southeast (ZZO instead of ZSO)
+* (@GermanBluefox) The API key is stored encrypted and shown as a password field. An existing key is encrypted automatically at the next start of the instance
+* (@GermanBluefox) The vis-2 widget applies the CSS settings for text color, font and background color to all of its texts, the info button and the card
 
-### 1.3.0 (2025-05-21)
-* (bluefox) Widget was completely ported to TypeScript
-* (bluefox) Backend was completely ported to TypeScript
+### 2.2.0 (2026-11-05)
+* (@GermanBluefox) The place can be selected on a map in the instance settings (needs an admin version with map support for the coordinates field)
+* (@GermanBluefox) Updated packages
 
-### 1.2.0 (2024-07-23)
-* (bluefox) Widget was partly ported to TypeScript
+### 2.1.0 (2026-10-29)
+* (@GermanBluefox) Added settings for the icon size of the current weather and of the forecast days in the vis-2 widget
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.openweathermap/blob/master/CHANGELOG_OLD.md)
+### 2.0.4 (2026-10-22)
+* (@GermanBluefox) Fixed raw translation keys (e.g. openweathermap_Wed) in the widget with vis-2 2.15.x (#750)
+* (@GermanBluefox) The widget requires vis-2 2.20.2 or newer, if vis-2 is installed
+
+### 2.0.3 (2026-10-17)
+* (@GermanBluefox) Updated packages
 
 ## License
 

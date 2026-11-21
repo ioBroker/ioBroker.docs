@@ -120,6 +120,17 @@ Data is cached and updated on a schedule. If data appears outdated:
 
 ## Changelog
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.1.14 (2026-11-20)
+
+- (bloop) Fix: process SignalR Core Subscribe snapshot (session name, session part, clock were missing) (#104)
+- (bloop) Fix: OpenF1 fallback no longer freezes time_elapsed at 00:30:00 and survives single failed checks (#104)
+- (bloop) Fix: SessionInfo start time now respects GmtOffset; session metadata is reset between sessions
+- (bloop) Chore: bump @iobroker/testing to ^6.3.2 (#107)
+
 ### 0.1.13 (2026-09-13)
 
 - (bloop) Maintenance release: refreshed dependency versions and aligned package/release metadata with the current ioBroker baseline

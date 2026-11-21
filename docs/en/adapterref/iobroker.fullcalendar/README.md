@@ -102,7 +102,8 @@ sendTo('fullcalendar.0', 'addCalendar', { name: 'Garden' }, res => log(JSON.stri
 | `getEventObjects` | optional `calendar` (`<namespace>.Calendars.<id>`) | `{events: [object, …]}`: the schedule objects, for the web component |
 | `setEventObject` | `event` (a schedule object of this instance) | `{result: "ok"}` |
 | `deleteEventObject` | `id` | `{result: "ok"}` |
-| `getCommands`    | –                                                                                          | `{commands: [{command, params, answer}, …]}`      |
+| `getCommands`    | –                                                                                          | `{commands: [{command, description, params, answer, write}, …]}` (`write`: the command changes something) |
+| `help`           | –                                                                                          | `{help, commands: [{command, write}, …]}`: `help` is a description of all messages for AI agents (e.g. pi-agent) |
 
 Parameters of `addEvent`:
 
@@ -137,6 +138,9 @@ Errors come back as `{error}`, an unknown command answers with the list of the c
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.6.0 (2026-11-19)
+* (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), built from the table of `getCommands`, which has `description` and `write` now; and `common.supportedMessages.help`
+
 ### 3.5.1 (2026-11-13)
 * (@GermanBluefox) Calendar (admin, vis-2 widget and web component): "Today" works also when today is in the view; the list scrolls to today (or to the next day with events), and the day lights up briefly - in the month view its tile, in the week and day view its column
 
@@ -153,11 +157,6 @@ Errors come back as `{error}`, an unknown command answers with the list of the c
 ### 3.4.0 (2026-11-09)
 * (bluefox) Added the web component `<iob-fullcalendar>` for Aura, devices and other hosts of web components (`common.webComponents`)
 * (bluefox) Added the messages `getEventObjects`, `setEventObject` and `deleteEventObject` for the web component
-
-### 3.3.1 (2026-10-29)
-* (@GermanBluefox) Added the admin >= 7.6.17 dependency, the translated name of the admin tab and the uk translations (#557)
-* (@GermanBluefox) The adapter timers (`this.setTimeout`/`this.setInterval`) are used instead of the plain ones (#557)
-* (@GermanBluefox) Added the message `updateEvent`: move or change an event without deleting and creating it again
 
 ## License
 The MIT License (MIT)

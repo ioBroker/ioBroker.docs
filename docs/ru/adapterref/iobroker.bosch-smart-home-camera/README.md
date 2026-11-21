@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bosch-smart-home-camera/README.md
 title: ioBroker.bosch-smart-home-camera
-hash: ooTH2kNAZDGBdbuMATe4N18Gutd4WdTsT5IOF0U13IQ=
+hash: 8sZSufF7VXelkKNfVrRBBZhsbdIIdZYXWijSrtwvrvI=
 ---
 # ioBroker.bosch-smart-home-camera
 
@@ -81,6 +81,7 @@ API, полученный методом обратного проектиров
 | **Зоны движения / маски конфиденциальности**                                                     | ✅ чтение + запись                                                                                                 | ✅ чтение + запись                                                                                           | ✅ чтение + запись _(v1.8.0)_                                                                       | ✅ получить / установить / очистить _(v1.7.0)_                                                                        | ❌ _(визуального редактора пока нет)_                                                           | ❌                                                                            |
 | **Правила/расписания автоматизации**                                                             | ✅ чтение + запись                                                                                                 | ✅ чтение + запись                                                                                           | ✅ Полная поддержка CRUD _(v1.8.0)_                                                                 | ✅ Список / Добавить / Редактировать / Удалить _(v1.7.0)_                                                             | ✅ Полное управление CRUD (добавление/добавление/редактирование/удаление)                       | ❌                                                                            |
 | **График освещения**                                                                             | ✅ чтение (запись через сервис, только для Gen1 Eyes Outdoor)                                                      | ✅ чтение + запись                                                                                           | ✅ читать _(только для первого поколения, версия 1.2.0)_                                            | ✅ получить / установить _(v1.7.0)_                                                                                   | ✅ Чтение + запись _(камеры Outdoor Eyes)_                                                      | ❌                                                                            |
+| **Локальный интерфейс передачи данных (Gen2, FW 9.40.105+)**                                     | ✅ Полностью локальная трансляция через go2rtc, без облачного хранилища, без резервного копирования                | ✅`live` /`stream` считывать данные с камеры напрямую по локальной сети.                                     | ✅ статус + прямой местный `stream_url`                                                              | ✅ статус + URL локального потока                                                                                     | ✅ Просмотр в реальном времени + запись через go2rtc, без облачного хранилища                   | ✅ Локальный URL потока на узле stream-url                                    |
 | **Загрузка клипов из облака (история \~30 дней)**                                                | ✅ через медиабраузер                                                                                              | ❌                                                                                                           | ❌ _(припарковано — пока нет запроса от сообщества)_                                                | ❌ _(намеренно не показано — большие грузы)_                                                                          | ❌ _(используйте командную строку)_                                                             | ◑`clip_url` в полезной нагрузке события                                      |
 | **Мини-видеорегистратор (локальная запись)**                                                     | ✅ Непрерывная + буферизованная по событиям, кольцевая буферная преролл-заставка _(режимы v11.2.0 BETA → v14.7.0)_ | ◑ Мультиплексирование сегментов, запускаемое событием, без кольца предварительной загрузки _(v10.7.0 BETA)_ | ❌ _(передаёт данные внешнему регистратору через RTSP-конечную точку без учётных данных)_           | ❌ _(без концепции NVR)_                                                                                              | ◑ Только непрерывный режим, без буферизации событий _(v0.4.0-alpha)_                           | ◑ непрерывный только через `bosch-camera-nvr-record` node _(v0.4.0-alpha)_    |
 | **Загрузка клипа через SMB/NAS**                                                                 | ✅                                                                                                                 | ✅ _(v10.7.0 BETA)_                                                                                          | ❌                                                                                                  | ❌                                                                                                                    | ❌                                                                                              | ❌                                                                            |
@@ -305,7 +306,7 @@ sequenceDiagram
 | `ai_score`                                                                                                          | число                       | Анализ с помощью ИИ: оценка степени подозрения 1 (доброкачественный) – 10 (высокая степень подозрения)                                                                                                                |
 | `ai_last_analysis`                                                                                                  | число                       | Анализ с использованием ИИ: временная метка epoch-ms последнего завершенного анализа.                                                                                                                                 |
 | `ai_analyze`                                                                                                        | кнопка                      | Запустить анализ ИИ на основе последнего снимка состояния системы.                                                                                                                                                    |
-| `image_rotation_180`                                                                                                | логический                  | Отражение изображения на 180°                                                                                                                                                                                         |
+| `image_rotation_180`                                                                                                | логический                  | Переворот изображения на 180°                                                                                                                                                                                         |
 | `livestream_enabled`                                                                                                | логический                  | Включение/отключение прямой трансляции RTSP                                                                                                                                                                           |
 | `stream_url`                                                                                                        | нить                        | `rtsp://user:pwd@host:port/rtsp_tunnel?inst=1&…`                                                                                                                                                                      |
 | `stream_url_sub`                                                                                                    | нить                        | URL подпотока (`inst=2` экспериментальный)                                                                                                                                                                            |
@@ -317,7 +318,7 @@ sequenceDiagram
 | `last_event_image`                                                                                                  | нить                        | Base64 `data:image/jpeg;base64,…` (Автоматический снимок при движении)                                                                                                                                                 |
 | `last_event_image_at`                                                                                               | нить                        | Отметка времени ISO 8601 последнего изображения события                                                                                                                                                               |
 | `motion_trigger`                                                                                                    | логический                  | Писать `true` внедрить синтетическое событие движения                                                                                                                                                                  |
-| `motion_trigger_event_type`                                                                                         | нить                        | `motion`/`person` / `audio_alarm`                                                                                                                                                                                     |
+| `motion_trigger_event_type`                                                                                         | нить                        | `motion` /`person` / `audio_alarm`                                                                                                                                                                                    |
 | `motion_active`                                                                                                     | логический                  | Триггер по фронту сигнала: `true` в течение 90 секунд после начала движения, затем `false`                                                                                                                             |
 | `last_motion_at`                                                                                                    | нить                        | Временная метка ISO 8601 последнего события движения                                                                                                                                                                  |
 | `last_motion_event_type`                                                                                            | нить                        | `motion` /`person` / `audio_alarm`                                                                                                                                                                                    |
@@ -395,7 +396,7 @@ sequenceDiagram
 | `wifi_ssid`                                                                                                         | нить                        | SSID Wi-Fi камеры                                                                                                                                                                                                     |
 | `lens_elevation`                                                                                                    | число                       | Gen2 Outdoor II — параметр высоты установки                                                                                                                                                                           |
 
-Данные, относящиеся ко всему адаптеру, находятся в пределах `info.*`:
+Данные, доступные в масштабе всего адаптера, находятся в разделе `info.*`:
 
 | Точка данных                    | Описание                                                              |
 | ------------------------------- | --------------------------------------------------------------------- |
@@ -433,7 +434,7 @@ iobroker restart vis-2
 
 Адаптер поставляется с двумя встроенными **виджетами VIS-2** (React / Module-Federation, созданными на основе `src-widgets/`), который можно перетащить в любое представление VIS-2 без импорта JSON-файла.
 
-**Требования:** установлен и запущен адаптер VIS-2 версии ≥ 2.13.
+**Требования:** установлен и запущен адаптер VIS-2 версии ≥ 2.20.2.
 
 ---
 
@@ -511,7 +512,7 @@ iobroker restart vis-2
 - **Статус и безопасность** — оповещение об отключении камеры, мониторинг износа FCM-push, срабатывание аварийной сирены, подавление оповещений в зависимости от погодных условий, отключение звука в спящем режиме, координация с гаражными воротами, расписание ночного режима.
 - **Планировщик моментальных снимков / замедленная съемка** —[`docs/examples/snapshot-blockly.md`](./docs/examples/snapshot-blockly.md) : ежечасный планировщик Blockly XML + JavaScript (cron с 06:00 до 22:00), а также вариант, срабатывающий при обнаружении движения, с ограничением по времени в 15 минут. Запись `snapshot_trigger`, перечитывает в ответ `snapshot_path` Включает в себя однострочный скрипт ffmpeg для сборки собранных JPEG-файлов в таймлапс в формате mp4.
 
-Откройте JavaScript-адаптер → Скрипты → Создать новый Blockly (или JavaScript) → Вставьте. Замените `<CAM_UUID>` /`<PRESENCE_OID>` / lux-sensor / Telegram-bot placeholders with your actual object IDs from the Objects tab. The folder's [README](./docs/examples/README.md) has the full index, prerequisites, and notification-adapter call patterns (Telegram, signal-cmb, Pushover, email).
+Откройте JavaScript-адаптер → Скрипты → Создать новый Blockly (или JavaScript) → Вставьте. Замените `<CAM_UUID>` /`<PRESENCE_OID>` В папке /lux-sensor/Telegram-bot находятся заполнители с вашими фактическими идентификаторами объектов из вкладки «Объекты». В [файле README](./docs/examples/README.md) этой папки содержится полный индекс, необходимые компоненты и шаблоны вызовов адаптеров уведомлений (Telegram, signal-cmb, Pushover, email).
 
 → **Внесите свой вклад** : разместите рабочий скрипт в виде блока кода в [теме форума ioBroker](https://forum.iobroker.net/topic/84538) или создайте запрос на слияние (PR) — примеры от сообщества приветствуются.
 
@@ -740,7 +741,7 @@ flowchart LR
 
 [iobroker.cameras](https://github.com/ioBroker/ioBroker.cameras) оборачивает стандартный источник RTSP в снимки JPEG и плитку Vis MJPEG (без H.264/аудио — для полноценного воспроизведения в реальном времени используйте [виджет VIS-2 Camera](#vis-2-camera-widget) этого адаптера или go2rtc). Он **не** принимает полный `rtsp://…` URL в одном поле — он формируется из отдельных полей, поэтому `stream_url` Необходимо разделить.
 
-> **Рекомендуется: включить постоянно доступную RTSP-точку доступа.** iobroker.cameras получает кадр по собственному расписанию. По умолчанию локальный RTSP-прокси прослушивает порт только во время прямой трансляции, поэтому запрос, поступивший во время выключения трансляции, попадает на закрытый порт, и iobroker.cameras отправляет соответствующие сообщения в лог. `Connection refused` Включите **«Настройки» → «RTSP / Поток» → «Обеспечить постоянную доступность конечной точки RTSP»** . `stream_persistent_endpoint` Затем адаптер постоянно поддерживает связь между прослушивателем и стабильным портом для каждой камеры и автоматически открывает сессию Bosch при подключении iobroker.cameras, освобождая её после истечения таймаута простоя — таким образом, конечная точка всегда доступна без постоянного использования одной из 3 общих сессий Bosch. После включения пропустите шаг 1; `stream_url` /`stream_host` /`stream_port` /`stream_path` Они заполнены и стабильны с самого начала работы адаптера. Форум #84538.
+> **Рекомендуется: включить постоянно доступную RTSP-точку доступа.** iobroker.cameras получает кадр по собственному расписанию. По умолчанию локальный RTSP-прокси прослушивает порт только во время прямой трансляции, поэтому запрос, поступивший во время выключения трансляции, попадает на закрытый порт, и iobroker.cameras отправляет соответствующие сообщения в лог. `Connection refused` Включите **«Настройки» → «RTSP / Поток» → «Обеспечить постоянную доступность конечной точки RTSP»** . `stream_persistent_endpoint` Затем адаптер постоянно поддерживает связь между прослушивателем и стабильным портом для каждой камеры и автоматически открывает сессию Bosch при подключении iobroker.cameras, освобождая её после истечения таймаута простоя — таким образом, конечная точка всегда доступна без постоянного использования одной из 3 общих сессий Bosch. После включения пропустите шаг 1; `stream_url` /`stream_host` /`stream_port` /`stream_path` Они заполнены и стабильны с самого начала использования адаптера. Форум #84538.
 
 1. (Требуется только в том случае, если указанная выше постоянно активная конечная точка отключена.) Включить поток: set `cameras.<id>.livestream_enabled = true` Прокси-сервер запускается и `cameras.<id>.stream_url` заселяет, например `rtsp://127.0.0.1:8554/rtsp_tunnel?inst=1&enableaudio=1&fmtp=1&maxSessionDuration=3600`.
 
@@ -836,6 +837,27 @@ HA остается **эталонной реализацией** — функц
 ---
 
 ## Changelog
+
+### 1.11.2 (2026-11-18)
+- Added: the vis-2 camera widget shows a hint under the play button when the go2rtc live view cannot start (e.g. https page with an http go2rtc URL, unknown stream name).
+
+### 1.11.1 (2026-11-18)
+- Added: `ifInstalledDependencies` requires vis-2 >= 2.20.2, so an adapter update cannot break an older vis-2.
+
+### 1.11.0 (2026-11-18)
+- Updated: vis-2 widgets rebuilt for React 19 and MUI 9 (vis-2 >= 2.20.2 needed), see ioBroker/ioBroker.vis-2#689.
+- Updated: security updates for transitive dependencies (follow-redirects, node-forge).
+
+### 1.10.4 (2026-10-23)
+- Updated: mqtt and the widget build dependencies; security updates for follow-redirects and ip-address.
+
+### 1.10.3 (2026-10-12)
+- Fixed: a stale FCM device token is now logged out after a confirmed registration.
+- Fixed: lighting writes are serialized per camera (no lost updates, no front-light / wall-washer toggle fighting); stale poll results are dropped; front-light and wall-washer results are acknowledged separately.
+- Fixed: the first feature-flags fetch is retried once after a timeout (single timer).
+
+### 1.10.2 (2026-10-06)
+- Fixed: the Gen2 front-light white balance is now applied even while the light is off or at brightness 0. The value is held until the light is next switched on; if the light is on with cached brightness 0, the last non-zero brightness is restored. Writes are serialized per camera.
 
 ### 1.10.1 (2026-09-30)
 - Fixed: the direct local stream URL now uses `/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1` instead of `/live`, so the stream carries audio and follows the `stream_quality` setting (high = inst 1, low = inst 2).
@@ -1284,4 +1306,4 @@ Older releases (0.0.1 – 0.3.3) are archived in CHANGELOG_OLD.md.
 
 MIT License — see [LICENSE](./LICENSE).
 
-Copyright (c) 2026 mosandlt
+Copyright (c) 2026 mosandlt <Info@mosandl.eu>

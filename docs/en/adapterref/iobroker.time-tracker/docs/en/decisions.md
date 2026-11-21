@@ -45,11 +45,25 @@ itself. The removal took out 65 files and 3861 lines; the earlier state stays re
 What would be needed: test data under `fixtures/smalltime/**` (from a real installation, **not** derived from foreign
 program code), the four database columns through a new migration, admin tab, adapter command and REST routes.
 
-## D2 — `common.compact: false`
+## D2 — `common.compact: true` (changed 20.11.2026, before: `false`)
 
-The adapter binds its own HTTP port and keeps an SQLite file in WAL mode open for its whole run time, so it runs as a
-process of its own on purpose. The reasoning, the handling of the note `W5049` and the resulting rule “no
-`process.env`/`process.exit` in the source code” are in [`adapter-check.md`](/#/docs/adapterref/iobroker.time-tracker/docs/en/adapter-check.md).
+**Until 0.8.1** the adapter ran as a process of its own (`common.compact: false`), because it binds its own HTTP port and
+keeps an SQLite file in WAL mode open for its whole run time.
+
+**Since 20.11.2026** it supports the compact mode (suggestion `S1039` of the repository checker). A check of the code
+showed nothing that needs a process of its own: every timer is the adapter's own (`this.setTimeout`/`this.setInterval`,
+also the WebSocket ping and the SFTP time limit), `onUnload` closes the HTTP server with all its connections and then the
+database, there is no `process.env`/`process.exit`/`process.on`, and the only module-level state is a cache of decoy
+password hashes, which two instances may share. The `web` and `admin` adapters bind ports in compact mode as well.
+
+**What the shared process costs:** better-sqlite3 and the password hashing (`scryptSync`) are synchronous. While a backup
+(`VACUUM INTO`), a recalculation, a PDF/Excel report or a sign-in runs, the other adapters of the compact group wait; a
+crash of the native module ends the whole group. `compact: true` only offers the choice: the **compact group** of the
+instance decides — group `0` keeps the adapter in a process of its own, as before. The README recommends group `0` for a
+weak host or a busy installation.
+
+The rule “no `process.env`/`process.exit` in the source code” stays (in a shared process an exit would end the other
+adapters too); see [`adapter-check.md`](/#/docs/adapterref/iobroker.time-tracker/docs/en/adapter-check.md).
 
 ## D3 — Provenance record outside the repository (16.09.2026)
 

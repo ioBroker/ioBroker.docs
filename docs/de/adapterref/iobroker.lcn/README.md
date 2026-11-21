@@ -3,18 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lcn/README.md
 title: ioBroker.lcn
-hash: 7U4md29YzlcZtIfvZAdxw/m+IF5T2q4mzInWqLWyIQc=
+hash: srEsQH58mZuuHWtn0O2izQsRvKm123nBdG9rA77v0w8=
 ---
 ![Logo](../../../en/adapterref/iobroker.lcn/admin/lcn.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.lcn.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.lcn.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lcn.svg)
 ![NPM](https://nodei.co/npm/iobroker.lcn.png?downloads=true)
 
-# IoBroker.lcn
-Dieser Adapter ermöglicht die Verbindung des Local Control Network [LCN](https://www.lcn.eu/) mit ioBroker.
+# ioBroker.lcn
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+Dieser Adapter ermöglicht die Verbindung eines lokalen Steuerungsnetzwerks [(LCN)](https://www.lcn.eu/) mit ioBroker.
 
 ## Unterstützte Gateways
+
 - LCN-PKE
 
 ![pke](../../../en/adapterref/iobroker.lcn/img/lcn-pke.png)
@@ -23,12 +27,15 @@ Dieser Adapter ermöglicht die Verbindung des Local Control Network [LCN](https:
 
 ![pke](../../../en/adapterref/iobroker.lcn/img/lcn-pku.png)
 
-**Vergessen Sie nicht, dass `ioBroker.lcn` eine LCN-Verbindungslizenz blockiert.**
+**Vergiss das nicht `ioBroker.lcn` wird eine LCN-Verbindungslizenz blockieren.**
 
-Die Konfiguration und Module werden automatisch durch einen Scan erkannt, der manuell über den Konfigurationsdialog ausgelöst werden muss und jederzeit wiederholt werden kann.
+Die Konfiguration und die Module werden automatisch per Scan erkannt. Dieser Scan muss manuell über die Registerkarte „Module“ im Konfigurationsdialog ausgelöst werden und kann jederzeit wiederholt werden.
 
-## Arten
-Die folgenden Lese- und Schreibgruppen werden unterstützt:
+Erfordert Administratorrechte ab Version 7.8.23 (die Registerkarte „Module“ verwendet den Geräte-Manager).
+
+## Typen
+
+Folgende Lese- und Schreibgruppen werden unterstützt:
 
 - Analogwerte (Ausgang/Eingang)
 - Relais (Ausgang)
@@ -37,30 +44,45 @@ Die folgenden Lese- und Schreibgruppen werden unterstützt:
 - Variablen (Eingabe)
 
 ## Variablen
-Um die gültigen Konvertierungsfunktionen auf Variablen anwenden zu können, müssen die Variablen die gültigen Rollen haben. Die folgenden Rollen werden unterstützt:
 
-- **Wert.Temperatur** - Temperatur in Celsius
-- **Wert.Helligkeit** - Lux (I-Eingang) in Lux
-- **value.speed.wind** - Windgeschwindigkeit in m/s
-- **Wert.Spannung** - Spannung in Volt
-- **Wert.Strom** - Strom in Ampere
-- **value.sun.azimuth** - Sonnenazimut
-- **value.sun.elevation** - Sonnenhöhe
+Um gültige Konvertierungsfunktionen auf Variablen anwenden zu können, müssen die Variablen die entsprechenden Rollen besitzen. Folgende Rollen werden unterstützt:
+
+- **Wert.Temperatur** - Temperatur in Grad Celsius
+- **Wert.Helligkeit** - Lux (I- Eingabe) in Lux
+- **Wert.Geschwindigkeit.Wind** - Windgeschwindigkeit in m/s
+- **Wert.Spannung** – Spannung in Volt
+- **Wert.Stromstärke** - Stromstärke in Ampere
+- **Wert.Sonne.Azimut** - Sonnenazimut
+- **Wert.Sonnenhöhe** - Sonnenhöhe
+
+Fehlt eine dieser Rollen, wird der Rohwert angezeigt. Ausnahme: `VAR02` Und `VAR03` Die Werte (üblicherweise R1Var und R2Var der Regler) werden wie in den vorherigen Versionen in °C angezeigt. Wenn die Funktion einer Variablen geändert wird, liest der Adapter ihren Wert erneut vom Modul aus.
+
+Module mit einer Firmware vor Version 170206 verfügen nur über 3 Variablen (TVar, R1Var, R2Var). Sie werden wie folgt erstellt: `VARS.VAR01` -`VARS.VAR03` Module, die mit einer älteren Version des Adapters gescannt wurden, müssen erneut gescannt werden („Erneut scannen“ im Geräte-Manager), damit der Adapter die Firmware erkennt.
+
+Die Module senden die Werte der Variablen nicht immer selbstständig. Die Option „Variablen alle (Minuten) lesen“ in den erweiterten Einstellungen liest die Variablen aller Module zyklisch aus (`0` = aus). Die Variablen werden nacheinander gelesen, daher kann ein Durchlauf bei vielen Modulen einige Zeit in Anspruch nehmen.
 
 ## Anzeige
-Sie können bei jedem Gerät aktivieren, ob es ein Display hat oder nicht.
+
+Sie können für jedes Gerät aktivieren, ob es über ein Display verfügt oder nicht (Geräte-Manager: „Moduleinstellungen“).
 
 ## Regler (Regler)
-Bei jedem Gerät lässt sich einstellen, ob es Regler hat oder nicht.
+
+Für jedes Gerät können Sie aktivieren, ob es Regler hat oder nicht (Gerätemanager: „Moduleinstellungen“).
+
+## Ausgangsrelais
+
+Für jedes Gerät können Sie festlegen, wie viele Ausgangsrelais (0-8) erstellt werden sollen (Gerätemanager: „Moduleinstellungen“).
 
 ## Einstellungen
-- Verbindungswiederholungsintervall (Sek.) - wie oft der Adapter versucht, eine Verbindung herzustellen. Standardmäßig alle 30 Sekunden.
-- Verbindungstimeout (ms) – wie lange der Adapter auf eine Verbindungsantwort inklusive Authentifizierung wartet. Standardmäßig 6 Sekunden.
-- Scan-Antwort-Timeout (ms) – wie lange der Adapter auf Antworten durch den Scan der Module wartet.
-- Antwort-Timeout (ms) - Timeout für Steuerbefehle
-- Ping-Intervall (Sek.) - wie oft der Adapter Ping-Anfragen sendet
-- Ping-Antwort-Timeout (ms) - Timeout für Ping-Anfragen
-- IN/OUT-Relais sind gleich – ob die „Out“- und „In“-Relais dasselbe sind oder ob es sich bei diesen Relais um unterschiedliche handelt.
+
+- Wiederverbindungsintervall (Sek.) – Wie oft der Adapter versucht, eine Verbindung herzustellen. Standardwert: alle 30 Sekunden.
+- Verbindungstimeout (ms) – Wie lange der Adapter auf eine Verbindungsantwort inklusive Authentifizierung wartet. Standardwert: 6 Sekunden.
+- Antwort-Timeout beim Scan (ms) – wie lange der Adapter auf Antworten beim Scannen der Module wartet.
+- Antwort-Timeout (ms) – Zeitüberschreitung für Steuerbefehle
+- Ping-Intervall (Sek.) – wie oft der Adapter Ping-Anfragen sendet
+- Ping-Antwort-Timeout (ms) – Timeout für Ping-Anfragen
+- Variablen alle (min) lesen - die Variablen aller Module werden zyklisch gelesen. `0` = aus (Standardeinstellung)
+- IN/OUT-Relais sind gleich – wenn es sich bei den "out"- und "in"-Relais um dasselbe handelt oder wenn es sich um unterschiedliche Relais handelt.
 
 ```
 // =====================  Same relays =============================
@@ -69,15 +91,15 @@ Bei jedem Gerät lässt sich einstellen, ob es Regler hat oder nicht.
 //                                    | Relay |
 // <----------------- IN ------------ |       |
 //                                    +-------+
-//
-//
+// 
+// 
 // ======================  Different relays =======================
 //                                    +-------+
 //                                    |       |
 // ----------------- OUT -----------> | Relay |
 //                                    |       |
 //                                    +-------+
-//
+// 
 //                                    +--------+
 //                                    | Sensor |
 // <----------------- IN ------------ |   or   |
@@ -85,86 +107,82 @@ Bei jedem Gerät lässt sich einstellen, ob es Regler hat oder nicht.
 //                                    +--------+
 ```
 
-## Wie benutzt man
-Nach dem ersten Start müssen die Geräte gescannt werden. Dies kann im Konfigurationsdialog mit dem Scan-Button erfolgen
+## Anleitung zur Verwendung
 
-![Scan](../../../en/adapterref/iobroker.lcn/img/scanButton.png)
+Nach dem ersten Start müssen die Geräte gescannt werden. Öffnen Sie im Konfigurationsdialog den Tab „Module“ und klicken Sie im Geräte-Manager auf die Scan-Schaltfläche (Lupensymbol). Geben Sie die höchste zu scannende Moduladresse ein (z. B. 1234). `250` oder eine Spanne wie `5-30` Die
 
-## Zu tun
-- Konfigurationsdialog zum Definieren des Variablentyps.
+Wenn der Bus Segmentkoppler besitzt, geben Sie die zu scannenden Segmente durch Kommas getrennt ein (z. B. `0, 5, 7`). `0` Das Gateway ist mit seinem eigenen Segment verbunden (dem Segment, mit dem es verbunden ist). Alle anderen Segmente werden über ihre Segment-ID adressiert. Die Segmente werden nacheinander gescannt. Die Module erhalten die IDs. `S<segment>.M<module>` z.B. `lcn.0.S005.M010` Die
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+Jedes gefundene Modul hat die folgenden Aktionen:
 
-### **IN ARBEIT** -->
+- **Moduleinstellungen** – Anzahl der Ausgangsrelais, Anzeige und Regler
+- **Scannen Sie erneut** – lesen Sie Name, Kommentar, Seriennummer und Status dieses Moduls erneut (im Segment des Moduls).
+
+## Message-API
+
+- `sendTo('lcn.0', 'scan', { max: '250', segment: 0 }, result => ...)` - einen Abschnitt des Busses scannen (`max` kann sein `"max"` oder `"min-max"`, `segment` ist optional: `0` = eigenes Segment, andernfalls die Segment-ID). Ergebnis: `{ total, _new }` oder `{ error }`
+- `sendTo('lcn.0', 'getAll', null, devices => ...)` - Liste aller Module `[{ id, common, native }]`
+- `lcn.0.scan.manual` - schreiben `*` um die Zustände aller Module zu lesen oder `S0:6` den Status von Segment 0, Modul 6 lesen
+
+## Aufgaben
+
+- Konfigurationsdialog zur Definition des Variablentyps.
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 2.0.3 (2024-09-04)
-* (bluefox) Added translations
+### 4.0.0 (2026-11-13)
+* (GermanBluefox) Added concurrency configuration to the test-and-release workflow to cancel outdated runs (#118)
+* (GermanBluefox) Fixed repochecker warnings: size attributes in the configuration, Sentry notice, dependabot cooldown (#132)
 
-### 2.0.2 (2024-09-03)
-* (bluefox) Corrected checking of licenses with license manager
+### 4.0.0-beta.3 (2026-11-03)
+- (bluefox) Fixed: `VAR02` and `VAR03` were converted twice, if a role like `value.temperature` was set. Without such a role they are still shown in °C
+- (bluefox) Fixed: the scan wrote the values of the variables without the conversion of their role
+- (bluefox) The value of a variable is read again from the module, when its role is changed
 
-### 2.0.1 (2024-08-07)
-* (bluefox) Disable possibility to install via git
+### 4.0.0-beta.2 (2026-11-03)
+- (bluefox) Fixed: commands could get stuck in the queue, if several commands waited behind a command, that waits for an answer
+- (bluefox) Fixed: variables of modules with a firmware before 170206 (only 3 variables) were not created. These modules must be scanned again (#22)
+- (bluefox) Added option to read the variables of all modules cyclically (#22)
+- (bluefox) Values without the number of the variable are ignored now. Before, the adapter logged an error for `MEASURES.MEASURE`
 
-### 2.0.0 (2024-08-06)
-* (bluefox) Made adapter compatible with js-controller 6
-* (bluefox) A minimum supported node.js version is 18
+### 4.0.0-beta.1 (2026-11-03)
+- (bluefox) Modules in other segments can be scanned: the scan dialog accepts a list of segments (#53)
 
-### 1.1.8 (2023-11-13)
-* (bluefox) Added SUM inputs
-
-### 1.1.7 (2023-11-06)
-* (bluefox) Corrected setting of undefined values
-
-### 1.1.1 (2022-10-19)
-* (bluefox) Corrected license check
-
-### 1.1.0 (2022-10-18)
-* (bluefox) Corrected issue with password
-
-### 1.0.4 (2021-05-21)
-* (bluefox) Ack will be ignored for the display commands
-
-### 1.0.3 (2021-05-21)
-* (bluefox) Changed the calculation of the temperature variables
-
-### 1.0.2 (2020-10-11)
-* (bluefox) Implemented the regulators and the display support.
-
-### 0.6.3 (2019-12-18)
-* (bluefox) General relays mode implemented
-
-### 0.6.2 (2019-12-07)
-* (bluefox) Detected delayed responses
-* (bluefox) Dynamical creation of states is implemented
-
-### 0.5.5 (2019-12-05)
-* (bluefox) Relay inputs were corrected
-
-### 0.5.4 (2019-12-04)
-* (bluefox) Connection indication was corrected
-
-### 0.5.1 (2019-11-29)
-* (bluefox) Finger scanner supported
-* (bluefox) Added possibility to set the analog mode
-* (bluefox) Relay outputs are supported now
-
-### 0.4.4 (2019-11-26)
-* (bluefox) Fixed error by parsing of acknowledgement
-
-### 0.4.2 (2019-06-12)
-* (bluefox) Support of old measure values was added
-
-### 0.3.2 (2018-11-19)
-* (bluefox) add variables support
-
-### 0.2.1
-* (bluefox) initial release
+### 4.0.0-beta.0 (2026-11-03)
+- (bluefox) Breaking change: Adapter requires admin >= 7.8.23 now
+- (bluefox) The adapter was refactored to TypeScript
+- (bluefox) The configuration dialog was migrated to JsonConfig. The modules are scanned and configured in the device manager
+- (bluefox) Fixed: the adapter reconnected to LCN after it was stopped and did not finish the stop correctly
+- (bluefox) Fixed: `ir.lowbat` was never set
+- (bluefox) Fixed: finger sensor codes were written into `ir.serial` instead of `finger.code`
+- (bluefox) Fixed: a failed authentication on LCN-PCHK was not recognized
+- (bluefox) Fixed: regulator states of scanned modules were recreated on every change of the device object
+- (bluefox) Fixed: writing a state, whose object cannot be read, could crash the adapter
 
 ## License
-CC-BY-NC-4.0
+The MIT License (MIT)
 
-Copyright (c) 2018-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2024 Denis Haev <dogafox@gmail.com> Private License  
+Copyright (c) 2025-2026 Denis Haev <dogafox@gmail.com> MIT License
 
-Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

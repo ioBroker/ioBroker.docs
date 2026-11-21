@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.traccar/README.md
 title: ioBroker.traccar
-hash: B6pSwUemQkhaoruN++f1KbSVfU13QkGHzEM8iblGHcA=
+hash: KzFo/Cnh52M/l0QGTW7ilGEg965WWa1XO0TrbNyGHPg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
 ![Количество установок (последние)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![Количество установок (стабильных)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
@@ -28,7 +28,17 @@ hash: B6pSwUemQkhaoruN++f1KbSVfU13QkGHzEM8iblGHcA=
 4. Сохраните настройки
 5. Веселиться :)
 
+Интервал обновления указывается в секундах (по умолчанию: 120). Адаптер также продолжает обрабатывать обновления в реальном времени, получаемые через WebSocket Traccar.
+
 ## Changelog
+### 1.2.4 (2026-11-08)
+* (arteck) fix geofence traccar version > 5.8 in some situations
+
+### 1.2.2 (2026-10-17)
+* (arteck) Dependencies have been updated
+* (arteck) add geofence state
+* (arteck) auto server version identification
+
 ### 1.2.1 (2026-08-06)
 + (copilot) Adapter requires node.js >= 22 now
 * (arteck) add version check re-runs every 24 hours
@@ -39,15 +49,6 @@ hash: B6pSwUemQkhaoruN++f1KbSVfU13QkGHzEM8iblGHcA=
 
 ### 1.1.7 (2026-04-14)
 * (arteck) Dependencies have been updated
-
-### 1.1.6 (2024-10-28)
--   (arteck) dependency update
-
-### 1.1.5 (2024-09-26)
--   (arteck) transfer to arteck 
--   (arteck) add accuracy
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.traccar/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

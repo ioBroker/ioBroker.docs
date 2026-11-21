@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.samsungtv/README.md
 title: iobroker.samsungtv
-hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
+hash: /4He+DxR4cSNgyqzqxoFKMhjTcTaqTWWmNNqvnauBgU=
 ---
 <img src="admin/samsung.svg" alt="Samsung TV logo" width="180">
 
@@ -19,6 +19,7 @@ hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
 
 - Автоматическое обнаружение через SSDP/UPnP и опционально mDNS
 - Одновременное подключение нескольких телевизоров: `samsungtv.0.<tvname>.*`
+- Несколько адаптеров позволяют разделить телевизоры по местоположению или назначению.
 - API Tizen WebSocket (8001/8002) + сопряжение/токен
 - Парное соединение PIN-кодов серии H/J (по мере возможности)
 - Функция Wake-on-LAN (опционально)
@@ -37,6 +38,7 @@ hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
 - **Тайм-аут обнаружения**
 - **Включить SSDP** / **Включить источники обнаружения mDNS**
 - **Включить функцию пробуждения по локальной сети (Wake-on-LAN)**
+- **Состояние питания после команды питания** : _Отображать немедленно_ (по умолчанию) устанавливает `state.power` и признает `control.power` Как только будет отправлена команда. _Дождитесь, пока телевизор_ покинет помещение. `state.power` в последнем подтвержденном состоянии и `control.power` Состояние остается неподтвержденным до тех пор, пока опрос не подтвердит новое состояние. Если телевизор не подтвердит команду в течение 30 секунд после ее выполнения, или команда не будет выполнена, оба состояния устанавливаются в измеренное состояние.
 - **Сервисы mDNS** в экспертном режиме (разделенные запятыми, с наилучшими усилиями)
 
 ### Добавить устройства
@@ -51,8 +53,11 @@ hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
 
 - **Tizen** : при нажатии **кнопки «Сопряжение»** на экране телевизора появляется запрос (обычно **«Разрешить/Отменить** », без ввода PIN-кода). Подтвердите сопряжение на телевизоре.
 - **Серия H/J** : нажмите **«Сопряжение»** → «Телевизор показывает PIN-код» → введите PIN-код в диалоговом окне.
+- **Tizen, токен уже известен** : нажмите **«Установить токен»** и вставьте токен вместо подтверждения на телевизоре. Адаптер проверяет токен на телевизоре перед сохранением в зашифрованном виде.
 
 Динамический реестр устройств хранится в каталоге данных постоянного экземпляра ioBroker, поэтому действия Диспетчера устройств не могут быть перезаписаны уже открытой формой настроек. Токены/идентификаторы в этом реестре зашифрованы с помощью системного секрета ioBroker, а запись в файл осуществляется только с правами владельца. Существующие `native.devices` и зашифрованный `native.tokens` Значения импортируются автоматически при первом запуске.
+
+Поддерживается несколько экземпляров адаптеров. Каждый экземпляр имеет свою собственную конфигурацию, пространство имен объектов, реестр устройств, секреты сопряжения, таймеры и сетевые прослушиватели. Не добавляйте один и тот же телевизор к нескольким экземплярам, поскольку одновременный опрос и команды могут мешать друг другу. Устаревшая конфигурация из `samsung.0` импортируется только `samsungtv.0`.
 
 Если во время сопряжения **не появляется соответствующее сообщение** :
 
@@ -126,6 +131,9 @@ hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- Add an optional **Wait for the TV** power state mode: `state.power` only changes once the TV confirms, and `control.power` stays unacknowledged until then.
+- Add a **Set token** Device Manager action that verifies a known Tizen token before storing it.
+- Poll every 2 s for up to 30 s after a power command until the TV reports the new state.
 - Add absolute volume and mute (`control.volume`, `control.muted`) over UPnP RenderingControl.
 - Fall back to the well-known RenderingControl endpoint when SSDP returns nothing.
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
@@ -152,6 +160,6 @@ hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
 Older changes are documented in CHANGELOG_OLD.md.
 
 ## License
-MIT
+[MIT License](LICENSE)
 
-Copyright (c) 2026 softwarecrash
+Copyright (c) 2026 softwarecrash <dev/null@softwarecrash.de>

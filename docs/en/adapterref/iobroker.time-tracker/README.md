@@ -36,6 +36,9 @@ PIN. All data stays on your own ioBroker host: no cloud, no subscription.
 
 - ioBroker with js-controller >= 6.0.11 and **Node.js >= 22** (required by the bundled SQLite driver)
 - HTTPS for the app on a phone (the service worker needs it) — a reverse proxy with Let's Encrypt is recommended
+- **Compact mode** is supported: the instance may share a process with other adapters (compact group `1` or higher). The
+  database work is synchronous, so on a weak host (e.g. a Raspberry Pi) or with many employees choose compact group `0`
+  in the instance settings — the adapter then runs in a process of its own, as before.
 
 ## Installation
 
@@ -183,8 +186,8 @@ Everything is served on the port of the instance settings:
 | `/` (and all other paths) | the web app from `www/` — punch screen, month, year report, absences, profile |
 | `/api/...`                | the REST API (JSON; errors as `application/problem+json`)                     |
 | `/api/stream`             | live events, so the app updates itself without a reload                       |
-| `/terminal?token=…`       | the kiosk screen (badge and PIN)                                              |
-| `/presence?token=…`       | the board “who is at work right now”                                          |
+| `/terminal/<token>/`      | the kiosk screen (badge and PIN)                                              |
+| `/presence/<token>/`      | the board “who is at work right now”                                          |
 
 The board shows every employee with the state of the day. The **worked time of today** appears next to it
 (`1:23`, `0:00` before the first punch of the day) once the **work profile** of that employee allows it
@@ -198,8 +201,12 @@ token — it is shown **exactly once**, because only its hash is stored. The rea
 next to it:
 
 ```
-http://<ioBroker host>:<port>/terminal?token=<device token>
+http://<ioBroker host>:<port>/terminal/<device token>/
 ```
+
+The token sits in the path, so a tablet keeps it when the page is added to the home screen (iOS saves the start
+address of an installed app without its query). Older links of the form `/terminal?token=…` and `/presence?token=…`
+still work: the adapter sends them to the new address.
 
 The screen offers the badge field (scan or type, Enter punches), the employee list for the name plus PIN punch, the
 clock and — after every punch — name, direction and the figures of that day for a few seconds. A device can be
@@ -543,6 +550,19 @@ The documentation is English ([`docs/en/`](https://github.com/sadam6752-tech/ioB
 
 ### **WORK IN PROGRESS**
 
+### 0.8.2 (2026-11-20)
+
+- (Alex) change: the adapter supports the **compact mode** (`common.compact: true`, decision D2); compact group `0`
+  keeps it in a process of its own.
+- (Alex) chore: `@iobroker/testing` 6.3.2, the changelog links to `CHANGELOG_OLD.md` (repository checker).
+
+### 0.8.1 (2026-11-14)
+
+- (Alex) fix: the address of the kiosk terminal and of the presence board carries the device token in its path
+  (`/terminal/<token>/`, `/presence/<token>/`). iOS saves a page to the home screen without its query, so a tablet
+  started from the home screen came up without its token; the app with its manifest now lives below the path of the
+  token. Older links with `?token=` are sent to the new address.
+
 ### 0.8.0 (2026-10-18)
 
 - (Alex) chore: the request bodies of the REST API are checked with zod (D22); the messages are worded as before, and
@@ -561,21 +581,7 @@ The documentation is English ([`docs/en/`](https://github.com/sadam6752-tech/ioB
 - (Alex) docs: the help of the field _Server fingerprint_ says what to do: copy the fingerprint from the answer of
   **Test connection** or from the log after the first backup.
 
-### 0.7.25 (2026-10-13)
-
-- (Alex) feat: **copy of every backup to an external server over SFTP** (tab _Migration and backup_): password stored
-  encrypted, fingerprint pinning of the host key, upload under a temporary name with a size check, retention only for the
-  adapter's own backup files, **Test connection** button, states `info.lastRemoteBackup` and `info.remoteBackupError`.
-
-### 0.7.24 (2026-10-12)
-
-- (Alex) chore: own run of the reviewer's checklist (V3.5) against the repository: **no text of any language equals the
-  English wording any more** (web app, report labels, object names, admin; also words that are valid in the language,
-  such as `Port`, `Menu`, `Terminal` – a unit test keeps it that way), seven unused translation keys are removed from the
-  11 language files of the web app, and the documentation no longer shows a command that installs from GitHub or from a
-  folder.
-
-Older entries are kept in `CHANGELOG_OLD.md`.
+Older changes are listed in CHANGELOG_OLD.md.
 
 ## Provenance
 

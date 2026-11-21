@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosch-smart-home-camera/README.md
 title: ioBroker.bosch-smart-home-camera
-hash: ooTH2kNAZDGBdbuMATe4N18Gutd4WdTsT5IOF0U13IQ=
+hash: 8sZSufF7VXelkKNfVrRBBZhsbdIIdZYXWijSrtwvrvI=
 ---
 # ioBroker.bosch-smart-home-camera
 
@@ -81,6 +81,7 @@ Die per Reverse Engineering entwickelte API der Bosch Smart Home Kamera wird üb
 | **Bewegungszonen / Sichtschutzmasken**                                                   | ✅ Lesen + Schreiben                                                                                      | ✅ Lesen + Schreiben                                                                | ✅ Lesen + Schreiben _(v1.8.0)_                                                                    | ✅ Abrufen / Festlegen / Löschen _(v1.7.0)_                                                                           | ❌ _(Noch kein visueller Editor verfügbar)_                                                     | ❌                                                                            |
 | **Automatisierungsregeln / Zeitpläne**                                                   | ✅ Lesen + Schreiben                                                                                      | ✅ Lesen + Schreiben                                                                | ✅ Vollständige CRUD-Funktionalität _(v1.8.0)_                                                     | ✅ Auflisten / Hinzufügen / Bearbeiten / Löschen _(v1.7.0)_                                                           | ✅ vollständige CRUD-Funktionalität (Auflisten/Hinzufügen/Bearbeiten/Löschen)                   | ❌                                                                            |
 | **Beleuchtungsplan**                                                                     | ✅ lesen (Schreiben über den Dienst, nur Gen1 Eyes Outdoor)                                               | ✅ Lesen + Schreiben                                                                | ✅ gelesen _(nur Gen1, Version 1.2.0)_                                                             | ✅ Abrufen / Festlegen _(v1.7.0)_                                                                                     | ✅ Lesen + Schreiben _(Outdoor-Kameras von Eyes)_                                               | ❌                                                                            |
+| **Lokale Datenschnittstelle (Gen2, FW 9.40.105+)**                                       | ✅ Vollständig lokaler Stream über go2rtc, keine Cloud, kein Fallback                                     | ✅`live` /`stream` Lesen Sie die Kamera direkt über das LAN aus.                    | ✅ Status + direkter lokaler Zugang `stream_url`                                                    | ✅ Status + lokale Stream-URL                                                                                         | ✅ Live-Ansicht + Aufzeichnung über go2rtc, keine Cloud-Sitzung                                 | ✅ Lokale Stream-URL auf dem Stream-URL-Knoten                                |
 | **Cloud-Clip-Download (Verlauf \~30 Tage)**                                              | ✅ über den Medienbrowser                                                                                 | ❌                                                                                  | ❌ _(geparkt – noch keine Anfrage aus der Community)_                                              | ❌ _(absichtlich nicht offengelegt – große Nutzlasten)_                                                               | ❌ _(Befehlszeile verwenden)_                                                                   | ◑`clip_url` in Ereignisnutzlast                                              |
 | **Mini-NVR (lokale Aufzeichnung)**                                                       | ✅ kontinuierlich + ereignisgepuffert, Ringpuffer-Vorabrollung _(v11.2.0 BETA → v14.7.0 Modi)_            | ◑ Ereignisgesteuerte Segmentmultiplexierung, kein Vorlaufring _(v10.7.0 BETA)_     | ❌ _(delegiert an einen externen Recorder über einen RTSP-Endpunkt ohne Anmeldeinformationen)_     | ❌ _(kein NVR-Konzept)_                                                                                               | ◑ Nur kontinuierlich, keine ereignisgepufferte Verarbeitung _(v0.4.0-alpha)_                   | ◑ Nur kontinuierlich über `bosch-camera-nvr-record` Node _(v0.4.0-alpha)_     |
 | **SMB-/NAS-Clip-Upload**                                                                 | ✅                                                                                                        | ✅ _(v10.7.0 BETA)_                                                                 | ❌                                                                                                 | ❌                                                                                                                    | ❌                                                                                              | ❌                                                                            |
@@ -138,7 +139,7 @@ Dieser Adapter kommuniziert mit einer per Reverse Engineering entwickelten, undo
 
 **Falls die Schaltfläche „Admin“ nicht verfügbar ist** (sehr alte ioBroker-Admin-Versionen): Der Adapter veröffentlicht die Anmelde-URL auch als Statusobjekt – offen `Objects → bosch-smart-home-camera.0 → info → login_url` Klicken Sie auf den Wert, um den Anmeldevorgang zu starten. Der Schritt zum Weiterleiten und Einfügen ist derselbe.
 
-**Wenn der Autorisierungscode abläuft** (Sie werden sehen `code expired` Wenn Sie nach dem Einfügen im Protokoll etwas sehen, keine Panik – klicken Sie einfach erneut auf „Bosch-Login im Browser öffnen“. Der Adapter generiert bei jedem Klick eine neue URL.
+**Wenn der Autorisierungscode abläuft** (Sie werden sehen `code expired` (Wenn Sie nach dem Einfügen im Protokoll etwas sehen), keine Panik – klicken Sie einfach erneut auf „Bosch-Login im Browser öffnen“. Der Adapter generiert bei jedem Klick eine neue URL.
 
 Falls das Aktualisierungstoken jemals abgelehnt wird (nach einer Änderung des Bosch-Passworts oder einer längeren Ausfallzeit), protokolliert der Adapter eine neue Anmelde-URL und Sie wiederholen die Schritte 3–5.
 
@@ -316,8 +317,8 @@ Datenpunkte pro Kamera unter `cameras.<id>.*`:
 | `snapshot_path`                                                                                                     | Zeichenkette                   | Dateispeicherpfad für das letzte JPEG                                                                                                                                                                                                        |
 | `last_event_image`                                                                                                  | Zeichenkette                   | Base64 `data:image/jpeg;base64,…` (automatische Schnappschussaufnahme bei Bewegung)                                                                                                                                                           |
 | `last_event_image_at`                                                                                               | Zeichenkette                   | ISO 8601-Zeitstempel des letzten Ereignisbildes                                                                                                                                                                                              |
-| `motion_trigger`                                                                                                    | boolescher Wert                | Schreiben `true` um ein synthetisches Bewegungsereignis einzufügen                                                                                                                                                                            |
-| `motion_trigger_event_type`                                                                                         | Zeichenkette                   | `motion`/`person` / `audio_alarm`                                                                                                                                                                                                            |
+| `motion_trigger`                                                                                                    | boolescher Wert                | Schreiben `true` ein synthetisches Bewegungsereignis einfügen                                                                                                                                                                                 |
+| `motion_trigger_event_type`                                                                                         | Zeichenkette                   | `motion` /`person` / `audio_alarm`                                                                                                                                                                                                           |
 | `motion_active`                                                                                                     | boolescher Wert                | Flankenauslösung: `true` für 90 Sekunden nach der Bewegung, dann `false`                                                                                                                                                                      |
 | `last_motion_at`                                                                                                    | Zeichenkette                   | ISO 8601-Zeitstempel des letzten Bewegungsereignisses                                                                                                                                                                                        |
 | `last_motion_event_type`                                                                                            | Zeichenkette                   | `motion` /`person` / `audio_alarm`                                                                                                                                                                                                           |
@@ -346,7 +347,7 @@ Datenpunkte pro Kamera unter `cameras.<id>.*`:
 | `motion_zones`                                                                                                      | Zeichenkette (JSON)            | Bewegungssensitive Zonen, Rohdaten `{x,y,w,h}` Array (schreibgeschützter Spiegel)                                                                                                                                                             |
 | `motion_zones_count`                                                                                                | Nummer                         | Anzahl der konfigurierten Bewegungszonen                                                                                                                                                                                                     |
 | `motion_zones_set`                                                                                                  | Zeichenkette (JSON, schreiben) | **v1.8.0** — ein JSON-Array schreiben `{x,y,w,h}` (0,0–1,0) alle Zonen ersetzen; `[]` räumt sie                                                                                                                                                |
-| `privacy_masks`                                                                                                     | Zeichenkette (JSON)            | Sichtschutzmasken, Rohmaterial `{x,y,w,h}` Array (schreibgeschützter Spiegel)                                                                                                                                                                 |
+| `privacy_masks`                                                                                                     | Zeichenkette (JSON)            | Sichtschutzmasken, roh `{x,y,w,h}` Array (schreibgeschützter Spiegel)                                                                                                                                                                         |
 | `privacy_masks_count`                                                                                               | Nummer                         | Anzahl der konfigurierten Datenschutzmasken                                                                                                                                                                                                  |
 | `privacy_masks_set`                                                                                                 | Zeichenkette (JSON, schreiben) | **v1.8.0** — ein JSON-Array schreiben `{x,y,w,h}` (0,0–1,0) alle Masken ersetzen; `[]` räumt sie                                                                                                                                               |
 | `rules`                                                                                                             | Zeichenkette (JSON)            | Automatisierungsregeln, Roharray von `{id,name,isActive,startTime,endTime,weekdays}`                                                                                                                                                         |
@@ -433,7 +434,7 @@ Sehen[`docs/vis-2-example/README.md`](./docs/vis-2-example/README.md) Die Schrit
 
 Der Adapter enthält zwei integrierte **VIS-2-Widgets** (React / Module-Federation, erstellt aus `src-widgets/`) die ohne Import einer JSON-Datei in jede VIS-2-Ansicht eingefügt werden können.
 
-**Voraussetzungen:** VIS-2-Adapter ≥ 2.13 installiert und funktionsfähig.
+**Voraussetzungen:** VIS-2-Adapter ≥ 2.20.2 muss installiert und funktionsfähig sein.
 
 ---
 
@@ -532,7 +533,7 @@ flowchart TD
     L -.->|register fail<br/>3x| Poll[Polling fallback<br/>every 30s<br/>info.fcm_active=polling]
 ```
 
-Hinweis zum **Live-Streaming im Browser** : Kein Browser unterstützt RTSP nativ. Der Adapter veröffentlicht eine kameraspezifische Kennung. `stream_url` (`rtsp://<user>:<password>@127.0.0.1:<port>/rtsp_tunnel?…`) über einen lokalen TLS-Proxy zur Verwendung mit ffmpeg / mpv /`iobroker.cameras` / go2rtc. Für VIS selbst verwenden Sie entweder die Snapshot-Aktualisierung im Beispiel-Dashboard oder stellen Sie eine Brücke über go2rtc → WebRTC/HLS her.
+Hinweis zum **Live-Streaming im Browser** : Kein Browser unterstützt RTSP nativ. Der Adapter veröffentlicht eine kameraspezifische Kennung. `stream_url` (`rtsp://<user>:<password>@127.0.0.1:<port>/rtsp_tunnel?…`) über einen lokalen TLS-Proxy zur Verwendung mit ffmpeg / mpv /`iobroker.cameras` / go2rtc. Für VIS selbst entweder die Snapshot-Aktualisierung im Beispiel-Dashboard verwenden oder über go2rtc → WebRTC/HLS eine Brücke herstellen.
 
 ### `stream_url` ist leer / go2rtc meldet "Verbindung abgelehnt"
 
@@ -836,6 +837,27 @@ HA bleibt die **Referenzimplementierung** – Funktionen landen zuerst dort; die
 ---
 
 ## Changelog
+
+### 1.11.2 (2026-11-18)
+- Added: the vis-2 camera widget shows a hint under the play button when the go2rtc live view cannot start (e.g. https page with an http go2rtc URL, unknown stream name).
+
+### 1.11.1 (2026-11-18)
+- Added: `ifInstalledDependencies` requires vis-2 >= 2.20.2, so an adapter update cannot break an older vis-2.
+
+### 1.11.0 (2026-11-18)
+- Updated: vis-2 widgets rebuilt for React 19 and MUI 9 (vis-2 >= 2.20.2 needed), see ioBroker/ioBroker.vis-2#689.
+- Updated: security updates for transitive dependencies (follow-redirects, node-forge).
+
+### 1.10.4 (2026-10-23)
+- Updated: mqtt and the widget build dependencies; security updates for follow-redirects and ip-address.
+
+### 1.10.3 (2026-10-12)
+- Fixed: a stale FCM device token is now logged out after a confirmed registration.
+- Fixed: lighting writes are serialized per camera (no lost updates, no front-light / wall-washer toggle fighting); stale poll results are dropped; front-light and wall-washer results are acknowledged separately.
+- Fixed: the first feature-flags fetch is retried once after a timeout (single timer).
+
+### 1.10.2 (2026-10-06)
+- Fixed: the Gen2 front-light white balance is now applied even while the light is off or at brightness 0. The value is held until the light is next switched on; if the light is on with cached brightness 0, the last non-zero brightness is restored. Writes are serialized per camera.
 
 ### 1.10.1 (2026-09-30)
 - Fixed: the direct local stream URL now uses `/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1` instead of `/live`, so the stream carries audio and follows the `stream_quality` setting (high = inst 1, low = inst 2).
@@ -1284,4 +1306,4 @@ Older releases (0.0.1 – 0.3.3) are archived in CHANGELOG_OLD.md.
 
 MIT License — see [LICENSE](./LICENSE).
 
-Copyright (c) 2026 mosandlt
+Copyright (c) 2026 mosandlt <Info@mosandl.eu>

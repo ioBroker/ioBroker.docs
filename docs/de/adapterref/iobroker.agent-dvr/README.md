@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.agent-dvr/README.md
 title: ioBroker.agent-dvr
-hash: 1YxfO3T4Ts/pjnklvOMZpcs+YtVBbpv4iQ63lzFnChE=
+hash: ohtgpxpNavUZkt/nkbGJdtkMO1lW7y1qktPf9E/2LCo=
 ---
 ![Logo](../../../en/adapterref/iobroker.agent-dvr/admin/agent-dvr.png)
 
@@ -26,6 +26,33 @@ Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automat
 
 - ioBroker mit `iobroker.web` Adapter
 - **AgentDVR ≥ 7.8.0.0** – frühere Versionen weisen einen Fehler auf `streamFile.cgi` Ein Endpunkt (fehlerhafte Chunked-Codierung, falscher MIME-Typ) verhindert die Wiedergabe von Aufnahmen im integrierten Dashboard. Der Entwickler hat bestätigt, dass die Korrektur in Version 7.8.0.0 enthalten ist.
+
+## Highlights
+
+### Widgets (Webkomponenten) für AURA, vis-2, Geräte und andere Visualisierungen
+
+Die Aufnahmegalerie, die Live-Kachel und die Live-Übersicht sind auch als Webkomponenten verfügbar (`@iobroker/web-components` AURA (0.106.0+, 0.112.0+ empfohlen), vis-2 (2.20.7+), der Geräteadapter (4.3.0+) und alle anderen Visualisierungen, die Webkomponenten unterstützen, listen sie in ihrer Widget-Palette auf – eine HTML-Bindung ist nicht erforderlich. Sie werden nativ im Browser gerendert, anstatt die HTML-Datenpunkte anzuzeigen, sodass ein Seitenneuladen einen geöffneten Player nicht schließt.
+
+- **Agent DVR-Aufnahmen** – die Aufnahmegalerie einer Kamera mit Such- und Tag-Filter, integriertem Player oder externer Player-URL
+- **Agent DVR Live-Kamera** – die Live-Kachel einer Kamera; das Bild wird im Browser aktualisiert, ein Klick öffnet den Live-Stream.
+- **Agent DVR Live-Übersicht** – die Live-Kacheln aller Kameras einer Instanz
+- **Quelle** : Entweder _Widget aus den Adaptereinstellungen_ (alle Einstellungen des Widget-Tabs der Instanz) oder _eigene Einstellungen hier_ – jede Widget-Einstellung der Instanz (Modus, Anzahl, Miniaturansichtsgröße, Tags, Sortierung, Suche, Standard-Tag, kompaktes Layout, Player, Seitenverhältnis, Aktualisierungsintervall, Farben, Radius der Ecken) pro Widget
+- Übernimmt optional die Farben des Visualisierungsthemas
+- Es werden keine Anmeldeinformationen benötigt: Die Bilder und Videos verwenden dieselben AgentDVR-Links wie die HTML-Widgets; die Daten stammen von `widget_config` Und `<cam>.widget_data`
+
+### Benachrichtigungen (Kamera offline, Person/Tier/Fahrzeug erkannt, neue Aufnahme)
+
+- Ein separater **Benachrichtigungsreiter** : Jede Benachrichtigungsart kann einzeln aktiviert werden – Kamera offline, Kamera wieder online, Agent-DVR-Server offline/online, Personen-, Tier-, Fahrzeug- oder sonstige Erkennung, neue Aufnahme – pro Kamera über eine Kontrollkästchenliste aktivierbar.
+- Benachrichtigungen werden an das ioBroker-Benachrichtigungssystem (Glocke im Adminbereich) gesendet; der **Benachrichtigungsmanager-** Adapter leitet sie weiter, z. B. an Telegram oder E-Mail – Messenger-Einstellungen sind in diesem Adapter nicht verfügbar.
+- **„Kamera offline“** wird gemeldet, wenn eine im Agent DVR eingeschaltete Kamera für die eingestellte Zeit (standardmäßig 10 Minuten) nicht verbunden ist. Ohne Verbindung gibt es kein Bild und keine Bewegungserkennung; kurze Ausfälle, wie z. B. ein Neustart der Kamera, werden nicht gemeldet.
+- Neue Datenpunkte pro Kamera: `status.offlineSince` Und `status.offlineAlarm` für Ihre eigenen Skripte und Visualisierungen
+
+### Aufnahmen im ioBroker-Dateispeicher und als Telegram-Video
+
+- **Die letzten Aufnahmen im ioBroker-Dateispeicher bereitstellen** (standardmäßig deaktiviert): Jede neue Aufnahme einer Kamera wird von AgentDVR heruntergeladen und gespeichert als `rec1` …`rec3` pro Kamera — mit Dateipfad, `iobfile://` URI und http URL in `<cam>.recordings.*`, genau wie die Alarmfotos
+- Optional auch als **MP4** (verlustfreier Remux mit ffmpeg, keine Neukodierung) – überall abspielbar, auch direkt in Telegram.
+- ** `sendRecording` ** sendet die letzte, eine gespeicherte oder eine beliebige Aufnahme direkt als Video an Telegram (oder eine andere Instanz);** `getRecording` ** stellt es als Datei für Ihre eigenen Skripte zur Verfügung.
+- Details: [Aufnahmen im Dateispeicher](#recordings-in-the-file-storage)
 
 ## Merkmale
 
@@ -80,9 +107,23 @@ Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automat
 
 **Veranstaltungen**
 
-| Einstellung         | Beschreibung                                                                     | Standard |
-| ------------------- | -------------------------------------------------------------------------------- | -------- |
-| Ereignisdatenpunkte | Metadaten der Spiegelaufzeichnung (letztes Ereignis, Anzahl, Tags, …) pro Kamera | `true`   |
+| Einstellung                          | Beschreibung                                                                                                             | Standard    |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| Ereignisdatenpunkte                  | Metadaten der Spiegelaufzeichnung (letztes Ereignis, Anzahl, Tags, …) pro Kamera                                         | `true`      |
+| Speichern Sie Benachrichtigungsfotos | Speichern Sie das Foto jeder Webhook-Benachrichtigung im Dateispeicher (siehe [Benachrichtigungsfotos](#alert-photos) ). | `true`      |
+| Webinstanz für Fotolinks             | Die Webinstanz wird für die `url*` Links zu Fotos und Aufnahmen von Alarmsituationen                                      | automatisch |
+
+**Aufzeichnungen im Dateispeicher** – siehe [Aufzeichnungen im Dateispeicher](#recordings-in-the-file-storage)
+
+| Einstellung                                                              | Beschreibung                                                                                                               | Standard |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Stellen Sie die letzten Aufzeichnungen im ioBroker-Dateispeicher bereit. | Laden Sie jede neue Aufnahme herunter und speichern Sie sie pro Kamera.                                                    | `false`  |
+| Kameras                                                                  | Alle Kameras oder eine Auswahl (für die Liste muss eine laufende Instanz erforderlich sein)                                | alle     |
+| Anzahl der gespeicherten Aufnahmen pro Kamera                            | 1, 2 oder 3 (`rec1` = neueste)                                                                                             | `1`      |
+| Maximale Größe (MB)                                                      | Größere Aufnahmen werden mit einem Infoprotokoll übersprungen; außerdem wird das Limit für `sendRecording` / `getRecording` | `50`     |
+| Download-Timeout (s)                                                     | Herunterladen und Konvertieren einer Aufnahme (10–900)                                                                     | `120`    |
+| Als MP4 bereitstellen                                                    | MKV mit ffmpeg in MP4 konvertieren (keine Neukodierung); ohne ffmpeg bleibt die MKV-Datei erhalten.                        | `true`   |
+| ffmpeg-Pfad                                                              | Leer = automatische Suche                                                                                                  | —        |
 
 **Anzeige**
 
@@ -187,7 +228,7 @@ Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald di
 
 | Einstellung     | Beschreibung                                                | Standard |
 | --------------- | ----------------------------------------------------------- | -------- |
-| Neueste zuerst  | Sortiere die Aufnahmen, wobei die neueste oben steht.       | `true`   |
+| Neueste zuerst  | Sortieren Sie die Aufnahmen, wobei die neueste oben steht.  | `true`   |
 | Suche anzeigen  | Ein Textsuchfeld im JS-Modus anzeigen                       | `false`  |
 | Kompaktmodus    | Dichtes Layout mit kleineren Vorschaubildern                | `false`  |
 | Standard-Tag    | Wählen Sie diesen Tag-Filter beim Laden des Widgets voraus. | —        |
@@ -210,6 +251,23 @@ Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald di
 | Akzent                           | Hervorhebungsfarbe           |
 | Modaler Hintergrund              | Video-Modal-Hintergrund      |
 | Radius der Begrenzungslinie (px) | Abgerundete Ecken für Karten |
+
+### Registerkarte: Benachrichtigungen
+
+Alle Einstellungen sind optional und standardmäßig deaktiviert. Benachrichtigungen werden an das ioBroker-Benachrichtigungssystem gesendet; installieren Sie den **Notification-Manager-** Adapter und wählen Sie dort für _Agent DVR_ aus, wohin die einzelnen Benachrichtigungsarten (Telegram, E-Mail usw.) gesendet werden sollen.
+
+| Einstellung                              | Beschreibung                                                                                                                                                                                                        | Standard      |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Kamera offline                           | Eine im Agent DVR eingeschaltete Kamera ist seit der eingestellten Zeit nicht angeschlossen.                                                                                                                        | `false`       |
+| Kamera wieder online                     | Erst nach einer Offline-Benachrichtigung, mit Angabe der Dauer des Ausfalls                                                                                                                                         | `false`       |
+| Agent-DVR-Server offline / wieder online | Der Agent-DVR-Server antwortet nicht zur eingestellten Zeit.                                                                                                                                                        | `false`       |
+| Offline nach (Minuten)                   | Gemeldete Ausfalldauer (1–1440)                                                                                                                                                                                     | `10`          |
+| Person / Tier / Fahrzeug erkannt         | Erkennungs-Tags von Agent DVR (`people`, `dog_cat`, `vehicle`, …)                                                                                                                                                  | `false`       |
+| Weitere Detektionen                      | Alle anderen Tags, z. B. von Ihren eigenen KI-Modellen (einfache Bewegung) `detected` Handbuch `trigger` Und `timelapse` werden nicht erkannt und nicht gemeldet)                                                      | `false`       |
+| Neue Aufnahme                            | Agent DVR hat eine neue Aufnahme erstellt                                                                                                                                                                           | `false`       |
+| Kameras                                  | Liste aller Kameras mit Kontrollkästchen; nicht markierte Kameras senden keine Benachrichtigungen. Neue Kameras werden automatisch markiert; die Einstellung bleibt auch nach dem Umbenennen einer Kamera erhalten. | alles geprüft |
+
+Für Erkennungen und neue Aufzeichnungen werden _Ereignisdatenpunkte_ oder das Widget (Registerkarte „Funktionen“) benötigt.
 
 ### Registerkarte: Erweitert
 
@@ -323,43 +381,47 @@ Dieser Adapter speichert Ihre AgentDVR-Administratoranmeldeinformationen und ste
 
 ### Pro Kamera
 
-| Datenpunkt                         | Typ             | R/W | Beschreibung                                                            |
-| ---------------------------------- | --------------- | --- | ----------------------------------------------------------------------- |
-| `<cam>.name`                       | Zeichenkette    | R   | Kameraname                                                              |
-| `<cam>.data.online`                | boolescher Wert | R   | Die Kamera ist online                                                   |
-| `<cam>.data.connected`             | boolescher Wert | R   | Stream ist verbunden                                                    |
-| `<cam>.data.recording`             | boolescher Wert | R   | Aktuell wird aufgenommen                                                |
-| `<cam>.data.detected`              | boolescher Wert | R   | Bewegung/Objekt erkannt                                                 |
-| `<cam>.data.detectorActive`        | boolescher Wert | R   | Bewegungsmelder aktiviert                                               |
-| `<cam>.data.alertsActive`          | boolescher Wert | R   | Benachrichtigungen aktiviert                                            |
-| `<cam>.data.alerted`               | boolescher Wert | R   | Warnung aktuell aktiv                                                   |
-| `<cam>.data.scheduleActive`        | boolescher Wert | R   | Zeitplan aktiviert                                                      |
-| `<cam>.data.width` /`height`       | Nummer          | R   | Streamauflösung                                                         |
-| `<cam>.data.*`                     | verschieden     | R   | Alle weiteren Geräteeigenschaften von AgentDVR                          |
-| `<cam>.snapshot_b64`               | Zeichenkette    | R   | Aktueller Frame als `data:image/jpeg;base64,…` (Rolle `media.picture`)   |
-| `<cam>.control.record`             | Taste           | W   | Aufnahme starten                                                        |
-| `<cam>.control.recordStop`         | Taste           | W   | Aufnahme stoppen                                                        |
-| `<cam>.control.recordRestart`      | Taste           | W   | Aufnahme neu starten                                                    |
-| `<cam>.control.triggerRecord`      | Taste           | W   | Triggeraufzeichnung (läuft bis zum Timeout)                             |
-| `<cam>.control.snapshot`           | Taste           | W   | Weisen Sie AgentDVR an, einen Snapshot auf der Festplatte zu speichern. |
-| `<cam>.control.refreshSnapshotB64` | Taste           | W   | Aktuellen Frame abrufen und schreiben an `snapshot_b64`                 |
-| `<cam>.control.detect`             | Taste           | W   | Bewegungserkennung auslösen                                             |
-| `<cam>.control.alertOn`            | Taste           | W   | Alarme aktivieren                                                       |
-| `<cam>.control.alertOff`           | Taste           | W   | Alarme deaktivieren                                                     |
-| `<cam>.control.switchOn`           | Taste           | W   | Kamera einschalten                                                      |
-| `<cam>.control.switchOff`          | Taste           | W   | Kamera ausschalten                                                      |
-| `<cam>.control.objectDetectOn`     | Taste           | W   | Objekterkennung aktivieren _(nur Kameras)_                              |
-| `<cam>.control.objectDetectOff`    | Taste           | W   | Objekterkennung deaktivieren _(nur Kameras)_                            |
-| `<cam>.control.scheduleOn`         | Taste           | W   | Aktivieren Sie den Gerätezeitplan                                       |
-| `<cam>.control.scheduleOff`        | Taste           | W   | Gerätezeitplan deaktivieren                                             |
-| `<cam>.control.detectorOn`         | Taste           | W   | Bewegungsmelder aktivieren                                              |
-| `<cam>.control.detectorOff`        | Taste           | W   | Bewegungsmelder deaktivieren                                            |
-| `<cam>.control.sensitivityMin`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – Mindestschwelle _(nur Kameras)_               |
-| `<cam>.control.sensitivityMax`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – maximaler Schwellenwert _(nur Kameras)_       |
-| `<cam>.control.sensitivityGain`    | Nummer 0–100    | R/W | Detektorempfindlichkeit – Verstärkung _(nur Kameras)_                   |
-| `<cam>.control.recOnAlert`         | Taste           | W   | „Aufzeichnung bei Alarm“ aktivieren                                     |
-| `<cam>.control.recOnDetect`        | Taste           | W   | „Aufzeichnung bei Erkennung“ aktivieren                                 |
-| `<cam>.control.purge`              | Taste           | W   | Alle Aufnahmen dieser Kamera löschen                                    |
+| Datenpunkt                         | Typ             | R/W | Beschreibung                                                                         |
+| ---------------------------------- | --------------- | --- | ------------------------------------------------------------------------------------ |
+| `<cam>.name`                       | Zeichenkette    | R   | Kameraname                                                                           |
+| `<cam>.data.online`                | boolescher Wert | R   | Die Kamera ist im Agent DVR eingeschaltet.                                           |
+| `<cam>.data.connected`             | boolescher Wert | R   | Stream ist verbunden                                                                 |
+| `<cam>.status.online`              | boolescher Wert | R   | Die Kamera ist im Agent DVR eingeschaltet (sagt nichts über die Erreichbarkeit aus). |
+| `<cam>.status.connected`           | boolescher Wert | R   | Kamera ist erreichbar: Agent DVR empfängt sein Bild (Rolle `indicator.reachable`)    |
+| `<cam>.status.offlineSince`        | Nummer          | R   | Zeit seit der letzten Verbindung der Kamera (leer im angeschlossenen Zustand)        |
+| `<cam>.status.offlineAlarm`        | boolescher Wert | R   | Länger als die festgelegte Zeit nicht verbunden (Registerkarte „Benachrichtigungen“) |
+| `<cam>.data.recording`             | boolescher Wert | R   | Aktuell wird aufgenommen                                                             |
+| `<cam>.data.detected`              | boolescher Wert | R   | Bewegung/Objekt erkannt                                                              |
+| `<cam>.data.detectorActive`        | boolescher Wert | R   | Bewegungsmelder aktiviert                                                            |
+| `<cam>.data.alertsActive`          | boolescher Wert | R   | Benachrichtigungen aktiviert                                                         |
+| `<cam>.data.alerted`               | boolescher Wert | R   | Warnung aktuell aktiv                                                                |
+| `<cam>.data.scheduleActive`        | boolescher Wert | R   | Zeitplan aktiviert                                                                   |
+| `<cam>.data.width` /`height`       | Nummer          | R   | Streamauflösung                                                                      |
+| `<cam>.data.*`                     | verschieden     | R   | Alle weiteren Geräteeigenschaften von AgentDVR                                       |
+| `<cam>.snapshot_b64`               | Zeichenkette    | R   | Aktueller Frame als `data:image/jpeg;base64,…` (Rolle `media.picture`)                |
+| `<cam>.control.record`             | Taste           | W   | Aufnahme starten                                                                     |
+| `<cam>.control.recordStop`         | Taste           | W   | Aufnahme stoppen                                                                     |
+| `<cam>.control.recordRestart`      | Taste           | W   | Aufnahme neu starten                                                                 |
+| `<cam>.control.triggerRecord`      | Taste           | W   | Triggeraufzeichnung (läuft bis zum Timeout)                                          |
+| `<cam>.control.snapshot`           | Taste           | W   | Weisen Sie AgentDVR an, einen Snapshot auf der Festplatte zu speichern.              |
+| `<cam>.control.refreshSnapshotB64` | Taste           | W   | Aktuellen Frame abrufen und schreiben an `snapshot_b64`                              |
+| `<cam>.control.detect`             | Taste           | W   | Bewegungserkennung auslösen                                                          |
+| `<cam>.control.alertOn`            | Taste           | W   | Alarme aktivieren                                                                    |
+| `<cam>.control.alertOff`           | Taste           | W   | Alarme deaktivieren                                                                  |
+| `<cam>.control.switchOn`           | Taste           | W   | Kamera einschalten                                                                   |
+| `<cam>.control.switchOff`          | Taste           | W   | Kamera ausschalten                                                                   |
+| `<cam>.control.objectDetectOn`     | Taste           | W   | Objekterkennung aktivieren _(nur Kameras)_                                           |
+| `<cam>.control.objectDetectOff`    | Taste           | W   | Objekterkennung deaktivieren _(nur Kameras)_                                         |
+| `<cam>.control.scheduleOn`         | Taste           | W   | Aktivieren Sie den Gerätezeitplan                                                    |
+| `<cam>.control.scheduleOff`        | Taste           | W   | Gerätezeitplan deaktivieren                                                          |
+| `<cam>.control.detectorOn`         | Taste           | W   | Bewegungsmelder aktivieren                                                           |
+| `<cam>.control.detectorOff`        | Taste           | W   | Bewegungsmelder deaktivieren                                                         |
+| `<cam>.control.sensitivityMin`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – Mindestschwelle _(nur Kameras)_                            |
+| `<cam>.control.sensitivityMax`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – maximaler Schwellenwert _(nur Kameras)_                    |
+| `<cam>.control.sensitivityGain`    | Nummer 0–100    | R/W | Detektorempfindlichkeit – Verstärkung _(nur Kameras)_                                |
+| `<cam>.control.recOnAlert`         | Taste           | W   | „Aufzeichnung bei Alarm“ aktivieren                                                  |
+| `<cam>.control.recOnDetect`        | Taste           | W   | „Aufzeichnung bei Erkennung“ aktivieren                                              |
+| `<cam>.control.purge`              | Taste           | W   | Alle Aufnahmen dieser Kamera löschen                                                 |
 
 ### PTZ _(erfordert "PTZ-Steuertasten")_
 
@@ -392,11 +454,13 @@ Dieser Adapter speichert Ihre AgentDVR-Administratoranmeldeinformationen und ste
 
 ### Veranstaltungen / Galerie _(nur Kameras)_
 
-| Datenpunkt                | Typ          | R/W | Beschreibung                                                                                                                               |
-| ------------------------- | ------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<cam>.events.*`          | verschieden  | R   | Neueste Aufzeichnungsmetadaten – erfordert „Ereignisdatenpunkte“                                                                           |
-| `<cam>.widget_recordings` | Zeichenkette | R   | HTML-Aufnahmegalerie – erfordert das „Galerie-Widget“                                                                                      |
-| `<cam>.widget_live`       | Zeichenkette | R   | HTML-Live-Kachel für eine einzelne Kamera – erfordert das „Galerie-Widget“; die Momentaufnahme wird bei jeder Adapterabfrage aktualisiert. |
+| Datenpunkt                | Typ          | R/W | Beschreibung                                                                                                                                               |
+| ------------------------- | ------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<cam>.events.*`          | verschieden  | R   | Neueste Aufzeichnungsmetadaten – erfordert „Ereignisdatenpunkte“                                                                                           |
+| `<cam>.recordings.*`      | verschieden  | R   | Gespeicherte Aufnahmen (`file1`, `uri1`, `url1`, `name1`, `ts1`, …) — erfordert „Stellen Sie die letzten Aufzeichnungen im ioBroker-Dateispeicher bereit“ |
+| `<cam>.widget_recordings` | Zeichenkette | R   | HTML-Aufnahmegalerie – erfordert das „Galerie-Widget“                                                                                                      |
+| `<cam>.widget_live`       | Zeichenkette | R   | HTML-Live-Kachel für eine einzelne Kamera – erfordert das „Galerie-Widget“; die Momentaufnahme wird bei jeder Adapterabfrage aktualisiert.                 |
+| `<cam>.widget_data`       | Zeichenkette | R   | Aufzeichnungen als JSON für die Webkomponenten (neueste 500) — erfordert „Galerie-Widget“ oder „Ereignisdatenpunkte“                                       |
 
 ## Webhook
 
@@ -412,79 +476,219 @@ Konfigurieren Sie diese URL als **Aktion** in AgentDVR (Kamera → Bearbeiten �
 
 Rücksendungen `{"ok":true}` auf Erfolg.
 
+### Schnelle Alarmierung pro Kamera
+
+Fügen Sie die Kamera-ID hinzu, damit der Adapter weiß, welche Kamera ausgelöst hat:
+
+```
+GET http://<iobroker>:<webport>/agent-dvr.0/webhook?oid={ID}&ot={OT}
+```
+
+`{ID}` Und `{OT}` Es handelt sich um AgentDVR-Tags, die von AgentDVR ausgefüllt werden. Der Adapter sendet dann Impulse. `<cam>.events.webhook` Die Aktion wird **sofort** ausgeführt – bevor Daten abgerufen werden – und anschließend erneut abgefragt. Verwenden Sie die Aktion „ _Bewegung erkannt“_ . Wenn Alarmfotos aktiviert sind, wird das Foto sofort gespeichert – siehe [„Bilder für VIS abrufen“ und „Skripte“](#getting-images-for-vis-and-scripts) für den richtigen Auslöser. AgentDVR ruft die Aktion oft mehrmals pro Bewegung auf; weitere Aufrufe für dieselbe Kamera innerhalb von 20 Sekunden aktualisieren lediglich die Daten und führen keine erneute Abfrage durch. `<cam>.events.webhookParams` enthält alle Parameter des letzten Aufrufs als JSON (plus `ts`), geschrieben vor dem Impuls und auch während der Abklingzeit – fügen Sie alle benötigten AgentDVR-Tags zur URL hinzu (z. B. `&ai={AI}&zone={ZONE}&name={NAME}`) und werten Sie sie in Ihrem eigenen Skript aus.
+
+Ohne `oid` Der Webhook löst lediglich eine vollständige Abfrage aus. Die Abfrageparameter werden im Debug-Modus in das Webinstanzprotokoll geschrieben.
+
+Verwenden Sie einfach `http` Bei der Webinstanz werden selbstsignierte Zertifikate von AgentDVR stillschweigend abgelehnt.
+
+### Alarmfotos
+
+Wenn **„Benachrichtigungsfotos speichern“** aktiviert ist (Standardeinstellung), wird bei jedem Webhook-Aufruf mit `?oid={ID}` speichert auch das aktuelle Foto in voller Auflösung (`photo.jpg`) im ioBroker-Dateispeicher. Die letzten 3 Fotos pro Kamera werden gespeichert:
+
+| Datenpunkt                         | Inhalt                                                                                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<cam>.alertPhotos.grab1` …`grab3` | Absoluter Dateipfad des Fotos (`grab1` = neueste)                                                                                                                            |
+| `<cam>.alertPhotos.url1` …`url3`   | http(s) URL über die Webinstanz, z. B. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` — für TV-, Kiosk- oder andere Apps, die nur Weblinks akzeptieren |
+| `<cam>.alertPhotos.uri1` …`uri3`   | ioBroker-Datei-URI, z. B. `iobfile://agent-dvr.0/cam_8_Reolink/grab1.jpg`                                                                                                     |
+| `<cam>.alertPhotos.ts1` …`ts3`     | Zeitpunkt der Aufnahme                                                                                                                                                       |
+
+Dateien: `<namespace>/<cam>/grab1.jpg` …`grab3.jpg` (z.B `agent-dvr.0/cam_8_Reolink/grab1.jpg` Bei jedem neuen Foto rotieren sie (grab1 → grab2 → grab3). `ts1` wird **zuletzt** geschrieben, nachdem die Datei vollständig ist – Auslöser bei `ts1` und sende das Foto mit Telegram, eine HTTP-Anfrage ist nicht erforderlich (siehe [Telegram](#telegram) ). Der Dateipfad in `grab1` –`grab3` ist nur gültig, wenn sich der Dateispeicher auf der lokalen Festplatte befindet (Standardeinstellung); `uri1` –`uri3` Funktioniert mit jedem Speichermedium.
+
 ### Übersicht _(erfordert das "Übersichts-Widget")_
 
-| Datenpunkt             | Typ          | R/W | Beschreibung                                                                                 |
-| ---------------------- | ------------ | --- | -------------------------------------------------------------------------------------------- |
-| `widget_live_overview` | Zeichenkette | R   | HTML-Kachelraster aller Kameras – Aktualisierung der Schnappschüsse bei jeder Adapterabfrage |
+| Datenpunkt             | Typ          | R/W | Beschreibung                                                                                                                         |
+| ---------------------- | ------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `widget_live_overview` | Zeichenkette | R   | HTML-Kachelraster aller Kameras – Aktualisierung der Schnappschüsse bei jeder Adapterabfrage                                         |
+| `widget_config`        | Zeichenkette | R   | Widget-Einstellungen, Kameras und Texte als JSON für die Webkomponenten (immer geschrieben, keine Anmeldeinformationen erforderlich) |
+
+## Aufzeichnungen im Dateispeicher
+
+Mit der **Option „Letzte Aufnahmen im ioBroker-Dateispeicher bereitstellen“** (Registerkarte _„Funktionen_ “, standardmäßig deaktiviert) lädt der Adapter jede neue Aufnahme einer Kamera von AgentDVR herunter, sobald diese in der Aufnahmeliste erscheint. `<cam>.events.new` Impulse – _Ereignisdatenpunkte_ müssen also aktiviert sein) und speichert sie im ioBroker-Dateispeicher. Der Download erfolgt im Arbeitsspeicher, niemals in einer temporären Datei. Wie bei den Alarmfotos werden die letzten 1, 2 oder 3 Aufnahmen pro Kamera gespeichert (Einstellung _Anzahl der gespeicherten Aufnahmen pro Kamera_ , Standardwert 1):
+
+| Datenpunkt                        | Inhalt                                                                                                                                       |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<cam>.recordings.file1` …`file3` | Absoluter Dateipfad, z.B. `/opt/iobroker/iobroker-data/files/agent-dvr.0/cam_8_Reolink/rec1.mp4` (`1` = neueste)                              |
+| `<cam>.recordings.uri1` …`uri3`   | ioBroker-Datei-URI, z. B. `iobfile://agent-dvr.0/cam_8_Reolink/rec1.mp4`                                                                      |
+| `<cam>.recordings.url1` …`url3`   | http(s) URL über die Webinstanz, z. B. `http://192.168.1.10:8082/agent-dvr.0/recordings/cam_8_Reolink/rec1.mp4` (Unterstützung bei der Suche) |
+| `<cam>.recordings.name1` …`name3` | Ursprünglicher AgentDVR-Dateiname, z. B. `8_2026-11-12_15-55-29_931.mkv`                                                                      |
+| `<cam>.recordings.ts1` …`ts3`     | Zeitpunkt der Aufnahme                                                                                                                       |
+
+Dateien: `<namespace>/<cam>/rec1.mp4` (oder `.mkv`) …`rec3` Bei jeder neuen Aufnahme rotieren die Aufnahmen (Aufnahme 1 → Aufnahme 2 → Aufnahme 3), die älteste wird gelöscht. Wenn Sie die Anzahl verringern, werden die überflüssigen Dateien und Datenpunkte beim nächsten Start entfernt. Der Speicherplatzbedarf bleibt konstant: Anzahl × maximale Größe pro Kamera. Aufnahmen, die größer als _die maximale Größe_ (standardmäßig 50 MB) sind, werden mit einem Informationsprotokoll übersprungen. `ts1` wird **zuletzt** geschrieben, nachdem die Datei fertiggestellt ist – verwenden Sie sie als Auslöser.
+
+**Speicherbegrenzung:** `file1` –`file3` Sie enthalten nur dann einen Pfad, wenn sich der ioBroker-Dateispeicher auf der lokalen Festplatte befindet (Standard-Datei-/JSON-Objektdatenbank). Bei Redis oder einer anderen Nicht-Datei-Objektdatenbank bleiben sie leer. `uri*` (Telegram 6+, Skripte) oder `url*` stattdessen solche, die mit jedem Speichermedium kompatibel sind.
+
+### Was passiert, wenn…
+
+- **Die Option ist aktiviert:** Beim nächsten Start (das Speichern der Einstellungen startet die Instanz neu) lädt jede ausgewählte Kamera ihre letzte Aufnahme, sofern Speicherplatz 1 leer ist oder eine ältere Aufnahme enthält – Kamera für Kamera, unter Berücksichtigung der Größenbeschränkung. Anschließend wird jede neue Aufnahme gespeichert, sobald sie verfügbar ist.
+- **…eine Kamera wird neu ausgewählt:** Wie oben beschrieben, wird sofort die aktuell letzte Aufnahme abgerufen.
+- **…wird eine neue Kamera in AgentDVR hinzugefügt:** Sie erscheint bei der nächsten Abfrage (die Kameraliste in den Einstellungen wird live von der laufenden Instanz gelesen); bei _„Alle Kameras“_ wird sie wie die anderen ausgefüllt und gespeichert.
+- **…eine Kamera wird abgewählt:** beim nächsten Start `recordings` Datenpunkte und ihre Dateien `rec1` –`rec3` Und `send.*` werden gelöscht.
+- **…die Option ist deaktiviert:** beim nächsten Start `recordings` Datenpunkte und die `rec*` /`send.*` Die Dateien aller Kameras wurden gelöscht.
+- **…eine Kamera wird aus AgentDVR entfernt:** Ihre Datenpunkte werden wie zuvor gelöscht, und ihr gesamter Ordner im Dateispeicher (`agent-dvr.0/<cam>/` — Aufnahmen, `send.*` und Alarmfotos) werden gelöscht. Falls AgentDVR plötzlich gar keine Kamera mehr meldet, wird nichts gelöscht (vermutlich ein vorübergehender Fehler).
+- **…eine ausgewählte Kamera existiert nicht mehr:** In den Einstellungen wird sie als _„<cam> (nicht mehr in AgentDVR)"_ , daher können Sie es deaktivieren; der Adapter ignoriert es einfach.
+
+`send.mp4|mkv` (verwendet von) `sendRecording` /`getRecording` (bei Aufnahmen, die sich nicht in einem Speicherplatz befinden) bleibt so lange erhalten, bis die Aufnahmen der Kamera bereinigt werden – eine Datei pro Kamera, die jedes Mal überschrieben wird.
+
+### MP4 und ffmpeg
+
+AgentDVR zeichnet MKV-Dateien auf. Mit der Option „ **Als MP4 bereitstellen** “ (standardmäßig aktiviert) remuxt der Adapter die MKV-Datei mit ffmpeg zu MP4 – dabei ändert sich nur der Container, Video und Audio werden kopiert, sodass der Vorgang deutlich unter einer Sekunde dauert. HEVC-Videos (H.265) erhalten die …`hvc1` Die Videos werden mit einem Tag versehen, damit Apple-Geräte und Telegram sie abspielen können. Falls der Audio-Codec nicht mit MP4 kompatibel ist, wird das Video ohne Ton neu muxt (einmaliger Protokolleintrag). Ohne ffmpeg wird die MKV-Datei unverändert bereitgestellt (ein Informationseintrag).
+
+ffmpeg ist **nicht** im Lieferumfang enthalten. Der Adapter sucht beim Start und bei Bedarf danach: die _ffmpeg-_ Pfadeinstellung →`ffmpeg` über `PATH` →`/usr/bin/ffmpeg`, `/usr/local/bin/ffmpeg`, `/opt/homebrew/bin/ffmpeg`, `C:\ffmpeg\bin\ffmpeg.exe`, `%ProgramFiles%\ffmpeg\bin\ffmpeg.exe` Das Ergebnis ist in `info.ffmpeg` (z.B `6.1.1 (/usr/bin/ffmpeg)` oder `not found`) und in den Einstellungen neben der MP4-Option mit einer Schaltfläche **„Erneut suchen“** . Installieren Sie ffmpeg mit dem Paketmanager Ihres Systems:
+
+| System                          | Befehl                  |
+| ------------------------------- | ----------------------- |
+| Debian, Ubuntu, Raspberry Pi OS | `apt install ffmpeg`    |
+| Alpine (Docker)                 | `apk add ffmpeg`        |
+| Fedora                          | `dnf install ffmpeg`    |
+| macOS (Homebrew)                | `brew install ffmpeg`   |
+| Windows                         | `winget install ffmpeg` |
+
+Führen Sie den Befehl wie gewohnt als Administrator/Root auf Ihrem System aus. Klicken Sie anschließend in den Einstellungen _erneut auf „Suchen“_ (oder starten Sie die Instanz neu).
+
+### Aufnahmen senden: `sendRecording` Und `getRecording`
+
+`sendRecording` stellt eine Aufnahme im Dateispeicher des Adapters bereit und sendet sie als Video an eine Messenger-Instanz. Eine bereits gespeicherte Aufnahme (`recordings.*`) wird direkt verwendet; alle anderen werden in den Speicher geladen, bei Bedarf in MP4 konvertiert und in einer festen Datei pro Kamera gespeichert. `agent-dvr.0/<cam>/send.mp4` (oder `.mkv`), das jedes Mal überschrieben wird – der Speicherplatz bleibt also unverändert:
+
+```js
+sendTo('agent-dvr.0', 'sendRecording', {
+    camera: 'cam_8_Reolink',      // folder id, AgentDVR oid (8) or camera name
+    recording: 'last',            // 'last' (newest in AgentDVR), 1-3 (stored slot) or an AgentDVR file name
+    target: 'telegram.0',         // instance that gets the video
+    caption: 'Motion at the front door',
+    // user: 'Max', chatId: 123, // optional, passed through to Telegram
+    // mp4: true,                 // optional, overrides "Provide as MP4"
+}, res => {
+    if (!res.ok) log(res.error, 'warn'); // e.g. too large for Telegram
+});
+```
+
+Die Botschaft an das Ziel lautet: `{ text: 'iobfile://agent-dvr.0/<cam>/<file>', type: 'video', fileName: '<name>.mp4', width, height, duration, caption, user, chatId }` — Telegram 6 und neuere Versionen lesen die Datei selbst aus dem Dateispeicher. `width`, `height` Und `duration` werden aus der Videodatei gelesen: Telegram erkennt sie bei größeren Bot-Uploads nicht selbst und würde das Video andernfalls im Chat mit einem falschen Seitenverhältnis anzeigen, bis es geöffnet wird. Andere Ziele erhalten stattdessen den absoluten Dateipfad (oder die URI, falls die Datei nicht lokal gespeichert ist). Die Antwort lautet: `{ ok, error?, fileName, format, mime, size, uri, url, file, width, height, duration }` Eine von AgentDVR noch bearbeitete Aufnahme wird nach Fertigstellung gesendet. **Telegram-Bots können nur Dateien bis zu 50 MB senden** ; größere Aufnahmen werden mit einer Fehlermeldung abgelehnt – noch bevor sie heruntergeladen werden können, obwohl AgentDVR die Größe bereits angibt.
+
+> **Über den ioBroker-Nachrichtenbus werden keine Videodaten übertragen.** Große Nachrichten (mehrere zehn Megabyte) können die Zustandsdatenbank und damit den gesamten ioBroker blockieren. Daher übermittelt der Adapter lediglich die Dateireferenz und verweigert das Senden und Beantworten von Anfragen, die Binärdaten enthalten.
+
+Sende jede neue Aufnahme an Telegram (Blockly wird nicht benötigt):
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.events.new', val: true }, () => {
+    sendTo('agent-dvr.0', 'sendRecording', { camera: 'cam_8_Reolink', recording: 'last', target: 'telegram.0', caption: 'New recording' });
+});
+```
+
+Wenn die Dateispeicherfunktion aktiviert ist, wird sie ausgelöst bei `recordings.ts1` und stattdessen die gespeicherte Kopie senden (`recording: 1`):
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.recordings.ts1', change: 'ne', ack: true }, () => {
+    sendTo('agent-dvr.0', 'sendRecording', { camera: 'cam_8_Reolink', recording: 1, target: 'telegram.0', caption: 'New recording' });
+});
+```
+
+> **Tipp: Achte auf das richtige Seitenverhältnis im Chat.** Wenn du die Videodatei selbst an Telegram sendest (Telegram Blockly Block), `recordings.file1` /`uri1` Telegram zeigt größere Videos in der Chat-Vorschau oft in einem falschen Format (z. B. 3:4) an, bis man sie öffnet – Telegram liest die Bildgröße bei größeren Bot-Uploads nicht selbst aus. `sendRecording` Liest Breite, Höhe und Dauer aus der Videodatei und leitet diese weiter, sodass das Video im Chat sofort im Seitenverhältnis der Kamera abgespielt wird. Keine Konfiguration erforderlich, es funktioniert einfach, wenn Sie es verwenden. `sendRecording` Die
+
+`getRecording` benötigt dasselbe `camera`, `recording` Und `mp4`, stellt die Aufnahme auf die gleiche Weise zur Verfügung und gibt nur den Speicherort zurück: `{ ok, error?, fileName, mime, format, size, uri, url, file, width, height, duration }` Lesen Sie die Datei selbst in Ihrem Skript ein, z. B.:
+
+```js
+sendTo('agent-dvr.0', 'getRecording', { camera: 'cam_8_Reolink', recording: 'last' }, res => {
+    if (!res.ok) return log(res.error, 'warn');
+    // res.uri = 'iobfile://agent-dvr.0/cam_8_Reolink/send.mp4', res.url = http link, res.file = local path
+    readFile('agent-dvr.0', res.uri.replace('iobfile://agent-dvr.0/', ''), (err, data) => { /* … */ });
+});
+```
+
+## Bilder für VIS und Skripte abrufen
+
+### Welches Bild stammt von wo
+
+| Bild                              | Datenpunkt / URL                     | Größe                                   | Zeit                                                     |
+| --------------------------------- | ------------------------------------ | --------------------------------------- | -------------------------------------------------------- |
+| Livebild, klein                   | `<cam>.urls.snapshot` (`grab.jpg`)  | Vorschau                                | Jetzt                                                    |
+| Livebild, vollständig             | `<cam>.urls.photo` (`photo.jpg`)    | Volle Auflösung, Ladezeit ca. 1 Sekunde | Jetzt                                                    |
+| Live-Stream                       | `<cam>.urls.mjpeg`, `<cam>.urls.mp4` | Video                                   | live                                                     |
+| Letzte Aufnahme – Miniaturansicht | `<cam>.events.last.thumb`            | max. 320×180 (AgentDVR-Limit)           | Der beste Moment der Aufnahme zeigt das erkannte Objekt. |
+| Letzte Aufnahme – Video           | `<cam>.events.last.video`            | Video                                   | nach der Aufnahme                                        |
+| Alarmfotos                        | `<cam>.alertPhotos.grab1`…`grab3`    | volle Auflösung                         | Zeitpunkt der Benachrichtigung (Webhook mit `oid`)       |
+
+Der `urls.*` Und `events.last.*` Die URLs verweisen direkt auf AgentDVR. Sie funktionieren nur im lokalen Netzwerk – die Server von Telegram können sie nicht abrufen. Laden Sie sie daher zuerst mit einer HTTP-Anfrage (Antworttyp: .txt). `arraybuffer`) oder verwenden Sie die Alarmfotos, die bereits in ioBroker gespeichert sind.
+
+### Welcher Auslöser für was
+
+| Auslösen                      | Brände                                                                                            | Verwendung für                           |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `<cam>.alertPhotos.ts1`       | Foto gespeichert, ca. 1–2 Sekunden nach der Benachrichtigung                                      | **Senden Sie das Alarmfoto** (empfohlen) |
+| `<cam>.events.webhook`        | sofort beim Webhook-Aufruf                                                                        | ein Bild selbst abrufen                  |
+| `<cam>.events.new`            | Neue Aufnahme aufgelistet                                                                         | Miniaturansicht der Aufnahme             |
+| `<cam>.events.detected_<tag>` | KI-Tag einer neuen Aufnahme, z. B. `detected_people` — auch wenn AgentDVR das Tag später hinzufügt | nur Personen benachrichtigen             |
+
+> **Nicht verwenden `events.webhook` für das gespeicherte Alarmfoto.** Der Webhook-Impuls erfolgt, _bevor_ das neue Foto abgerufen und gespeichert wird. In diesem Moment `alertPhotos.grab1` /`uri1` /`url1` Sie verweisen weiterhin auf das Foto der **vorherigen** Warnung – eine Fernseh- oder Telegram-Nachricht zeigt dann ein altes Bild (möglicherweise Stunden alt). Für alles, was verwendet `alertPhotos.*` immer auslösen `alertPhotos.ts1` Die `events.webhook` ist nur für Skripte gedacht, die das Bild in diesem Moment selbst abrufen (z. B. `urls.photo` oder einem Schnappschuss ihrer eigenen Kamera).
+
+Verwenden Sie **„größer als vorher“** (Blockly) oder `change: 'gt'` als Bedingung. Der Adapter überschreibt seine Zustände bei jeder Abfrage, daher wird "wurde aktualisiert" bei jeder Abfrage ausgelöst. `status.alerted` ist in der Regel zu kurz, um von einer Umfrage erfasst zu werden, und ist kein zuverlässiger Auslöser.
+
+### Telegramm
+
+Blockly: Auslöser bei `<cam>.alertPhotos.ts1` mit "größer als vorher", Telegram-Block mit _dem Wert von_ `<cam>.alertPhotos.uri1` als Text.
+
+- **Telegram 6 oder neuer:** verwenden `uri1` (`iobfile://…` Telegram liest das Foto direkt aus dem ioBroker-Dateispeicher und sendet es als Foto – funktioniert mit jedem Speichertyp.
+- **Ältere Telegram-Versionen:** verwenden `grab1` (Lokaler Dateipfad). Ein Text, der bereits lokal vorhanden ist. `.jpg` Der Pfad wird als Foto gesendet.
+
+Das Senden des Dateiinhalts selbst (z. B. _Datei lesen_ → Telegram) funktioniert mit Blockly **nicht** : Rohdaten werden nur als Foto mit explizitem Attribut gesendet. `type: 'photo'` Die
+
+JavaScript:
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.alertPhotos.ts1', change: 'gt' }, () => {
+    sendTo('telegram.0', { text: getState('agent-dvr.0.cam_8_Reolink.alertPhotos.uri1').val });
+});
+```
+
+Die Datei selbst in einem Skript lesen: `readFile('agent-dvr.0', 'cam_8_Reolink/grab1.jpg', (err, data) => { … })` Die
+
+### VIS / Dashboards
+
+Die Alarmbilder werden von der Webinstanz bereitgestellt – der fertige Link befindet sich in `<cam>.alertPhotos.url1` …`url3` Der Adapter wählt eine aktivierte Webinstanz (einfache `http` (bevorzugt, da TV-Apps selbstsignierte Zertifikate oft ablehnen) und die IPv4-Adresse des Hosts. Die Webinstanz kann auch in den Einstellungen ausgewählt werden ( _Funktionen → Webinstanz für Fotolinks_ ). Wenn sich eine Webinstanz (Port, HTTPS, Bindungsadresse, aktiviert) oder die Hostadresse ändert, werden die Links automatisch neu geschrieben. Die Links bleiben für jedes neue Foto gleich, sodass Sie sie einmalig in einer App eingeben können.
+
+```
+http://<iobroker>:<webport>/agent-dvr.0/photos/<cam>/grab1.jpg
+```
+
+z.B `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (Auch `grab2.jpg`, `grab3.jpg` Verwenden Sie es in einem Bild-Widget und aktualisieren Sie es bei Änderungen. `alertPhotos.ts1` Dasselbe gilt, wenn Sie den Link an einen Fernseher oder eine andere App senden: weiterleiten `alertPhotos.ts1` nicht an `events.webhook` Andernfalls lädt die App das vorherige Foto. Für ein Livebild verwenden Sie `urls.snapshot` oder `urls.photo` mit einem Aktualisierungsintervall.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.10.0 (2026-11-16)
+* (ipod86) feat: Notifications tab – camera offline/online again, server offline, person/animal/vehicle/other detection, new recording via the ioBroker notification system (notification-manager), each optional
+* (ipod86) feat: choose per camera which ones send notifications (checkbox list, survives renaming in Agent DVR)
+* (ipod86) feat: `status.offlineSince` and `status.offlineAlarm` per camera
+* (ipod86) fix: `status.connected` now has the role `indicator.reachable` (camera reachable), `status.online` means "switched on in Agent DVR"
 
-### 0.5.2 (2026-08-05)
-* (ipod86) feat: rename `overview` DP to `widget_live_overview` for consistent naming
+### 0.9.1 (2026-11-13)
+* (ipod86) fix: recordings were stored while AgentDVR was still writing them (video cut off) — the adapter now waits until the recording is finished
+* (ipod86) fix: `sendRecording` passes width, height and duration to Telegram — larger videos were shown in a wrong aspect ratio in the chat; `sendRecording`/`getRecording` also wait until a recording is finished
+* (ipod86) feat: messages `getCameras` and `getWidgets` for the web components (prepares dropdowns instead of the object browser)
 
-### 0.5.1 (2026-08-05)
-* (ipod86) feat: per-instance URL routing — each adapter instance uses its own URL namespace (`agent-dvr.0/`, `agent-dvr.1/`, …)
-* (ipod86) feat: rename per-camera recording widget DP from `widget` to `widget_recordings`; add new `widget_live` DP with a single-camera live tile
+### 0.9.0 (2026-11-12)
+* (ipod86) feat: keep the last 1–3 recordings per camera in the ioBroker file storage (`recordings.file/uri/url/name/ts`), optionally as MP4 via ffmpeg
+* (ipod86) feat: `sendRecording` / `getRecording` send a recording to Telegram as video or provide it as a file for scripts
+* (ipod86) feat: initial fill on enabling; recordings and files are cleaned up when switched off, deselected or the camera is removed
+* (ipod86) feat: ffmpeg detection with status in the settings and `info.ffmpeg`
+* (ipod86) fix: the settings page uses all 11 languages
 
-### 0.5.0 (2026-08-03)
-* (ipod86) feat: replace live-view camera chip-bar with compact header filter button — funnel icon opens a popover with per-camera checkboxes and drag-to-reorder; order persisted in localStorage
-* (ipod86) feat: new-recordings badge on the Recordings tab — shows count of recordings since last visit; persisted per browser/device in localStorage
-* (ipod86) feat: recording display settings panel — ⚙ gear button in the select/delete bar; grid column width slider, max-recordings override, badge toggle (all persisted in localStorage)
-* (ipod86) feat: first-visit onboarding modals for live view (camera filter & sort) and recordings tab (gestures, gear panel, badge)
-* (ipod86) feat: webhook endpoint `/agent-dvr.0/webhook` triggers immediate full poll — configure as AgentDVR action for real-time updates
-* (ipod86) feat: PTZ presets — navigate to saved presets from PTZ overlay; single selector DP `<cam>.control.ptz.preset` per camera (requires AgentDVR v7.7.8.0+)
-* (ipod86) feat: add event log view to recordings panel (clock icon toggle) alongside grid and timeline
-* (ipod86) feat: delete recording from video modal (trash icon, two-click confirm, requires AgentDVR v7.7.8.0+)
-* (ipod86) feat: bulk-delete recordings — long-press a tile to enter select mode, checkbox each recording, delete all at once
-* (ipod86) feat: new `dashMaxRec` config setting — limits total recordings shown across all cameras in the dashboard (independent of widget limit, default 200)
-* (ipod86) feat: tag filter splits AgentDVR's comma-separated tags into individual chips for per-tag filtering
-* (ipod86) feat: read camera color from AgentDVR and use it for timeline bars and recording dots
-* (ipod86) feat: status bar shows CPU usage, RAM % and free, disk usage % and free alongside camera/recording counts
-* (ipod86) feat: reset colors to defaults button in Live Dashboard settings tab
-* (ipod86) refactor: remove per-camera pushTrigger data points in favour of the global webhook
-* (ipod86) fix: new-recordings badge now correctly visible (display:none CSS fallback fixed)
-* (ipod86) fix: record button moved to rightmost position in grid tiles and fullscreen panel
-* (ipod86) fix: camera filter button no longer changes appearance when cameras are hidden
-* (ipod86) fix: header z-index lifted so the camera filter popover renders above the main content area
-* (ipod86) fix: drive object pruning regex corrected; stale drive entries are now properly removed
-* (ipod86) fix: deleted recordings no longer reappear after the next adapter poll
-* (ipod86) fix: extend video format error message with AgentDVR auto-convert hint in all 11 languages
-* (ipod86) fix: FLV stream and grid tile layout scaling corrections
-* (ipod86) fix: Italian i18n string with apostrophe broke page JS (changed to escaped variant)
-* (ipod86) fix: detect AgentDVR "Command not found" response on delete and show proper error message
+### 0.8.1 (2026-11-12)
+* (ipod86) fix: live overview web component fits its tiles to the widget size (no scrolling, no empty space); option "Fit to the widget size"
+* (ipod86) chore: description and keywords mention the widgets for vis-2, AURA and other visualisations
 
-### 0.4.3 (2026-07-19)
-* (ipod86) fix: switch polling loop from setInterval to setTimeout to prevent concurrent poll runs
-* (ipod86) fix: httpTimeoutMs=0 now correctly clamps to 1000ms instead of falling back to default
-* (ipod86) fix: go2rtcEnabled config flag is now honored in fetchGo2rtcStreams
-* (ipod86) fix: remove unused isSupportedLang export from widget-i18n
-
-### 0.4.2 (2026-07-12)
-* (ipod86) fix: FLV stream proxy now sends Authorization header (HTTP 401 with AgentDVR auth)
-* (ipod86) fix: dashboard camera online status was read from wrong state path (data.online → status.online)
-* (ipod86) fix: MP4/FLV stream label was hardcoded German — now translated in all 11 languages
-* (ipod86) fix: admin UI default values now match io-package.json (dashTagPosition, widgetAnzahl, widgetBorderRadius)
-* (ipod86) fix: go2rtcEnabled flag now respected when loading streams in admin UI
-* (ipod86) fix: enableStreamProxy missing from native defaults in io-package.json
-
-### 0.4.1 (2026-07-12)
-* (ipod86) fix: overview tile links to ioBroker host; go2rtc URL shown only when enabled
-
-### 0.4.0 (2026-07-12)
-* (ipod86) feat: optional MJPEG and snapshot stream proxy through ioBroker (browser needs only one connection to ioBroker, not directly to AgentDVR)
-
-### 0.3.0 (2026-07-06)
-* (ipod86) feat: add scheduleOn/Off and detectorOn/Off control buttons for cameras and microphones
-* (ipod86) feat: add sensitivityMin, sensitivityMax, sensitivityGain level states for cameras (0–100)
-* (ipod86) feat: add audio_mp3 and audio_ogg URL states for microphones
-* (ipod86) fix: restrict objectDetectOn/Off and snapshot buttons to cameras (ot=2) only
-* (ipod86) feat: inline flv.js into dashboard HTML — no external file required
-* (ipod86) fix: preserve FLV stream aspect ratio after tab visibility change (all three player call sites)
-* (ipod86) feat: collapsible tag filter row on recordings and timeline pages
-* (ipod86) feat: native browser fullscreen button in live view modal with correct aspect ratio
-* (ipod86) feat: live view modal header auto-hides after 3 s of inactivity; reappears on mouse/touch
-* (ipod86) fix: add fsEnter, fsExit, filterByLabel, timelineView, closePanel i18n keys in all 10 languages
+### 0.8.0 (2026-11-12)
+* (ipod86) feat: widgets (web components) for AURA (0.106.0+), vis-2 (2.20.7+), devices (4.3.0+) and other visualisations – recordings gallery, live tile and live overview, with the adapter's widget settings or own ones
 
 ## License
 MIT License

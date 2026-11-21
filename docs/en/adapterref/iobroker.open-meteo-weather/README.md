@@ -284,6 +284,21 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### 3.4.0 (2026-11-13)
+
+* (H5N1v2) fix: PV service timers are now properly cleaned up when the adapter stops. The PV service instance is stored and destroyed in `onUnload`, so the sunrise/interval/retry timers are cleared on shutdown.
+* (H5N1v2) fix: Corrected a typo in the PV service configuration key (`sunhine_duration` → `sunshine_duration`). The optional PV `sunshine_duration` data points are now created and updated correctly when the "Sunshine Duration" option is enabled.
+* (H5N1v2) fix: The PV forecast now uses the configured `Forecast Days` (`forecastDays_pv`) instead of the weather forecast day count. The number of PV daily forecast days (and the daily sum) now matches the setting on the PV tab (e.g. 7 days) and is also passed to the Open-Meteo API request.
+* (H5N1v2) enhanced: Unified the default values between `io-package.json` and the admin UI for new installations (`Forecast Days` = 7, `Forecast Hours` = 6, PV `Update Interval` = once before sunrise).
+* (H5N1v2) fix: Cleaned up the adapter description in `io-package.json` (removed stray escaped quotes and trailing commas that showed up in the adapter overview).
+* (H5N1v2) fix: Synced the admin translations of all 11 languages with `jsonConfig.json` — added the missing `px` key, removed the orphaned `pollenEnabled_label` and wired the previously unused `widget_create_help`. Removed the unused `pollenEnabled` and `language` fields from the configuration type definitions.
+* (H5N1v2) fix: Corrected the state role of `sunshine_duration`. It is a duration (unit `h`/`min`), not a radiation level, so the role changed from `value.radiation` to `value.interval` per the official state-role documentation. Existing installations are migrated automatically (role mapping version 2).
+* (H5N1v2) fix: The 15-minute forecast no longer writes `sunshine_duration` twice per update (it is now converted to hours once, before the single write).
+* (H5N1v2) fix: `info.lastUpdate_weather` is now only updated when at least one weather location was processed successfully, instead of also on fully failed/skipped updates.
+* (H5N1v2) enhanced: When a data point already exists, `extendOrCreateState`/`createCustomState` now also correct role and unit (not just the value type) if they drift from the definition. Typed several previously untyped values (`val`, `cachedUnitMap`, weather API result) to reduce `any` usage.
+* (H5N1v2) testing: Added the first unit tests (`src/lib/role_mapping.test.ts`) covering the role mapping (`getRole`), role mapping version/managed keys and the unit maps. `npm run test:ts` now runs real tests.
+* (H5N1v2) fix: The optional `cloud_cover` data point is now also created and filled for the PV **15-minute forecast** (previously it only existed for the hourly forecast). The cleanup also removes it again when the option is turned off.
+
 ### 3.3.3 (2026-11-09)
 * (H5N1v2) fixed: Corrected weather location configuration property names and fixed PV longitude validation to properly handle empty values and trigger the system-coordinate fallback.
 * (H5N1v2) Update dependencies.
@@ -301,11 +316,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (H5N1v2) Automatic role migration: When `role_mapping.ts` is updated, existing 
   ioBroker objects are automatically updated with the new roles on the next adapter start – 
   no manual deletion of the object tree required.
-* (H5N1v2) Update dependencies
-
-### 3.2.1 (2026-09-12)
-* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
-* (H5N1v2) add node.js 26.x testmatrix
 * (H5N1v2) Update dependencies
 
 ## Legal & Copyright

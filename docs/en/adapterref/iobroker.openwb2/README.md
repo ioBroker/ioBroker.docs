@@ -13,6 +13,8 @@
 
 ## openwb2 adapter for ioBroker
 
+*Diese Anleitung ist auch [auf Deutsch](https://github.com/seaspotter/ioBroker.openwb2/blob/main/docs/de/README.md) verfügbar.*
+
 Reads chargepoints, counters, battery, PV and consumers from an [openWB](https://openwb.de) 2 wallbox
 controller live over MQTT, and lets you control charging via its `simpleAPI` HTTP interface, from ioBroker.
 
@@ -124,6 +126,15 @@ see `.github/workflows/test-and-release.yml`. To get the adapter listed in the i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2026-11-16)
+
+- (SeaSpotter) Code cleanup: removed duplicated logic (shared helpers for building an empty
+  per-component-type collection, stripping an MQTT topic's `get/` prefix, and the one-shot
+  MQTT-probe connection/timeout plumbing), an unused admin UI prop, and corrected a few stale
+  code comments left over from earlier fixes.
+- (SeaSpotter) Linked the existing German manual ([docs/de/README.md](https://github.com/seaspotter/ioBroker.openwb2/blob/main/docs/de/README.md)) from
+  this README - it existed but wasn't discoverable from here.
+
 ### 0.3.10 (2026-11-09)
 
 - (SeaSpotter) Bumped `axios` to 1.21.0 - reviewed the changelog; the only breaking change (custom
@@ -158,12 +169,6 @@ see `.github/workflows/test-and-release.yml`. To get the adapter listed in the i
   ("name-counters") in Dutch, Russian, Ukrainian and Chinese. Also fixed several button labels
   using the wrong grammatical mood for their language's UI convention, wrong grammatical gender,
   and French's `Type` column header mistranslated as "Taper" ("to type on a keyboard").
-
-### 0.3.6 (2026-10-23)
-
-- (SeaSpotter) Added a minimum 10-second lower bound to the **New-device check interval**
-  (Components tab) - a mistyped fractional value could previously poll the device far more often
-  than intended.
 
 Older versions are listed in CHANGELOG_OLD.md.
 

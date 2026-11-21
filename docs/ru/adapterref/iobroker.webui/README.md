@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: icwayNN6/KClreJsKpqYDJCW9+30cUUxFZyP3ZIqmvk=
+hash: FXpS9b4KAaHE0lDvD390oRsICpFPR8J0gz0Q4f7ELPc=
 ---
-# IoBroker.webui
+# ioBroker.webui
 
 ![Количество установок](https://iobroker.live/badges/webui-installed.svg)
 ![Стабильная версия](https://iobroker.live/badges/webui-stable.svg)
-![версия НПМ](https://img.shields.io/npm/v/iobroker.webui.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.webui.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.webui.svg)
 ![НПМ](https://nodei.co/npm/iobroker.webui.png?downloads=true)
 
@@ -17,73 +17,113 @@ hash: icwayNN6/KClreJsKpqYDJCW9+30cUUxFZyP3ZIqmvk=
 
 ![изображение](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
 
-## Обучающие видео (только на немецком языке)
-https://www.youtube.com/@jogibear9988
+## Видеоуроки (в настоящее время только на немецком языке)
+
+<https://www.youtube.com/@jogibear9988>
 
 ## Описание
-Это полная система визуализации для ioBroker.
 
-Он включает в себя такие функции, как:
+Это полноценная система визуализации для ioBroker.
+
+В его состав входят такие функции, как:
 
 - простой язык сценариев
-- привязка к объектам ioBroker, включая конвертеры и выражения JavaScript
+- Привязка к объектам ioBroker, включая конвертеры и выражения JavaScript.
 - вставка изображений из буфера обмена
 - перетаскивание внешних изображений
-- перетаскивание объектов ioBroker для автоматического создания привязок
-- перетаскивание объектов ioBroker в Свойства для создания привязок к ним
-- относительные пути сигналов к объектам ioBroker на экранах (полный путь может быть передан извне на экран)
-- редактирование макета и HTML-кода в режиме разделенного просмотра
+- Перетаскивание объектов ioBroker для автоматического создания привязок
+- Перетаскивайте объекты ioBroker в свойства, чтобы создавать для них привязки.
+- Относительные пути передачи сигнала к объектам ioBroker на экранах (полный путь может передаваться извне на экран).
+- Редактирование макета и HTML-кода в режиме разделенного экрана
 - глобальная поддержка таблиц стилей
-- использование пакетов npm, содержащих веб-компоненты
+- использование npm-пакетов, содержащих веб-компоненты
+- Использование веб-компонентов ioBroker установленных адаптеров (те же компоненты, что и в vis-2, устройствах и административной панели).
 - экраны внутри экранов
-- использовать все пакеты иконок от ioBroker
-- используйте графики от ioBroker
-- используйте комбинированные идентификаторы объектов сигналов, например, "webui.0.test3.{webui.0.test3.select}" -> это будет использовать значение из webui.0.test3.select для имени сигнала
+- Используйте все пакеты значков от ioBroker.
+- Используйте графики от ioBroker.
+- Используйте объединенные идентификаторы объектов сигналов, например, "webui.0.test3.{webui.0.test3.select}" -> это позволит использовать значение из webui.0.test3.select в качестве имени сигнала.
 
-Более подробную информацию по конкретным темам можно найти в разделе [вики](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) (в немецком разделе статей на несколько статей больше, чем в английском).
+Более подробная информация по конкретным темам содержится в [вики](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) (в немецком разделе статей немного больше, чем в английском).
 
 ## Установка
+
 ### Зависимости
-- Вам необходимо установить Web Adapter. Он работает со следующими настройками: ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
+
+- Для работы необходим установленный веб-адаптер. Он работает со следующими настройками:![изображение](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
 
 ## Концепции
+
 ### Описание
-Дизайнер использует веб-компоненты, поэтому HTML, который вы проектируете, находится внутри Shadowroot веб-компонента. Это означает, что вы не можете стилизовать<body> или<html> внутри таблицы стилей. Для стилизации внешнего макета используйте селектор &quot;:host&quot;. Это также означает, что вы не можете использовать обработчики событий &quot;on...&quot;. Используйте назначение события &quot;@...&quot;.
 
-### Пользовательские элементы управления в WebUI
-Вы можете создавать собственные многократно используемые элементы управления CustomControls в WebUI, каждый из которых может иметь свой собственный Javascript, свойства и шаблон.
+Дизайнер использует веб-компоненты, поэтому создаваемый вами HTML-код находится внутри теневого корня веб-компонента. Это означает, что вы не можете использовать стили.<body> или<html> внутри таблицы стилей. Для оформления внешнего макета используйте селектор ":host". Это также означает, что вы не можете использовать обработчики событий "on...". Используйте назначение событий "@...".
 
-Вы можете использовать синтаксис двойных квадратных скобок и синтаксис двойных фигурных скобок "BaseCustomWebcomponent" для создания привязок из шаблона к свойствам, определенным в конструкторе. Фигурные скобки создают двусторонние привязки.
-Если вы используете диалоговое окно привязок, вы можете привязаться к свойству с помощью ??Propertyname и к объекту ioBroker в свойстве через ?Propertyname.
-В скриптах вы также можете писать в сигналы, определенные в пользовательских свойствах.
+### Пользовательские элементы управления в веб-интерфейсе
 
-Вы можете включить Javascript в свой CustomControl или Screen.
-Кроме того, вы можете экспортировать функцию `init(instance)`, которая будет вызвана при создании экземпляра вашего CustomControl.
-Наконец, функции `connected()` и `disconnected()` можно определить для вызова при ...
+В WebUI можно создавать собственные многоразовые элементы управления CustomControls, каждый из которых может иметь свой собственный JavaScript-код, свойства и шаблон.
+
+Для создания привязок из шаблона к свойствам, определенным в конструкторе, можно использовать синтаксис двойных скобок и синтаксис двойных фигурных скобок компонента "BaseCustomWebcomponent". Фигурные скобки создают двусторонние привязки. При использовании диалогового окна "Привязки" можно привязаться к свойству с помощью параметра ??Propertyname и к объекту IoBroker в этом свойстве с помощью параметра ?Propertyname. В скриптах также можно записывать данные в сигналы, определенные в пользовательских свойствах.
+
+Вы можете встраивать JavaScript в свой CustomControl или Screen. Кроме того, вы можете экспортировать функцию. `init(instance)` Эта функция будет вызвана при создании экземпляра вашего пользовательского элемента управления. Наконец, `connected()` и `disconnected()` Функции можно определить таким образом, чтобы они вызывались, когда...
+
+### веб-компоненты ioBroker
+
+Адаптеры позволяют подключать [веб-компоненты ioBroker](https://github.com/ioBroker/web-components) : пользовательские элементы, которые отображаются одинаково во всех интерфейсах ioBroker. Список этих элементов отображается в адаптерах. `common.webComponents`. Дизайнер отображает их в палитре в **разделе «Управление» → «Дизайнер» → «Веб-компоненты ioBroker»** ; компоненты, которые изменяют собственное значение (`editsValue`) опущены, поскольку веб-интерфейс не хранит такие значения.
+
+Размещенный компонент хранится следующим образом:
+
+```html
+<iobroker-webui-web-component adapter="flow" component="flow-diagram" setting-oid="flow.0.diagrams.main" theme="dark"></iobroker-webui-web-component>
+```
+
+- Каждое значение параметра компонента является атрибутом. `setting-<name>` (`textTrue` становится `setting-text-true` Отредактируйте его в сетке свойств или привяжите к состоянию ioBroker, как любой другой атрибут. Параметр флажка работает как логический атрибут HTML: present означает true.
+- `theme` является `light` (по умолчанию), `dark` или `auto` (следует за браузером). Пользовательские свойства CSS. `--iob-primary`, `--iob-paper`, `--iob-text`...элемент, расположенный на нем или над ним, переопределяет отдельные цвета при отображении компонента.
+- В конструкторе компонент получает `editMode` и не записывает состояния. Во время выполнения он получает сокет веб-интерфейса.
+- Мероприятие `iob-navigate` Открывает веб-интерфейс с таким названием, если таковой имеется.
+- Компоненты считываются один раз при загрузке страницы: после установки адаптера необходимо перезагрузить конструктор.
+
+## ИИ-помощник на экране
+
+Откройте **AI** на панели инструментов дизайнера. Настройте провайдера в **ioBroker Admin → Системные настройки → AI** , затем выберите его модель в помощнике. Адаптер использует тот же самый[`@iobroker/ai-core`](https://github.com/ioBroker/ai-core) В качестве бэкенда используется vis-2; учетные данные провайдера остаются на сервере. Локальный ИИ-сервер/конечная точка Ollama может быть выбрана через конфигурацию ИИ системы. Требуется Node.js 22.19 или более поздняя версия; для чата с ИИ также необходим современный контроллер/веб-адаптер с подписками на сообщения экземпляра.
+
+Ассистент запускается в виде свернутой вкладки в правом углу экрана. Откройте его из этой вкладки или с помощью команды на панели инструментов **ИИ** . Кнопка «Закрыть» скрывает панель инструментов, не теряя черновики и запущенные чаты; команда на панели инструментов снова открывает ее.
+
+Введите текст и нажмите **Enter** , чтобы автоматически создать чат. **Shift+Enter** вставляет новую строку. Щелкните вкладку чата, чтобы продолжить его; щелкните выбранную вкладку еще раз, чтобы вернуться к новому черновику. Щелкните правой кнопкой мыши вкладку, чтобы переименовать или удалить этот чат. Селекторы поставщика/модели расположены под окном сообщения; щелкните правой кнопкой мыши элементы управления компоновщика, чтобы перезагрузить их. Чаты и неотправленные новые черновики сохраняются в этом браузере для текущей установки и пользователя ioBroker. Перезагрузка прерывает текущие реплики.
+
+Пока помощник работает, продолжайте печатать и отправляйте сообщения с помощью **кнопки «Управлять»** , чтобы перенаправить его на следующий безопасный шаг, или выберите **«Очередь»** , чтобы отправить последующее сообщение после текущего хода. Ожидающие сообщения можно редактировать или удалять над полем ввода. **Кнопка «Остановить»** немедленно завершает локальный ход, пропускает последующие инструменты и очищает неотправленные ожидающие сообщения; уже отправленный запрос поставщика может завершиться в фоновом режиме. На вкладках «Запущенные» и в диалоге отображаются индикаторы активности.
+
+Кнопка микрофона позволяет диктовать текст в поле сообщения без его отправки. Она использует распознавание речи в браузере и требует разрешения на использование микрофона; доступность зависит от браузера. Остановить диктовку можно той же кнопкой. Закрытие панели ИИ также останавливает диктовку.
+
+Помощник может проверять сохраненные экраны и элементы управления, несохраненные открытые редакторы, HTML/CSS/JavaScript, глобальные стили/скрипты, установленные элементы палитры, а также метаданные/текущие значения объектов ioBroker, доступные для поиска. Он содержит документацию по привязкам, обработчикам событий и фактическим сгенерированным схемам команд простых скриптов. Собственная конфигурация объекта исключена, и отсутствует инструмент для записи состояния в реальном времени. Исходный и объектный контекст, запрашиваемый помощником, отправляется поставщику, выбранному в ioBroker.
+
+Используйте **функцию «Прикрепить файлы»** для текстовых/исходных файлов и изображений PNG/JPEG/WebP/GIF, или вставьте скриншоты в поле сообщения. Выберите модель, поддерживающую обработку изображений. Ограничение: восемь вложений и 10 МБ на сообщение. Текущий мост ioBroker Anthropic поддерживает только текст; для чатов со скриншотами необходимо использовать совместимый с OpenAI поставщик обработки изображений (например, OpenAI, Gemini, OpenRouter или подходящую локальную модель).
+
+Изменения отображаются в виде предложений с исходным и предлагаемым исходным кодом. **Функция «Применить к редактору»** обновляет экран без сохранения. Просмотрите его в конструкторе и используйте обычную команду **«Сохранить** », чтобы сохранить изменения. Если исходный код изменился после того, как его прочитал ассистент, функция «Применить» не перезапишет его; попросите ассистента прочитать его снова и создать новое предложение. Новые экраны создаются с помощью того же процесса создания предложений.
 
 ## Спонсорство
-Если вы хотите помочь разработке, поддержите этот проект по ссылке https://github.com/sponsors/jogibear9988
 
-## Разработка
-* Установить репозиторий как адаптер в IOBroker
-* Загрузите репозиторий в дополнительный каталог «dev», не разрабатывайте внутри каталога ioBroker Node_modules.
-* Выполните следующие действия внутри каталога «dev».
+Если вы хотите помочь в разработке, поддержите этот проект, сделав спонсорскую поддержку по ссылке <https://github.com/sponsors/jogibear9988>
 
-* Установка зависимостей
+## Развитие
+
+- Установите репозиторий в качестве адаптера в IOBroker.
+
+- Загрузите репозиторий в отдельную директорию "dev", не разрабатывайте приложение внутри директории ioBroker Node\_modules.
+
+- Выполните следующие действия внутри каталога "dev".
+
+- Установите зависимости
 
 ```
   $ npm install
 ```
 
-* Скомпилируйте Typescript после внесения изменений (или нажмите Ctrl + Shift + B в VsCode и выберите «tsc watch»)
+- После внесения изменений скомпилируйте TypeScript (или нажмите Ctrl + Shift + B в VsCode и выберите "tsc watch")
 
 ```
   $ npm run tsc
 ```
 
-* Настройте «config.js» так, чтобы он соответствовал вашему IP-адресу и порту для вашего iobroker
-
-(Файл config.js в корне репозитория будет заменен файлом в '/config' при запуске 'npm build')
+- Отредактируйте файл 'config.js', указав IP-адрес и порт вашего iobroker (файл config.js в корне репозитория будет заменен файлом из '/config' при выполнении команды 'npm build').
 
 ```
     window.iobrokerHost = '192.168.1.2';
@@ -91,916 +131,101 @@ https://www.youtube.com/@jogibear9988
     window.iobrokerSocketScriptUrl = 'http://' + window.iobrokerHost + ':' + window.iobrokerPort + '/lib/js/socket.io.js';
 ```
 
-* Запустите приложение на локальном сервере
+- Запустите приложение на локальном сервере.
 
 ```
   $ npm start
 ```
 
-* Перейдите в Chrome по адресу [localhost:8000](), чтобы увидеть приложение.
+- Чтобы открыть приложение, перейдите в Chrome по адресу [localhost:8000]() .
 
-### Подробнее о разработке
-  - Бегать
+### Подробнее о развитии
+
+- Бегать
 
 ```
   $ npm run reflection
 ```
 
-для повторного создания файлов отражения для скриптов, которые используются для сетки свойств
+воссоздать файлы отражения для скриптов, которые используются для сетки свойств.
 
-  - Бегать
+- Бегать
 
 ```
   $ npm run build
 ```
 
-скопировать скомпилированные файлы и node_modules в папку www, чтобы адаптер можно было установить через github
+чтобы скопировать скомпилированные файлы и папку node\_modules в папку www, чтобы адаптер можно было установить через GitHub.
 
-  - Бегать
+- Бегать
 
 ```
   $ npm run release
   $ npm publish
 ```
 
-чтобы создать правильный коммит релиза для iobroker, будьте осторожны, это также отправляет в репозиторий git.
-Обязательно отредактируйте "CHANGELOG.md" перед этим, текст в "## **WORK IN PROGRESS**" в README.Md будет использоваться для информации о версии
+Чтобы создать корректный коммит релиза для iobroker, будьте осторожны, он также отправляет изменения в репозиторий Git. Обязательно отредактируйте файл "CHANGELOG.md" перед этим, так как текст из раздела "## **WORK IN PROGRESS** " в файле README.md будет использоваться для информации о версии.
 
 ## Информация об адаптере.
-Адаптер основан на следующем компоненте Designer: https://github.com/node-projects/web-component-designer
 
-Вам необходимо создать экран «start», он будет первым, который вызывается при открытии runtime.html, но вы можете изменить это с помощью параметра запроса: runtime.html?screenName=screen2
+Адаптер основан на следующем компоненте Designer: <https://github.com/node-projects/web-component-designer>
+
+Вам необходимо создать экран "start", это первый экран, вызываемый при открытии файла runtime.html, но вы можете изменить это с помощью параметра запроса: runtime.html?screenName=screen2
 
 ## Changelog
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 1.21.0 (2024-12-28)
-- fix scripts with empty names on css
-- css props with only bindings are not shown
-- remove of css prop should remove binding?
-- Open Screen in sub screen command
-
-### 1.20.1 (2024-12-03)
-- fix in designer with svgs
-
-### 1.20.0 (2024-12-03)
-- add a few packages
-- run simple script cmd and update get parent screen
-- update packages, downgrade monaco
-- fix backup
-
-### 1.19.4 (2024-11-03)
-- copy & paste events
-
-### 1.19.3 (2024-11-03)
-- support null value
-
-### 1.19.2 (2024-11-03)
-- use name in classlist
-
-### 1.19.1 (2024-11-02)
-- copy path for screens/controls
-
-### 1.19.0 (2024-11-02)
-- fix error in script system
-
-### 1.18.5 (2024-11-02)
-- compile fix
-
-### 1.18.4 (2024-11-02)
-- fix wrong shadow root used
-
-### 1.18.3 (2024-11-01)
-- small typo fix
-
-### 1.18.2 (2024-11-01)
-- better refcatoring
-
-### 1.18.1 (2024-11-01)
-- fix screen settings
-
-### 1.18.0 (2024-11-01)
-- screens are now ex- & imported as xml
-
-### 1.17.3 (2024-11-01)
-- fix compilation
-
-### 1.17.2 (2024-11-01)
-- switch combo in complex prop editor
-
-### 1.17.1 (2024-11-01)
-- selector for properties
-
-### 1.17.0 (2024-11-01)
-- internal control properties
-- internal screen properties
-
-### 1.16.3 (2024-10-31)
-- raise errors on unimplemented commands
-- wrong script upgrade
-
-### 1.16.2 (2024-10-31)
-- wrong default in script
-
-### 1.16.1 (2024-10-31)
-- fix base custom webcomp bindings
-
-### 1.16.0 (2024-10-30)
-- fix errors with script system, wrong parent used
-
-### 1.15.1 (2024-10-08)
-- fix typo in screenviewer
-
-### 1.15.0 (2024-10-08)
-- fixes in margin & padding
-- work on simpleScripts, add conditions
-- fix _getDomElements in screen viewer
-
-### 1.14.0 (2024-09-18)
-- update npm packages
-
-### 1.13.2 (2024-08-21)
-- designer updates
-- add find methods
-
-### 1.13.1 (2024-08-18)
-- small designer tweaks
-
-### 1.13.0 (2024-08-18)
-- update designer
-
-### 1.12.4 (2024-07-25)
-- one more designer update
-
-### 1.12.3 (2024-07-25)
-- update designer
-
-### 1.12.2 (2024-07-24)
-- fix offset finding in box drawing
-
-### 1.12.1 (2024-07-24)
-- update edit text in designer
-
-### 1.12.0 (2024-07-24)
-- update designer
-
-### 1.11.3 (2024-06-02)
-- fix load subfolders
-
-### 1.11.2 (2024-06-01)
-- screens grid view
-
-### 1.11.1 (2024-05-31)
-- fix icons view path
-
-### 1.11.0 (2024-05-31)
-- add a icons view
-
-### 1.10.9 (2024-05-30)
-- show undo count
-
-### 1.10.8 (2024-05-30)
-- better tooltip for multiplex
-- remove unused solution entries
-
-### 1.10.7 (2024-05-29)
-- fix iframe d&d
-
-### 1.10.6 (2024-05-29)
-- better evt editor for new events
-
-### 1.10.5 (2024-05-29)
-- show events on webui controls
-
-### 1.10.4 (2024-05-29)
-- work on events
-
-### 1.10.3 (2024-05-29)
-- add events service for manifest
-
-### 1.10.2 (2024-05-28)
-- fix getDomelement
-
-### 1.10.1 (2024-05-28)
-- support classlist in setElementProperty
-
-### 1.10.0 (2024-05-28)
-- fix screen & parent screen access
-
-### 1.9.10 (2024-05-28)
-- fixes for blockly
-
-### 1.9.9 (2024-05-28)
-- fix firefox
-
-### 1.9.8 (2024-05-27)
-- try faster loading
-
-### 1.9.7 (2024-05-27)
-- fix change root style
-
-### 1.9.6 (2024-05-27)
-- fix null ref
-
-### 1.9.5 (2024-05-27)
-- few small changes
-
-### 1.9.4 (2024-05-27)
-- fix scripts not workin
-
-### 1.9.3 (2024-05-27)
-- update packages
-
-### 1.9.2 (2024-05-27)
-- fix screenviewer styles
-
-### 1.9.1 (2024-05-27)
-- fix first div styled from designer when zoom
-
-### 1.9.0 (2024-05-27)
-- fix zooming of child screens
-
-### 1.8.9 (2024-05-26)
-- one more spec. calculation fix
-
-### 1.8.8 (2024-05-26)
-- need to await stylesheet parse
-
-### 1.8.7 (2024-05-26)
-- fix specificity calculation
-
-### 1.8.6 (2024-05-21)
-- fix in designer property grid
-
-### 1.8.5 (2024-05-21)
-- stretch property for screenviewer
-- screennames in property list (property services now async)
-
-### 1.8.4 (2024-05-20)
-- fix typo in bindingshelper
-
-### 1.8.3 (2024-05-20)
-- fix style parsing and style bindings at runtime
-
-### 1.8.2 (2024-05-19)
-- fix in manifest parser of designer
-
-### 1.8.1 (2024-05-19)
-- fix manifest parsing
-
-### 1.8.0 (2024-05-19)
-- bindings inside of css
-
-### 1.7.8 (2024-05-19)
-- fix remove of ctx menu
-
-### 1.7.7 (2024-05-17)
-- fix stylesheet matching
-
-### 1.7.6 (2024-05-17)
-- fix edit text in transformed surface
-
-### 1.7.5 (2024-05-17)
-- more fixes with transformed elements
-
-### 1.7.4 (2024-05-16)
-- designer transformation fixes
-
-### 1.7.3 (2024-05-15)
-- fix transform combinations in designer
-- fix treeview jump to
-
-### 1.7.2 (2024-05-15)
-- few more small designer fixes
-
-### 1.7.1 (2024-05-15)
-- fix in designer
-
-### 1.7.0 (2024-05-15)
-- Add screen contextmenu
-- support editing of repeat in grid colum/row templates
-- designer updates
-- force styles
-
-### 1.6.5 (2024-05-07)
-- designer update
-
-### 1.6.4 (2024-05-05)
-- expand/collapse of child nodes in tree
-- undock all windows
-
-### 1.6.3 (2024-05-05)
-- jump to all css declarations
-
-### 1.6.2 (2024-05-04)
-- jump to styles
-
-### 1.6.1 (2024-05-02)
-- better icons
-
-### 1.6.0 (2024-05-02)
-- remove metro ui
-
-### 1.5.4 (2024-05-02)
-- fix delay command
-
-### 1.5.3 (2024-05-02)
-- fixes after package updates
-
-### 1.5.2 (2024-05-02)
-- removed missing prop
-
-### 1.5.1 (2024-05-02)
-- add delay in blockly & npm updates
-
-### 1.5.0 (2024-04-28)
-- nicer two way bindings
-
-### 1.4.9 (2024-04-24)
-- fix toastify
-
-### 1.4.8 (2024-04-20)
-- fix for controller v6
-
-### 1.4.7 (2024-04-20)
-- compact mode on controler 6 support
-
-### 1.4.6 (2024-04-10)
-- fix encoding for all files
-
-### 1.4.5 (2024-04-10)
-- fix gulp5 copy breaks fonts
-
-### 1.4.4 (2024-04-10)
-- fix compile error
-
-### 1.4.3 (2024-04-10)
-- fix copy of font
-
-### 1.4.2 (2024-04-09)
-- stretch support in screens
-
-### 1.4.1 (2024-04-09)
-- support relative signal paths in scripts
-
-### 1.4.0 (2024-04-08)
-- parameter support for scripts
-
-### 1.3.2 (2024-04-02)
-- designer upd
-
-### 1.3.1 (2024-04-01)
-- designer updates for toolbars
-
-### 1.3.0 (2024-04-01)
-- designer update
-
-### 1.2.13 (2024-03-28)
-- disabled control fix
-
-### 1.2.12 (2024-03-28)
-- add dayjs for date formating
-
-### 1.2.11 (2024-03-28)
-- add a indirection level in complex signal binding
-
-### 1.2.10 (2024-03-28)
-- package upgrades
-
-### 1.2.9 (2024-03-26)
-- try fix runtime once more
-
-### 1.2.8 (2024-03-26)
-- runtime should not load designer
-
-### 1.2.7 (2024-03-26)
-- fix used wrong script system
-
-### 1.2.6 (2024-03-25)
-- one more small runtime fix
-
-### 1.2.5 (2024-03-25)
-- fix runtime once more
-
-### 1.2.4 (2024-03-25)
-- fix runtime
-
-### 1.2.3 (2024-03-24)
-- designer upgrade for new features
-
-### 1.2.2 (2024-03-11)
-- fix broken signals selector in scripts
-
-### 1.2.1 (2024-03-11)
-- build broken after refactoring
-
-### 1.2.0 (2024-03-11)
-- extracted some code for usability
-- better text edit
-- better split view (selection matches now)
-- round pixel values
-
-### 1.1.4 (2024-03-02)
-- designer-update: mathML support, svg foreignObject support
-- better text edit support
-
-### 1.1.3 (2024-02-29)
-- text edit now workin
-- package updates
-
-### 1.1.2 (2024-02-27)
-- fix broken designer package
-
-### 1.1.1 (2024-02-27)
-- designer and docking fixes
-
-### 1.1.0 (2024-02-26)
-- support undock to new browser window
-- preview fixes for position: static in styles
-
-### 1.0.56 (2024-02-26)
-- screenviewer - add also nodes from domparser head
-
-### 1.0.55 (2024-02-22)
-- more designer fixes
-
-### 1.0.54 (2024-02-22)
-- multiple designer fixes
-
-### 1.0.53 (2024-02-19)
-- fix lazy bound lit event name
-
-### 1.0.52 (2024-02-19)
-- fix captured local
-
-### 1.0.51 (2024-02-19)
-- fix lazy loaded lit elments
-- fix script url
-
-### 1.0.50 (2024-02-18)
-- again fix in class binding
-
-### 1.0.49 (2024-02-18)
-- class is attribute in bindings
-- fix error logging
-
-### 1.0.48 (2024-02-17)
-- fix wunderbaum error
-
-### 1.0.47 (2024-02-15)
-- designer fixes with property grid
-
-### 1.0.46 (2024-02-15)
-- designer updates
-
-### 1.0.45 (2024-02-12)
-- update designer with bugfixes
-
-### 1.0.44 (2024-02-11)
-- fix bindings in designer
-
-### 1.0.43 (2024-02-11)
-- refresh tree when controls deleted
-
-### 1.0.42 (2024-02-11)
-- fix grid resize
-- fix grid extension display
-
-### 1.0.41 (2024-02-10)
-- better element drawing (with undo)
-- better title extension
-
-### 1.0.40 (2024-02-10)
-- dblclick in solution should not change tool
-- designer update for performance fixes
-
-### 1.0.39 (2024-02-09)
-- upgrade designer package once more to fix some issues
-
-### 1.0.38 (2024-02-09)
-- fix blockly
-- add blockly templated string
-- work on adopted styles
-- update designer to fix snaplines
-
-### 1.0.37 (2024-01-31)
-- designer fix for background
-
-### 1.0.36 (2024-01-31)
-- upgade to new designer for better style encapsulation
-
-### 1.0.35 (2024-01-30)
-- package upgrades (fix in designer for css patching)
-- typos
-
-### 1.0.34 (2024-01-28)
-- indirect signal for $ access
-
-### 1.0.33 (2024-01-24)
-- one more designer update
-
-### 1.0.32 (2024-01-24)
-- fix for nested stylesheets
-
-### 1.0.31 (2024-01-23)
-- string could be null
-
-### 1.0.30 (2024-01-22)
-- better script errors
-
-### 1.0.29 (2024-01-22)
-- remove a few errors
-
-### 1.0.28 (2024-01-22)
-- npm upgrade for error of undoservice
-
-### 1.0.27 (2024-01-22)
-- toast message on errors
-
-### 1.0.26 (2024-01-22)
-- npm package upgrades
-
-### 1.0.25 (2024-01-21)
-- use appendChild
-
-### 1.0.24 (2024-01-21)
-- fix later loaded scripts
-
-### 1.0.23 (2024-01-21)
-- twoway should only set first value
-- fix error with noParse
-
-### 1.0.22 (2024-01-20)
-- fix binding with unit
-- fix refactor service missing command
-
-### 1.0.21 (2024-01-19)
-- fix designer grid overlay
-- stecil ackage hacks
-
-### 1.0.20 (2024-01-18)
-- fix broken split view
-
-### 1.0.19 (2024-01-17)
-- simpler one way bindings with expressions
-
-### 1.0.18 (2024-01-17)
-- text selection selects in designer
-
-### 1.0.17 (2024-01-16)
-- fix opacity of D&D node
-
-### 1.0.16 (2024-01-16)
-- fix drag drop of tree nodes
-
-### 1.0.15 (2024-01-14)
-- support upper/lowercase and spaces in screens & controls
-
-### 1.0.13 (2024-01-14)
-- correct event name in lit bindings
-
-### 1.0.12 (2024-01-14)
-- upgrade baseCustomWebcomp for attribute binding
-
-### 1.0.11 (2024-01-14)
-- API for reading object lists
-
-### 1.0.10 (2024-01-14)
-- fix selected tool
-
-### 1.0.9 (2024-01-14)
-- bugfix controls editor
-
-### 1.0.8 (2024-01-14)
-- fix import/export
-
-### 1.0.7 (2024-01-14)
-- bigger formula editor when multiline
-
-### 1.0.6 (2024-01-14)
-- draw widgets when selected in tree
-
-### 1.0.5 (2024-01-14)
-- bind to iobroker objects (via $ prefix)
-
-### 1.0.4 (2024-01-14)
-- fix open screens in folders
-
-### 1.0.3 (2024-01-14)
-- only lowercase folders
-
-### 1.0.2 (2024-01-14)
-- variablen in convertern
-- configurable meta tags
-
-### 1.0.1 (2024-01-13)
-- fix issue with npm
-
-### 1.0.0 (2024-01-13)
-- new script command: CalculateSignalValue
-- javascript code completition
-- better types in code completition
-- fix writing of child nodes if content is bound at design time
-- use monaco editor in expressions
-- use custom var names in expressions
-- Screens & Controls can have subfolders
-- decl. shadow dom support in screen viewer
-- allow 'local_' as tag prefix for local vars
-
-### 0.23.3 (2024-01-04)
-- add local valueAsNumber property
-
-### 0.23.2 (2024-01-03)
-- again fix runtime was not initialized
-
-### 0.23.1 (2024-01-03)
-- fix runtime was not initialized
-
-### 0.23.0 (2024-01-03)
-- todo, support 2way bindings too custom properties
-- code completition for iobrokerHandler and runtime
-- simple scripts, access value of event
-
-### 0.22.7 (2023-12-25)
-- and one more...
-
-### 0.22.6 (2023-12-25)
-- and one more fix on importmaps
-
-### 0.22.5 (2023-12-25)
-- more fixes with import map
-
-### 0.22.4 (2023-12-25)
-- work on export directive
-
-### 0.22.3 (2023-12-25)
-- fix missing .js extensions
-
-### 0.22.2 (2023-12-25)
-- fix scripts
-
-### 0.22.1 (2023-12-25)
-- add open screen in blockly
-
-### 0.22.0 (2023-12-25)
-- work on esbuild (but not yet ready, delayed till blockly is ESM)
-- bugfixes with scripts
-- remove typescript, use javascript directly
-- typed value on SetValue function
-
-### 0.21.3 (2023-12-20)
-- fix set style
-
-### 0.21.2 (2023-12-20)
-- more commands in blockly
-
-### 0.21.1 (2023-12-19)
-- fixed paths
-
-### 0.21.0 (2023-12-19)
-- start of blockly support
-
-### 0.20.7 (2023-12-15)
-- fix importmap creation missed "/"
-
-### 0.20.6 (2023-12-12)
-- few wunderbaum fixes
-
-### 0.20.5 (2023-12-11)
-- better custom properties view
-
-### 0.20.4 (2023-12-11)
-- fix in css prop binding
-
-### 0.20.3 (2023-12-11)
-- update designer npm
-
-### 0.20.2 (2023-12-11)
-- fix for class binding
-
-### 0.20.1 (2023-12-11)
-- binding for classes
-
-### 0.20.0 (2023-12-11)
-- allow bindings to css vars
-
-### 0.19.3 (2023-12-10)
-- switch loglevel
-
-### 0.19.2 (2023-12-10)
-- package updates
-
-### 0.19.1 (2023-12-07)
-- fix load error
-
-### 0.19.0 (2023-12-07)
-- waitForReady needs to be awaited
-
-### 0.18.15 (2023-12-06)
-- fix missing null check
-
-### 0.18.14 (2023-12-06)
-- fix normal binding unsubscribe
-
-### 0.18.13 (2023-12-06)
-- fix historic binding unsubscribe
-
-### 0.18.12 (2023-12-06)
-- remove bindings in customcontrols
-
-### 0.18.11 (2023-12-06)
-- fix broken load historic
-
-### 0.18.10 (2023-12-06)
-- load historic only when previous load is finished
-
-### 0.18.9 (2023-12-05)
-- fix tooltips
-
-### 0.18.8 (2023-12-05)
-- lazy remove the title
-
-### 0.18.7 (2023-12-05)
-- better fix for monaco
-
-### 0.18.6 (2023-12-05)
-- fix for monaco bug
-- title removed
-
-### 0.18.5 (2023-12-05)
-- code completition for base custom webcomponent
-- object property type
-
-### 0.18.4 (2023-12-03)
-- better text for historic bindings cancel
-
-### 0.18.3 (2023-12-03)
-- fix reload in dynamics editor
-
-### 0.18.2 (2023-12-03)
-- ui for historic binding
-- fixes in refactor view
-
-### 0.18.1 (2023-12-03)
-- fixes in refactor service
-
-### 0.18.0 (2023-12-01)
-- tooltip in solution explorer
-- npm upgrade of designer
-- refactor view for bindings and scripts
-
-### 0.17.0 (2023-11-29)
-- remove 2 uneeded files
-- designer update
-
-### 0.16.6 (2023-11-28)
-- check for invalid propertynames
-- move properties
-
-### 0.16.5 (2023-11-27)
-- copy screen and custom controls
-
-### 0.16.4 (2023-11-27)
-- fix usage of webui in windows
-
-### 0.16.3 (2023-11-24)
-- extra style for font declarations, they are not allowed in shadow dom
-
-### 0.16.2 (2023-11-23)
-- fix remove script command
-
-### 0.16.1 (2023-11-23)
-- additional file dnd
-
-### 0.16.0 (2023-11-23)
-- add additional files node and upload
-
-### 0.15.1 (2023-11-22)
-- export as xml (screens & controls)
-- binding historic with reload
-- fix dialog
-
-### 0.15.0 (2023-11-19)
-- uncloseable dialog 
-- css properties for dialog
-- binding to historic data
-
-### 0.14.1 (2023-11-12)
-- dialog centered
-
-### 0.14.0 (2023-11-12)
-- add simple dialog
-
-### 0.13.1 (2023-11-11)
-- two way bindings with expressions
-
-### 0.13.0 (2023-11-09)
-- fix upercase screen names in runtime
-- raster in designer is now adjustable
-- copy object nodes now copies complete string
-- context menu to directly edit custom element
-- fix handler path in script
-- uiChangedView now workin
-- error when importing invalid file (for example html instead of json)
-
-### 0.12.3 (2023-09-20)
-- after eval removal, functions need a return
-
-### 0.12.2 (2023-09-20)
-- events names for 2way bindings need a editor
-
-### 0.12.1 (2023-09-20)
-- two way for indirect bindings
-
-### 0.12.0 (2023-09-20)
-- support indirect bindings via {...} in signals (like in vis)
-
-### 0.11.2 (2023-09-17)
-- check npm package name
-
-### 0.11.1 (2023-09-16)
-- fix build on windows
-
-### 0.11.0 (2023-09-11)
-- dragdrop fixes
-- screen/control size fixes
-- connected/disconnected callbacks
-
-### 0.10.0 (2023-09-10)
-- new script commands
-- bugfix with bindings and empty events
-- select exported function in javascript
-- bugfix in save of screens
-- typescript in scripts
-- started work on translateable runtime
-
-### 0.9.0 (2023-09-06)
-- signal selector in properties
-- screen selector in properties
-- new screen had style in scripts
-- indirect value/property acces from scripts via editor
-- list multiple undo entries (on hold of undo)
-
-### 0.8.0 (2023-09-03)
-- update designer to add and fix some commands
-- move screen/control scripts out of html code
-- add a javascript editor view
-- bugfix when states where null after a fresh install
-- designer addons do now work again
-- docking framework updated, cause of bugs with undocking
-
-### 0.7.0 (2023-09-01)
-- screens and controls have now settings (width, height, useGlobalStyle)
-
-### 0.6.0 (2023-09-01)
-- removed many uneeded files from installation
-
-### 0.5.1 (2023-09-01)
-- show version in ui
-
-### 0.5.0 (2023-09-01)
-- signal as property type
-- removed svg-image control
-- shorter custom control tag name
-- better dynamics editor
-- dock ui fixes
-- control ui from backend (switch view, reload)
-
-### 0.4.0 (2023-08-30)
-- remove uneeded files from upload
-- remove icons into extra iobroker packages
-- support icon adapters
-- rename screens & controls
-
-### 0.3.0 (2023-08-29)
-- default value for custom properties
-- open screens only once
-- property bindings default one way
-
-### 0.2.3 (2023-08-28)
-- rework how custom controls are initalized
-
-### 0.2.2 (2023-08-28)
-- better support & fixes of custom elements
-- enum properties in custom controls
-- sample custom controls
-
-### 0.2.1 (2023-08-28)
-- null ref fix in bindings
-
-### 0.2.0 (2023-08-28)
-- Import/Export of Screens/Images/Controls
-- Define your own Controls directly in webui
-- Drag/Drop of Icons/Images to Properties
-- Drag/Drop of objects to Bindings-Editor Signalname
-- Basic functionality of CustomControls
-
-### 0.1.0 (2023-08-27)
--   initial public release
+### 2.4.0 (2026-11-11)
+- Use the ioBroker web components of installed adapters (`common.webComponents`, `@iobroker/web-components`) in screens: palette entries, a settings section in the property grid with every setting as a bindable `setting-*` attribute, theme support and `iob-navigate` to screens.
+- dark mode changed
+- components list
+
+### 2.3.0 (2026-11-10)
+- Expand AI context with current/open editors, selected screen elements, separate CSS/JavaScript, settings and component properties.
+- Add paged discovery of components, installed component APIs, signals, images, icons and chart presets, with on-demand image/icon previews for vision models.
+- Improve AI guidance for CSS bindings, converters and simple scripts, preferring the separate CSS/JavaScript fields.
+- Apply AI proposals as one Undo/Redo step covering HTML, CSS, JavaScript, settings and properties while preserving earlier manual history.
+- Show proposal review and Apply/Discard actions below AI answers, outside collapsed work outputs.
+- Add chat message timestamps, elapsed thinking time and cost totals in the chat list/footer when explicitly reported.
+- Balance the default dock column widths and fix document context-menu colors in light/dark mode.
+- Keep detached screens, AI chats and tool/global-editor windows editable, including component drops, shared models, Save and Undo/Redo. Closing a popup returns its unsaved panel to the main editor.
+- Fix missing script command details, including SetSignalValue signal/target fields, by resolving scalar schema aliases.
+
+### 2.2.0 (2026-11-10)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+* (GermanBluefox) Repochecker warnings fixed (#563)
+- new features, AI, new designer, ...
+
+### 2.1.0 (2026-09-15)
+- fix blockly scripts
+- add dark/light mode
+
+### 2.0.3 (2026-08-21)
+- fix help dlg pos
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2024 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025 jogibear9988 <jochen.kuehner@gmx.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

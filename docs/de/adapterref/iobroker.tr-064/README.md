@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: HyI+LHcbvZtGlIX+dcsQjvUUJJ2WnIzoVtsEWhRUfsw=
+hash: iPhfK/VaXi4cGNZdD/sofPo4Q3nzU6FkqhlHcQz+c5c=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/tr-064-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.tr-064.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/tr-064-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.tr-064.svg)
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.tr-064/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tr-064/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tr-064.svg)
@@ -15,7 +15,7 @@ hash: HyI+LHcbvZtGlIX+dcsQjvUUJJ2WnIzoVtsEWhRUfsw=
 
 # ioBroker.tr-064
 
-> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
+> \[!WICHTIG] Dieser Adapter kann nicht von GitHub installiert werden.
 
 **Dieser Adapter verwendet die Sentry-Bibliotheken. Diese Bibliotheken melden Ausnahmen und Codefehler automatisch an die Entwickler.** Weitere Informationen sowie Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller Version 3.0 verwendet.
 
@@ -80,9 +80,31 @@ Nutzer berichten, dass die Erkennung auch auf iOS-Geräten, beispielsweise iPhon
 
 Die ioBroker-Community hat ein Skript veröffentlicht, das diese Adapterinformationen nutzt, um Aktionen auszulösen. Beispiele hierfür sind: automatisches Abschalten aller Geräte, nachdem alle Personen das Haus verlassen haben; Anzeige der Anzahl der anwesenden Personen; oder Anzeige des Status einer Person in VIS. Siehe den [entsprechenden Thread im ioBroker-Forum](https://forum.iobroker.net/topic/4538/anwesenheitscontrol-basierend-auf-tr64-adapter-script) (auf Deutsch).
 
+### Personen, Gruppen, Gäste (wie bei der Facebook-Anwesenheitsprüfung)
+
+Der Reiter „Personen“ zeigt Personen anstelle einzelner Geräte an. Jede Zeile repräsentiert eine Person mit Namen, optionaler Gruppe und den MAC- oder IP-Adressen aller ihrer Geräte. Geben Sie in der Spalte „MAC/IP“ einen Teil des Namens, die MAC- oder IP-Adresse ein und wählen Sie das Gerät aus der Liste der Fritz!Box aus (Geräte des Reiters „Geräte“ werden ebenfalls angezeigt). Eine Adresse, die nicht in der Liste enthalten ist, kann einfach eingegeben werden. Alternativ kann anstelle einer Adresse auch der Hostname des Geräts in der Fritz!Box eingegeben werden (z. B. „example.com“). `Annas-iPhone` Groß- und Kleinschreibung spielt keine Rolle – es funktioniert, solange das Gerät in der Fritz!Box nicht umbenannt wird. Die Adressen werden durch Kommas getrennt gespeichert (z. B. 192. ... `AA:BB:CC:DD:EE:FF, 192.168.178.23, Annas-iPhone` Eine IP-Adresse funktioniert nur, wenn die Fritz!Box dem Gerät immer dieselbe Adresse zuweist („Diese IPv4-Adresse immer zuweisen“ in der Fritz!Box). Ein Smartphone mit privater WLAN-Adresse lässt sich besser über IP-Adresse oder Hostnamen als über seine wechselnde MAC-Adresse überwachen. IP-Adressen und Hostnamen benötigen die Hostliste der Fritz!Box; eine Box ohne diese Liste überwacht nur MAC-Adressen. Sobald eines ihrer Geräte aktiv ist, ist eine Person anwesend. Alles Weitere ist unten aufgeführt. `tr-064.0.presence`:
+
+| Zustand                                                              | Inhalt                                                                                                              |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `persons.<name>.present`                                             | `true` während die Person zu Hause ist                                                                              |
+| `persons.<name>.lastArrival` /`lastDeparture`                        | wann die Person das letzte Mal kam / ging (Frau, `0` (noch nicht bekannt)                                            |
+| `persons.<name>.presentSince` /`absentSince`                         | Minuten seitdem, `0` im anderen Staat                                                                                |
+| `persons.<name>.presentToday` /`absentToday`                         | Minuten anwesend/abwesend seit Mitternacht                                                                          |
+| `persons.<name>.devices`                                             | die aktiven Geräte der Person                                                                                       |
+| `persons.<name>.history`                                             | Die letzten Einträge als JSON, die neuesten zuerst: `[{"ts": 1791799596991, "present": false}]`                      |
+| `present`, `allPresent`                                              | Alle sind zu Hause                                                                                                  |
+| `presentCount`, `absentCount`, `presentNames`, `absentNames`, `json` | Wer ist zu Hause und wer nicht?                                                                                     |
+| `groups.<group>.*`                                                   | Gleiches gilt wie oben für die Personen einer Gruppe                                                                |
+| `guests.present`, `count`, `names`, `json`                           | aktive Geräte des Gastnetzwerks (Option "Gäste erkennen")                                                           |
+| `unknown.present`, `count`, `names`, `json`                          | Aktive Geräte, die weder unter „Geräte“ noch unter „Personen“ aufgeführt sind (Option „Unbekannte Geräte erkennen“) |
+
+Ein Smartphone schaltet sein WLAN im Standby-Modus ab. Bei der Einstellung „Abwesend nach (Minuten)“ wird eine Person nur dann als abwesend gezählt, wenn alle ihre Geräte für diese Minuten inaktiv sind; `lastDeparture` Dies ist dann der Zeitpunkt, an dem das letzte Gerät offline ging. Die erste Messung nach der Einrichtung ist „kein Ereignis“: `lastArrival` Und `lastDeparture` bleiben `0` bis die Person zum ersten Mal kommt oder geht. Zeiten, Summen und der Verlauf bleiben auch nach einem Neustart des Adapters erhalten.
+
+Für einen längeren Verlauf aktivieren Sie eine Verlaufsinstanz (History, SQL oder InfluxDB). `persons.<name>.present` Die Widgets lesen die Ereignisse von dort. Die Objekte einer Person, die aus der Tabelle entfernt wird, werden beim nächsten Start gelöscht.
+
 ### Anrufbeantworter (auf Deutsch: `Anrufbeantworter`)
 
-Sie können den Anrufbeantworter ein- und ausschalten. Mit dem Status `cbIndex` Sie wählen die Nummer des Anrufbeantworters.
+Sie können den Anrufbeantworter über den Status ein- und ausschalten. `states.ab` Mit dem Staat `states.abIndex` Sie wählen die Nummer des Anrufbeantworters (0 = die erste). Alternativ schreiben Sie `<index>,<on>` hinein `states.ab` z.B. `1,0` schaltet den zweiten Anrufbeantworter aus (`0`, `false` Und `off` (mean off).
 
 ### Anrufüberwachung
 
@@ -140,11 +162,21 @@ vis-2 (Widget-Set "FRITZ!Box"):
 
 - **FRITZ!Box** (`Tr064FritzBox`): Eine Kachel ähnlich wie in ioBroker.devices mit Online-Status, Modell, Verbindungstyp, aktuellem Download und Upload, externer IP-Adresse, WLAN und Gast-WLAN, neuen Nachrichten und verpassten Anrufen. Das Layout wird anhand der Größe gewählt, von einem kleinen Quadrat bis zu einer großen Karte mithilfe der Linie. Optional können die Chips des WLANs und des Gast-WLANs umgeschaltet werden (`switchWlan`).
 - **Netztopologie** (`Tr064Mesh`): die Mesh-Topologie als Grafik oder Tabelle, die das Widget ausfüllt und während der Sichtbarkeit aktualisiert wird.
-- **Präsenz** (`Tr064Presence`): die konfigurierten Geräte mit Anwesenheits-/Abwesenheitsstatus, Zugangspunkt und Frequenzband.
+- **Präsenz** (`Tr064Presence`): die konfigurierten Geräte mit Anwesenheits-/Abwesenheitsstatus, Zugangspunkt und Frequenzband - oder, mit "Modus" = Personen, die Personen der Registerkarte "Personen" (optional einer Gruppe) mit Angabe, seit wann sie zu Hause oder abwesend sind, und der Anzahl der Gäste.
+- **Person** (`Tr064Person` Eine Person, ausgewählt anhand ihres Namens. Symbol, Bild und Text für Anwesenheit und Abwesenheit sowie die Farben sind frei wählbar. Angezeigt werden, seit wann die Person zu Hause oder abwesend ist, wann sie zuletzt gekommen und gegangen ist, die Tagessumme und – falls das Widget hoch genug ist – die letzten Ankünfte und Abgänge. Die Daten stammen aus einer Verlaufsdatenbank (History, SQL, InfluxDB), falls eine Protokollierung erfolgt. `present` ansonsten vom Staat `history` des Adapters.
+- **Wi-Fi-QR-Code** (`Tr064GuestWlan` Der QR-Code des Gast-WLANs oder des eigenen WLANs (2,4 GHz, 5 GHz und, falls vorhanden, ein zweites 5-GHz- oder 6-GHz-Band) mit Netzwerkname und Passwort wird per Kamera gescannt. „Code anzeigen“: Im Widget, in einem Dialog nach einem Klick oder in einem Dialog nach PIN-Eingabe. Der Dialog schließt sich nach 60 Sekunden automatisch (einstellbar, 0 = nie).
 
-ioBroker.devices: Das Widget **FRITZ!Box** kann in allen vier Größen (1x1, 2x0,5, 2x1, 2x2) zu einer Kategorie hinzugefügt werden; in den Einstellungen des Widgets wird die Instanz des Adapters ausgewählt.
+ioBroker.devices: Das Widget **FRITZ!Box** kann in allen vier Größen (1x1, 2x0,5, 2x1, 2x2) einer Kategorie hinzugefügt werden. In den Widget-Einstellungen wird die Adapterinstanz ausgewählt. Das Widget „ **Person“** zeigt eine Person (ausgewählt anhand ihres Namens) mit Foto oder Symbol, den Texten und Farben der Einstellungen sowie dem Datum der letzten Ankunft und Abreise an. Ein Klick öffnet die An- und Abreisen der letzten Tage. Das Widget **„WLAN-QR-Code“** zeigt den QR-Code des Gast-WLANs oder eines Frequenzbands des eigenen WLANs in denselben drei Modi wie in vis-2 an. Die PIN-Eingabe erfolgt über das PIN-Pad von ioBroker.devices.
+
+Der QR-Code erfordert einen Fritz!Box-Benutzer mit den richtigen "FRITZ!Box-Einstellungen" (`GetSecurityKeys` Der Adapter liest SSID und Passwort nur auf Anfrage eines Widgets (Nachricht). `guestWlan`, `{ wlan: "guest" | "wlan24" | "wlan50" | "wlan52" | "wlan60" }` Das Gast-WLAN (ohne PIN) speichert die Daten nicht und protokolliert sie nicht. Der QR-Code des eigenen WLANs ermöglicht den Zugriff auf das Heimnetzwerk: Er kann mit einer PIN oder nur im Dialog angezeigt werden. Im Dialogmodus ist das Passwort nur lesbar, solange der Dialog geöffnet ist. Die PIN wird im VIS-Projekt oder in den Kacheleinstellungen gespeichert: Sie schützt Gäste vor dem Code, bietet aber keinen Schutz vor Änderungen am Projekt.
 
 Die Widgets benötigen die Zustände der Adapterversion mit diesen Widgets (`states.boxModel`, `states.wan*`, ...) und die laufende Instanz für die Netztopologie.
+
+### Webkomponenten
+
+Die gleichen fünf Kacheln sind auch Webkomponenten (`common.webComponents`,[`@iobroker/web-components`](https://github.com/ioBroker/web-components) ) für Hosts wie Aura oder Admin: `iob-tr064-fritzbox`, `iob-tr064-mesh`, `iob-tr064-presence`, `iob-tr064-person` Und `iob-tr064-guest-wlan` Jedes einzelne ist ein ES-Modul in `admin/webcomponents/` Mit dem zugehörigen Manifest; React wird vom Host geladen. Sie passen sich mithilfe von Containerabfragen an ihre Größe an, übernehmen die Farben des Host-Themes und führen im Editor des Hosts keine Aktionen aus. vis-2 und ioBroker.devices zeigen weiterhin ihre eigenen Widgets an.
+
+Die Einstellungen entsprechen denen der Widgets, jedoch ohne das reine Vis-2-Styling (keine Karte, eigene Symbole pro Bundesstaat). Die Komponente „ **Person“** wählt die Person anhand ihres Kanals aus (`tr-064.0.presence.persons.<name>`) statt seines Namens, und die Komponenten **-Mesh-Topologie** beginnt mit der Ansicht ihrer Einstellungen - was die Symbolleiste umschaltet, wird nicht gespeichert.
 
 ### Die Zustände Befehl und Befehlsergebnis
 
@@ -175,6 +207,10 @@ Schalten Sie den Anrufbeantworter aus:
 
 Eine detaillierte Beschreibung der Aktionen und Parameter von TAM finden Sie hier: [x\_tam.pdf](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/x_tam.pdf) . Dieser Link ist auch in der obenstehenden AVM-Dokumentation enthalten.
 
+### Nachrichten für Skripte und KI-Agenten
+
+`sendTo('tr-064.0', 'help', {})` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten (`presence`, `discovery`, `mesh`, `guestWlan`, `setHostName`, ...) und der zu schaltenden Zustände, geschrieben für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren; `commands` listet jede Nachricht auf `write: true` Wenn es etwas ändert.
+
 ### Schalten Sie den Anrufmonitor ein.
 
 Bevor Sie den Anrufmonitor verwenden können, müssen Sie ihn in der AVM Fritz!Box aktivieren. Um den Anrufmonitor zu aktivieren, wählen Sie `#96*5*` auf einem angeschlossenen Telefon. Die Fritz!Box öffnet dann den TCP/IP-Port 1012. Um den Port zu schließen, wählen Sie `#96*4*` Die
@@ -202,58 +238,25 @@ Wenn Sie vom Adapter tr-064-community wechseln, können Sie die vollständige Ge
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 5.1.3 (2026-10-02)
-- (@GermanBluefox) New look of the devices in the mesh topology: every device carries the symbol of its kind (computer, smartphone, camera, lamp, printer, ...) next to its name, below it the manufacturer and the IP address, and on the right side the band and the signal. The kind comes from the FRITZ!Box (`device_class`, or the kind which was set for the device in the box), an unknown one gets a generic symbol
-- (@GermanBluefox) A card of the mesh topology whose devices have no signal - a switch, a repeater with LAN devices only - uses compact devices: the manufacturer and the IP address stand next to each other below the name instead of below each other
-- (@GermanBluefox) The table of the mesh topology shows the same symbol in front of the name, and the bars of the signal carry the color of the band - only a signal below -80 dBm, or one which the box itself calls too far away, turns red
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: writing `<index>,0` (or `false`, `off`) into `states.ab` switches the answering machine off instead of on
+* (@GermanBluefox) Fixed: after a restart the answering machine selected in `states.abIndex` is used again instead of the first one
 
-### 5.1.2 (2026-10-01)
-- (@GermanBluefox) The mesh topology shows the signal strength of a WLAN device: four bars and the value in dBm (`rx_rcpi`/`tx_rcpi` of the mesh list), the signal to noise and the rating of the FRITZ!Box itself ("too far away from the access point", `client_position`) in the tooltip and in the new column "Signal" of the table
-- (@GermanBluefox) A device which is not connected any more shows when it was connected last (`last_connected`)
-- (@GermanBluefox) The manufacturer of a device is taken from the FRITZ!Box (`device_manufacturer`, which it knows from LLDP or the DHCP request) and only looked up in the IEEE registries if the box does not name one
-- (@GermanBluefox) The data rates of the mesh topology were shown as download and upload the wrong way round for every link whose first node is the access point - the FRITZ!Box reports `rx`/`tx` from the view of its own node 1, which is not always the upstream side
-- (@GermanBluefox) A click on the missed calls of the tiles ("FRITZ!Box" widget of vis-2 and of `ioBroker.devices`) asks whether the counter is reset and sets `calllists.missed.count` to 0. The counter belongs to the adapter, not to the FRITZ!Box - it counts every missed call since the installation, including the complete call list which is read on the first start. The adapter now confirms a written counter right away instead of at the next poll
+### 5.5.0 (2026-11-19)
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
-### 5.1.1 (2026-09-29)
-- (@GermanBluefox) The mesh topology shows the manufacturer of a device below its name. It is resolved from the MAC address with the registries of the IEEE, which the adapter brings with it - no request leaves the network. A device with a randomized (locally administered) address, as many phones use it, is marked as such. The manufacturer can be switched off in the toolbar and in the attributes of the vis-2 widget
-- (@GermanBluefox) A device can be renamed in the mesh topology: a click on its name asks for the new name and writes it into the FRITZ!Box (`X_AVM-DE_SetHostNameByMACAddress`), which uses it everywhere. A firmware without that action says so. Note: the objects below `devices` follow the name of the box, as long as the option "Use the configured names" is switched off
-- (@GermanBluefox) New message `setHostName` (`sendTo('tr-064.0', 'setHostName', { mac, name })`) which renames a device in the FRITZ!Box
+### 5.4.0 (2026-11-08)
+* (GermanBluefox) Added web components for Aura and other hosts (`common.webComponents`): FRITZ!Box, mesh topology, presence, person and Wi-Fi QR code
 
-### 5.1.0 (2026-09-19)
-- (@GermanBluefox) New widgets for vis-2 ("FRITZ!Box", "Mesh topology", "Presence") and for `ioBroker.devices` ("FRITZ!Box"): the state of the box as a tile, a click shows the mesh topology
-- (@GermanBluefox) New states `boxModel` and `boxFirmware`
-- (@GermanBluefox) The table in the tab "Devices" uses the whole width again: in 5.0.2 it was so narrow that name, IP and MAC could not be read
-- (@GermanBluefox) "Search for devices" works with many devices: the adapter reads the list of all devices in one request (`X_AVM-DE_GetHostListPath`) instead of one request per device, which took longer than the 20 seconds of the button. The search is always answered, also when a request fails, the box has no devices or the adapter is not connected
-- (@GermanBluefox) Fixed the crash `systemData.save is not a function` on start when a call list is generated: installations which ran an adapter version from 2017 to 2020 still had an invalid attribute `save` in the object `tr-064.<instance>`, which is removed now
-- (@GermanBluefox) `wlanGuest` switches the guest WLAN again on boxes with three bands (e.g. FRITZ!Box 5690 Pro, 4060) instead of the third band: the guest WLAN is always the last WLAN configuration of the box
-- (@GermanBluefox) New states `wlan60` and `wlan60Password` for the 6 GHz WLAN, and `wlan52` and `wlan52Password` for the second 5 GHz WLAN (e.g. FRITZ!Box 4060). The adapter asks the box which band its third WLAN uses
-- (@GermanBluefox) The call lists do not stop updating after some hours anymore: the call monitor detects a connection which the box dropped unnoticed (e.g. by a restart) with TCP keepalive and reconnects, and the call lists are also read once a minute - that way they are updated without call monitor, too
-- (@GermanBluefox) A call list download which the box does not answer is given up after 10 seconds with a warning
-- (@GermanBluefox) `states.wlan` switches all WLANs like the WLAN button of the FRITZ!Box (`X_AVM-DE_SetWLANGlobalEnable`) and shows its state: switching on does not switch on the guest WLAN and bands which were off any more
-- (@GermanBluefox) New states for the internet connection: `wanAccessType` (e.g. `LTE` during a fallback to a mobile connection), `wanLinkStatus`, `wanProvider`, `wanDownstreamMax`, `wanUpstreamMax`, and the traffic `wanBytesSent`, `wanBytesReceived` (64 bit counters), `wanSendRate`, `wanReceiveRate`
-- (@GermanBluefox) New states `devices.xxx.accessPoint` and `devices.xxx.connection`: the FRITZ!Box or repeater a device is connected to and the band, read from the mesh topology. The new tab "Mesh" in the settings shows the mesh topology as a graphic. Admin 8 is required now
-- (@GermanBluefox) New option "Read the event log of the FRITZ!Box": the complete event log including the logins to the user interface in `deviceLog.json`, new events in `deviceLog.newEvents`
-- (@GermanBluefox) New state `callmonitor.connected` shows whether the call monitor is connected, and `callmonitor.*.device` the name of the telephone of a call
-- (@GermanBluefox) New table "Phone book per own number": a number which is in several phone books gets its name from the phone book of the own number of the call
-- (@GermanBluefox) New option "Write unchanged values too": every polled value is written with a new time stamp
-- (@GermanBluefox) A single call forwarding of the FRITZ!Box is shown in `callForwarding` now - before, the states were only created from the second call forwarding on. With only one phone number the name of the number is added to the name of the state again, and a box without call forwardings does not delay the poll cycle by 3 seconds any more
-- (@GermanBluefox) The call monitor does not lose events any more when the FRITZ!Box sends two of them in one network packet (e.g. `RING` and `DISCONNECT` of a very short call) or one event in two packets: the received data is split into lines now
-- (@GermanBluefox) The call lists do not freeze for good any more when the FRITZ!Box numbers its calls from the beginning again, e.g. after exchanging the box, a factory reset or a restart: the adapter asked only for the calls after the last known call ID and got an empty list forever. It now checks an empty answer against the newest call of the box and builds the lists again from the call list of the box; only calls after the newest known call increase the counters. The meta object `tr-064.<instance>` is only written when the lists changed, not with every refresh
-- (@GermanBluefox) New state `states.abNewMessages`: number of new (not yet listened) messages on the answering machines
-- (@GermanBluefox) The MAC addresses of the configured devices are sent to the box in its own format `AA:BB:CC:DD:EE:FF`, so addresses entered in lower case, with dashes or without separators are found
-- (@GermanBluefox) A configured device which the box does not know (or which is offline since the start) is logged once with a hint to check its MAC address and listed as inactive in `jsonDeviceList`, instead of silently being left out
-- (@GermanBluefox) New option "Name the objects after this table" in the tab "Devices": the objects below `devices` get the names of the table instead of the names in the Fritz!Box, so two devices with the same name in the box are not mixed up any more. When the option is switched on, the objects which were created with the name of the box are deleted. mDNS writes into the same objects as the poll now - before it created additional objects with the name of the table
-- (@GermanBluefox) A device can have several MAC addresses, separated by commas (e.g. a smartphone with a private Wi-Fi address in the home and the guest Wi-Fi): it is present if one of them is active. Changing the spelling of a MAC address does not delete the objects of the device any more, and "Search for devices" does not add a device of the table a second time
-- (@GermanBluefox) A device request which the box does not answer does not stop the presence detection and the polling any more
-- (@GermanBluefox) An info message tells when "Create JSON device list" is switched on, but no devices are configured
-- (@GermanBluefox) The adapter connects to a FRITZ!Box whose WLAN is switched off: the check of the login used the WLAN, which the box answers with an error then, so the adapter restarted (4.x) or retried forever without creating its objects (5.0). A refused login is reported with a hint to check user, password and rights of the user instead of the advice to restart the box
-- (@GermanBluefox) The adapter does not hang silently any more when the FRITZ!Box does not deliver the description of a service (e.g. `x_speedtestSCPD.xml` with FRITZ!OS 8.24 Labor): after 10 seconds the service is skipped with a warning, and the connection is limited to 60 seconds and retried
-- (@GermanBluefox) The debug log does not contain sensitive data any more, so it can be shared to analyze problems: phone numbers, names, phone book and call data, host names, MAC and IP addresses, values of states and results of `states.command` are only logged with level `silly`, and the session ID in URLs of the box is never logged. The result of `states.command` is no longer logged with level info - it is still written into `states.commandResult`
-- (@GermanBluefox) The call monitor does not stop any more when the FRITZ!Box refuses the connection, e.g. while it restarts after a firmware update: it retries every 60 seconds and reconnects on its own. The hint to open port 1012 with `#96*5*` is only logged if the call monitor was never connected
+### 5.3.2 (2026-11-04)
+* (GermanBluefox) Widget "FRITZ!Box Presence" in the mode "Devices" shows the devices again instead of "0 of 0": the object of a device below `devices` is a state, not a channel (#777)
 
-### 5.0.2 (2026-09-10)
-- (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'safe')` in `getWLAN` right after the start: the WLAN states are read again in every poll cycle
-- (@GermanBluefox) A box without a separate 5 GHz configuration does not delay the polling by 3 seconds any more
+### 5.3.1 (2026-10-23)
+* (GermanBluefox) Widget "Wi-Fi QR code": the QR code can also show the own WLAN (2.4 GHz, 5 GHz, second 5 GHz, 6 GHz) instead of the guest WLAN
+
+### 5.3.0 (2026-10-23)
+* (GermanBluefox) New widget "Guest Wi-Fi QR code" for vis-2 and `ioBroker.devices`: the QR code of the guest WLAN on the tile, in a dialog after a click or in a dialog after a PIN
 
 ## License
 The MIT License (MIT)

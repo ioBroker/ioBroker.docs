@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/docs/en/README.md
 title: ioBroker.frigate - Dokumentation
-hash: CO/dV6wS5askNIcEwwGkGQqk9jkSjp/fYADh/bd2ng4=
+hash: ILk7M6ZapdOhzzcpiIQ52ZojlxxmVLhi87DGDgCZS7s=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
 # IoBroker.frigate - Dokumentation
-Adapter für [Fregatte NVR](https://frigate.video/) - ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
+Adapter für [Fregatten-NVR](https://frigate.video/) - ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
 
 ## Inhaltsverzeichnis
 - [Setup](#setup)
@@ -32,6 +32,7 @@ Adapter für [Fregatte NVR](https://frigate.video/) - ein Open-Source-Videoüber
 - [Integration](#integration)
 - [Live-Ansicht über den Webadapter](#live-view-via-the-web-adapter)
 - [Geräteverwaltungs-Widgets](#device-manager-widgets)
+- [Webkomponenten](#web-components)
 - [vis Integration](#vis-integration)
 - [Skripte & Automatisierung](#scripts--automation)
 - [Anforderungen](#requirements)
@@ -94,7 +95,7 @@ Der Adapter aktualisiert das Token automatisch, wenn es abläuft (eine 401-Antwo
 | `stats.cameras.<name>.audio_dBFS` | Audiopegel | dBFS |
 | `stats.cameras.<name>.audio_rms` | Audio-RMS-Amplitude | - |
 | `stats.detectors.<name>.inference_speed` | Zeit pro Inferenz | ms |
-| `stats.service.uptime` | Dienstverfügbarkeit | s |
+| `stats.service.uptime` | Service-Verfügbarkeit | s |
 | `stats.service.version` | Fregattenversion | - |
 | `stats.service.storage.<mount>.total` | Gesamtspeicherplatz | MB |
 | `stats.service.storage.<mount>.used` | Belegter Speicherplatz | MB |
@@ -111,7 +112,17 @@ Der Adapter aktualisiert das Token automatisch, wenn es abläuft (eine 401-Antwo
 | `events.after.has_snapshot` | Snapshot verfügbar |
 | `events.after.has_clip` | Clip verfügbar |
 | `events.history.json` | JSON-Array der letzten X Ereignisse |
-| `events.history.json` | JSON-Array der letzten X Ereignisse |
+| `events.history.01.*` … | Die gleichen Ereignisse wie einzelne Zustände |
+| `<cam>.history.json` | JSON-Array der letzten X Ereignisse dieser Kamera |
+| `<cam>.history.01.*` … | Die gleichen Ereignisse wie einzelne Zustände |
+| `<cam>.history.01.*` … | Die gleichen Ereignisse wie einzelne Zustände |
+
+Als einzelne Zustände umfasst jedes Ereignis etwa 34 Objekte, und es gibt (Kameras + 1) × X davon. Bei vielen Kameras wird die Grenze überschritten, ab der ioBroker eine Warnung wegen zu vieler Objekte ausgibt (5000 pro Instanz). Zwei Einstellungen im Abschnitt „Ereignisverlauf“ reduzieren dies:
+
+- **Ereignisverlauf pro Kamera** - Aus: nur `events.history`, kein `<cam>.history`
+- **Ereignisverlauf als einzelne Zustände** - deaktiviert: nur die JSON-Zustände `events.history.json` und `<cam>.history.json`
+
+Die nicht mehr benötigten Objekte werden beim Start des Adapters gelöscht.
 
 Jeder Eintrag im Verlauf enthält URLs für Schnappschüsse und Videoclips:
 
@@ -172,7 +183,7 @@ Die Anzahl der Objekte (z. B. `<zone>.person`, `<zone>.car`) stammt direkt aus d
 Die aktiven/stationären Zustände verwenden den `current_zones` des Objekts und werden auf 0 zurückgesetzt, sobald das Objekt die Zone verlässt oder das Ereignis endet. Dasselbe gilt für `<zone>.sub_labels`.
 
 ### Anerkannte Namen
-Wenn Frigate eine Person per Gesichtserkennung oder anhand eines bekannten Kennzeichens erkennt, trägt es den Namen als `sub_label` in das Ereignis ein. Der Adapter speichert dann für jeden Namen einen Zustand:
+Wenn Frigate eine Person per Gesichtserkennung oder anhand eines bekannten Kennzeichens erkennt, trägt es den Namen als `sub_label` in das Ereignis ein. Der Adapter speichert daraufhin für jeden Namen einen Zustand:
 
 | Bundesland | Typ | Beschreibung |
 |----------------------|---------|----------------------------------------------------------------------|
@@ -278,13 +289,27 @@ Der ioBroker-Socket sorgt dafür, dass er überall dort funktioniert, wo die Ger
 - **Frigate Live** - zeigt den MJPEG-Stream an, den der Browser nativ dekodiert. Er lädt den Stream.
 
 vom **Web**-Adapter, auf den die Geräte-UI nur zugreifen kann, wenn sie innerhalb einer Webinstanz ausgeführt wird.
-Wenn sie im Adminbereich ausgeführt wird - was üblicherweise der Fall ist - geben Sie die Webinstanz in den Widget-Einstellungen ein, z. B.:
+Im Normalfall, wenn sie im Adminbereich ausgeführt wird, geben Sie die Webinstanz in den Widget-Einstellungen ein, z. B.:
 
 `http://192.168.1.5:8082`.
-Wenn der Stream nicht geladen werden kann, schaltet das Widget selbstständig auf Einzelbilder über den Socket um.
+Kann der Stream nicht geladen werden, schaltet das Widget selbstständig auf Einzelbilder über den Socket um.
 Über die ioBroker-Cloud (iobroker.pro / iobroker.net) ist dies immer der Fall, da die Cloud keinen Stream weiterleiten kann; andernorts beispielsweise, wenn der Browser die Webinstanz nicht erreichen kann oder den HTTP-Stream in einem HTTPS-Adminbereich blockiert. Die Einstellung der Bildrate bestimmt dann, wie oft ein Bild angefordert wird.
 
 Im Zweifelsfall verwenden Sie das Snapshot-Widget, dieses unterliegt keiner solchen Einschränkung.
+
+### Webkomponenten
+Beide Widgets sind auch als Webkomponenten (`@iobroker/web-components`) für **Aura** und alle anderen Hosts verfügbar, die sie anzeigen (vis-2, admin, devices): `<iob-frigate-snapshot>` („Frigate Snapshot“) und `<iob-frigate-live>` („Frigate Live“). Sie beziehen ihre Bilder genau wie die oben genannten Geräte-Manager-Widgets - den Snapshot über den Socket, die Live-Ansicht vom Kamera-Proxy des Webadapters mit demselben Fallback auf Einzelbilder. Devices bietet stattdessen weiterhin eigene Widgets an.
+
+| Schauplatz | |
+| --- | --- |
+| Kamera | das Kameragerät, z. B. `frigate.0.driveway`; die Instanz wird von diesem Gerät übernommen |
+| Name anzeigen, Name | der Name unter dem Bild; leer: der Name der Kamera |
+| Bildhöhe | Die Höhe, auf die Frigate das Bild der Kachel skaliert, 240 bis 1080 px (480) |
+| Abfrageintervall, Kachel-/Vollbildmodus | nur `<iob-frigate-snapshot>`: wie im Widget |
+| Webinstanz, Bilder pro Sekunde | nur `<iob-frigate-live>`: wie im Widget |
+| Webinstanz, Bilder pro Sekunde | nur `<iob-frigate-live>`: wie im Widget |
+
+Ein Klick vergrößert die Kameraansicht in einem Dialogfeld des Hosts (720 px). Zuvor sendet das Element das Ereignis `frigate-camera-click` mit `{ instance, camera }`; ein Host, der `preventDefault()` aufruft, zeigt die Kamera selbst an.
 
 ### Vis Integration
 **Schnappschuss:**
@@ -355,3 +380,5 @@ on({ id: 'frigate.0.Vorgarten.person', change: 'ne' }, (obj) => {
 **F: Wie ändere ich den Schwellenwert für die Bewegungserkennung?** A: Stellen Sie `frigate.0.<camera>.remote.motionThreshold` auf einen Wert zwischen 1 und 255 ein.
 
 **F: Benachrichtigungen werden nicht gesendet.** A: Stellen Sie sicher, dass die Benachrichtigungsinstanz (z. B. telegram.0) auf demselben Host wie der Frigate-Adapter ausgeführt wird. Überprüfen Sie, ob Benachrichtigungen in den Adaptereinstellungen aktiviert sind.
+
+**F: ioBroker warnt, dass frigate.0 zu viele Objekte enthält.** A: Die meisten davon sind Ereignisverläufe (siehe [Veranstaltungen](#events)). Deaktivieren Sie in den Adaptereinstellungen „Ereignisverlauf pro Kamera“ oder „Ereignisverlauf als Einzelzustände“ oder reduzieren Sie die Anzahl der Ereignisse. Der Grenzwert selbst ist `system.adapter.frigate.0.objectsWarnLimit`.

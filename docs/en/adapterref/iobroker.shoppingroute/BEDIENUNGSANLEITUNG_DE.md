@@ -3,7 +3,13 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – Bedienungsanleitung
 
-**Bedienungsanleitung für ShoppingRoute 0.6.2 (13.11.2026)**
+**Bedienungsanleitung für ShoppingRoute 0.6.3 (20.11.2026)**
+
+**Neu in 0.6.3:** Die Einkaufslistenansicht zeigt den aktuellen bestätigten Alexa-Listenstand statt veralteter Browserdaten. Abgehakte oder gelöschte Artikel tauchen nach dem Neuladen nicht erneut auf. Noch gültige lokale Verschiebungen werden an die aktuelle Liste angepasst; bei einem Abruffehler erscheint eine Fehlermeldung statt eines veralteten Listenstands. Außerdem stellt ShoppingRoute einen lesenden Hilfeaufruf für Skripte und KI-Agenten bereit.
+
+### Nachrichten für Skripte und KI-Agenten
+
+Der Aufruf `sendTo('shoppingroute.0', 'help', {}, response => ...)` liefert ein Objekt mit `help` (englische Beschreibung der Schnittstelle) und `commands` (Liste aller unterstützten Nachrichtennamen). Der Eintrag `write: true` bezeichnet einen potenziell verändernden Befehl, `write: false` einen lesenden Befehl. Ein KI-Agent kann damit die Nachrichtenformate vor der Nutzung ermitteln. Änderungen an Einkaufslisten oder Konfigurationen sollen nur nach ausdrücklichem Nutzerauftrag erfolgen. Dry-Run, Aktivierungsstatus, Bestätigungsprüfungen und konfigurierte Amazon-Schreiblimits bleiben aktiv. Der `help`-Befehl allein verursacht keine Listenänderung.
 
 **Wartungsversion 0.6.2:** Die ioBroker-Testabhängigkeit wurde auf 6.3.2 aktualisiert (Repo-Checker W0037, Issue #85). Die bisherigen Alexa-/Bring!-Funktionen und Schutzmechanismen bleiben erhalten.
 
@@ -393,7 +399,7 @@ Wenn ShoppingRoute einen Artikel in den falschen Markt einsortiert hat, kannst d
 
 Je nach Ansicht stehen dafür Drag & Drop, Pfeiltasten oder eine Marktauswahl zur Verfügung.
 
-Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Ein Neuladen desselben Browser-Tabs stellt den Entwurf bei verfügbarem Sitzungsspeicher wieder her.
+Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Beim Neuladen desselben Browser-Tabs werden nur noch gültige Verschiebungen auf die frisch von Alexa geladene Liste angewendet. Erledigte, gelöschte oder umbenannte Artikel werden durch alte Entwürfe nicht wiederhergestellt. Solange die Ansicht sichtbar ist und bei der Rückkehr zum Tab erfolgt eine sparsame Aktualisierung. Ist Alexa nicht erreichbar, zeigt die Oberfläche einen Fehler mit erneuter Lademöglichkeit statt einer veralteten Liste. Ein Löschen des Browser-Caches ist nicht nötig.
 
 Eine manuelle Änderung hat Vorrang vor der automatischen Zuordnung.
 

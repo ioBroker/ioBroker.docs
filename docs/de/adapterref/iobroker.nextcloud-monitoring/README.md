@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nextcloud-monitoring/README.md
 title: ioBroker.nextcloud-Überwachung
-hash: mvu7g+auWg97ABYzlrU97koyuwyBrvQAaxxLxYCSS1I=
+hash: mVilN9y4UUeZHTGJqCS7yda9STEciBmpd7wAZgPRGEM=
 ---
 ![Logo](../../../en/adapterref/iobroker.nextcloud-monitoring/admin/nextcloud_monitoring.png)
 
@@ -56,6 +56,19 @@ Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz
 
 - **Apps überspringen:** Deaktiviert die detaillierte Liste der installierten Apps, um die API-Last zu reduzieren.
 - **Updateprüfung überspringen:** Deaktiviert die Suche nach neuen Nextcloud-Versionen.
+
+### 3. Anforderungen
+
+- **js-controller >= 7.2.4** – wird benötigt, um die OCS-Token zu entschlüsseln, die in der Servertabelle gespeichert sind (`servers.token`), wenn der Adapter startet.
+- **Admin >= 8.1.0** – erforderlich, da die JSON-Konfiguration von Admin erst ab dieser Version Passwortspalten einer Tabelle verschlüsselt und entschlüsselt (siehe `@iobroker/json-config` 10.1.0).
+
+### 4. Token-Speicherung und Zugriffsschutz
+
+- Das OCS-Token jedes Servers in der Tabelle wird **verschlüsselt** im Instanzobjekt gespeichert (`encryptedNative: ["servers.token"]`).
+- Das Token ist davor **geschützt** , von anderen Adaptern gelesen zu werden (`protectedNative: ["servers.token"]`).
+- Der Adapter selbst empfängt das entschlüsselte Token beim Start. Tokens werden niemals im Protokoll gespeichert.
+- Tokens bestehender Installationen bleiben erhalten – sie werden weder gelöscht noch zurückgesetzt. Ein Token, der noch im Klartext gespeichert war (beispielsweise von einer Administratorversion, die Passwortspalten einer Tabelle nicht verschlüsseln konnte), wird beim nächsten Start vom Adapter verschlüsselt, sodass das Token nicht erneut eingegeben werden muss.
+- Beim Speichern anderer Einstellungen werden die Token nicht als Klartext zurückgeschrieben.
 
 ---
 
@@ -164,6 +177,19 @@ Falls Sie **Fehler** entdecken, **Funktionswünsche** haben oder **Verbesserungs
 ---
 
 ## Changelog
+### 3.0.1 (2026-11-09)
+* (H5N1v2) fix: [W1095] remove the unused legacy key `token` from `protectedNative` and from `native`; the adapter stores and protects the OCS token of the server table only (`servers.token`)
+* (H5N1v2) fix: [S5054] datapoints are created with `setObjectNotExistsAsync()` instead of `setObject()`
+
+### 3.0.0 (2026-11-08)
+* (H5N1v2) fix: OCS tokens of all servers are now stored encrypted (`encryptedNative: servers.token`) and are protected against access by other adapters (`protectedNative`). Tokens of existing installations are kept and are encrypted automatically if they were still stored as plain text, so they do not have to be entered again
+* (H5N1v2) fix: OPcache hit rate was written as string although the datapoint expects a number; existing datapoints with wrong type or role are now corrected automatically and state values are converted to match their datapoint type
+* (H5N1v2) update dependencies: adapter requires js-controller >= 7.2.4 and admin >= 8.1.0 (needed for encrypted attributes inside a table)
+
+### 2.1.2 (2026-09-12)
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) update dependencies
+
 ### 2.1.1 (2026-07-06)
 * (H5N1v2) chore: update dependencies
 * (H5N1v2) fix: [W5612] add translations for 'your-cloud.com' in multiple languages
@@ -173,18 +199,6 @@ Falls Sie **Fehler** entdecken, **Funktionswünsche** haben oder **Verbesserungs
 * (H5N1v2) widget toggleable in the admin area.
 * (H5N1v2) update dependencies.
 * (copilot) Adapter requires node.js >= 22 now.
-
-### 2.0.6 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.0.5 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
-
-### 2.0.4 (2026-03-25)
-* (H5N1v2) update @types/node dependency to version 22.19.15
-* (mcm1957) fix: update opcache hit rate state type from string to number
-
-[Older changelogs can be found there](https://github.com/H5N1v2/ioBroker.nextcloud-monitoring/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

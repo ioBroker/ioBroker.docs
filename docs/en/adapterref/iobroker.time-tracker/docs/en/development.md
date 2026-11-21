@@ -84,8 +84,7 @@ file(s) but not found in dependencies of package.json”) for react, MUI and i18
 app (`src-www/package.json`) and that an adapter installation should not bring along. With `src-www/` the folder is on
 the list and the messages are gone; only `dependencies` count, `@types/*` and `@iobroker/types` are the exception.
 `W5049` (`process.env` in `test/e2e/server.mjs`) concerns the **test server** of the browser tests, not the adapter.
-`S1039` suggests the compact mode — the adapter brings its own HTTP port and an SQLite file and deliberately does **not**
-run in compact mode (`common.compact: false`).
+`S1039` suggested the compact mode — since 20.11.2026 the adapter supports it (`common.compact: true`, decision D2).
 
 **Licence information:** `common.licenseInformation` (`{ type: "free", license: "MIT" }`) is set — and **no**
 `common.license` may stand next to it: the ioBroker package test (`npm run test:package`) rejects both together

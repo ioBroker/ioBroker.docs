@@ -192,6 +192,12 @@ The setting **Send to all known users** does **not** apply to notifications. The
 `{ sent: true }` when at least one user got the notification, otherwise `{ sent: false }`, so that the
 notification-manager can try the next messenger.
 
+### Messages for scripts and AI agents (help)
+
+`sendTo('max.0', 'help', {})` answers `{ help, commands }`: `help` describes all commands with their parameters and
+answers in English, for AI agents (e.g. ioBroker.pi-agent) and script authors; `commands` lists every command with
+`write` (`true` when it sends, changes or deletes something). It works also while the bot is not running.
+
 ### Blockly
 
 The adapter adds two blocks to the category **sendTo** of the JavaScript adapter:
@@ -490,7 +496,7 @@ sendTo('max.0', 'send', { chatId: -987654321, text: 'Test' }, res => {
 | --- | --- | --- |
 | no answer at all | adapter version below 0.1.6 (no `messagebox`), or the instance is not running | update the adapter, check that `max.0` is running |
 | `No text or attachment given` | neither `text` nor `image` / `video` / `audio` / `file` given (a `keyboard` alone is not enough) | add a text |
-| `Unknown command: …` | `sendTo('max.0', '<command>', …)` with a command other than `send`, `editMessage`, `deleteMessage`, `ask`, `answerCallback` or `sendNotification` | use one of these commands |
+| `Unknown command: …` | `sendTo('max.0', '<command>', …)` with a command other than `send`, `editMessage`, `deleteMessage`, `ask`, `answerCallback`, `sendNotification` or `help` | use one of these commands |
 | `Bot not initialized` | the bot is not running: no token, or the token was rejected at start | check the log of `max.0` at start |
 | `sendToAllUsers is disabled` | a broadcast (no `userId` / `chatId`, or plain text in `message.send`) while **Send to all known users** is off | enable the option or give `userId` / `chatId`. Adapter versions below 0.1.9 do not know `chatId` and treat such a call as a broadcast |
 | `No known users` | broadcast, but no user has written to the bot yet (or none is in **Allowed User IDs**) | let the users press **Start** in the bot |
@@ -547,6 +553,17 @@ logged as `Message from <userId> in chat <chatId>: …`.
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (sadam6752-tech) `@iobroker/testing` 6.3.2 (repository checker W0037)
+
+### 0.2.2 (2026-11-20)
+- (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and
+  `common.supportedMessages.help`
+
 ### 0.2.1 (2026-11-04)
 - (sadam6752-tech) Received photos are saved in `<iobroker-data>/max_<instance>/photo/` (several photos of one message
   as `<mid>_1`, `<mid>_2`, ...) and announced in `communicate.pathFile`: request ids first, then one path per photo,
@@ -577,11 +594,6 @@ logged as `Message from <userId> in chat <chatId>: …`.
   an earlier version is moved into encrypted storage automatically on the first start (one restart); the stored plain
   text value is used for that, so the token does not have to be entered again
 - (sadam6752-tech) Integration test with a real js-controller for the migration of the token
-
-### 0.1.11 (2026-10-13)
-- (sadam6752-tech) Remove "ioBroker" from `common.keywords` of `io-package.json` (checker W1068); it stays in
-  `package.json`
-- (sadam6752-tech) Update `@iobroker/testing` to 6.3.0 (checker W0037)
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

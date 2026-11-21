@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.traccar/README.md
 title: ioBroker.traccar
-hash: B6pSwUemQkhaoruN++f1KbSVfU13QkGHzEM8iblGHcA=
+hash: KzFo/Cnh52M/l0QGTW7ilGEg965WWa1XO0TrbNyGHPg=
 ---
 ![Logo](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
@@ -28,7 +28,17 @@ Dieser Adapter importiert in Echtzeit die Positionsdaten und die erweiterten Dat
 4. Einstellungen speichern
 5. Viel Spaß :)
 
+Das Aktualisierungsintervall wird in Sekunden angegeben (Standard: 120). Der Adapter verarbeitet außerdem weiterhin Live-Aktualisierungen, die über den Traccar WebSocket empfangen werden.
+
 ## Changelog
+### 1.2.4 (2026-11-08)
+* (arteck) fix geofence traccar version > 5.8 in some situations
+
+### 1.2.2 (2026-10-17)
+* (arteck) Dependencies have been updated
+* (arteck) add geofence state
+* (arteck) auto server version identification
+
 ### 1.2.1 (2026-08-06)
 + (copilot) Adapter requires node.js >= 22 now
 * (arteck) add version check re-runs every 24 hours
@@ -39,15 +49,6 @@ Dieser Adapter importiert in Echtzeit die Positionsdaten und die erweiterten Dat
 
 ### 1.1.7 (2026-04-14)
 * (arteck) Dependencies have been updated
-
-### 1.1.6 (2024-10-28)
--   (arteck) dependency update
-
-### 1.1.5 (2024-09-26)
--   (arteck) transfer to arteck 
--   (arteck) add accuracy
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.traccar/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

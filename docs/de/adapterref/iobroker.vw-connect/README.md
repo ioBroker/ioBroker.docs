@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: HyeVj8S56guoazaeep6byn+ID/m9mhHSlHt8NgRB6Sk=
+hash: pQ2mModtX3FWe1yOBz2HvKvSKftUl4NJJgBIawJqDEo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vw-connect.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.vw-connect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vw-connect.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ta2k/iobroker.vw-connect.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/ta2k/ioBroker.vw-connect/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
+![Travis-CI](https://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
 # IoBroker.vw-connect
 ## Vw-connect-Adapter für ioBroker
@@ -60,14 +60,14 @@ Um dies zu aktivieren, müssen Sie **einmalig** eine kontinuierliche Datenanfrag
 ### Datenanfrage einrichten (einmalig, im Browser)
 1. Öffnen Sie <https://eu-data-act.drivesomethinggreater.com/> und **melden Sie sich mit Ihrem markenspezifischen Konto an** (die gleiche E-Mail-Adresse/das gleiche Passwort, die/das Sie in der Volkswagen / myAudi / MyŠKODA / SEAT Connect / MyCUPRA App und in den Einstellungen dieses Adapters verwenden).
 2. Gehen Sie zu **Datencluster → Fahrzeugübersicht**.
-3. Klicken Sie auf **Auto verbinden**, falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
+3. Klicken Sie auf **Verbinden Sie Ihr Auto**, falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
 4. Klicken Sie auf **Benutzerdefinierte Daten anfragen**. Hinweis vom Portal: Es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
 5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter**.
 6. **Datencluster auswählen**: **Alle Daten** anhaken („Alle für das EU-Datengesetz relevanten Datenpunkte“). Andere Cluster nur, wenn Sie gezielt einschränken möchten - wenn Sie nur einige auswählen, wird der Inhalt von „<vin>.statuseudata.*“ eingeschränkt.
 7. **Name des Datenpakets** vergeben (frei wählbar, z.B. „ioBroker“). Erscheint später als `_dataset_name`-Präfix in den Dateinamen.
 8. **Frequenz wählen**: **Alle 15 Minuten**. Andere Optionen (täglich) liefern nicht genug Auflösung für Live-Werte.
 9. **Dauer**: **Kein Enddatum** (fortlaufend ohne Enddatum).
-10. Anfrage absenden. Datensätze erscheinen in der Regel **15 Minuten bis einige Stunden** später. Die erste Datenmenge wird möglicherweise als `*_no_content_found.zip` angezeigt, bis Ihr Fahrzeug aktiv ist. Durch erzwungene Synchronisierung über die Volkswagen App oder während der Fahrt wird die Herstellerseite aktiviert.
+10. Anfrage absenden. Datensätze erscheinen in der Regel **15 Minuten bis einige Stunden** später. Die erste Datenmenge wird möglicherweise als `*_no_content_found.zip` angezeigt, bis Ihr Fahrzeug aktiviert ist. Durch erzwungene Synchronisierung über die Volkswagen App oder während der Fahrt wird die Herstellerseite aktiviert.
 
 Der Adapter verarbeitet die Anfrage automatisch - keine zusätzlichen Einstellungen in ioBroker erforderlich. Solange `type` gleich `VW ID / Volkswagen App` ist und Ihre Zugangsdaten mit dem Portal übereinstimmen, fragt er die Liste jede Minute ab und lädt nur dann eine neue ZIP-Datei herunter, wenn diese verfügbar ist.
 
@@ -137,6 +137,18 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 ```
 
 ### **IN BEARBEITUNG**
+### 0.10.2 (2026-11-16)
+EU-Datenschutzgesetz: VW-Portalumzug von eu-data-act.drivesomethinggreater.com zu eu-data-act.vwgroup-datahub.com (alter Host, jetzt 301-Weiterleitungen); Behebung des Fehlers „Anmeldung nicht abgeschlossen“, der nach dem Hostwechsel bei jeder Anmeldung auftrat. Beide Hosts werden während der Umstellung akzeptiert.
+
+### 0.10.1 (2026-11-04)
+- EU-Datenschutzgesetz: Unterstützung für VWs neue universelle Auth0-Anmeldung (CUPRA/SEAT, weitere Marken folgen) und automatisches Weiterleiten der Länder-/Nutzungsbedingungen-/Einwilligungs-Interstitials; Behebung des Anmeldefehlers „Anmeldeformular konnte nicht analysiert werden (fehlende hmac/_csrf)“.
+
+### 0.10.0 (2026-10-08)
+- EU-Datenschutzgesetz: Problem mit dem Login auf der Seite für die wiederkehrende optionale Marketing-Einwilligung von VW behoben - der Login wird nun über den eingebetteten Callback (wie bei evcc) übersprungen, anstatt fehlzuschlagen; die einmalige rechtliche Einwilligung erfordert weiterhin einen Browser
+- EU-Datenschutzgesetz: Die HTTP-Schicht wurde von der veralteten `request`-Bibliothek auf `axios` + ein `tough-cookie`-JAR (aktualisiert auf ^6) migriert, wodurch sicherheitsrelevante Hinweise im Zusammenhang mit Anfragen für den Client behoben wurden.
+- EU-Datenschutzgesetz: Serialisierung gleichzeitiger Portalanmeldungen, sodass nicht mehr jedes Fahrzeug bei Ablauf der Sitzung eine vollständige Anmeldung durchführt (entspricht evcc #34492); Übernahme der VW-Anmeldebeschleunigung (PR #457, stoppt vor der umfangreichen user.html-Seite)
+- Aktualisierte Laufzeit- und Entwicklungsabhängigkeiten
+
 ### 0.9.12 (2026-09-29)
 EU-Datenschutzgesetz: Portallast deutlich reduziert - nach jedem Download wird der nächste Eintrag im erwarteten 15-Minuten-Zeitfenster (aus dem Datensatz createdOn) anstatt minütlich angezeigt; bei fehlendem createdOn wird auf ein 1-Minuten-Abfrageintervall zurückgegriffen und maximal ein Zeitfenster verwendet.
 - EU-Datenschutzgesetz: VWs eigene PR #456 wurde übernommen - die veraltete Portal-Priming-Anfrage wurde entfernt und ein versionsbasierter User-Agent (ioBroker.VW_Connect/<Version>) festgelegt.
@@ -155,7 +167,7 @@ VW-ID (Typ=ID): Klassische BFF-Geräteablaufanmeldung deaktiviert - VW hat die G
 ### 0.9.8 (2026-08-13)
 - Audi (audietron) Verriegelung/Entriegelung aktiviert
 - Behoben: Warnung bezüglich verwaisten Remote-Access-Zustands (Problem #441)
-- Skoda: Stoppt die Abfrage des Verbindungsstatus/der Bereitschaft bei anhaltendem 500-Fehler (Protokollierungs-Spam)
+- Skoda: Abfrage des Verbindungsstatus/der Bereitschaft bei anhaltendem Fehler 500 einstellen (Protokollierungs-Spam)
 
 ### 0.9.7 (2026-08-09)
 - Die Fehlerbehandlung bei Skoda wurde verbessert
@@ -202,7 +214,7 @@ VW-ID (Typ=ID): Klassische BFF-Geräteablaufanmeldung deaktiviert - VW hat die G
 ### 0.8.1 (2026-05-06)
 - Skoda MQTT reparieren
 
-### 0.8.0 (13.04.2026)
+### 0.8.0 (2026-04-13)
 - Reparatur für Seat Cupra
 
 ### 0.7.16 (2026-03-18)
@@ -244,7 +256,7 @@ Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten 
 ### 0.6.1 (2024-10-01)
 - Problem mit dem Skoda-Login behoben
 
-### 0.6.0 (11.04.2024)
+### 0.6.0 (2024-04-11)
 - zusätzliche Cupra-Zustände hinzufügen
 
 ### 0.5.4 (2024-03-17)
@@ -266,7 +278,7 @@ Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten 
 - ID-Anmeldung reparieren
 
 ### 0.0.60
-Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
+- Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
 
 ### 0.0.55
 - Fehlerbehebung bei der Aktualisierung des ID-Status

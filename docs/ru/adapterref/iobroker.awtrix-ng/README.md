@@ -10,13 +10,14 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.awtrix-ng?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.awtrix-ng/test-and-release.yml?branch=main&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-ng.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/awtrix-ng-stable.svg
-BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
+BADGE-Stable: https://iobroker.live/badges/awtrix-ng-stable.svg
+BADGE-Installed: https://iobroker.live/badges/awtrix-ng-installed.svg
+chapters: {"pages":{"de/adapterref/iobroker.awtrix-ng/README.md":{"title":{"de":"ioBroker.awtrix-ng"},"content":"de/adapterref/iobroker.awtrix-ng/README.md"},"de/adapterref/iobroker.awtrix-ng/weather-app.md":{"title":{"de":"ioBroker.awtrix-ng"},"content":"de/adapterref/iobroker.awtrix-ng/weather-app.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-ng/README.md
 title: ioBroker.awtrix-ng
-hash: yR7lzaMjMbULAG7kkOEbTsuNdWvoNNN9CyWr1O7fuHY=
+hash: ShFDe1IWQk/Q3IKXBG3YaUHP150sMGcetGtyy6egEho=
 ---
 ![логотип](../../../de/admin/awtrix-ng.png)
 
@@ -30,7 +31,7 @@ hash: yR7lzaMjMbULAG7kkOEbTsuNdWvoNNN9CyWr1O7fuHY=
 
 - Административный адаптер 7.6.20 (или более новая версия)
 
-- Устройство _Awtrix NG_ с версией прошивки _1.2.2_ (или новее) — например, Ulanzi TC001, Ulanzi TC002.
+- Устройство _Awtrix NG_ с версией прошивки _1.2.3_ (или новее) — например, Ulanzi TC001, Ulanzi TC002.
 
 - Купить TC001: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) , [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) _(партнерские ссылки)_
 
@@ -52,7 +53,7 @@ hash: yR7lzaMjMbULAG7kkOEbTsuNdWvoNNN9CyWr1O7fuHY=
 
 Просто создайте псевдоним в `alias.0` типа `string` (строка) и преобразуйте логическое значение в любое другое значение, используя функцию чтения (например) `val ? 'offen' : 'geschlossen'` _Это стандартная функция ioBroker и не имеет прямого отношения к данному адаптеру._
 
-**Устройство нагревается во время зарядки.**
+**Устройство сильно нагревается во время зарядки.**
 
 К сожалению, конструкция устройства не оптимальна. Рекомендуется использовать максимально слабый блок питания, способный выдавать максимум 1 А.
 
@@ -210,7 +211,7 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 ### Пользовательские приложения
 
 - `%s` является заполнителем для значения состояния.
-- `%u` является заполнителем для обозначения государственной единицы (например, `°C`)
+- `%u` является заполнителем для обозначения единицы измерения государства (например, `°C`)
 
 Эти заполнители можно использовать в тексте пользовательских приложений (например, `Außentemperatur: %s %u`).
 
@@ -240,6 +241,8 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 
 После этого отобразятся все управляемые состояния приложения. `test` под `awtrix-ng.0.apps.test` создано. Чтобы изменить соответствующие значения приложения, просто измените значение состояний. `icon`, `text`, и т. д. можно установить с помощью пользовательских скриптов (например, JavaScript или Blockly).
 
+Пример: [Приложение «Погода»](/#/docs/adapterref/iobroker.awtrix-ng/weather-app.md) (текущая погода из ioBroker.openweathermap)
+
 #### Основные объекты
 
 Базовый объект представляет собой фундаментальное определение для приложения Awtrix, позволяющее устанавливать все существующие параметры. _Базовый объект расширяется всеми остальными атрибутами экспертного приложения._
@@ -253,6 +256,18 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Added state `display.overlay` to set a global weather overlay for all apps
+* (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.3
+
+### 0.5.0 (2026-10-12)
+
+* (@klein0r) Icons of custom and history apps can be selected from the icons of the device in the instance configuration
+* (@klein0r) Added volume settings (`settings.audio.volume`, `.alertVolume`, `.appVolume`, `.radioVolume`)
+* (@klein0r) Custom apps: thresholds "less than" and "greater than" may now have the same value
+
+### 0.4.0 (2026-10-08)
+
+* (@klein0r) `apps.<name>.enabled` switches just this app on or off (firmware 1.1.3)
 * (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.2
 * (@klein0r) Added state `device.usbPower` (device is connected to USB power, e.g. TC002)
 * (@klein0r) **Breaking change:** `sendTo` uses the sound format of firmware 1.2.0: `audio` takes `file` (instead of `sound`, `mp3`, `melody`, ...), notifications take `sound` as name or sound object (`soundRtttl` / `soundLoop` were removed), `textCenter` was replaced by `textAlign`
@@ -295,17 +310,6 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 
 * (@klein0r) Used new audio API endpoint for all types of sounds (file, mp3, rtttl)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.0
-
-### 0.0.10 (2026-08-07)
-
-* (@klein0r) Updated documentation
-* (@klein0r) Recommended Awtrix NG version is now 1.0.15
-* (@klein0r) Automatically cast icon value to string in notifications
-
-### 0.0.9 (2026-08-06)
-
-* (@klein0r) Removed option to automatically delete other apps
-* (@klein0r) Updated logo
 
 ## License
 

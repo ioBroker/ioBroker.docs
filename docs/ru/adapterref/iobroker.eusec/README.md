@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: sztO2FYiCuOG0KyzFX8Ggk2gu98CMIlrwtWYX3ohhmY=
+hash: MgWenJxfgp795Omk/vLtieTf0yqacpIikRuSvBxLV10=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -34,6 +34,8 @@ hash: sztO2FYiCuOG0KyzFX8Ggk2gu98CMIlrwtWYX3ohhmY=
 
 Один экземпляр адаптера отобразит все устройства из одной учетной записи Eufy Cloud и позволит вам управлять ими.
 
+> \[!TIP] Виджеты для vis-2 (камера в реальном времени, всплывающее окно события, снимок) доступны в виде отдельного адаптера: [vis-2-widgets-eusec](https://github.com/typhosj/ioBroker.vis-2-widgets-eusec) .
+
 ## Документация
 
 Ознакомиться с документацией можно [здесь](https://github.com/iobroker-community-adapters/ioBroker.eusec/tree/master/docs) .
@@ -48,7 +50,7 @@ hash: sztO2FYiCuOG0KyzFX8Ggk2gu98CMIlrwtWYX3ohhmY=
 
 ## Обновление с адаптера версии 2.x или более старой.
 
-Добавлен адаптер версий 2.x и старше. `--security-revert=CVE-2023-46809` к параметрам процесса Node.js каждого экземпляра, работающего на Node.js 18 или 20. Node.js 22 и более новые версии отказываются запускать экземпляр с этим флагом, и для этого адаптера требуется Node.js 24.
+Добавлен адаптер 2.x и более старых версий. `--security-revert=CVE-2023-46809` к параметрам процесса Node.js каждого экземпляра, работающего на Node.js 18 или 20. Node.js 22 и более новые версии отказываются запускать экземпляр с этим флагом, и для этого адаптера требуется Node.js 24.
 
 Обновление этого адаптера очищает параметры процесса узла для всех экземпляров eusec, что удаляет флаг. Другие параметры (например, `--max-old-space-size`) также очищаются и должны быть введены заново после каждого обновления. Если экземпляр по-прежнему не запускается, и в его журнале отображается следующее: `--security-revert=CVE-2023-46809` Удалите параметры вручную и перезапустите экземпляр:
 
@@ -64,43 +66,26 @@ iobroker object set system.adapter.eusec.0 common.nodeProcessParams=[]
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.4.2 (2026-10-05)
-- (typhosj) On-demand livestreams no longer show only a picture every few seconds and then go black. Since 3.4.0 every keyframe of 16 KB or more was taken for a go2rtc that does not keep up, and the video up to the next keyframe was dropped. Data is now only dropped once more than 4 MB wait for go2rtc (reported in the forum)
+### 3.6.5 (2026-11-19)
+- (typhosj) A device or station setting written in ioBroker that is not confirmed within 60 seconds now leaves a warning in the log. Until now, a command that got lost on the way, for example because the P2P connection to the station was set up again at that moment, left no trace at all, and the state simply stayed unconfirmed. A setting that the device already had is now confirmed instead of staying unconfirmed (reported in the forum)
+- (typhosj) Stopping or restarting the adapter no longer ends with "terminated due to SIGKILL" when ioBroker is busy, for example during a restart of the whole system. ioBroker now waits up to 3 seconds for the adapter to shut down instead of 1 second
+- (typhosj) A camera or station that was unreachable for a few minutes now takes commands again after it reconnects. Commands that piled up during the outage were dropped one per new command instead of all at once, so every new command, a livestream start included, queued up behind the old ones and was never sent until the adapter restarted. A livestream then only showed "Livestream starting"
+- (typhosj) A livestream no longer freezes after a few seconds with a flickering stripe at the top, or shows green stripes, when the camera starts it in another resolution. A camera can send the first 1.5 seconds of a livestream in another resolution than the one it then streams at, for example 2048x1536 instead of 1600x1200, and the player kept decoding with the first one. The adapter now remembers the resolution of the last livestream of each camera and holds back a livestream that starts in another resolution, or with unreadable data, until its second keyframe. That delays the first picture of such a livestream by about 2 seconds, and of the first livestream of each camera after the adapter started. Every other livestream starts as quickly as before
 
-### 3.4.1 (2026-10-05)
-- (typhosj) Updating the adapter clears the node process parameters of all eusec instances again, which removes `--security-revert=CVE-2023-46809` left over from adapter 2.x. The install script that removed only this flag is gone, since install scripts are not allowed for ioBroker adapters. Other parameters such as `--max-old-space-size` have to be entered again after each update
+### 3.6.4 (2026-11-08)
+- (typhosj) Event pictures that a HomeBase sends directly, for example of a Video Doorbell on a HomeBase 3, are now shown correctly. eufy-security-client rebuilt them at a fixed size of 288x176, so a larger picture turned into a grey area with diagonal streaks. The adapter now detects their real size and restores their contrast, which had come out pale and grey as well (reported in the forum)
 
-### 3.4.0 (2026-10-02)
-- (typhosj) Floodlight Cam E30 (T8426): preset positions are now sent to the camera (before, writing `preset_position`, `save_preset_position` or `delete_preset_position` had no effect), and the livestream is no longer rejected with `ERROR_INVALID_ACCOUNT`. The camera now gets the commands of the Floodlight Cam E340, which the library already defines it like (reported in the forum)
-- (hdering) **Changed URLs:** without a configured host name, the livestream URLs (states `livestream`, `livestream_rtsp`) now use the IPv4 address in the LAN of the ioBroker host the instance runs on instead of the name of the first ioBroker host (e.g. `http://192.168.1.10:1984/...` instead of `http://iobroker:1984/...`). Tablets, phones and dashboards often cannot resolve the name, and with several hosts the first one is not necessarily the one that runs go2rtc. Visualizations and scripts that store the URL get the new one with the next livestream; to keep a name, enter it in the setting "Hostname"
-- (hdering) New setting "Start livestreams on demand": the livestream of a camera starts as soon as its player page or RTSP URL is opened and stops shortly after the last viewer left, so `start_stream` is no longer needed and a dashboard shows a picture right away. A livestream that ends at the maximum duration is started again while somebody still watches. A station carries one livestream at a time: while one of its cameras is watched, the player of another one says which camera that is and starts by itself once the station is free, and a paused player releases the station. Starts the camera acknowledges without sending anything are retried. The states `livestream` and `livestream_rtsp` always carry the URL in this mode. go2rtc's player page and API port have no authentication, so every device in the network that reaches them can wake the cameras. Off by default
-- (hdering) New tab "Streams" in the instance settings: every device with a livestream with its station, the player URL to open and the RTSP URL - no need to look the streams up in go2rtc anymore
-- (hdering) New setting "Livestream quality": sets the streaming quality of every camera to low, medium or high before its livestream starts, so no camera streams at "Auto", where it changes the resolution mid-stream and browsers show a green or frozen picture. The encoding of battery doorbells ("Medium / Low Encoding") is kept, devices that name their qualities by resolution ("1080P", "2K HD") are left alone. Off by default. The warning about the "Auto" quality is now logged once per device instead of at every livestream start, and names the state to change and the fixed qualities the device offers
-- (hdering) New setting "Wait for camera data (sec)", 15 seconds by default: a livestream is no longer given up after 5 seconds without data. Battery cameras that first have to wake up often need longer, and their livestream then ended with "we haven't received any data for 5 seconds" before the first frame
-- (hdering) The maximum livestream duration counts from the first picture instead of from the start command, so a camera that needs a minute to wake up no longer loses that minute of its livestream
-- (hdering) Livestream: the audio track (or, with a slow camera, the whole stream) no longer breaks after 5 seconds with `socket hang up`. go2rtc drops connections whose request header does not arrive within 5 seconds, and the adapter only sent it with the first data. A livestream that already ended is no longer stopped a second time, which logged a misleading warning
+### 3.6.3 (2026-10-29)
+- (typhosj) Switching quickly between on-demand cameras of the same station now also works between cameras with different video codecs, e.g. from a SoloCam S340 (H.265) to an Indoor Cam (H.264). The new camera was started right after the old one was stopped, and its livestream began with the last data of the old camera and kept its codec - nothing could be played, and the station stayed blocked for up to five minutes. The next livestream of a station now starts two seconds after a stop at the earliest (reported in the forum)
+- (typhosj) The start no longer logs the error "Check push token - Response code not ok" for an account that has been migrated to the new eufy backend. That rejection is expected and push works over the new backend, so it is now logged once as info. A warning is logged instead when push could not be established on either backend
 
-### 3.3.0 (2026-09-21)
-- (typhosj) **Breaking:** the tilt down button of pan and tilt cameras is renamed from `titl_down` to `tilt_down`. The update moves the existing object with its name and custom settings (e.g. history); scripts and visualizations that use the old id have to be changed to `tilt_down`
-- (typhosj) New setting "Devices with a compatibility stream": the livestream of a camera listed there is re-encoded to 720p H.264, keeping the aspect ratio of the camera, before it reaches the player, which makes it playable on old WebViews, kiosk tablets and hardware decoders that cannot handle the resolution the camera sends. The states `livestream` and `livestream_rtsp` of that camera point at the transcoded stream, the untouched one stays available under the serial number. Transcoding costs CPU on the ioBroker host while such a stream is watched, which is why it is off by default and set per device (#153)
-- (typhosj) Talkback: devices with a speaker get the state `talkback_play`. Writing an http(s) URL or an absolute file path to it plays that audio through the device; a livestream is started for it if none is running and stopped again afterwards (#34)
-- (typhosj) New setting "Battery devices that stay connected": standalone battery devices on permanent power (power supply or solar panel) listed there keep their P2P connection instead of losing it 30 seconds after the last command, and are reconnected when it drops. It drains the battery of a device that is not on permanent power (#33)
-- (typhosj) The eufyCam C31 (T817L) is no longer an unknown device without states; the adapter handles it like the SoloCam Spotlight 1080, which gives it livestream, motion and person detection, light and alarm. Pan and tilt are not available yet (#156)
-- (typhosj) Installing the adapter now removes only `--security-revert=CVE-2023-46809` from the node process parameters of an instance instead of clearing them all, so parameters such as `--max-old-space-size` survive an update. A failure there no longer aborts the installation
-- (typhosj) Event pictures that arrive in a format the adapter cannot decrypt (e.g. `v8_eufysecurity`) are now loaded from the HomeBase over P2P instead, the way the picture is loaded when the adapter starts. The picture appears about a minute after the event, once the station has stored it (#136)
-- (typhosj) Livestreams no longer fail with "RSA_PKCS1_PADDING is no longer supported for private decryption" on node.js builds that refuse RSA PKCS#1 v1.5 decryption; the stream key is now decrypted by node-rsa's own implementation (#144)
-- (typhosj) Error messages in the log show the actual error again; before, an error passed along with a log line was written as `{}`, and an error with circular references could not be logged at all
-- (typhosj) A device or station property whose state had no value yet now receives its updates; before, such a state stayed empty until the adapter was restarted
-- (typhosj) The adapter no longer rewrites the object of every property state on each start, only the ones whose definition actually changed
-- (typhosj) A station that disconnects no longer causes warnings about missing `livestream` states for sensors, locks and other devices without a livestream
-- (typhosj) The `chime` message command now always answers exactly once: with an error if parameters are missing (before: no answer at all) and only with "not supported" for a station without chime (before: also "chime command sent")
-- (typhosj) The state `set_privacy_angle` is named "Set Privacy Angle" instead of "Set Default Angle"; existing objects are renamed on update unless their name was changed by hand
-- (typhosj) A channel named "unknown" is no longer deleted on start while it still holds states that have no value yet; only channels without any object below them are removed
-- (typhosj) Update migrations compare adapter versions correctly beyond x.9 (3.10.0 was treated as older than 3.9.0)
-- (typhosj) Removed unused code and the no longer needed dependencies `@bropat/fluent-ffmpeg` and `fs-extra`
+### 3.6.2 (2026-10-26)
+- (typhosj) Switching quickly between on-demand cameras of the same station works now. A camera opened within ten seconds after another camera of the station was closed did not start, and the station stayed blocked for up to five minutes. The livestream of the closed camera, or one started through start_stream that nobody watches, is now stopped right away before the next livestream of the station starts, also one for start_stream or a talkback (reported in the forum)
+- (typhosj) A talkback now keeps the other cameras of its station from starting, like a watched livestream does. Opening another camera of the station ended the talkback before.
 
-### 3.2.1 (2026-09-18)
-- (typhosj) An event picture that cannot be decoded no longer replaces the last picture with a `<serial>.unknown` file; `picture_url` and `picture_html` keep the previous picture and a warning names the device, the data length and the image format (#136)
+### 3.6.1 (2026-10-26)
+- (typhosj) On-demand streams no longer hang for five minutes when a player opens the stream again shortly after the last one left. A request that came while the idle livestream was being stopped waited for a livestream nobody started; a compatibility stream then failed in VLC with "404 Not Found" or "[exec] timeout" (reported in the forum)
+- (typhosj) Compatibility streams of on-demand cameras now also start when the camera takes more than 5 seconds to deliver the first picture. ffmpeg gave up after 5 seconds, so the first attempt failed for most battery cameras and only a second one shortly after worked. go2rtc still gives up after 30 seconds, so a camera that needs more than about 20 seconds to start fails the first attempt as before (reported in the forum)
 
 ## License
 
@@ -110,7 +95,7 @@ Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters
 Copyright (c) 2020-2024 bropat <patrick.broetto@gmail.com>
 
 The web pages in `www/` that go2rtc serves are taken from [go2rtc](https://github.com/AlexxIT/go2rtc),
-MIT licensed, Copyright (c) 2022 Alexey Khit. Their license text is in `www/LICENSE.go2rtc`, the list
+MIT licensed by Alexey Khit (2022). Their license text is in `www/LICENSE.go2rtc`, the list
 of files and what was changed is in `www/VENDOR.md`.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

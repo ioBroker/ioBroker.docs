@@ -5,7 +5,9 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 
 ![ShoppingRoute](admin/shoppingroute.png)
 
-**Aktuelle Version: 0.6.2 (13.11.2026).**
+**Aktuelle Version: 0.6.3 (20.11.2026).**
+
+**Neu in 0.6.3:** Die Einkaufslistenansicht verwendet frisch bestätigte Alexa-Daten statt veralteter Browser-Entwürfe. Bereits erledigte oder gelöschte Artikel werden nicht wieder eingeblendet; noch gültige manuelle Verschiebungen bleiben erhalten. Zusätzlich bietet ShoppingRoute für Skripte und KI-Agenten den lesenden `help`-Befehl.
 
 **Neu in 0.6.1 – schnellerer und robusterer Bring!-/Alexa-Abgleich:** Sobald der Bring!-Adapter einen bestätigten Listenstand oder Alexa eine Listenänderung meldet, wird ShoppingRoute ereignisgesteuert aktiv. Es entfällt die zusätzliche Wartezeit von bis zu 90 Sekunden im ShoppingRoute-Intervall. Eine 30-Sekunden-Rückfallprüfung, kurze Wiederholungsversuche bei laufenden Sortierungen und zeitnahe Bestätigungen bleiben aktiv. Bereits ausgeführte Schreibvorgänge werden unabhängig von zwischenzeitlich erledigten anderen Artikeln erkannt. Dadurch blockieren solche Erledigungen den nächsten Abgleich nicht mehr. Nach drei Minuten ohne Bestätigung erscheint einmalig eine Warnung im ioBroker-Log, bei Timeout ein Fehler und nach Wiederherstellung eine Entwarnung – keine Logflut.
 
@@ -54,9 +56,13 @@ Für die Einrichtung: Bring!-Instanz auswählen und speichern, Bring!-Liste ausw
 
 **Teststand (26.10.2026):** Die automatisierten Tests der Synchronisierung, Sortierung und Schutzmechanismen sind erfolgreich. Der Praxistest bestätigt die Übernahme von Bring!-Listen sowie neu in Bring! hinzugefügter Artikel, die beim nächsten Sortierlauf in ShoppingRoute eingeordnet werden. Eine freie Artikelsortierung innerhalb der Bring!-App ist technisch nicht möglich. Abschließen, Löschen und sämtliche Konfliktfälle des beidseitigen Live-Abgleichs wurden mit diesem Praxistest nicht bestätigt. Für den bidirektionalen Modus zunächst gesicherte Testlisten verwenden.
 
+## Hilfe für Skripte und KI-Agenten
+
+Mit `sendTo('shoppingroute.0', 'help', {}, callback)` erhalten Skripte und KI-Agenten eine Beschreibung der unterstützten Nachrichten und die Liste `commands`. Dort zeigt `write: true` an, welche Befehle Daten verändern können; `write: false` steht für reine Abfragen. Die vorhandenen Schutzmechanismen, Berechtigungen, Dry-Run-Einstellungen und Amazon-Zugriffslimits bleiben unverändert. Der Hilfeaufruf selbst schreibt weder nach Alexa noch nach Bring!. Weitere Einzelheiten enthält die [deutsche Bedienungsanleitung](/#/docs/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md).
+
 ## Manuelle Einkaufslistenänderungen
 
-Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Ein Neuladen desselben Browser-Tabs stellt den Entwurf bei verfügbarem Sitzungsspeicher wieder her.
+Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Beim Neuladen desselben Browser-Tabs werden gültige, noch nicht übertragene Verschiebungen auf die frisch von Alexa abgefragte Liste angewendet. Erledigte oder entfernte Artikel tauchen durch alte Entwürfe nicht wieder auf. Der sichtbare Tab wird sparsam und bei Rückkehr erneut geprüft. Schlägt das Laden fehl, erscheint eine Fehlermeldung mit erneuter Lademöglichkeit statt einer als aktuell dargestellten veralteten Liste. Das Löschen des Browser-Caches ist nicht erforderlich.
 
 ## Neu in 0.5.3: Direktsteuerung in der Alexa-App
 
@@ -169,6 +175,11 @@ Die Optimierung ist optional und abhängig von der eingestellten Mindestartikelz
 ShoppingRoute wird unter der **[MIT-Lizenz](https://github.com/RaviniZib/ioBroker.shoppingroute/blob/main/LICENSE)** veröffentlicht. Frühere bereits veröffentlichte Versionen bleiben unter der jeweils damals gültigen Lizenz.
 
 ## Changelog
+
+### 0.6.3 (20.11.2026)
+- Einkaufslistenansicht gegen veraltete Browser-Entwürfe abgesichert: aktuelle Alexa-Artikel und erledigte Einträge werden korrekt angezeigt; gültige manuelle Verschiebungen bleiben erhalten (#90).
+- Lesenden `help`-Befehl für Skripte und KI-Agenten mit Übersicht der unterstützten Nachrichten und Schreibkennzeichnung ergänzt (#93).
+- Deutsche und englische Dokumentation aktualisiert; bestehende Schutzmechanismen und Zugriffslimits unverändert.
 
 ### 0.6.2 (13.11.2026)
 - @iobroker/testing auf 6.3.2 aktualisiert (Repo-Checker-Warnung W0037, Issue #85).

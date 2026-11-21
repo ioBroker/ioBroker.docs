@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
+hash: w5bPhWctCaVc7Ge/ZG7UfVCvCU9XElr2tS0801j6tr4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -20,15 +20,29 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 
 Dieser Adapter ruft Wettervorhersagedaten von der kostenlosen [OpenMeteo-API](https://open-meteo.com) ab und stellt sie als ioBroker-Datenpunkte bereit. Es ist kein API-Schlüssel erforderlich. Er versendet individuelle Benachrichtigungen für konfigurierbare Wetterereignisse (Stürme, Gewitter, offizielle Warnungen) und bietet mehrere unabhängig konfigurierbare HTML-Widgets pro Standort.
 
+![Widget-Übersicht](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/widgets_en.jpg)
+
+![Verfügbare Icon-Sets (animiert)](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/icon-sets_en.gif)
+
 ## Highlights
 
 ### Wetterbenachrichtigungen über den ioBroker-Benachrichtigungsmanager
 
-Der Adapter versendet individuelle Benachrichtigungen für konfigurierbare Wetterereignisse – Sturmwarnungen, Gewitterwarnungen und offizielle Warnungen nationaler Wetterdienste (DWD für Deutschland, MeteoAlarm für Europa). Alle Benachrichtigungsziele (Telegram, E-Mail, Pushover usw.) werden zentral über den **ioBroker-Benachrichtigungsmanager** konfiguriert – eine Einrichtung pro Adapter ist nicht erforderlich.
+Der Adapter versendet individuelle Benachrichtigungen für konfigurierbare Wetterereignisse – Sturmwarnungen, Gewitterwarnungen und offizielle Warnungen nationaler Wetterdienste (DWD für Deutschland, MeteoAlarm für Europa). Diese werden an das **ioBroker-Benachrichtigungssystem** (weitergeleitet vom Benachrichtigungsmanager) und/oder direkt an Messenger wie Telegram, E-Mail, Pushover, Pushsafer, Gotify, WhatsApp und Signal (CallMeBot), SMS (gsmsms, seven.io), Discord, MAX, die ioBroker Visu App (iot) und Synology Chat gesendet – jeweils im eigenen Format mit den benötigten Feldern (Empfänger, Telefonnummer, Kanal usw.). Es werden nur installierte Messenger unterstützt; andere Messenger können über den Benachrichtigungsmanager verwendet werden.
 
 ### Konfigurierbares HTML-Widget
 
 Der Adapter generiert einen sofort einsatzbereiten HTML-Datenpunkt (`widget`) das direkt in VIS, vis-2 oder jedes beliebige ioBroker-Dashboard eingebettet werden kann – ohne externe Tools oder manuelle CSS-Anpassungen. Design (hell/dunkel), Hintergrundtransparenz, Kartentransparenz, Schriftgröße und Kartenfarbe lassen sich direkt in den Adaptereinstellungen konfigurieren.
+
+**Diagrammvariante:** Neben _der einfachen_ und _der detaillierten Darstellung_ gibt es ein _Diagramm-_ Widget, das der Wettervorhersagekarte von Home Assistant nachempfunden ist:
+
+- aktuelles Wetter mit Details (gefühlte Temperatur, Luftfeuchtigkeit, Wind, Luftdruck, Sichtweite, UV-Strahlung, Sonnenaufgang/Sonnenuntergang)
+- Tages- und Stundenvorhersage als Diagramm – tippen Sie auf die Vorhersage, um zwischen Tages- und Stundenvorhersage zu wechseln.
+- Über die Zahnradtaste werden die angezeigten Werte ausgewählt: Temperatur und Niederschlag, gefühlte Temperatur, Niederschlagswahrscheinlichkeit, Windgeschwindigkeit und -böen, Luftfeuchtigkeit, Luftdruck, UV-Index
+- Windstärke (Beaufort) mit Richtungsanzeige für jede Spalte
+- Konfigurierbar: Startansicht (täglich/stündlich/nur täglich), im Menü angezeigte Werte, Detailbereich, Windzeile und Mondphase ein/aus
+- Für die Interaktion wird ein Browser mit CSS benötigt. `:has()` (Chrome/WebView 105+, Safari 15.4+, Firefox 121+); ältere Browser zeigen die konfigurierte Startansicht ohne Umschalten an.
+- reines HTML/CSS ohne JavaScript; es werden nur die Werte angezeigt, die der Adapter tatsächlich abruft (deaktivierte Datengruppen verschwinden aus den Details und dem Menü).
 
 ### Animiertes Wetter-Hintergrundbild / Bildschirmschoner
 
@@ -42,6 +56,15 @@ Der Adapter erzeugt für jeden Standort ein in sich geschlossenes, animiertes We
 - **Unabhängiges Live-Aktualisierungsintervall** – Aktualisierung nur der aktuellen Bedingungen und des Hintergrundbildes (0/5/10/15/30 Min.), getrennt vom Hauptvorhersage-Aktualisierungsintervall
 - Konfigurierbar über einen speziellen **Administrator-Tab „Hintergrundbild“** (Position, Farben, Schriftgrößen, Uhr, Warnungen) mit einer Live-Vorschau, die gängige Bildschirmauflösungen simuliert.
 - Direkt erreichbar als URL pro Webinstanz (`current.wallpaper_url_<instance>` — keine VIS-Bindung erforderlich
+
+### Widgets (Webkomponenten) für AURA, vis-2, Geräte und andere Visualisierungen
+
+Das Wetter-Widget und der Bildschirmschoner sind auch als Webkomponenten verfügbar (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ empfohlen), vis-2 (2.20.7+), der Geräteadapter (4.3.0+) und alle anderen Visualisierungen, die Webkomponenten unterstützen, listen sie in ihrer Widget-Palette auf – keine HTML-Bindung erforderlich.
+
+- **Open-Meteo-Wetterdaten** – entweder als Widget in den Adaptereinstellungen oder direkt in der Visualisierung konfiguriert: Standort, Variante (einfach/detailliert/Diagramm), Tage, Symbolset, Farben, Größen und Diagrammoptionen
+- Übernimmt optional die Textfarbe des Visualisierungsthemas
+- wird verkleinert, um in die Kachel zu passen, anstatt zu scrollen
+- **Open-Meteo-Bildschirmschoner** – die animierte Wetterszene als Kachel oder im Vollbildmodus (z. B. eine Ansicht für den AURA-Bildschirmschoner) mit dem Overlay, der Uhr und den Warnungen der Instanz oder eigenen sowie einem optionalen Hintergrundbild aus dem ioBroker-Dateisystem (z. B. `/0_userdata.0/images/garden.jpg`)
 
 ### Volltext-Adresssuche
 
@@ -99,6 +122,8 @@ Der Adapter integriert offizielle Wetterwarnungen nationaler Wetterdienste. Akti
 
 Warnungen werden gespeichert unter `location.warnings.*` unabhängig von der Quelle. A `warnings.source` Datenpunkt zeigt `"DWD"` oder `"MeteoAlarm"` Die
 
+**Schlüsselwörter ausschließen** (z. B. `Frost, Fog`) Übereinstimmende Warnungen werden als Benachrichtigungen unterdrückt. Mit der Option **„Ausgeschlossene Warnungen auch in Widgets und Bildschirmschoner ausblenden“** werden sie auch nicht im Warnsymbol der Widgets und im Bildschirmschonerbanner angezeigt; die Datenpunkte behalten jedoch stets alle Warnungen bei.
+
 ## Installation
 
 Installation über die ioBroker-Admin-Oberfläche (Suche nach "openmeteo-notify").
@@ -127,7 +152,7 @@ Installation über die ioBroker-Admin-Oberfläche (Suche nach "openmeteo-notify"
 | Astronomie – ebenfalls stündlich          | Echo-Astronomiedaten pro Stundenschlitz                                                              | aus                     |
 | Landwirtschaft / Solarenergie             | Strahlung aktivieren, CAPE, Bodentemperatur                                                          | aus                     |
 | Landwirtschaft – auch stündlich           | Stündliche Agrardaten                                                                                | aus                     |
-| Komfortindizes                            | Hitzeindex, Windchill, Feuchtigkeitsindex und UV-Index aktivieren                                    | aus                     |
+| Komfortindizes                            | Hitzeindex, Windchill-Wert, Feuchtigkeitsindex und UV-Index aktivieren                               | aus                     |
 | Komfort – auch stündlich                  | Stündliche Komfortdaten                                                                              | aus                     |
 | Pollen                                    | Pollendaten aktivieren (nur Europa)                                                                  | aus                     |
 | Pollen – ebenfalls stündlich              | Stündlicher Pollenflug pro Pollensorte                                                               | aus                     |
@@ -153,6 +178,7 @@ Der Adapter erzeugt Datenpunkte unter `openmeteo-notify.<instance>.<location>` D
 | `icon_url`                    | URL des Wettersymbols (Symbolset in den Einstellungen auswählbar)                                                                                                                                                   |                 |
 | `precipitation`               | Gesamtniederschlag der letzten Stunde                                                                                                                                                                               | mm/Zoll         |
 | `rain`                        | Regenmenge der letzten Stunde                                                                                                                                                                                       | mm/Zoll         |
+| `showers`                     | Schauerartiger (konvektiver) Niederschlag in der letzten Stunde                                                                                                                                                     | mm/Zoll         |
 | `snowfall`                    | Schneefall letzte Stunde                                                                                                                                                                                            | cm              |
 | `snow_depth`                  | Aktuelle Schneehöhe am Boden                                                                                                                                                                                        | cm              |
 | `cloudcover`                  | Wolkendecke                                                                                                                                                                                                         | %               |
@@ -172,7 +198,7 @@ Der Adapter erzeugt Datenpunkte unter `openmeteo-notify.<instance>.<location>` D
 | `air_quality.*`               | Luftqualitätsindex, PM10, PM2,5, NO₂, CO, Staub, Ozon _(falls aktiviert)_                                                                                                                                           |                 |
 | `pollen.*`                    | Aktueller Pollen pro Typ _(falls aktiviert)_                                                                                                                                                                        | Körner/m³       |
 | `agriculture.solar_radiation` | Kurzwellige Sonneneinstrahlung am Boden _(falls aktiviert)_                                                                                                                                                         | W/m²            |
-| `agriculture.cape`            | CAPE – Konvektive verfügbare potenzielle Energie: Energie, die für die Gewitterentwicklung zur Verfügung steht; > 500 J/kg = nennenswertes Risiko, > 2000 J/kg = schweres Risiko _(falls aktiviert)_                | J/kg            |
+| `agriculture.cape`            | CAPE – Konvektive verfügbare potenzielle Energie: Energie, die für die Gewitterentwicklung zur Verfügung steht; > 500 J/kg = nennenswertes Risiko, > 2000 J/kg = schwerwiegend _(falls aktiviert)_                  | J/kg            |
 | `agriculture.soil_temp`       | Bodentemperatur in 0 cm Tiefe _(falls aktiviert)_                                                                                                                                                                   | °C/°F           |
 | `comfort.heat_index`          | Hitzeindex (Rothfusz) – wie heiß es sich anfühlt, unter Berücksichtigung von Temperatur und Luftfeuchtigkeit; nur sinnvoll bei ≥ 27 °C und ≥ 40 % relativer Luftfeuchtigkeit, `null` andernfalls _(falls aktiviert)_ | °C/°F           |
 | `comfort.windchill`           | Windchill (NWS) – wie kalt es sich aufgrund des Windes anfühlt; nur sinnvoll bei ≤ 10 °C und Windgeschwindigkeit > 4,8 km/h, `null` andernfalls _(falls aktiviert)_                                                  | °C/°F           |
@@ -215,7 +241,7 @@ Der Adapter erzeugt Datenpunkte unter `openmeteo-notify.<instance>.<location>` D
 | `astronomy.moon_phase_val`                         | Mondphase als Zahl: 0 = Neumond · 0,25 = erstes Viertel · 0,5 = Vollmond · 0,75 = letztes Viertel _(falls aktiviert)_                                             |
 | `astronomy.moon_phase_text` /`_icon_url`           | Mondphase als Text / Symbol _(falls aktiviert)_                                                                                                                   |
 | `astronomy.moonrise` /`astronomy.moonset`          | Mondaufgang / Monduntergang _(falls aktiviert)_                                                                                                                   |
-| `agriculture.solar_radiation_sum`                  | Gesamte während des Tages empfangene Sonnenstrahlung                                                                                                              |
+| `agriculture.solar_radiation_sum`                  | Gesamte Sonneneinstrahlung, die im Laufe des Tages empfangen wird                                                                                                 |
 | `agriculture.evapotranspiration`                   | FAO-56 Referenzverdunstung (ET₀) – Wassermenge, die Pflanzen und Boden abgeben; wird für die Bewässerungsplanung verwendet                                        |
 | `agriculture.lifted_index_min`                     | Täglicher minimaler Lifted Index – atmosphärische Stabilität: negativ = instabil/Sturmrisiko, stark negativ (< −6) = Risiko schwerer Gewitter _(falls aktiviert)_ |
 | `comfort.heat_index_max`                           | Maximaler Hitzeindex des Tages _(falls aktiviert)_                                                                                                                |
@@ -226,7 +252,7 @@ Der Adapter erzeugt Datenpunkte unter `openmeteo-notify.<instance>.<location>` D
 
 ### Stündliche Werte (`day1.hourly.h00` …`h23`)
 
-Temperatur, gefühlte Temperatur, Niederschlag, Regen, Schneefall, Schneehöhe, Schneefallhöhe, Regenwahrscheinlichkeit, Bewölkung, Luftfeuchtigkeit, Taupunkt, Luftdruck, Sichtweite, Tag, Windgeschwindigkeit, Windrichtung (Text/Emoji/Symbol), Beaufort, UV-Index, Höhe der Gefriergrenze, Wettercode, Symbol/Symbol-URL, Beschreibung.
+Temperatur, gefühlte Temperatur, Niederschlag, Regen, Schauer, Sonnenscheindauer (Minuten), Schneefall, Schneehöhe, Schneefallhöhe, Regenwahrscheinlichkeit, Bewölkung, Luftfeuchtigkeit, Taupunkt, Luftdruck, Sichtweite, Tag, Windgeschwindigkeit, Windrichtung (Text/Emoji/Symbol), Beaufort, UV-Index, Höhe der Gefriergrenze, Wettercode, Symbol/Symbol-URL, Beschreibung.
 
 Optional pro Stunde (falls aktiviert + "auch stündlich"):
 
@@ -237,6 +263,21 @@ Optional pro Stunde (falls aktiviert + "auch stündlich"):
 | `hXX.agriculture` | Sonneneinstrahlung (W/m²), CAPE (J/kg), Bodentemperatur (°C/°F), Bestrahlungsstärke = globale geneigte Bestrahlungsstärke auf einer ebenen Fläche (W/m²), Lifted-Index (K) |
 | `hXX.comfort`     | Hitzeindex, Windchill, Feuchtigkeitsindex, Feuchtigkeitsindex, UV-Index, UV-Level                                                                                          |
 | `hXX.pollen`      | Erle … Ambrosia + Ebenentext (Keine/Niedrig/Mittel/Hoch)                                                                                                                   |
+
+### 15-Minuten-Vorhersage (`minutely` (optional)
+
+Aktiviert unter _Einstellungen → 15-Minuten-Vorhersage_ mit eigenem Abrufintervall (15/30/60 min) und Bereich (1–4 Stunden).
+
+| Datenpunkt                | Beschreibung                                                                                                                                                                                                                                                                                              | Einheit |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `minutely.0min` …`225min` | Ein Ordner pro Viertelstunde, benannt nach den Minuten ab jetzt (`0min` = jetzt `15min`, `30min` …): `time`, `precipitation`, `rain`, `showers`, `snowfall`, `precipitation_probability`, `weathercode`, `temperature`, `windgusts`, `lightning_potential` (Nur Deutschland / Mitteleuropa)                 |         |
+| `minutely.rain_starts_in` | Minuten bis zum Einsetzen des Niederschlags (über dem Schwellenwert) – 0 = jetzt, leer = nicht im Bereich                                                                                                                                                                                                 | min     |
+| `minutely.rain_ends_at`   | Zeitpunkt, an dem der aktuelle Niederschlag endet – leer lassen, wenn es nicht regnet oder der Niederschlag über den angegebenen Zeitraum hinaus anhält.                                                                                                                                                  |         |
+| `minutely.text`           | Kurzfristvorhersage als Text in der Systemsprache, z. B. „Regen ab 08:30 Uhr (in 45 Minuten)“, „Gewitter bis ca. 09:00 Uhr“; wenn es innerhalb des Zeitraums trocken bleibt, wird die stündliche Vorhersage verwendet: „Regen ab ca. 15:00 Uhr“ (oder Schnee/Gewitter) oder „Kein Niederschlag in Sicht“. |         |
+
+Optionale Benachrichtigung „Niederschlag beginnt in Kürze“ (Vorwarnzeit und Schwellenwert konfigurierbar), einmal pro Niederschlagsereignis.
+
+Die Widgets zeigen die Kurzfristvorhersage an, ohne ihre Größe zu ändern (Option pro Widget, standardmäßig aktiviert): _einfach_ und _detailliert_ ersetzen die Zusammenfassungszeile durch den Text, wenn Niederschlag erwartet wird, _detailliert_ wandelt zusätzlich die Trennlinie über der Stundenzeile in einen Niederschlagsstreifen auf derselben Zeitachse um, _Diagramm_ zeigt den Text in der Einstellungszeile an und erhält eine dritte Ansicht "15 min" (Tippen Sie auf das Diagramm: Tage → Stunden → 15 min).
 
 ### Offizielle Warnungen (`warnings`)
 
@@ -284,37 +325,44 @@ Dieser Adapter verwendet Daten von folgenden Drittanbietern:
 Dieser Adapter ist ein unabhängiges Community-Projekt und steht in keiner Verbindung zu den oben genannten Diensten und wird von diesen auch nicht unterstützt.
 
 ## Changelog
-### 0.2.0 (2026-09-08)
-* (ipod86) feat: add animated, per-location WMO weather wallpaper (canvas rain/snow/fog/lightning/sun/moon animation), self-updating via a companion JSON file (no REST API needed), with a dedicated admin config tab, an optional location carousel, an independent live-update interval and an official warning banner
-* (ipod86) feat: wallpaper sun/moon position and moon phase follow real astronomical data (SunCalc); rain/fog intensity and wind drift follow real weather data
-* (ipod86) feat: add day/night split for precipitation/thunderstorm probability, wind, rain and snowfall amount
-* (ipod86) fix: treat overlapping DWD warning time-shifts as an update instead of lift+new
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.6.1 (2026-11-18)
+* (ipod86) feat: messengers sent to directly in their own format: in addition Gotify, SMS (gsmsms, seven.io), Discord, MAX, ioBroker Visu app and Synology Chat; only supported and installed messengers can be chosen, each with its own fields
+* (ipod86) change: no more generic notification format and free instance input – other messengers via the notification manager
 
-### 0.1.16 (2026-08-17)
-* (ipod86) fix: variable shadowing in fetchDwdWarnings caused every DWD official warning request to fail with "Cannot access 'raw' before initialization", silently freezing the affected warning states
-* (ipod86) fix: guard the official warning update against a single hung request permanently stalling the recurring schedule
+### 0.6.0 (2026-11-18)
+* (ipod86) feat: notifications also directly to messengers (Telegram, e-mail, Pushover, Pushsafer, WhatsApp/Signal cmb and every adapter that receives ioBroker notifications); the notification system stays on by default and can be switched off
+* (ipod86) feat: messages `getLocations` and `getWidgets` for the web components (prepares dropdowns instead of the object browser)
+* (ipod86) chore: description and keywords mention the widgets for vis-2, AURA and other visualisations
 
-### 0.1.15 (2026-07-19)
-* (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
+### 0.5.1 (2026-11-12)
+* (ipod86) fix: build script of the web components throws instead of process.exit (repochecker E5050)
 
-### 0.1.14 (2026-07-16)
-* (ipod86) fix: persist warning dedup state across adapter restarts to prevent duplicate notifications on restart
-* (ipod86) fix: deduplicate DWD warnings from combined warnings+vorabInformation API arrays (same event rounded to minute)
+### 0.5.0 (2026-11-09)
+* (ipod86) chore: clearer adapter title ("Open-Meteo Weather & Severe Weather Alerts") and keywords for existing features (pollen, air quality, UV, astronomy, no API key)
+* (ipod86) docs: widget overview and animated icon set images in the README
+* (ipod86) feat: option to hide excluded official warnings in widgets and screensaver too (data points unchanged)
+* (ipod86) fix: negative frost threshold can be typed in the settings
+* (ipod86) fix: excluded official warnings no longer send "lifted" or update messages
+* (ipod86) feat: widgets (web components) for AURA (0.106.0+), vis-2 (2.20.7+), devices (4.3.0+) and other visualisations – weather widget and screensaver
+* (ipod86) feat: own icon set per widget (web component)
+* (ipod86) fix: a widget never draws more days than the forecast has (empty second row)
+* (ipod86) fix: WMO symbols light on dark backgrounds with an own text color
+* (ipod86) fix: wind chart showed NaN where a view has no gust values
 
-### 0.1.13 (2026-07-15)
-* (ipod86) fix: add random jitter to daily and interval update scheduling to spread cloud load
-* (ipod86) fix: validate warnIntervalMinutes — reset to 15 if < 1
-* (ipod86) fix: remove orphaned i18n keys (iconPreviewAnimated, iconPreviewBasmilius, iconPreviewWmo, openmeteo adapter settings) from all 11 language files
-* (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
-* (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
+### 0.4.1 (2026-10-22)
+* (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged
 
-Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.openmeteo-notify/blob/main/CHANGELOG_OLD.md).
+Older changelogs are available in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 ipod86
+Copyright (c) 2026 ipod86 <david@graef.email>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

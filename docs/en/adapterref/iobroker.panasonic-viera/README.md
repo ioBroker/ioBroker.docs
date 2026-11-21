@@ -97,6 +97,11 @@ Switching the TV on via the network requires **Networked Standby** and **Powered
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) Added connectionType and dataSource to io-package.json
+- (bluefox) Corrected the role of info.tv_on
+- (bluefox) Adapter is tested with node.js 22, 24 and 26
+
 ### 2.2.0 (2026-10-29)
 - (bluefox) The adapter was refactored to TypeScript and JsonConfig
 - (bluefox) Fixed the buttons basic.VOLUP, basic.VOLDOWN and basic.LEFT, they sent an invalid key

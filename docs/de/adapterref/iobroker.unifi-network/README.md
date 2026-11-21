@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-network/README.md
 title: ioBroker.unifi-network
-hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
+hash: bm6V3SyL09+erkK6OpwVpHZAmZdJ/5pZsbmCF0BI8ng=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-network/admin/unifi-network.png)
 
@@ -13,6 +13,7 @@ hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/unifi-network-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.unifi-network.png?downloads=true)
 ![Test und Freigabe](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg)
+![Abdeckung](https://img.shields.io/badge/coverage-96%25-brightgreen)
 
 # ioBroker.unifi-network
 
@@ -43,10 +44,74 @@ Sie benötigen einen lokalen Benutzer, der in Ihrer UniFi OS-Konsole erstellt wu
 
 4. Wählen Sie **„Nur lokalen Zugriff“** und geben Sie einen neuen Benutzernamen und ein neues Passwort ein.
 
-5. Wählen Sie für die Netzwerkrolle **„Hotspot-Operator“** und **„Standortadministrator“** aus.\
+5. Wählen Sie für die Netzwerkrolle **„Hotspot-Operator“** und **„Site-Administrator“** aus.\
    &#x20;**Hinweis:** Dies ist nicht unbedingt erforderlich. Sollten die Berechtigungen nicht ausreichen, werden Sie per Protokollmeldung benachrichtigt.
 
 ![Bildinformationen](../../../en/adapterref/iobroker.unifi-network/doc/config_local_user.png)
+
+## Nachrichten für Skripte und KI-Agenten
+
+`sendTo('unifi-network.0', 'help', {})` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten (`clientList`, `deviceList`, `wlanList`, `lanList`, `firewallGroupList`, ...) und der Zustände zur Steuerung des Netzwerks, geschrieben für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren. `commands` listet jede Nachricht auf `write: true` Wenn es etwas ändert.
+
+## Entwicklung
+
+Tests mit einem realen Controller und aufgezeichneten Testeinrichtungen:
+
+1. Erstelle ein git-ignoriertes `.env` im Projektverzeichnis:
+
+   ```env
+   UNIFI_HOST=192.168.1.1
+   UNIFI_USER=your-local-user
+   UNIFI_PASSWORD=your-password
+   # optional
+   UNIFI_PORT=443
+   UNIFI_SITE=default
+   ```
+
+   - `UNIFI_HOST`, `UNIFI_USER`, `UNIFI_PASSWORD`: erforderlich
+   - `UNIFI_PORT` HTTPS-Port, Standard `443`
+   - `UNIFI_SITE`: Name der Website, Standardwert `default`
+
+2. Protokollieren Sie die API-Antworten (schreibgeschützt, eine Datei pro Endpunkt):
+
+   ```bash
+   npm run record:api
+   ```
+
+   - `-- --dry-run` Zeigt nur an, welche Dateien geschrieben oder gelöscht würden.
+   - `-- --no-anonymize`: Speichert die Rohdaten ohne Anonymisierung
+
+3. Aufzeichnung der Echtzeitereignisse (interaktiv):
+
+   ```bash
+   npm run record:events
+   ```
+
+   - `-- --only=<ids>`: nur die aufgeführten Szenarien, durch Komma getrennt (IDs in `tools/eventScenarios.ts`)
+   - `-- --missing` Nur Szenarien ohne Fixture, bestehende Dateien werden beibehalten
+   - `-- --destructive`: auch Szenarien, die Daten auf dem Controller löschen
+   - `-- --dry-run` Zeigt nur an, welche Dateien geschrieben würden.
+   - `-- --no-anonymize`: Speichert die Rohdaten ohne Anonymisierung
+
+4. Unbekannte Ereignisse protokollieren (interaktiv, `q` + Eingabetaste speichert, Strg+C bricht ab):
+
+   ```bash
+   npm run record:events:unknown
+   ```
+
+   - `-- --dry-run` Zeigt nur an, welche Dateien geschrieben würden.
+   - `-- --no-anonymize`: Speichert die Rohdaten ohne Anonymisierung
+
+5. Führe die Tests aus:
+
+   ```bash
+   npm run test:ts        # offline, uses recorded fixtures
+   npm run test:live      # against the controller
+   npm run test:all       # all of the above
+   npm run test:coverage  # runs test:all with coverage report (src/) in coverage/index.html
+   ```
+
+Die Einrichtungsgegenstände werden gelagert in `test/fixtures/local/` Diese Dateien werden von Git ignoriert, da sie Controller-Daten enthalten. Die Live-Tests benötigen die Controller-Zugangsdaten in den ignorierten Dateien. `.env` Datei. Der Abdeckungsbericht wird geschrieben in `coverage/` (git ignoriert).
 
 ## Changelog
 
@@ -54,8 +119,18 @@ Sie benötigen einen lokalen Benutzer, der in Ihrer UniFi OS-Konsole erstellt wu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-11-20)
 
-### **WORK IN PROGRESS**
+- (Scrounger) bug fixes found by adapter checker
+- (Scrounger) bug fixes
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 1.6.0 (2026-11-17)
+
+- (Scrounger) enable / disable ports added #150
+- (Scrounger) momment replaced with day.js
+- (Scrounger) dependencies updated #116
+- (Scrounger) revert bug fix for expired token #124
 - (Scrounger) channel / device name undefined bug fix #116
 - (Scrounger) vpn client handling optimized
 - (Scrounger) event messages improved #122 #115
@@ -94,21 +169,6 @@ Sie benötigen einen lokalen Benutzer, der in Ihrer UniFi OS-Konsole erstellt wu
 - (Scrounger) dependencies updated
 - (Scrounger) event messages improved #46
 - (Scrounger) bug fixes
-
-### 1.3.0 (2025-11-24)
-
-- (Scrounger) event messages improved #46
-- (Scrounger) option to change tx power mode of access point channels
-- (Scrounger) dependencies updated
-- (Scrounger) code optimized
-- (Scrounger) logging optimized
-
-### 1.2.2 (2025-11-14)
-
-- (Scrounger) delete device event added
-- (Scrounger) event messages improved #43
-
-[Older changelogs can be found there](https://github.com/Scrounger/ioBroker.unifi-network/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

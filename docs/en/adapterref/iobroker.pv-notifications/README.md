@@ -337,6 +337,9 @@ sadam6752@gmail.com
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (CHANGE) `@iobroker/testing` 6.3.2 (repository checker W0037)
+
 ### 1.2.35 (2026-10-21)
 * (FIX) The footer of the test message ("Test Notification") is now translated like the rest of the message
 

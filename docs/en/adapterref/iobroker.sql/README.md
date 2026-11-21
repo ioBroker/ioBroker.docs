@@ -94,6 +94,20 @@ Pay attention to the authentication method. The new encryption algorithm in MySQ
 
 ![Windows](img/WindowsMySQLinstaller.png)
 
+#### Emojis and upper/lower case in an existing database
+
+Tables that the adapter creates now store every character (also emojis) and keep IDs apart that differ only in upper/lower case (`alias.0.Licht` and `alias.0.licht`). Tables that already exist are not changed automatically, because converting a large table takes a while and blocks it.
+
+If you want this for an existing database: stop the SQL instance, make a backup of the database, and run these three commands, e.g. in phpMyAdmin (replace `iobroker` with the name of your database):
+
+```sql
+ALTER TABLE `iobroker`.datapoints MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.sources MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.ts_string MODIFY val TEXT CHARACTER SET utf8mb4;
+```
+
+Then start the instance again. Without this, everything keeps working as before; only values with emojis cannot be stored.
+
 ## Structure of the DBs
 The default Database name is `iobroker`, but it can be changed in the configuration.
 ### Sources
@@ -222,6 +236,9 @@ Structure:
 | q      | INTEGER     | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Note:* MS-SQL uses BIT, and others use BOOLEAN. SQLite uses for ts INTEGER and all others BIGINT.
+
+## Messages for scripts and AI agents
+`sendTo('sql.0', 'help', {})` answers `{help, commands}`: a description of all messages and of the tables for AI agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands with `write: true` for the ones that change something.
 
 ## Access values from Javascript adapter
 The sorted values can be accessed from JavaScript adapter.
@@ -649,6 +666,16 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: getHistory checks the range of `percentile` (0-100) and `quantile` (0-1) only for these aggregates (misplaced parentheses in the check)
+
+### 4.6.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 4.5.1 (2026-11-17)
+* (@Schimi1983) "Clean up" no longer deletes the history of datapoints that are logged under an alias name, and stops with an error instead of deleting everything when the object database cannot be read (#587)
+* (@Schimi1983) MySQL/MariaDB: new tables use `utf8mb4`, so values, IDs and sources with emojis are stored instead of failing, and the names compare case-sensitively (`utf8mb4_bin`), also in a database created by a hoster. Existing tables are not changed; the README explains how to convert them (#588)
+
 ### 4.5.0 (2026-11-10)
 * (@Schimi1983) The database password is stored encrypted (`encryptedNative`). A password saved with an older version is encrypted once on the first start, the instance then restarts by itself. Note: after going back to 4.4.1 or older, enter the password in the instance settings again (#587)
 * (@DutchmanNL) PostgreSQL: new opt-in setting "Relax PostgreSQL commit durability" runs the adapter's connections with `synchronous_commit=off`, so commits no longer wait for the disk flush. This strongly reduces disk I/O and wear. A crash of the PostgreSQL server can lose the values of the last few hundred milliseconds; the database cannot be corrupted (#516)
@@ -673,25 +700,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) Data browser: PostgreSQL and MS SQL showed the time of a value as a bare number, because `getRawEntries` returned `ts` as string there
 * (@GermanBluefox) MySQL/MariaDB and MS SQL: datapoints whose IDs differ only in case (e.g. `alias.0.Licht` and `alias.0.licht`) or by trailing spaces no longer write into one series with the type of the first one. The second one gets its own row from now on; values that were already mixed stay where they are (#588)
 * (@GermanBluefox) MS SQL: `@azure/msal-node`, a dependency of the driver, was updated to 7.2.0 because of CVE-2026-109461 (GHSA-xcx6-jx8p-x3h5). It concerns the Azure authorization code flow, which the adapter does not use
-
-### 4.3.0 (2026-10-29)
-* (@GermanBluefox) `getHistory` accepts `intervalBorders`: the client can send the borders of the intervals itself, e.g. the local days of a chart. With `count` or `step` every interval after a switch of the daylight saving time ended an hour away from the midnight, so a value written at 23:59:59 was shown on the next day (ioBroker/ioBroker.echarts#1311)
-* (@Schimi1983) Fixed every write failing with "Can't add new command when connection is in closed state" until a restart: a connection the server closed while a statement was running was handed out again, because mysql2 reports that only to the statement and not as a connection error. Such a connection is also no longer handed to a write that waits for a free connection, and the reconnect is logged as a warning in this case too (#587)
-* (@Schimi1983) Fixed "Record changes only" storing every string value again: the reference value was overwritten with the SQL literal, or with the converted value when a storage type is set (#587)
-* (@Schimi1983) "Reset DB" no longer drops the whole database when "Do not create database" is set, only the adapter's tables. MSSQL: `DBCC FREEPROCCACHE` is then skipped too, as it needs server rights (#587)
-* (@Schimi1983) "Ignore values below/above" now also works with the limit 0 (users who set 0 now get the filter they configured) and accepts a decimal comma (#587)
-* (@Schimi1983) PostgreSQL: the password is no longer printed in the connection log (#587)
-* (@Schimi1983) Fixed a crash when a datapoint is disabled while its database ID is being looked up (#587)
-* (@Schimi1983) Disabling the logging of a datapoint with an alias ID works again (#587)
-* (@Schimi1983) Admin: every input has size attributes for all screen widths, "Do not create database" no longer grows wider on large screens (#583)
-* (@Schimi1983) Added the Ukrainian title and description, admin >= 7.6.20 is required (#583)
-* (@Schimi1983) `password` and `dockerMysql.rootPassword` are no longer readable by other adapters (`protectedNative`, #583). Note: a script that reads `system.adapter.sql.0` with `getObject` and writes it back with `setObject` now deletes both passwords; use `extendObject` instead
-* (@Schimi1983) README: the reinstall hint for SQLite uses `iobroker rebuild sqlite3` instead of `npm install` (#583)
-* (@Schimi1983) CI: the job with the unit and SQLite tests is named `adapter-tests`, as the repository checker expects, and also runs on Node.js 26 (#583)
-* (@GermanBluefox) Updated packages, `@iobroker/aggregate` 1.1.0
-
-### 4.2.1 (2026-10-13)
-* (@GermanBluefox) The error of a failed save or delete in the data browser is no longer hidden by the reload of the table
 
 ## License
 

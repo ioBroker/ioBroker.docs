@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.assistant/README.md
 title: ioBroker.assistant
-hash: g44CUL3WLacTNb790bSUNbCxZlE5dRrWjAtY5HKi1Ik=
+hash: 2e1xP5xYhicsKkfkHwjXtLp6KlUoH9dcN+miU29ZTmQ=
 ---
 <img src="admin/assistant.svg" alt="ioBroker.assistant" width="200"/>
 
@@ -53,7 +53,7 @@ Voice server listening on UDP 7775
 
 **Объявления / TTS:** напишите по адресу `assistant.0.tts.text` говорить на **всех** спутниках, или... `assistant.0.satellites.<id>.tts` Во- **первых** , значение произносится в виде текста (с помощью настроенного механизма преобразования текста в речь) или — если это URL-адрес/путь к аудиофайлу (`.mp3` /`.wav` /…) — воспроизведено.
 
-> **Для воспроизведения аудиофайлов на хост-системе (Windows и Linux) необходим [ffmpeg](https://ffmpeg.org/)** : Linux →`sudo apt install ffmpeg`; Windows → установите ffmpeg и добавьте его в `PATH` Для синтеза речи в обычном текстовом формате это не требуется — это необходимо только для воспроизведения аудиофайлов (mp3/wav/…).
+> **Для воспроизведения аудиофайлов на хост-системе (Windows и Linux) необходим [ffmpeg](https://ffmpeg.org/)** : Linux →`sudo apt install ffmpeg`; Windows → установите ffmpeg и добавьте его в `PATH` или введите полный путь к ffmpeg в **поле «Путь к ffmpeg»** на вкладке «Голос». Без этого **команда «Загрузить ffmpeg»** на вкладке «Голос» загружает статическую сборку (ffmpeg-static, 20–30 МБ) в каталог данных экземпляра. Для синтеза речи в обычном текстовом формате это не требуется — только для воспроизведения аудиофайлов (mp3/wav/…).
 
 ### Запустите спутник Hannah, направленный на этот адаптер.
 
@@ -130,11 +130,51 @@ npx @iobroker/assistant-satellite config.json
 
 > Разработано на основе исходного кода прошивки колонки ThirdReality и проверено с помощью теста обратной связи на имитированном устройстве; отзывы от пользователей реального оборудования приветствуются.
 
+### Ключевые слова: какая модель для какого спутника
+
+Ключевое слово всегда распознается **спутником** , поэтому формат модели зависит от типа спутника. Существует два семейства моделей, и обе могут поставляться в различных вариантах. `.tflite` — Они **не взаимозаменяемы** : модель, обученная для одного типа спутников, не будет работать на другом. Чтобы использовать одну и ту же фразу на обоих типах спутников, обучите модель дважды.
+
+| Спутник                                                                         | Двигатель                                                  | Пользовательская модель                                              | Куда это денется                                                                                |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ESPHome (спикер ThirdReality)                                                   | [microWakeWord](https://github.com/kahrendt/microWakeWord) | `.tflite`, опционально с его `.json`                                 | Этот адаптер: вкладка **«Спутники»** → ⚙ → _Загрузить собственное кодовое слово для активации._ |
+| Родной спутник (`assistant-satellite` адаптер, `@iobroker/assistant-satellite`) | [openWakeWord](https://github.com/dscripka/openWakeWord)   | один самодостаточный `.onnx`                                          | Настройки спутника: загрузить, затем выбрать его. `wakewordModel` (или URL/путь)                 |
+| Спутник Ханна Пи (UDP)                                                          | openWakeWord                                               | `.onnx` (`.tflite` только с `inference_framework: tflite` (на armv7l) | `--wakeword-model <path>`                                                                       |
+| клиенты из Вайоминга                                                            | что бы ни запускал клиент                                  | —                                                                    | На стороне клиента; не управляется этим адаптером.                                              |
+
+**microWakeWord (ESPHome)**
+
+- Модель принимает 40 спектрограммных признаков на кадр: входные данные `[1, n, 40]`, **квантованный** (int8 на входе, uint8 на выходе) — как официальные модели в [esphome/micro-wake-word-models](https://github.com/esphome/micro-wake-word-models) .
+
+- Обучите своих собственных с помощью microWakeWord. `notebooks/basic_training_notebook.ipynb` (Python 3.10, использование графического процессора очень помогает). Результат: `trained_models/wakeword/tflite_stream_state_internal_quant/stream_state_internal_quant.tflite` — переименовать его в соответствии с фразой, например `vita_nova.tflite` становится «Вита Нова».
+
+- Он `.json` Это необязательный параметр. Без него адаптер берет фразу из имени файла, а язык — из... `voiceLanguage`, пороговое значение `0.97` и раздвижное окно `5` Укажите один параметр для установки другого значения. `micro.probability_cutoff`:
+
+  ```json
+  {
+    "type": "micro",
+    "wake_word": "Vita Nova",
+    "model": "vita_nova.tflite",
+    "trained_languages": ["de"],
+    "version": 2,
+    "micro": { "probability_cutoff": 0.97, "sliding_window_size": 5 }
+  }
+  ```
+
+- При загрузке проверяется модель и отклоняется всё, что устройство не может запустить, с указанием причины — модель openWakeWord имеет такое имя.
+
+- Устройство загружает модель с медиасервера при **активации** чипа; одновременно активны не более двух ключевых слов активации. Загруженная модель остается на устройстве (API не может ее удалить). Устройство, прошивка которого не поддерживает внешние ключевые слова активации, не отображает загруженную модель в списке.
+
+**openWakeWord (собственная версия и сателлиты Hannah)**
+
+- Модель принимает векторные представления речи, содержащие 96 значений, например, входные данные. `[1, 16, 96]`, float — именно поэтому он не работает на устройствах ESPHome.
+- Экспорт обучающих блокнотов openWakeWord `.onnx` и `.tflite` Родной спутник нуждается в `.onnx` в виде **одного** файла — модель, разделенная на `.onnx` +`.onnx.data` не поддерживается.
+- Встроено в собственный спутник: `hey_jarvis`, `alexa`, `hey_mycroft`, `hey_rhasspy`; до трех ключевых слов для пробуждения одновременно.
+
 ## Дорожная карта
 
-1. **Текстовый ассистент (готово)** — LLM + вызов инструментов через состояния ioBroker.
+1. **Помощник по работе с текстом (готово)** — LLM + вызов инструментов через состояния ioBroker.
 2. **Ускоренный путь** для выполнения распространенных команд (вкл/выкл/таймер) без обратного обмена данными через LLM.
-3. **Движки TTS/STT** (Polly/Azure/OpenAI/AWS Transcribe) в качестве адаптерных модулей + конфигурация.
+3. **Механизмы преобразования текста в речь (TTS/STT** ) (Polly/Azure/OpenAI/AWS Transcribe) в качестве адаптерных модулей + конфигурация.
 4. **Конечная точка спутника** — аудио по протоколу UDP + управление по протоколу MQTT, поэтому спутники ESP/Pi взаимодействуют с адаптером напрямую.
 5. **Кодовое слово** — запрограммировано/управляется через ioBroker, работающий на устройстве.
 6. **Конечная точка сервера Вайоминга** — принять `wyoming-satellite` и клиенты в стиле Расспи.
@@ -145,36 +185,32 @@ npx @iobroker/assistant-satellite config.json
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.2.0 (2026-10-04)
-* (@GermanBluefox) Added routines: a phrase ("good night") runs a list of actions and answers once. Matched before the offline rule engine and before the LLM, so a macro you wrote down is never reinterpreted
-* (@GermanBluefox) The offline rule engine now answers questions about a kind of measurement without a device being named: "how is the air in here", "how warm is it everywhere", "how bright is it" are answered from every sensor of that kind, with a word for the air-quality number
-* (@GermanBluefox) Spoken text is cached on disk, so repeated replies ("Okay.", "Timer finished") cost no cloud call and no latency. An answer over 400 characters is cut at the last sentence that fits, and `<speak>…</speak>` is now spoken as real SSML by Azure and Polly
-* (@GermanBluefox) Added an optional second speech engine per direction: if the configured provider fails (outage, expired key, empty quota), speech-to-text and text-to-speech fall back to another one — with Vosk/Piper behind a cloud provider the house keeps working without the internet
-* (@GermanBluefox) Added two optional settings for switch commands: confirm with a short beep instead of a spoken sentence, and verify the device's acknowledgement before reporting success
-* (@GermanBluefox) An ESPHome satellite's own measurements (temperature, presence, status texts) now appear as read-only states under `satellites.<id>.controls.*`
-* (@GermanBluefox) Announcements can address a group of rooms or a person: name a set of satellites in the new "Announcement targets" table and use it anywhere a target is accepted (`notify`, `askUser`, a trigger's room, the per-satellite `tts` state). The LLM also got an `announce` tool, so "tell Denis that dinner is ready" reaches his speakers — the configured names are part of the tool description. A question asked to a group counts the first answer, and the text is synthesised once for the whole group
-* (@GermanBluefox) The assistant can now know who is at home: point the new "Presence" table at the states you already have (the residents adapter, a phone ping, your own flag) and name the person. It tells the LLM who is around, holds back announcements to an empty house on request (`notify` with `onlyWhenHome`), and exposes `presence.anyoneHome` / `presence.list` / `presence.lastArrival` — so greeting somebody on arrival is just a trigger on that state
-* (@GermanBluefox) System notifications can now be spoken: write to `notify.text` / `notify.alert`, call `sendTo('assistant.0', 'notify', { text, severity })`, or pick the assistant in the ioBroker notification manager. The LLM turns the raw text into one natural sentence whose tone follows the severity (`info`/`notify`/`alert`, plus `direct` to speak it verbatim)
-* (@GermanBluefox) Added Do-Not-Disturb, enforced by the adapter for every transport: `dnd` globally and `satellites.<id>.dnd` per satellite. Announcements are suppressed while it is on; alerts and texts starting with `!` are still played, and answers to your own questions are never affected
-* (@GermanBluefox) Added proactive triggers (new "Triggers" tab): a trigger watches states or the clock and then announces something, writes a state, or asks you a question and acts on your answer ("The fryer has been on for 5 hours. Shall I switch it off?" — the LLM classifies the spoken reply against the configured response rules). Supports alternative conditions, `also`/`unless` refinements, a delay with `cancelWhen`, and a cooldown; each trigger has `triggers.items.<id>.{enabled,fire,lastFired,nextFireAt}` states plus a `triggers.enabled` master switch
-* (@GermanBluefox) The assistant can now ask a question and wait for the answer: `sendTo('assistant.0', 'askUser', { question, room })` speaks it on a satellite, re-opens the microphone without a wake word and returns what was said. While a question is open that answer is routed to the caller instead of being read as a new command
-* (@GermanBluefox) Added a fourth voice transport: ESPHome voice satellites (ThirdReality Voice & Music Assistant, Home Assistant Voice PE, linux-voice-assistant). The adapter dials the devices on TCP 6053, detects the end of speech itself and serves the spoken reply over a small HTTP media server
+### **WORK IN PROGRESS**
+* (@GermanBluefox) 3D plan: "zeig Unterdeck", "show the galley", "покажи кухню", "zeig das ganze Haus" make every open 3D view of home3d fly there (writes `home3d.N.show`); only names the plan knows (`home3d.N.places`) are taken, everything else goes on as before
 
-### 0.1.6 (2026-08-26)
-* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
-* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
-* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
-* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
-* (@GermanBluefox) Documented the weather source selection in the user documentation
+### 1.13.0 (2026-11-20)
+* (@GermanBluefox) Music from Spotify: "play Bohemian Rhapsody by Queen", "spiel das Album … in der Küche", "spiel meine Playlist …" find the song, album, artist or playlist and play it on a Spotify Connect device (table "Spotify players" on the Services tab, needs spotify-premium 3.3.0 or newer); LLM tools `play_music` and `music_player`, message `playMusic`
+* (@GermanBluefox) Music clips on the TV: "spiel den Clip Bohemian Rhapsody von Queen", "play the music video … by …", "включи клип …" search the clip on YouTube and play it on the YouTube player; so does a song for a TV
 
-### 0.1.5 (2026-08-19)
-* (@GermanBluefox) Corrected credentials
+### 1.12.1 (2026-11-19)
+* (@GermanBluefox) Voice per answer language: the language is a drop-down now. A language picked from the suggestions was saved as its label (e.g. "de – Deutsch") and the row was never used; such rows get the language code on the first start
+* (@GermanBluefox) Spoken requests: the speech recognition no longer waits for the device names it gets as hints (up to 3 s on large installations each time a minute had passed since the last request); the last list is used while a new one is built
+* (@GermanBluefox) Request details: the speech recognition step shows the language it really got (that of the wake word) and the ioBroker.voice instance instead of the unrelated Vosk model; the speech synthesis step shows the voice, model and language that really spoke (a row of "voice per answer language" or the reserve) instead of the main voice of the settings
 
-### 0.1.3 (2026-08-15)
-* (@GermanBluefox) Updated packages
+### 1.12.0 (2026-11-19)
+* (@GermanBluefox) Device commands can be understood by the adapter smart-text2command instead of the built-in rules (tab Commands, "Device commands understood by"): it runs only the actions approved there and asks back when the room or the device is unclear; the next utterance of the same satellite or chat answers. What it does not understand goes on to the local and the cloud model; timers, alarms, time, weather and volume stay with the built-in rules
+* (@GermanBluefox) New first tab "Flow": the way of a request as a diagram (sources → speech recognition → local decision → local LLM → cloud LLM / pi-agent → speech output), each step can be set up with a click
 
-### 0.1.2 (2026-08-03)
-* (@GermanBluefox) Initial commit
+### 1.11.0 (2026-11-18)
+* (@sadam6752-tech) ESPHome satellites: a language per wake word (tab Satellites, "Language per wake word", e.g. Alisa → Russian, Hey Bro → German): speech recognition, the reply voice and the follow-ups of that conversation use it, and pi-agent asks its yes/no questions in it
+* (@sadam6752-tech) ESPHome satellites on an ESP32: two wake words can be active at once (the firmware reports a limit of one, but runs every wake word it is sent)
+* (@sadam6752-tech) ioBroker.voice gets the language of the speech (its model Canary 1B v2 uses it, Parakeet ignores it) and only the hints in the alphabet of the language
+* (@sadam6752-tech) Whisper (OpenAI and compatible servers) gets only the device and room names in Latin letters as hints for a language written in them: Russian names pulled German speech towards Cyrillic letters
+
+### 1.10.0 (2026-11-17)
+* (@GermanBluefox) ESPHome satellites: the adapter ships microWakeWord models ("ioBroker", "Hey Bro", "Alisa"); one click in the satellite settings puts one on the device and switches it on, replacing an older version of the same word
+* (@GermanBluefox) Wake words from a training run get a short name with their date, e.g. `261103_iobroker` instead of "20261103 085427 9b0f Microwakeword Iobroker"
+* (@GermanBluefox) A wake word selected right after it was uploaded is no longer dropped as unknown
 
 ## License
 

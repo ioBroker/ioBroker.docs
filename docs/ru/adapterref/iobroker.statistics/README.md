@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.statistics?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.statistics?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.statistics?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.statistics?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.statistics?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.statistics?style=flat-square
@@ -9,89 +8,92 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-communi
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/iobroker-community-adapters/iobroker.statistics/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.statistics?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.statistics/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.statistics.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/statistics-stable.svg
-BADGE-Installed: http://iobroker.live/badges/statistics-installed.svg
+BADGE-Stable: https://iobroker.live/badges/statistics-stable.svg
+BADGE-Installed: https://iobroker.live/badges/statistics-installed.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.statistics/README.md
-title: ioBroker.статистика
-hash: V92dfCJJef+vDHFwjWqxZbwltEJlUayZvL+0vSXTzSw=
+title: ioBroker.statistics
+hash: 0FE0AslwJYzrFgHfODE9/RA/FMg2gj1UYyO0nnuJIpU=
 ---
-![Логотип](./admin/statistics.png)
+![Логотип](../../../en/admin/statistics.png)
 
-# IoBroker.статистика
+# ioBroker.statistics
+
 Этот адаптер упростит настройку статистики.
 
-**Адаптер реагирует только на изменение состояния (state.ack = true), а не на команды!**
+**Адаптер реагирует только на изменения состояния (state.ack = true), а не на команды!**
 
-Выберите один из следующих параметров:
+Выберите один из следующих вариантов настроек:
 
-* подсчитывать импульсы или изменения включения/выключения (только для двоичных значений и положительного фронта)
-* рассчитать затраты из подсчитанных значений (только для двоичных значений)
-* как долго был статус true/ON и как долго false/OFF (только для бинарных значений)
-* дельта между записанными аналоговыми значениями (только для аналоговых значений)
-* дневной максимум, минимум и среднее значение (не для расчета дельты)
-* мин/макс за год
-* считает в течение 5 минут и дневного максимума, минимума и среднего значения (не для расчета дельты)
-* сумма сгруппированных значений
+- Подсчет импульсов или изменений состояния включения/выключения (только для бинарных значений и положительного фронта).
+- Рассчитать затраты на основе подсчитанных значений (только для бинарных значений).
+- Как долго статус был true/включен и как долго false/выключен (только для двоичных значений)?
+- Разница между зарегистрированными аналоговыми значениями (только для аналоговых значений)
+- Максимальное, минимальное и среднее значение за сутки (не для расчетов разницы).
+- мин/макс в течение года
+- Подсчеты с точностью до 5 минут, а также суточные максимум, минимум и среднее значение (не для расчетов дельты).
+- сумма сгруппированных значений
 
-Адаптер подписывается на настроенные объекты и создает свои состояния в дереве статистики.
+Адаптер подписывается на настроенные объекты и создает собственные состояния в дереве статистики.
 
 Создаются 2 отдельных дерева:
 
-* `statistics.0.save` -> окончательные значения таймфрейма
-* `statistics.0.temp` -> временные значения до момента передачи для сохранения, затем снова запускается temp
+- `statistics.0.save` -> итоговые значения временного интервала
+- `statistics.0.temp` -> Временные значения сохраняются до момента передачи, затем временные значения запускаются снова.
 
-Структура состояния: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
+Структура государства такова: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
 ## Настройки
-* укажите соответствующие группы на странице конфигурации инстанса (admin => instances => stats config)
-* указать конфигурацию в настройках состояния (админ=>объекты)
+
+- Укажите соответствующие группы на странице конфигурации экземпляра (администратор => экземпляры => конфигурация статистики).
+- Укажите конфигурацию в настройках состояния (администратор => объекты).
+- необязательно для указания количества состояний: `Ignore values below` (`ignoreBelowNumber`) и `Ignore values above` (`ignoreAboveNumber` Значения, выходящие за эти пределы, игнорируются при всех вычислениях (мин/макс, среднее, дельта). Оставьте поле пустым, чтобы отключить эту функцию.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+* (GermanBluefox) Added options to ignore values below/above a limit (#486)
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 5.0.0 (2026-06-02)
+* (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (@klein0r) Added option to use a weighted average (based on time delta between changes)
+* (@klein0r) Optimized avg calculation (without using a sum)
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
+
+### 4.0.0 (2025-04-16)
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 3.1.0 (2024-11-18)
+
+* (@simatec) Added responsive jsonConfig
+* (@klein0r) Copy unit of source state to all statistic states
+
+### 3.0.0 (2024-11-15)
+NodeJS >= 18.x and js-controller >= 5 is required
+
+### 2.4.0 (2023-11-03)
+NodeJS 16.x is required
 
 * (klein0r) Show error if groups are not configured correctly
-
-### 2.3.1 (2023-01-11)
-* (klein0r) Added Ukrainian language
-
-### 2.3.0 (2022-11-03)
-NodeJS 14.5.0 is required
-
-* (klein0r) Added hourly, weekly, monthly, ... averages
-* (klein0r) Added promises to avoid parallel execution of tasks (lead to incorrect calculations)
-* (klein0r) Fixed init values for save/temp
-* (klein0r) Added option to enable statistics for objects via sendTo
-* (klein0r) Allow sum delta to substract values (negative delta)
-* (klein0r) Delete states when option in unchecked
-* (klein0r) Removed dayMin and dayMax from avg (use minmax for that case!)
-* (klein0r) Fix: Calculation of avg when no change of value
-
-### 2.2.0 (2022-07-07)
-* (klein0r) Added absolute min and max values
-
-### 2.1.1 (2022-06-16)
-* (klein0r) Fixed usage of default values for groups
-
-### 2.1.0 (2022-06-16)
-* (klein0r) Added support for translated object names
-* (klein0r) Fixed sum calculation
-* (klein0r) Increased precision to 5 digits
-* (klein0r) Translated all objects
+* (klein0r) Fixed cron expressions for quarter and year
+* (klein0r) Added indicators for startup and working
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

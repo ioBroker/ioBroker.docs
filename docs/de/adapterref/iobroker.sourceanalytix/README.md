@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.sourceanalytix/README.md":{"title":{"en":"SourceAnalytix"},"content":"en/adapterref/iobroker.sourceanalytix/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/01.installation.md":{"title":{"en":"Installation and requirements"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/01.installation.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/02.erster-zaehler.md":{"title":{"en":"My first meter in 10 minutes"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/02.erster-zaehler.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/README.md":{"title":{"en":"Getting started"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/README.md":{"title":{"en":"Guides"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/README.md":{"title":{"en":"Reference"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/README.md":{"title":{"en":"Troubleshooting"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/README.md":{"title":{"en":"Background"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/05.betrieb-und-wartung.md":{"title":{"en":"Operation and maintenance"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/05.betrieb-und-wartung.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/01.log-meldungen.md":{"title":{"en":"Log messages and errors during setup"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/01.log-meldungen.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/02.zaehler-reset.md":{"title":{"en":"Meter reset and overflow"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/02.zaehler-reset.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/02.zaehlerstaende-korrigieren.md":{"title":{"en":"Correcting meter readings and swapping meters"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/02.zaehlerstaende-korrigieren.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/03.perioden-und-zeit.md":{"title":{"en":"Periods, updates and time"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/03.perioden-und-zeit.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/01.berechnung.md":{"title":{"en":"How does the adapter calculate?"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/01.berechnung.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/01.einstellungen.md":{"title":{"en":"Settings (instance and datapoint)"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/01.einstellungen.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/02.states-und-meldungen.md":{"title":{"en":"Generated states, messages and log entries"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/02.states-und-meldungen.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/README.md":{"title":{"en":"SourceAnalytix – Documentation"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/README.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/01.quellen-und-einheiten.md":{"title":{"en":"Sources, units and signs"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/01.quellen-und-einheiten.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/03.preise-und-kosten.md":{"title":{"en":"Prices and costs"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/03.preise-und-kosten.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/04.werte-auswerten.md":{"title":{"en":"Evaluating values (Grafana, VIS, scripts)"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/04.werte-auswerten.md"},"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/02.falsche-werte-und-bekannte-fehler.md":{"title":{"en":"Wrong values and known bugs in older versions"},"content":"en/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/02.falsche-werte-und-bekannte-fehler.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sourceanalytix/README.md
 title: SourceAnalytix
-hash: egvfSBQuylXRdI5tAnnan3aKG85TPPb6/VvkhAbfFsQ=
+hash: tY0c6xIgTK69cc1ft+DQV3wZQmxmGOOgCU9w5bstZcw=
 ---
 # SourceAnalytix
 
@@ -14,309 +15,99 @@ hash: egvfSBQuylXRdI5tAnnan3aKG85TPPb6/VvkhAbfFsQ=
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sourceanalytix/svg-badge.svg)
 ![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.sourceanalytix/actions/workflows/test-and-release.yml/badge.svg)
 
-SourceAnalytix wandelt kumulierte Zählerstände oder regelmäßig aktualisierte Stromwerte in Statistiken zu Verbrauch, Lieferung, Kosten und Erträgen um. Es unterstützt Festpreise, geplante Preisänderungen, dynamische Tarife aus ioBroker-Bundesstaaten und vom Anbieter gesteuerte Tarife.
+**SourceAnalytix zeigt Ihnen, was Ihr Haushalt verbraucht, produziert und kostet** – pro Tag, Woche, Monat, Quartal und Jahr, für Strom, Gas, Wasser, Wärme oder alles andere, was Sie in ioBroker messen können.
 
-Der Adapter benötigt **Admin 7.6.20 oder neuer** , **js-controller 6.0.11 oder neuer** und **Node.js 22 oder neuer** .
+![Übersicht aller Quellen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/overview.png)
+
+## Was bewirkt der Adapter?
+
+Die meisten Geräte zeigen lediglich den Zählerstand an (zum Beispiel). `48213 kWh` von einem intelligenten Zähler oder einem Shelly) oder die aktuelle Leistung (zum Beispiel `850 W` Diese Zahl allein beantwortet nicht Ihre eigentlichen Fragen: _Wie viel habe ich heute verbraucht? Was hat der letzte Monat gekostet? Ist dieses Jahr besser als letztes Jahr? Wie viel hat meine Photovoltaikanlage eingebracht?_
+
+SourceAnalytix liefert die Antworten. Sie wählen einen Datenpunkt und einen Preis aus, und der Adapter erstellt automatisch und ohne Skripte eine vollständige Statistik dazu:
+
+| Du hast                                     | SourceAnalytix bietet Ihnen                                                                                                              |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Zählerstand in kWh, m³, l, kg, …            | Verbrauch und Kosten für heute, diese Woche, diesen Monat, dieses Quartal und dieses Jahr, sowie gestern, letzte Woche, letzten Monat, … |
+| ein Leistungswert in W oder kW              | Die daraus berechnete Energie, so als ob man ein Messgerät hätte.                                                                        |
+| ein Impulszähler (S0, ESPHome `pulses/min`) | Verbrauch in der Einheit Ihres Preises, z. B. 1000 Impulse = 1 kWh                                                                       |
+| ein PV- oder Einspeisezähler                | Lieferung und Ertrag statt Verbrauch und Kosten                                                                                          |
+| eine beliebige Anzahl davon                 | ein Ordner pro Quelle unten `sourceanalytix.0` bereit für VIS, Grafana, InfluxDB oder Skripte                                             |
+
+**Beispiel:** Sie fügen hinzu `shelly.0.em3.total` als „Haus“ mit Ihrem Strompreis von 0,32 €/kWh. Ab sofort `sourceanalytix.0.house` zeigt unter anderem „heute 7,8 kWh · 2,50 €“, „diesen Monat 164,2 kWh · 52,54 €“ und später „letzten Monat“ und „letztes Jahr“ – aktualisiert mit jedem neuen Wert und um Mitternacht geschlossen.
+
+## Merkmale
+
+**Statistiken**
+
+- Aktueller und vorheriger Tag, Woche, Monat, Quartal und Jahr für Verbrauch, Lieferung, Kosten und Einnahmen.
+- Optionale Werte pro Wochentag, Kalenderwoche, Monat und Quartal sowie ein Archiv für jedes Jahr.
+- Alle Werte einer Quelle zusätzlich in einem JSON-Zustand, praktisch für Tabellen in VIS.
+
+**Preise**
+
+- Festpreis, ein neuer Preis ab einem gewählten Datum (ältere Kosten bleiben unverändert), ein dynamischer Preis aus einem anderen Datenpunkt (z. B. Tibber, Awattar) oder ein Tag/Nacht-Tarif, der durch einen Datenpunkt umgeschaltet wird.
+- Optionale monatliche Grundgebühr.
+- „Kosten ab Datum neu berechnen“, wenn ein Preis zu spät eingegeben wurde.
+
+**Zuverlässiges Zählen**
+
+- SourceAnalytix speichert seine eigenen Messwerte. Die korrekte Funktion wird auch dann aufrechterhalten, wenn ein Gerät mit dem Wert 0 neu startet, ein Zähler ausgetauscht wird oder ein einzelner Wert kurzzeitig abfällt.
+- Stromversorgung: Längere Stromausfälle werden nicht extrapoliert, wenn Sie eine "maximale Lücke" festlegen.
+- Falls ioBroker um Mitternacht nicht erreichbar war, werden die verpassten Änderungen für Tag, Woche oder Monat automatisch nachgeholt.
+
+## Die Einstellungsseite
+
+Alles ist in den Instanzeinstellungen von SourceAnalytix eingerichtet – keine Objektbearbeitung, kein JSON, kein Neustart.
+
+**Übersicht** – alle Quellen mit ihren aktuellen Werten und ihrem Status auf einen Blick (Screenshot oben).
+
+**Quelle hinzufügen** – ein Assistent führt Sie in sieben Schritten durch die Datenpunkte, den Datentyp, die Einheit, den Preis, die Berechnung, die Startwerte und den Namen. Er warnt Sie beispielsweise, wenn Sie einen Tageszähler anstelle des Gesamtzählers auswählen.
+
+![Assistent zum Hinzufügen einer Quelle](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/wizard.png)
+
+**Quellendetails** – Werte aller Perioden, alle Einstellungen der Quelle und die Maßnahmen zur Korrektur.
+
+![Quelldetails mit Werten, Einstellungen und Aktionen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/detail.png)
+
+**Aktionen** – eine Quelle ohne Skripte korrigieren. Jede Aktion zeigt an, was sich ändern wird, bevor Sie es bestätigen:
+
+- „Zählerstand anpassen“ – Stellen Sie den Gesamtbetrag auf den angezeigten Zählerstand ein.
+- „Zähler getauscht“ – Geben Sie den Endstand des alten und den Anfangsstand des neuen Zählers ein.
+- "Kosten ab Datum neu berechnen", "Zeiträume wiederherstellen", "Deaktivieren" und "Daten löschen"
+
+![Zählerstand mit Vorschau ausrichten](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/align.png)
+
+**Probleme** – SourceAnalytix überprüft alle Quellen und listet auf, was Aufmerksamkeit erfordert, z. B. eine fehlende Einheit, eine Quelle, die die Meldung eingestellt hat, oder einen Zählerstand, der auf 0 sinkt. Die meisten Probleme lassen sich mit einem Klick beheben.
+
+![Registerkarte „Probleme“](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/problems.png)
+
+Im Objektbrowser schalten die SourceAnalytix-Einstellungen eines Datenpunkts diesen lediglich ein oder aus. Sie können dort also weiterhin sehen, welche Datenpunkte verwendet werden.
+
+## Anforderungen und Installation
+
+- Admin 8.0.0 oder neuer, js-controller 6.0.11 oder neuer und Node.js 22 oder neuer.
+- Die aktuelle Version ist im **neuesten** (Beta-)Repository veröffentlicht: Wählen Sie in den ioBroker-Systemeinstellungen das Repository „Beta (neueste)“ aus und installieren Sie SourceAnalytix über den Tab „Adapter“. Nach einer Testphase wird die Software in das stabile Repository verschoben.
+- Erstellen Sie anschließend Ihre Preise auf der Registerkarte „Preisdefinitionen“ und fügen Sie Ihre erste Quelle mit „Quelle hinzufügen“ auf der Registerkarte „Übersicht“ hinzu.
+
+Schritt für Schritt: [Installation](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/01.installation.md) und [Ihr erster Zähler](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/02.erster-zaehler.md) .
+
+## Dokumentation
+
+Die vollständige Dokumentation beantwortet die Fragen, die Benutzer im Forum und in den Issues gestellt haben. Sie ist in Englisch und [Deutsch](https://github.com/DrozmotiX/ioBroker.sourceanalytix/blob/main/docs/de/README.md) verfügbar.
+
+- [Erste Schritte](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/01.erste-schritte/README.md) : Installation und Ihr erster Zähler
+- [Anleitungen](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/02.anleitungen/README.md) : Quellen und Einheiten, Korrekturen, Preise, Bewertung, Wartung
+- [Referenz](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/03.referenz/README.md) : Alle Einstellungen, Zustände und Meldungen
+- [Fehlerbehebung](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/04.fehlerbehebung/README.md) : Protokollmeldungen und falsche Werte
+- [Hintergrund](/#/docs/adapterref/iobroker.sourceanalytix/docs/en/05.hintergrund/README.md) : Wie der Adapter berechnet
+
+Haben Sie einen Fehler gefunden oder eine fehlende Funktion entdeckt? Erstellen Sie ein [GitHub-Issue](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues) mit einem Debug-Log des betroffenen Quellcodes.
 
 ## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
 
 Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird die Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der ioBroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird Ihre Installations-ID mit übermittelt. Diese anonyme Kennung enthält keine persönlichen Informationen wie Ihren Namen oder Ihre E-Mail-Adresse. Sie ermöglicht die Gruppierung von Fehlern und zeigt an, wie viele Installationen betroffen sind.
-
-## Merkmale
-
-- Aktuelle Tages-, Wochen-, Monats-, Quartals- und Jahressummen
-- Optionale Werte der Vorperiode und Einnahmen des laufenden Jahres (Wochentage, Wochen, Monate und Quartale)
-- Optionale archivierte Wochen-, Monats- und Quartalsstatistiken unterhalb jedes Kalenderjahres
-- Verbrauchs- und Lieferberechnungen
-- Kosten- und Ertragsberechnungen mit einem optionalen monatlichen Grundpreis
-- Feste, planmäßige, staatlich bereitgestellte und vom Wahlschalter kontrollierte Stückpreise
-- Preisverlauf mit Zeitstempel, der bereits berechnete Kosten beibehält
-- Automatische Umrechnung zwischen kompatiblen Energie-, Volumen-, Massen- und metrischen Längeneinheiten
-- Integration der Leistungsmesswerte über ihre tatsächlichen Aktualisierungsintervalle, optional unter Ignorieren negativer Messwerte
-- Wiederherstellung verpasster Kalenderübergänge nach einem Neustart, auf Anfrage oder durch stündliche Überprüfung
-- Bearbeitung von Zählerrückstellungen, Zähleraustauschen und kleinen Rückwärtsschwankungen
-- Ein kompakter, automatisch aktualisierter JSON-Statistikstatus pro aktiver Quelle
-
-## Aufstellen
-
-### 1. Konfigurieren Sie die Adapterinstanz
-
-Über die Registerkarte **„Allgemeine Einstellungen“** wird gesteuert, welche detaillierten Statistiken erstellt werden. Durch Deaktivieren einer Option werden die entsprechenden optionalen Statuswerte entfernt, während die normalen Summen des aktuellen Zeitraums und die vorhandenen archivierten Jahre erhalten bleiben.
-
-![Allgemeine Einstellungen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/mainSettings.png)
-
-| Einstellung                                 | Ergebnis                                                                                                                  |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Jahresstatistik: Wochen / Monate / Quartale | Die unten aufgeführten Werte der Geschäfte wurden bereits vervollständigt. `<source>.<year>` zum historischen Vergleich.   |
-| Aktuelles Jahr: Wochentag                   | Speichert die Werte der aktuellen Woche nach Wochentagen.                                                                 |
-| Aktuelles Jahr: Wochen / Monate / Quartale  | Speichert unten Werte für jede Periode `<source>.currentYear` Die                                                          |
-| Aktuelles Jahr: Vorherige Periode           | Speichert den abgeschlossenen Tag, die Woche, den Monat, das Quartal und das Jahr sowie die Wochentagswerte der Vorwoche. |
-| Runden: Dezimalzahlen für Verbrauchswerte   | Die anfänglichen Dezimalzahlen wurden in die neu konfigurierten Quellen kopiert. `3` standardmäßig.                        |
-| Runden: Dezimalzahlen für Kostenwerte       | Die anfänglichen Dezimalzahlen wurden in die neu konfigurierten Quellen kopiert. `2` standardmäßig.                        |
-
-Beide Rundungseinstellungen akzeptieren `-1` Um den exakten berechneten Wert ohne Rundung zu speichern, speichert jede Quelle ihre eigenen expliziten **Dezimalzahlen für Verbrauchs-** und **Kostenwerte** . Neue Quellen werden anhand der oben genannten Instanzeinstellungen vorbelegt. Bestehende Quellen ohne diese Felder erhalten ihre zuvor gültigen Instanzwerte einmalig während der Migration, sodass spätere Änderungen der Instanzstandardwerte ihre Ergebnisse nicht beeinflussen. Die Rundung betrifft nur die in Zustände geschriebenen Werte; interne Berechnungen, die kumulativen Messwerte und die persistenten Speicher behalten stets ihre volle Genauigkeit, sodass im Laufe der Zeit kein Genauigkeitsverlust auftritt.
-
-SourceAnalytix speichert die zuletzt erfolgreich verarbeiteten Kalenderperioden. Falls der Adapter oder ioBroker um Mitternacht nicht ausgeführt wird, werden verpasste Änderungen für Tag, Woche, Monat, Quartal und Jahr beim nächsten Start einmalig verarbeitet.
-
-Ein Rollover kann auch ohne Neustart der Instanz ausgelöst werden, was nützlich ist, wenn festgestellt wird, dass die Instanz kurz nach Mitternacht nicht mehr verfügbar ist:
-
-- Satz `sourceanalytix.<instance>.info.recoverPeriods` Zu `true` Der Knopf setzt sich nach Beendigung des Laufs automatisch zurück.
-- Oder senden Sie eine Nachricht über ein Skript: `sendTo('sourceanalytix.<instance>', 'recoverPeriods', {}, result => log(result.recovered))` Die Antwort enthält die Anzahl der Quellen, deren Rollover verarbeitet wurde.
-
-Eine stündliche Überprüfung führt die gleiche Wiederherstellung automatisch durch, sodass ein verpasster Rollover, während der Adapter nach einem Host-Suspend oder einer Systemzeitkorrektur weiterlief, automatisch korrigiert wird. Jede Route ist idempotent: Quellen, deren Perioden bereits aktuell sind, werden übersprungen.
-
-### 2. Preisdefinitionen erstellen
-
-Öffnen Sie **die Preisdefinitionen** und fügen Sie die Kategorien hinzu, die die Quellstaaten verwenden sollen.
-
-![Preisdefinitionen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/priceSettings.png)
-
-| Feld                       | Beschreibung                                                                                                    |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Kategorie                  | Die eindeutige Kennung wird im Feld **„Preisdefinition auswählen“** des Quellstaates angezeigt.                 |
-| Beschreibung               | Freitextbeschreibung des Tarifs.                                                                                |
-| Kostenart                  | Wählt die `costs` /`consumed` oder `earnings` /`delivered` Ergebniskategorien.                                    |
-| Einheit                    | Zieleinheit für den Verbrauch und Nenner des Stückpreises.                                                      |
-| Preisquelle                | Festpreis, numerischer ioBroker-Status- oder Tarifwähler.                                                       |
-| Preis pro Einheit          | Einzelpreis für einen Festtarif oder der inaktive/Basispreis für einen Selektor.                                |
-| Preisstatus                | Vollständige Kennung des numerischen Preisstatus oder Tarifauswahlstatus.                                       |
-| Aktiver Tarifpreis         | Der Preis gilt, solange ein Auswahlfeld aktiv ist.                                                              |
-| Wert des aktiven Selektors | Optionaler exakter Wert, der den alternativen Tarif aktiviert.                                                  |
-| Gültig ab                  | Optionales Datum, ab dem der Tarif einschließlich seines monatlichen Grundpreises gilt.                         |
-| Preis pro Monat            | Monatlicher Grundpreis, gilt nur für Quellen, bei denen **die Option „Grundpreis einschließen“** aktiviert ist. |
-
-#### Feste und planmäßige Preise
-
-Wählen Sie **„Festpreis“** und geben Sie **den Preis pro Einheit** ein. Wenn Sie einen Tarif ändern, legen Sie **„Gültig** ab“ auf das Datum fest, an dem der neue Preis in Kraft tritt. Der vorherige Preis bleibt gespeichert und wird nicht rückwirkend angewendet.
-
-#### Dynamischer Preiszustand
-
-Wählen Sie **unter „Status“** den Status aus, der den aktuellen numerischen Stückpreis enthält. SourceAnalytix abonniert diesen Status und protokolliert jede Änderung mit dem zugehörigen Zeitstempel. Sowohl Zahlen als auch numerische Zeichenketten mit Punkt oder Komma als Dezimaltrennzeichen werden akzeptiert.
-
-Der Statuswert muss die Systemwährung pro ausgewählter Zieleinheit darstellen, z. B. Währung/kWh, wenn die Preisdefinition verwendet wird. `kWh` Konvertieren Sie Werte wie Cent pro kWh im Quelladapter oder in einem Skript, bevor Sie sie verwenden.
-
-#### Tarifauswahl
-
-Wählen Sie **im Tarifauswahlmenü** den gewünschten Tag-/Nacht-, Relais-, Kontakt- oder andere Zweipreistarife aus:
-
-- **Der Preis pro Einheit** ist der inaktive/Basispreis.
-- **Der aktive Tarifpreis** wird verwendet, solange der Selektor aktiv ist.
-- Ohne **aktiven Selektorwert** , `true` Bei von Null verschiedenen Zahlen und häufig vorkommenden Wahrheitszeichenketten wird der alternative Tarif aktiviert.
-- Bei Verwendung **des Selektorwerts „Active“** wird der alternative Tarif nur dann aktiviert, wenn die Zeichenkettendarstellung exakt übereinstimmt.
-
-#### Beschreibbarer aktueller Preis
-
-Jede Kategorie legt Folgendes offen `sourceanalytix.<instance>.priceDefinitions.<category>.currentPrice` Skripte und Visualisierungen können diesem Zustand einen numerischen Wert zuweisen, um sofort einen neuen Preis anzuwenden. Der Wert wird außerdem der mit einem Zeitstempel versehenen Preishistorie hinzugefügt.
-
-#### Historische Preisberechnung
-
-Preise sind zeitabhängig. Ein neuer Preis gilt erst ab dem Zeitpunkt seiner Änderung und ändert niemals bereits angefallene Kosten für früheren Konsum.
-
-Bei einem kumulativen Zähler kennt SourceAnalytix die Verbrauchsdifferenz zwischen zwei Ablesungen. Wenn innerhalb dieses Zeitraums eine oder mehrere Preisänderungen stattgefunden haben, wird die Differenz proportional auf die verstrichenen Zeitabschnitte verteilt und jeder Anteil zum für diesen Abschnitt gültigen Preis abgerechnet. Eine Preisänderung genau zum Zeitpunkt der späteren Zählerablesung gilt für den folgenden Zeitraum.
-
-Die genauen Kosten und die Preishistorie bleiben auch nach einem Neustart des Adapters erhalten. Eine explizite Neuberechnung alter historischer Daten ist derzeit nicht implementiert.
-
-#### Monatlicher Grundpreis
-
-Aktivieren Sie die **Option „Grundpreis für eine Quelle einbeziehen“** , um den konfigurierten Monatspreis hinzuzufügen. **„Gültig ab“** definiert auch den ersten Monat, in dem diese Gebühr erhoben wird. Der volle Grundpreis wird einmalig bei Inkrafttreten des Tarifs und anschließend zu Beginn jedes folgenden Kalendermonats gebucht. Preisänderungen im Laufe eines Monats werden erst ab der nächsten Monatsbuchung wirksam, während die Preise der Vormonate unverändert bleiben. Bestehende Tarife ohne Gültigkeitsdatum behalten ihr bisheriges Verhalten bei und beginnen mit Beginn des aktuellen Kalenderjahres.
-
-Die Tages- und Wochensummen beinhalten die volle Monatsgebühr nur dann, wenn das Buchungsdatum in diesen Zeitraum fällt. Die Monats-, Quartals- und Jahressummen enthalten die vollen Gebühren, die in den jeweiligen Kalenderperioden gebucht wurden.
-
-### 3. Aktivieren Sie einen Quellzustand
-
-SourceAnalytix wird über die benutzerdefinierten ioBroker-Einstellungen jedes Quellzustands konfiguriert. Öffnen Sie **„Objekte“** , klicken Sie auf das Schraubenschlüssel-/Konfigurationssymbol des gewünschten Zustands und erweitern Sie die SourceAnalytix-Instanz.
-
-![Symbol für benutzerdefinierte Einstellungen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/settingKey.png)
-
-![Quellstatuseinstellungen](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/stateSettings.png)
-
-| Einstellung                                                | Beschreibung                                                                                                                                                         |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ermöglicht                                                 | Aktiviert diese Quelle für die ausgewählte SourceAnalytix-Instanz.                                                                                                   |
-| Name                                                       | Optionaler Anzeigename für das generierte Gerät.                                                                                                                     |
-| Ausgabe-ID                                                 | Technische Geräte-ID unten `sourceanalytix.<instance>` Sie wird mit der abwärtskompatiblen, aus dem Quellcode abgeleiteten ID initialisiert und kann verkürzt werden. |
-| Preisdefinition auswählen                                  | Obligatorische Kategorie gemäß den Preisdefinitionen des Adapters.                                                                                                   |
-| Einheit auswählen                                          | Quelleinheit. Die automatische Erkennung sollte aktiviert bleiben, wenn das Quellobjekt über eine korrekte, unterstützte Einheit verfügt.                            |
-| Kosten berechnen                                           | Erstellt und aktualisiert Kosten- oder Ertragszustände.                                                                                                              |
-| Einschließlich des Grundtarifs                             | Fügt den monatlichen Grundpreis der Preisdefinition hinzu.                                                                                                           |
-| Verbrauch berechnen                                        | Erstellt und aktualisiert Verbrauchs- oder Lieferzustände.                                                                                                           |
-| Durchschnittliche Leistungswerte zwischen Aktualisierungen | Optionaler Berechnungsmodus für Leistungszustände; siehe [Leistungszustände](#power-states) .                                                                        |
-| Negative Potenzwerte ignorieren                            | Zählt negative Leistungsmesswerte als `0 W`; siehe [Leistungszustände](#power-states) .                                                                              |
-| Zählerwerte speichern                                      | Speichert Zählerstände in den aktivierten Erfassungszeiträumen.                                                                                                      |
-| Erkennung von Gerätewertrücksetzungen                      | Die kumulierte Gesamtsumme wird auch nach einem Zähler-Reset oder -Austausch fortgeführt.                                                                            |
-| Schwelle                                                   | Die größte Rückwärtsschwankung wird als Messjitter ignoriert und in der Zieleinheit ausgedrückt.                                                                     |
-
-Für bestehende und neu aktivierte Quellen wird die anfängliche Ausgabe-ID aus der Quellstatus-ID abgeleitet, indem Punkte durch doppelte Unterstriche ersetzt werden. Sie kann in eine kürzere, eindeutige ID geändert werden, die Buchstaben, Zahlen, Unterstriche und Bindestriche enthält. SourceAnalytix kopiert und überprüft den gesamten generierten Objektbaum, bevor der alte Baum gelöscht wird. Vorhandene Skripte, Visualisierungen, Aliase und externe Verlaufsabfragen, die auf die alte ID verweisen, müssen manuell aktualisiert werden. Die Einstellungen des Verlaufsadapters werden kopiert, sodass die Protokollierung unter der neuen ID fortgesetzt wird. Werte, die vor der Änderung protokolliert wurden, bleiben jedoch unter den alten Status-IDs erhalten. Raum- und Funktionszugehörigkeiten werden nicht kopiert.
-
-## Quellenwerte und Einheiten
-
-### Kumulative Quellzustände
-
-Verwenden Sie eine kumulative Summe, die normalerweise nur steigt, zum Beispiel Tasmota. `ENERGY_Total` oder dem Gesamtverbrauch eines intelligenten Zählers. Verwenden Sie keinen Wert wie beispielsweise `ENERGY_Today` Dieser Wert wird absichtlich täglich zurückgesetzt. Falls kein kumulativer Gesamtwert verfügbar ist, erstellen Sie einen solchen in einem vorgelagerten Adapter oder Skript.
-
-Bei kumulativen Quellen wird der Verbrauch wie folgt berechnet:
-
-```text
-current cumulative reading - reading at the beginning of the period
-```
-
-Bei der ersten Aktivierung initialisiert SourceAnalytix leere oder Nullwerte für Tag, Woche, Monat, Quartal und Jahr mit dem aktuellen normalisierten Zählerstand. Dadurch wird verhindert, dass der bisherige Gesamtverbrauch als neuer Verbrauch angezeigt wird. Die Werte bleiben bearbeitbar und werden bei späteren Starts nicht überschrieben.
-
-![Periodenstartwerte](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/stateStartValues.png)
-
-Geben Sie manuelle Startwerte in der durch die Preisdefinition ausgewählten **Zieleinheit** ein. Jeder Wert muss den Zählerstand zu Beginn des jeweiligen Zeitraums darstellen, nicht den Verbrauch während des Zeitraums.
-
-### Machtzustände
-
-Leistungswerte wie z.B. `W` oder `kW` Die Messwerte werden über die tatsächliche Zeit zwischen den Zustandsaktualisierungen integriert, um Energie zu erzeugen. Die erste Messung dient der Festlegung des Ausgangswerts und erzeugt keinen Verbrauch.
-
-Standardmäßig wird der vorherige Leistungswert für das gesamte Intervall als gültig betrachtet. Aktivieren Sie die Option **„Durchschnittliche Leistungswerte zwischen Aktualisierungen“** für Sensoren, die regelmäßig Daten liefern und sich nur allmählich ändern. SourceAnalytix verwendet dann den Durchschnitt aus vorherigem und aktuellem Wert. Lassen Sie diese Option deaktiviert für Geräte, die abrupt umschalten, wenn die Aktualisierung das Umschaltereignis markiert.
-
-Manche Wechselrichter melden im ausgeschalteten Zustand eine stark negative Leistung, die andernfalls als negative Energie integriert würde und den Gesamtertrag mindern würde. Aktivieren Sie die **Option „Negative Leistungswerte ignorieren“,** um solche Messwerte als negative Energie zu berücksichtigen. `0 W` Der Messwert wird gespeichert statt verworfen, sodass das Intervall weiterläuft; würde man ihn verwerfen, bliebe der letzte positive Wert als Basiswert erhalten und würde über die gesamte Ausfallzeit integriert.
-
-### Unterstützte Einheiten
-
-SourceAnalytix konvertiert Werte automatisch nur zwischen kompatiblen Größen:
-
-| Menge               | Unterstützte Einheiten                  |
-| ------------------- | --------------------------------------- |
-| Leistung            | `GW`, `MW`, `kW`, `W`, `mW`             |
-| Energie             | `GWh`, `MWh`, `kWh`, `Wh`, `mWh`        |
-| Kubikvolumen        | `km³`, `m³`, `dm³`, `cm³`, `mm³`        |
-| Flüssigkeitsvolumen | `hl`, `l`, `dl`, `cl`, `ml`             |
-| Masse               | `t`, `kg`, `g`                          |
-| Metrische Länge     | `km`, `m`, `dm`, `cm`, `mm`, `µm`, `nm` |
-
-Liter und Kubikmeter lassen sich ineinander umrechnen. Inkompatible Umrechnungen, wie beispielsweise Kilogramm in kWh oder Meter in Liter, werden verworfen, um irreführende Ergebnisse zu vermeiden.
-
-## Generierte Zustände
-
-Für jede Quelle erstellt SourceAnalytix eine `cumulativeReading` und die aktivierten Ergebnisbäume:
-
-| Weg                                  | Inhalt                                                                         |
-| ------------------------------------ | ------------------------------------------------------------------------------ |
-| `<source>.currentYear.consumed`      | Aktuelle Verbrauchssummen für Kostenkategorien.                                |
-| `<source>.currentYear.delivered`     | Aktuelle Liefersummen nach Verdienstkategorien.                                |
-| `<source>.currentYear.costs`         | Aktuelle Gesamtkosten.                                                         |
-| `<source>.currentYear.earnings`      | Aktuelle Gesamteinnahmen.                                                      |
-| `<source>.currentYear.meterReadings` | Optionale Zählerstände für aktivierte Zeiträume.                               |
-| `<source>.<year>`                    | Optionale archivierte Wochen-, Monats- und Quartalsstatistiken.                |
-| `<source>.statisticsJson`            | Kompakte Statistiken des laufenden Jahres für VIS, Skripte und andere Adapter. |
-
-Die grundlegenden aktuellen und optionalen vorherigen Zustände verwenden Namen wie z. B. `01_currentDay`, `02_currentWeek`, `03_currentMonth`, `04_currentQuarter`, `05_currentYear` und ihre `previous` Äquivalente.
-
-Vorherige Werte werden mit dem Zeitstempel der Periode, zu der sie gehören, geschrieben. `23:59:59` Am letzten Tag, nicht zum Zeitpunkt des Rollovers. Verlaufsadapter protokollieren daher einen abgeschlossenen Tag, eine Woche, einen Monat, ein Quartal oder ein Jahr innerhalb dieses Zeitraums, was Visualisierungen wie Flot erwarten.
-
-### Statistiken JSON
-
-Jede aktive Quelle legt automatisch einen schreibgeschützten Bereich offen. `statisticsJson` Staat mit Rolle `json` Es sind keine zusätzlichen Einstellungen erforderlich. Es enthält dieselben berechneten Werte wie die einzelnen Bundesstaaten und führt keine separate Berechnung durch.
-
-```json
-{
-  "schemaVersion": 1,
-  "year": 2026,
-  "source": {
-    "id": "smartmeter.0.total",
-    "name": "Electricity meter",
-    "unit": "kWh"
-  },
-  "quantity": {
-    "type": "consumed",
-    "current": {
-      "day": 4.21,
-      "week": 28.65,
-      "month": 114.32,
-      "quarter": 301.77,
-      "year": 894.15
-    },
-    "previous": null,
-    "periods": {
-      "weekdays": null,
-      "previousWeekdays": null,
-      "weeks": {},
-      "months": {},
-      "quarters": {}
-    }
-  },
-  "financial": {
-    "type": "costs",
-    "currency": "EUR",
-    "current": {
-      "day": 1.24,
-      "week": 8.47,
-      "month": 34.19,
-      "quarter": 89.51,
-      "year": 261.42
-    },
-    "previous": null,
-    "periods": {
-      "weekdays": null,
-      "previousWeekdays": null,
-      "weeks": {},
-      "months": {},
-      "quarters": {}
-    }
-  },
-  "meterReadings": null
-}
-```
-
-`quantity` stellt entweder dar `consumed` oder `delivered` Werte. `financial` stellt entweder dar `costs` oder `earnings` Die `meterReadings` wird befüllt, wenn die Zählerwertspeicherung aktiviert ist. Deaktivierte Berechnungen und periodische Datenerfassungen werden dargestellt durch `null` Das Schema bleibt also vorhersehbar.
-
-Wochentagsnutzung `1` für Montag bis `7` für Sonntag. Wochen- und Monatstasten sind mit Nullen aufgefüllt, und Vierteljahrestasten verwenden `1` durch `4` Es werden nur die Sammlungen des aktuellen Jahres und optional die Werte der vorherigen Periode berücksichtigt, um ein unbegrenztes Anwachsen des Zustands zu verhindern. Der ioBroker-Status-Zeitstempel gibt an, wann die JSON-Datei zuletzt geändert wurde.
-
-Der Zustand wird beim Start des Adapters anhand vorhandener Statistiken neu erstellt, und seine Schreibvorgänge werden in die normalen Berechnungen einbezogen. Wenn eine Datenquelle deaktiviert oder gelöscht wird, bleibt der letzte JSON-Wert zusammen mit dem übrigen berechneten Verlauf erhalten und wird nicht mehr aktualisiert.
-
-## Zählerrückstellungen und -korrekturen
-
-Bei aktivierter Reset-Erkennung löst eine Abweichung unterhalb **des Schwellenwerts** eine Reset-Bestätigung aus. SourceAnalytix speichert den zuletzt akzeptierten Gesamtwert, bis ein weiterer Messwert im unteren Bereich liegt und den Reset oder die Datenersetzung bestätigt. Anschließend wird ein Offset gespeichert und die kumulative Messung fortgesetzt, ohne den vorherigen Verbrauch zu verlieren. Liegt der nächste Messwert wieder innerhalb **des Schwellenwerts** des zuletzt akzeptierten Messwerts, wird dieser als vorübergehend ungültiger Wert verworfen. Ein Messwert, der deutlich unter dem zuletzt akzeptierten **Messwert** liegt, bestätigt den Reset. Wählen Sie daher einen Schwellenwert, der den maximalen Abweichungswinkel des Zählers nach einer vorübergehenden Störung abdeckt. Kleinere Abweichungen werden als Jitter behandelt und ignoriert. Ein Schwellenwert von `0` Jede Verringerung wird als möglicher Reset betrachtet, der noch einer Bestätigung bedarf.
-
-Wenn die Reset-Erkennung deaktiviert ist, werden sinkende Messwerte der Quelle akzeptiert und können die berechneten Summen verringern. Dieser Modus ist nur für Quellen vorgesehen, bei denen dieses Verhalten erwartet wird.
-
-Um einen bereits falschen Fehler zu korrigieren `cumulativeReading`:
-
-1. Die SourceAnalytix-Instanz stoppen.
-2. **Objekte** öffnen und Expertenmodus aktivieren.
-3. Richtig `<source>.cumulativeReading` Die
-4. Öffnen Sie die benutzerdefinierten SourceAnalytix-Einstellungen des Quellstatus und korrigieren Sie die betroffenen Periodenstartwerte in derselben Zieleinheit.
-5. Starten Sie den Adapter erneut und überprüfen Sie die Ergebnisse der aktuellen Periode.
-
-![Korrektur eines kumulativen Messwerts](../../../en/adapterref/iobroker.sourceanalytix/admin/readmeDocu/cumulativeReading-Reset.png)
-
-Eine Änderung des aktuellen Stückpreises führt nicht zu einer Neuberechnung der historischen Kosten. Derzeit findet keine benutzerinduzierte Neuberechnung der historischen Kosten statt.
-
-## Fehlerbehebung
-
-### Die Quelle ist nicht initialisiert.
-
-- Überprüfen Sie, ob die benutzerdefinierte Konfiguration für die richtige SourceAnalytix-Instanz aktiviert ist.
-- Wählen Sie eine vorhandene Preisdefinition aus. Eine Preisdefinition ist auch dann erforderlich, wenn nur der Verbrauch aktiviert ist.
-- Stellen Sie sicher, dass die Quelleinheit vom Objekt erkannt werden kann, oder wählen Sie sie manuell aus.
-- Prüfen Sie, ob die Quell- und Zieleinheiten kompatible Größen darstellen.
-- Überprüfen Sie das Adapterprotokoll, um den genauen Ablehnungsstatus oder Konfigurationswert zu ermitteln.
-
-### Der Verbrauch beginnt mit der vollständigen Ablesung des Zählers über die gesamte Lebensdauer.
-
-Dies kennzeichnet normalerweise alte oder manuell eingegebene Periodenstartwerte. Stellen Sie die Startwerte für Tag, Woche, Monat, Quartal und Jahr auf die entsprechenden historischen Zählerstände ein. Für den heutigen Wert gilt üblicherweise:
-
-```text
-current cumulative reading - consumption since the beginning of today
-```
-
-### Dynamische Preise scheinen fehlerhaft zu sein.
-
-- Prüfen Sie, ob der Preisstatus die Währung pro Zieleinheit angibt und nicht Cent, es sei denn, der Wert wurde umgerechnet.
-- Prüfen Sie den Zeitstempel des Preisstatus und die Messwerte des Quellzählers.
-- Beachten Sie, dass die Differenz zwischen Preisänderungen und der verstrichenen Zeit durch die verstrichene Zeit geteilt wird, da kein feineres Verbrauchsprofil verfügbar ist.
-- Überprüfen `priceDefinitions.<category>.currentPrice` zum aktuellen Preis.
-
-## Bekannte Einschränkungen
-
-- Die automatische historische Neuberechnung ist absichtlich deaktiviert, und es ist derzeit keine explizite Neuberechnungsaktion verfügbar.
-- Vom Benutzer konfigurierbare rollierende Perioden sind nicht implementiert.
-- Einheitenlose Zähler, Zeiteinheiten und digitale Größeneinheiten werden nicht unterstützt.
 
 ## Credits
 
@@ -338,11 +129,52 @@ Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbi
 -->
 
 ## Changelog
-### __WORK IN PROGRESS__
-* Prevent a temporary low meter reading followed by a near-return from being counted as a confirmed reset and duplicating consumption; rejected resets are now logged as a warning ([#1227](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1227)).
-* Keep an existing output tree and restore its effective ID in the source settings when an output-ID change is invalid, unavailable or cannot be migrated; a source without an existing tree is not activated instead of silently starting a new one ([#1228](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1228)).
-* Never delete pre-existing target objects when an output migration fails before SourceAnalytix writes to the target ([#1228](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1228)).
-* Add migration, restart recovery, settings write-back and concurrent-disable regression tests for custom output IDs ([#1229](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1229)).
+### 0.7.1 (2026-11-14)
+* The settings page did not start in current Admin versions ("Custom component ... was not started"): its components now declare GUI API generation 2 and ship their module federation manifest.
+
+### 0.7.0 (2026-11-14)
+* Price definitions: changing a price without a new "Valid from" date marks the fields with a hint, and the adapter logs a warning with the repair steps, because the new price then replaces the old one retroactively ([#1293](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1293)).
+* "Recover periods" on the settings page and in the "Problems" tab only processes the selected source; `sendTo('recoverPeriods', {source})` does the same for scripts, without `source` (and the `info.recoverPeriods` button) all sources are processed as before ([#1292](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1292)).
+* The SourceAnalytix custom settings at the datapoint only switch a source on or off and link to the instance settings, where it is configured; enabling there uses the same defaults as the settings page. Existing settings stay unchanged ([#1286](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1286)).
+* The source detail of the settings page now contains all source settings: start values (checked like in the wizard), maximum gap and averaging for power sources, pulses per unit, "Each update adds its value" and the technical ID ([#1285](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1285)).
+* Power values sent as text with a comma, such as `"1,5"`, are read like meter readings; a value that is not a number is ignored with a warning instead of logging an invalid interval for every value ([#1288](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1288)).
+* Settings page: hints name the tab "Price definitions" like the tab itself, "Quarters" is translated as "Quartale", a single comma or dot is always the decimal mark (`1.283` is 1.283 like in the adapter), and the technical ID in the wizard accepts the same characters as the adapter ([#1287](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1287)).
+* New instance settings page (requires admin 8): tabs "Overview" and "Problems" with all sources, a wizard to add a source, a detail page per source and actions that work immediately without restart ([#1269](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1269)).
+* Action "Align meter reading": set the total to the value the meter shows; today's consumption and closed periods stay unchanged ([#640](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/640)).
+* Action "Meter swapped": enter the end reading of the old and the start reading of the new meter, the total continues without a jump ([#1269](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1269)).
+* Action "Recalculate costs from date" with the price history, for one source or all sources of a price definition ([#947](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/947)).
+* Action "Delete data" removes the output folder of a source incl. all years ([#1265](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1265)).
+* Fix wrong conversion between `km³`, `dm³`, `cm³`, `mm³` and between `µm`, `nm`; unit definitions are now part of the adapter and the unmaintained `iobroker-adapter-helpers` dependency was removed ([#1278](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1278)).
+* The unit check in the state settings now accepts the same spellings as the adapter (`m3`, `kwh`, `L`, …), so such sources can be saved with "Detect automatically" ([#1278](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1278)).
+* Reject sources whose unit cannot be converted to the unit of the selected price definition (for example `W` with `m³` or `kg` with `kWh`) at start with a clear error instead of calculating wrong values or logging an error for every reading ([#1278](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1278)).
+* Meter readings of exactly 0 are written to the meter readings again ([#1253](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1253)).
+* Power sources (`W`, `kW`, …): the energy between the last value and midnight is booked to the ending day instead of getting lost at the day change ([#1254](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1254)).
+* Meter readings sent as text, such as `"12,5"`, and start values with a comma are accepted; a value that is not a number is ignored with a warning ([#1255](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1255)).
+* Week values from 29–31 December and early January are stored in the correct calendar-week year and no longer overwrite week 1 ([#1256](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1256)).
+* After the total was corrected by hand or the meter was swapped, the source keeps running and continues from the known total instead of stopping ([#1257](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1257)).
+* A device that briefly reports a low value and then returns to its previous reading no longer doubles the total: the detected reset is rolled back ([#1258](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1258)).
+* A price with a future "Valid from" date becomes the current price on that date without a restart ([#1259](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1259)).
+* If no reading arrives around midnight, the consumption of the gap is split between both days instead of being booked to the new day ([#1260](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1260)).
+* Errors are always written to the ioBroker log, Sentry receives them in addition ([#1261](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1261)).
+* Falling values of sources without reset detection (for example an oil tank) are only logged on debug level ([#1262](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1262)).
+* The unused value `valueAtDeviceInit` is no longer written; existing values are ignored ([#1263](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1263)).
+* Units such as `m3` or `kwh` sent by many devices are recognised instead of "No unit defined" ([#1264](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1264)).
+* Ignore repeated source-object writes when the SourceAnalytix settings, source name and unit are unchanged, preventing unnecessary output reinitialization and high CPU load ([#1233](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1233)).
+* Only write output objects (device, period and memory states) when their definition actually changes, so re-initializing a source updates state values without rewriting the whole object tree ([#1233](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1233)).
+* The start values in the state settings are checked before saving: comma and dot are accepted, a start value must not be larger than the current total shown in the dialog, and a period that began earlier cannot have a larger start value than a later one (the week is placed by its start date). Empty fields count from now on. A hint appears when a start value would fit after dividing by 1000 (entered in Wh instead of kWh). Inconsistent start values are also logged at start ([#1267](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1267)).
+* All power units (`W`, `kW`, `MW`, …) are handled alike: no start value initialisation from the first reading, and running `kW` intervals are closed at midnight like `W` intervals ([#1267](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1267)).
+* New source setting "Maximum gap between power values" for power sources: an interval without a new value that is longer than the setting is not extrapolated with the last power value but counted as 0 and logged, so a device or network outage no longer produces huge consumption and costs. Empty (default) keeps the previous behaviour for devices that only send on change ([#1266](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1266)).
+* The state settings show a hint when another source with the same price definition already includes the basic fee, because every such source books the full basic fee; the adapter logs the same hint at start. The calculation is unchanged ([#1268](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1268)).
+* New unit `piece` with factor 1 for counters without a physical unit, such as burner starts; the spellings `pcs`, `pc`, `pieces`, `Stk` and `Stück` are recognised, and price definitions can use `piece` ([#304](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/304)).
+* Pulse counters: a source with unit `piece` (pulse count) or `piece/min` (pulse rate, integrated over time like power, e.g. ESPHome `pulses/min`) is converted into the unit of the price definition with the new source setting "Pulses per unit of the price definition" (for example 1000 for 1000 imp/kWh) ([#74](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/74)).
+* New source setting "Each update adds its value" for data points that send one update per pulse or a consumption increment instead of a meter reading; every update is added, also an unchanged value such as `0.001` kWh per S0 pulse, and `true` counts as one pulse ([#479](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/479)).
+
+### 0.6.1 (2026-11-07)
+* (softwarecrash) Apply negative energy deltas from integrated power sources to historical costs instead of mistaking them for cumulative meter resets ([#1242](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1242)).
+* (softwarecrash) Prevent a temporary low meter reading followed by a near-return from being counted as a confirmed reset and duplicating consumption; rejected resets are now logged as a warning ([#1227](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1227)).
+* (softwarecrash) Keep an existing output tree and restore its effective ID in the source settings when an output-ID change is invalid, unavailable or cannot be migrated; a source without an existing tree is not activated instead of silently starting a new one ([#1228](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1228)).
+* (softwarecrash) Never delete pre-existing target objects when an output migration fails before SourceAnalytix writes to the target ([#1228](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1228)).
+* (softwarecrash) Add migration, restart recovery, settings write-back and concurrent-disable regression tests for custom output IDs ([#1229](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1229)).
 
 ### 0.6.0 (2026-09-26)
 * (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
@@ -359,19 +191,6 @@ Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbi
 * **Valid from** now also defines the first month the monthly basic price is charged, while tariffs without a validity date keep starting at the beginning of the current calendar year ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
 * Monthly basic prices are recorded in their own `basicPriceHistory` state, so a price change during a month only applies to the next monthly booking and already booked months stay unchanged ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
 * **Valid from** is available for every price source, not only for fixed prices, and a selected date becomes effective at local midnight ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
-
-### 0.5.5 (2026-08-01)
-* Previous day, week, month, quarter and year values are written with the timestamp of the period they belong to (23:59:59 on its last day), so history adapters and Flot plot them in the correct period ([#497](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/497)).
-* The number of decimals for consumption and cost values is configurable globally and per source, including an option to store the exact value without rounding ([#934](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/934)).
-* A missed calendar rollover can be processed without restarting the instance, through the new `info.recoverPeriods` button or a `recoverPeriods` message, and an hourly check recovers a rollover the scheduler missed while the adapter kept running ([#905](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/905)).
-* The midnight scheduler can no longer raise an unhandled rejection, and its cron job and timers are stopped when the instance shuts down ([#904](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/904)).
-
-### 0.5.4 (2026-08-01)
-* Each active source automatically exposes a compact `statisticsJson` state containing its current-year quantity, financial and optional meter-reading statistics ([#361](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/361), [#967](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/967)).
-* Monthly basic prices are no longer imported into the variable-cost accumulator and added a second time after a restart ([#1188](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1188)).
-
-### 0.5.3 (2026-07-28)
-* Power states can optionally ignore negative readings, so inverters which report a negative power while switched off no longer reduce the accumulated yield ([#466](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/466)).
 
 ## License
 MIT License

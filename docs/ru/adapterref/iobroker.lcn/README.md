@@ -3,64 +3,86 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lcn/README.md
 title: ioBroker.lcn
-hash: 7U4md29YzlcZtIfvZAdxw/m+IF5T2q4mzInWqLWyIQc=
+hash: srEsQH58mZuuHWtn0O2izQsRvKm123nBdG9rA77v0w8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lcn/admin/lcn.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.lcn.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.lcn.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lcn.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lcn.png?downloads=true)
 
-# IoBroker.lcn
-Этот адаптер позволяет подключить локальную сеть управления [ЛКН](https://www.lcn.eu/) к ioBroker.
+# ioBroker.lcn
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+Этот адаптер позволяет подключить локальную сеть управления [(LCN)](https://www.lcn.eu/) к ioBroker.
 
 ## Поддерживаемые шлюзы
-- ЛКН-ПКЕ
+
+- LCN-PKE
 
 ![пке](../../../en/adapterref/iobroker.lcn/img/lcn-pke.png)
 
-- ЛКН-ФКУ с ЛКН-ПЧК
+- LCN-PKU с LCN-PCHK
 
 ![пке](../../../en/adapterref/iobroker.lcn/img/lcn-pku.png)
 
-**Не забывайте, что `ioBroker.lcn` заблокирует одну лицензию на подключение LCN.**
+**Не забывайте об этом `ioBroker.lcn` Заблокирует одну лицензию подключения LCN.**
 
-Конфигурация и модули будут автоматически обнаружены при сканировании, которое необходимо запустить вручную из диалогового окна конфигурации и которое можно повторить в любое время.
+Конфигурация и модули будут автоматически обнаружены в ходе сканирования, которое необходимо запустить вручную на вкладке «Модули» диалогового окна конфигурации и которое можно повторить в любое время.
+
+Требуется версия admin >= 7.8.23 (на вкладке "Модули" используется диспетчер устройств).
 
 ## Типы
+
 Поддерживаются следующие группы чтения и записи:
 
 - Аналоговые значения (выход/вход)
-- Реле (выходные)
+- Реле (выход)
 - Датчики (входные)
 - Светодиоды (выход/вход)
-- Переменные (входные)
+- Переменные (входные данные)
 
 ## Переменные
-Чтобы применить допустимые функции преобразования к переменным, переменные должны иметь допустимые роли. Поддерживаются следующие роли:
 
-- **value.temperature** - температура в градусах Цельсия
-- **значение.яркость** - Люкс (I-вход) в люксах
+Для применения допустимых функций преобразования к переменным, переменные должны иметь допустимые роли. Поддерживаются следующие роли:
+
+- **значение.температуры** - температура в градусах Цельсия
+- **value.brightness** - Люкс (I-вход) в люксах
 - **value.speed.wind** - скорость ветра в м/с
-- **value.voltage** - напряжение в Вольтах
-- **value.current** - ток в Амперах
+- **value.voltage** - напряжение в вольтах
+- **value.current** - текущее значение в амперах
 - **value.sun.azimuth** - азимут солнца
 - **value.sun.elevation** - высота солнца
 
-## Отображать
-Для каждого устройства можно активировать наличие или отсутствие дисплея.
+Без одной из этих ролей отображается исходное значение. Исключение: `VAR02` и `VAR03` (Обычно R1Var и R2Var регуляторов) отображаются в °C, как и в предыдущих версиях. При изменении роли переменной адаптер снова считывает ее значение из модуля.
 
-## Регулятор (Regler)
-Для каждого устройства можно активировать наличие у него регуляторов или отсутствие таковых.
+Модули с прошивкой до версии 170206 имеют только 3 переменные (TVar, R1Var, R2Var). Они создаются следующим образом: `VARS.VAR01` -`VARS.VAR03` Модули, которые были просканированы с помощью более старой версии адаптера, необходимо просканировать повторно (в диспетчере устройств выберите «Просканировать снова»), чтобы адаптер обнаружил новую прошивку.
+
+Модули отправляют значения переменных не всегда самостоятельно. Опция «Читать переменные каждые (мин)» в расширенных настройках циклически считывает переменные всех модулей. `0` = выключено). Переменные считываются одна за другой, поэтому при наличии множества модулей один цикл может занять некоторое время.
+
+## Отображать
+
+Для каждого устройства можно активировать параметр наличия или отсутствия дисплея (дисплей в диспетчере устройств: "Настройки модуля").
+
+## Регулятор (Реглер)
+
+Для каждого устройства можно активировать параметр наличия или отсутствия регуляторов (диспетчер устройств: "Настройки модуля").
+
+## Выходные реле
+
+Для каждого устройства можно задать количество выходных реле (0-8), которые необходимо создать (диспетчер устройств: "Настройки модуля").
 
 ## Настройки
-- Интервал повторного подключения (сек) - как часто адаптер пытается подключиться. По умолчанию каждые 30 секунд.
-- Время ожидания соединения (мс) - как долго адаптер ждет ответа на соединение, включая аутентификацию. По умолчанию 6 секунд.
-- Время ожидания ответа при сканировании (мс) - как долго адаптер ждет ответов при сканировании модулей.
-- Время ожидания ответа (мс) - время ожидания для команд управления
-- Интервал пинга (сек) - как часто адаптер отправляет запросы пинга
-- Время ожидания ответа на пинг (мс) - время ожидания для запросов пинга
-- Реле ВХОД/ВЫХОД одинаковы - если реле «выход» и «вход» одинаковы или если это разные реле.
+
+- Интервал переподключения (сек.) — как часто адаптер пытается подключиться. По умолчанию — каждые 30 секунд.
+- Время ожидания подключения (мс) — время, в течение которого адаптер ожидает ответа о подключении, включая аутентификацию. По умолчанию — 6 секунд.
+- Время ожидания ответа при сканировании (мс) — время, в течение которого адаптер ожидает ответов после сканирования модулей.
+- Тайм-аут ответа (мс) - время ожидания для команд управления.
+- Интервал пинга (сек.) — как часто адаптер отправляет запросы пинга.
+- Таймаут ответа Ping (мс) - время ожидания для запросов ping
+- Считывать переменные каждые (мин) - циклически считывать переменные всех модулей. `0` = выключено (по умолчанию)
+- Реле входа/выхода одинаковы — если реле «выхода» и «входа» одинаковы или если это разные реле.
 
 ```
 // =====================  Same relays =============================
@@ -69,15 +91,15 @@ hash: 7U4md29YzlcZtIfvZAdxw/m+IF5T2q4mzInWqLWyIQc=
 //                                    | Relay |
 // <----------------- IN ------------ |       |
 //                                    +-------+
-//
-//
+// 
+// 
 // ======================  Different relays =======================
 //                                    +-------+
 //                                    |       |
 // ----------------- OUT -----------> | Relay |
 //                                    |       |
 //                                    +-------+
-//
+// 
 //                                    +--------+
 //                                    | Sensor |
 // <----------------- IN ------------ |   or   |
@@ -86,85 +108,81 @@ hash: 7U4md29YzlcZtIfvZAdxw/m+IF5T2q4mzInWqLWyIQc=
 ```
 
 ## Как использовать
-После первого запуска необходимо просканировать устройства. Это можно сделать в диалоге конфигурации кнопкой сканирования.
 
-![сканировать](../../../en/adapterref/iobroker.lcn/img/scanButton.png)
+После первого запуска необходимо выполнить сканирование устройств. Откройте вкладку «Модули» в диалоговом окне конфигурации и нажмите кнопку сканирования (значок лупы) в диспетчере устройств. Введите адрес самого старшего модуля, который необходимо просканировать (например, `250`) или диапазон, например `5-30`.
 
-## Задача
-- Диалоговое окно конфигурации для определения типа переменных.
+Если шина имеет сегментные сцепки, введите сегменты, которые необходимо отсканировать, разделяя их запятой (например, `0, 5, 7`). `0` Это собственный сегмент (сегмент, к которому подключен шлюз), все остальные сегменты адресуются по их идентификатору сегмента. Сканирование сегментов происходит один за другим. Модули получают идентификаторы. `S<segment>.M<module>` например `lcn.0.S005.M010`.
 
-<!-- Заполнитель для следующей версии (в начале строки):
+Каждый найденный модуль выполняет следующие действия:
 
-### **РАБОТА В ХОДЕ** -->
+- **Настройки модуля** — количество выходных реле, дисплей и регуляторы.
+- **Повторное сканирование** — повторное считывание названия, комментария, серийного номера и состояний этого модуля (в сегменте модуля).
+
+## API сообщений
+
+- `sendTo('lcn.0', 'scan', { max: '250', segment: 0 }, result => ...)` - просканировать один сегмент автобуса (`max` может быть `"max"` или `"min-max"`, `segment` является необязательным: `0` = собственный сегмент, в противном случае — идентификатор сегмента). Результат: `{ total, _new }` или `{ error }`
+- `sendTo('lcn.0', 'getAll', null, devices => ...)` - список всех модулей `[{ id, common, native }]`
+- `lcn.0.scan.manual` - писать `*` прочитать состояние всех модулей или `S0:6` прочитать состояние сегмента 0, модуля 6
+
+## ToDO
+
+- Диалоговое окно настроек для определения типа переменных.
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 2.0.3 (2024-09-04)
-* (bluefox) Added translations
+### 4.0.0 (2026-11-13)
+* (GermanBluefox) Added concurrency configuration to the test-and-release workflow to cancel outdated runs (#118)
+* (GermanBluefox) Fixed repochecker warnings: size attributes in the configuration, Sentry notice, dependabot cooldown (#132)
 
-### 2.0.2 (2024-09-03)
-* (bluefox) Corrected checking of licenses with license manager
+### 4.0.0-beta.3 (2026-11-03)
+- (bluefox) Fixed: `VAR02` and `VAR03` were converted twice, if a role like `value.temperature` was set. Without such a role they are still shown in °C
+- (bluefox) Fixed: the scan wrote the values of the variables without the conversion of their role
+- (bluefox) The value of a variable is read again from the module, when its role is changed
 
-### 2.0.1 (2024-08-07)
-* (bluefox) Disable possibility to install via git
+### 4.0.0-beta.2 (2026-11-03)
+- (bluefox) Fixed: commands could get stuck in the queue, if several commands waited behind a command, that waits for an answer
+- (bluefox) Fixed: variables of modules with a firmware before 170206 (only 3 variables) were not created. These modules must be scanned again (#22)
+- (bluefox) Added option to read the variables of all modules cyclically (#22)
+- (bluefox) Values without the number of the variable are ignored now. Before, the adapter logged an error for `MEASURES.MEASURE`
 
-### 2.0.0 (2024-08-06)
-* (bluefox) Made adapter compatible with js-controller 6
-* (bluefox) A minimum supported node.js version is 18
+### 4.0.0-beta.1 (2026-11-03)
+- (bluefox) Modules in other segments can be scanned: the scan dialog accepts a list of segments (#53)
 
-### 1.1.8 (2023-11-13)
-* (bluefox) Added SUM inputs
-
-### 1.1.7 (2023-11-06)
-* (bluefox) Corrected setting of undefined values
-
-### 1.1.1 (2022-10-19)
-* (bluefox) Corrected license check
-
-### 1.1.0 (2022-10-18)
-* (bluefox) Corrected issue with password
-
-### 1.0.4 (2021-05-21)
-* (bluefox) Ack will be ignored for the display commands
-
-### 1.0.3 (2021-05-21)
-* (bluefox) Changed the calculation of the temperature variables
-
-### 1.0.2 (2020-10-11)
-* (bluefox) Implemented the regulators and the display support.
-
-### 0.6.3 (2019-12-18)
-* (bluefox) General relays mode implemented
-
-### 0.6.2 (2019-12-07)
-* (bluefox) Detected delayed responses
-* (bluefox) Dynamical creation of states is implemented
-
-### 0.5.5 (2019-12-05)
-* (bluefox) Relay inputs were corrected
-
-### 0.5.4 (2019-12-04)
-* (bluefox) Connection indication was corrected
-
-### 0.5.1 (2019-11-29)
-* (bluefox) Finger scanner supported
-* (bluefox) Added possibility to set the analog mode
-* (bluefox) Relay outputs are supported now
-
-### 0.4.4 (2019-11-26)
-* (bluefox) Fixed error by parsing of acknowledgement
-
-### 0.4.2 (2019-06-12)
-* (bluefox) Support of old measure values was added
-
-### 0.3.2 (2018-11-19)
-* (bluefox) add variables support
-
-### 0.2.1
-* (bluefox) initial release
+### 4.0.0-beta.0 (2026-11-03)
+- (bluefox) Breaking change: Adapter requires admin >= 7.8.23 now
+- (bluefox) The adapter was refactored to TypeScript
+- (bluefox) The configuration dialog was migrated to JsonConfig. The modules are scanned and configured in the device manager
+- (bluefox) Fixed: the adapter reconnected to LCN after it was stopped and did not finish the stop correctly
+- (bluefox) Fixed: `ir.lowbat` was never set
+- (bluefox) Fixed: finger sensor codes were written into `ir.serial` instead of `finger.code`
+- (bluefox) Fixed: a failed authentication on LCN-PCHK was not recognized
+- (bluefox) Fixed: regulator states of scanned modules were recreated on every change of the device object
+- (bluefox) Fixed: writing a state, whose object cannot be read, could crash the adapter
 
 ## License
-CC-BY-NC-4.0
+The MIT License (MIT)
 
-Copyright (c) 2018-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2024 Denis Haev <dogafox@gmail.com> Private License  
+Copyright (c) 2025-2026 Denis Haev <dogafox@gmail.com> MIT License
 
-Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.de.md
 title: ioBroker.e3oncan
-hash: maF+9N8t2QYu0aK5nMYsMNMhy8YSe0EdKjqqgE7OdxY=
+hash: l3F5041unittCYh7R+JaIOUAmw+XdwRqQO2nj72l1K8=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,6 +26,7 @@ hash: maF+9N8t2QYu0aK5nMYsMNMhy8YSe0EdKjqqgE7OdxY=
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
+- [Was ist neu in v1.3.0](#was-ist-neu-in-v130)
 - [Was ist neu in v1.2.0](#was-ist-neu-in-v120)
 - [Schnellstart](#schnellstart)
 - [Konfigurationsanleitung](#konfigurationsanleitung)
@@ -63,6 +64,15 @@ Zwei Betriebsmodi arbeiten unabhängig voneinander und können kombiniert werden
 Welche Modi verfügbar sind, hängt von der Gerätekonfiguration ab. Weitere Details in der [Diskussion zur Gerätetopologie](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34) . Anwendungsbeispiele sind in der [Diskussion zu Anwendungsfällen](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) zu finden.
 
 > Wichtige Teile dieses Adapters basieren auf dem [open3e](https://github.com/open3e) -Projekt. Eine Python-basierte Collect-only-Implementierung mit MQTT ist unter [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) verfügbar.
+
+---
+
+## Was ist neu in v1.3.0
+
+- **Scan-Status:** Geräte- und Datenpunktscan läuft im Hintergrund. Eine Statuszeile unter den Scan-Schaltflächen zeigt den Fortschritt und das Endergebnis, grün bei Erfolg und rot bei einem Fehler. Der Gerätescan speichert die Geräteliste selbst; Um sie zu sehen, die Seite neu laden (F5). Damit ist auch die leere Geräteliste nach einem Gateway-Scan mit Admin 7.8.25 oder neuer behoben.
+- **Gateway-Konfiguration:** Das Feld für den MQTT-Broker heißt jetzt _Vom Gateway genutzter MQTT-Broker_ , die Voreinstellung ist `mqtt://localhost` Die
+- **Datenpunkte und Aufzählungen** auf den aktuellen Stand von open3e gebracht; die Texte von `OpStates` wurden korrigiert.
+- **Tab Datenpunkte** : Beschreibungstexte der Abrufintervalle werden beim Speichern nicht mehr gelöscht.
 
 ---
 
@@ -124,7 +134,9 @@ Falls ein zweiter CAN-Bus vorhanden ist (z. B. interner Bus), kann er hier als z
 Anstelle eines lokalen CAN-Adapters kann ein Bus über ein [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway gelesen werden. Stellen Sie für diese Bus- **Verbindungsart** auf _open3e-esp32-Gateway_ und tragen Sie ein:
 
 - **Gateway-REST-URL** , z. B. `http://open3e-esp32.local`
-- **Gateway-MQTT-Broker-URL** , z. B. `mqtt://broker.local`, und das **MQTT-Basis-Topic** . Das Basis-Topic muss mit der Einstellung sein `mqtt.baseTopic` des Gateways übereinstimmen (Standard `open3e`).
+- **Vom Gateway genutzter MQTT-Broker** , z. B. `mqtt://localhost`, und das **MQTT-Basis-Topic** . Hier denselben Broker eintragen, der in den Einstellungen des Gateways steht, häufig der MQTT-Adapter von ioBroker. Das Basis-Topic muss mit der Einstellung sein `mqtt.baseTopic` des Gateways übereinstimmen (Standard `open3e`).
+
+  > **Hinweis:** `localhost` Funktioniert nur aus Sicht des Adapters, wenn der Broker auf dem ioBroker-Rechner läuft. In den Einstellungen des Gateways selbst muss stattdessen die Netzwerkadresse dieses Rechners stehen. Mit `localhost` Würde das Gateway den Broker bei sich selbst suchen.
 - **MQTT-Benutzername und -Passwort** , falls der Broker sie verlangt.
 
 Bei jedem Start teilt der Adapter dem Gateway mit, welche CAN-IDs weitergeleitet werden sollen. Die Liste ergibt sich aus den Energiezählern und den Collect-IDs Ihrer Geräte, Sie müssen sie daher nicht auf dem Gateway konfigurieren.
@@ -141,9 +153,9 @@ Regeln im Gateway-Betrieb:
 
 Zum Tab **Liste der UDS-Geräte** wechseln und **Scan** drücken.
 
-- Der Scan dauert einige Sekunden. Der Fortschritt ist im Adapter-Log sichtbar (zweiten Browser-Tab öffnen).
-- Alle auf dem Bus gefundenen E3-Geräte werden aufgelistet. Die Geräte können in der zweiten Spalte umbenannt werden – diese Namen werden als Bezeichner im ioBroker-Objektbaum verwendet.
-- **SPEICHERN** drücken, wenn fertig. Die Instanz wird neu gestartet.
+- Der Scan läuft im Hintergrund und dauert von einigen Sekunden (lokaler CAN-Bus) bis etwa zwei Minuten (Gateway). Fortschritt und Ergebnis zeigt die Zeile **Scan-Status** unter der Schaltfläche an.
+- Am Ende speichert der Adapter die Geräteliste selbst in der Konfiguration, und die Instanz wird neu gestartet. Um die Liste im geöffneten Konfigurationsdialog zu sehen, die Seite neu laden (F5). Hat sich nichts geändert, wird nichts gespeichert. Das Endergebnis im Scan-Status erscheint grün oder rot, wenn der Scan fehlgeschlagen ist oder kein Gerät gefunden hat.
+- Alle auf dem Bus gefundenen E3-Geräte werden aufgelistet. Die Geräte können in der zweiten Spalte umbenannt werden – diese Namen werden als Bezeichner im ioBroker-Objektbaum verwendet. Nach dem Umbenennen **SPEICHERN** drücken.
 
 > Während des Gerätescans liegt der Adapter auch die Datenformatkonfiguration des Geräts (Datenpunkt 382) aus, einschließlich Temperatureinheiten (°C oder °F) und Datums-/Zeitformaten. Diese werden gespeichert und beim nächsten Datenpunktscan verwendet.
 
@@ -158,7 +170,7 @@ Während der Gerätescan läuft, startet der Adapter passiv auf dem CAN-Bus auf 
 
 Tab **Liste der Datenpunkte** öffnen, **Scan starten …** drücken und mit **OK** bestätigen.
 
-> **Geduld** – der Scan kann bis zu 5 Minuten dauern. Der Fortschritt ist im Adapter-Log sichtbar.
+> **Geduld** – der Scan kann bis zu 5 Minuten dauern. Er läuft im Hintergrund; Fortschritt und Ergebnis zeigt die Zeile **Scan-Status** unter der Schaltfläche an.
 
 Was der Scan tut:
 
@@ -285,7 +297,7 @@ e3oncan.0.<GERÄT>.info.udsDidsWritable
 
 Die Liste kann durch Bearbeiten dieser Staaten erweitert werden. Speichern **ohne** `Bestätigt` zu aktivieren.
 
-Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geändert werden – das Gerät liefert dann eine negative Antwort. Der Adapter wird dann mit einem alternativen Dienst (nur interner CAN-Bus) versucht. Schreibvorgänge immer durch Prüfen des bestätigten Werts verifizieren.
+Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geändert werden – das Gerät liefert dann eine negative Antwort. Der Adapter versucht es dann mit einem alternativen Dienst (nur interner CAN-Bus). Schreibvorgänge immer durch Prüfen des bestätigten Werts verifizieren.
 
 ---
 

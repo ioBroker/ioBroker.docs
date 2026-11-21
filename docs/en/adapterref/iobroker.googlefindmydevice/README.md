@@ -153,12 +153,18 @@ that.
 
 ### Requesting locations
 
-Google only ever hands out a location report if something actually asked the
-tracker for one recently - listing devices alone almost never returns
-coordinates. Getting a fresh one means actively pinging the tracker over
-Bluetooth (via whichever nearby Android phone hears it), which **noticeably
-uses that tracker's battery**. Because of that, this adapter does **not**
-request locations for any tracker automatically.
+Listing the devices alone does not return location reports; Google only
+answers with them to a location request. The adapter therefore sends such a
+request for every tracker you switched on, at the interval you set. In the
+tests for this adapter Google answered within about a second with the newest
+reports it already had. The request does not make the tracker send anything by
+itself, and no sign was seen that it makes a nearby phone look for the tracker,
+so a request does not find a location that the Find Hub network has not
+reported yet. New reports arrive when a phone that is near the tracker uploads
+them, and that is outside the control of the adapter. Whether the requests cost
+the tracker battery is not known; no effect was observed, but Google does not
+document it. Because the effect is unclear, the adapter does **not** request
+locations for any tracker automatically until you switch it on.
 
 Once Part 2 (location decryption) is set up, a table appears in the adapter
 configuration listing every discovered tracker with two settings each:
@@ -170,9 +176,17 @@ configuration listing every discovered tracker with two settings each:
   request one relatively often for something like an actively-moving bike,
   without hammering it constantly).
 
+Below each tracker there is also the switch `tracking` (on by default). While it
+is off, the scheduled requests of that tracker are skipped, for example while
+you are at home and do not need the position of your suitcase. Set it from a
+script or from your automation, for example `false` when you are home and
+`true` when you leave. The table switch stays the basic setting: a tracker
+whose table switch is off is never requested automatically, whatever `tracking`
+says. The buttons below still work while `tracking` is off.
+
 Device names, manufacturer/model info and pairing date are always kept
 up to date on the regular poll interval regardless of these settings, since
-reading that doesn't touch the tracker itself.
+reading that does not request a location.
 
 ### Named places
 
@@ -183,14 +197,31 @@ because that report has no position. The next GPS report clears
 `semanticLocation` again. So the states always describe one and the same
 report.
 
+What Google reports as a named place, as far as users of other projects have
+seen (Google does not document it): the zones of Google Home ("Home" or the
+name you gave your home, "Work", "School" and your own), and the names of Google
+Home devices or rooms near the tracker ("Kitchen Speaker", "Living Room",
+"Wohnzimmer"), which is the most exact place Google can name.
+
 If you want a map position for such a place, assign coordinates to its name in
 the table **Named places** of the configuration (shown once Part 2 is done):
 
 - **Place name** - the name exactly as Google reports it (upper and lower case
-  do not matter). New names are added to the table automatically, without
-  coordinates; the instance restarts once when that happens.
+  do not matter). New names are added to the table automatically; the instance
+  restarts once when that happens. For your home place ("Home" and its
+  translations) the adapter fills in the position from the ioBroker system
+  settings (latitude and longitude); please check it. Other names are added
+  without coordinates.
 - **Latitude** / **Longitude** - the position of the place. Rows without
   coordinates are ignored.
+- **Use position of Home** - for a place inside your home, such as a room or a
+  Google Home device. The row then takes the position and radius of the Home
+  row, so you enter them only once. It is ticked automatically for new names
+  that look like a room of the home or a Google Home device ("Wohnzimmer",
+  "Bedroom", "Kitchen Speaker"), but never for names that contain work or
+  school words ("Work", "School", "Office", "Büro") and never for other
+  places. Please check the tick when a place is added: a name like "Küche" can
+  also be a kitchen at work.
 - **Radius (m)** - how far from that point the tracker may be; it is written to
   `accuracy`.
 
@@ -221,12 +252,14 @@ Google's identifier of the tracker with unsafe characters replaced by `_`.
 | `<id>.accuracy` | number | Accuracy in metres (the radius of the place for an assigned named place) |
 | `<id>.lastSeen` | number | Time of the newest report (timestamp in ms) |
 | `<id>.semanticLocation` | string | Named place such as "Home", if the newest report is one instead of a GPS position; otherwise empty |
-| `<id>.isOwnReport` | boolean | `true` if the tracker reported directly, `false` if a stranger's device nearby relayed it |
+| `<id>.isOwnReport` | boolean | `true` if one of your own devices (a phone on your Google account) uploaded the report, also when it combined several reports it had received; `false` if another device relayed it |
 | `<id>.mapsLink` | string | Google Maps link to the position |
+| `<id>.tracking` | boolean | Switch for the scheduled location requests of this tracker, on by default (see "Requesting locations") |
 | `<id>.locateNow` | button | Requests a fresh location now (see "Buttons") |
 | `<id>.playSound` | button | Makes the tracker play its sound (see "Buttons") |
 | `<id>.stopSound` | button | Stops that sound again (see "Buttons") |
 | `info.connection` | boolean | `true` while the last poll succeeded |
+| `info.diagnostics` | string (JSON) | Diagnostic report for bug reports, see "Reporting problems" |
 
 ### Buttons
 
@@ -237,20 +270,32 @@ value or for `false`.
 
 - **`locateNow`** - requests a fresh location right away, like the scheduled
   request, but without waiting for the interval. It works for every tracker,
-  also if "Request location" is off in the table. The same cautions apply:
-  every request makes the tracker work over Bluetooth and costs battery. Only
-  one request per tracker runs at a time; a press during a running request is
-  skipped.
-- **`playSound`** - asks Google to make the tracker ring. **Experimental:**
+  also if "Request location" is off in the table. Google answers with what it
+  already knows, as for the scheduled request, so the button does not make the
+  position newer than the Find Hub network has it.
+  Only one request per tracker runs at a time; a press during a running
+  request is skipped.
+- **`playSound`** - asks Google to make the tracker ring. The request is only
+  sent if Google lists a sound action for the device (shown as 31 and 32 under
+  `capabilities` in `info.diagnostics`); headphones and speakers usually have
+  none, and the log then says so instead. **Experimental:**
   Google accepts the request, but the adapter cannot see whether the tracker
   really rings, and it has not been confirmed on any tracker yet. In the tests
   for this adapter a Chipolo tracker and a JBL speaker did not ring, and the
   official Find Hub app could not make them ring either at that moment. Only
-  trackers with a speaker can ring, and a nearby Android device has to reach the
-  tracker; Google may also hold the request back until the tracker is
-  reachable, so a ring can come later. Reports of a working ring (or of none)
-  for a tracker model are welcome as an issue on GitHub.
-- **`stopSound`** - stops the sound again (experimental, like `playSound`).
+  trackers with a speaker can ring. The ring is carried out by an Android device
+  that is logged in with your Google account and near the tracker (it can take
+  several seconds); without such a device nothing happens. Google may also hold
+  the request back until the tracker is reachable, so a ring can come later. Headphones and speakers answer with an
+  error (HTTP 500); the log then says so. Reports of a working ring (or of
+  none) for a tracker model are welcome as an issue on GitHub.
+- **`stopSound`** - stops the sound again (experimental, like `playSound`). On
+  the UGREEN FineTrack G a stop does not work: Google answers it with a reply
+  that looks different from the answers to a start (a tester logged two stops,
+  both with the same reply, and the tracker kept ringing), and the
+  Home-Assistant integration reports the same for this model. Press the button
+  on the tracker to stop the ring; a ring seems to last up to 10 minutes (the
+  answers to a start name 600 seconds). Other models were not tested.
   Google matches a stop to the start it belongs to, so the adapter remembers
   the starts it sent (in memory, until the instance restarts) and sends a stop
   for each of them. A stop without such a start is still sent, but the tracker
@@ -273,8 +318,9 @@ one, and a GPS report and a named place never show up mixed. Reports without
 a time, or with a time far in the future, are ignored. If a report cannot be
 decrypted, the newest one that can be read is used; if none can, the log says
 so once per start, and at *debug* level every skipped report is listed with
-the size of its key part. Relayed reports with a key part other than 20 bytes
-(a second curve the Find Hub specification allows) are not supported yet.
+the size of its key part. Relayed reports with a 32-byte key part (the second curve
+the Find Hub specification allows, P-256) are decrypted by trying several
+variants; this is new and has not been verified with a real tracker yet.
 
 ### Upgrading from 0.0.7 or older
 
@@ -282,6 +328,24 @@ Earlier versions placed trackers in a `devices` folder
 (`googlefindmydevice.0.devices.<id>.*`). The IDs no longer contain `devices`.
 The old folder is removed automatically on the first start; update scripts,
 visualizations, aliases and history settings that still use the old IDs.
+
+## Reporting problems
+
+If something does not work with your tracker, please open an issue on GitHub
+(or write in the forum thread) and paste the content of the state
+`info.diagnostics`. It lists for each tracker, numbered in the order they were
+found: manufacturer, model and type, which actions Google offers for it (30
+locate, 31 and 32 sound), what kinds of reports arrived (`LAST_KNOWN`,
+`CROWDSOURCED`, `AGGREGATED`, `SEMANTIC`), whether one of your own devices or
+another device relayed them, the size of their key part, how many reports could
+not be read and why, how old the newest report was when Google answered, and how
+location and sound requests ended (a key part size of 0 means a report from one of
+your own devices, which has none). It contains **no** names, ids, positions or
+times of a position, so it is safe to post. For more detail set the log level
+of the instance to *debug* and post the lines about the tracker; they only show
+field numbers and sizes, never contents.
+
+The counts start with every start of the instance.
 
 ## Why not phone/tablet locations too?
 
@@ -333,6 +397,32 @@ Python library (MIT, (c) 2017 Matthieu Lemoine, (c) 2023 Steven Beth) and the
 
 ## Changelog
 
+### 0.1.11 (2026-11-15)
+
+* (beabel) **NEW**: the table "Named places" has a column "Use position of Home": a room or a Google Home device then takes the position of the Home row. It is ticked automatically for new names that look like a room of the home or a Google Home device, never for work or school names.
+
+### 0.1.10 (2026-11-15)
+
+* (beabel) **CHANGED**: a location request now asks Google for every report it has (the time of the last high-traffic switch is 0) instead of telling it that the mode was only just switched on. The GoogleFindMy-HA project found that the latter makes Google drop reports between two requests. Whether this brings more reports, also relayed ones, is not confirmed yet; the diagnostic report shows the largest number of reports per answer.
+* (beabel) **ENHANCED**: the diagnostic report names the largest number of reports that one answer held (`maxReportsPerAnswer`).
+* (beabel) **CHANGED**: the README says that stopping a sound does not work on the UGREEN FineTrack G, so the button on the tracker has to be used.
+
+### 0.1.9 (2026-11-14)
+
+* (beabel) **NEW**: the switch `tracking` below each tracker pauses its scheduled location requests, for example from a script while you are at home.
+* (beabel) **NEW**: for your home place the adapter fills in the position from the ioBroker system settings when it adds it to the table "Named places".
+* (beabel) **NEW**: the state `info.diagnostics` holds a diagnostic report for bug reports (model data, offered actions, report types and origins, key part sizes, skipped reports, request results), without names, ids or positions.
+* (beabel) **NEW**: relayed reports of trackers that use the P-256 curve (key part of 32 bytes) are decrypted. There is no public test vector, so several variants are tried until the authentication of the report verifies; a wrong variant can never produce a wrong position. Please report whether it works for your tracker (the diagnostic report shows the variant that matched).
+* (beabel) **CHANGED**: the documentation and the configuration no longer claim that location requests cost the tracker's battery; this is not established.
+* (beabel) **CHANGED**: the buttons `playSound` and `stopSound` send nothing for a device for which Google lists no sound action (headphones, speakers), and the log says so, instead of ending in HTTP 500.
+* (beabel) **FIXED**: a location request that gets no answer from Google (typically the first one right after the instance started) is repeated once after a short pause, so "locate now" and the scheduled request no longer fail for that reason.
+* (beabel) **FIXED**: a stop for a sound waits until 12 seconds after the start (a stop right at the start can silence the tracker), and the adapter keeps the request ids of the starts, so a second stop still works.
+* (beabel) **FIXED**: the description of `isOwnReport` was wrong: it does not mean that the tracker reported itself but that one of your own devices uploaded the report (also one that combined several reports). The state name, the README and the debug log now say so.
+* (beabel) **FIXED**: the debug log no longer says that a location was updated when an equal or newer report was already stored.
+* (beabel) **ENHANCED**: if Google rejects a sound request with HTTP 500, which is what headphones and speakers do, the log says that the device probably cannot play a sound this way.
+* (beabel) **ENHANCED**: the debug log shows the field layout of Google's answers to sound requests, to find out why a stop sometimes has no effect.
+* (beabel) **ENHANCED**: the wait for further answers after a location request is 3 seconds instead of 25, because Google has never sent a second answer.
+
 ### 0.1.8 (2026-11-06)
 
 * (beabel) **NEW**: the button `locateNow` below each tracker requests a fresh location right away.
@@ -350,23 +440,6 @@ Python library (MIT, (c) 2017 Matthieu Lemoine, (c) 2023 Steven Beth) and the
 * (beabel) **FIXED**: an older location report no longer overwrites a newer one; the "last seen" time could jump back to an older report when Google answered with only part of its data.
 * (beabel) **ENHANCED**: after a location request the adapter now also waits for further answers from Google (up to 25 seconds after the first one) and uses the newest report of all.
 * (beabel) **ENHANCED**: the setup now says in the configuration page and in this README that the configuration has to be saved and the instance restarted before Part 2.
-
-### 0.1.6 (2026-11-01)
-
-* (beabel) **NEW**: headphones, speakers and other Fast Pair devices that carry a Find Hub key are now listed and located like trackers (experimental; Google only returns a location if one of its devices has seen them recently).
-* (beabel) **FIXED**: a device that was paired again (and so got a new id) is no longer asked for its location under the old id every time; the log says once that its row can be removed from the device table.
-
-### 0.1.5 (2026-11-01)
-
-* (beabel) **ENHANCED**: the adapter remembers which push messages it already received, so Google does not deliver them again at every start.
-* (beabel) **CHANGED**: removed the optional BLE identifier (EID) states of version 0.1.4 again; their values did not match what a tracker really broadcasts. States left over from 0.1.4 are deleted at the start.
-* (beabel) **ENHANCED**: the debug log describes the structure of skipped devices (such as headphones) in more detail, field numbers and sizes only, to prepare support for them.
-
-### 0.1.4 (2026-10-31)
-
-* (beabel) **NEW**: optional BLE identifier (EID) states for trackers (off by default, switch on per tracker in the device table).
-* (beabel) **FIXED**: push messages are now read correctly even if Google adds extra parameters to the encryption headers; if a push message still cannot be decrypted, the debug log says why (sizes and parameter names only).
-* (beabel) **ENHANCED**: the debug log shows the structure of the identifier block of every device (field numbers and sizes only, never names or ids) to help support devices such as headphones.
 
 Older changelog entries: CHANGELOG_OLD.md
 

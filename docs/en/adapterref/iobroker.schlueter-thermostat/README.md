@@ -27,7 +27,7 @@ This adapter integrates <strong>Schlüter / OJ Microline OWD5 thermostats</stron
 
 It is based on the HA Integration from @robbinjanssen. For more informations see the documentation.
 
-> **Cloud-only** — no local gateway, Modbus, or LAN API required.
+> Works via the cloud out of the box. Optional **local control (in testing)**: the adapter can act as the thermostats' device gateway on your LAN (relay or local-only mode) – see the documentation.
 
 ##
 
@@ -37,16 +37,17 @@ It is based on the HA Integration from @robbinjanssen. For more informations see
 2. Open instance configuration
 3. Enter:
 
-| Setting           | Description                   |
-| ----------------- | ----------------------------- |
-| Username          | Your Schlüter/OJ cloud login  |
-| Password          | Cloud password                |
-| API Key           | Below works in most cases     |
-| Customer ID       | Found in thermostat info      |
-| Client SW Version | Numeric value from thermostat |
-| Poll Interval     | Default: 60 seconds           |
+| Setting       | Description                           |
+| ------------- | ------------------------------------- |
+| Username      | Your Schlüter/OJ cloud login          |
+| Password      | Cloud password                        |
+| API Key       | Below works in most cases             |
+| Customer ID   | Found in thermostat info (default: 3) |
+| Poll Interval | Default: 60 seconds                   |
 
 4. Save & start adapter
+
+Optional local control (in testing, for users who know DNS): see the documentation, section _Local control_.
 
 For API-Key you can try with: `f219aab4-9ac0-4343-8422-b72203e2fac9`.
 You can find this Key in Forum: `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601`, so it looks like a
@@ -68,6 +69,7 @@ global Key.
 
 ![Cloud Architecture](https://img.shields.io/badge/Architecture-Cloud%20API%20Bridge-blue?style=for-the-badge&logo=cloudflare)
 ![Apply Concept](https://img.shields.io/badge/Control-Apply%20Based-green?style=for-the-badge)
+![Local Control](<https://img.shields.io/badge/Local-Relay%20|%20Local%20only%20(in%20testing)-brightgreen?style=for-the-badge>)
 ![Mode Support](https://img.shields.io/badge/Modes-Schedule%20|%20Comfort%20|%20Manual%20|%20Boost%20|%20Eco%20|%20Frost%20Protection%20|%20Vacation-orange?style=for-the-badge)
 
 ### Compact Program Structure
@@ -80,6 +82,10 @@ flowchart LR
   ADP -->|read| OWD5[OWD5 Cloud]
   ADP -->|write| OCD5[OCD5 Cloud]
   OCD5 --> TH[Thermostat]
+
+  TH -->|DNS redirect, port 9513| GW[Local gateway - in testing]
+  GW --> ADP
+  GW -.->|relay| VG[Vendor device gateway]
 
   ADP --> OBJ[Object Tree]
   OBJ --> RO[Read States]
@@ -99,7 +105,9 @@ flowchart TB
   INC --> POLL
   RESET --> POLL
 
-  APPLYBTN[Apply Button] --> ROUTER[applyRouter]
+  APPLYBTN[Apply Button] --> LOCAL{Connected locally?}
+  LOCAL -- yes --> CMD[Local command + acknowledgement]
+  LOCAL -- no / failed --> ROUTER[applyRouter]
   ROUTER --> API[updateThermostat]
 ```
 
@@ -118,28 +126,37 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-11-19)
 
-### **WORK IN PROGRESS**
-* (patricknitsch) Add Node.js 26 in test-and-release.yml
-* (patricknitsch) Update Dependencies
-* (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Web component `iob-schlueter-thermostat-card` (ioBroker web-components): thermostat card in the look of the Device Manager with temperatures, status and controls, usable in vis-2, devices, admin and other hosts
+- (patricknitsch) Update Dependencies
+
+### 0.8.0 (2026-11-14)
+
+- (patricknitsch) Add Node.js 26 in test-and-release.yml
+- (patricknitsch) Update Dependencies
+- (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Add experimental local control (BETA): own device gateway with relay and local-only mode, see docs
+- (patricknitsch) Remove the legacy cleanup (option "Legacy Cleanup"); no longer needed since 0.5.2
+- (patricknitsch) Docs: DNS redirect via CNAME
+- (patricknitsch) Local control: DNS check button, DNS check on start and warning when no thermostat connects
+- (patricknitsch) Device Manager: live status indicators on the cards (heating, temperatures, mode, vacation, energy, connection) and in the instance toolbar
+- (patricknitsch) Device Manager: compact single-page controls with thermostat and serial number; information tab removed
+- (patricknitsch) New state setpoint.active (setpoint of the current mode, in schedule mode of the current event), shown on the Device Manager card
+- (patricknitsch) Notifications when the local connection of a thermostat is lost / restored
+- (patricknitsch) Default customer ID is 3 for new instances
 
 ### 0.7.4 (2026-06-05)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.3 (2026-05-25)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.2 (2026-05-23)
-* (copilot) Add Icons for Notifications
 
-### 0.7.1 (2026-05-21)
-* (copilot) Modify notification manager to work with instances
-* (copilot) Update Dependencies
-
-### 0.7.0 (2026-05-14)
-
-- (claude) Add Notification Manager
+- (copilot) Add Icons for Notifications
 
 **Older changelog entries can be found in CHANGELOG_OLD.md.**
 

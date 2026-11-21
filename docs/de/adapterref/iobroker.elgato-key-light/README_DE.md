@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elgato-key-light/README_DE.md
 title: ioBroker.elgato-key-light
-hash: 1fCThb25RZ0vw4eoU/+7eh0Go/1d9S6r0KQg4tCii6A=
+hash: WIbsXPq4eQ9uB7WTNDsLCzuFeF+398k0Zk/jn2HEEjg=
 ---
 ![Logo](../../../en/adapterref/iobroker.elgato-key-light/admin/elgato-key-light.png)
 
@@ -222,7 +222,13 @@ Hardwaretests sind optional, standardmäßig rein gelesen und dürfen nicht in C
 
 ## Änderungsverlauf
 
-### **IN BEARBEITUNG**
+### 2.0.1 (2026-10-13)
+
+- (hwiedermann) Nur eine Warnung pro Geräteausfall; Weitere Fehler werden auf Debug-Ebene protokolliert (behebt #308, PR #309).
+- (xXBJXx) Abhängigkeiten aktualisiert und die Admin-Oberflächen neu gebaut.
+- (xXBJXx) Moment in den Lockfiles auf 2.31.0 aktualisiert und Regressionstests gegen Locale-Pfadmanipulation ergänzt (GHSA-4p3w-j4w9-5jqw).
+
+### 2.0.0 (2026-08-16)
 
 - (xXBJXx) Backend mit validiertem HTTP-Client, Fähigkeitserkennung, robustem Polling und begrenzter Bonjour-/mDNS-Suche überarbeitet.
 - (xXBJXx) Zuverlässige Steuerung unterstützter Leuchten einschließlich RGB, Temperatur, Akku und Studio-Modus sowie strikte Instanztrennung und sauberes Löschen von Geräten ergänzt.
@@ -241,7 +247,7 @@ Hardwaretests sind optional, standardmäßig rein gelesen und dürfen nicht in C
 
 Erstellt von xXBJXx und gepflegt von ioBroker Community Adapters. Elgato ist eine Marke der Corsair GmbH; Dieses Projekt ist nicht mit Elgato/Corsair verbunden und wird nicht von Elgato/Corsair unterstützt.
 
-Copyright © 2024–2026 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2024–2026 iobroker-community-adapters <mcm57@gmx.at>
 
 Copyright © 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 

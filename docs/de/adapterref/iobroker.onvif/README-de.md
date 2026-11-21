@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onvif/README-de.md
 title: ioBroker.onvif
-hash: v1KN29h+PcNGNw+3xNzN1u1LugBoq+wLrq4xiCSSCYM=
+hash: jzyRkABB0BzaComa+4xQJ4i3070HGKYWb7aXa37m2Dw=
 ---
 ![Logo](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -37,13 +37,17 @@ Damit eine Kamera neu erkannt wird, muss sie einfach unter Objekten gelöscht we
 
 Es können Kameras manuell gesucht werden, falls Discovery nicht funktioniert. Dazu müssen ein IP-Bereich und Ports eingegeben und manuell ausgeführt werden. Im Log sieht man Details zu dem Prozess.
 
+### Kameras ignorieren
+
+Kameras, deren IP in der Einstellung „Kameras mit diesen IPs ignorieren“ (kommagetrennt) eingetragen ist, werden vom Adapter nicht angesprochen. Das gilt für die Discovery, die manuelle Suche und bereits unter Objekten angelegte Kameras.
+
 ## Datenpunkte
 
 onvif.0.IP\_PORT.events Events der Kamera wie zb Bewegungserkennung. Manchmal muss ein Ereignis ausgelöst werden, damit es angezeigt wird.
 
 onvif.0.IP\_PORT.general Allgemeine Informationen über die Kameras
 
-onvif.0.IP\_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.refresh
+onvif.0.IP\_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.Refresh
 
 Video- und Snapshot-URL:
 
@@ -51,7 +55,7 @@ onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl
 
 onvif.0.IP\_PORT.remote Steuerung der Kamera
 
-onvif.0.IP\_PORT.remote.refresh Aktualisierung der Infodaten
+onvif.0.IP\_PORT.remote.Refresh Aktualisierung der Infodaten
 
 onvif.0.IP\_PORT.remote.gotoHomePosition PTZ Kamera in die HomePosition setzen
 

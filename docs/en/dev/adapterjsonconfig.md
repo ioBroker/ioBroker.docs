@@ -706,7 +706,7 @@ Button that sends a request to the current instance (<https://github.com/iobroke
 | `icon`          | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. You can use `base64` icons (like `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`). (Request via issue if you need more icons)   |
 | `useNative`     | if adapter returns a result with `native` attribute it will be used for configuration. If `saveConfig` is true, the user will be requested to save the configuration.                                                                        |
 | `showProcess`   | Show spinner while request is in progress                                                                                                                                                                                                    |
-| `timeout`       | timeout for request in ms. Default: none.                                                                                                                                                                                                    |
+| `timeout`       | timeout for request in ms: after it the button reports an error, and an answer of the instance that comes later is dropped. Default: none - the button waits for the answer, at most as long as the connection of the GUI waits (`callbackTimeout` of the socket, 30 s in the ws client of ioBroker, 10 minutes in admin since 8.3.14). |
 | `onLoaded`      | execute the button logic once initially                                                                                                                                                                                                      |
 | `controlStyle`  | Styles for the button.                                                                                                                                                                                                                       |
 | `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.                              |
@@ -813,6 +813,23 @@ The cells of a `text` column with `translate: true` are i18n keys: shown transla
         { "enabled": true, "name": "First_row", "desc": "this is 100" },
         { "enabled": false, "name": "Second_row", "desc": "this is 200" }
     ]
+}
+```
+
+`label`, `help`, `tooltip` and `placeholder` of a column are the same in every row, unless they are a pattern: in a cell,
+`data` is the row (the whole configuration is `globalData`). The result of the pattern is translated, so it can build an
+i18n key from a value of the row. Do not put help texts into the rows themselves: the rows are stored in the configuration,
+are not updated with the adapter and new rows do not get them.
+
+```json5
+{
+    "type": "text",
+    "attr": "desc",
+    "title": "Command description",
+    // i18n keys "help_%DATETIME%", "help_%CLASS%", ... in the translations of the adapter
+    "help": "help_${data.cmd}",
+    // or with a fallback text for unknown commands:
+    // "help": "${{'%DATETIME%': 'help_datetime', '%CLASS%': 'help_class'}[data.cmd] || 'help_other'}"
 }
 ```
 
@@ -1216,6 +1233,8 @@ Shows the drop-down menu with the given from the instance values.
 | `noTranslation` | do not translate label of selects. To use this option, your adapter must implement message handler.The result of command must be an array in form `[{"value": 1, "label": "one"}, ...]`                          |
 | `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                                                                        |
 | `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.  |
+
+If the instance is not alive, or gives no answer that is a list, the control shows a text field (with `manual: true`, the default), so the value stays editable.
 
 The backend handler can return items with an optional `description` field: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. The description is shown below the label in the dropdown.
 An item with `"noTranslation": true` is shown as it is, even if `noTranslation` of the control is not set: `[{"value": "abc", "label": "My device", "noTranslation": true}, ...]`.
@@ -2173,6 +2192,15 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 10.1.24 (2026-11-17)
+- (@GermanBluefox) Fixed: `sendTo` showed a success when the answer of the instance did not arrive in time or the connection was lost; an answer after the `timeout` of the schema is dropped (ioBroker.admin#3737)
+
+### 10.1.23 (2026-11-16)
+- (@GermanBluefox) Changed: the dialog of `diskSelector` is now `DialogSelectDiskPath` of `@iobroker/gui-components` (`@iobroker/gui-components` 10.4.7)
+
+### 10.1.22 (2026-11-13)
+- (@GermanBluefox) Fixed: `selectSendTo` showed an endless spinner when the instance it asks was not alive or gave no list - it shows a text field now, so the value stays editable; `autocompleteSendTo` shows its `options` (or a text field) instead of a spinner that never ends
+
 ### 10.1.21 (2026-11-11)
 - (@GermanBluefox) Added: `translate` for `text`: i18n keys shown translated (`readOnly`) or translated once from `default`, also in tables (ioBroker/ioBroker.admin#3721)
 

@@ -35,6 +35,7 @@ One row per camera: a name, the RTSP URL, user and password. Examples of RTSP UR
 | DoorBird           | `rtsp://192.168.1.20:554/mpeg/media.amp`              |
 | Hikvision          | `rtsp://192.168.1.40:554/Streaming/Channels/101`      |
 | Reolink            | `rtsp://192.168.1.41:554/h264Preview_01_main`         |
+| UniFi Protect      | `rtsp://<console>:7447/<alias>` (see below)           |
 | Most ONVIF cameras | see the manual of the camera or the ONVIF device tool |
 
 A login typed into the URL (`rtsp://user:password@host/...`) is moved into the user and password fields at the next
@@ -42,6 +43,13 @@ start. Special characters in passwords are fine, the adapter encodes them for ff
 
 _Transport_ is TCP by default; it works reliably also from Docker containers. _Key frames only_ helps when snapshots
 of an H.265 camera come out grey.
+
+_↻_ turns the picture of a camera that is mounted upside down or on its side and cannot turn it itself: 90°, 180° or
+270° clockwise, or mirrored (↔ left and right, ↕ top and bottom). Snapshots, GIFs, re-encoded clips, timelapse videos
+and the pictures for the AI check are turned for real; widths count for the turned picture. A copied mp4 (_Copy the
+camera stream_) cannot be turned without re-encoding: it gets a mark (display matrix) that Telegram, browsers, VLC and
+most players apply when they show the video. With an ffmpeg of the system older than 6.0, which cannot write that mark,
+the clips of a turned camera are re-encoded instead (the bundled ffmpeg is new enough).
 
 _Sound_ takes the sound of the camera into the mp4 clips, also into those from the pre-recording, so they play with
 sound in Telegram and elsewhere. The camera must send the sound in its RTSP stream; many cameras have it off by default
@@ -55,6 +63,28 @@ not have this gap.
 
 The camera name becomes the object id: `Front Door` → `cam-recorder.0.cameras.front_door`. Letters with
 diacritics are transliterated (`ü` → `ue`, `é` → `e`), other special characters become `_`.
+
+#### Online or offline
+
+Every minute the adapter checks whether each camera is online and writes it into `cameras.<camera>.reachable` (the
+status of the card in the Device Manager). Without further settings it opens a TCP connection to host and port of
+the URL. With a camera behind an NVR (UniFi Protect, Frigate, go2rtc, Synology Surveillance Station) this only shows
+the NVR: it accepts the connection while the camera behind it is off. Two ways out:
+
+- **Online state** (column of the camera): any state that tells whether the camera is online, e.g. of the adapter of
+  the NVR. `true`, a number other than 0, `connected`, `online`, `on`, `ok`, `yes`, `up` count as online, every other
+  value as offline. The adapter follows its changes at once; a state that does not exist is reported at the start and
+  the camera is checked as before.
+- **UniFi Protect login** (below the table): cameras of UniFi Protect stream through the console (`rtsp://<console>:7447/<alias>`
+  or `rtsps://<console>:7441/<alias>`, the URL from _Protect → camera → Settings → Advanced → RTSP_). With a local user
+  of the console the adapter logs in to the console every minute, reads the camera list once for all cameras, and
+  takes `isConnected` of the camera whose stream has the alias of the URL. No further adapter is needed. Create a
+  local user (not a UI account with two-factor login) in _UniFi OS → Admins & Users_; the role _View Only_ for
+  Protect is enough. The HTTPS port is 443 on UniFi OS consoles (UDM, UNVR, Cloud Key Gen2+ with UniFi OS).
+  When the console does not answer or refuses the login, a warning is logged once and its cameras are checked by TCP
+  meanwhile; after a refused login the adapter waits 15 minutes before it tries again, so a wrong password does not
+  lock the user. A camera whose alias the console does not know (RTSP switched off for it, or the URL changed after a
+  reset) shows as not reachable, with a warning.
 
 ### Triggers
 
@@ -108,6 +138,11 @@ the clip also contains the seconds **before** the event.
 - **Snapshots** come from the buffer while it runs: the newest picture on disk, at most about a second old, without a
   second connection to the camera — instant, and it shows the moment of the event. `sendTo` with `live: true` asks the
   camera instead.
+- **Live picture.** The column _Live (s)_ of the tab _Cameras_ (greyed out without pre-recording) turns the newest key
+  frame of the buffer into `cam-recorder.0.storage/<camera>_live.jpg` every so many seconds, for an image widget of
+  vis with the same refresh interval (through a web instance, e.g. `http://<host>:8082/cam-recorder.0.storage/door_live.jpg`).
+  Only key frames are decoded, so it costs almost no CPU and no second connection; the picture is at most one key
+  frame interval old. For real live video use go2rtc; cam-recorder can then take its RTSP stream as camera URL.
 - **When something fails** (camera offline, stream stalled for 20 s), the process is restarted after 5 s, 10 s, 30 s,
   60 s, then every 5 minutes, with a warning in the log. While the buffer is not running, clips are recorded from the
   event on as without pre-recording, with a warning in the log. After a start of the adapter the buffer needs about
@@ -128,14 +163,15 @@ triggers in the log, unless they feed the states of the AI check),
 scripts with `profiles: 'Name'`. The list of the column shows the profiles of the saved settings, so save once after
 adding a profile.
 
-| Column     | Meaning                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------- |
-| Name       | Unique name of the profile                                                                               |
-| Instance   | Messaging instance, e.g. `telegram.0`, `max.0`, `email.0` (see the table below)                          |
-| Recipient  | Optional, in the form the adapter expects; empty = the default of that adapter                           |
-| Attachment | _Everything_ (snapshots, clips, timelapse videos), _Snapshot only_, _Clip only_, or _Text only_          |
-| Text       | Caption: `{camera}`, `{date}` and `{time}` are replaced, the date in the format of the system settings   |
-| Template   | Optional JSON message for adapters without a built-in format, or to replace the built-in one (see below) |
+| Column     | Meaning                                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Name       | Unique name of the profile                                                                                                           |
+| Instance   | Messaging instance, e.g. `telegram.0`, `max.0`, `email.0` (see the table below)                                                      |
+| Recipient  | Optional, in the form the adapter expects; empty = the default of that adapter                                                       |
+| Attachment | _Everything_ (snapshots, clips, timelapse videos), _Snapshot only_, _Clip only_, or _Text only_                                      |
+| AI         | Only for a profile with criteria on the tab _AI check_: how it uses the check (see [AI check](#ai-check))                            |
+| Text       | Caption: `{camera}`, `{date}`, `{time}`, `{description}` and `{matches}` are replaced, the date in the format of the system settings |
+| Template   | Optional JSON message for adapters without a built-in format, or to replace the built-in one (see below)                             |
 
 _Text only_ sends the text at once when the trigger fires, before the recording is finished, without a file — for
 example a quick "Someone is at the door" while the clip with the file goes through a second profile. For a timelapse
@@ -249,6 +285,19 @@ trigger. A profile whose criteria the picture meets gets one more message throug
   limit of pi-agent counts it.
 - Scripts get the same check for `record` and `snapshot` with `profiles`. Timelapse videos are not checked.
 
+**How a profile uses the check** — column _AI_ of the tab _Send_, for a profile with criteria:
+
+| AI                              | What the profile gets                                                                                           |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| _At once, extra message_        | the files at once, and the extra message above on a match (default, as described above)                         |
+| _Only on an AI match_           | every file is saved, but sent only when pi-agent sees one of its criteria, with the description in the caption  |
+| _Wait for AI, with description_ | one message after the check, the description in the caption; without an answer in time the file goes without it |
+
+The description goes below the text of the profile, unless the text places `{description}` (what pi-agent saw) and
+`{matches}` (the criteria met) itself, e.g. `🔍 {camera} {time}: {description}`. So one trigger can send the doorbell at
+once to everybody and, through a second profile for the same recipient set to _Only on an AI match_, only the events
+with a person to somebody else — a motion sensor in the garden with mostly cats and shadows is the typical case.
+
 **States for scripts and scenes.** A row with _State_ gives each camera the state
 `cam-recorder.0.cameras.<camera>.ai.<criterion>` (e.g. `…cameras.doorbird.ai.a_person`), so other adapters can act on
 what the camera saw, without any message:
@@ -274,6 +323,33 @@ on({ id: 'cam-recorder.0.cameras.doorbird.ai.a_person', val: true }, () => {
     setState('hue.0.Entrance.on', true);
 });
 ```
+
+#### Report
+
+Once a day pi-agent sums up what its checks saw since the last report, e.g.
+
+> 📋 Report 15.11.2026
+> Front door: 10:12 the postman, 14:40 a courier with a parcel, 18:05 two people rang (visitors).
+> Yard: a car in the drive at 07:30 and 17:45, otherwise only cats.
+
+| Setting                | Meaning                                                                  |
+| ---------------------- | ------------------------------------------------------------------------ |
+| Send a daily report    | Main switch: collect the checks and send the report                      |
+| Time (HH:MM)           | When it goes out, default `21:00`                                        |
+| Profiles of the report | Profiles of the tab _Send_ (comma separated); empty = only `report.text` |
+| Cameras                | Cameras in the report (comma separated), empty = all                     |
+| Wishes for pi-agent    | Optional, e.g. "only people and vehicles, no animals"                    |
+
+- Every AI check of a snapshot with a description adds a line (time, camera, description, criteria seen) to
+  `report.json` in the data folder of the instance, which survives a restart. Only pictures that pi-agent checks
+  count, so a criterion needs a profile or a _State_. No picture is kept for the report.
+- At the set time pi-agent gets the lines as text (no pictures, conversation `cam-recorder-report`) and writes the
+  report in the system language. The message is only this text, not the text, template attachment or file of the
+  profile. When pi-agent does not answer, the plain list goes out instead; without lines nothing is sent.
+- A sent report starts the next one: the lines up to then are removed.
+- `report.send` sends it at once, `report.text` keeps the last one, `report.lastTime` tells when it went out. Scripts
+  and agents can ask with `sendTo('cam-recorder.0', 'report', { send: false })`: the answer `{ text }` is the report
+  so far, nothing is sent or removed.
 
 ### Timelapse
 
@@ -308,6 +384,9 @@ How it behaves:
   `info.lastRemoteCopy` holds the time of the last good copy.
 - _Days kept on the server_ deletes older files of this adapter on the server (0 = keep everything); other files in
   the folders are never touched.
+- _Month folders on the server_ sorts the files into `<folder>/<camera>/<yyyy-mm>/`, named by the date in the file
+  name. It is meant for keeping everything: _Days kept on the server_ is then off and nothing is deleted on the
+  server.
 - The password is stored encrypted. The files are not encrypted on the server, only the transfer is.
 
 ### Storage
@@ -316,6 +395,10 @@ Files are written to `iobroker-data/cam-recorder.<instance>/media/` (or the fold
 `<camera>_<YYYY-MM-DD_HH-MM-SS>.<mp4|gif|jpg>`. Old files are deleted per camera and kind: the newest _n_ files are
 kept (default 20) and nothing older than the maximum age (default 7 days). Other files in the folder are never
 touched.
+
+_Sort into month folders_ puts each file into `<folder>/<camera>/<yyyy-mm>/` (local time), timelapse videos too.
+Whoever sorts into month folders keeps the files: the number of files and the maximum age are then off (greyed out),
+and old folders are deleted by hand or by a job of your own. Files written before stay where they are.
 
 The newest file of each camera and kind is also copied into the ioBroker file storage
 (`cam-recorder.0.storage/<camera>.mp4`, `.gif`, `.jpg`), where it can be opened in the admin tab _Files_ or through a
@@ -334,17 +417,63 @@ With admin 7 or newer, the Device Manager shows one card per configured camera, 
 instance settings and under _Devices_ in the menu of the admin:
 
 - **Status:** online or offline. The adapter opens a TCP connection to the host and port of the camera URL at the
-  start and every minute (no login, no ffmpeg) and writes the result into `cameras.<camera>.reachable`. The last
-  error appears as a warning on the card.
+  start and every minute (no login, no ffmpeg), or follows the online state or the UniFi Protect console (see
+  _Online or offline_), and writes the result into `cameras.<camera>.reachable`. The last error appears as a warning
+  on the card.
 - **Recording now:** a red dot with _Recording_ or _Taking a snapshot_ while ffmpeg works for this camera.
 - **Last clip** and **last snapshot** with date and time, and the pre-recording seconds if it is on.
 - **Picture:** the last snapshot, when _Copy the newest file into the ioBroker file storage_ is on (tab _Storage_).
-- **Record now** and **Snapshot:** the same as the buttons `cameras.<camera>.record` and `.snapshot` — a clip with
+- **Record video** and **Snapshot:** the same as the buttons `cameras.<camera>.record` and `.snapshot` — a clip with
   the length and format of the _Recording_ tab, or a picture, without notifications. The dialog shows the file name
-  or the error, then the card is updated.
+  or the error, then the card is updated. While the camera is offline both buttons are greyed out; the admin does
+  not update the buttons by itself, so a card that was opened before shows them until the page is loaded again, and
+  a click then only answers that the camera is offline.
 
 The cameras, triggers and all other settings stay in the settings of the instance; the Device Manager only shows
 them and starts recordings.
+
+## Schedule
+
+Besides triggers, a camera can take pictures or clips on its own: every few minutes, or at fixed times. The schedule
+lives in the states `cam-recorder.0.cameras.<camera>.schedule.*`, not in the instance settings, so it changes without
+a restart and scripts, Blockly, scenes and AI agents (ioBroker.pi-agent reads its description through `help`) can set
+it like the card does. The states are kept in backups.
+
+On the tab _Devices_ each camera card has two buttons:
+
+- **Interval**: every _N_ minutes, counted from midnight (30 = at :00 and :30), optionally only between two times
+  (22:00 to 06:00 works over midnight).
+- **Schedule**: fixed times as a cron pattern with the cron dialog of the admin, e.g. `0 7,19 * * *` for 7:00 and
+  19:00 or `*/15 * * * 1-5` for every 15 minutes on weekdays.
+
+Both forms share _Active_, the action (snapshot, clip or both), the profiles to send to and two conditions. Each run
+works like a trigger: the files are saved and sent, and the AI check runs for profiles with criteria. The card shows the
+next run.
+
+- **Send only on an AI match** (needs pi-agent on the tab _AI check_): the files are always saved, but sent only to the
+  profiles whose criterion pi-agent sees in the snapshot, together with the match message. A snapshot of the yard every
+  5 minutes at night then arrives only when there is "a person", not 96 times empty. Unlike a trigger, where a failed
+  recognition must never cost the doorbell message, a schedule without this switch sends every run.
+- **Only if**: a state and a condition, as in the trigger table, e.g. `0_userdata.0.away` `=` `true`. A run whose
+  condition does not hold is skipped quietly (debug log).
+
+| State         | Example             | Meaning                                         |
+| ------------- | ------------------- | ----------------------------------------------- |
+| `enabled`     | `true`              | main switch                                     |
+| `interval`    | `30`                | every N minutes, 0 = off                        |
+| `from`        | `22:00`             | the interval only from … (both empty = all day) |
+| `to`          | `06:00`             | … until                                         |
+| `cron`        | `0 7,19 * * *`      | fixed times, empty = off                        |
+| `action`      | `snapshot`          | `snapshot`, `record` or `both`                  |
+| `profiles`    | `Alex, Telegram`    | send profiles, empty = only saved               |
+| `aiOnly`      | `true`              | send only to profiles with an AI match          |
+| `onlyIfState` | `0_userdata.0.away` | run only while this state meets the condition   |
+| `onlyIfOp`    | `eq`                | `eq`, `ne`, `gt`, `lt`                          |
+| `onlyIfValue` | `true`              | value of the condition                          |
+| `next`        | (read only)         | time of the next run, 0 = none                  |
+
+A wrong value (a cron pattern with a typo, a time like `25:00`) is reported in the log and on the card, and that part
+does not run.
 
 ## States
 
@@ -361,13 +490,15 @@ Per camera below `cam-recorder.0.cameras.<camera>`:
 | `status`             | `idle`, `recording`, `snapshot` or `error`      |
 | `lastError`          | Text of the last error, empty after a success   |
 | `description`        | What the AI check saw in the newest snapshot    |
-| `reachable`          | Answers on the network (checked each minute)    |
+| `reachable`          | Online (see _Online or offline_)                |
 | `prebuffer`          | `off`, `starting`, `running` or `restarting`    |
 | `timelapse`          | Button: make the timelapse video now            |
 | `lastTimelapse`      | Path of the newest timelapse video              |
 | `lastTimelapseTime`  | Time of the newest timelapse video              |
 | `timelapseFrames`    | Pictures waiting for the next timelapse video   |
 | `timelapseNextVideo` | Time of the next timelapse video                |
+
+Below `cam-recorder.0.report` (see _Report_): `send` (button), `text` (the last report), `lastTime`.
 
 `info.connection` is true when ffmpeg was found and works, `info.ffmpegVersion` shows its version.
 `info.lastRemoteCopy` and `info.remoteError` report the copy to the SFTP server.
@@ -393,6 +524,7 @@ on({ id: 'doorbird.0.Doorbell.1.trigger', change: 'any' }, () => {
 | `record`       | `{ camera, duration?, pre?, format?: 'mp4' \| 'gif', width?, fps?, profiles? }` | `{ file, size, format, duration, pre, extended, fromBuffer, realDuration, camera, time }` or `{ error }` |
 | `snapshot`     | `{ camera, width?, live?, profiles? }` or just the camera name                  | as above, `format: 'jpg'`                                                                                |
 | `timelapse`    | `{ camera }` or just the camera name                                            | the video as above, or `{ error }` when fewer than two pictures wait                                     |
+| `report`       | `{ send?: boolean }`, `send: false` only builds the text                        | `{ text }` (empty without checked events), or `{ error }` when the report is off                         |
 | `listCameras`  | –                                                                               | `[{ value, label }]`                                                                                     |
 | `listProfiles` | –                                                                               | `[{ value, label }]`                                                                                     |
 | `help`         | –                                                                               | `{ help }`: the commands, states and rules as text for an AI agent                                       |
@@ -414,6 +546,8 @@ clip); `duration` is always the time after the event, and the answer's `duration
   container this is usually acceptable; give the camera a user that may only view the stream.
 - Recorded files are not encrypted. Files copied into the ioBroker file storage can be opened by every admin user and,
   depending on its settings, through a `web` instance.
+- The password of the UniFi Protect console is stored encrypted (`encryptedNative`). The console has a certificate
+  of its own that nobody signed, so its certificate is not checked; use a user with the role _View Only_.
 - The SFTP password is stored encrypted (`encryptedNative`). A connection test with an empty password field uses the
   saved password only for the saved server, so no script can send it to another host.
 
@@ -430,38 +564,32 @@ adapter.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.6.3 (2026-11-13)
+### 0.8.5 (2026-11-19)
 
-- (sadam6752-tech) AI check: a criterion with the new column _State_ gives each camera the state
-  `cameras.<camera>.ai.<criterion>`, true for _Hold_ seconds after a match, for scripts, Blockly and scenes; such a
-  criterion is checked at every trigger, also without profiles
-- (sadam6752-tech) The log names each trigger at the start whose result goes nowhere (no profile in its column
-  _Message_ and no state of the AI check): its files are saved but not sent
+- (sadam6752-tech) The message `help` is declared (`supportedMessages.help`) and lists every command with `write`, so
+  AI agents know which commands only read
 
-### 0.6.2 (2026-11-12)
+### 0.8.4 (2026-11-16)
 
-- (sadam6752-tech) Pre-recording: the warning of a stopped buffer tells how long the stream ran (or that no data came at
-  all) and the last warnings of ffmpeg, repeated ones counted, to find why a camera stops sending
+- (sadam6752-tech) Cameras: column _Online state_ and a login for UniFi Protect, so a camera behind an NVR shows
+  offline when it is off (the TCP check only reached the NVR)
+- (sadam6752-tech) Devices: _Record video_ and _Snapshot_ are greyed out on the card of an offline camera
 
-### 0.6.1 (2026-11-12)
+### 0.8.3 (2026-11-15)
 
-- (sadam6752-tech) AI check: the question to pi-agent names the date and time of the snapshot instead of
-  "just now", so the chat of pi-agent shows when each picture came
+- (sadam6752-tech) AI check: a daily report (_Report_), written by pi-agent from what its checks saw since the last
+  one, sent through chosen profiles; state `report.send` and command `report`
 
-### 0.6.0 (2026-11-12)
+### 0.8.2 (2026-11-15)
 
-- (sadam6752-tech) AI check: on the new tab _AI check_ criteria in your own words ("a person", "an animal in the
-  garden") name profiles; with ioBroker.pi-agent the snapshot of an event is checked, and a profile whose criterion
-  the picture meets gets an extra message with what was seen. The files go out as before; the new state
-  `description` keeps the newest description
-- (sadam6752-tech) The adapter answers the message `help` with a description of its commands for AI agents
+- (sadam6752-tech) AI check: the new column _AI_ of the tab _Send_ lets a profile with criteria get the files only on a
+  match or wait for the check and get one message with the description; `{description}` and `{matches}` in the text.
+  The default keeps the files at once plus the extra message
 
-### 0.5.2 (2026-11-11)
+### 0.8.1 (2026-11-15)
 
-- (sadam6752-tech) Sound: a new column _Sound_ in the camera table takes the sound of the camera into mp4 clips
-  (as AAC, also from the pre-recording and with a copied picture); GIFs and snapshots stay silent
-- (sadam6752-tech) Device Manager: a camera that is off showed as online. The adapter now checks every camera on the
-  network at the start and every minute (state `reachable`), and the card shows that
+- (sadam6752-tech) Schedule: _Send only on an AI match_ sends a scheduled snapshot or clip only to the profiles whose
+  criterion pi-agent sees, and _Only if_ runs it only while a state meets a condition (e.g. nobody at home)
 
 Older changes are in CHANGELOG_OLD.md.
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.absolutehumidity/README.md
 title: ioBroker.absolutehumidity
-hash: pxolOQQ3Q/QufA1tbipa/QNfsycC3gF9on8BGcCvTNw=
+hash: aYgm7Bq44V24geurjjoumX2gyesP86c6qhDTrp9v0sY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.absolutehumidity/admin/absolutehumidity.svg)
 
@@ -29,17 +29,9 @@ hash: pxolOQQ3Q/QufA1tbipa/QNfsycC3gF9on8BGcCvTNw=
 
 Небольшие отклонения от таблиц, доступных онлайн, ожидаемы, поскольку в разных таблицах часто используются разные наборы коэффициентов Магнуса, Тетенса, Зоннтага, Болтона или Бака.
 
-<img width="927" height="590" alt="image" src="https://github.com/user-attachments/assets/15aad0cf-144b-4ccb-8d38-c8d7710aab48" />
+<img width="908" height="627" alt="image" src="https://github.com/user-attachments/assets/849e0561-dc5d-4f99-bc29-a547481e9115" />
 
 Страница приложения интерактивна и позволяет рассчитывать абсолютную влажность, температуру точки росы и давать рекомендации по вентиляции на основе данных, записанных аналоговым или ручным способом. Просто введите значения, и результат отобразится автоматически.
-
-## Установка
-
-Пока адаптер ещё не добавлен в стабильный репозиторий, его можно установить вручную из NPM. Примечание: НИКОГДА не устанавливайте его из GitHub.
-
-Ссылка для установки: <https://github.com/BenAhrdt/ioBroker.absolutehumidity>
-
-<img width="955" height="703" alt="image" src="https://github.com/user-attachments/assets/d7c43f37-30be-4a16-99f0-6e7e34164478" />
 
 ## Создайте вкладку на панели вкладок.
 
@@ -76,21 +68,22 @@ hash: pxolOQQ3Q/QufA1tbipa/QNfsycC3gF9on8BGcCvTNw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.10 (2026-11-03)
+* (BenAhrdt) Serialize per-device measurement updates to prevent duplicate output writes when source states change concurrently.
+
+### 0.1.9 (2026-11-03)
+* (BenAhrdt) Accept Unicode temperature units (`℃`/`℉`) and common relative humidity units (`% rF`/`% rH`) for source states.
+
+### 0.1.8 (2026-10-14)
+* (BenAhrdt) Ensure that the interactive preview card labels always use the language selected in Admin, even when browser and system languages differ.
+
+### 0.1.7 (2026-10-14)
+* (BenAhrdt) Clearly label the editable preview values as demonstration-only and explain that they are not saved.
+* (BenAhrdt) Use the selected Admin language for the interactive preview card labels.
+
 ### 0.1.6 (2026-09-28)
 * Rename the visible Device Manager references to Config Manager in the adapter configuration and translations.
 * Add delayed device configuration backups with manual restore and startup recovery when no device configuration exists.
-
-### 0.1.5 (2026-09-27)
-* Update the repository-check dependencies and test the adapter on Node.js 26.
-
-### 0.1.4 (2026-09-21)
-* Keep long Device Manager measurements readable with a smaller value font and at most two decimal places.
-
-### 0.1.3 (2026-09-21)
-* Restore the regular adapter configuration page with interactive outdoor and indoor preview cards, and provide a link to the Device Manager in Config Manager.
-
-### 0.1.2 (2026-09-20)
-* Keep the Device Manager in the adapter configuration instead of a separate Admin tab. Render the four live measurements through one shared HTML row template per card; Admin's read-only numeric state control otherwise adds a progress indicator for percent and bounded states.
 
 ## License
 MIT License

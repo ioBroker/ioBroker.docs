@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.victron-gx/README.md
 title: ioBroker Victron GX Adapter
-hash: DwvNl2P9BI+snAPG4/qHtfZRJ/Yp+T3Ui7xJDxBd/JI=
+hash: 7L66NrKMVpXLu8WBkyNdfjq+184tYSZ7jYt+SrH4kxE=
 ---
 # ioBroker Victron GX Adapter
 
@@ -72,7 +72,7 @@ hash: DwvNl2P9BI+snAPG4/qHtfZRJ/Yp+T3Ui7xJDxBd/JI=
    - Дополнительно: **управление по протоколу Modbus** (регистры ESS/инвертора становятся доступными для записи через Modbus TCP).
    - Дополнительно: **управление по протоколу MQTT** (переключатели, зарядное устройство для электромобилей, заданные значения температуры становятся доступными для записи через MQTT).
 
-> **Примечание:** Требуется Node.js версии не ниже 22. Если ваш ioBroker работает на Node.js версии 20, пожалуйста, сначала обновите его.
+> **Примечание:** Требуется Node.js версии 22 и выше. Если ваш ioBroker работает на Node.js версии 20, пожалуйста, сначала обновите его.
 
 ---
 
@@ -288,12 +288,16 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 Если вы переместите канал в другую группу, отключите канал Shelly или удалите переключатель Node-RED, его тема MQTT исчезнет, но объекты ioBroker останутся. Включите параметр **«Удалять осиротевшие каналы при запуске»** (вкладка «Основные настройки», по умолчанию отключено), чтобы адаптер удалял их автоматически:
 
 - Запускается один раз при каждом запуске адаптера, только примерно через 30 секунд после обнаружения нового канала (поэтому многоканальные устройства, такие как Shelly Pro3, экземпляры которых сообщают о состоянии канала в несколько разное время, не затрагиваются в процессе запуска).
-- Только прикосновения `outputs.<N>` каналы. Метаданные на уровне устройства, `Ac.*` измерения и `overview.*` Таким образом, они никогда не удаляются.
-- Отключите эту функцию, если ваши устройства часто находятся в автономном режиме — канал, который еще не предоставил данные к моменту запуска проверки, выглядит заброшенным и будет удален.
+- Удаляет `outputs.<N>` каналы, которые больше не активны, и целые папки устройств, оставшиеся после перемещения группы (например, канал, которому была назначена группа только после того, как адаптер уже создал ее без группы, или канал Shelly, перемещенный из одной группы в другую). `overview.*` Это никогда не коснется его.
+- Последовательный номер Victron, используемый одновременно несколькими сервисами (например, реле, отображаемое как оба сервиса). `switch.*` и `acload.*` Обработка данных происходит корректно – сохраняются все активные пути для данного последовательного порта, даже если только один из них имеет группу.
+- Отключите эту функцию, если ваши устройства часто находятся в автономном режиме — канал, который еще не отправил данные к моменту запуска проверки, выглядит заброшенным и будет удален.
 
 ---
 
 ## Changelog
+
+### 0.10.1 (2026-10-07)
+- Fix: orphan cleanup no longer deletes active device folders when one serial is exposed by several services (e.g. Shelly as switch + acload) and clears stale caches after deletions (fixes repeated 'has no existing object' warnings). The sweep now waits until all device commits have settled. Update mqtt to 5.16.0 (security fixes) and @iobroker/testing to 6.2.2, add Node.js 26 to the CI matrix.
 
 ### 0.10.0 (2026-08-01)
 - **BREAKING:** the `control.*` branch has been removed - writable datapoints now live directly under `devices.*`, with `common.write` gated by two config toggles (Modbus control / MQTT control). See README section "Writable Data Points" for the full old→new mapping and migration steps.
@@ -314,7 +318,6 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 
 ### 0.9.1 (2026-07-27)
 - Added support for EV chargers (read + experimental control) and generic temperature inputs (dbus-adc). Thanks to Samson71 for the catalog. Community testing appreciated.
-
 
 ### 0.9.0 (2026-07-19)
 
@@ -408,10 +411,6 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 - Complete read support for all device types
 
 ---
-
-[Older changelogs](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

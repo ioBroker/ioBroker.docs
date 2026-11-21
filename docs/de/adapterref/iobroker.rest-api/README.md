@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: EKkqBSppCx+47SOCO3BEkHos8uEg1b5WygRUZz039k4=
+hash: IsF3OIAx7TSPReruBdOdeDIn4cbqdQv69g7866wwE3Y=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/rest-api-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.rest-api.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/rest-api-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
 ![Tests](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
@@ -92,6 +92,39 @@ Ein Beispiel für den Browser finden Sie hier: [demoNodeClient.js](https://githu
 
 Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter folgender Adresse verfügbar: `http://ipaddress:8082/rest-api/`
 
+## Reverse-Proxy
+
+Wenn der Adapter hinter einem Reverse-Proxy unter einem Unterpfad läuft, legen Sie diesen Pfad in den Instanzeinstellungen fest (`Reverse proxy path` z.B. `/rest-api` Swagger UI sendet dann seine Anfragen an `/rest-api/v1/...` anstatt `/v1/...` Der Proxy muss das Präfix entfernen, bevor er die Anfrage weiterleitet, z. B. für nginx:
+
+```nginx
+location /rest-api/ {
+    proxy_pass http://iobroker-host:8093/;
+}
+```
+
+Wenn der Adapter als Web-Erweiterung ausgeführt wird, wird der Pfad vorangestellt an `/rest-api/` des Webadapters.
+
+## Schreiben Sie mit einer Anfrage mehrere Bundesstaaten.
+
+`PATCH /v1/states` schreibt mehrere Staaten mit einer Anfrage (Ersatz für `setBulk` von `simple-api`):
+
+```http
+PATCH http://ipaddress:8093/v1/states
+Content-Type: application/json
+
+[
+    { "id": "0_userdata.0.nfc.UserID", "val": "4711" },
+    { "id": "0_userdata.0.nfc.NFCID", "val": "04A224B2C35E80" },
+    { "id": "0_userdata.0.nfc.TagContent", "val": "door", "ack": true }
+]
+```
+
+Anstelle eines Arrays kann ein Objekt gesendet werden: `{ "0_userdata.0.a": 1, "0_userdata.0.b": { "val": 2, "ack": true } }` Die
+
+Die Antwort enthält für jeden Bundesstaat einen Eintrag in der gleichen Reihenfolge: `{ id, val, ack }` oder `{ id, index, error }` Wenn dieser Zustand nicht beschrieben werden könnte. Mit `?stopOnError=true` Die Verarbeitung wird beim ersten Fehler abgebrochen. Maximal 1000 Zustände pro Anfrage.
+
+**Wichtig:** Die Zustände werden nacheinander in der vorgegebenen Reihenfolge geschrieben. Es handelt sich **nicht um** eine Transaktion: Jeder Zustand löst sein eigenes Änderungsereignis aus, und ein Skript, das vom ersten Zustand ausgelöst wird, sieht möglicherweise noch nicht die neuen Werte der nachfolgenden Zustände. Benötigt ein Skript alle Werte gleichzeitig, sollte es nur beim **letzten** Zustand der Liste ausgelöst werden, und die anderen Zustände werden dort gelesen.
+
 ## Beachten
 
 - `POST` Dient immer der Erstellung einer Ressource (unabhängig davon, ob sie dupliziert wurde).
@@ -142,7 +175,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getObjects(list)` Alle Zustände und Räume abrufen. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
 - `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` - Objekt mit JSON-Objekt festlegen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
-- `delObject(id, options)` - ein Objekt anhand seiner ID löschen
+- `delObject(id, options)`- ein Objekt anhand seiner ID löschen
 
 ### Dateien
 
@@ -163,9 +196,9 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### Administratoren
 
 - `getHostByIp(ip)` - Hostinformationen anhand der IP-Adresse lesen. Z. B. über localhost
-- `readLogs(host)`- Dateinamen und Größe der Protokolldateien lesen. Sie können diese mit <http://ipaddress:8093/> abrufen.<fileName>
+- `readLogs(host)` - Dateinamen und Größe der Protokolldateien lesen. Sie können diese mit <http://ipaddress:8093/> abrufen.<fileName>
 - `delState(id)` - Zustand und Objekt löschen. Entspricht delObject.
-- `getRatings(update)` - Lesen Sie die Spezifikationen des Adapters (wie im Adminbereich)
+- `getRatings(update)` - Lesen Sie die Adapterbewertungen (wie im Adminbereich)
 - `getCurrentInstance()` - Adapter-Namespace lesen (immer rest-api.0)
 - `decrypt(encryptedText)` - Entschlüsselung der Zeichenkette mit Systemgeheimnis
 - `encrypt(plainText)` - Zeichenkette mit Systemgeheimnis verschlüsseln
@@ -211,94 +244,32 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 -->
 
 ## Changelog
+### 4.2.0 (2026-11-06)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) Web hooks, polling connections and requests waiting for `ack` no longer take the subscription of a state or an object away from each other: when one of them gave it up, the others got no more changes of it. rest-api now unsubscribes only when none of them needs it any more
+- (@GermanBluefox) A request waiting for `ack` whose write failed was answered a second time by its timer
+- (@GermanBluefox) As a web extension, rest-api is now reloaded by web (9.4.0 or newer) on a change of its settings, without a restart of web (`supportsHotReload`). Requests that still wait for `ack` are answered with 503 when it stops, and it gives up its subscriptions
+
+### 4.1.2 (2026-10-13)
+- (@GermanBluefox) Added `PATCH /v1/states` to write many states with one request (bulk update)
+- (@GermanBluefox) Fixed `413 Payload Too Large` for request bodies larger than 100kB when authentication is enabled
+- (@GermanBluefox) Added option `Reverse proxy path` to make Swagger UI work behind a reverse proxy
+
+### 4.0.4 (2026-10-13)
+- (@GermanBluefox) Updated packages
+- (@GermanBluefox) Added option to use HTTP/2 on a secure connection (enabled by default, falls back to HTTP/1.1)
+- (@GermanBluefox) Report the used port to js-controller
+
+### 4.0.3 (2026-10-13)
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- (@GermanBluefox) Replaced `process.exit()` with `terminate()` for compact mode and added tests on Windows and macOS
+
 ### 4.0.2 (2026-06-14)
 * (@GermanBluefox) Packages were updated
 * (@GermanBluefox) Allowed to define the response content type by sendTo queries
 * (@GermanBluefox) Corrected some minor issues
 
-### 4.0.1 (2026-02-17)
-* (@GermanBluefox) Corrected some minor issues
-
-### 4.0.0 (2026-02-17)
-* (@GermanBluefox) Packages were updated
-* (@GermanBluefox) Drop Node.js 18 support
-
-### 3.1.3 (2026-01-19)
-* (@GermanBluefox) Caught a seldom race condition on the connection close
-
-### 3.1.1 (2025-10-09)
-* (@GermanBluefox) corrected a web extension path
-
-### 3.1.0 (2025-10-05)
-* (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
-* (@SimonFischer04) remove 18 and add node 24 to tests
-* (@SimonFischer04) multiple null error fixes and wrong swagger schema #151
-* (@GermanBluefox) updated packages
-
-### 3.0.1 (2025-05-21)
-* (@GermanBluefox) Corrected the web extension
-
-### 3.0.0 (2025-04-27)
-* (@GermanBluefox) Rewritten in TypeScript
-* (@GermanBluefox) Removed binary states
-
-### 2.1.0 (2025-02-27)
-* (@GermanBluefox) Added OAuth2 support
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Replaced icons with SVG
-
-### 2.0.3 (2024-07-13)
-* (jkuenemund) Changed response for the endpoint get states to the dictionary in swagger
-
-### 2.0.1 (2024-05-23)
-* (foxriver76) ported to `@iobroker/webserver`
-* (theshengfui) Fixed history requests
-* (bluefox) Minimum required node.js version is 16
-
-### 1.1.0 (2023-05-03)
-* (bluefox) Converting of the setState values to the according type
-* (bluefox) Implemented file operations
-
-### 1.0.5 (2023-03-27)
-* (Apollon77) Prepare for future js-controller versions
-
-### 1.0.4 (2022-08-31)
-* (bluefox) Check if the port is occupied only on defined interface
-
-### 1.0.2 (2022-07-27)
-* (bluefox) Implemented binary read/write operations
-
-### 1.0.1 (2022-07-27)
-* (bluefox) Increased the max size of body to 100Mb
-
-### 1.0.0 (2022-05-19)
-* (bluefox) Final release
-
-### 0.6.0 (2022-05-18)
-* (bluefox) Added sendTo path
-
-### 0.5.0 (2022-05-17)
-* (bluefox) Some access errors were corrected
-
-### 0.4.0 (2022-04-26)
-* (bluefox) Added socket commands
-
-### 0.3.6 (2022-04-22)
-* (bluefox) Added object creation and enumeration reading
-
-### 0.3.5 (2022-04-22)
-* (bluefox) Allowed the reading of current subscriptions
-
-### 0.3.4 (2022-04-20)
-* (bluefox) Corrected subscription
-
-### 0.3.1 (2022-04-15)
-* (bluefox) First release
-
-### 0.1.0 (2017-09-14)
-* (bluefox) initial commit
-
 ## License
-Apache 2.0
+Apache 2.0, see [LICENSE](https://github.com/ioBroker/ioBroker.rest-api/blob/master/LICENSE)
 
 Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

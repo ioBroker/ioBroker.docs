@@ -104,16 +104,16 @@ Instead of `text2command` you can select an [assistant](https://github.com/ioBro
 
 Photos and videos can be switched off with "Photos and videos to the assistant". The assistant gets 2 minutes for an answer; after that the user is told that it did not answer in time.
 
-### Voice messages as text (ai-parakeet)
+### Voice messages as text (voice)
 
-With an [ai-parakeet](https://github.com/ioBroker/ioBroker.ai-parakeet) instance ("Speech recognition instance" in the settings), voice messages are converted to text locally, and this text is processed like a typed message: it goes to `communicate.request`, and the commands of this adapter, `text2command` and the assistant get it. The recognised text is also written to `communicate.requestVoiceText`.
+With an [voice](https://github.com/ioBroker/ioBroker.voice) instance ("Speech recognition instance" in the settings), voice messages are converted to text locally, and this text is processed like a typed message: it goes to `communicate.request`, and the commands of this adapter, `text2command` and the assistant get it. The recognised text is also written to `communicate.requestVoiceText`.
 
 - With "Show the recognised text in the chat" (default: on) the bot answers first with what it understood (🎤 …).
 - A full stop or exclamation mark at the end of the recognised text is removed, so that e.g. "Light on" matches a command.
-- The names of the commands of this adapter go along as `prompt`, so that they are written as configured (if this is enabled in ai-parakeet).
-- For OGG/Opus, ai-parakeet needs ffmpeg (it can be downloaded on the tab **Recognition** of ai-parakeet).
+- The names of the commands of this adapter go along as `prompt`, so that they are written as configured (if this is enabled in voice).
+- For OGG/Opus, voice needs ffmpeg (it can be downloaded on the tab **Recognition** of voice).
 - The speech recognition gets 90 seconds. If it fails, the user gets "The voice message could not be recognised."
-- If an assistant instance is selected too, ai-parakeet recognises the voice message and the assistant gets the text.
+- If an assistant instance is selected too, voice recognises the voice message and the assistant gets the text.
 - A voice message with a caption is answered by its caption, as before.
 
 To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
@@ -671,7 +671,7 @@ or
 ```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
-    user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
+    user: '@Username', // optional: without user and users every user in telegram.0.communicate.users with a username is called
     lang: 'de-DE-Standard-A', // optional and the system language will be taken
     repeats: 0, // number of repeats 
 });
@@ -694,6 +694,8 @@ sendTo('telegram.0', 'call', {
     users: ['@Username1', '@Username2'] // Array of `users' or telephone numbers.
 });
 ```
+
+With a callback, the adapter answers when all calls are done: `{ called: <number of successful calls>, error?: <the reasons of the failed calls> }`.
 
 Possible values for language:
 - `ar-XA-Standard-A` - Arabic (Female voice)
@@ -907,6 +909,13 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: the message `call` now answers when the calls are done: `{called, error?}`
+- (@GermanBluefox) The speech recognition instance is now selected from the `voice` adapter instead of `ai-parakeet`
+
+### 6.5.0 (2026-11-19)
+- (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
 ### 6.4.0 (2026-11-09)
 - (@GermanBluefox) Voice messages can be converted to text by an `ai-parakeet` instance (new setting "Speech recognition instance"); the text is then processed like a typed message (`communicate.request`, commands, `text2command`, assistant) and also written to the new state `communicate.requestVoiceText`. "Show the recognised text in the chat" answers with what was understood (🎤 …)
 
@@ -920,12 +929,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (@GermanBluefox) Questions to the `assistant` instance (text and voice) wait at most 2 minutes for the answer; after that the user gets "The assistant did not answer in time." instead of no reply at all (e.g. when the assistant restarted meanwhile)
 - (@GermanBluefox) Photos and videos are forwarded to the `assistant` instance too: photos (an album as one question, at most 4) with their caption as the question, videos are stored in the file storage of the instance (folder `assistant`, the newest 20) and only their place goes along. Can be switched off with "Photos and videos to the assistant"
 - (@GermanBluefox) Added the state `communicate.pathFileUrl`: the `iobdisk://` URL of the last received file (e.g. `iobdisk://pi4/telegram.0/video/2026-11-04_10-00-00.mp4`), which instances on other hosts can read with `readDiskFile(url)` - the path in `communicate.pathFile` is only valid on the host of telegram. Needs js-controller 8.0 and `saveFilesTo: filesystem`, otherwise the state stays empty
-
-### 6.1.0 (2026-11-04)
-- (@GermanBluefox) Voice messages are forwarded to the configured `assistant` instance: it recognises the speech and the answer is sent back to the chat with the recognised text in front (🎤 …). The same user check as for text messages applies; a voice message with a caption is answered by its caption. Needs ioBroker.assistant with voice enabled, a speech recognition engine and ffmpeg on the host
-- (@GermanBluefox) `send` can return the ids of the sent messages again (`returnMessageIds: true`), to edit or delete the message later; failed recipients come with the reason (#1389)
-- (@GermanBluefox) The Blockly block "telegram" has an optional input for the topic (thread id) of a forum group (#952)
-- (@GermanBluefox) Completed the Blockly translations for Ukrainian and Chinese
 
 ## License
 

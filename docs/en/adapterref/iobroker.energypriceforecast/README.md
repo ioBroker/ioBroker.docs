@@ -7,7 +7,7 @@
 
 ## Energy Price Forecast EU adapter for ioBroker
 
-Electricity price and CO2 forecast for 34 European bidding zones from
+Electricity price and CO2 forecast for 37 European bidding zones from
 [energypriceforecast.eu](https://energypriceforecast.eu/).
 
 Day-ahead prices are only published for the next day. This adapter continues
@@ -28,8 +28,13 @@ All calculation happens on the server. The adapter polls, maps and writes states
 
 ### Markets
 
-AT, BE, BG, CH, CZ, DE, DK1, DK2, ES, FI, FR, GB, GR, the seven Italian zones (NORD,
-CNOR, CSUD, SUD, CALA, SICI, SARD), NL, NO1–NO5, PL, PT, RO, SE1–SE4, SK.
+AT, BE, BG, CH, CZ, DE, DK1, DK2, ES, FI, FR, GB, GR, HR, HU, the seven Italian
+zones (NORD, CNOR, CSUD, SUD, CALA, SICI, SARD), NL, NO1–NO5, PL, PT, RO,
+SE1–SE4, SI, SK.
+
+Croatia (HR) has no published day-ahead source yet, so its prices are always
+forecasts, as in Slovakia. In newly added markets the CO2 and forecast-quality
+states stay empty until the API delivers them; an empty state is not a zero.
 
 Prices are in the market's currency per kWh as the API reports it (EUR, DKK,
 NOK, SEK, GBP, ...). By default they are wholesale prices; see
@@ -131,6 +136,10 @@ The adapter is in testing. Feedback is collected in the
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.1.4 (2026-11-20)
+
+- Hungary (HU), Slovenia (SI) and Croatia (HR) as new markets
 
 ### 0.1.3 (2026-10-31)
 

@@ -103,8 +103,30 @@ Delay in milliseconds between the commands sent via the `samsung_tizen.0.control
 
 ## 2. Usage
 
-### 2.0. Setup assistant
+### 2.1. Setup assistant
 The first tab of the settings, "Setup", walks through the whole setup: it searches the network for the TV, pairs with it (the TV asks once whether ioBroker may connect - choose "Allow" on the TV, the assistant takes the token by itself), reads the MAC address for Wake-on-LAN and sends a test key with the new data before anything is saved. "Apply and save" writes IP address, protocol, port, token and MAC address into the settings. The instance must be running; the tab needs admin 8 or newer. The manual way (state `config.getToken`, token in the name of `config.token`) still works.
+
+### 2.2. Scenes
+The tab "Scenes" holds a table of named sequences, e.g. `SceneYouTube`: `HOME, YOUTUBE, WAIT 3000, OK` - open YouTube and confirm the account selection. A step is a key (`HOME`, `OK`, `BACK`, `UP`, `VOLUP`, `0`-`9`, the names of `TV_KEYS` of the type-detector or a Samsung code `KEY_...`), an app (`YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`, ... - the keys of `TV_APPS`) or a pause (`WAIT 2000`). Every scene becomes a button `samsung_tizen.0.scenes.<name>` and a key of the remote control tab.
+
+### 2.3. Remote control tab
+The tab "Remote control" of the settings shows a remote control: power, Wake-on-LAN, source, menu, info, the arrow keys with OK, back, home, mute, volume and channel rockers, the playback keys and a button for every known app installed on the TV (YouTube, Netflix, Disney+, Prime Video, ...). Click it and the arrow keys, Enter, Backspace, + and - of the keyboard work as well. A LED shows the power state if the power state polling is on. The keys go through the running instance with the saved configuration, so save first after changing the IP address or the token. A key that does not reach the TV shows the error below the remote. The tab needs admin 8 or newer.
+
+### 2.4. Messages for scripts and AI agents
+`sendTo('samsung_tizen.0', 'help', {})` answers a description of the messages and states of the adapter for AI agents (e.g. ioBroker.pi-agent) and script authors: `{ help, commands }`, where `commands` lists every message with `write` (whether it changes something). Scripts can use `apps` (the known apps installed on the TV), `launchApp` (`{ app: 'YOUTUBE' }`), `remote` (`{ key: 'KEY_HOME' }`), `wake`, `scenes` and `runScene` (`{ scene: '<id>' }`).
+
+## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (GermanBluefox) The pairing token is no longer written to the log (startup config, websocket URL, getToken)
+
+### 2.2.0 (2026-11-19)
+* (GermanBluefox) Fixed the README structure (changelog section) (#321)
+* (GermanBluefox) Added the message "help": a description of all messages and states for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
 ### 2.1.0 (2026-10-29)
 - (GermanBluefox) Added: button "Search TV" that finds the TV in the network and fills in IP address, MAC address, protocol and port; the IP address field lists all TVs found (SSDP, confirmed by the REST API of the TV)
 - (GermanBluefox) Added: button to read the MAC address for Wake-on-LAN from the TV
@@ -113,12 +135,6 @@ The first tab of the settings, "Setup", walks through the whole setup: it search
 - (GermanBluefox) Added: scenes - named sequences of keys, apps and pauses, configured in a table, each with a button `scenes.<name>`
 - (GermanBluefox) Added: buttons for the apps installed on the TV; the adapter knows the Samsung app IDs of YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Paramount+, DAZN, Joyn, RTL+, MagentaTV, ARD, ZDF, Spotify, Twitch, Plex and the browser and asks the TV which of them are installed
 - (GermanBluefox) Added: tab "Remote control" in the settings with a remote control to test the connection right away (custom component, needs admin 8)
-
-### 2.0.1. Scenes
-The tab "Scenes" holds a table of named sequences, e.g. `SceneYouTube`: `HOME, YOUTUBE, WAIT 3000, OK` - open YouTube and confirm the account selection. A step is a key (`HOME`, `OK`, `BACK`, `UP`, `VOLUP`, `0`-`9`, the names of `TV_KEYS` of the type-detector or a Samsung code `KEY_...`), an app (`YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`, ... - the keys of `TV_APPS`) or a pause (`WAIT 2000`). Every scene becomes a button `samsung_tizen.0.scenes.<name>` and a key of the remote control tab.
-
-### 2.0.2. Remote control tab
-The tab "Remote control" of the settings shows a remote control: power, Wake-on-LAN, source, menu, info, the arrow keys with OK, back, home, mute, volume and channel rockers, the playback keys and a button for every known app installed on the TV (YouTube, Netflix, Disney+, Prime Video, ...). Click it and the arrow keys, Enter, Backspace, + and - of the keyboard work as well. A LED shows the power state if the power state polling is on. The keys go through the running instance with the saved configuration, so save first after changing the IP address or the token. A key that does not reach the TV shows the error below the remote. The tab needs admin 8 or newer.
 
 ### 2.0.2 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access token one more time 
@@ -135,6 +151,9 @@ The tab "Remote control" of the settings shows a remote control: power, Wake-on-
 ### 1.1.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
+
+### 1.0.0 (2023-09-30)
+- (mcm1957) An official release has been created
 
 ## License
 

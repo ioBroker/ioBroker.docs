@@ -138,6 +138,12 @@ the language of each answer; pi-agent takes the mark out and returns the code as
 …), so the caller can speak a Russian answer with a Russian voice, also when the satellite listens in German. When the
 model leaves the mark out, `language` is missing and the caller decides itself.
 
+**Round values for spoken answers** (tab "Write permissions", on by default): in the conversation of such a caller
+`get_state` reads temperatures (°C, °F, K), percentages and wind speeds (km/h, m/s, mph, kn, Bft) as whole numbers,
+so a satellite says "1 to 8 degrees" instead of "0.6 to 8 degrees". A rule in the instructions alone was not enough:
+the model read out what the weather states held. Other values (mm, kWh …) and all other conversations keep the exact
+values.
+
 The conversations are kept per sending instance (`pi-agent.0.telegram.chats` lists them as
 `sendTo:<instance>/<conversation>`). Changed instructions apply from the next request of the conversation on.
 
@@ -200,7 +206,7 @@ middle, they continue on the next start. The answer of a request from `chat.inpu
   state). Scheduled writes and watches of such a conversation are told there, too. In simulation mode nothing is
   spoken. Only a `tts` state of the asking instance itself is used.
 - **History:** `get_history` reads past values (up to 31 days, averaged to at most 200 values) from the history
-  instance.
+  instance; when it has nothing for a state, from ioBroker.recorder (see below).
 - **Usage:** `pi-agent.0.usage.*` shows input, output and total tokens and the cost in USD over all conversations
   (the cost needs prices in the model catalog; it can stay 0 for a provider without them), `usage.json` per model,
   `usage.tokensToday` the tokens since midnight in the time zone of the house that count for the daily limit (new
@@ -228,6 +234,17 @@ Two limits stop a request before the model is asked, so a runaway costs no token
   messages and tool results so far), and the provider reads the part it has seen from its cache for about a tenth of
   the price. Counted in full they were over 90 % of the tokens of a day. A new conversation after a change of topic
   keeps the requests small.
+- **Tokens per request (context)** (default 0 = up to the window of the model): every request carries the
+  instructions, the tool descriptions (together about 5-10k tokens) and the history of the conversation. Without a
+  limit the history grows until the window of the model is nearly full (with 128k tokens up to about 100k per request)
+  and is summarised only then. With a limit, e.g. 40000, the older part of a conversation is summarised in the
+  background from three quarters of the limit on and before the request at the limit; the last 30 % of the limit stay
+  word for word. That makes every request cheaper, above all the first one after a pause, when the cache of the
+  provider is gone and every token costs the full price. A summary is one extra model call. Smallest value 24000;
+  32000-48000 suits voice and chat. A satellite conversation that lives for weeks profits most.
+  The debug log shows every model call, e.g.
+  `Model call deepseek/deepseek-flash: context 41234 tokens (39000 from the cache = 95 %, 2234 new), answer 85, cost $0.00091`,
+  and `Summarising the older part of a conversation (threshold): 58 messages` when a summary starts.
 
 ### Messengers: Telegram and MAX
 
@@ -464,6 +481,57 @@ documents.
 - The agent waits up to 30 seconds for the answer; many adapters do not answer, then the command may still have worked.
   A command is never sent a second time after an interruption. In simulation mode nothing is sent.
 
+Before the first command to an adapter the agent reads what the adapter says about itself, with the tool
+`adapter_help`: the adapter answers the message `help` with its commands, their parameters and answers, its
+important states, and which commands only read and which change something. `list_instances` marks the instances that
+declare it (`common.supportedMessages.help` in their `io-package.json`) with `"help": true`. Without a help the agent
+uses only commands the adapter documents and does not guess.
+
+- `adapter_help` only reads: it needs no row in "Write permissions" and no confirmation.
+- It asks only running instances that take messages; an adapter that does not declare `help` gets 3 seconds to
+  answer anyway, one that declares it 10 seconds.
+- An adapter that takes no messages (a web-only one without a process, e.g. home3d) cannot answer `help`. Its help
+  are the states it describes in its `io-package.json`: the `instanceObjects` of type `state` with a `common.desc`
+  (at most 30), each with its type, role, whether it is writable and its description (English, else the first
+  language). `list_instances` marks such an adapter with `"help": true` as well. Writing these states with
+  `set_state` needs "Write allowed" for them as usual.
+
+Adapters learn new things with updates, while a conversation (a voice satellite keeps its own for weeks) still
+remembers what an older version could do. So pi-agent keeps the helps current:
+
+- At its start it reads the help of every running instance that describes itself. It watches
+  `system.adapter.*.alive` and the instance objects: after a restart of an instance (an update restarts it too) or a
+  change of its object, it asks the instance again. An instance that no longer declares a help, answers without one,
+  is switched off or deleted leaves the list. The log says when a help changed or an instance left the list.
+- The instructions of the model name the instances that describe themselves, and two rules: read `adapter_help`
+  before writing the states of such an instance the first time, and read it again in the same request before telling
+  the user that an adapter or a device cannot do something; an earlier answer in the conversation is no proof.
+- pi-agent notes for each conversation the help of every such instance it used (`get_state`, `set_state`,
+  `send_to`) or read (`adapter_help`). When that help changed since, the model reads in its instructions that the
+  instance was updated and that what the conversation found about it before may be wrong now, until it reads the
+  help again. The notes are kept in `adapter-knowledge.json` in the data directory of the instance, for the last 300
+  conversations.
+
+## The recorded house (ioBroker.recorder)
+
+[ioBroker.recorder](https://github.com/ioBroker/ioBroker.recorder) records every relevant state of the house without
+configuring each one, with who switched it, and learns what is usual for each hour of the week. When an instance of it
+is enabled at the start of pi-agent, the agent gets four tools that only read:
+
+| Tool | Command of the recorder | For questions like |
+|---|---|---|
+| `house_events` | `getEvents` | "What was switched yesterday evening?", "Who opened the garage?" |
+| `house_snapshot` | `getSnapshot` | "Was the bedroom window open at 22:00?", "How warm was the living room at 3 am?" |
+| `house_anomalies` | `getAnomalies` | "Was anything unusual last night?", "Why did I get this notification?" |
+| `usual_value` | `getProfile` | "Is 23 °C normal in the bathroom now?" |
+
+- Times are local times of the house; "22:00" means the last 22:00. A room is found in any language ("kitchen" finds
+  "Küche"), categories are those of the recorder (`light`, `shading`, `climate`, `windowsDoors`, `motion`, `security`,
+  `sockets`, `media`, `weather`, `energy`).
+- They need no write permission and no confirmation. Motion and presence are only there when they are enabled in the
+  recorder; a profile for `usual_value` is learned after 14 days.
+- An instance installed later is used after a restart of pi-agent.
+
 ## Documentation search (RAG)
 
 Models, local ones above all, invent functions of the script API or settings of adapters. With a server of the
@@ -572,63 +640,63 @@ the last copy.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.10.1 (2026-11-12)
+### 0.12.3 (2026-11-20)
 
-- (sadam6752-tech) `ask` with `language` (ioBroker.assistant): the answer comes with the language it is written in
-  (`result.language`), so a voice satellite can speak a Russian answer with a Russian voice instead of spelling it.
-  The model marks the language (a reminder goes with each question); without a mark Cyrillic and Chinese letters
-  still tell it. A different language than the caller listens in is logged
+- (sadam6752-tech) A conversation that used an adapter without a help, or heard from adapter_help that it has none, is now told when the adapter gains one (the same "UPDATED" line as after a changed help). Seen with movieswipe: a voice conversation had heard "takes no messages" from 1.1.6 and after the update to 1.2.0, which brought a movie search, kept answering that it has no access to the movie database.
+- (@GermanBluefox) `send_to`: a data URL in an answer (e.g. the picture echarts rendered) reaches the model as its
+  type and size instead of 4000 characters of base64
 
-### 0.10.0 (2026-11-11)
+### 0.12.2 (2026-11-20)
 
-- Documentation search: with the URL of an ioBrokerRAG server (tab "General") the agent searches the ioBroker
-  documentation, the source code of the core and the READMEs of the adapters before it writes a script or explains an
-  adapter (tool `search_docs`); only permissively licensed passages go to the model
-- Daily token limit: cache reads no longer count (they were over 90 % of the tokens of a day); the count of the
-  day starts anew once after the update
-- Daily token limit: at 80 %, 90 % and 99 % the user gets a warning under the answer, once a day each; the log too
-- Admin chat: a request refused by the daily limit (or failed otherwise) showed "thinking …" for ever; the chat now
-  shows the error
+- (@GermanBluefox) The helps of the adapters stay current: pi-agent reads them at its start and again after an
+  instance restarts or its object changes; an instance without a help any more leaves the list. A conversation that
+  used an instance whose help changed since is told to read it again, so it does not answer from what an older
+  version could do (seen with a voice satellite: "the TV takes only exact links" after youtube-remote learned to search)
+- (@GermanBluefox) The instructions name the instances that describe themselves; before telling the user that an
+  adapter cannot do something, the agent reads its help in that request
+- (sadam6752-tech) `@iobroker/testing` 6.3.2 (repository checker W0037); the changelog links to CHANGELOG_OLD.md
 
-### 0.9.7 (2026-11-11)
+### 0.12.1 (2026-11-20)
 
-- send_to: the model asks an adapter for its commands with "help" first, when it does not know them —
-  e.g. satellite-display 0.2.0, which adds, moves and removes tiles of the displays by chat
+- (@GermanBluefox) `adapter_help` for adapters that take no messages (web-only ones such as home3d): their help is
+  the states they describe in their `io-package.json` (`instanceObjects` with `common.desc`), listed with type,
+  whether they are writable and the description; `list_instances` marks them with `"help": true` too
+- (sadam6752-tech) The help from states stays within 20000 characters like any other help; `list_updates` marks
+  a new web-only adapter that describes its states with `"help": true` in `newAdapters`
 
-### 0.9.6 (2026-11-08)
+### 0.12.0 (2026-11-20)
 
-- Photos sent to the bots of Telegram and MAX go to the model with their caption, the photos of an album as one
-  question (at most 4); a text right after photos without caption is their question. Only the largest size of a
-  Telegram photo is used; the model sees it once and keeps notes of it. New column "Photos" on the tab "Messengers"
-  (off for rows saved before). Telegram saves photos only with "Save files"; "Delete received files after (days)" of
-  telegram 6.3.0 removes old ones
-- A picture whose answer has no picture notes is no longer taken for one that was never sent
+- (sadam6752-tech) A recorder installed, switched on, off or removed while the agent runs restarts the agent, so its
+  tools come and go without a manual restart; `list_updates` names the adapters installed since the last look
+  (`newAdapters`, with `"help": true` when the adapter describes its commands for `adapter_help`)
+- (sadam6752-tech) A background job whose triggers are all times of day (a report every morning) runs up to 365 days
+  or without an end instead of 30 days; the agent asks "one year or without an end?" when the user did not say how
+  long, and the admin chat shows "no end"; every job conversation starts anew after 30 days, so a long report does
+  not send months of history; with a recorder, job reports use `house_events`, `house_anomalies` and `usual_value`
 
-### 0.9.5 (2026-11-05)
+### 0.11.1 (2026-11-19)
 
-- Reminders asked on a voice satellite of ioBroker.assistant (1.4.9+) come back there: within 24 hours as a timer on
-  the satellite (countdown, ring, the text spoken), else spoken on the satellite when due. Before, they went to
-  `chat.answer` only. Scheduled writes, watches and background jobs of such a conversation are told on that satellite
+- (@GermanBluefox) Tool `adapter_help`: before the first `send_to` to an adapter the agent reads the description the
+  adapter gives of its commands and states (message `help`, `common.supportedMessages.help`), without a write
+  permission; `list_instances` marks those adapters with `"help": true`; the description of `send_to` points to it
+  instead of telling the model to send `help` itself (that needed a write permission)
 
-### 0.9.4 (2026-11-04)
+### 0.11.0 (2026-11-18)
 
-- Pictures go to the model only once: the model keeps notes of what a picture shows, later questions get the notes
-  instead of the picture. The store keeps the newest 20 pictures, older ones are removed at the start
+- (sadam6752-tech) With ioBroker.recorder installed, four read-only tools: `house_events` (what was switched, when and by whom), `house_snapshot` (the house at a moment in the past), `house_anomalies` and `usual_value`; `get_history` reads from the recorder when the history instance has nothing for a state
 
-### 0.9.3 (2026-11-04)
+### 0.10.5 (2026-11-15)
 
-- (@GermanBluefox) Pictures in `ask`: `images: [{ data: <base64>, mimeType }]` (JPEG, PNG, GIF, WebP, at most 4 of up
-  to about 3.9 MB) go to the model with the text; a request may consist of pictures only. ioBroker.assistant passes
-  on the photos of Telegram this way. The type is taken from the content; other files and larger pictures are dropped
-  with a warning, so a picture the model refuses cannot block the conversation. A model without image input gets a
-  note instead; `chat.pending` keeps only the text
+- (sadam6752-tech) New setting "Tokens per request (context)" (0 = as before): above it the older part of a
+  conversation is summarised, so a long satellite conversation no longer sends up to 100k tokens with every request.
+  The debug log shows the tokens of every model call (context, share from the cache, answer, cost)
 
-### 0.9.2 (2026-11-04)
+### 0.10.4 (2026-11-13)
 
-- Telegram: a warning in the log when the telegram instance also hands messages to an assistant instance (since
-  telegram 6.1.0 also voice messages) or to text2command, because then every message gets two answers
+- (sadam6752-tech) Confirmation by voice: a bare yes or no keeps the language of the conversation. A spoken "Да" came
+  back from speech recognition as "Yeah.", and the confirmation that followed was asked in German instead of Russian
 
-Older changelog entries can be found in CHANGELOG_OLD.md.
+Older changes are listed in CHANGELOG_OLD.md.
 
 ## License
 

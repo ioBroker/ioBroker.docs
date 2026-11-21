@@ -1,284 +1,359 @@
 ---
-BADGE-NPM version: https://img.shields.io/npm/v/iobroker.anomaly-detection.svg?color=blue
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.anomaly-detection.svg
 chapters: {"pages":{"de/adapterref/iobroker.anomaly-detection/README.md":{"title":{"de":"ioBroker.anomaly-detection"},"content":"de/adapterref/iobroker.anomaly-detection/README.md"}}}
 ---
 <img src="admin/anomaly-detection.png" alt="Logo" width="400">
 
 # ioBroker.anomaly-detection
 
+[English](/#/adapters/anomaly-detection) · **Deutsch** ([README.de.md](/#/adapters/anomaly-detection))
+
 [![NPM version](https://img.shields.io/npm/v/iobroker.anomaly-detection.svg?color=blue)](https://www.npmjs.com/package/iobroker.anomaly-detection)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.anomaly-detection.svg)](https://www.npmjs.com/package/iobroker.anomaly-detection)
 
-[English](/#/adapters/anomaly-detection) · **Deutsch**
+Learns the normal behaviour of selected numerical ioBroker states and reports statistically unusual values locally.
 
-Der Adapter lernt das normale Verhalten ausgewählter numerischer ioBroker-Zustände und meldet statistisch ungewöhnliche Werte lokal.
+> **No AI is used.** The adapter does not use machine learning services, cloud APIs, or generative AI. All evaluations are calculated locally using deterministic mathematical and statistical methods such as medians, Median Absolute Deviation (MAD), bounded time baselines, and robust slopes. Results are explainable and reproducible from the same input data and configuration.
 
-> **Es wird keine KI verwendet.** Der Adapter nutzt weder Cloud-Dienste noch externe KI- oder Machine-Learning-APIs. Alle Bewertungen werden lokal mit deterministischen mathematischen und statistischen Verfahren berechnet, unter anderem Median, Median Absolute Deviation (MAD), Zeitbereichs-Baselines und robuste Steigungen. Bei gleichen Eingangsdaten und Einstellungen sind die Ergebnisse nachvollziehbar und reproduzierbar.
+## What it does
 
-## Funktionsweise
+Static thresholds cannot express context: 8 kW can be normal in the morning and unusual later on a warm Sunday. This adapter maintains bounded robust baselines for each configured numerical state. It evaluates every incoming state update; it does not poll source states.
 
-Starre Grenzwerte können zeit- oder betriebsabhängiges Verhalten nicht abbilden: 8 kW können morgens normal, an einem warmen Sonntag aber ungewöhnlich sein. Für jeden konfigurierten numerischen Zustand verwaltet der Adapter begrenzte, robuste Baselines. Jede eingehende Zustandsänderung wird ausgewertet; die Quellzustände werden nicht abgefragt (kein Polling).
+The adapter combines these deterministic detectors:
 
-Der Adapter kombiniert folgende deterministische Detektoren:
+- **Robust value deviation:** Median Absolute Deviation (MAD) detects values outside the learned range without allowing a single extreme reading to distort the baseline.
+- **Rate of change:** compares `delta / elapsed time`, so irregular source update intervals are handled correctly.
+- **Stuck state:** optionally detects repeatedly received identical values beyond the configured duration. A missing update alone is never classified as stuck.
+- **Temporal baseline:** hourly buckets by default, optionally further split by weekday. Sparse day/time contexts fall back to the time-of-day baseline and then to the global baseline.
 
-- **Wertabweichungen (MAD):** Erkennt Werte außerhalb des gelernten Normalbereichs, ohne dass ein einzelner Extremwert die Baseline stark verzerrt.
-- **Änderungsrate:** Bewertet `Delta / vergangene Zeit` und berücksichtigt dadurch unregelmäßige Update-Abstände.
-- **Festhängende Werte:** Erkennt wiederholt empfangene identische Werte, die länger als die konfigurierte Dauer anhalten. Ein fehlendes Update allein gilt niemals als festhängend.
-- **Tageszeit-Kontext:** Verwendet standardmäßig Stundenbereiche und kann zusätzlich nach Wochentagen getrennt werden. Bei zu wenigen Daten greift die Hierarchie auf den Zeitbereich und anschließend auf die globale Baseline zurück.
+`score` is a deterministic severity/confidence value from 0 to 100, not a statistical probability and not a diagnosis of the physical cause.
 
-`score` ist ein deterministischer Schweregrad von 0 bis 100. Er ist weder eine statistische Wahrscheinlichkeit noch eine Diagnose der physischen Ursache.
+## Requirements
 
-## Voraussetzungen
+- Node.js 24 or newer (as declared in `package.json`).
+- ioBroker js-controller 7.2.2 or newer (as declared in `io-package.json`).
+- ioBroker Admin 8.2.0 or newer for the custom administration tab. React 19 and MUI 9 are used by the federated Admin UI; compatibility with every Admin 8.x host build has not been independently verified, so use a current supported Admin release.
 
-- Node.js 24 oder neuer (laut `package.json`).
-- ioBroker js-controller 7.2.2 oder neuer (laut `io-package.json`).
-- ioBroker Admin 8.2.0 oder neuer für den Custom-Administrations-Tab. Die föderierte Admin-Oberfläche verwendet React 19 und MUI 9; die Kompatibilität mit jeder Admin-8.x-Hostversion wurde nicht separat praktisch bestätigt. Verwende daher eine aktuelle unterstützte Admin-Version.
+| Score  | Interpretation |
+| ------ | -------------- |
+| 0–49   | normal         |
+| 50–69  | unusual        |
+| 70–84  | anomaly        |
+| 85–100 | strong anomaly |
 
-| Score  | Bedeutung       |
-| ------ | --------------- |
-| 0–49   | normal          |
-| 50–69  | ungewöhnlich    |
-| 70–84  | Anomalie        |
-| 85–100 | starke Anomalie |
+## Mathematical basis
 
-## Mathematische Grundlagen
+The adapter uses bounded, robust statistics. It does not fit a neural network, call an AI service, or assume that measurements arrive at fixed intervals.
 
-Der Adapter verwendet begrenzte, robuste Statistik. Er trainiert kein neuronales Netz, ruft keinen KI-Dienst auf und setzt keine konstanten Messintervalle voraus.
+### Robust value deviation (Median and MAD)
 
-### Wertabweichungen: Median und MAD
+For a learned baseline with values `x₁ … xₙ`, the expected value is the median:
 
-Für eine gelernte Baseline mit Werten `x₁ … xₙ` ist der erwartete Wert der Median `m = median(x₁ … xₙ)`. Die Streuung wird mit der Median Absolute Deviation berechnet:
+`m = median(x₁ … xₙ)`
+
+The spread is measured with the Median Absolute Deviation (MAD):
 
 `MAD = median(|xᵢ − m|)`
 
-Für einen neuen Wert `x` ergibt sich der robuste z-Score:
+For a new value `x`, the adapter calculates a robust z-score:
 
-`robuster z-Score = 0,6745 × |x − m| / MAD`
+`robust z = 0.6745 × |x − m| / MAD`
 
-Die Option **Sensitivität** legt fest, bei welchem z-Score dieser Detektor den Wert 100 erreicht. Median und MAD werden von einzelnen Ausreißern deutlich weniger verzerrt als Mittelwert und Standardabweichung. Bei `MAD = 0` ist ein unveränderter Wert normal; ein anderer Wert gilt als starke Abweichung.
+The configured **Sensitivity** is the z-score at which this detector reaches a score of 100. Unlike an arithmetic mean and standard deviation, median/MAD is not strongly distorted by a single extreme value. If `MAD = 0`, an unchanged value is normal and a different value is treated as a strong deviation.
 
-### Änderungsrate
+Example: learned values around `100 W` with median `100 W` and MAD `2 W` make `120 W` a much stronger deviation than `103 W`.
 
-Für zwei aufeinanderfolgende Werte wird das tatsächliche Zeitintervall verwendet:
+### Rate-of-change deviation
 
-`Rate = (aktueller Wert − vorheriger Wert) / vergangene Sekunden`
+For consecutive values, the rate is calculated using the actual elapsed time:
 
-Die Rate-Baseline wird mit derselben Median/MAD-Methode gelernt. So kann eine ungewöhnlich schnelle Änderung erkannt werden, auch wenn der absolute Endwert noch plausibel ist.
+`rate = (current value − previous value) / elapsed seconds`
 
-### Festhängende Werte
+The learned rate baseline uses the same median/MAD calculation as the value detector. This detects a change that is unusually fast even when the resulting absolute value is still plausible.
 
-Dieser Detektor ist regelbasiert. Werden identische Werte wiederholt empfangen, merkt sich der Adapter den ersten Zeitpunkt `t₀`. Ein Treffer ist erst möglich, wenn gilt:
+Example: a tank level normally changes by `−0.01 %/s`; a change of `−0.5 %/s` can indicate an unusual rapid loss.
 
-`aktueller Zeitpunkt − t₀ ≥ konfigurierte Dauer`
+### Stuck-state detection
 
-Ein fehlendes Update zählt nicht als wiederholter Wert und kann daher keine Festhängend-Anomalie auslösen.
+This method is rule-based rather than distribution-based. When identical values are received repeatedly, the adapter records the first timestamp `t₀`. A stuck finding is possible only when:
 
-### Tageszeit- und Wochentags-Kontext
+`current timestamp − t₀ ≥ configured stuck duration`
 
-Zeitbereiche werden aus der lokalen Tageszeit gebildet:
+A missing update does not count as a repeated value and therefore cannot cause a stuck finding.
 
-`Zeitbereich = floor(Minuten seit Mitternacht / Bucket-Größe)`
+Example: with a duration of `120 minutes`, a valve position that continues to report exactly `50` for more than two hours is considered suspicious.
 
-Mit aktivierter Wochentagsoption wird der Wochentag in den Schlüssel aufgenommen. Eine Baseline wird nur verwendet, wenn sie mindestens **Mindestanzahl gelernter Messwerte** enthält. Die Fallback-Reihenfolge lautet:
+### Temporal baseline and fallback
 
-`Wochentag + Zeitbereich → Zeitbereich → globale Baseline`
+Values are stored globally and, when enabled, in time buckets. A bucket is calculated from the local time of day:
 
-### Kontextabhängige Baseline
+`bucket = floor(minutes since midnight / configured bucket size)`
 
-Kontextzustände erzeugen zusätzliche Schlüssel, zum Beispiel `pumpe.ein=true`, `modus=eco` oder `temperatur=10–15`. Numerische Kontextwerte werden in feste Intervalle eingeteilt:
+With weekday context enabled, the weekday is added to this key. The expected baseline is chosen only when it contains at least **Minimum learned samples**. The fallback order is:
 
-`Intervallbeginn = floor(Kontextwert / Bucket-Breite) × Bucket-Breite`
+`weekday + time bucket → time bucket → global baseline`
 
-Bei einer Breite von 5 gehört der Wert 12,3 zum Intervall 10–15. Ein Kontext muss mindestens die konfigurierte Mindestanzahl an Messwerten enthalten, bevor er als Baseline verwendet wird. Ein gültiger, aber noch nicht ausgereifter Kontext bleibt im Status `learning` und wird nicht mit einer fremden globalen Baseline verglichen. Fehlende oder ungültige Kontextwerte verwenden den normalen Zeit-/Global-Fallback. Kombinationen, Kategorien und Samples sind begrenzt, damit der Speicher nicht unkontrolliert wächst.
+Example: a household load at `09:15` is compared with the learned `09:00–10:00` behavior, rather than with nighttime values.
 
-### Dauerhafte Pegelverschiebung
+### Context-aware baseline
 
-Die Auswertung arbeitet mit Residuen:
+Configured context states produce an additional key such as `pump.on=true`, `mode=eco`, or `temperature=10–15`. Numeric context values are not used directly; they are mapped to a fixed interval:
 
-`Residuum = tatsächlicher Wert − erwarteter Wert`
+`bucket start = floor(context value / bucket width) × bucket width`
 
-Der robuste Median eines begrenzten aktuellen Residuenfensters wird mit dem langfristig erwarteten Residuum verglichen und anhand der MAD-Baseline normiert. Eine Verschiebung muss bei mehreren Auswertungen in dieselbe Richtung anhalten; ein einzelner Peak wird dadurch nicht zu einem Change Point.
+For example, with width `5`, `12.3` belongs to `10–15`. A valid matching context must contain at least **Minimum learned samples** before it is used. A valid but still immature context remains in `learning` and is not compared with an unrelated ordinary temporal/global baseline. If context is missing or invalid, the adapter uses the ordinary temporal fallback instead. Context combinations, categorical values, and samples are bounded to prevent unlimited memory growth.
 
-### Trend
+### Persistent level-shift detection
 
-Auch der Trend wird auf Residuen berechnet, damit normale Tagesmuster zuvor abgezogen werden. Für alle gültigen Wertepaarungen wird die Steigung bestimmt:
+This detector works on residuals:
 
-`Steigungᵢⱼ = (Residuumⱼ − Residuumᵢ) / (Zeitstempelⱼ − Zeitstempelᵢ)`
+`residual = actual value − expected value`
 
-Die finale Steigung ist der Median dieser Steigungen (robuste Theil-Sen-ähnliche Methode). Isolierte Ausreißer haben dadurch deutlich weniger Einfluss als bei einer gewöhnlichen linearen Regression. Ein Trend benötigt mindestens 12 Messwerte über mindestens sechs Stunden.
+It compares the robust median of a bounded recent residual window with the long-term expected residual (normally near zero), normalized by the baseline MAD. A candidate must remain in the same direction across repeated evaluations before an upward or downward level shift is reported. This prevents a single spike from becoming a change point.
 
-### Kombinierter Score und Lernen
+Example: a pump historically near `185 W` that remains near `240 W` produces sustained positive residuals and can be identified as an upward level shift.
 
-Jeder Detektor liefert einen begrenzten Score von 0 bis 100. Wert-/Kontext-, Pegelverschiebungs- und Trendsignale gelten als zusammengehörige Evidenz; nur das stärkste dieser Signale wird gewichtet, damit nichts doppelt gezählt wird. Rate- und Festhängend-Signale können unabhängig beitragen. Mehrere unabhängige starke Signale erzeugen einen kleinen begrenzten Bonus. Der Endwert wird immer auf 0–100 begrenzt.
+### Trend detection
 
-Messwerte ab **Anomalie-Schwellenwert** werden normalerweise nicht weiter gelernt, damit ein anhaltender Fehler nicht sofort als normal gilt. Bestätigte Pegelverschiebungen sind eine Ausnahme: Ihre Werte werden schrittweise aufgenommen, damit ein legitimes neues Betriebsniveau zur neuen Baseline werden kann.
+Trend detection also uses residuals so normal daily behavior is subtracted first. It calculates all valid pairwise slopes from the bounded observation window:
 
-## Konfiguration
+`slopeᵢⱼ = (residualⱼ − residualᵢ) / (timestampⱼ − timestampᵢ)`
 
-Füge in der Tabelle **Überwachte numerische Zustände** für jede Quelle eine Zeile hinzu. Unterstützt werden nur ioBroker-Zustände mit `common.type: number`.
+The final slope is the median of these slopes (a Theil-Sen-style robust slope). The median makes isolated outliers far less influential than ordinary least-squares regression. A trend requires at least 12 samples over six hours.
 
-Die wichtigsten Standardwerte sind bewusst zurückhaltend:
+Example: heating duration that gradually rises from `27` to `39 minutes` over several days produces a positive residual slope even if no single duration is an extreme outlier.
 
-- Vor der Überwachung werden standardmäßig 30 Messwerte gelernt.
-- Die Sensitivität beträgt 3,5 robuste z-Scores.
-- Die persistente Anomalieanzeige benötigt standardmäßig Score 70 für fünf Minuten.
-- Eine Hysterese von 10 Punkten verhindert Flattern an der Schwelle.
-- Der Festhängend-Detektor ist standardmäßig deaktiviert und verwendet bei Aktivierung 120 Minuten.
-- Der Tageszeitkontext arbeitet standardmäßig mit 60-Minuten-Bereichen; der Wochentagskontext ist optional.
+### Combined score and learning
 
-Änderungen werden nach dem Neustart des Adapters wirksam. Doppelte Quell-IDs werden nach der ersten aktivierten Zeile ignoriert. Fehlende konfigurierte Objekte bleiben abonniert, damit sie später automatisch verwendet werden können; beim Start wird eine Warnung protokolliert.
+Each detector contributes a bounded score from `0` to `100`. Value/context, level-shift, and trend signals are treated as correlated behavior evidence: only the strongest of them is included in the weighted score, avoiding double counting. Rate and stuck signals can contribute independently. Agreement between independent strong signals adds a small bounded bonus; the final score is always clamped to `0–100`.
 
-Wird eine Quelle aus der Konfiguration entfernt und der Adapter neu gestartet, löscht er den zugehörigen generierten Teilbaum unter `anomaly-detection.0.sources` sowie das gespeicherte Modell. Dabei wird die ursprüngliche Quell-ID aus den Metadaten des generierten Geräts verwendet. Eine nur vorübergehend nicht verfügbare, weiterhin konfigurierte Quelle bleibt erhalten.
+Observations at or above **Anomaly threshold** are normally excluded from learning, which prevents an ongoing fault from immediately becoming normal. Confirmed level shifts are an explicit exception: their values are gradually learned so a legitimate new operating level can become the new baseline.
 
-## Analyseansicht und Verlauf
+## Configuration
 
-Die Registerkarte **Aktuelle Anomaliebewertungen** enthält pro überwachte Quelle ein responsives, zunächst eingeklapptes Diagramm **Verlauf & Anomalien**. Der Verlauf wird erst beim Öffnen geladen. Zur Auswahl stehen **1 h**, **6 h**, **24 h** (Standard) und **7 Tage**.
+Add one row for every source in the **Monitored numerical states** table. Only ioBroker states with `common.type: number` are supported.
 
-Das Diagramm verwendet die Einheit des ioBroker-Zustands, zum Beispiel `W`, `%` oder `°C`, und passt seine Breite an die tatsächliche Kartenbreite an. Es zeigt:
+The important defaults are deliberately conservative:
 
-- **Wert:** historische Messwerte aus dem konfigurierten History-Adapter.
-- **Erwartungsbereich:** ein transparentes Band ausschließlich aus den zu jedem historischen Zeitpunkt gespeicherten `decisionLow`/`decisionHigh`-Grenzen. Fehlende Grenzen bleiben leer; der aktuelle Bereich wird nicht rückwirkend projiziert.
-- **Kontext:** eine dezente Hervorhebung für Zeitabschnitte, deren gespeicherter Kontext zum aktuellen Kontext passt. Wenn vorhanden, werden die ioBroker-`common.name`-Namen angezeigt.
-- **Anomalie:** ein rotes Dreieck nur bei historischen Bewertungen mit `detected: true`.
+- 30 learned samples are required before the model enters `monitoring` (configurable per source).
+- Sensitivity is a robust z-score of 3.5.
+- The persistent `detected` indicator requires a score of at least 70 for five minutes.
+- Recovery uses a 10-point hysteresis, preventing flapping near the threshold.
+- The stuck detector is disabled by default and uses 120 minutes when enabled.
+- Time-of-day context is enabled in 60-minute buckets (configurable per source); weekday context is optional.
 
-Beim Überfahren oder Berühren eines Punktes werden Wert und Einheit, historischer Erwartungsbereich (oder ein Hinweis, dass er nicht verfügbar ist), Status, übersetzter Grund, Score und Kontext für genau diesen Zeitpunkt angezeigt. Bei Wert-/Kontextabweichungen wird zusätzlich die konkrete Distanz oberhalb oder unterhalb des historischen Bereichs angegeben. Rate, Festhängend, Trend und Pegelverschiebung behalten ihre jeweilige Detektor-Erklärung.
+Configured changes take effect after the adapter restarts. Duplicate source IDs are ignored after the first enabled row. Missing configured objects remain subscribed so they can be used once they appear, but the adapter logs a warning at startup.
 
-## Lernen und Persistenz
+When a source row is removed from the configuration and the adapter restarts, its generated subtree under `anomaly-detection.0.sources` and its persisted model are removed. The cleanup uses the generated device's stored original source ID and deletes only the exact generated subtree; temporarily unavailable sources that remain configured are retained.
 
-Normale Beobachtungen aktualisieren globale und zeitbasierte Baselines schrittweise. Messwerte ab dem Anomalie-Schwellenwert werden nicht gelernt. Pro Baseline werden höchstens 240 Samples und kompakte Modelldaten gespeichert; eine unbegrenzte Rohdaten-Zeitreihe wird nicht angelegt.
+### Analysis view: history and anomalies
 
-Alle erweiterten Detektoren sind standardmäßig deaktiviert. Kontextabhängige Erkennung kann bis zu drei boolesche, Text-/Enum- oder numerisch gebucketete Zustände getrennt lernen. Eine gültige, aber noch zu kleine Kontext-Baseline bleibt im Lernstatus. Pegelverschiebung benötigt wiederholte Evidenz; Trend benötigt mindestens 12 Residuen über sechs Stunden.
+The **Current anomaly assessments** tab provides a compact, responsive **History & anomalies** chart for every monitored source. The chart is collapsed initially and loads history only when opened. The period can be changed between **1 h**, **6 h**, **24 h** (default), and **7 days**; changing the period reloads the data for that source.
 
-Der Adapter erkennt statistische Ungewöhnlichkeit, diagnostiziert aber keinen Gerätefehler und beweist keine Ursache. Ein History-Import trainiert nur globale, Zeit-, Wochentags- und Rate-Modelle. Kontextbaselines lernen aus Live-Werten, weil allgemeine History-Adapter beliebige Kontextzustände nicht zuverlässig zeitlich rekonstruieren können.
+The chart uses the state unit from ioBroker (for example `W`, `%`, or `°C`) and scales its plot area to the actual card width. It shows:
 
-## Optionen im Überblick
+- **Value** – the historical measurements from the configured History provider.
+- **Expected range** – a translucent band made only from the historical `decisionLow`/`decisionHigh` values that were valid at each timestamp. Missing historical bounds remain empty; the current range is never projected backwards.
+- **Assessment context** – a subtle background highlight only for time sections whose stored context matches the context used by the current assessment. Context names use the ioBroker `common.name` where available.
+- **Anomaly** – a red triangle only when the adapter stored `detected: true` for that historical assessment. Historical markers do not change the current status badge.
 
-| Option                                           | Zweck und Anwendung                                                                                                                     | Beispiel                                                                                |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **Aktiviert**                                    | Startet oder stoppt die Überwachung dieser Zeile. Deaktivierte Zeilen bleiben konfiguriert.                                             | Während einer Wartung deaktivieren.                                                     |
-| **Quellstatus-ID**                               | Numerischer ioBroker-Zustand, der bewertet wird. Über den Objekt-Picker auswählen.                                                      | `alias.0.pumpe.leistung`                                                                |
-| **Name**                                         | Lesbarer Name für das generierte Quellgerät; ändert nicht die Quell-ID.                                                                 | `Gartenpumpe Leistung`                                                                  |
-| **Initiales Training**                           | Nur Live-Werte lernen oder vorhandene History importieren.                                                                              | Für einen Power-Meter mit InfluxDB-History: History importieren.                        |
-| **History-Quelle**                               | Kompatible, aktivierte History-Adapterinstanz für den Import.                                                                           | `influxdb.0`                                                                            |
-| **Zeitraum des History-Trainings (Tage)**        | Wie weit der Import zurückreicht. Nur repräsentative Normalzeiten auswählen.                                                            | `30` Tage                                                                               |
-| **Maximal importierte Proben**                   | Begrenzung des Imports zum Schutz von Speicher und Raspberry Pi.                                                                        | `1000`                                                                                  |
-| **Überwachung nach History-Import starten**      | Startet nach ausreichendem Import direkt den Status `monitoring`.                                                                       | Für eine etablierte Messreihe aktivieren.                                               |
-| **Mindestens gelernte Proben**                   | Mindestgröße einer vertrauenswürdigen Baseline.                                                                                         | `30` für häufige Leistungswerte.                                                        |
-| **Zeit-Bucket-Größe (Minuten)**                  | Größe der Tageszeitbereiche. Kleinere Bereiche sind genauer, lernen aber langsamer.                                                     | `60` Minuten                                                                            |
-| **Sensitivität (robuster z-Score)**              | Niedriger ist empfindlicher, höher toleranter.                                                                                          | Auf `5` erhöhen, wenn normale Schwankungen zu viele Meldungen erzeugen.                 |
-| **Anomalie-Schwellenwert**                       | Score, ab dem eine Anomalie gespeichert und nicht mehr gelernt wird.                                                                    | `70`                                                                                    |
-| **Mindestdauer einer Anomalie (Minuten)**        | Zeit, die die Schwelle überschritten sein muss, bevor `detected` dauerhaft gesetzt wird.                                                | `5` Minuten                                                                             |
-| **Detektor für Wertabweichungen (MAD)**          | Erkennt ungewöhnliche absolute Werte gegenüber dem gelernten Bereich.                                                                   | Für Temperatur, Druck, Verbrauch und Leistung aktivieren.                               |
-| **Detektor für Änderungsrate**                   | Erkennt ungewöhnlich schnelle Änderungen.                                                                                               | Für Durchfluss oder Füllstand aktivieren; bei normalen Lastsprüngen deaktiviert lassen. |
-| **Detektor für festhängende Werte**              | Erkennt wiederholt empfangene identische Werte über die konfigurierte Dauer.                                                            | Für regelmäßig wechselnde Sensoren aktivieren, nicht für lange konstante Setpoints.     |
-| **Dauer eines festhängenden Wertes**             | Wird nur bei aktiviertem Festhängend-Detektor angezeigt; legt dessen Mindestdauer fest.                                                 | `120` Minuten                                                                           |
-| **Tageszeit-Kontext verwenden**                  | Trennt Baselines nach Tageszeit.                                                                                                        | `60`-Minuten-Buckets für Haushaltsverbrauch.                                            |
-| **Wochentags-Kontext verwenden**                 | Trennt zusätzlich nach Wochentag; funktioniert zusammen mit dem Tageszeit-Kontext.                                                      | Büroverbrauch werktags gegenüber Wochenende.                                            |
-| **Kontextbezogene Erkennung aktivieren**         | Lernt abhängig von bis zu drei weiteren Zuständen.                                                                                      | `pumpe.ein`, `modus`, Außentemperatur.                                                  |
-| **Kontextzustände**                              | Die Zustände, die den Betriebszustand beschreiben. Boolesche und Enum-Werte benötigen keine Breite; numerische Werte verwenden Buckets. | `pumpe.ein=true`, Temperatur-Breite `5`.                                                |
-| **Dauerhafte Erkennung von Pegelverschiebungen** | Erkennt ein anhaltend verändertes Betriebsniveau.                                                                                       | Standby-Leistung dauerhaft von 5 W auf 12 W gestiegen.                                  |
-| **Trenderkennung aktivieren**                    | Erkennt langsame Aufwärts- oder Abwärtsentwicklung über Residuen.                                                                       | Heizdauer steigt über mehrere Tage.                                                     |
+Hovering or touching a point shows the information available for that exact historical timestamp: value and unit, historical expected range (or an explicit unavailable notice), status, translated reason, score, and context. For value/context deviations the tooltip also shows the concrete distance above or below the historical range. Rate, stuck, trend, and level-shift findings keep their detector-specific explanation and are not presented as fabricated range deviations.
 
-### Konfigurationsgrundsätze
+The chart legend distinguishes **Value**, **Expected range**, **Assessment context**, and **Anomaly**. A small note reports the number of conspicuous historical measurements in the selected period. This is separate from the current **Normal** or **Anomaly** status; the adapter stores individual diagnostic snapshots, so the note counts displayed snapshots rather than inventing grouped anomaly events.
 
-1. Beginne mit den Standarddetektoren und aktiviere nur Verfahren, die zum physikalischen Verhalten der überwachten Quelle passen.
-2. Aktiviere nicht jeden verfügbaren Detektor nur deshalb, weil er vorhanden ist.
-3. Füge Kontextzustände nur hinzu, wenn sie den erwarteten Wert erklären; mehr Kontext bedeutet weniger Trainingsdaten pro Kontext.
-4. Starte mit der Standardsensitivität und dem Standardschwellenwert. Erhöhe die Toleranz erst, nachdem legitime Fehlalarme beobachtet wurden.
-5. Verwende History-Training nur, wenn der ausgewählte Zeitraum den normalen Betrieb repräsentiert und nicht überwiegend bekannte Fehler- oder Installationsphasen enthält.
-6. Eine statistische Anomalie zeigt ein ungewöhnliches Verhalten relativ zu den Lerndaten. Sie beweist weder einen Gerätefehler noch dessen Ursache.
+## Learning and persistence
 
-### Einrichtung mit einem KI-Assistenten
+Normal observations update the global and configured temporal baselines gradually. Observations at or above the configured anomaly threshold are excluded from learning so an ongoing fault is not accepted as normal. The adapter stores only bounded samples (240 per baseline) and compact model metadata, not an unbounded raw time series.
 
-Ein KI-Assistent kann anhand dieser README und deines Anwendungsfalls eine erste Konfiguration vorschlagen. Nenne dafür die physikalische Größe, die Bedeutung der Quelle, deren Update-Häufigkeit, relevante ioBroker-Kontextzustände, ob schnelle Änderungen oder lange konstante Phasen normal sind, ob Tages- oder Wochenmuster bestehen, ob dauerhafte Pegelverschiebungen oder langsame Trends relevant sind und ob historische Daten verfügbar sind.
+## Advanced detection
 
-KI-generierte Einstellungen sind nur ein Ausgangspunkt und müssen mit dem tatsächlichen Geräteverhalten abgeglichen werden. Der Adapter selbst bleibt deterministisch und verwendet keine KI.
+All advanced detectors are disabled by default. Context-aware detection learns separate baselines for up to three boolean, string/enum, or numeric-bucket context states. Numerical contexts use configurable fixed-width buckets. Missing or invalid context safely falls back to the ordinary temporal and global baseline; a valid but immature context stays in learning instead.
 
-Beispiel-Prompt:
+Persistent level-shift detection compares a bounded recent residual window with the robust expected baseline and requires repeated evidence before reporting an upward or downward shift. Confirmed shifts are gradually learned as the new normal.
 
-> Ich möchte den elektrischen Leistungsverbrauch einer Pumpe überwachen. Der Ein-/Aus-Zustand und die Betriebsart der Pumpe sind als zusätzliche ioBroker-Zustände verfügbar. Start- und Stoppvorgänge verursachen schnelle, aber normale Leistungsänderungen. Eine dauerhafte Abweichung von der üblichen Betriebsleistung wäre relevant. Für die letzten 30 Tage liegt History in InfluxDB vor. Empfiehl mir auf Grundlage dieser README passende Einstellungen für anomaly-detection und erkläre jede Auswahl.
+Trend detection uses a bounded timestamp-aware median slope over residuals (`actual - expected`), avoiding false alerts from normal temporal behavior. It requires at least 12 samples over six hours.
 
-### Auswahlhilfe für Detektoren
+The adapter detects statistical inconsistency; it does not diagnose equipment faults or prove causation. Historical bootstrap trains only the normal model; context baselines learn from live values because generic history providers cannot reliably reconstruct arbitrary context values.
 
-- **MAD/Wertabweichungen:** Für unerwartete Einzelwerte relativ zum gelernten Normalverhalten.
-- **Änderungsrate:** Wenn ungewöhnlich schnelle Änderungen relevant sind; deaktivieren, wenn schnelle Änderungen normal sind.
-- **Festhängend:** Für Sensoren, die sich regelmäßig verändern müssen; nicht für Werte, die lange legitim konstant bleiben.
-- **Kontextbezogen:** Wenn ein anderer Zustand das erwartete Verhalten erklärt. Boolesche/Enum-Kontexte beschreiben Betriebsart oder Anwesenheit, numerische Kontexte zum Beispiel Außentemperatur, Ladezustand oder Last.
-- **Pegelverschiebung:** Für dauerhafte Änderungen des normalen Betriebsniveaus.
-- **Trend:** Für langsame Drift oder Verschlechterung; bei stark schwankenden Signalen meist deaktiviert lassen.
+### Context model maturity and fallback
 
-### Praxisbeispiel: Pumpenleistung
+`sampleCount` is the retained global value-model sample count. It does **not** prove that every context is trained. For example, `sampleCount=240` can coexist with `contextSampleCount=3` for `pump.on=false`.
 
-Für die elektrische Leistung einer Pumpe sind zunächst **Detektor für Wertabweichungen**, **kontextbezogene Erkennung** und **dauerhafte Erkennung von Pegelverschiebungen** sinnvoll. **Detektor für Änderungsrate**, **Detektor für festhängende Werte** und **Trenderkennung** bleiben zunächst deaktiviert, weil normale Start-/Stoppvorgänge schnelle Änderungen verursachen und eine ausgeschaltete Pumpe legitim bei `0 W` stehen kann.
+Baseline selection for a current observation is explicit:
 
-Als Kontext eignen sich der Ein-/Aus-Zustand und die Betriebsart. So entstehen getrennte Normalmodelle für beispielsweise Pumpe AUS, Pumpe EIN im Normalbetrieb und Pumpe EIN im Boost-Modus. Weitere Zustände nur hinzufügen, wenn sie die erwartete Leistung nachweislich erklären; zu viele Kontextzustände verteilen die Samples auf zu viele Kombinationen.
+1. A valid matching context with at least **Minimum learned samples** uses its context-specific baseline. Within that model, the temporal hierarchy is `weekday + time bucket → time bucket → context-global`.
+2. A valid matching context with too few samples uses no value baseline yet. The result is `learning`, `baselineScope=insufficient`, and value, rate, level-shift, and trend comparisons that could confuse the new operating mode are not performed.
+3. When context-aware detection is disabled, or a configured context value is missing or invalid, the ordinary hierarchy is used: `weekday + time bucket → time bucket → global`.
 
-## Optionales History-Training
+The first observation after any context change does not create a rate comparison. This prevents an expected ON/OFF transition from being treated as an unusual rate solely because the operating context changed. Persistent level-shift and trend detection operate on residuals only when an expected value is available.
 
-Für eine Quelle **Vorhandene History importieren** auswählen und danach eine **History-Quelle** aus der Auswahlliste wählen. Die Liste enthält nur vollständige, aktivierte History-Provider wie `influxdb.0`, `history.0` oder `sql.1`, die für genau diesen Zustand aktiviert sind. Wenn keine Quelle angezeigt wird, ist für den Zustand oder sein Alias-Ziel keine kompatible History aktiviert; **Nur Live-Werte lernen** bleibt trotzdem verfügbar.
+Historical bootstrap imports only the monitored source history. It trains the global, time, weekday, and rate models; it does not retrieve or time-align arbitrary context-state history. Context-specific models therefore learn from subsequent live observations.
 
-Standardmäßig werden 30 Tage und höchstens 1.000 Samples importiert. Ungültige Werte und Zeitstempel werden verworfen, doppelte Zeitstempel zusammengeführt und übergroße Ergebnismengen gleichmäßig über den gesamten Zeitraum verteilt. Offensichtliche historische Extremwerte werden vor dem Lernen robust ausgeschlossen. Große Zeitlücken erzeugen niemals eine Festhängend-Anomalie.
+### Configuration options
 
-Ein importiertes Modell wird nach einem Neustart wiederverwendet. Eine Änderung von History-Quelle, Zeitraum oder Sample-Limit startet einen neuen Import. Bei fehlgeschlagenem oder zu kleinem Import bleibt die Quelle nutzbar und lernt live weiter. Über `sources.<sanitized-source-id>.retrain = true` wird ausdrücklich das Anomaliemodell verworfen und neu trainiert; ein vollständiges Predictive-Modell bleibt dabei erhalten und wird nur bei erforderlichem History-Bootstrap neu aufgebaut. Der Adapter setzt den Wert anschließend mit `ack=true` auf `false` zurück.
+Every row in **Monitored numerical states** is one independently trained source. Save the instance configuration and restart the adapter after changing a row.
 
-## Erzeugte Objekte
+| Option                                      | What it does                                                                                                                                                      | How to use it                                                                                                                                             | Example                                                                                    |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Enabled**                                 | Starts or stops monitoring for this row. Disabled rows keep their configuration but produce no analysis.                                                          | Leave enabled for active sources; disable temporarily while commissioning a device.                                                                       | Disable `pump.power` during maintenance.                                                   |
+| **Source state ID**                         | The numerical ioBroker state to evaluate. Only states with `common.type: number` are supported.                                                                   | Select the state with the object picker; do not type a channel ID.                                                                                        | `alias.0.pump.power`                                                                       |
+| **Name**                                    | Optional readable name used for the generated source device. It does not change the original state ID.                                                            | Use a short name when the object ID is difficult to read.                                                                                                 | `Garden pump power`                                                                        |
+| **Initial training**                        | Chooses whether the model starts with live observations or imports existing history.                                                                              | Select **Learn from live values only** for a new source; select **Import existing history** only when a compatible history adapter is already configured. | Use history for a power meter with several months of InfluxDB data.                        |
+| **History source**                          | Selects the history adapter instance used for bootstrap. The list contains only compatible, enabled providers with history activated for the selected state.      | Choose the provider shown in the list; no manual entry is required. If the list is empty, use live learning or enable history for that state first.       | `influxdb.0`                                                                               |
+| **History training period (days)**          | Defines how far back the bootstrap request reads.                                                                                                                 | Use a period containing representative normal operation; avoid periods dominated by faults or installation work.                                          | `30` for one typical month.                                                                |
+| **Maximum imported samples**                | Caps data imported during bootstrap, protecting memory and slow Raspberry Pi systems. Samples are distributed across the selected period.                         | Raise it only when the history is sparse and the host can handle it.                                                                                      | `1000` for normal use; `3000` for sparse daily readings.                                   |
+| **Start monitoring after history import**   | Controls whether a sufficiently trained imported model can immediately use the `monitoring` status.                                                               | Leave enabled unless you want to inspect imported data before relying on alerts.                                                                          | Enable it for a trusted, established energy-meter history.                                 |
+| **Minimum learned samples**                 | Minimum number of learned observations required for a baseline to be trusted. Until then, status remains `learning`.                                              | Use a higher value for noisy values and a lower value only for rarely changing sources.                                                                   | `30` for frequent power updates; `10` for a daily counter.                                 |
+| **Time bucket size (minutes)**              | Splits normal behavior into time-of-day ranges when time context is enabled.                                                                                      | Choose a bucket broad enough to receive enough samples. Smaller buckets are more specific but learn more slowly.                                          | `60` for hourly behavior; `15` for a frequently updated room temperature.                  |
+| **Sensitivity (robust z-score)**            | Defines how far a value may deviate from the robust median/MAD baseline before its score grows. Lower values are more sensitive; higher values are more tolerant. | Start with the default and adjust only after observing normal operation.                                                                                  | Change from `3.5` to `5` if normal variation produces too many alerts.                     |
+| **Anomaly threshold**                       | Score at or above which an observation is treated as a strong anomaly and is excluded from ordinary learning.                                                     | Keep it aligned with the automation that consumes `detected`.                                                                                             | `70` means only stronger deviations start persistent detection.                            |
+| **Minimum anomaly duration (minutes)**      | Requires a high score to persist before `analysis.detected` becomes `true`. Prevents short spikes from creating a persistent alarm.                               | Use `0` only when immediate persistent detection is desired.                                                                                              | `5` for a pump; `30` for a slowly changing energy value.                                   |
+| **Enable value deviation detector**         | Enables robust MAD comparison of the current value with its expected baseline.                                                                                    | Normally keep enabled. Disable only when another detector should be used without absolute-value evaluation.                                               | Keep enabled for room temperature or power.                                                |
+| **Enable rate-of-change detector**          | Detects unusually fast change, based on the real elapsed time between updates.                                                                                    | Enable for values where sudden jumps matter; disable for counters or deliberately bursty inputs.                                                          | Detect a tank level that drops far faster than normal.                                     |
+| **Enable stuck-state detector**             | Detects repeated identical received values for longer than the configured duration. A missing update alone is not a stuck state.                                  | Enable only for sources expected to change or report regularly.                                                                                           | Enable for a moving valve position; leave off for a stable setpoint.                       |
+| **Stuck duration (minutes)**                | Duration of identical received values required by the stuck detector.                                                                                             | Set it longer than the source's normal stable period.                                                                                                     | `120` for a sensor that normally changes within two hours.                                 |
+| **Use time-of-day context**                 | Learns a separate expected baseline for each time bucket.                                                                                                         | Enable for daily patterns; disable for values with no time-dependent behavior or very sparse updates.                                                     | Enable for household electricity consumption.                                              |
+| **Use weekday context**                     | Further separates time buckets by weekday.                                                                                                                        | Enable only when weekday behavior truly differs and enough data is available for each day.                                                                | Enable for office occupancy power; leave off for a continuously running pump.              |
+| **Enable context-aware detection**          | Learns separate baselines according to other ioBroker states.                                                                                                     | Enable when the expected value depends on operating state, mode, or an environmental value. Then add one to three context states.                         | Pump power is normal near `0 W` when `pump.on=false` and near `600 W` when `pump.on=true`. |
+| **Context states (maximum 3)**              | Lists the boolean, string/enum, or numerical states that define the operating context. The adapter caches their latest valid values.                              | Add only states that materially explain the source value. Missing or invalid context falls back safely to the ordinary baseline.                          | `pump.on`, `pump.mode`, and `weather.outdoorTemperature`                                   |
+| **Context state ID**                        | One state participating in the current context combination.                                                                                                       | Select a state with the object picker. Boolean, string, and finite numerical values are supported.                                                        | `zigbee.0.pump.on`                                                                         |
+| **Numeric bucket width**                    | Converts numerical context values into fixed ranges instead of using raw floating-point keys. This field is shown only for numerical context states.              | Choose a meaningful resolution for that context's unit.                                                                                                   | Width `5` turns `12.3 °C` into bucket `10–15 °C`.                                          |
+| **Enable persistent level-shift detection** | Detects a sustained upward or downward change in the normal level, rather than a single outlier.                                                                  | Enable for values that normally remain around one level. A confirmed shift is gradually learned as the new normal.                                        | Detect a pump whose typical load moves from `185 W` to `240 W`.                            |
+| **Enable trend detection**                  | Detects sustained upward or downward drift in the residual from the expected baseline.                                                                            | Enable for gradual deterioration metrics; it requires at least 12 samples spanning six hours.                                                             | Detect a boiler heating duration rising from `27` to `39 minutes` over several days.       |
 
-Für jede Quelle legt der Adapter unter folgendem Pfad eine sichere, deterministische Objekt-ID an:
+Models are persisted in the adapter namespace after a short debounce and flushed during normal shutdown. Storage has a schema version; invalid, missing, or incompatible stored data is ignored safely. The adapter does not require History, SQL, InfluxDB, Redis, cloud services, API keys, subscriptions, or external AI for normal live learning.
+
+## Choosing the right detection settings
+
+The settings below are starting points, not universal presets. They should describe the physical behaviour of the source, the amount of representative normal data, and the anomalies that matter. **MAD / value deviation** and **rate-of-change** are enabled by default; **stuck**, **context-aware**, **persistent level-shift**, **trend**, and weekday context are disabled by default.
+
+### Detector decision guide
+
+| Detector                             | Use when                                                                                                                           | Avoid / usually disable when                                                                          | Typical examples and dependencies                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Value deviation / MAD**            | The absolute value should remain within a learned normal range. This is the general-purpose detector and is normally kept enabled. | Only the direction or speed of change matters and the absolute value has little useful meaning.       | Temperature, electrical power, pressure, humidity, consumption, and ordinary sensor measurements. Requires at least **Minimum learned samples** in the selected baseline.                                                                                                                                                                                                                                   |
+| **Rate of change**                   | Unusually fast changes are meaningful independently of the current absolute value.                                                 | Fast changes are normal or expected.                                                                  | Tank level, pressure, temperature, state of charge, and flow-related values. Usually avoid for bursty loads, TV power affected by picture content, event-driven values, or counters with irregular increments. Requires a valid preceding update and a learned rate baseline.                                                                                                                               |
+| **Stuck detection**                  | The source sends updates and its value is expected to change regularly.                                                            | The value may legitimately remain unchanged for a long time.                                          | Continuously changing sensors, valve positions, or moving process values. Usually avoid for setpoints, inactive devices, and power values of unused appliances. **Missing updates alone are not considered stuck**: the adapter evaluates only received state updates and measures how long repeated identical values persist.                                                                              |
+| **Time-of-day context**              | Normal behaviour depends on the time of day and each time bucket can collect enough normal samples.                                | There is no meaningful daily pattern or data is too sparse.                                           | Household electricity use, heating, room temperature, and occupancy-related measurements. It is enabled by default; a 60-minute bucket is the default. A sparse time bucket falls back to the global baseline.                                                                                                                                                                                              |
+| **Weekday context**                  | Behaviour differs materially by weekday and enough samples exist for every relevant weekday and time bucket.                       | Weekdays do not materially affect the value or the data volume is insufficient.                       | Office consumption, occupancy, and commercial processes. It works only together with Time-of-day context and splits the available training data further; sparse weekday buckets fall back to the time bucket, then global data.                                                                                                                                                                             |
+| **Context-aware detection**          | The expected value depends on another ioBroker state that describes the operating condition.                                       | The additional state does not materially explain the observed value.                                  | Boolean: `pump.on`; string/enum: `heater.mode`; numeric bucket: outdoor temperature, state of charge, or load. Use at most **three** context states. Unnecessary states create more context combinations, fragment the training data, and make learning slower. Missing or invalid context falls back to the ordinary time/global baseline; a valid but insufficiently trained context remains in learning. |
+| **Persistent level-shift detection** | A sustained change in the normal operating level matters.                                                                          | The signal switches frequently between unrelated levels that are not explained by configured context. | A pump normally near `185 W` later remaining near `240 W`, permanently increased standby consumption, or a shifted sensor baseline. A single spike is a value anomaly; a level shift requires at least 12 recent residual samples and repeated evidence in the same direction.                                                                                                                              |
+| **Trend detection**                  | Gradual drift or deterioration matters.                                                                                            | The signal is highly volatile and no useful expected baseline explains that volatility.               | Heating duration gradually increasing, a slowly deteriorating efficiency metric, temperature offset drift, or energy per cycle rising. The detector evaluates residuals (`actual − expected`), not raw values, and requires at least **12** residual samples spanning at least **six hours**.                                                                                                               |
+
+Context-aware detection creates a separate model for each observed context combination, with a bounded maximum of 32 stored combinations. Numerical context values are grouped by **Numeric bucket width**; boolean and string/enum values need no width. Historical bootstrap trains value, rate, and time baselines, but context baselines learn from live observations because generic history providers cannot reliably reconstruct arbitrary context-state values.
+
+### Starting recommendations by use case
+
+The following table uses **recommended**, **optional**, and **usually off** as initial guidance. It does not replace knowledge of the specific device, installation, or update pattern.
+
+| Use case                           | MAD         | Rate        | Stuck       | Time        | Weekday     | Context     | Level shift | Trend       | Useful context states                                 |
+| ---------------------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------------------------------------------------- |
+| Room temperature                   | recommended | optional    | usually off | recommended | optional    | optional    | optional    | optional    | Heating mode, window state, outdoor temperature       |
+| Household power consumption        | recommended | usually off | usually off | recommended | optional    | optional    | optional    | optional    | Occupancy, tariff mode, major operating mode          |
+| Pump electrical power              | recommended | optional    | usually off | optional    | usually off | recommended | recommended | optional    | `pump.on`, pump mode, valve state                     |
+| Water consumption / flow           | recommended | recommended | optional    | optional    | optional    | optional    | optional    | usually off | Valve state, irrigation schedule, pump state          |
+| EV charging power                  | recommended | optional    | usually off | optional    | usually off | recommended | optional    | optional    | Charging enabled, vehicle connected, charging mode    |
+| Heating / boiler metric            | recommended | optional    | optional    | recommended | optional    | recommended | recommended | recommended | Operating mode, outdoor temperature, demand state     |
+| TV / entertainment system power    | recommended | usually off | usually off | optional    | usually off | recommended | recommended | usually off | Power-meter switch state, TV operating or power state |
+| Slowly degrading efficiency metric | optional    | usually off | usually off | optional    | optional    | recommended | optional    | recommended | Operating mode, load, outdoor temperature             |
+
+### Practical pump example
+
+For a pump's electrical-power state, start with **Value deviation**, **Context-aware detection**, and **Persistent level-shift detection** enabled. Keep **Rate-of-change**, **Stuck**, and **Trend** disabled initially: normal start, stop, and mode transitions can produce rapid changes, while an inactive pump may legitimately remain at `0 W`. Time-of-day is optional and should be enabled only after enough representative data exists; weekday context is usually unnecessary initially.
+
+Use the pump's on/off state and operating mode as context. The model can then learn separate normal behaviour for, for example:
+
+- Pump OFF
+- Pump ON in normal mode
+- Pump ON in boost mode
+
+Do not add a valve state, flow value, or setpoint as an initial context unless evidence shows that it materially explains pump power. If a particular pump's normal operating transitions are themselves suspicious, Rate-of-change can be enabled later after observing representative normal operation.
+
+### Configuration principles
+
+1. Start simple and enable only detectors that correspond to the physical behaviour you want to monitor.
+2. Do not enable every detector merely because it exists.
+3. Add context only when it explains the expected value; more context means fewer training samples per context.
+4. Start with the default sensitivity and anomaly threshold. Increase tolerance only after observing legitimate false positives.
+5. Use historical training only when the selected period represents normal operation; do not train primarily on known fault periods.
+6. A statistical anomaly indicates unusual behaviour relative to learned data. It does not prove a physical fault or its cause.
+
+### Using an AI assistant to choose settings
+
+An AI assistant can propose an initial configuration when given this README URL and the monitoring use case. Provide the physical quantity, what the source represents, how often it updates, which other ioBroker states describe operating conditions, whether sudden changes or long constant periods are normal, whether daily or weekly patterns exist, whether sudden shifts or gradual drift matter, and whether historical data is available.
+
+AI-generated settings are only a starting recommendation and must be checked against actual device behaviour. The adapter itself remains deterministic and does not use AI.
+
+Example prompt:
+
+> I want to monitor the electrical power consumption of a pump. The pump on/off state and operating mode are available as additional ioBroker states. Start and stop transitions cause rapid but normal power changes. A lasting change from the usual operating power would matter. I have 30 days of InfluxDB history. Based on this README, recommend the anomaly-detection settings and explain each choice.
+
+## Optional historical initial training
+
+For each source, choose **Import existing history** and select a **History source** from the dropdown. Manual entry is intentionally not available. The list contains only complete, enabled ioBroker history-provider instance IDs, such as `influxdb.0`, `history.0`, or `sql.1`, that have history enabled for that exact state. The adapter detects this from the supported per-state `common.custom.<instance>.enabled` configuration and the provider's `getHistory` capability; it does not query history databases merely to populate the configuration.
+
+Aliases remain the configured live source. For historical bootstrap, the adapter first uses history configured on the alias itself and otherwise checks its alias read target. If both have history in the same provider, the alias history takes precedence. If no compatible provider is shown, no history is enabled for that state (or its alias target), but **Learn from live values only** remains fully available.
+
+The default training period is 30 days (minimum 7) with at most 1,000 imported samples. Invalid values and timestamps are discarded, duplicate timestamps are merged, and oversized result sets are evenly sampled over the whole time range. A robust MAD pass excludes obvious extreme historical values before learning. Rate baselines are calculated only between chronologically adjacent samples with no more than six hours between them. Historical gaps never create a stuck-state finding.
+
+An imported, compatible model is reused after restart. Changing the history provider, training period or sample limit triggers a new import. The runtime validates the selected provider and its enabled history configuration again before every import. Invalid legacy values such as `0` are rejected immediately and are never sent a `getHistory` request. To explicitly discard and retrain the anomaly model, set `sources.<sanitized-source-id>.retrain` to `true`; the adapter resets it to `false` with `ack=true`. A complete predictive model is intentionally retained by this command and is rebuilt only when its history model or training basis needs bootstrap. If history import fails or returns too little usable data, the source remains usable and continues with live learning. The states `analysis.bootstrapStatus`, `analysis.status`, and `analysis.sampleCount` show the import outcome.
+
+## Resulting objects
+
+For each source, the adapter creates a safe deterministic object ID under:
 
 `anomaly-detection.0.sources.<sanitized-source-id>.analysis`
 
-| State                 | Typ/Rolle              | Bedeutung                                                                                                                         |
-| --------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `actual`              | number / `value`       | zuletzt akzeptierter Quellwert                                                                                                    |
-| `expected`            | number / `value`       | Median der verwendeten Baseline                                                                                                   |
-| `deviation`           | number / `value`       | `actual - expected`                                                                                                               |
-| `score`               | number / `value`       | normierter Anomalie-Score 0–100                                                                                                   |
-| `detected`            | boolean / `indicator`  | persistente Anomalieanzeige                                                                                                       |
-| `status`              | string / `info.status` | `insufficientData`, `learning` oder `monitoring`                                                                                  |
-| `reason`              | string / `text`        | deterministische Erklärung der aktuellen Bewertung                                                                                |
-| `lastAnomaly`         | string / `date`        | Zeitpunkt der letzten hohen Bewertung                                                                                             |
-| `sampleCount`         | number / `value`       | gespeicherte globale Samples, maximal 240                                                                                         |
-| `baselineScope`       | string / `info.status` | verwendete Baseline: `context`, `time`, `global` oder `insufficient`                                                              |
-| `activeContext`       | string / `text`        | aktueller normalisierter Kontext                                                                                                  |
-| `baselineSampleCount` | number / `value`       | Samples der tatsächlich verwendeten Baseline                                                                                      |
-| `contextSampleCount`  | number / `value`       | Samples im passenden Kontextmodell                                                                                                |
-| `bootstrapStatus`     | string / `info.status` | Ergebnis des optionalen History-Imports                                                                                           |
-| `retrain`             | boolean / `button`     | `true` schreiben, um das Anomaliemodell zurückzusetzen und neu zu trainieren; ein vollständiges Predictive-Modell bleibt erhalten |
+| State                 | Type / role            | Meaning                                                                                                      |
+| --------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `actual`              | number / `value`       | latest accepted source value                                                                                 |
+| `expected`            | number / `value`       | median of the selected baseline                                                                              |
+| `deviation`           | number / `value`       | `actual - expected`                                                                                          |
+| `score`               | number / `value`       | normalized 0–100 anomaly score                                                                               |
+| `detected`            | boolean / `indicator`  | persistent anomaly indicator                                                                                 |
+| `status`              | string / `info.status` | `insufficientData`, `learning`, or `monitoring`                                                              |
+| `reason`              | string / `text`        | deterministic explanation of the current score (`Normal` for scores below 50)                                |
+| `lastAnomaly`         | string / `date`        | time of the most recent high-score observation                                                               |
+| `sampleCount`         | number / `value`       | retained global value-model samples (bounded to 240)                                                         |
+| `baselineScope`       | string / `info.status` | baseline used: `context`, `time`, `global`, or `insufficient`                                                |
+| `activeContext`       | string / `text`        | normalized current context; empty if no valid context is active                                              |
+| `baselineSampleCount` | number / `value`       | retained samples in the baseline actually used; `0` for `insufficient`                                       |
+| `contextSampleCount`  | number / `value`       | retained samples in the matching context model after the current accepted observation; `0` when none matches |
+| `bootstrapStatus`     | string / `info.status` | outcome of optional historical initial training                                                              |
+| `retrain`             | boolean / `button`     | write `true` to reset and retrain the anomaly model; a complete predictive model is retained                 |
 
-Alle vom Adapter geschriebenen Ergebnis-States verwenden `ack=true`. `retrain` ist der einzige Befehls-State und wird nach der Verarbeitung zurückgesetzt.
+All adapter-written result states use `ack=true`. `retrain` is the only command state and is reset with `ack=true` after handling.
 
-## Predictive-Prognosen
+`status` describes current model readiness, while `bootstrapStatus` describes the most recent optional history-import lifecycle. A successful import ends with `Historical training completed (...)`; after restart, the persisted ioBroker state remains unchanged unless an import is actually started again. `reason`, `score`, and `detected` describe the current evaluation only. `lastAnomaly` is retained as the timestamp of the most recent score at or above the configured anomaly threshold. If no baseline is available for a current value, `expected` and `deviation` are cleared rather than retaining an older baseline.
 
-Die optionale Predictive-Funktion erzeugt für jede überwachte numerische Quelle eine begrenzte lokale Prognose. Die Prognose verwendet die persistierte Trainingsbasis und keine Cloud-Dienste oder KI-APIs. Unterstützt werden Level/Trend-, saisonale und Tageszeitmodelle; das konfigurierte Modell wird durch deterministisches Backtesting ausgewählt.
+For example, with `activeContext=alias.0.tv.relay=false`, `actual=0 W`, `baselineScope=context`, and `expected≈0`, the OFF context is mature and is being used. With `baselineScope=global` and `expected≈300`, no usable context baseline was selected and the ordinary global fallback was used. With `baselineScope=insufficient`, the valid current context is still learning; no value baseline is used for that observation.
 
-Die Prognosepunkte behalten ihre echten Zeitstempel und das Modellintervall; der letzte Punkt wird bei Bedarf auf den eingestellten Horizont begrenzt. Trend und saisonale Phase werden vom letzten Trainingswert bis zur aktuellen Prognosezeit fortgeschrieben, auch zwischen zwei Modellintervallen. Der aktuelle Live-Wert wird als separater Ist-Marker dargestellt; er wird weder in die gestrichelte Forecast-Serie eingefügt noch mit ihr verbunden. So bleibt eine Abweichung zwischen Messwert und modellierter Erwartung am Prognoseursprung sichtbar, ohne eine künstliche Rampe zu erzeugen.
+## Predictive forecasting
 
-Die Prognosekarte zeigt Horizont, ausgewähltes Modell, Modellintervall, Trainingsquelle, Anzahl der Trainingswerte, letzten Trainingszeitpunkt, Saisonalität und Qualitätsklasse. Die Qualität basiert auf dem historischen mittleren absoluten Fehler (MAE). Die Zustände können `disabled`, `learning`, `ready`, `unreliable` oder `error` sein; eingeschränkte oder unzuverlässige Prognosen bleiben mit einem eindeutigen Status sichtbar.
+Optional predictive forecasting produces a bounded, local forecast for each monitored numerical state. The forecast is generated from the persisted training basis and does not use cloud services or AI APIs. The model supports level/trend, seasonal, and time-of-day profiles and selects the configured model using deterministic backtesting.
 
-Die Predictive-Einstellungen werden pro Quelle festgelegt: Aktivierung, Prognosehorizont, Aktualisierungsintervall, minimale und maximale Trainingspunktzahl sowie der Saisonalitätsmodus (aus, automatisch oder manuell). Das Initialtraining kann Live-Werte oder einen kompatiblen History-Provider verwenden. Persistierte Modelle und ihre begrenzten Trainingsbasen bleiben über Neustarts erhalten; fehlende oder inkompatible Trainingsdaten ersetzen ein History-Modell nicht durch ein reines Live-Training.
+Forecast points retain their real timestamps and model interval; the final point is shortened where necessary to stay within the configured horizon. Trend and seasonal phase advance from the last training observation to the current forecast time, including fractions of a model interval. The current live value is displayed separately as an actual marker; it is not inserted into or connected to the dashed forecast series. This makes a difference between the current measurement and the model expectation at the forecast origin visible without creating an artificial ramp.
 
-Die Predictive-Algorithmusversion ist jetzt 8. Modelle älterer Algorithmen werden verworfen und aus der konfigurierten History-Quelle oder neuen Live-Trainingswerten neu aufgebaut. Dadurch werden alte Modellkoeffizienten nicht mit den korrigierten Prognoseformeln interpretiert.
+The forecast card reports the horizon, selected model, model interval, training source, training sample count, last training time, seasonality, and quality classification. Quality is based on historical mean absolute error (MAE). Forecast states can be `disabled`, `learning`, `ready`, `unreliable`, or `error`; limited or unreliable forecasts remain visible with an explicit status.
 
-Prognose-Interpolation endet an Lücken, die sowohl sechs Stunden als auch sechs typische Quellintervalle überschreiten. Das Training verwendet dann den jüngsten zusammenhängenden Abschnitt. Bei zu wenigen Werten wartet es auf weitere Daten und behält ein vorhandenes trainiertes Modell bei. Mehrfachmeldungen desselben Zeitstempels zählen nicht als neue Trainingswerte. Nicht endliche Zwischenergebnisse führen zu einem ausdrücklichen Fehlerstatus ohne Prognosepunkte.
+Predictive settings are configured per source: enablement, forecast horizon, update interval, minimum and maximum training points, and seasonality mode (off, automatic, or manual). Initial training can use live values or a compatible history provider. Persisted models and their bounded training bases survive adapter restarts; missing or incompatible training data is handled without replacing a history-based model with live-only training.
 
-## Einschränkungen und Datenschutz
+The predictive algorithm version is now 8. Models fitted by an older algorithm are invalidated and rebuilt from the configured history source or new live training data. This prevents old fitted coefficients from being interpreted with the corrected forecast formulas.
 
-Eine Anomalie bedeutet, dass ein Wert oder Verhalten relativ zu den gelernten Beobachtungen ungewöhnlich ist. Sie beweist weder einen Gerätefehler noch dessen Ursache. Ungeeignete Einstellungen, nicht repräsentative Trainingszeiträume oder sich änderndes Anlagenverhalten können Fehlalarme oder übersehene Anomalien verursachen.
+Predictive interpolation stops at gaps longer than both six hours and six median source intervals. Training then uses the newest continuous section; a section below the minimum training sample count waits for more data and retains an existing fitted model when available. Repeated observations at one timestamp do not count as fresh training samples. Non-finite intermediate calculations produce an explicit error with no forecast points.
 
-Verarbeitung und Modellspeicherung erfolgen vollständig lokal in ioBroker. Kein Messwert wird an einen externen KI-, Analyse- oder Cloud-Dienst gesendet.
+## Limitations
 
-## Unterstützung
+An anomaly means that a value or behaviour is unusual relative to the observations that were learned. It does not establish the root cause. Poor source data, long periods without representative normal operation, changing equipment behaviour, or unsuitable detector settings can produce false positives or missed anomalies. Review initial learning results and tune each source where necessary.
 
-Wenn dir dieser Adapter gefällt, kannst du seine Weiterentwicklung mit einer Spende unterstützen:
+## Privacy
 
-[![Mit PayPal spenden](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
+Processing and model storage are completely local to ioBroker. No monitored value is sent to an external AI service, analytics service, or cloud API.
 
-## Lizenz
+## Support
 
-MIT License
+If you find this adapter useful, you can support its development with a donation:
 
-Copyright (c) 2026 Voodoo2man <Voodoo2man@outlook.de>
+[![Donate with PayPal](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
 
 ## Changelog
 ### 0.5.1 (2026-10-26)
@@ -312,6 +387,6 @@ Copyright (c) 2026 Voodoo2man <Voodoo2man@outlook.de>
 
 ## License
 
-This adapter is licensed under the [MIT License](LICENSE).
+This adapter is licensed under the [MIT License](https://github.com/Voodoo2man/ioBroker.anomaly-detection/blob/main/LICENSE).
 
 Copyright (c) 2026 Voodoo2man <Voodoo2man@outlook.de>

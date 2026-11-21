@@ -60,6 +60,16 @@ This way your main account stays logged in to the app at all times.
 
 Install via ioBroker Admin UI.
 
+## App certificate
+
+The Leapmotor cloud only talks to clients that present the certificate of the official Leapmotor app (mTLS). I do not ship this certificate with the adapter. Get the two files yourself and paste their content into the adapter settings:
+
+1. Download `app.crt` and `app.key` from [markoceri/leapmotor-certs](https://github.com/markoceri/leapmotor-certs). The same files are used by LeapConnect, the leapmotor-api Python client, evcc and the leapmotor-ha Home Assistant integration.
+2. Open each file in a text editor and copy everything, including the `-----BEGIN ...-----` and `-----END ...-----` lines.
+3. Paste the certificate into **App certificate (PEM)** and the key into **App private key (PEM)**, then save.
+
+If you update from a version before 0.9.0, the adapter stays disconnected until both fields are filled.
+
 ## Configuration
 
 | Setting | Description |
@@ -67,6 +77,8 @@ Install via ioBroker Admin UI.
 | Email | Leapmotor account email (recommend using a dedicated second account) |
 | Password | Leapmotor account password |
 | Vehicle PIN | 4-digit vehicle PIN – required for all remote commands |
+| App certificate (PEM) | Content of `app.crt` (see below) |
+| App private key (PEM) | Content of `app.key` (see below), stored encrypted |
 | Cloud API Language | Affects Leapmotor cloud API text only (e.g. schedule day names) |
 
 Everything else (polling intervals, GPS route recording, notifications,
@@ -177,6 +189,12 @@ Which comfort commands actually appear depends on the detected vehicle model —
 
 ### **WORK IN PROGRESS**
 
+### 0.9.1 (2026-11-21)
+- (backfisch88) Fix: certificate and key fields in the adapter settings were not editable
+
+### 0.9.0 (2026-11-21)
+- (backfisch88) Breaking: the app certificate is no longer bundled. Paste `app.crt` and `app.key` into the adapter settings (see "App certificate")
+
 ### 0.8.3 (2026-11-12)
 - (backfisch88) Fix: switching the car on while charging no longer ends the charging session early ("charging finished" message)
 
@@ -198,16 +216,6 @@ Which comfort commands actually appear depends on the detected vehicle model —
 
 ### 0.7.5 (2026-10-25)
 - Fix: boolean status datapoints (climate, locked, doors, ignition, Bluetooth, hotspot, window-open) were written from the raw cloud signal without converting to a real boolean
-
-### 0.7.4 (2026-10-25)
-- Fix: login failed with "Could not open account certificate" for accounts with a very large internal ID (number precision lost in JSON parsing)
-
-### 0.7.3 (2026-10-15)
-- New: optional comfort extras for Prepare-to-Drive/Work (seat heat, steering wheel heat, defrost)
-- New: charging session history cross-check (Diagnostics tab)
-- New: optional extended trip-done notification
-- Fix: separate sunshade cold-protection threshold
-- Fix: running charging session restored after restart
 
 Older changes can be found in CHANGELOG_OLD.md.
 

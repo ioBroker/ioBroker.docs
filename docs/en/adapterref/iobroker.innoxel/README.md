@@ -11,29 +11,25 @@ Adapter for Innoxel Master 3 (https://innoxel.ch)
 
 ![Number of Installations](https://iobroker.live/badges/innoxel-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/innoxel-stable.svg)
-[![Dependency Status](https://img.shields.io/david/matthsc/iobroker.innoxel.svg)](https://david-dm.org/matthsc/iobroker.innoxel)
 
 ![Test and Release](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
-
-[![NPM](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)](https://nodei.co/npm/iobroker.innoxel/)
 
 ## Requirements
 
 - NodeJS >= 22.x
-- ioBroker >= 6.0.11, with admin >= 6.x
+- js-controller >= 6.0.11, with admin >= 7.6.20
 - Innoxel Master 3 Smart Home system
 
 ## Installation
 
-Until the adapter is part of the stable repository, you can install the latest version by enabling expert mode in ioBroker and install the adapter from npm. Don't install it directly from Github, this will lead to an error on adapter start ("cannot find start file").
-
-The adapter can be installed straigt from the stable/beta repositories. After installation, create a new instance and configure the settings:
+The adapter can be installed straight from the stable/beta repositories. After installation, create a new instance and configure the settings:
 
 - Connection Settings for accessing innoxel master
   - ip address
   - port
   - username
   - password
+  - you can verify the credentials using the "Test Connection" button once the instance is running
 - Polling intervals for different areas
   - state changes (i.e. switches, dimmer)
   - room climate / thermostats
@@ -78,13 +74,13 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 });
 ```
 
-- <code>moduleId</code> is the id/address of the "Taster"
-- <code>channelId</code> is the index of the button on the "Taster"
-- <code>callback</code> (optional) callback function to call when action has been performed
+- `moduleId` is the id/address of the "Taster"
+- `channelId` is the index of the button on the "Taster"
+- `callback` (optional) callback function to call when action has been performed
 
 ### setDimValue
 
-Simulate pressing of a button on a "Taster".
+Set the brightness of a dimmer channel.
 
 ```ts
 sendTo(
@@ -101,11 +97,11 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 });
 ```
 
-- <code>moduleId</code> is the id/address of the dimmer module
-- <code>channelId</code> is channel of the dimmer on the module
-- <code>dimValue</code> is the value in percent to set (0-100)
-- <code>dimSpeed</code> (optional) is the dimming speed to use (0-15)
-- <code>callback</code> (optional) callback function to call when action has been performed
+- `moduleId` is the id/address of the dimmer module
+- `channelId` is the channel of the dimmer on the module
+- `dimValue` is the value in percent to set (0-100)
+- `dimSpeed` (optional) is the dimming speed to use (0-15)
+- `callback` (optional) callback function to call when action has been performed
 
 ### setTemperature
 
@@ -120,16 +116,16 @@ sendTo(
 );
 
 // i.e. to set setTemperatureHeating to 20° on room climate module 0
-sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
-sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
-  // do something after the button press has been executed
+sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20");
+sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20", () => {
+  // do something after the temperature has been set
 });
 ```
 
-- <code>moduleId</code> is the id/address room climate module
-- <code>temperatureType</code> is the temperature type to set (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
-- <code>temperature</code> temperature to set, in 0.5° steps. There's also a min/max value depending on type
-- <code>callback</code> (optional) callback function to call when action has been performed
+- `moduleId` is the id/address of the room climate module
+- `temperatureType` is the temperature type to set (`absenceSetbackTemperatureCooling`, `absenceSetbackTemperatureHeating`, `nightSetbackTemperatureCooling`, `nightSetbackTemperatureHeating`, `setTemperatureCooling`, `setTemperatureHeating`)
+- `temperature` temperature to set, in 0.5° steps. There's also a min/max value depending on type
+- `callback` (optional) callback function to call when action has been performed
 
 ## Changelog
 
@@ -137,6 +133,13 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0-beta.0 (2026-11-18)
+- (matthsc) call callbacks in onMessage
+- (matthsc) add connection test button to admin
+- (matthsc) make transient connection errors more resilient
+- (matthsc) fix precipitation state, add rain state
+- (matthsc & dependabot & iobroker bot) dependency updates and cleanups
+
 ### 2.0.0 (2026-05-16)
 - (matthsc) implement adapter checker feedback and create-adapter migrations
 - (copilot) Adapter requires node.js >= 22 now

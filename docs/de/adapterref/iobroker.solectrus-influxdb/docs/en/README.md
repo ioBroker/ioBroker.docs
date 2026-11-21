@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solectrus-influxdb/docs/en/README.md
 title: SOLECTRUS InfluxDB-Adapter - Dokumentation
-hash: UpZI6LyBTW8uJ682mJV4981Po16kHhTYH2VL2uDdP0I=
+hash: M5C7ma4qoq4JlS6jhIg/8YWp8q4pzZtSGXKHPwkKlqk=
 ---
 # SOLECTRUS InfluxDB-Adapter – Dokumentation
 
@@ -32,15 +32,36 @@ hash: UpZI6LyBTW8uJ682mJV4981Po16kHhTYH2VL2uDdP0I=
 
 Öffnen Sie die Adaptereinstellungen und wechseln Sie zur Registerkarte **InfluxDB** .
 
-| Feld                 | Beschreibung                                                  |
-| -------------------- | ------------------------------------------------------------- |
-| URL                  | InfluxDB 2.x Serveradresse (z. B.`http://192.168.1.10:8086` ) |
-| Organisation         | Ihre InfluxDB-Organisation                                    |
-| Eimer                | Ziel-Bucket für Zeitreihendaten                               |
-| Token                | API-Token mit **Schreibberechtigungen**                       |
-| Abfrageintervall (s) | Wie häufig werden die Sensorwerte erfasst (5-30 Sekunden)     |
+URL und Token können auf zwei Arten bereitgestellt werden:
 
-Der Adapter überprüft die Verbindung beim Start durch Schreiben eines Testpunkts. Der Verbindungsstatus wird angezeigt in`info.connection` Die
+### Option A (Standard): Eintrag in der Instanz
+
+Lassen Sie **das Feld „Anmeldeinformationen“** auf **„Keine“** und geben Sie URL, Port und Token direkt in die Felder ein.
+
+### Option B (Admin 8 und neuer): ioBroker-Anmeldeinformationen „Benutzername & Passwort“
+
+URL und Token werden zentral unter _Systemeinstellungen → Anmeldeinformationen_ gespeichert und im Feld **„Anmeldeinformationen“** ausgewählt (➕ erstellt dort auch ein Token):
+
+- **Login** = URL, z. B. `http://192.168.1.10`
+- **Passwort** = API-Token
+
+Die Felder für URL und Token werden anschließend gesperrt. Anmeldeinformationen der Form „ _Schlüssel“_ werden nicht unterstützt. Wenn die Anmeldeinformationen in der Administration geändert werden, wird der Adapter neu gestartet.
+
+### Felder
+
+| Feld                 | Beschreibung                                                                                                                           |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Berechtigung         | **Keine** (Option A) oder Anmeldeinformationen „Benutzername & Passwort“ (Option B)                                                    |
+| URL                  | InfluxDB 2.x Serveradresse ohne Port, z. B. `http://192.168.1.10`                                                                       |
+| Hafen                | Standard `8086` Die `0` = Standardport des Protokolls (z. B. 443 für HTTPS hinter einem Reverse-Proxy). Ein Port in der URL hat Vorrang. |
+| Organisation         | Ihre InfluxDB-Organisation                                                                                                             |
+| Eimer                | Ziel-Bucket für Zeitreihendaten                                                                                                        |
+| Token                | API-Token mit **Schreibberechtigung**                                                                                                  |
+| Abfrageintervall (s) | Wie häufig werden die Sensorwerte erfasst (5-30 Sekunden)                                                                              |
+
+Der Adapter überprüft die Verbindung beim Start durch Schreiben eines Testpunkts. Der Verbindungsstatus wird angezeigt in `info.connection` Die
+
+> **Aktualisierung gegenüber älteren Versionen:** ein Port in der URL (z. B. `http://192.168.1.10:8086` Die Angabe des Ports wird beim ersten Aufruf automatisch in das Feld **„Port“** verschoben. Eine URL ohne Portangabe behält den Standardport ihres Protokolls (80 oder 443). Hier ist nichts weiter zu tun.
 
 Am unteren Rand dieses Tabs finden Sie:
 
@@ -57,7 +78,7 @@ Wechseln Sie zum Reiter **„Sensoren“** . Der Master-/Detail-Editor zeigt all
 
 Standardmäßig läuft der Adapter im **Standardmodus** . Die Sensorliste zeigt alle vorkonfigurierten Sensoren an (Wechselrichterleistung, Batterieladestand, Hausstrom, Wettervorhersagesensoren usw.). Im Standardmodus:
 
-- Die Sensorliste kann nach **Ordner/Gruppe** reduziert werden. Alle vorkonfigurierten SOLECTRUS-Sensoren befinden sich **standardmäßig in der Gruppe „SOLECTRUS-Sensoren“** . Vorhandene Sensoren aus älteren Konfigurationen, die nicht dem Standard-Sensorsatz entsprechen, werden automatisch der Gruppe **„Benutzerdefinierte Sensoren“** zugewiesen.
+- Die Sensorliste kann nach **Ordner/Gruppe** reduziert werden. Die vorkonfigurierten SOLECTRUS-Sensoren sind wie in der Sensorübersicht von HELIOS in Ordner sortiert: **Wechselrichter** , **Netz** , **Batterie** , **Wallbox** , **Elektroauto 1–5** , **Wärmepumpe** , **Wettervorhersage** und **Benutzerdefiniert** . Sensoren aus dem ehemaligen **Standardordner für SOLECTRUS-Sensoren** werden automatisch in diese Ordner verschoben. Vorhandene Sensoren aus älteren Konfigurationen, die nicht dem Standard-Sensorsatz entsprechen, werden automatisch der Gruppe **„Benutzerdefiniert“** zugeordnet.
 - **Bearbeitbar** : Quellstatus (ioBroker-Status), Aktiviertes Kontrollkästchen
 - **Schreibgeschützt** : Sensorname, Datentyp, Messung, Feld, JSON-Voreinstellung
 - **Ausgeblendet** : Schaltflächen „Hinzufügen“, „Löschen“, „Duplizieren“, internes Kontrollkästchen, Ordner/Gruppe, Einheit, Maximalwert, Lebensdauer-Timeout
@@ -80,18 +101,37 @@ Klicken Sie auf **Hinzufügen** (Expertenmodus) oder wählen Sie einen vorhanden
 | Einstellung                               | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                               | Modus              |
 | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | Ermöglicht                                | Sensor aktivieren/deaktivieren                                                                                                                                                                                                                                                                                                                                                                                                                             | Standard + Experte |
-| Intern                                    | Spiegelt den aktuellen Wert wider und hält die Überwachung aktiv, überspringt aber Schreibvorgänge in InfluxDB. Standard:`false` Die                                                                                                                                                                                                                                                                                                                       | Experte            |
+| Intern                                    | Spiegelt den aktuellen Wert wider und hält die Überwachung aktiv, überspringt aber Schreibvorgänge in InfluxDB. Standard: `false` Die                                                                                                                                                                                                                                                                                                                       | Experte            |
 | ioBroker Quellstatus                      | Der Quellzustand, aus dem Werte gelesen werden sollen. Verwenden Sie die Schaltfläche **„Auswählen** “, um die Objektstruktur zu durchsuchen.                                                                                                                                                                                                                                                                                                              | Standard + Experte |
-| Ordner/Gruppe                             | Optionaler Gruppenname für die Sensorliste links. Leerer Wert = **Nicht gruppiert** . Alle Standardsensoren befinden sich unter **„Standard-SOLECTRUS-Sensoren“** . Ältere, nicht standardmäßige Sensoren und neu erstellte Sensoren im Expertenmodus befinden sich unter **„Benutzerdefinierte Sensoren“** .                                                                                                                                              | Experte            |
-| Sensorname                                | Anzeigename (wird auch für die ioBroker-Status-ID verwendet unter`sensors.*` )                                                                                                                                                                                                                                                                                                                                                                             | Experte            |
-| Einheit                                   | Physikalische Einheit des Sensorwertes (z. B.`W` ,`°C` ,`%` ,`A` Automatisch aus dem ioBroker-Status erkannt.`common.unit` wenn ein Quellstatus ausgewählt ist. Standardmäßig`W` Wenn keine Einheit konfiguriert ist. Kann im Expertenmodus manuell überschrieben werden.                                                                                                                                                                                  | Experte            |
+| Nur auf Wechselgeld schreiben             | Der Wert wird nicht im Erfassungsintervall, sondern jedes Mal bei einer Änderung des Quellzustands mit dem Zeitpunkt dieser Änderung ( **zuletzt geändert** ) geschrieben. `lc` Eine Datenquelle, die denselben Wert wiederholt, ist sinnlos. Sie ist für Werte gedacht, die sich selten ändern, wie z. B. Fahrzeugsensoren. Nicht für JSON-Sensoren. Standardmäßig deaktiviert, für Fahrzeugsensoren aktiviert.                                            | Standard + Experte |
+| Ordner/Gruppe                             | Optionaler Gruppenname für die Sensorliste links. Leerer Wert = **Nicht gruppiert** . Standardmäßig werden Sensoren in ihrem HELIOS-Ordner (z. B. „ **Batterie“** ) angezeigt. Ältere, nicht standardmäßige Sensoren und neu erstellte Sensoren im Expertenmodus werden unter **„Benutzerdefinierte Sensoren“** angezeigt.                                                                                                                                 | Experte            |
+| Sensorname                                | Anzeigename (wird auch für die ioBroker-Status-ID verwendet unter `sensors.*`)                                                                                                                                                                                                                                                                                                                                                                             | Experte            |
+| Einheit                                   | Physikalische Einheit des Sensorwertes (z. B. `W`, `°C`, `%`, `A` Automatisch aus dem ioBroker-Status erkannt. `common.unit` wenn ein Quellstatus ausgewählt ist. Standardmäßig `W` Wenn keine Einheit konfiguriert ist. Kann im Expertenmodus manuell überschrieben werden.                                                                                                                                                                                  | Experte            |
 | Maximalwert                               | Plausibilitätsgrenze pro Sensor. Wird diese überschritten, wird stattdessen der letzte gültige Wert gesendet und eine Warnung protokolliert. **0 = deaktiviert** (Standard).                                                                                                                                                                                                                                                                               | Experte            |
-| Zeitüberschreitung (min, 0 = deaktiviert) | Wird innerhalb dieses Zeitraums kein neuer Wert empfangen: Ist der aktuelle Wert **ungleich null** , wird eine Warnung protokolliert und der Zeitstempel in der Übersicht **orange** angezeigt; ist der aktuelle Wert **0** , wird stattdessen eine Informationsmeldung protokolliert und die nächste Prüfung nach **60 Minuten** durchgeführt. **0 = deaktiviert** . Standard:`60` . Muss größer sein als das Aktualisierungsintervall des Quelladapters. | Experte            |
-| Datentyp                                  | `int` ,`float` ,`bool` ,`string` , oder`json` (JSON-Array)                                                                                                                                                                                                                                                                                                                                                                                                 | Experte            |
-| Zuflussmessung                            | Der Name der InfluxDB-Messung (z. B.`inverter` )                                                                                                                                                                                                                                                                                                                                                                                                           | Experte            |
-| Zuflussfeld                               | Der InfluxDB-Feldname (z. B.`power` )                                                                                                                                                                                                                                                                                                                                                                                                                      | Experte            |
+| Zeitüberschreitung (min, 0 = deaktiviert) | Wird innerhalb dieses Zeitraums kein neuer Wert empfangen: Ist der aktuelle Wert **ungleich null** , wird eine Warnung protokolliert und der Zeitstempel in der Übersicht **orange** angezeigt; ist der aktuelle Wert **0** , wird stattdessen eine Informationsmeldung protokolliert und die nächste Prüfung nach **60 Minuten** durchgeführt. **0 = deaktiviert** . Standard: `60`. Muss größer sein als das Aktualisierungsintervall des Quelladapters. | Experte            |
+| Datentyp                                  | `int`, `float`, `bool`, `string`, oder `json` (JSON-Array)                                                                                                                                                                                                                                                                                                                                                                                                 | Experte            |
+| Zuflussmessung                            | Der Name der InfluxDB-Messung (z. B. `inverter`)                                                                                                                                                                                                                                                                                                                                                                                                           | Experte            |
+| Zuflussfeld                               | Der InfluxDB-Feldname (z. B. `power`)                                                                                                                                                                                                                                                                                                                                                                                                                      | Experte            |
 
 Mindestens ein Sensor muss aktiviert sein, damit Daten geschrieben werden können.
+
+### Fahrzeugsensoren
+
+SOLECTRUS unterstützt bis zu **5 Autos** . Jedes Auto `n` (1–5) hat einen Ordner **Elektroauto** mit diesen Sensoren:
+
+| Sensor                              | Bedeutung            | Typ      |
+| ----------------------------------- | -------------------- | -------- |
+| `CAR_BATTERY_SOC_n`                 | Ladezustand (%)      | schweben |
+| `CAR_ODOMETER_n`                    | Kilometerzähler (km) | schweben |
+| `CAR_RANGE_n`                       | Restreichweite (km)  | schweben |
+| `CAR_CONNECTED_n`                   | Auto angeschlossen   | bool     |
+| `CAR_LATITUDE_n` /`CAR_LONGITUDE_n` | Lage (Grad)          | schweben |
+
+Auto 1 schreibt in die Messung `car`, Autos 2–5 bis `car_2` …`car_5` Ein Auto meldet seine Werte nur, solange es online ist, daher haben diese Sensoren **die Option „Nur schreiben bei Änderung“ aktiviert** und die Option „Lebend-Timeout“ deaktiviert (`0` Jeder Messwert erreicht InfluxDB nur einmal, und zwar mit dem Zeitpunkt der Änderung, anstatt alle 5 Sekunden mit der aktuellen Zeit.
+
+Beim **Start des Adapters** wird der aktuelle Wert jedes Sensors sofort einmalig zusammen mit dem Zeitpunkt der letzten Änderung geschrieben. Der Adapter wartet nicht auf die nächste Änderung, sodass ein Wert, der sich während des Stopps des Adapters geändert hat, nicht verloren geht. Falls InfluxDB den Wert bereits enthält, wird er lediglich überschrieben; es wird kein Duplikat erstellt. Wenn der Quelladapter nach einem Neustart seinen Wert erneut schreibt und sich dadurch der Zeitpunkt **der letzten Änderung** verschiebt, erhält der Wert die neue Zeitangabe.
+
+SOLECTRUS liest weiterhin den vorherigen Sensor aus `CAR_BATTERY_SOC` (ohne Zahl) als `CAR_BATTERY_SOC_1`. A `CAR_MILEAGE_n` von einer Entwicklungsversion umbenannt in `CAR_ODOMETER_n` beim Start.
 
 ### Statussymbole in der Sensorliste
 
@@ -105,7 +145,7 @@ Für Wettervorhersage-/Wetterdaten stellen Sie den Datentyp auf **JSON-Array** e
 
 | Modus           | Beschreibung                                                                                                                                                                                                                |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Automatisch** | Erkennt automatisch bekannte Felder in den JSON-Daten (`y` ,`clearsky` ,`temp` und schreibt jeden Wert in die entsprechende InfluxDB-Messung/das entsprechende Feld. Ein Sensor verarbeitet alle erkannten Vorhersagetypen. |
+| **Automatisch** | Erkennt automatisch bekannte Felder in den JSON-Daten (`y`, `clearsky`, `temp` und schreibt jeden Wert in die entsprechende InfluxDB-Messung/das entsprechende Feld. Ein Sensor verarbeitet alle erkannten Vorhersagetypen. |
 | **Brauch**      | Definieren Sie manuell das JSON-Zeitstempelfeld, das Wertfeld und den InfluxDB-Typ. Verwenden Sie diese Option für nicht standardmäßige JSON-Quellen.                                                                       |
 
 **Automatische Kartierungserkennung:**
@@ -121,11 +161,11 @@ Felder, die im JSON nicht vorhanden sind, werden automatisch übersprungen.
 ### Wie Sensoren funktionieren
 
 1. Der Adapter abonniert den Quellzustand jedes Sensors.
-2. Die Werte werden gespiegelt unter`solectrus-influxdb.X.sensors.*`
+2. Die Werte werden gespiegelt unter `solectrus-influxdb.X.sensors.*`
 3. Bei jedem Abfrageintervall werden die aktuellen Werte dem Schreibpuffer hinzugefügt ( **Collect** ).
 4. Unmittelbar nach dem Sammeln wird der Puffer in InfluxDB geleert ( **Flush** ).
 
-Sensoren, die als **intern** gekennzeichnet sind, werden weiterhin gespiegelt unter`solectrus-influxdb.X.sensors.*` und bleiben Teil der Überwachung von aktiven/maximalen Zuständen, sind aber von InfluxDB-Schreibvorgängen ausgeschlossen.
+Sensoren, die als **intern** gekennzeichnet sind, werden weiterhin gespiegelt unter `solectrus-influxdb.X.sensors.*` und bleiben Teil der Überwachung von aktiven/maximalen Zuständen, sind aber von InfluxDB-Schreibvorgängen ausgeschlossen.
 
 ### Architektur sammeln & spülen
 
@@ -135,11 +175,11 @@ Sammeln und Spülen erfolgen nahezu gleichzeitig, ohne sich gegenseitig zu block
 2. **Sofortiger Flush** – nach dem Sammeln wird der Flush beim nächsten Ereignisschleifen-Tick ausgelöst (kein zusätzliches Warteintervall).
 3. **Snapshot-and-Swap** – Beim Start des Flush-Vorgangs wird der aktuelle Puffer als Batch erfasst und durch ein neues, leeres Array ersetzt. Während der Flush auf die InfluxDB-Antwort wartet, schreibt ein paralleler Collect-Vorgang bereits in den neuen (leeren) Puffer. Der Batch wird während des Flush-Vorgangs nicht verändert.
 4. **Fehlerbehebung** – falls das Leeren fehlschlägt, wird der Batch in chronologischer Reihenfolge wieder an den aktuellen Puffer angehängt. Es gehen keine Werte verloren.
-5. **Überlappungsschutz** -- ein`isFlushing` Das Flag verhindert, dass mehrere Flush-Operationen gleichzeitig ausgeführt werden.
+5. **Überlappungsschutz** -- ein `isFlushing` Das Flag verhindert, dass mehrere Flush-Operationen gleichzeitig ausgeführt werden.
 
 ### NaN-Schutz
 
-Ungültige Werte (`NaN` für int/float,`null` /`undefined` (für Zeichenketten) werden automatisch mit einer Protokollwarnung übersprungen.
+Ungültige Werte (`NaN` für int/float, `null` /`undefined` (für Zeichenketten) werden automatisch mit einer Protokollwarnung übersprungen.
 
 ### Negative Werte
 
@@ -147,19 +187,19 @@ SOLECTRUS akzeptiert keine negativen Werte. Liefert ein Sensor nach dem Start de
 
 ### Geräte-Automatikerkennung
 
-Wenn in der Admin-Benutzeroberfläche ein Quellstatus ausgewählt wird (über den **Auswahldialog** oder durch Eingabe der Status-ID und anschließendes Verlassen des Feldes), liest die Admin-Benutzeroberfläche die`common.unit` Die Eigenschaft des ioBroker-Objekts füllt das Feld **„Unit“** aus. Wenn für den Zustand keine Einheit definiert ist, bleibt das Feld leer.`W` wird als Standardanzeige im Übersichtsreiter verwendet. Die Einheit kann im **Expertenmodus** jederzeit manuell geändert werden.
+Wenn in der Admin-Benutzeroberfläche ein Quellstatus ausgewählt wird (über den **Auswahldialog** oder durch Eingabe der Status-ID und anschließendes Verlassen des Feldes), liest die Admin-Benutzeroberfläche die `common.unit` Die Eigenschaft des ioBroker-Objekts füllt das Feld **„Unit“** aus. Wenn für den Zustand keine Einheit definiert ist, bleibt das Feld leer. `W` wird als Standardanzeige im Übersichtsreiter verwendet. Die Einheit kann im **Expertenmodus** jederzeit manuell geändert werden.
 
 ### Validierung des Maximalwerts
 
-Jeder numerische Sensor (`int` ,`float` (oder Standardtyp) unterstützt ein Feld **für Maximalwerte** (konfigurierbar im Expertenmodus). Wenn ein erfasster Wert diesen Grenzwert überschreitet:
+Jeder numerische Sensor (`int`, `float` (oder Standardtyp) unterstützt ein Feld **für Maximalwerte** (konfigurierbar im Expertenmodus). Wenn ein erfasster Wert diesen Grenzwert überschreitet:
 
-1. Es wird eine Warnung protokolliert:`Sensor "..." delivers implausible value (X > max Y). Using last valid value (Z) instead.`
+1. Es wird eine Warnung protokolliert: `Sensor "..." delivers implausible value (X > max Y). Using last valid value (Z) instead.`
 2. Stattdessen wird der **letzte gültige Wert** (der aktuellste Wert, der dem Grenzwert entspricht oder darunter liegt) an InfluxDB gesendet.
 3. Wenn für diesen Sensor noch kein gültiger Wert erfasst wurde, wird der Datenpunkt vollständig übersprungen.
 
 Dadurch wird verhindert, dass kurzzeitige Sensorspitzen (z. B. ein kurzer Messwert von 99999 W) die Zeitreihendaten verfälschen.
 
-Der Standardwert ist **0 (deaktiviert)** – die Wertüberwachung ist für neue Sensoren standardmäßig deaktiviert. Im Expertenmodus kann für jeden Sensor ein individueller Grenzwert festgelegt werden (z. B. 0,5).`15000` oder`5000` (für einen sekundären Wechselrichter). Wenn der Maximalwert auf`0` Die Wertüberwachung ist für diesen Sensor deaktiviert.
+Der Standardwert ist **0 (deaktiviert)** – die Wertüberwachung ist für neue Sensoren standardmäßig deaktiviert. Im Expertenmodus kann für jeden Sensor ein individueller Grenzwert festgelegt werden (z. B. 0,5). `15000` oder `5000` (für einen sekundären Wechselrichter). Wenn der Maximalwert auf `0` Die Wertüberwachung ist für diesen Sensor deaktiviert.
 
 ### Feldtypkonflikte
 
@@ -178,14 +218,15 @@ Die Registerkarte **SOLECTRUS Übersicht** (erreichbar über die Registerkartenl
 - **Farblegende** (Symbolleiste, oben rechts neben dem Titel): zeigt die Bedeutung der Kartenfarben auf einen Blick – **grün** = aktiver Sensor, **gelb** = interner Sensor, **orange** = Zeitüberschreitung, **rot** = Maximalwert überschritten.
 - Die Schaltfläche in der Registerkartenleiste ist allgemein mit **„Sensoren“** beschriftet; der Inhalt darunter ist in zwei Abschnitte unterteilt, jeder mit einer eigenen Überschrift: **InfluxDB-Sensoren** (blaues Diamantsymbol, Sensoren, die tatsächlich in InfluxDB geschrieben werden) und **Interne Sensoren** (🔒, wird nur angezeigt, wenn mindestens einer vorhanden ist).
 - **InfluxDB-Sensoren-Grid** : Zeigt alle aktivierten Sensoren, deren Daten tatsächlich in InfluxDB geschrieben werden, als kompakte Karten in einem responsiven Grid an. Jede Karte zeigt Folgendes an:
-  - **Sensorname** und **Datentyp-Abzeichen** (`int` ,`float` ,`bool` ,`string` ,`json` )
-  - **Wertzeile** (nur numerische Sensoren): linksbündiger **aktueller Wert mit Einheit** (z. B. 1).`2697 W` Rechtsbündiges **Badge für den Maximalwert** – wird nur angezeigt, wenn der Maximalwert > 0 ist (Wertüberwachung aktiv). Zeigt _„n/a“_ an, wenn noch kein Wert empfangen wurde. JSON-Werte werden kompakt in einer nichtproportionalen Schriftart dargestellt. Sobald das konfigurierte Timeout überschritten ist, wird der aktuelle Wert **orange** angezeigt; wird auch der Maximalwert überschritten, hat **Rot** Vorrang vor Orange.
+  - **Sensorname** und **Datentyp-Abzeichen** (`int`, `float`, `bool`, `string`, `json`)
+  - **Wertzeile** (nur numerische Sensoren): linksbündiger **aktueller Wert mit Einheit** (z. B. 1). `2697 W` Rechtsbündiges **Badge für den Maximalwert** – wird nur angezeigt, wenn der Maximalwert > 0 ist (Wertüberwachung aktiv). Zeigt _„n/a“_ an, wenn noch kein Wert empfangen wurde. JSON-Werte werden kompakt in einer nichtproportionalen Schriftart dargestellt. Sobald das konfigurierte Timeout überschritten ist, wird der aktuelle Wert **orange** angezeigt; wird auch der Maximalwert überschritten, hat **Rot** Vorrang vor Orange.
   - **Messung: Feld** — der Zielort in InfluxDB (durch einen Doppelpunkt getrennt)
   - **Quellstatus** – die gelesene ioBroker-Status-ID (gekürzt, vollständiger Pfad wird beim Überfahren mit der Maus angezeigt)
   - **Zeitstempelzeile** (angezeigt bei konfiguriertem Timeout): linksbündig ausgerichteter **Zeitstempel** (Datum und Uhrzeit des letzten vom Sensor empfangenen neuen Werts); rechtsbündig ausgerichtete **nächste erwartete Aktualisierung** als Badge (nur Zeit, keine Beschriftung, automatisch berechnet aus Zeitstempel + Timeout-Intervall – keine manuelle Eingabe erforderlich). Ist der aktuelle Wert 0, wird für die Berechnung der nächsten Aktualisierung das 60-Minuten-Fallback-Intervall verwendet. Die Zeile wird **orange** dargestellt, wenn das Timeout überschritten wurde.
 - **Interne Sensoren** (nur angezeigt, wenn mindestens ein Sensor die Option **„Intern“** aktiviert hat): Ein separater Bereich unterhalb der InfluxDB-Sensorenübersicht mit demselben Kartenlayout, jedoch mit **gelbem linken Rand** und **gelbem aktuellen Wert** . Da diese Sensoren nicht in InfluxDB geschrieben werden, sind sie hier klar von den regulären (grünen) Sensoren getrennt.
-- **Formel-Engine-Raster** (nur angezeigt, wenn Data-SOLECTRUS aktiviert ist): Zeigt alle aktiven berechneten Elemente im selben Kartenlayout mit Modus-Symbol, aktuellem Wert, Status-ID und Formel/Ausdruck an. Die Schriftgrößen bleiben in allen Bildschirmausrichtungen konstant. Numerische Werte werden mit **Einheit** angezeigt (z. B. 1000).`2697 W` ) — die für das Element konfigurierte Einheit, standardmäßig auf`W` Wenn kein Wert festgelegt ist, werden boolesche und Zeichenketten-Ergebnisse ohne Einheit angezeigt. Da Data-SOLECTRUS-Elemente niemals direkt in InfluxDB geschrieben werden (nur Sensoren), werden diese Karten immer wie **interne Sensoren** formatiert, mit **gelbem Rahmen** und **gelbem Wert** .
-- **JSON-Array-Vorschau** : Für Sensoren mit dem Datentyp`json` Der Wert zeigt den **ersten Eintrag des Arrays** gefolgt von der Anzahl der weiteren Einträge an (z. B.`{"t":1710000000000,"y":1250} (+543 more entries)` ).
+- **Formel-Engine-Raster** (nur angezeigt, wenn Data-SOLECTRUS aktiviert ist): Zeigt alle aktiven berechneten Elemente im selben Kartenlayout mit Modus-Symbol, aktuellem Wert, Status-ID und Formel/Ausdruck an. Die Schriftgrößen bleiben in allen Bildschirmausrichtungen konstant. Numerische Werte werden mit **Einheit** angezeigt (z. B. 1000). `2697 W`) — die für das Element konfigurierte Einheit, standardmäßig auf `W` Wenn kein Wert festgelegt ist, werden boolesche und Zeichenketten-Ergebnisse ohne Einheit angezeigt. Da Data-SOLECTRUS-Elemente niemals direkt in InfluxDB geschrieben werden (nur Sensoren), werden diese Karten immer wie **interne Sensoren** formatiert, mit **gelbem Rahmen** und **gelbem Wert** .
+  - Hat ein Element ein eigenes **Timeout** (oder nutzt ein aktivierter Sensor mit Timeout dieses Element), wird das Timeout in der Zeitstempelzeile rechts als Symbol angezeigt ( _Eingaben: 15 Min_ ., ggf. mit Sensornamen). Veraltete Eingaben werden unten **orange** mit ihrem letzten Zeitstempel aufgelistet ( _Eingabe ohne Aktualisierung_ ), wobei Wert und Zeitstempel ebenfalls **orange** dargestellt werden (siehe [Aktivitätsüberwachung](#alive-monitoring) ).
+- **JSON-Array-Vorschau** : Für Sensoren mit dem Datentyp `json` Der Wert zeigt den **ersten Eintrag des Arrays** gefolgt von der Anzahl der weiteren Einträge an (z. B. `{"t":1710000000000,"y":1250} (+543 more entries)`).
 - **Automatische Aktualisierung** : Der Tab wird alle 5 Sekunden automatisch aktualisiert.
 - **Layout-Umschaltung** : Die Schaltfläche **„Volle Breite** / **Flexibel“** in der Symbolleiste schaltet beide Raster zwischen einem flexiblen mehrspaltigen Layout und einem einspaltigen Layout in voller Breite um. Die Auswahl wird im Browser gespeichert und beim nächsten Besuch wiederhergestellt.
 
@@ -201,15 +242,15 @@ Vorhersage- und Wetterdaten von pvforecast oder ähnlichen Adaptern können mith
 
 ### So funktioniert es
 
-1. Der Adapter abonniert einen oder mehrere JSON-Zustände (z. B.`pvforecast.0.summary.JSONData` )
+1. Der Adapter abonniert einen oder mehrere JSON-Zustände (z. B. `pvforecast.0.summary.JSONData`)
 2. Wenn sich der JSON-Zustand ändert, analysiert der Adapter das JSON-Array.
-3. Im **Automatikmodus** durchsucht der Adapter jeden Eintrag nach Feldern mit bekannten Werten (`y` ,`clearsky` ,`temp` )
+3. Im **Automatikmodus** durchsucht der Adapter jeden Eintrag nach Feldern mit bekannten Werten (`y`, `clearsky`, `temp`)
 4. Für jedes erkannte Feld wird ein Datenpunkt mit der korrekten Messung, dem Feld und dem Typ in InfluxDB geschrieben.
 5. Da InfluxDB Datenpunkte mit denselben Messwerten, Tags und Zeitstempeln überschreibt, **werden bestehende Prognosepunkte automatisch aktualisiert,** wenn sich die Quelldaten ändern.
 
 ### JSON-Format
 
-Der Quellzustand muss ein JSON-Array von Objekten enthalten. Jedes Objekt muss ein Zeitstempelfeld haben (`t` ) und ein oder mehrere Wertfelder:
+Der Quellzustand muss ein JSON-Array von Objekten enthalten. Jedes Objekt muss ein Zeitstempelfeld haben (`t`) und ein oder mehrere Wertfelder:
 
 ```json
 [
@@ -234,7 +275,7 @@ Im **Automatikmodus** erkennt ein einzelner JSON-Sensor alle vorhandenen Felder 
 
 - **Millisekunden** (Zahl >= 10^12): Direkt verwendet
 - **Sekunden** (Zahl < 10^12): Automatisch in Millisekunden umgerechnet
-- **ISO-Zeichenkette** : Geparst über`Date` Konstruktor
+- **ISO-Zeichenkette** : Geparst über `Date` Konstruktor
 
 ---
 
@@ -254,23 +295,23 @@ Der pvforecast-Adapter unterstützt zwei Backends:
 | Backend                | Verfügbare Felder            | Beschreibung                                                                               |
 | ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------ |
 | **Standard**           | `y` (Vorhergesagte Leistung) | Nur grundlegende PV-Leistungsprognose                                                      |
-| **pvnode: bei V6.0.0** | `y` ,`clearsky` ,`temp`      | Vollständige Vorhersage mit Angaben zu Sonneneinstrahlung und Temperatur bei klarem Himmel |
+| **pvnode: bei V6.0.0** | `y`, `clearsky`, `temp`      | Vollständige Vorhersage mit Angaben zu Sonneneinstrahlung und Temperatur bei klarem Himmel |
 
-> **Wichtig:** Die Felder`clearsky` (watt\_clearsky) und`temp` sind **nur mit pvnode als Backend verfügbar** . Das Standard-Backend pvforecast bietet nur die`y` (Prognoseleistung) Feld.
+> **Wichtig:** Die Felder `clearsky` (watt\_clearsky) und `temp` sind **nur mit pvnode als Backend verfügbar** . Das Standard-Backend pvforecast bietet nur die `y` (Prognoseleistung) Feld.
 
 ### Schritt 2: pvforecast konfigurieren
 
 1. Installieren Sie den pvforecast-Adapter in ioBroker.
 2. Konfigurieren Sie die Parameter Ihrer PV-Anlage (Standort, Module, Ausrichtung usw.).
 3. Wenn Sie Clearsky- und Temperaturdaten benötigen, konfigurieren Sie **pvnode** als Backend.
-4. Überprüfen Sie, ob`pvforecast.0.summary.JSONData` enthält ein JSON-Array mit Prognosedaten
+4. Überprüfen Sie, ob `pvforecast.0.summary.JSONData` enthält ein JSON-Array mit Prognosedaten
 
 ### Schritt 3: Aktivieren Sie den JSON-Sensor in SOLECTRUS InfluxDB
 
 1. Öffnen Sie die Einstellungen des SOLECTRUS InfluxDB-Adapters.
 2. Wechseln Sie zur Registerkarte **„Sensoren“** .
 3. Suchen Sie den Sensor **INVERTER\_POWER\_FORECAST** (oder einen beliebigen Prognosesensor).
-4. Setzen Sie den **ioBroker-Quellstatus** auf`pvforecast.0.summary.JSONData`
+4. Setzen Sie den **ioBroker-Quellstatus** auf `pvforecast.0.summary.JSONData`
 5. Sensor aktivieren (Kontrollkästchen)
 6. Konfiguration speichern
 
@@ -282,12 +323,12 @@ Der Adapter erkennt automatisch alle verfügbaren Felder in den JSON-Daten und s
 
 ### Schritt 4: In InfluxDB überprüfen
 
-Überprüfen Sie nach dem nächsten pvforecast-Update Ihren InfluxDB-Bucket auf die Messwerte.`inverter_forecast` ,`inverter_forecast_clearsky` (nur pvnode), und`outdoor_forecast` (nur pvnode). Sie sollten das Feld sehen.`power` in den ersten beiden und`temperature` im dritten.
+Überprüfen Sie nach dem nächsten pvforecast-Update Ihren InfluxDB-Bucket auf die Messwerte. `inverter_forecast`, `inverter_forecast_clearsky` (nur pvnode), und `outdoor_forecast` (nur pvnode). Sie sollten das Feld sehen. `power` in den ersten beiden und `temperature` im dritten.
 
 ### Fehlerbehebung
 
 - **Es wurden keine Daten geschrieben** : Stellen Sie sicher, dass der Sensor aktiviert ist und der Quellstatus ein gültiges JSON-Array enthält.
-- **Nur`inverter_forecast` Messung** : Ihr pvforecast-Backend ist nicht pvnode. Wechseln Sie zu pvnode, um die zusätzlichen Funktionen zu nutzen.`clearsky` Und`temp` Felder
+- **Nur `inverter_forecast` Messung** : Ihr pvforecast-Backend ist nicht pvnode. Wechseln Sie zu pvnode, um die zusätzlichen Funktionen zu nutzen. `clearsky` Und `temp` Felder
 - **Falsche Zeitstempel** : Prüfen Sie, ob die JSON-Daten Unix-Zeitstempel (Sekunden oder Millisekunden) oder ISO-Zeichenketten verwenden.
 
 ---
@@ -303,11 +344,12 @@ Wenn diese Option aktiviert ist, erscheinen zwei zusätzliche Registerkarten:
 
 ### Konzepte
 
-- **Elemente** sind die Bausteine. Jedes Element liest einen oder mehrere ioBroker-Zustände und erzeugt einen Ausgabezustand unter`solectrus-influxdb.X.ds.*`
+- **Elemente** sind die Bausteine. Jedes Element liest einen oder mehrere ioBroker-Zustände und erzeugt einen Ausgabezustand unter `solectrus-influxdb.X.ds.*`
 - Elemente können in drei Modi betrieben werden: **Quelle** , **Formel** oder **Zustandsautomat.**
 - Zur besseren Übersicht können Elemente in **Ordnern/Gruppen** organisiert werden.
 - Die berechneten Werte können als Sensordaten für den InfluxDB-Speicher verwendet werden.
-- Jeder Artikel verfügt über ein optionales **Einheitenfeld** (Platzhalter).`W` Wenn keine Einheit festgelegt ist, werden numerische Elemente im Formel-Engine-Raster auf der Registerkarte **„SOLECTRUS-Übersicht“** (siehe Abschnitt 3) standardmäßig auf die Einheit „Einheit“ gesetzt.`W` — Dasselbe gilt für die InfluxDB-Sensoren. Boolesche und Zeichenketten-Elemente werden niemals mit einer Einheit angezeigt.
+- Jeder Artikel verfügt über ein optionales **Einheitenfeld** (Platzhalter). `W` Wenn keine Einheit festgelegt ist, werden numerische Elemente im Formel-Engine-Raster auf der Registerkarte **„SOLECTRUS-Übersicht“** (siehe Abschnitt 3) standardmäßig auf die Einheit „Einheit“ gesetzt. `W` — Dasselbe gilt für die InfluxDB-Sensoren. Boolesche und Zeichenketten-Elemente werden niemals mit einer Einheit angezeigt.
+- Jedes Element hat ein Feld **„Lebensdauer in Minuten“ (0 = deaktiviert)** (Standard: `0` Es überwacht die Eingaben eines Elements, das von keinem aktivierten Sensor verwendet wird. Jede Eingabe verfügt über ein Kontrollkästchen **„Aktiv“** neben **„neg→0“** (im _Quellmodus_ : **Quellstatus überwachen (Aktiv)** ), um die Überwachung dieser Eingabe zu deaktivieren; der Wert wird weiterhin in die Berechnung einbezogen. Siehe [„Aktivüberwachung“](#alive-monitoring) .
 
 ---
 
@@ -320,8 +362,8 @@ Spiegelt einen einzelnen ioBroker-Status wider. Optional kann ein Wert aus einer
 | Einstellung                     | Beschreibung                                                |
 | ------------------------------- | ----------------------------------------------------------- |
 | ioBroker Quellstatus            | Der Staat soll spiegeln                                     |
-| JSONPath (optional)             | Extrahieren Sie einen verschachtelten Wert, z. B.`$.apower` |
-| Datentyp                        | `number` (Standard),`boolean` ,`string` , oder`mixed`       |
+| JSONPath (optional)             | Extrahieren Sie einen verschachtelten Wert, z. B. `$.apower` |
+| Datentyp                        | `number` (Standard), `boolean`, `string`, oder `mixed`       |
 | Klemme den negativen Wert auf 0 | Negative Ausgabewerte durch 0 ersetzen                      |
 
 ### Formelmodus
@@ -339,12 +381,12 @@ Berechnet einen Wert aus mehreren benannten Eingaben mithilfe eines mathematisch
 
 | Feld                       | Beschreibung                                                     |
 | -------------------------- | ---------------------------------------------------------------- |
-| Schlüssel                  | Variablenname, der in der Formel verwendet wird (z. B.`pv1` )    |
+| Schlüssel                  | Variablenname, der in der Formel verwendet wird (z. B. `pv1`)    |
 | ioBroker Quellstatus       | Staat, aus dem der Wert gelesen werden soll                      |
 | JSONPath (optional)        | Auszug aus der JSON-Nutzlast                                     |
 | Klemmeingang negativ auf 0 | Diese spezifische Eingabe wird vor der Formelauswertung fixiert. |
 
-**Beispielformel:**`pv1 + pv2 + pv3`
+**Beispielformel:** `pv1 + pv2 + pv3`
 
 ### Verfügbare Funktionen
 
@@ -371,7 +413,7 @@ Diese Funktionen lesen ioBroker-Zustände direkt in einer Formel, ohne benannte 
 
 ### Unterstützte Betreiber
 
-`+`,`-` ,`*` ,`/` ,`%` ,`()` ,`&&` ,`||` ,`!` ,`==` ,`!=` ,`>=` ,`<=` ,`>` ,`<` ,`? :`
+`+`, `-`, `*`, `/`, `%`, `()`, `&&`, `||`, `!`, `==`, `!=`, `>=`, `<=`, `>`, `<`, `? :`
 
 ---
 
@@ -379,12 +421,12 @@ Diese Funktionen lesen ioBroker-Zustände direkt in einer Formel, ohne benannte 
 
 Klicken Sie neben dem Formeleingabefeld auf **„Builder…“** , um den visuellen Formel-Builder zu öffnen.
 
-Der Bauträger bietet:
+Der Bauträger bietet Folgendes an:
 
 - **Variablen (Eingaben)** -- Klicken Sie hier, um Ihre benannten Eingabevariablen einzufügen.
 - **Operatoren** – Klicken Sie hier, um Operatoren mit Tooltips einzufügen, die jeden einzelnen erklären.
-- **Funktionen** -- Funktionsvorlagen einfügen (`min` ,`max` ,`clamp` ,`IF` )
-- **Zustandsfunktionen** -- Einfügen`s()` ,`v()` , oder`jp()` mit einem Zustandsauswahldialog
+- **Funktionen** -- Funktionsvorlagen einfügen (`min`, `max`, `clamp`, `IF`)
+- **Zustandsfunktionen** -- Einfügen `s()`, `v()`, oder `jp()` mit einem Zustandsauswahldialog
 - **Beispiele** -- Gängige Formelmuster (Barwertsumme, Überschuss, Prozentsatz, Klemmen, Bedingungen)
 - **Live-Vorschau** – Das Formelergebnis in Echtzeit anzeigen (erfordert, dass der Adapter ausgeführt wird)
 
@@ -407,7 +449,7 @@ Dies ist nützlich für:
 | Einstellung | Beschreibung                                  |
 | ----------- | --------------------------------------------- |
 | Eingaben    | Benannte Variablen (gleich dem Formelmodus)   |
-| Datentyp    | `string` oder`boolean`                        |
+| Datentyp    | `string` oder `boolean`                        |
 | Regeln      | Geordnete Liste von Bedingungs-/Ausgabepaaren |
 
 ### Regeln
@@ -422,11 +464,11 @@ Jede Regel enthält:
 **Besondere Bedingungen:**
 
 - `true` oder leer = Standard-/Ausweichregel (trifft immer zu)
-- Eingabevariablen und Operatoren verwenden:`soc < 10` ,`battery > 80 && surplus > 0`
+- Eingabevariablen und Operatoren verwenden: `soc < 10`, `battery > 80 && surplus > 0`
 
 ### Beispiel
 
-Für ein Element mit Eingaben`soc` (Batterie-SOC) und`surplus` (PV-Überschuss):
+Für ein Element mit Eingaben `soc` (Batterie-SOC) und `surplus` (PV-Überschuss):
 
 | Zustand                      | Ausgabewert     |
 | ---------------------------- | --------------- |
@@ -435,7 +477,7 @@ Für ein Element mit Eingaben`soc` (Batterie-SOC) und`surplus` (PV-Überschuss):
 | `surplus > 1000 && soc > 80` | `Full-Export`   |
 | `true`                       | `Normal`        |
 
-Ergebnis: Der Ausgabestatus enthält`Battery-Empty` ,`Battery-Low` ,`Full-Export` , oder`Normal` abhängig von den aktuellen Werten.
+Ergebnis: Der Ausgabestatus enthält `Battery-Empty`, `Battery-Low`, `Full-Export`, oder `Normal` abhängig von den aktuellen Werten.
 
 ---
 
@@ -465,11 +507,23 @@ Sensor "INVERTER_POWER": no update since 4/5/2026, 6:30:00 PM (longer than 60 mi
 
 Darüber hinaus wird der letzte Zeitstempel des betroffenen Sensors in der **Registerkartenansicht** **orange** angezeigt, sodass Sie veraltete Sensoren auf einen Blick erkennen können, ohne das Protokoll öffnen zu müssen.
 
-Um eine Überlastung der Protokolle zu vermeiden, wird die Warnung maximal einmal pro Sensor und Timeout-Periode wiederholt. Stellen Sie das Timeout auf ein.`0` Um die Prüfung für einen einzelnen Sensor zu deaktivieren (nur im Expertenmodus). Neu erstellte Sensoren haben standardmäßig ein Timeout von`60` Minuten. Das Timeout muss größer sein als das Aktualisierungsintervall des jeweiligen Quelladapters.
+Wenn die Quelle eines Sensors ein Formel-Engine-Zustand ist (`ds.*` Alle Eingaben dieses Elements werden mit demselben Timeout überwacht – einschließlich der Eingaben verschachtelter Formelelemente. Der Formelstatus selbst wird bei jedem Tick neu berechnet und wäre ansonsten immer aktuell, selbst wenn ein Eingabewert nicht mehr aktualisiert wird. Die Warnung nennt den Sensor und die betroffene Eingabe:
+
+```
+Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026, 6:30:00 PM (update expected by 4/5/2026, 7:30:00 PM)
+```
+
+In der **Registerkartenansicht** wird die Sensorkarte ebenfalls **orange** markiert, und jede betroffene Eingabe wird mit ihrem letzten Zeitstempel aufgelistet ( _Eingabe ohne Aktualisierung_ ). Die Liste der veralteten Eingaben ist auch als JSON im Status verfügbar. `solectrus-influxdb.X.info.staleInputs` Die
+
+Ein veralteter Eingabewert wird weiterhin in die Berechnung einbezogen – die Formel-Engine verwendet den zuletzt empfangenen Wert. Eingabewerte, die nur bei Änderung geschrieben werden (z. B. Zählerstände oder Statusmeldungen), würden andernfalls ständig gemeldet. Daher kann die Überwachung **für jeden Eingabewert** in der Formel-Engine über das Kontrollkästchen **„Aktiv“** deaktiviert werden (für Elemente im _Quellmodus_ mit **„Quellstatus überwachen (Aktiv)“** ). Standard: aktiviert. Wenn ein Eingabewert, dessen Überwachung deaktiviert ist, selbst ein Formelelement ist, werden dessen Eingabewerte ebenfalls nicht überwacht. Werte, auf die nur über … verwiesen wird. `s()` /`v()` /`jp()` in der Formel und nicht als Eingabe festgelegt, werden immer überwacht.
+
+**Interne Formelelemente:** Wenn kein aktivierter Sensor ein Formelelement verwendet, kann es im Formel-Engine-Editor über **„Alive-Timeout in Minuten“ (0 = deaktiviert)** ein eigenes Timeout erhalten (Standard: `0` Die Eingänge werden dann genauso überwacht wie bei einem Sensor; die Option **„Aktiv** “ pro Eingang gilt auch hier. Die Warnung beginnt mit **„Formel“** und benennt das Element mit einem `ds.` Präfix, z.B. `Formula "ds.pv → inverter.0.power": no update since …` Die Benachrichtigung wird entsprechend angezeigt. In der **Registerkartenansicht** unter **„Formel-Engine“** wird das Timeout als Badge angezeigt ( _Eingaben: 15 Min_ .). Bei veralteten Eingaben werden Wert und Zeitstempel **orange** markiert und die betroffenen Eingaben aufgelistet. Die Liste wird als JSON im Status gespeichert. `solectrus-influxdb.X.info.staleFormulaInputs` Der Sensor hat Vorrang: Wenn ein aktivierter Sensor das Element verwendet, gilt nur das Timeout des Sensors, das Timeout des Elements wird ignoriert – ein Element wird also nie doppelt gemeldet. Ein Element, das von keinem aktivierten Sensor verwendet wird (z. B. weil sein Sensor deaktiviert ist), prüft mit seinem eigenen Timeout, selbst wenn ein anderer Sensor dieselbe Eingabe über ein anderes Element prüft. In der Übersicht zeigt die Formelkarte weiterhin die vom Sensor gefundenen veralteten Eingaben mit ihrem Timeout und Namen im Badge an (z. B. _Eingaben: 10 Min. (Kleine Geräte)_ ).
+
+Um eine Überlastung der Protokolle zu vermeiden, wird die Warnung maximal einmal pro Sensor und Timeout-Periode wiederholt. Stellen Sie das Timeout auf ein. `0` Um die Prüfung für einen einzelnen Sensor zu deaktivieren (nur im Expertenmodus). Neu erstellte Sensoren haben standardmäßig ein Timeout von `60` Minuten. Das Timeout muss größer sein als das Aktualisierungsintervall des jeweiligen Quelladapters.
 
 ### Wertüberwachung (Maximalwert)
 
-Die Wertüberwachung ist **standardmäßig deaktiviert** (Maximalwert = 0). Im **Expertenmodus** kann für jeden numerischen Sensor ein individueller Maximalwert festgelegt werden. Die Einheit wird zusammen mit dem Maximalwertsymbol in der Sensorübersicht angezeigt (standardmäßig 0).`W` Wenn keine Einheit konfiguriert ist. Ist der Maximalwert größer als 0, wird er in der Sensorübersicht als Symbol neben dem aktuellen Wert angezeigt. Ist die Wertüberwachung deaktiviert (Maximalwert = 0), wird das Symbol ausgeblendet.
+Die Wertüberwachung ist **standardmäßig deaktiviert** (Maximalwert = 0). Im **Expertenmodus** kann für jeden numerischen Sensor ein individueller Maximalwert festgelegt werden. Die Einheit wird zusammen mit dem Maximalwertsymbol in der Sensorübersicht angezeigt (standardmäßig 0). `W` Wenn keine Einheit konfiguriert ist. Ist der Maximalwert größer als 0, wird er in der Sensorübersicht als Symbol neben dem aktuellen Wert angezeigt. Ist die Wertüberwachung deaktiviert (Maximalwert = 0), wird das Symbol ausgeblendet.
 
 ### Adapterzustände
 
@@ -483,11 +537,11 @@ Die Wertüberwachung ist **standardmäßig deaktiviert** (Maximalwert = 0). Im *
 
 ### Data-SOLECTRUS-Zustände (wenn aktiviert)
 
-Die berechneten Werte werden unter`solectrus-influxdb.X.ds.*` mit diagnostischen Zuständen pro Artikel.
+Die berechneten Werte werden unter `solectrus-influxdb.X.ds.*` mit diagnostischen Zuständen pro Artikel.
 
 ### Pufferverhalten
 
-- Die Werte werden dauerhaft auf der Festplatte zwischengespeichert (`buffer.json` )
+- Die Werte werden dauerhaft auf der Festplatte zwischengespeichert (`buffer.json`)
 - Maximale Puffergröße: 100.000 Punkte
 - Das Leeren der Datenbank erfolgt nur, wenn eine **aktive InfluxDB-Verbindung** bestätigt wird (`ensureInflux()` (prüft vor jedem Spülvorgang)
 - Bei einem Ausfall von InfluxDB erhöhen sich die Wiederholungsintervalle exponentiell (bis zu 5 Minuten).
@@ -497,16 +551,16 @@ Die berechneten Werte werden unter`solectrus-influxdb.X.ds.*` mit diagnostischen
 
 ---
 
-## 12. Verwendung berechneter Werte als Sensordatenquellen
+## 12. Verwendung berechneter Werte als Sensordaten
 
 Sie können die von Data-SOLECTRUS berechneten Werte als Eingabe für Sensoren verwenden, um sie in InfluxDB zu schreiben:
 
 1. Erstellen Sie ein berechnetes Element (Quelle, Formel oder Zustandsautomat) auf der Registerkarte **„Datenwerte“.**
 2. Fügen Sie auf der Registerkarte **„Sensoren“** einen neuen Sensor hinzu.
-3. Wählen Sie als **ioBroker-Quellstatus** den berechneten Wertstatus aus:`solectrus-influxdb.X.ds.<outputId>`
+3. Wählen Sie als **ioBroker-Quellstatus** den berechneten Wertstatus aus: `solectrus-influxdb.X.ds.<outputId>`
 4. Konfigurieren Sie Messung, Feld und Datentyp wie gewohnt.
 
-Der Adapter handhabt die Initialisierungsreihenfolge automatisch – Sensorabonnements für`ds.*` Die Zustände funktionieren auch dann, wenn die Formel-Engine erst nach der Sensoreinrichtung startet.
+Der Adapter handhabt die Initialisierungsreihenfolge automatisch – Sensorabonnements für `ds.*` Die Zustände funktionieren auch dann, wenn die Formel-Engine erst nach der Sensoreinrichtung startet.
 
 ---
 
@@ -539,8 +593,9 @@ Der **Benachrichtigungs-** Tab ist standardmäßig ausgeblendet. Aktivieren Sie 
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **InfluxDB-Verbindungsfehler / Wiederherstellung**          | **❗** Wird beim ersten Verbindungsabbruch gesendet und **✅** erneut, wenn die Verbindung wiederhergestellt ist.                                                                                                                                                                                                                |
 | **Sensor aktiv Zeitüberschreitung**                         | **⚠️** Wird gesendet, wenn ein Sensor innerhalb des konfigurierten Timeouts keine Aktualisierung liefert (nur für Werte ungleich Null)                                                                                                                                                                                         |
-| **Maximalwert überschritten** (`notifyOnMaxValueExceeded` ) | **⚠️** Wird gesendet, wenn ein Sensorwert den konfigurierten Maximalwert überschreitet; maximal einmal pro Stunde und Sensor.                                                                                                                                                                                                  |
-| **JSON-Feld fehlt** (`notifyOnJsonFieldMissing` )           | **⚠️** Wird einmal pro Sitzung gesendet, wenn ein bekanntes JSON-Feld (`y` ,`clearsky` ,`temp` ) fehlt vollständig in den Quelldaten – dies bedeutet, dass das Backend dieses Feld nicht bereitstellt (z. B.`clearsky` /`temp` (pvnode erforderlich). Die Benachrichtigung wird zurückgesetzt, wenn das Feld wieder erscheint. |
+| **Formel lebt Auszeit**                                     | **⚠️** Wird gesendet, wenn ein Eingabeparameter eines Formelelements mit eigenem Timeout (nicht von einem aktivierten Sensor verwendet) innerhalb des Timeouts keine Aktualisierung liefert (nur für Werte ungleich Null); gleiche Optionen und Drosselung wie für Sensoren                                                    |
+| **Maximalwert überschritten** (`notifyOnMaxValueExceeded`) | **⚠️** Wird gesendet, wenn ein Sensorwert den konfigurierten Maximalwert überschreitet; maximal einmal pro Stunde und Sensor.                                                                                                                                                                                                  |
+| **JSON-Feld fehlt** (`notifyOnJsonFieldMissing`)           | **⚠️** Wird einmal pro Sitzung gesendet, wenn ein bekanntes JSON-Feld (`y`, `clearsky`, `temp`) fehlt vollständig in den Quelldaten – dies bedeutet, dass das Backend dieses Feld nicht bereitstellt (z. B. `clearsky` /`temp` (pvnode erforderlich). Die Benachrichtigung wird zurückgesetzt, wenn das Feld wieder erscheint. |
 
 ### Unterstützte Anbieter
 
@@ -562,9 +617,10 @@ Jeder Anbieter verfügt über eine Dropdown-Liste **mit Instanzen** . Verfügbar
 
 ### Anmerkungen
 
-- Benachrichtigungen werden lokalisiert über`getNotificationMessage()` unter Verwendung der konfigurierten`systemLanguage` Die
-- Bei Verbindungsfehlern mit InfluxDB wird beim **ersten** Fehler eine Benachrichtigung gesendet, die sich danach wiederholen kann.`notifyRepeatMinutes` solange die Verbindung unterbrochen ist.
-- Sensor-Timeout-Benachrichtigungen werden gesendet, wenn die konfigurierte Aktivierungs-Timeout-Bedingung erfüllt ist (Expertenmodus) und werden gedrosselt von`notifyRepeatMinutes` Die
+- Benachrichtigungen werden lokalisiert über `getNotificationMessage()` unter Verwendung der konfigurierten `systemLanguage` Die
+- Bei Verbindungsfehlern mit InfluxDB wird beim **ersten** Fehler eine Benachrichtigung gesendet, die sich danach wiederholen kann. `notifyRepeatMinutes` solange die Verbindung unterbrochen ist.
+- Bei der **Option „Verzögerung vor Verbindungsausfallbenachrichtigung(en)“** wird die Benachrichtigung erst nach Ablauf dieser Zeitspanne gesendet. Wird die Verbindung früher wiederhergestellt, erfolgt weder eine Ausfall- noch eine Wiederherstellungsbenachrichtigung (z. B. bei kurzen Ausfällen während einer NAS-Sicherung). 0 = sofort.
+- Sensor-Timeout-Benachrichtigungen werden gesendet, wenn die konfigurierte Aktivierungs-Timeout-Bedingung erfüllt ist (Expertenmodus) und werden gedrosselt von `notifyRepeatMinutes` Gleiches gilt für Formel-Timeout-Benachrichtigungen mit dem Live-Timeout des Formelelements.
 
 ## 15. Datensicherung
 
@@ -580,5 +636,17 @@ Jeder Anbieter verfügt über eine Dropdown-Liste **mit Instanzen** . Verfügbar
 Backups werden lokal auf diesem ioBroker-Host gespeichert. Standardmäßig befinden sie sich im Datenverzeichnis dieser Instanz. Sie können jedoch über das Feld „Backup-Verzeichnis“ einen benutzerdefinierten Speicherort auswählen (z. B. eine andere Festplatte oder eine eingebundene Netzwerkfreigabe). Mit dem Feld „Letzte N Backups behalten“ legen Sie fest, wie viele der aktuellsten Backups automatisch gespeichert werden. Ältere Backups werden gelöscht, sobald ein neues Backup erstellt wird. Durch das Wiederherstellen eines Backups wird die Instanz automatisch neu gestartet, sodass die wiederhergestellte Konfiguration wirksam wird.
 
 > **Hinweis:** Das InfluxDB-Token ist eine geschützte/verschlüsselte Einstellung und wird niemals in diese Backups aufgenommen. Nach einer Wiederherstellung muss es manuell im **InfluxDB** -Tab erneut eingegeben werden.
+
+### WebDAV-Speicher
+
+Wie ioBroker.backitup kann auch der Backup-Tab Backups auf einem WebDAV-Server (z. B. Nextcloud, ownCloud, NAS) speichern. Aktivieren Sie **„Backups auch auf einem WebDAV-Server speichern“** und geben Sie Folgendes ein:
+
+- **WebDAV-URL** - z. B. `https://<example.com>/remote.php/dav/files/<username>/` für Nextcloud
+- **Benutzername** und **Passwort** (das Passwort wird verschlüsselt gespeichert und ist niemals in den Backups enthalten)
+- **WebDAV-Verzeichnis** – Zielverzeichnis auf dem Server (Standard) `/solectrus-influxdb` (automatisch erstellt)
+- **Nur signierte Zertifikate zulassen** – diese Option für Server mit einem selbstsignierten Zertifikat deaktivieren
+- **Alte WebDAV-Backups löschen** – es bleiben nur die letzten N Backups (dieselbe Anzahl wie bei „Letzte N Backups behalten“) auf dem Server erhalten.
+
+Verwenden Sie **„Verbindung testen“** , um die Einstellungen zu überprüfen. Jede mit **„Sicherung jetzt erstellen“** erstellte Sicherung wird anschließend auch auf den WebDAV-Server hochgeladen. Die dort gespeicherten Sicherungen werden im Abschnitt **„WebDAV-Sicherungen“** unterhalb der lokalen Sicherungen aufgelistet und können dort wiederhergestellt oder gelöscht werden. Bei der Wiederherstellung wird die Sicherung zunächst in das lokale Sicherungsverzeichnis kopiert und anschließend wie eine lokale Sicherung wiederhergestellt.
 
 > **Hinweis:** Der Konfigurationsdialog für Administratoren übernimmt die wiederhergestellten Einstellungen nicht automatisch, solange er geöffnet ist (es werden nur die beim Öffnen geladenen Einstellungen angezeigt). Schließen Sie nach einer Wiederherstellung den Adapterkonfigurationsdialog und öffnen Sie ihn erneut, um die wiederhergestellten Werte zu sehen.

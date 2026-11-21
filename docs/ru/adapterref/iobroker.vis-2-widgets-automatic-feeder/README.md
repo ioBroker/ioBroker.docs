@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-automatic-feeder/README.md
 title: ioBroker.vis-2-widgets-automatic-feeder
-hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
+hash: 6SC76fUgoTqZMxSsBuuKqWd3gRzgLpXAw1r4FVK2zL4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/admin/vis-2-widgets-automatic-feeder.svg)
 
@@ -24,7 +24,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 В этот пакет входят **шесть виджетов**, которые вместе образуют полноценную панель управления кормушкой, выполненную в темном, удобном для планшетов дизайне в виде карточек с акцентным цветом, который можно изменить. Четыре виджета только *отображают* данные; два также позволяют *действовать* (запускать разовую кормушку или приостанавливать кормление).
 
-Это всего лишь **слой визуализации**. Все планирование, модель температуры, логика восхода/захода солнца, паузы и уведомления находятся в отдельном адаптере **ioBroker.automatic-feeder**; эти виджеты представляют собой отображение в реальном времени и удаленное управление этим адаптером. (В более широком семействе «умных прудов» родственный адаптер *pond-aeration* может, например, приостанавливать аэрацию во время подачи воды из кормушки - но это настраивается там, а не здесь.)
+Это всего лишь **слой визуализации**. Все планирование, модель температуры, логика восхода/захода солнца, паузы и уведомления находятся в отдельном адаптере **ioBroker.automatic-feeder**; эти виджеты представляют собой отображение в реальном времени этого адаптера и удаленное управление им. (В более широком семействе «умных прудов» родственный адаптер *pond-aeration* может, например, приостанавливать аэрацию во время подачи воды из кормушки - но это настраивается там, а не здесь.)
 
 Этот документ представляет собой полное руководство. Если вы никогда раньше не использовали эти виджеты, прочтите его от начала до конца: раздел **Быстрый старт** позволит вам запустить карточку примерно за минуту, а остальная часть подробно описывает каждый виджет и каждую опцию.
 
@@ -69,13 +69,13 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 | Виджет | Что он отображает/делает | Что он записывает? |
 |--------|----------------------|---------|
 | **Статус кормушки** | Основная карточка состояния: анимированное изображение кормушки (вентилятор вращается во время кормления), обратный отсчет в реальном времени, обратный отсчет до **следующей** кормления с указанием времени и режима, **последнее** кормление и его результат, астрономическое окно (восход/закат) и - если заблокировано - причина. | нет |
-| **FeedControl** | Кнопка **Накормить сейчас** с двухэтапным подтверждением, ползунок порции (длительности) и главный переключатель **Приостановить кормление**. | да |
+| **FeedControl** | Кнопка **Начать кормление** с двухэтапным подтверждением, ползунок порции (длительности) и главный переключатель **Приостановить кормление**. | да |
 | **Окружающая среда** | Температура воды (на мелководье и в глубине), термическая стратификация Δ, показания содержания кислорода (только при наличии датчика) и индикатор дня восхода-захода солнца с текущим маркером. | нет |
 | **Динамическая подача** | Краткая информация о температурном режиме **Q10** адаптера: средняя температура, коэффициент скорости, интервал и доля, а также какой датчик (вода/воздух) его использует. | нет |
 | **SeasonBanner** | Единая цветовая кодировка состояния, показывающая наиболее важный на данный момент статус (ручная пауза → пауза по времени → зимняя пауза → автоматическая активация). | нет |
 | **Анимированная кормушка** | Большая анимированная кормушка на холсте: гранулы корма падают, а кольцо обратного отсчета заполняется во время кормления; в остальное время отображаются символы паузы (ручной режим / время / зима). **Нажмите на нее, чтобы запустить разовое кормление.** | да |
 
-Два виджета для «написания текста» (FeedControl, AnimatedFeeder) записывают данные только при щелчке/касании *вашими* глазами - сами по себе они ничего не изменяют.
+Два виджета для «написания» (FeedControl, AnimatedFeeder) записывают данные только при щелчке/касании *вашими* глазами - сами по себе они ничего не изменяют.
 
 В палитре виджетов vis-2 весь набор отображается под названием группы **Автоматическая подача**.
 
@@ -155,7 +155,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 кормление (ночью, слишком низкая температура, слишком низкий уровень кислорода, пауза…).
 
-- **Анимированная графика кормушки**. Во время подачи корма вентилятор вращается, и - с адаптером версии 1.5.0 и выше - **время работы**
+- **Анимированная графика подающего механизма**. Во время подачи вращается вентилятор, и - с адаптером версии 1.5.0 и выше - **время работы**
 
 Рядом с ним появляется обратный отсчет** (например, `5 s`), который отсчитывает время до конца текущей подачи корма.
 
@@ -187,7 +187,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 - **Накормить сейчас** - кнопка, состоящая из **двух шагов**. Первое нажатие *активирует* её, и надпись меняется на *Подтвердить: N s ?*;
 
-Второй щелчок запускает ровно **один** цикл подачи выбранного времени и на короткое время отображает *Сработало ✓*. Если вы не подтвердите в течение ~4 секунд, устройство отключается.
+Второй щелчок запускает ровно **один** цикл подачи выбранного времени и на короткое время отображает *Сработало ✓*. Если вы не подтвердите в течение ~4 секунд, устройство отключится.
 
 - **Порция (вручную)** - ползунок, устанавливающий продолжительность кормления в секундах, от `1` до *Максимальная продолжительность* (по умолчанию)
 
@@ -217,7 +217,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 - Температура **мелководья** и **глубоководья** (в °C, округлено до 0,1). Глубоководный участок остается в положении «-», если вы этого не сделали.
 
-настроить второй, более глубокий датчик.
+настройте второй, более глубокий датчик.
 
 - Таблетка **стратификации**, показывающая разницу Δ между двумя слоями (в К). Она становится янтарной, когда слои...
 
@@ -227,7 +227,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 ниже установленного минимума (`settings.o2Min`).
 
-- **Дневная шкала** от восхода солнца (☀) до заката (☾) с индикатором текущего времени (пересчитывается каждую минуту).
+- Индикатор времени суток от восхода (☀) до заката (☾) с отображением текущего времени в реальном времени (пересчитывается каждую минуту).
 
 **Параметры внешнего вида** (группа *Внешний вид*):
 
@@ -348,7 +348,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 - **Переключатель активных каналов**, созданный на основе профилей каналов, определенных вами для переключателя в административной панели адаптера - в одно касание
 
-выбирает активный профиль (записывает `settings.activeFeed`) и скорость его дозирования (г/с), определяет режим управления;
+Выбирает активный профиль (записывает `settings.activeFeed`) и скорость его дозирования (г/с), определяет режим управления;
 
 - семь **процентных значений температуры** (`<15°` … `>30°`);
 - переключатель **вкл/выкл** (фаза B) и, в включенном состоянии, опциональный **суточный максимум** в граммах.
@@ -362,7 +362,7 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 
 ![Атрибуты виджета: экземпляр и переключатель по имени](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/img/config-attributes.png)
 
-- **Экземпляр фидера** - выберите свой экземпляр `automatic-feeder` из выпадающего списка (обычно `0`). Принимает любой из следующих вариантов:
+- **Экземпляр податчика данных** - выберите свой экземпляр `automatic-feeder` из выпадающего списка (обычно `0`). Принимает любой из следующих вариантов:
 
 простое число (`0`) или полная форма (`automatic-feeder.0`).
 
@@ -400,11 +400,11 @@ hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 ---
 
 ## 9. Развитие
-Виджеты написаны на **TypeScript + React 18** (с MUI для редакторов атрибутов) и объединены с **Vite** и **Module Federation** в единый `customWidgets.js`, который vis-2 загружает во время выполнения. Исходный код находится в [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
+Виджеты написаны на **TypeScript + React 19** (с MUI для редакторов атрибутов) и объединены с **Vite** и **Module Federation** в единый `customWidgets.js`, который vis-2 загружает во время выполнения. Исходный код находится в [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | Файл | Виджет / роль |
 |------|---------------|
-| `FeederWidgetBase.tsx` | Общий базовый класс, используемый **четырьмя** виджетами (Environment, DynamicFeeding, SeasonBanner, AnimatedFeeder): обрабатывает канал переключения, подписывается на подсостояния, хранит значения в состоянии и предоставляет вспомогательные функции чтения/записи/форматирования. FeederStatus и FeedControl напрямую наследуют `window.visRxWidget` и выполняют собственную подписку/инициализацию. |
+| `FeederWidgetBase.tsx` | Общий базовый класс, используемый **четырьмя** виджетами (Environment, DynamicFeeding, SeasonBanner, AnimatedFeeder): определяет канал переключения, подписывается на подсостояния, хранит значения в состоянии и предоставляет вспомогательные функции чтения/записи/форматирования. FeederStatus и FeedControl напрямую наследуют `window.visRxWidget` и выполняют собственную подписку/инициализацию. |
 | `FeederStatus.tsx`, `FeedControl.tsx`, `Environment.tsx`, `DynamicFeeding.tsx`, `SeasonBanner.tsx`, `AnimatedFeeder.tsx` | Шесть виджетов. |
 | `styles.ts` | Внедренный CSS-код для дизайна карточки. |
 | `translations.ts` + `i18n/*.json` | Тексты пользовательского интерфейса на 11 языках. |
@@ -459,6 +459,26 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.2 (2026-10-26)
+* (ssbingo) Fix: the module-federation manifest (`mf-manifest.json`, `mf-stats.json`) is now shipped next to `customWidgets.js`. vis-2 2.20.x requests it when loading the widget sets and got a 404, because the build step only copied `customWidgets.js`, the assets and the images
+* (ssbingo) Maintenance: the Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#48, #49)
+
+### 0.5.1 (2026-10-12)
+* (ssbingo) Maintenance: dependency updates — `@module-federation/vite` 1.23.2 (#46), `@types/react` 19.3 (#45). No widget changes
+
+### 0.5.0 (2026-10-12)
+* (ssbingo) **Breaking:** the widget set is rebuilt for **React 19 / MUI 9**, the stack vis-2 uses from its next release on. A React 18 build fails to load there (its bundled JSX runtime reads React 18 internals) and is skipped by the vis-2 editor. Requires a **vis-2 version based on React 19** — older vis-2 versions should stay on widget 0.4.x
+* (ssbingo) `@iobroker/adapter-react-v5` removed from the widget build; its successor `@iobroker/gui-components` provides the types. `@iobroker/types-vis-2` updated to 2.20.1 (#43), `@iobroker/testing` to 6.3.0 (#42)
+
+### 0.4.7 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
+
+### 0.4.6 (2026-09-10)
+* (ssbingo) The temperature band's biological meaning is now shown **directly under each individual temperature** instead of as one chip at the bottom of the card: **Environment** renders a separate band under both *water shallow* and *water deep* (each keyed off its own reading), **DynamicFeeding** renders it under the average-temperature tile. Still toggled per widget by the **Show temperature band** option
+
+### 0.4.5 (2026-09-10)
+* (ssbingo) **DynamicFeeding** and **Environment** now colour the water temperature by the koi-biology scale from the pondpump research (growth optimum 23–26 °C green, the cold 8–13 °C Aeromonas window amber, both extremes red) instead of a flat accent colour, and show the band's biological meaning as a small chip below the temperature. A new **Show temperature band** option (Appearance group, on by default) toggles the chip per widget
+
 ### 0.4.4 (2026-09-06)
 * (ssbingo) Maintenance: dependency and build-tooling updates (`@iobroker/adapter-react-v5` 8.3.3, `@iobroker/types-vis-2` 2.15.4, `@module-federation/vite` 1.21.1). No widget changes
 
@@ -472,31 +492,7 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 * (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
 * (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
 
-### 0.4.0 (2026-09-01)
-* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
-* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
-* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
-
-### 0.3.2 (2026-09-01)
-* (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
-
-### 0.3.1 (2026-09-01)
-* (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
-
-### 0.3.0 (2026-09-01)
-* (ssbingo) New widget **FeedingAmount**: shows the adapter's feeding-amount model for a switch — recommended daily ration, the feeding percentage for the current water temperature, estimated total weight and, in control mode, the per-feeding portion and motor run-times. It uses the adapter's `status.feedTargetPortionGrams` / `status.feedingsPerDayToday` for an exact per-feeding amount (**automatic-feeder v1.16.0+**)
-* (ssbingo) The FeedingAmount widget is **editable**: an *Edit* toggle lets you change the fish counts, the temperature percentages, the Phase-A/B switches and the dispense rate; the changes are written to the adapter's writable `switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the amount-model settings mirror)
-
-### 0.2.1 (2026-07-07)
-* (ssbingo) Fixed **AnimatedFeeder** showing nothing in Firefox: the built-in feeder image now uses a base64 data URI (Firefox rejects the non-standard `;utf8,` form that Chrome tolerated) and the canvas 2D context is initialised from the `<canvas>` ref callback, so it binds reliably regardless of mount order. A failed or zero-size custom image can no longer blank the whole widget
-
-### 0.2.0 (2026-07-07)
-* (ssbingo) New sixth widget **AnimatedFeeder**: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual / time-based / winter); tap it to trigger a one-off feeding. The exact countdown ring uses the adapter's new `status.feedingDurationSec` (**automatic-feeder v1.6.0+**)
-* (ssbingo) New stylized adapter and widget-set icon (feeder on a light grey tile)
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

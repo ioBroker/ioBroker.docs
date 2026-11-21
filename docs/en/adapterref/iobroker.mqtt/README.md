@@ -806,6 +806,13 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 9.3.0 (2026-11-17)
+- (@GermanBluefox) Client mode reconnects after the broker refused the login (CONNACK error), e.g. while the broker is still starting (#703)
+- (@Schimi1983) Client mode: new setting "Do not subscribe" to only send ioBroker states to the broker; an empty pattern field still subscribes to all topics (#319)
+- (@Schimi1983) Server mode: a client that refuses the certificate (e.g. mosquitto without the CA certificate) is logged with a readable reason instead of the raw OpenSSL message. Timers use the adapter's own timer functions, which are cleared automatically when the instance stops (repository checker)
+- (@Schimi1983) The default publish mask `mqtt.0.*` of a new instance is changed to the own instance only on the first start. A mask `mqtt.0.*` entered later on purpose (e.g. on `mqtt.2`) is kept. After the update every instance except `mqtt.0` restarts once (#702)
+- (@GermanBluefox) Objects of the adapter (`info.connection`, `info.lastSession`, client objects) are created with `extendObject` instead of `setObject`, so settings on them (e.g. History) are kept. `@iobroker/testing` updated, the Blockly build script moved to `scripts/` (repository checker, #665)
+
 ### 9.2.0 (2026-11-08)
 - (@Schimi1983) Server mode: objects of clients that have not been connected for 7 days are removed (setting "Remove client objects after", 0 = never), so devices with a new client ID per connection no longer leave one object behind each time. A connect or disconnect only writes the client states that change instead of all of them (#518)
 - (@Schimi1983) Server mode: client objects with logging switched on (e.g. History or InfluxDB) are no longer removed by the cleanup, and the cleanup reads all client objects in one query
@@ -835,13 +842,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (@GermanBluefox) Client mode: "Test connection" passes user name and password as options, so special characters in them no longer break the connection URL
 * (@Schimi1983) Server mode: a client ID with characters that are not allowed in an object ID (e.g. binary data or `*`) no longer fails with "Cannot update client objects: Error: Invalid ID"; such characters become `_` in `info.clients.<clientId>` (#493)
 * (@Schimi1983) Log level of messages that come for every subscription or published state is debug instead of info: `subscribes on`, `unsubscribes on`, `publishOnSubscribe` (server) and `send2Server`, `Publishing state` (client) (#481)
-
-### 8.1.5 (2026-10-27)
-* (@Schimi1983) Server mode: every QoS 1/2 message sent to a client now gets its own packet identifier. Before, all messages used the same ID, so acknowledgements could not be matched and messages were retransmitted endlessly
-* (@GermanBluefox) Server mode: the packet identifiers of a client and of the broker are kept apart. A QoS 2 message of a client was dropped as duplicate when the broker had a message with the same identifier in flight to it. After the counter wrapped, an identifier still in flight is not handed out again, and an unacknowledged message keeps its identifier when it is sent again after a reconnect
-* (@GermanBluefox) Server mode: a deleted value (empty payload) and a value of `null` are sent as empty payload instead of `"null"` or `"NaN"`, so a client that deletes its retained topics does not get values back. A received empty payload sets the state to `null` and keeps its type (#682)
-* (@GermanBluefox) The default of "Maximum topic name length" is 255 characters for new instances (was 100). The warning about a too long topic names this setting and comes only once per topic (#560)
-* (@GermanBluefox) Client mode: a reconnect attempt no longer reports the connection as established (#508)
 
 ## License
 

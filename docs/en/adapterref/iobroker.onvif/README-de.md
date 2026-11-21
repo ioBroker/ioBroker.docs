@@ -44,7 +44,7 @@ onvif.0.IP_PORT.events Events der Kamera wie z.b. Bewegungserkennung. Manchmal m
 
 onvif.0.IP_PORT.general Generelle Information über die Kameras
 
-onvif.0.IP_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.refresh
+onvif.0.IP_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.Refresh
 
 Video und Snapshot URL:
 
@@ -52,7 +52,7 @@ onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.ur
 
 onvif.0.IP_PORT.remote Steuerung der Kamera
 
-onvif.0.IP_PORT.remote.refresh Aktualisierung der Infodaten
+onvif.0.IP_PORT.remote.Refresh Aktualisierung der Infodaten
 
 onvif.0.IP_PORT.remote.gotoHomePosition PTZ Kamera in die HomePosition setzen
 

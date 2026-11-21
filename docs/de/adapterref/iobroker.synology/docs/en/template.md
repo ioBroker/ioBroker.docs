@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/docs/en/template.md
 title: 2FA
-hash: b5BoTw8cpTiVyzVB3zgdAT4WRxm5WZhS2M9O4hdBvKU=
+hash: +Om25CoQiS80RLu9YkcRaanvtzIJLcBmJDJmawEZibk=
 ---
 # 2FA
 
@@ -18,7 +18,7 @@ Führen Sie diese Schritte aus, um die Zwei-Faktor-Authentifizierung in DSM6 zu 
 
 ![Bild](../../../../../en/adapterref/iobroker.synology/docs/en/img/2FA_step_4.jpg)
 
-Notieren Sie sich den geheimen Schlüssel; er muss in den Adaptereinstellungen angegeben werden. Schließen Sie die Einrichtung der Zwei-Faktor-Authentifizierung ab.
+Notieren Sie sich den geheimen Schlüssel. Dieser muss in den Adaptereinstellungen angegeben werden. Geben Sie diesen Base32-Schlüssel ein, nicht den rotierenden sechsstelligen Code. Stellen Sie sicher, dass die Uhren von NAS und ioBroker synchronisiert sind (z. B. mit NTP), da TOTP-Codes eine genaue Zeitangabe erfordern. Schließen Sie die Einrichtung der Zwei-Faktor-Authentifizierung ab.
 
 ![Bild](../../../../../en/adapterref/iobroker.synology/docs/en/img/2FA_step_5.jpg)
 

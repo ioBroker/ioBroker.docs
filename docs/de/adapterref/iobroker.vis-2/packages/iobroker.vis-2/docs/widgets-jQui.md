@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md":{"title":{"en":"ioBroker web components in vis-2 (preview)"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md
 title: jQui-Widgets - jQuery UI-Widgets
-hash: T3DKA2oJcdVN8JPeWaN1AY1/B7V4QSqkqE3uXBvwEu4=
+hash: XSrGwGkB2R8ZLXf+fs0BxKUtEsxDwvNssLh1q1TFj+Q=
 ---
 # jQui-Widgets – jQuery UI-Widgets
 
@@ -68,6 +68,10 @@ Es verfügt über die folgenden abgeleiteten Widgets:
 - Optionsfeld (Schritte) (tplJquiRadioSteps)
 - Aus Liste auswählen (tplJquiSelectList)
 
+Bei „Werte aus dem Objekt“ stammen die Werte und Texte der Liste aus `common.states` Das Objekt des Widgets wird beim Anzeigen der Seite ausgelesen. Ein Eintrag im Widget mit demselben Wert behält sein Symbol, seine Farben und seinen Tooltip; Einträge, deren Werte nicht im Objekt enthalten sind, werden nicht angezeigt.
+
 ## Schreibe den Wert (tplIconState). Er hat die folgenden abgeleiteten Widgets:
 
 - Inkrementieren mit Symbol (tplIconInc)
+
+Bei der Option „Nur Symbol“ (Gruppe „Stil“, angezeigt, wenn ein Symbol oder Bild festgelegt ist) zeigt die Schaltfläche nur das Symbol an; ihre Größe richtet sich nach der Größe des Widgets.

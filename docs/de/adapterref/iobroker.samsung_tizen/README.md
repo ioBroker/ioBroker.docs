@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsung_tizen/README.md
 title: ioBroker.samsung_tizen
-hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
+hash: lPV0xhmcYhsN6JkQEXky/I7+GWuCvmcBCicpBKjJgls=
 ---
 ![Logo](../../../en/adapterref/iobroker.samsung_tizen/admin/samsung.png)
 
@@ -26,6 +26,8 @@ Mögliche Werte sind `http` oder `wss` Auf neueren Geräten verwenden `wss` Die
 ### 1.2. IP-Adresse
 
 Die IP-Adresse Ihres Samsung-Fernsehers.
+
+Sie kennen die Adresse nicht? Klicken Sie oben in den Einstellungen auf **„TV suchen“** . Der Adapter sucht im Netzwerk nach einem eingeschalteten Samsung-Fernseher und trägt dessen IP-Adresse, MAC-Adresse, Protokoll und Port ein. Werden mehrere Fernseher gefunden, wird der erste verwendet. Die anderen werden in der Liste im Feld für die IP-Adresse angezeigt, das beim Öffnen der Einstellungen automatisch ausgefüllt wird. Die Suche kann nur durchgeführt werden, wenn der Adapter aktiv ist. Ein Fernseher im Standby-Modus oder in einem anderen Subnetz kann nicht gefunden werden – geben Sie die Adresse in diesem Fall manuell ein.
 
 ### 1.3. Hafen
 
@@ -85,6 +87,8 @@ Auf Ihrem Fernseher erscheint ein Pop-up-Fenster, das Sie bestätigen müssen. E
 
 Die MAC-Adresse Ihres Samsung-Fernsehers wird für Wake-on-LAN verwendet.
 
+Die Schaltfläche „MAC-Adresse vom Fernseher lesen“ fragt den Fernseher unter der eingegebenen IP-Adresse nach der MAC-Adresse. Der Fernseher muss eingeschaltet sein.
+
 Dies funktioniert nur, wenn Ihr Fernseher per Kabel und nicht drahtlos angeschlossen ist.
 
 Wenn Ihr Fernseher drahtlos verbunden ist, kann er nur aus dem kurzen Standby-Modus eingeschaltet werden.
@@ -115,78 +119,43 @@ Verzögerung in Millisekunden zwischen den über die `samsung_tizen.0.control.se
 
 ## 2. Verwendung
 
-### 2.1. Kontrolle
+### 2.1. Einrichtungsassistent
 
-#### Senden Sie einen einzelnen Schlüssel
+Der erste Reiter der Einstellungen, „Einrichtung“, führt Sie durch die gesamte Konfiguration: Er sucht im Netzwerk nach dem Fernseher, koppelt sich mit ihm (der Fernseher fragt einmal, ob ioBroker eine Verbindung herstellen darf – wählen Sie am Fernseher „Zulassen“, der Assistent nimmt das Token automatisch entgegen), liest die MAC-Adresse für Wake-on-LAN und sendet einen Testschlüssel mit den neuen Daten, bevor diese gespeichert werden. Mit „Anwenden und speichern“ werden IP-Adresse, Protokoll, Port, Token und MAC-Adresse in die Einstellungen geschrieben. Die Instanz muss ausgeführt werden; für diesen Reiter ist Administratorrechte der Version 8 oder höher erforderlich. Die manuelle Methode (Status) `config.getToken`, Token im Namen von `config.token`) funktioniert immer noch.
 
-Um eine einzelne Taste zu senden, klicken Sie auf die Schaltfläche des entsprechenden Objekts, z. B. `samsung_tizen.0.control.KEY_MUTE` Die
+### 2.2. Szenen
 
-#### Senden Sie eine Taste ohne vordefinierte Schaltfläche.
+Der Tab „Szenen“ enthält eine Tabelle mit benannten Sequenzen, z. B. `SceneYouTube`: `HOME, YOUTUBE, WAIT 3000, OK` - Öffnen Sie YouTube und bestätigen Sie die Kontoauswahl. Ein Schritt ist entscheidend (`HOME`, `OK`, `BACK`, `UP`, `VOLUP`, `0` -`9`, die Namen von `TV_KEYS` des Typendetektors oder eines Samsung-Codes `KEY_...`), eine App (`YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`, ... - die Schlüssel von `TV_APPS`) oder eine Pause (`WAIT 2000` Jede Szene wird zu einem Knopf `samsung_tizen.0.scenes.<name>` und eine Taste der Fernbedienungs-Registerkarte.
 
-Sie können einen benutzerdefinierten (nicht vordefinierten) Schlüssel mit dem senden `samsung_tizen.0.control.sendCmd` Objekt. Geben Sie den Schlüssel ein, den Sie senden möchten, z. B. `KEY_POWER` Die
+### 2.3. Registerkarte „Fernbedienung“
 
-#### Senden Sie mehrere Tasten in einem einzigen Befehl
+Der Reiter „Fernbedienung“ in den Einstellungen zeigt eine Fernbedienung mit folgenden Funktionen: Ein/Aus, Wake-on-LAN, Quelle, Menü, Info, Pfeiltasten mit OK, Zurück, Home, Stummschaltung, Lautstärke- und Kanalwahltasten, Wiedergabetasten und eine Taste für jede auf dem Fernseher installierte App (YouTube, Netflix, Disney+, Prime Video usw.). Ein Klick darauf aktiviert zusätzlich die Pfeiltasten, Enter, Backspace, + und - der Tastatur. Eine LED zeigt den Betriebszustand an, sofern die Statusabfrage aktiviert ist. Die Tastenanschläge werden über die laufende Instanz mit der gespeicherten Konfiguration ausgeführt. Speichern Sie daher die Einstellungen, nachdem Sie die IP-Adresse oder das Token geändert haben. Wird ein Tastendruck nicht an den Fernseher gesendet, wird unterhalb der Fernbedienung eine Fehlermeldung angezeigt. Für diesen Reiter ist Administratorrechte der Version 8 oder höher erforderlich.
 
-Um mehrere Tasten in einem einzigen Befehl zu senden, verwenden Sie die `samsung_tizen.0.control.sendCmd` Objekt. Geben Sie die Tasten durch Kommas getrennt ein, z. B. `KEY_POWER`, `KEY_HDMI`, `KEY_VOLUP` Die
+### 2.4. Nachrichten für Skripte und KI-Agenten
 
-#### Makros für Befehle erstellen
-
-Gehe zu `samsung_tizen.0.command` Dort finden Sie Beispielmakros, und Sie können Ihre eigenen erstellen.
-
-### 2.2. Apps
-
-#### Installierte Apps laden
-
-Um die installierten Apps zu laden, klicken Sie auf die Schaltfläche `samsung_tizen.0.apps.getInstalledApps` Schaltfläche. Danach ein separates Objekt namens `start_<app name>` wird für jede installierte App erstellt.
-
-#### Starte eine App
-
-Sie können eine App starten, indem Sie auf die Schaltfläche klicken. `samsung_tizen.0.apps.start_<app name>` Objekt.
-
-### 2.3. Energiezustand
-
-Wenn die Abfrage des Energiestatus wie oben beschrieben konfiguriert ist, `samsung_tizen.0.powerOn` Ist `true` während Ihr Fernseher eingeschaltet ist und `false` während es ausgeschaltet ist.
-
-### 2.4. Befehle
-
-Befehle können manuell über die `samsung_tizen.0.control.sendCmd` Objekt, wie unter Steuerung beschrieben, oder über ein benutzerdefiniertes Objekt unten `samsung_tizen.0.command` Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
-
-#### Wie man ein Befehlsmakro erstellt
-
-1. Wechseln Sie zur Registerkarte „Objekte“ und öffnen Sie `samsung_tizen.0.command` Die
-
-2. Klicken Sie auf das Plus-Symbol, um ein neues Objekt zu erstellen.
-
-   ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
-
-3. Prüfen Sie, ob das übergeordnete Objekt ist `samsung_tizen.0.command` Die
-
-4. Geben Sie einen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „Befehl“ lautet. `datapoint` Und `stateType` Ist `boolean` Die
-
-   ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
-
-5. Geben Sie unter „Name“ die Schlüssel ein, die Sie senden möchten.
-
-6. Die Rolle muss sein `button` Die
-
-7. Speichern Sie das Objekt.
-
-   ![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
-
-8. Jetzt können Sie Ihren Befehl mit dem neu erstellten Objekt senden.
-
-   ![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
-
-## Credits
-
-Die erste Generation dieses Adapters wurde von Stefan0875 ( <https://github.com/Stefan0875> ) entwickelt. Anschließend wurde er von Highpressure ( <https://github.com/Highpressure> ) und schließlich von dahuby ( <https://github.com/dahuby> ) angepasst und weiterentwickelt. Vielen Dank für ihre Arbeit und die Bereitstellung einer öffentlichen Lizenz.
+`sendTo('samsung_tizen.0', 'help', {})` Beantwortet eine Beschreibung der Nachrichten und Zustände des Adapters für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren: `{ help, commands }`, Wo `commands` listet jede Nachricht auf `write` (ob es etwas ändert). Skripte können verwendet werden `apps` (die bekannten, auf dem Fernseher installierten Apps), `launchApp` (`{ app: 'YOUTUBE' }`), `remote` (`{ key: 'KEY_HOME' }`), `wake`, `scenes` Und `runScene` (`{ scene: '<id>' }`).
 
 ## Changelog
-
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (GermanBluefox) The pairing token is no longer written to the log (startup config, websocket URL, getToken)
+
+### 2.2.0 (2026-11-19)
+* (GermanBluefox) Fixed the README structure (changelog section) (#321)
+* (GermanBluefox) Added the message "help": a description of all messages and states for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 2.1.0 (2026-10-29)
+- (GermanBluefox) Added: button "Search TV" that finds the TV in the network and fills in IP address, MAC address, protocol and port; the IP address field lists all TVs found (SSDP, confirmed by the REST API of the TV)
+- (GermanBluefox) Added: button to read the MAC address for Wake-on-LAN from the TV
+- (GermanBluefox) Added: setup assistant (tab "Setup"): search, pairing without copying the token, Wake-on-LAN, test key and save in one go
+- (GermanBluefox) Added: `powerOn` can be written to switch the TV on (Wake-on-LAN, then KEY_POWER) or off (KEY_POWER, held on The Frame); the power state is asked right after that until it is reached
+- (GermanBluefox) Added: scenes - named sequences of keys, apps and pauses, configured in a table, each with a button `scenes.<name>`
+- (GermanBluefox) Added: buttons for the apps installed on the TV; the adapter knows the Samsung app IDs of YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Paramount+, DAZN, Joyn, RTL+, MagentaTV, ARD, ZDF, Spotify, Twitch, Plex and the browser and asks the TV which of them are installed
+- (GermanBluefox) Added: tab "Remote control" in the settings with a remote control to test the connection right away (custom component, needs admin 8)
+
 ### 2.0.2 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access token one more time 
 - (copilot) Adapter requires node.js >= 22 now
@@ -205,13 +174,6 @@ Die erste Generation dieses Adapters wurde von Stefan0875 ( <https://github.com/
 
 ### 1.0.0 (2023-09-30)
 - (mcm1957) An official release has been created
-
-### 1.0.0-alpha.2 (2023-09-24)
-- (mcm1957) Dependencies have been updated
-
-### 1.0.0-alpha.1 (2023-09-24)
-- (mcm1957) Adapter requires node 16 or newer now.
-- (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
 
 ## License
 

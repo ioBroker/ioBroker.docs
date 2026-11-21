@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
+hash: bp6/FR1ujfjRxdVjGOoZIxiG9+OLYQ+uVZQ92D6PIfU=
 ---
 ![Logo](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -31,7 +31,7 @@ Der Adapter meldet sich mit dem Konto der **My Renault-** , **My Dacia-** oder *
 4. Wählen Sie in der App das **Land** Ihres Kontos aus.
 5. Klicken Sie auf **„Testanmeldung“** , um E-Mail-Adresse und Passwort vor dem Speichern zu überprüfen. Die Instanz muss ausgeführt werden, damit die Schaltfläche funktioniert.
 6. Optional können Sie das **Abfrageintervall** in Minuten und den **API-Schlüssel** festlegen (für die automatische Erkennung leer lassen).
-7. Speichern Sie die Einstellungen, und die Instanz beginnt mit der Abfrage. **Die Verbindungsanzeige** unterhalb der Anmeldefelder zeigt an, ob eine Verbindung besteht.
+7. Speichern Sie die Daten, und die Instanz beginnt mit der Abfrage. **Die Verbindungsanzeige** unterhalb der Anmeldefelder zeigt an, ob eine Verbindung besteht.
 
 ## Unterstützte Modelle
 
@@ -95,7 +95,7 @@ Jedes Fahrzeug wird anhand seiner Fahrzeugidentifikationsnummer (VIN) als Gerät
 | `chargeLimitTarget`     | Nummer          | `level`             | Zielladungsgrad in %, 55 bis 100 in 5er-Schritten                                                     |
 | `chargeMode`            | Zeichenkette    | `text`              | `always`, `always_charging`, `schedule_mode` oder `scheduled`; zeigt den vom Auto gemeldeten Modus an |
 | `hornStart`             | boolescher Wert | `button.start`      | hupen                                                                                                 |
-| `lightsStart`           | boolescher Wert | `button.start`      | Licht aufblitzen lassen                                                                               |
+| `lightsStart`           | boolescher Wert | `button.start`      | Die Lichter blinken lassen                                                                            |
 | `refreshLocation`       | boolescher Wert | `button`            | Lesen Sie jetzt den Standort aus der Cloud.                                                           |
 | `askForLocationRefresh` | boolescher Wert | `button`            | Bitten Sie das Auto, seine Position hochzuladen, und lesen Sie die Position 30 Sekunden später ab.    |
 | `refreshAll`            | boolescher Wert | `button`            | Alle Fahrzeugdaten jetzt abfragen                                                                     |
@@ -136,6 +136,8 @@ Die Daten jedes Endpunkts werden in einen unten stehenden Kanal geschrieben. `re
 
 **Im Protokoll wird „Ungültige Benutzer-ID oder ungültiges Passwort“ angezeigt, oder die Anmeldung wurde abgelehnt.** Legen Sie in der My Renault (My Dacia, My Alpine) App ein neues Passwort fest, geben Sie es in den Adaptereinstellungen ein und starten Sie die Instanz neu. Bis dahin sendet der Adapter keine Befehle und kann das Konto daher nicht mit dem alten Passwort sperren.
 
+**Laut Protokoll oder Administratorbenachrichtigungen fordert Renault einen Code per E-Mail an.** Renault verlangt bei einigen Konten beim Login einen Code per E-Mail (Zwei-Faktor-Authentifizierung). Öffnen Sie die Instanzeinstellungen und klicken Sie auf **„Login testen“** . Der Adapter veranlasst Renault, den Code zu senden und die Adresse festzulegen. Geben Sie den Code innerhalb von 10 Minuten **im Feld „Code aus der E-Mail“** ein und klicken Sie auf **„Code bestätigen“** . Ein falscher Code kann ohne neue E-Mail korrigiert werden; klicken Sie nach 10 Minuten erneut auf **„Login testen“,** um einen neuen Code zu erhalten. Wenn die angegebene E-Mail-Adresse mit der von der Instanz verwendeten übereinstimmt, verbindet sich die Instanz sofort und die Benachrichtigung verschwindet. Um eine neue E-Mail-Adresse zu verwenden, speichern und schließen Sie die Einstellungen. Renault speichert die ioBroker-Installation für etwa 30 Tage, und der Adapter behält die Login-Sitzung auch nach einem Neustart bei. Ein neuer Code ist daher nur erforderlich, wenn Renault die Sitzung beendet.
+
 **Das Protokoll zeigt an, dass das Renault-Anfragekontingent (429) aufgebraucht ist.** Das Konto erlaubt ca. 60 Anfragen pro Stunde, die mit der App geteilt werden. Der Adapter pausiert selbstständig für 15, 30 und dann 60 Minuten. Erhöhen Sie das Aktualisierungsintervall und verwenden Sie `refreshAll` selten; der Adapter warnt einmal, wenn seine Einstellungen mehr Anfragen benötigen, als das Kontingent zulässt.
 
 ** `chargingStart` Ich habe meinen Ladeplan deaktiviert.** Bei Renault 4, Renault 5, Alpine A290, Scenic E-Tech und Master E-Tech wird der Ladevorgang so gestartet; die App funktioniert genauso. Aktivieren Sie die Programme anschließend wieder in der App.
@@ -148,9 +150,19 @@ Die Daten jedes Endpunkts werden in einen unten stehenden Kanal geschrieben. `re
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
-- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
-- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
+
+- The buttons refreshBattery, refreshClimate and refreshLocation no longer fail now and then with "Timeout (-1) is smaller than 0".
+
+### 1.1.0 (2026-10-22)
+
+- New button in the settings to test the login before saving.
+- Accounts that need a login code by email work again. The code is requested and confirmed in the settings.
+- The login is kept across restarts.
+- A space around the email no longer breaks the login (#82).
+- The country setting is shown in the language of the admin.
+- Map widgets now find the vehicle position.
 
 ### 1.0.0 (2026-09-23)
 
@@ -198,10 +210,6 @@ Die Daten jedes Endpunkts werden in einen unten stehenden Kanal geschrieben. `re
 ### 0.0.23
 
 - (TA2k) align API headers with My Renault Android app, drop EOL Node 18/20, migrate admin UI to jsonConfig
-
-### 0.0.22
-
-- (TA2k) update dependencies, migrate to ESLint 10, fix repochecker findings
 
 ## License
 

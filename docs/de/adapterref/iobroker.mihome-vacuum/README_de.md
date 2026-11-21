@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README_de.md
 title: ioBroker mihome-vacuum Adapter
-hash: MiiR2/98JnklM2zog3nArw9wBqun3eknZLQLPJgAsqY=
+hash: kFwAWeBYbR8F4/aTvKfmbCmgrKHg5R9ZU2shUtubG2I=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -96,7 +96,7 @@ Die Xiaomi Cloud ist für die normale lokale Steuerung optional. Sie dienen der 
 5. Den angezeigten Link öffnen und die Xiaomi-Anmeldung im Browser bestätigen.
 6. Zu ioBroker zurückkehren, sobald der Cloud-Status **angezeigt** wird.
 7. Klicken Sie auf **„Geräte abrufen“** und wählen Sie den Saugroboter aus der Liste aus.
-8. Die automatisch eingetragenen Werte für Token, IP-Adresse, Modell und Manager prüfen.
+8. Die automatisch eingetragenen Werte für Token, IP-Adresse und Modell prüfen; den Manager auf **Auto** lassen.
 9. Die Konfiguration speichern und kontrollieren, ob `info.connection` den Wert `true` Erhält.
 
 ![Verbindung und Xiaomi-Cloud-Anmeldung](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
@@ -114,7 +114,7 @@ Die lokale Steuerung ist nicht von einer aktiven Xiaomi-Cloud-Sitzung abhängig.
 - **Token:** lokaler hexadezimaler Geräte-Token
 - **IP-Adresse:** aktuelle lokale Adresse des Roboters
 - **Modell:** Modellkennung wie `roborock.vacuum.s5`
-- **Manager:** wird normalerweise automatisch erkannt; Roborock, Viomi oder Dreame nur bei Bedarf manuell auswählen
+- **Geschäftsführer:** auf **Auto** lassen; Der Manager wird aus dem Modell ermittelt. Roborock, Viomi, Dreame oder Xiaomi MIoT nur manuell auswählen, wenn das Modell nicht erkannt wird. Roborock-Geräte unterstützen kein MIoT und lassen sich mit dem Dreame- oder Xiaomi-MIoT-Manager nicht steuern; Der Adapter verwendet dann den Roborock-Manager und schreibt eine Warnung ins Log
 - **Port des Roboters:** normal `54321`
 - **Eigener Port:** lokaler UDP-Port dieser Adapterinstanz, normalerweise `53421`
 
@@ -229,7 +229,7 @@ Der Kanal `history` enthält Gesamtreinigungszeit, Gesamtfläche, Anzahl der Rei
 
 Unterstützte Wartungswerte werden unterschritten `consumable` angelegt, zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischpad, Sieb, Reinigungsbürste und Staubabsaugungszähler.
 
-Eine Lebensdauer darf erst nach Reinigung oder Austausch des betreffenden Teils zurückgesetzt werden. Nicht unterstützte Verbrauchsmaterialien werden in den Widgets ausgeblendet.
+Eine Lebensdauer darf erst nach Reinigung oder Austausch der betreffenden Teile zurückgesetzt werden. Nicht unterstützte Verbrauchsmaterialien werden in den Widgets ausgeblendet.
 
 ### Erweiterte eigene Befehle
 
@@ -284,6 +284,10 @@ Im Widget-Set **Mi Home Vacuum** das Widget **Staubsaugersteuerung mit Karte** a
 Jedes Bedienelement erscheint nur, wenn der Adapter den passenden Datenpunkt für den Roboter angelegt hat; Das Widget passt sich also dem Funktionsumfang des Modells an. Mit einer älteren Adapterversion angelegte Widgets übernehmen die neuen Datenpunkte ihrer Instanz automatisch; Das Attribut in den Widget-Einstellungen muss nur geändert werden, wenn ein Datenpunkt woanders hinzeigen soll.
 
 ![VIS-2-Saugroboter-Widget](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%202%20VacuumControlWidget.png)
+
+Dasselbe Widget in einer dunklen Vis-2-Ansicht, Übersicht mit Karte, Akku, gereinigter Fläche und Zeit, Saugleistung und Schnellsteuerung:
+
+![vis-2 Saugroboter-Widget, dunkles Design](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/vis2-vacuum-control-dark.png)
 
 ### Räume, Saugleistung und Darstellung
 

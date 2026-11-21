@@ -3,59 +3,147 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: IeYCD+EVKLA4PUNjw8fCCyH2IsGI8QFHSDrr5Do4QuU=
+hash: 0sy426DMRu447/TNVSaYXQoInBH95iLwwWIEbai1qrs=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/alpha-ess-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/alpha-ess-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.alpha-ess.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/alpha-ess-installed.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/alpha-ess-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.alpha-ess.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.alpha-ess.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Gaspode69/ioBroker.alpha-ess/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Gaspode69/ioBroker.alpha-ess/badge.svg)
 
-# IoBroker.alpha-ess
-## Alpha-ess-Adapter für ioBroker
----
+# ioBroker.alpha-ess
 
-### Für Support öffnen Sie bitte ein GitHub-Problem oder besuchen Sie
-https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
+## Alpha ESS-Adapter für ioBroker
 
----
+Dieser Adapter verbindet ioBroker mit der offiziellen [Alpha ESS Open API](https://open.alphaess.com/) . Er liest Daten zu Leistung, Energie, System, Batteriekonfiguration und Wallbox aus. Unterstützte Batterie- und Wallbox-Einstellungen können auch über ioBroker geändert werden.
 
-Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen zu Ihrem Alpha-ESS-Gerät ab. Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten Ihres Geräts abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrem Alpha-ESS-Gerät ab.
+Die verfügbaren Werte hängen vom Systemmodell und den von Alpha ESS für dieses System bereitgestellten Funktionen ab.
 
-Dieser Adapter verwendet die Alpha-ESS Open API, eine offizielle und dokumentierte API für Alpha-ESS-Geräte.
+## Merkmale
 
-Das Qualitätsattribut jedes Zustands wird entsprechend seinem Status festgelegt:
+- Echtzeit-Leistungsdaten für PV-Anlagen, Netz, Lasten, Batterien und angeschlossene Ladegeräte
+- Tägliche Gesamtenergiemengen und Systeminformationen
+- Lade- und Entladepläne und SOC-Grenzwerte
+- Zusammenfassende Werte, einschließlich monatlicher und jährlicher Statistiken
+- Ausweich-Leistungsdaten für Systeme ohne Echtzeit-API-Unterstützung
+- Wallbox-Status, Start-/Stopp-Steuerung und aktuelle Einstellung
+- Statusinformationen zur Verbindungsqualität und zu API-Fehlern
 
-| Qualität | Bedeutung |
-|:--------|:--------------------------------------------------|
-|0x00 |OK und aktuell |
-|0x01 |Wert aus unbekanntem Grund nicht aktualisiert, siehe Debug-Protokoll |
-|0x02 |Problem mit der Online-Verbindung für diesen Datenpunkt |
-|0x12 |Adapter getrennt oder gestoppt |
-|0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Debug-Protokoll |
+## Anforderungen
 
-## Einstellungen:
-Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Diese benötigen Sie für den Zugriff auf die Open API.
+- ioBroker mit js-controller 6.0.11 oder neuer und Admin 7.6.20 oder neuer
+- Node.js 22 oder neuer
+- Ein Alpha ESS-Konto und ein im Open API-Entwicklerportal registriertes System.
+- Eine persönliche Anwendungs-ID, ein Anwendungsgeheimnis und die Seriennummer des Alpha ESS-Systems
 
-Wie Sie die SN und den Prüfcode für die Registrierung finden, erfahren Sie hier: https://github.com/alphaess-developer/alphacloud_open_api
+Der Adapter nutzt die Cloud-API und benötigt daher einen Internetzugang. Er stellt keine direkte Verbindung zum Wechselrichter her und bietet auch keine Modbus-Verbindung.
 
-- **Persönliche Anwendungs-ID:** Die Anwendungs-ID (siehe oben)
-- **Persönliches Anwendungsgeheimnis:** Das Anwendungsgeheimnis (siehe oben)
-- **Alpha-ESS System-ID:** Die S/N (Seriennummer) Ihres Alpha-ESS-Geräts
-- **Intervall zum Lesen von Echtzeitdaten:** Einheit: Sekunden.
-- **Intervall zum Lesen der Energiedaten:** Einheit: Minuten.
-- **Intervall zum Lesen der Ladeeinstellungen:** Einheit: Minuten.
-- **Intervall zum Lesen der Entladeeinstellungen:** Einheit: Minuten.
-- **Intervall zum Lesen der Zusammenfassungsdaten:** Einheit: Minuten.
-- **Intervall zum Lesen der Wallbox-Daten:** Einheit: Minuten. Achtung: Aktuell wird nur eine Wallbox unterstützt.
-- **Unveränderte Zustände aktualisieren:** Ist diese Option aktiviert, werden Zustände auch dann geändert, wenn der zugehörige Wert unverändert bleibt.
+## Aufstellen
+
+1. Melden Sie sich im [Alpha ESS Open API-Portal](https://open.alphaess.com/) an und registrieren Sie das System.
+2. Erstellen oder wählen Sie eine persönliche Anwendung aus, um deren Anwendungs-ID und geheimes Geheimnis zu erhalten.
+3. Ermitteln Sie die Systemseriennummer (SN) und den Prüfcode. Alpha ESS dokumentiert den Registrierungsprozess im [Open-API-Repository](https://github.com/alphaess-developer/alphacloud_open_api) .
+4. Installieren Sie den Adapter von der ioBroker-Adapterseite und erstellen Sie eine Instanz.
+5. Geben Sie in den Instanzeinstellungen die Anwendungs-ID, das Anwendungsgeheimnis und die Systemseriennummer ein.
+6. Aktivieren Sie nur die für das System erforderlichen Datengruppen und speichern Sie die Konfiguration.
+
+Das Anwendungsgeheimnis wird von ioBroker als verschlüsselte und geschützte native Einstellung gespeichert. Veröffentlichen Sie es nicht in Fehlerberichten oder Protokollauszügen.
+
+## Konfiguration
+
+| Option                               | Einheit  | Beschreibung                                                                              |
+| ------------------------------------ | -------- | ----------------------------------------------------------------------------------------- |
+| Persönliche Anwendungs-ID            | —        | Anwendungs-ID aus dem Alpha ESS Open API-Portal                                           |
+| Geheimnis der persönlichen Anwendung | —        | Geheimnis, das zur Anwendungs-ID gehört                                                   |
+| Alpha ESS System-ID                  | —        | Systemseriennummer (SN)                                                                   |
+| Echtzeitdaten                        | Sekunden | Leistungs- und SOC-Werte; Mindestintervall: 10 Sekunden                                   |
+| Systeminformationen                  | Sekunden | Modell- und Systemmetadaten; Mindestintervall: 10 Sekunden                                |
+| Aktuelle Leistungsdaten              | behoben  | Ruft alle 5 Minuten alternative Leistungsdaten für Systeme ohne Echtzeitunterstützung ab. |
+| Energiedaten                         | Minuten  | Tägliche Energiegesamtmenge; Mindestintervall: 5 Minuten                                  |
+| Ladeeinstellungen                    | Minuten  | Ladeplan und SOC-Grenze; Mindestintervall: 1 Minute                                       |
+| Entladeeinstellungen                 | Minuten  | Entladeplan und SOC-Abschaltschwelle; Mindestintervall: 1 Minute                          |
+| Zusammenfassende Daten               | Minuten  | Statistische Zusammenfassungen; Mindestintervall: 5 Minuten                               |
+| Wallbox-Daten                        | Minuten  | Status der Wandbox und Start-/Stopp-Steuerung; Mindestintervall: 1 Minute                 |
+| Wanddose aktuell                     | Sekunden | Aktuelle Einstellung der Wanddose; Mindestintervall: 10 Sekunden                          |
+| Status unverändert aktualisieren     | —        | Schreibt eine neue Statusaktualisierung, auch wenn sich der Wert nicht geändert hat.      |
+
+Kurze Intervalle erzeugen mehr Cloud-Anfragen. Verwenden Sie das längste für die Automatisierung geeignete Intervall und beachten Sie die Grenzen der Alpha ESS Open API.
+
+## Datenpunkte
+
+Die aktivierten und unterstützten Datengruppen werden unten angezeigt. `alpha-ess.<instance>`:
+
+| Ordner               | Inhalt                                                 | Schreibbare Werte                   |
+| -------------------- | ------------------------------------------------------ | ----------------------------------- |
+| `Realtime`           | Aktuelle PV-, Netz-, Last-, Batterie- und Ladeleistung | —                                   |
+| `Recent`             | Fünf-Minuten-Fallback-Stromdaten                       | —                                   |
+| `System`             | Systemidentifikation und Metadaten                     | —                                   |
+| `Energy`             | Tägliche Energiegesamtmenge                            | —                                   |
+| `Settings_Charge`    | Ladezeiträume und Lade-SOC-Grenze                      | Alle Einstellungen in diesem Ordner |
+| `Settings_Discharge` | Entladezeiten und SOC-Grenzwert                        | Alle Einstellungen in diesem Ordner |
+| `Summary`            | Tages-, Monats-, Jahres- und Gesamtstatistiken         | —                                   |
+| `Wallbox`            | Seriennummer, Modell, Status und Ladekontrolle         | `Charging_Start`, `Charging_Stop`  |
+| `Wallbox_Current`    | Haushaltsstromeinstellung für die Wanddose             | Aktuelle Einstellung                |
+
+Ordner und Zustände werden nur dann erstellt, wenn der entsprechende Endpunkt aktiviert ist und die API das Attribut zurückgibt. Nicht unterstützte oder deaktivierte Zustände können daher fehlen.
+
+### Schreibeinstellungen
+
+Schreiben Sie mit Bestätigung in einen beschreibbaren Zustand (`ack`) auf gesetzt `false`, wie ioBroker es bei Änderungen in der Objektansicht oder durch `setState(id, value, false)` Der Adapter sendet die gesamte Einstellungsgruppe an Alpha ESS und liest die Werte nach der Anfrage zurück. Vermeiden Sie mehrere gleichzeitige Schreibvorgänge auf Werte in derselben Gruppe.
+
+Die Wallbox-Unterstützung verwaltet derzeit eine Wallbox pro Alpha ESS-System. Bevor Sie den Ladevorgang oder Stromänderungen automatisieren, überprüfen Sie bitte den zulässigen Bereich und das Verhalten des installierten Wallbox-Modells.
+
+## Staatsqualität
+
+Der `q` Das Attribut zeigt an, ob ein Wert aktuell ist:
+
+| Qualität | Bedeutung                                                                                       |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| `0x00`   | Der Wert ist aktuell.                                                                           |
+| `0x01`   | Der Wert wurde nicht im erwarteten Intervall aktualisiert; siehe Debug-Protokoll.               |
+| `0x02`   | Netzwerk- oder Cloud-Verbindungsproblem                                                         |
+| `0x12`   | Der Adapter ist gestoppt oder getrennt.                                                         |
+| `0x44`   | Die API hat einen Fehler zurückgegeben oder der Adapter hat einen internen Fehler festgestellt. |
+
+`info.connection` Ist `true` nach einer erfolgreichen API-Antwort und `false` wenn die Kommunikation scheitert.
+
+## Fehlerbehebung
+
+- **Es wurden keine Zustände erstellt:** Stellen Sie sicher, dass die Datengruppe aktiviert ist, und überprüfen Sie das Debug-Protokoll. Einige Alpha ESS-Systeme unterstützen nicht alle Endpunkte.
+- **Authentifizierung fehlgeschlagen:** Überprüfen Sie die Anwendungs-ID und das geheime Schlüsselwort und stellen Sie sicher, dass die System-SN für diese Anwendung im Open API-Portal registriert ist.
+- **Zeitstempelfehler (`6006`):** Synchronisieren Sie die Hostuhr und die Zeitzone des ioBroker mithilfe von NTP.
+- **Die Werte bleiben veraltet:** Überprüfen Sie die Statusqualität und das Debug-Protokoll, erhöhen Sie das Abfrageintervall und prüfen Sie, ob die Alpha ESS-Cloud erreichbar ist.
+- **Ein geschriebener Wert ändert sich wieder:** Die API-Antwort ist maßgebend. Überprüfen Sie den vom System akzeptierten Wertebereich und das Format und vermeiden Sie es, dieselbe Einstellungsgruppe gleichzeitig zu schreiben.
+
+Melden Sie ein Problem bitte mit folgenden Angaben: Adapterversion, Node.js- und js-Controller-Versionen, Systemmodell, betroffene Status-ID und ein Debug-Log einer fehlgeschlagenen Anfrage. Entfernen Sie zuvor das Anwendungsgeheimnis und alle anderen Zugangsdaten.
+
+## Unterstützung
+
+- [GitHub-Probleme](https://github.com/Gaspode69/ioBroker.alpha-ess/issues)
+- [ioBroker-Forumsthread](https://forum.iobroker.net/topic/60009/)
+- [Storion4you-Community-Thread](https://www.storion4you.de/thread/683)
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in meiner Freizeit gepflegt und verfolgt kein Geschäftsziel.**
+
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (Gaspode) Adapter requires Node.js 22 or newer
+- (Gaspode) Added Node.js 26 tests and updated development tooling
+- (Gaspode) Improved setup, configuration, data point, and troubleshooting documentation
+- (Gaspode) Improved the configuration layout on small screens
+
+### 4.1.0 (2026-02-14)
+
+- (Gaspode) Read and write wallbox current
+
+### 4.0.0 (2025-11-01)
+
+- (Gaspode) Update dependencies, Node.js version 20 or later is now required
+
 ### 3.0.1 (2024-12-22)
 
 - (Gaspode) Optimizations of reading pseudo-realtime power data for slow systems
@@ -205,7 +293,7 @@ Wie Sie die SN und den Prüfcode für die Registrierung finden, erfahren Sie hie
 
 MIT License
 
-Copyright (c) 2024 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
+Copyright (c) 2025-2026 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

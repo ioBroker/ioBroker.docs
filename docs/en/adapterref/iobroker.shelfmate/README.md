@@ -30,6 +30,9 @@ You use it through a web app that you open on your phone and add to the home scr
 - Add products by barcode or by hand, with name suggestions and a matching category when creating by hand
 - Produce numbers (PLU) of fruit and vegetables and the data matrix labels of scales are recognised; an own list in `plu.data` names retailer-assigned numbers
 - Use an own product database (data point, file or web address; JSON or CSV with free field names) that is asked first; products with own barcodes keep their barcode
+- Books (ISBN), magazines (ISSN) and sheet music (ISMN) are recognised and looked up at Open Library, the German National Library and Google Books
+- Medicines by PZN (barcode or Data Matrix), and ordinary barcodes nobody else knows, are named from Shop Apotheke or vitality-fit; the expiry date in the Data Matrix code is booked as best-before date
+- The order in which the product sources are asked can be changed in the adapter settings (standard: food, drugstore, pets, household, medicines and pharmacy, books)
 - Load product data from Open Food Facts and its sister databases (cosmetics, pet food, household) automatically (name, brand, package size, Nutri-Score and categories); the source is shown in the app
 - Unknown barcodes: a button searches the web for name, brand and picture, also for all new products at once (with a review page before anything is saved) or for the picture only (only on request, can be turned off)
 - Edit and refresh product data at any time
@@ -298,14 +301,44 @@ Ideas, wishes or bugs are welcome as a [GitHub issue](https://github.com/backfis
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- New: codes made of letters and digits (Amazon FNSKU like X001R86CKT, shop article numbers; 6 to 20 characters) are accepted as product codes; the product is created as "New product" plus the code" to be renamed once, no online search
+- Fixed: labels of scales with a store's own number (for example 2806 for carrots at REWE) are recognised; the product is created as "New product 2806" to be renamed once, the number is remembered
+
+### 0.6.0 (2026-11-18)
+- New: the action for two scans is configurable (for example two scans = open, three scans = take out); new action "Take out"; one scan stays stock in
+- New: stock bookings and new products made in the app are written to the log; fewer messages at info level, the rest at debug
+- New: books, magazines and sheet music (category "Books") need no best-before date, shelf life, stock type or unit; the pack size field becomes "Pages", the brand field "Author / publisher"
+- New: a location can be the default for categories (for example books → bookcase); stocking in suggests it, and an external scanner books there with one scan; a location you scan or choose for stocking in overrides it
+- Changed: books show no opened / freezer labels and no "spoiled" choice when taking out
+- Fixed: book covers of the National Library are loaded by the adapter and made small in the app (a phone cannot load them itself)
+- Changed: one lookup chain everywhere (phone, external scanner, stocking in, new product, batch import): own database, then the catalogue of the code (books for ISBN / ISSN / ISMN, pharmacy shops for a PZN) and only if it does not know the article the Open Facts databases (dm right after the first one); the external scanner now asks dm too
+- Changed: the batch import no longer searches the web by itself, a button does that; the web text search uses strict safe search
+- Fixed: medicine names keep their brand ("Ibuprofen-ct 400 mg", "Aspirin Complex"), web addresses no longer show up as book tags, a children's fantasy book is no longer tagged as a crime novel
+- Fixed: when Open Food Facts does not answer, the other Open Facts databases are still asked; the batch import repeats such codes once and spaces its requests
+- New: the batch import ends with a report (all codes, results and search steps) with a copy button
+- Changed: names from the Open Facts databases only count when they are German (or one word); other names go through dm and the web search, the foreign name stays in the name field
+- Fixed: pharmacy articles show their pack size ("20 St"), advertising and company names behind a title are cut, magazines keep title and short subtitle, book genres come first in the tags
+- Fixed: a slow acknowledgement of ioBroker no longer ends a command with "no answer"; amounts like "400 g e" and doubled brands from Open Food Facts are cleaned
+- Fixed: after an update the app loads its script files fresh, so a new version no longer runs with an old script once
+- Fixed: searching an ISBN no longer waits for the food databases and dm one after another; the book catalogues are asked at the same time
+- New: books get genre tags (children's book, crime, cookbook, …) and subject words from the catalogues; cover and page count are filled in from another catalogue (or the cover service of the National Library / Open Library by ISBN; small covers are stored in the product) if the first has none
+- Improved: the code fields say which codes work (EAN, ISBN, ISSN, PZN); typed ISBNs with hyphens and `PZN-` numbers are converted in the editor; the examples for unit and package size depend on the category
+- Fixed: searching by barcode in the editor without a connection to ioBroker no longer ends with a raw error; the Open Facts databases are still asked
 - Changed: the locations page is grouped by area; areas fold open and closed, and are edited inside the area (no separate areas list)
 - New: small icons in the locations list for freezer, consumables and "record best-before when stocking in"; areas show the total
 - Improved: the consumables text data point is translated into all languages
 - Fixed: English example for the data point `plu.data`
 - New: clear feedback for every camera scan (vibration, coloured frame and a status bar with product name and count: searching, found, new, unknown)
 - New: stocking in by camera has the buttons "To the list" and "Stock in (n)" under the picture
+- Fixed: the history shows the current product name instead of the name at the time of booking
 - Fixed: the web search left the name of products created by scanning as "Unknown product …" (only brand and size were taken over)
 - Fixed: stocking in - a new product scanned while the lookup was still running, or when the location was scanned right after, ended up with 0 pieces; finishing now waits for running lookups
+- New: books by ISBN (also ISBN-10 and the ISBN as text), magazines (barcode 977, ISSN) and sheet music (ISMN, 9790) are recognised and looked up at Open Library, the German National Library (DNB) and Google Books; new category "Books"
+- New: medicines by PZN (barcode, plain number or Data Matrix) are named automatically from Shop Apotheke or vitality-fit (which also know ordinary barcodes, asked after the other sources); the best-before date from a medicine Data Matrix (PPN) or a GS1 code is booked together with the stock
+- Changed: creating a new product (Tasks → Create new product) and entering a barcode: the new button "Search product data" asks all sources like the scanner does, in the order of the settings, and the web last; for an unknown product from the list "Search the web" only searches the web, the databases were asked already
+- Fixed: books were not found when the first catalogue was slow or did not know the ISBN: all catalogues (lobid, the SRU interface of the German National Library, Open Library, Google Books) are asked at once, also by the ISBN-10; the app waits as long as the web search
+- Fixed: the scanner page (typing or scanning a barcode, then the editor opens) did not look for books and in the pharmacy shops; now it does, also when a database knows the barcode but no name
+- New: setting "Order of the product sources" in the adapter settings (standard: food, drugstore, pets, household, medicines and pharmacy, books); put your main kind of products first so not every scan asks all databases
 
 ### 0.5.2 (2026-11-10)
 - New: scanner mode "Scans = quantity" (every scan stocks in one piece, default location in the settings) and the control code `SM:OUT` to take out

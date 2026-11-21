@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
+hash: m0LHgcx8TRA2KcHBmmt2FxW/PTs79hcc+YOlMz2lpJ4=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.omoda.svg)
@@ -31,9 +31,14 @@ hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
 - **Аккумулятор и зарядка** — уровень заряда, запас хода (электрический/общий), состояние заряда, мощность зарядки, подключенный зарядный кабель, оставшееся время зарядки.
 - **Топливо** (только для гибридов/двигателей внутреннего сгорания) — остаток топлива в литрах, запас хода на бензине, средний расход топлива, предупреждение о низком уровне топлива. Автомобиль отображает объем в литрах, а не процент уровня топлива.
 - **Единицы измерения** — диапазоны, одометр и скорость в километрах или милях (настройка «Единица измерения расстояния» на вкладке «Регион и опрос»; по умолчанию км).
-- **Команды** — блокировка/разблокировка, включение/выключение климат-контроля с настраиваемой целевой температурой, запрос местоположения по GPS, поиск автомобиля (мигание фар) и «пробуждение и обновление полного статуса».
+- **Команды** : блокировка/разблокировка, включение/выключение климат-контроля с настраиваемой целевой температурой, запланированная зарядка, запуск/остановка зарядки электромобиля, запрос местоположения GPS, поиск автомобиля (мигание фар) и «пробуждение и обновление статуса полной зарядки».
 
-Дополнительные функции автомобильного приложения (индивидуальный подогрев/вентиляция сидений, обогрев лобового стекла, запуск/остановка зарядки электромобиля и планирование зарядки, управление окнами/люком/багажником, противоугонная сигнализация) планируется добавить в более поздней версии.
+### Управление зарядкой
+
+- **Запланированная зарядка** — установлена `charging.scheduleStart` (`HH:MM` (местное время) и `charging.scheduleDuration` (минут), затем напишите `true` к `commands.chargeSchedule` Пока действует расписание, автомобиль заряжается только в указанный промежуток времени каждый день (автомобиль не принимает расписание для отдельных будних дней). Чтобы изменить время, введите новые значения и укажите... `true` снова. Напишите. `false` Чтобы отключить расписание. Время действия расписания может превышать полночь, например. `21:15` Зарядка в течение 585 минут заканчивается в 07:00. Если автомобиль уже заряжается, включение расписания остановит зарядку до начала указанного временного окна.
+- **Начать/остановить зарядку сейчас** —`commands.chargeStart` /`commands.chargeStop` пока штекер подключен. Не все автомобили это позволяют: например, Omoda 9 отказывается с сообщением «команда не разрешена в этом автомобиле». В таких автомобилях используйте запланированную зарядку.
+
+Дополнительные функции автомобильного приложения (индивидуальный подогрев/вентиляция сидений, размораживатель, управление окнами/люком/багажником, противоугонная сигнализация) планируется добавить в более поздней версии.
 
 ### Требования
 
@@ -69,6 +74,10 @@ hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-13)
+* (Alan Paris) Added scheduled charging: `charging.scheduleStart`, `charging.scheduleDuration` and `commands.chargeSchedule`, so the car charges only in a chosen window, for example on a night tariff. See "Charging control" above
+* (Alan Paris) Added `commands.chargeStart` and `commands.chargeStop` to start or stop charging while the plug is connected. After either one, the car is re-read within about 2 minutes so `charging.state` and `charging.power` follow the change. Not every car allows this; a car that does not refuses with "command not allowed on this car"
+
 ### 0.4.0 (2026-10-04)
 * (Alan Paris) Added fuel states for hybrid/combustion cars: `fuel.remaining` (L), `fuel.range` (km), `fuel.averageConsumption` (L/100 km) and `fuel.lowWarning`. They are not created on a pure-electric car
 * (Alan Paris) Added `commands.findCar` — flashes the lights so you can find the car
@@ -117,9 +126,6 @@ hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
 * (Alan Paris) Config: clearer "Dept ID" help — it must match your account country's dialing code (UK=44, IT=39, …)
 * (Alan Paris) Require Node.js >= 22 and admin >= 7.6.17; enabled automated npm publishing via trusted publishing (OIDC)
 * (Alan Paris) Marked the OTP code as protected; various adapter-checker compliance fixes
-
-### 0.1.0 (2026-07-18)
-* (Alan Paris) initial release
 
 ## License
 MIT License

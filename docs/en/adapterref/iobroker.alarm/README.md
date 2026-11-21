@@ -29,6 +29,9 @@ This adapter allows you to set up a home alarm system without extensive programm
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.2.1 (2026-11-16)
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
 ### 5.2.0 (2026-11-09)
 * (@GermanBluefox) Added the alarm panel as web component `<iob-alarm-panel>` for Aura and other hosts (`common.webComponents`)
 
@@ -42,9 +45,6 @@ This adapter allows you to set up a home alarm system without extensive programm
 ### 5.1.0 (2026-10-27)
 * (@GermanBluefox) Added an alarm panel widget for vis-2 and for the devices adapter
 * (@GermanBluefox) States from the configuration whose object does not exist (e.g. of a deleted Echo) are no longer written, but reported once as a warning
-
-### 5.0.2 (2026-09-28)
-* (@misanorot) fixed little issues at other alarms
 
 ## License
 [MIT License](https://github.com/misanorot/ioBroker.alarm/blob/master/LICENSE)

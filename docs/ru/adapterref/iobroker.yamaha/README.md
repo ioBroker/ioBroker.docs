@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yamaha/README.md
 title: AV-ресиверы Yamaha и устройства MusicCast
-hash: BQmcGF2/uBvWaAEkjVDEYOACl6kmyKSYFvGRUDZshos=
+hash: cDUboeP+m1byoM1skIFCIwudM9BkO1mkGJN1V1po2uU=
 ---
 # AV-ресиверы Yamaha и устройства MusicCast
 
@@ -50,7 +50,7 @@ hash: BQmcGF2/uBvWaAEkjVDEYOACl6kmyKSYFvGRUDZshos=
 ### Настройки
 
 - **Поиск устройств в сети** — _автоматический_ поиск выполняется, пока список устройств пуст, что адаптер всегда и делал. Поиск _всегда_ продолжается рядом с введенными вами устройствами. _Никогда не_ запускает ваш список отдельно и не открывает прослушиватель на UDP-порту 1900. Устройство, которое было найдено ранее и больше не ищется, сохраняет свои данные — оно просто помечается как отключенное. Только кнопка удаления на его карточке удаляет устройство навсегда. Список, содержащий только строку, перенесенную с предыдущего адаптера (его имя — IP-адрес), считается пустым: никто не вводил этот адрес, поэтому поиск продолжается и следует за этим приемником к новому адресу.
-- **Сетевой интерфейс** — сохраните «все адреса» (0.0.0.0), и поиск будет осуществляться через каждую сетевую карту вашего ioBroker-сервера. Устанавливайте этот параметр только в том случае, если ваш сервер находится в нескольких сетях и поиск должен использовать определенную из них. Это не влияет на сами приемники.
+- **Сетевой интерфейс** — сохраните «все адреса» (0.0.0.0), и адаптер будет использовать каждую сетевую карту вашей машины ioBroker. Установите это значение, если ваш сервер находится в нескольких сетях: поиск, каждое соединение с ресивером и порт событий MusicCast — тогда используйте только этот адрес. Адрес, которого нет у машины, игнорируется с одним предупреждением в журнале.
 - **Порт событий MusicCast** — отображается, недоступен для редактирования: устройства MusicCast передают свои изменения на UDP-порт 41100, протокол исправляет это. Он нужен администратору, чтобы предупредить вас, когда второй экземпляр на том же хосте займет этот порт.
 - **Интервал XML-запросов** — это частота запросов к получателю, использующему данные до 2010 года. Эти модели не могут самостоятельно сообщать об изменениях. 60 секунд — разумное значение по умолчанию; более короткий интервал означает больший сетевой трафик при незначительной выгоде.
 - **Данные** представлены ниже.
@@ -139,14 +139,57 @@ setState("yamaha.0.rx-v6a-1a2b.remote.cursor", "left");
 - **Точка данных остается пустой.** Устройство не сообщает это значение — адаптер создает только то, о чем ему было сообщено, поэтому пустая точка данных обычно означает, что эта функция существует на других моделях, но отсутствует на вашей.
 - **Больше ничего не обновляется.** Найдите сообщение о порте MusicCast выше и проверьте. `info.connection` на устройстве.
 
-В остальных случаях на мгновение переключите уровень логирования экземпляра в режим отладки — адаптер сообщит, что он запрашивает, что получает и что отказывается отправлять.
+Для всего остального создайте диагностический отчет: в настройках экземпляра откройте вкладку **«Эксперт»** , выберите устройство и нажмите **«Создать диагностический отчет»** . Адаптер считывает данные с приемника по всем используемым протоколам — только для чтения, ничего на приемнике не изменяется — это занимает до минуты, и ваш браузер сохраняет один файл: что может делать приемник и на что он ответил, его данные, последние строки журнала адаптера (включая строки отладки, даже с уровнем логирования info) и установлен ли, включен ли и работает ли адаптер musiccast. Адреса, серийные номера, имена сети, комнаты, устройства и входа заменяются маркерами — даже когда приемник выключен, — и адаптер ничего не записывает на диск — он хранит отчет в памяти только до тех пор, пока ваш браузер его не получит. Если экземпляр не запущен, вкладка сообщит об этом, вместо того чтобы ждать. Прикрепите файл к [отчету об устройстве на GitHub](https://github.com/iobroker-community-adapters/ioBroker.yamaha/issues/new?template=device-support.yml) .
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 3.3.0 (2026-10-14)
+
+- (krobipd) New: Diagnostics report on the new Expert tab, with a "Report a device" issue form for it
+- (krobipd) New: Names you change in the receiver or the MusicCast app reach the input, scene and sound program dropdowns while the adapter runs
+- (krobipd) Changed: YNCA, MusicCast and XML datapoints now share names, roles and value lists
+- (krobipd) Changed: The YNCA input dropdown shows your input names; advanced.inputNames.\* is removed
+- (krobipd) Changed: sound.adaptiveDrc is a switch on every receiver; writing "Auto" still works
+- (krobipd) Changed: On MusicCast-only devices, sleep is a dropdown and bass and treble are in dB
+- (krobipd) Changed: The Zone B name moves from multiroom.zoneB.name to multiroom.zoneB.zoneName
+- (krobipd) Changed: The network interface setting applies to every connection of the adapter
+- (krobipd) Fixed: info.model and info.firmware are filled on devices without YNCA
+- (krobipd) Fixed: Scene, tuner and playback commands work on more receivers
+- (krobipd) Fixed: Empty or invalid values written to scene.recall or a preset no longer recall anything
+- (krobipd) Fixed: A tuner frequency written right after the band goes to the new band
+- (krobipd) Fixed: Switches on 2008–2017 receivers no longer show an On/Standby list
+- (krobipd) Fixed: The on-screen remote works over XML on the 2012 entry class (RX-V473 …)
+- (krobipd) Fixed: A YNCA receiver that did not answer at one start is read in full at the next
+- (krobipd) Fixed: Editing a device card no longer restarts the instance, and deleted receivers stay deleted
+- (krobipd) Fixed: Zones on Main Zone Sync show the main zone's playback; zones without a media input get no player datapoints
+- (krobipd) Fixed: MusicCast link groups, favourites and volume right after power-on on soundbars work reliably
+- (krobipd) Fixed: Receivers with a CD drive and MusicCast get their CD datapoints
+- (krobipd) Fixed: Scenes without a title show as "Scene 1", "Scene 2" … in the scene dropdown instead of a bare number
+- (krobipd) Fixed: Menu paths find entries on later pages, and XML menus are no longer hidden after a "not now" answer
+- (krobipd) Fixed: A powered-off XML receiver goes offline in seconds
+- (krobipd) Fixed: A MusicCast-only device that loses power goes offline within three minutes instead of fifteen
+
+### 3.2.0 (2026-10-02)
+
+- (krobipd) Fixed: Dropdown lists such as sound program, sleep timer and Adaptive DRC no longer go empty when the receiver loses power; lists emptied that way come back
+- (krobipd) Changed: Your datapoints stay exactly as they are while the adapter runs, also when a receiver goes offline; they change only after an adapter or firmware update
+- (krobipd) New: A command the receiver refuses over one protocol, or one sent while that protocol is offline, goes out over another protocol that understands it
+- (krobipd) New: A firmware update of the receiver is noticed and logged; the adapter reads the receiver again and reports it ready once that is done
+- (krobipd) Fixed: Datapoints of found receivers are no longer deleted at adapter start when the receiver list cannot be read or an entered receiver has the same address
+
+### 3.1.3 (2026-10-02)
+
+- (krobipd) Fixed: Menu lines fill again after switching player.browse.source, also on receivers that were in standby when the adapter started
+- (krobipd) Fixed: On receivers that offer their menus only over XML (models from before 2010), the menu lines no longer stay empty after a source switch
+- (krobipd) Changed: A new instance starts switched off and waits until you have set it up; existing instances keep their own setting
 
 ### 3.1.2 (2026-09-30)
 
@@ -155,32 +198,6 @@ setState("yamaha.0.rx-v6a-1a2b.remote.cursor", "left");
 ### 3.1.1 (2026-09-30)
 
 - (krobipd) Fixed: A receiver that replaces another at the same address is asked again whether zones 2 and 3 have an on-screen remote, instead of inheriting the old answer
-
-### 3.1.0 (2026-09-30)
-
-- (krobipd) Changed: player.playback follows the ioBroker standard now — 0 pause, 1 play, 2 stop; repeat and shuffle can be set directly where the device allows it
-- (krobipd) New: Receivers from before 2010 show what is playing — artist, album, track, station, status and cover — and 2008 models get their zone names
-- (krobipd) New: Every favourite, recent item, playlist, stored station and scene title is a datapoint of its own, next to the list
-- (krobipd) New: Volume up/down keys, a mute level, storing and clearing tuner presets, station search, and a settable clock and alarm on MusicCast clock radios
-- (krobipd) Fixed: A protocol that does not answer at start is connected again later, and its datapoints keep their type in the meantime
-- (krobipd) Fixed: On older receivers only what the device declares can be written, with its own limits; 2008 tuner presets A1–E8, band and frequency work
-- (krobipd) New: More menu sources on older receivers, TIDAL on MusicCast, menus in your ioBroker language, and remote pads for zones 2 and 3 of 2011/2012 AVENTAGE
-- (krobipd) Fixed: A MusicCast Zone B shows as Zone B and joins a group with Zone A, and the cover changes with the track
-- (krobipd) Fixed: Deleting a device, renaming it in the dialog or stopping the adapter no longer loses a name or leaves a network search running
-- (krobipd) Improved: Dropdowns show readable names in your ioBroker language, the playing source shows the input's name, and each queued track is its own datapoint
-
-### 3.0.1 (2026-09-27)
-
-- (krobipd) Improved: The notes the Admin shows before an update are short now: what changes, one example old → new, and a link to the details
-
-### 3.0.0 (2026-09-26)
-
-- (krobipd) Changed: Every device gets a new object ID once — its model and the end of its serial number, e.g. `wx-030-2b3c`; scripts and VIS need the new IDs
-- (krobipd) Changed: The move carries values, recording settings, rooms, functions and aliases along, and recorded history continues in its old series
-- (krobipd) Fixed: A second device of the same model and name is no longer skipped — every device gets its own object tree
-- (krobipd) Fixed: After a restart, the input list of a YNCA receiver offers only the sources the receiver has again, not the whole catalog
-- (krobipd) New: A device added by hand is asked for its model and serial number, and the name you type is its display name from the start
-- (krobipd) New: The device card shows the object ID, the MAC address and the serial number under its details
 
 ## License
 

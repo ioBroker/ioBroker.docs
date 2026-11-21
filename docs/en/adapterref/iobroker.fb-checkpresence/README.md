@@ -148,9 +148,28 @@ The legacy structure may be removed in a future version. When changing from the 
 
 The adapter creates a presence state for each enabled family member and checks whether the configured device is present or absent. The presence state changes when the detected status changes.
 
-You can enable filtering for an individual family member. When the device is detected as present, the presence state changes to `true` immediately. When it is detected as absent, the adapter waits for the configured filter delay and checks again. The state changes to `false` only if the device is still absent after the delay.
+You can enable filtering for an individual family member. With the legacy filter (the new history-based filter is disabled), filtering directly affects the member's `presence` state: when the device is detected as present, `presence` changes to `true` immediately; when it is detected as absent, the adapter waits for the configured delay and checks again. `presence` changes to `false` only if the device is still absent after the delay.
+
+With the new history-based filter enabled, the member's `presence` state reports the detected status directly. The filtered result is published separately as `presenceFiltered`; it keeps a member present until an absence has lasted for the configured filter time.
 
 Some device information, such as connection speed, is read from the individual FRITZ!Box device data points. Enable **Create data points for FRITZ!Box devices** to make this information available.
+
+### Filtered family and group states
+
+The existing aggregate states keep their original behavior. The following additional read-only states use the filtered results of enabled family members, without a second filter delay:
+
+| State | Meaning |
+| --- | --- |
+| `presenceFiltered` | At least one member is present |
+| `presenceAllFiltered` | All members are present |
+| `absenceFiltered` | At least one member is absent |
+| `absenceAllFiltered` | All members are absent |
+| `presentMembersFiltered` / `absentMembersFiltered` | Comma-separated member names |
+| `presentCountFiltered` / `absentCountFiltered` | Number of present / absent members |
+
+In the current structure, family-wide states are below `familyMembers` and group states below `familyMembers.<group>`. The filtered family-wide states include **all enabled members**, including members assigned to named groups. In compatibility mode, family-wide states are at the adapter root; group paths remain unchanged. Disabled members are excluded.
+
+With the new history-based filter, the aggregate uses exactly the result published as each person's `presenceFiltered` value. Members with filtering disabled use their detected status immediately. With the legacy filter, it uses the already filtered presence results. If a required filtered result cannot be calculated (for example, a missing device response or unavailable history), the aggregate is published as `null` with quality `0x40`, rather than reporting an uncertain absence. An empty enabled-member list is also unknown. The existing empty-history fallback remains unchanged.
 
 ### Manually trigger presence detection
 
@@ -264,6 +283,10 @@ Contain the member's history for the current day.
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (afuerhoff) Fixed legacy `presenceFiltered` states that did not update
+* (afuerhoff) Fixed false-positive presence detection for devices with duplicate hostnames or MAC addresses and added warnings for conflicting active MAC addresses (issue #151)
+* (afuerhoff) Fixed the legacy filter to restore presence immediately when the device is detected again after a short absence
+* (softwarecrash) Added filtered family-wide and group presence/absence states, member lists and counts
 * (afuerhoff) Improved JavaScript type checking and fixed type-safety issues in error handling and timer usage
 * (afuerhoff) Guarded device names before applying string operations
 * (afuerhoff) Added TypeScript definitions for adapter configuration options

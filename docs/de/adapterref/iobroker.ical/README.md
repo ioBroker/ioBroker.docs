@@ -207,6 +207,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22.19.0 now
+* (GermanBluefox) Fixed 'get state error: Connection is closed' warning on scheduled runs (#630)
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**

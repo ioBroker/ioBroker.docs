@@ -58,6 +58,12 @@ Enable **"Wake before ping"** for individual devices in the Devices table.
 
 The burst is sent by the adapter itself (the same as `hping3 -2 -c 10 -p 5353 -i u1 -q <IP>`), so no additional tool has to be installed, and it works on every platform.
 
+## Packet size
+
+Some devices only answer an echo request of a certain size. The KNX IP interface 730 of Weinzierl, for example, answers the 32 bytes of data that Windows sends, but not the 56 bytes of Linux.
+
+Enter the number of data bytes in the column **"Packet size"** of the Devices table (0-65500). The adapter passes it as `-s` to `ping` on Linux, macOS and FreeBSD and as `-l` to `ping.exe` on Windows. Leave it empty for the default of the system.
+
 ## TCP Port Check
 
 From version 1.8.0 you can also check TCP ports by specifying the port number after the IP address with a colon (e.g., `192.168.1.1:80`).
@@ -83,6 +89,10 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
     console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB", "ip": "192.168.1.255"}}
 });
 ```
+
+## Message `help` for scripts and AI agents
+
+`sendTo('ping.0', 'help', {})` answers `{ help, commands }`: a description of the messages `ping` and `wakeOnLan` and of the device states, written for AI agents (e.g. ioBroker.pi-agent) and script authors; `commands` lists every message of the adapter with `write: true` if it changes something.
 
 ## Writing to alive states
 
@@ -116,9 +126,20 @@ setState('ping.0.myHost.192_168_1_1', true);
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: Wake-on-LAN sends the right packet also for a MAC address with "-" or without separators (e.g. `01-23-45-67-89-ab`, `0123456789AB`); only ":" worked before
+- (@GermanBluefox) Fixed: the message `wakeOnLan` also accepts a MAC address separated by "." (`01.23.45.67.89.ab`, `0123.4567.89ab`) and answers "Invalid MAC address" for any other input instead of failing without an answer
+
+### 3.4.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 3.3.0 (2026-11-15)
+- (@GermanBluefox) Added the optional packet size per device (`ping -s` / `ping.exe -l`) for devices that only answer an echo request of a certain size, e.g. the KNX IP interface 730 of Weinzierl (#387)
+- (@GermanBluefox) Updated packages
+
+### 3.2.1 (2026-11-13)
 - (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+- (@GermanBluefox) Added: alias IDs are accepted in the web component Ping Device (#456)
 
 ### 3.2.0 (2026-11-09)
 - (@GermanBluefox) Added the web components `iob-ping-device` and `iob-ping-overview` - the devices widgets "Ping Device" and "Ping Overview" for Aura and other hosts (`common.webComponents`)
@@ -132,15 +153,6 @@ setState('ping.0.myHost.192_168_1_1', true);
 
 ### 3.1.5 (2026-10-30)
 - (@ipod86) Fixed crash "Invalid IP" when a device is configured with a host name (#445)
-
-### 3.1.4 (2026-10-13)
-- (@GermanBluefox) Replaced `hping3` with a native UDP burst to wake sleeping devices, so nothing has to be installed anymore, and it works on all platforms (#400)
-
-### 3.1.3 (2026-10-13)
-- (@GermanBluefox) Fixed lint error after GUI package update (3.1.2 was not published to npm)
-
-### 3.1.2 (2026-10-13)
-- (@GermanBluefox) Updated packages and added missing translations
 
 ## License
 

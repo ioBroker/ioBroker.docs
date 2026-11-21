@@ -41,8 +41,11 @@ formula_temperature and warming_time has to be set before.
 
 **water_temperature** - The actual temperature of the water.
 
-**water_level** - Actual water amount in kettle. Note: The accuracy isn't that good and could be completely
-false, so check that there is water in the kettle with your eyes.
+**water_level** - Water amount in the kettle in litres. The weight sensor in the base drifts with heat, so the level
+is only measured while the kettle is idle and colder than the temperature set in the instance settings (default 40 °C).
+While heating and while the water is hot the last measured value is kept. See *Water level calibration* below.
+
+**water_level_raw** - Raw value of the weight sensor (median of the last values). Used for the water level calibration.
 
 **warming_time** - The time the kettle will hold the water at the formula temperature before turning off. 
 Note: 0 = Not used, the minimum time is 5 minutes and the maximum is 30 minutes.
@@ -57,9 +60,28 @@ formula_temperature, temperature and warming_time in preset folder has to be set
 Take the kettle from the base, then set the object calibrate to true. 
 After the beep from base you can turn the kettle back on base and use it.
 
+### Water level calibration
+The adapter converts the raw sensor value into litres with calibration points from the instance settings.
+The defaults (2090 = 0 l, 2185 = 1.8 l) are the values of earlier versions and do not fit every kettle.
+
+The sensor is not linear: on a tested kettle the first litre raised the raw value by 64, the next 0.8 l only by 31
+(empty 2067, 1 l 2131, 1.8 l 2162). Therefore an optional third point for the empty kettle can be set; the points
+are joined by straight lines.
+
+1. Put the empty kettle on the base, wait about a minute and note `kettle.water_level_raw` as *empty kettle*.
+2. Fill a known amount of cold water (for example 1 l) and note the value as point 1.
+3. Fill up to a second amount (for example 1.8 l up to the max mark) and note the value as point 2.
+
+The raw value moves by a few units, so read it after the kettle stood still for a while.
+
 ---
 ## Changelog
 ### **WORK IN PROGRESS**
+- (sadam6752-tech) Fix: messages are split at the terminator 0x7e, answers to commands are no longer mixed up with status messages
+- (sadam6752-tech) Fix: reconnect with a growing delay (5 s to 60 s) instead of reconnecting at once in a loop
+- (sadam6752-tech) Fix: `kettle.preset.get_preset` works now (it was not subscribed)
+- (sadam6752-tech) Fix: command states are confirmed only after the kettle accepted the command; invalid temperatures are not sent
+- (sadam6752-tech) Water level only measured while the kettle is idle and cold, calibration with two or three points (optional empty kettle) in the instance settings, new state `kettle.water_level_raw`
 - (copilot) Adapter requires node.js >= 22 now
 ### 1.0.11 (2026-11-03)
 * chore(deps-dev): bump @types/node from 25.9.8 to 25.9.9

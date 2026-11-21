@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.victoriametrics/README.md
 title: ioBroker.victoriametrics
-hash: Afyn4FAWOCMSbd7Ayxxh0rLDTdlazmcQtOqMfRI6Vm0=
+hash: gjrHMF4GrhhlAXNv2z0t8tuDDUxvWSz7ardzkXh8N6g=
 ---
 ![Logo](../../../en/adapterref/iobroker.victoriametrics/admin/victoriametrics.png)
 
@@ -21,14 +21,14 @@ hash: Afyn4FAWOCMSbd7Ayxxh0rLDTdlazmcQtOqMfRI6Vm0=
 
 Schreibt den Verlauf von ioBroker-Datenpunkten nativ in [VictoriaMetrics](https://victoriametrics.com/) – über die [JSON-Lines-Import-API](https://docs.victoriametrics.com/#how-to-import-data-in-json-line-format) – mit echten Prometheus-Labels anstelle von Feldnamensuffixen (wie sie beispielsweise beim Schreiben über die InfluxDB-Kompatibilitätsschicht entstehen). `Living_Room_Temperature_value`).
 
-Puffert und schreibt Datenpunktänderungen an VictoriaMetrics und beantwortet Fragen. `getHistory()` Anfragen (damit vis-Diagramm-Widgets diesen Adapter direkt abfragen können) – Details und bekannte Einschränkungen finden Sie im [Abschnitt „Lesepfad“](#read-path) weiter unten. Für Visualisierungen außerhalb von vis (z. B. Grafana) verwenden Sie bitte stattdessen eine direkte Abfrage von VictoriaMetrics über PromQL. Dieser Adapter ist noch nicht im offiziellen ioBroker-Repository gelistet.
+Puffert und schreibt Datenpunktänderungen an VictoriaMetrics und beantwortet Fragen. `getHistory()` Anfragen (damit vis-Diagramm-Widgets diesen Adapter direkt abfragen können) – Details und bekannte Einschränkungen finden Sie im [Abschnitt „Lesepfad“](#read-path) weiter unten. Für Visualisierungen außerhalb von vis (z. B. Grafana) verwenden Sie stattdessen eine direkte Abfrage von VictoriaMetrics über PromQL. Der Adapter ist im _aktuellen_ (Beta-)Repository von ioBroker verfügbar.
 
 Dokumentation in anderen Sprachen: [Deutsch](https://github.com/seaspotter/ioBroker.victoriametrics/blob/main/docs/de/victoriametrics.md)
 
 ## Anforderungen
 
 - Eine laufende VictoriaMetrics-Instanz (Einzelknoten), erreichbar über HTTP(S) – siehe [Installation von VictoriaMetrics](#installing-victoriametrics) unten
-- ioBroker js-controller >= 6.0.11, Admin >= 7.0.23
+- ioBroker js-controller >= 6.0.11, Admin >= 7.7.2, Node.js >= 22.19.0
 
 ## Installation von VictoriaMetrics
 
@@ -46,6 +46,27 @@ docker run -d --name victoriametrics \
 ```
 
 VictoriaMetrics ist dann erreichbar unter `http://<docker-host>:8428` (Gesundheitscheck: `http://<docker-host>:8428/health` VMUI: `http://<docker-host>:8428/vmui/` Offizielles Docker-Image: [victoriametrics/victoria-metrics auf Docker Hub](https://hub.docker.com/r/victoriametrics/victoria-metrics/) . Für den dauerhaften Betrieb verwenden Sie bitte ein Volume/Bind-Mount. `-storageDataPath` (siehe oben) und, abhängig von Ihrer Umgebung, ein `docker-compose.yml` mit `restart: unless-stopped` Die
+
+### Docker wird vom Adapter verwaltet
+
+Der Adapter kann, wie die InfluxDB- und SQL-Adapter, einen eigenen VictoriaMetrics-Container starten und verwalten. Docker muss auf dem ioBroker-Host installiert sein. `iobroker` Der Benutzer muss zur Nutzung berechtigt sein (ausführen). `iob fix` (falls dies nicht der Fall ist).
+
+1. Öffnen Sie die Instanzeinstellungen und aktivieren Sie auf der Registerkarte „Verbindung“ die Option „ **Selbstgehostetes VictoriaMetrics in Docker verwenden** “. Die Verbindungsfelder (Protokoll, Host, Port, Authentifizierung) sind dann ausgeblendet, da der Adapter die Verbindung selbst konfiguriert.
+2. Passen Sie bei Bedarf das **VictoriaMetrics Docker-** Panel an und speichern Sie die Einstellungen. Der Adapter erstellt und startet den Container.
+
+| Einstellung                                           | Standard    | Beschreibung                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Container auf IP-Adresse starten                      | `127.0.0.1` | Der Container ist nur von diesem Host aus erreichbar. `0.0.0.0` oder die IP-Adresse des Hosts, um VictoriaMetrics (VMUI, andere Tools) von einem anderen Computer aus zu erreichen – **nur in einem vertrauenswürdigen Netzwerk** , VictoriaMetrics unterliegt hier keinen Zugriffsbeschränkungen. |
+| Hafen                                                 | `8428`      | Port, auf dem der Container auf dem Host veröffentlicht wird                                                                                                                                                                                                                                      |
+| Aufbewahrungsfrist                                    | `100y`      | Bestanden als `-retentionPeriod` Eine einfache Zahl bedeutet Monate, andernfalls addieren Sie eine Einheit. `h`, `d`, `w` oder `y` (z.B `12`, `90d`, `100y` Durch die Änderung wird der Container neu erstellt; die Daten bleiben erhalten.                                                           |
+| Der Container wird gestoppt, wenn die Instanz stoppt. | aus         | Lassen Sie diese Option deaktiviert, wenn andere Tools dieselben VictoriaMetrics verwenden.                                                                                                                                                                                                       |
+| Docker-Image automatisch aktualisieren                | An          | Zieht die neueste `victoriametrics/victoria-metrics` Bild beim Start des Adapters                                                                                                                                                                                                                  |
+
+- Die Daten befinden sich im Docker-Volume. `victoriametrics_data` (mit dem Instanznamen vorangestellt, z. B. `iob_victoriametrics_0_victoriametrics_data`) und übersteht Aktualisierungen und die Neuerstellung des Containers. Das Volume ist in den ioBroker-Backups enthalten.
+- Docker ist **standardmäßig deaktiviert** ; für bestehende Installationen wird nichts erstellt.
+- Das Deaktivieren dieser Option löscht weder den Container noch die Daten.
+- Die Schaltfläche „Verbindung testen“ ist bei aktiviertem Docker ausgeblendet, da der Container vor dem ersten Start nicht existiert. Der Status `info.connection` zeigt an, ob VictoriaMetrics erreichbar ist.
+- Der VMUI-Link in der Admin-Seitenleiste funktioniert auch mit der Docker-Option: Solange diese aktiviert ist, synchronisiert der Adapter die (versteckten) Verbindungseinstellungen mit dem Container, sodass der Administrator den Link daraus erstellen kann. Mit **„Container auf IP starten“** `0.0.0.0` Der Hostname des ioBroker-Hosts wird verwendet. Eine Änderung führt zu einem einmaligen Neustart der Instanz. Wenn Sie die Docker-Option später deaktivieren, bleiben diese Werte in den Verbindungseinstellungen erhalten – verwenden Sie dann Ihren eigenen Server.
 
 ### Ohne Docker
 
@@ -143,6 +164,8 @@ Der Puffer bleibt auch bei einem ordnungsgemäßen Herunterfahren des Adapters e
 Der Adapter antwortet `getHistory()` Anfragen (die von Visualisierungsdiagramm-Widgets aufgerufen werden) werden durch das Lesen von Datenpunkten der angeforderten Metrik von VictoriaMetrics und deren Übergabe an die gemeinsam genutzte Metrik beantwortet.[`@iobroker/aggregate`](https://github.com/ioBroker/aggregate) Bibliothek – dieselbe Bibliothek `iobroker.influxdb`, `iobroker.sql` Und `iobroker.history` Verwendung für Bucket-Aggregation (Durchschnitt/Minimum/Maximum/Gesamt/Anzahl/Perzentil/...), Lückenbehandlung und Grenzinterpolation. Das bedeutet, dass alle Standardaggregationstypen funktionieren, ohne dass dieser Adapter die Bucket-Logik selbst neu implementieren muss.
 
 **Serverseitiges Pushdown:** für die Aggregationsmethoden `average`, `min`, `max`, `total` Und `count` mit bekannter Zeit `step` VictoriaMetrics berechnet das Ergebnis selbst über PromQL (`avg_over_time`, `min_over_time`, `max_over_time`, `sum_over_time`, `count_over_time`) – Der Adapter überträgt dann nur noch die fertigen Bucket-Werte anstelle jedes einzelnen Rohdatenpunkts. Für `onchange` /`none` /`minmax` sowie `percentile` /`quantile` /`integral` (es gibt kein direktes PromQL-Äquivalent), und wenn Pushdown fehlschlägt, wird transparent auf den Rohdatenpfad zurückgegriffen (`/api/v1/export` + JS-seitige Aggregation).
+
+**Benutzerdefinierte Intervalle:** die `intervalBorders` Option `@iobroker/aggregate` (z. B. Kalendertage mit 23 oder 25 Stunden bei der Sommerzeitumstellung) werden unterstützt. Der Lesebereich wird von den Grenzen abgeleitet und der Rohdatenpfad verwendet, da Pushdown nur mit einem festen Schritt funktioniert.
 
 ** `id: '*'`:** Gibt die aktuellsten Rohwerte aller _derzeit in der Administration aktivierten_ Datenpunkte zurück (nicht verwaiste Metriken von zwischenzeitlich deaktivierten Datenpunkten), jeweils mit einem `id` Feld. Eine Aggregation wird in diesem Fall nicht unterstützt (ergibt keinen Sinn bei verschiedenen Metriken) – es werden immer Rohwerte zurückgegeben.
 
@@ -262,11 +285,11 @@ sendTo('victoriametrics.0', 'deleteAll', [
 
 ## Zurückbehaltung
 
-Die Datenspeicherung bei VictoriaMetrics ist ein **serverseitiges Startflag** (`-retentionPeriod` des VM-Prozesses selbst, der zur Laufzeit nicht über die HTTP-API geändert werden kann (im Gegensatz zu z. B. InfluxDB, wo der Adapter aktiv einen Wert festlegen kann über `ALTER RETENTION POLICY` Dieser Adapter zeigt daher nur die aktuell konfigurierte Aufbewahrungsdauer schreibgeschützt an – um sie zu ändern, muss die VM mit einer anderen Aufbewahrungsdauer neu gestartet werden. `-retentionPeriod` Wert (mit Docker: ändern Sie den `--retentionPeriod=...` Parameter in `docker run` /`docker-compose.yml` und den Container neu erstellen).
+Die Datenspeicherung bei VictoriaMetrics ist ein **serverseitiges Startflag** (`-retentionPeriod` des VM-Prozesses selbst, der zur Laufzeit nicht über die HTTP-API geändert werden kann (im Gegensatz zu z. B. InfluxDB, wo der Adapter aktiv einen Wert festlegen kann über `ALTER RETENTION POLICY` Dieser Adapter zeigt daher nur die aktuell konfigurierte Aufbewahrungsdauer schreibgeschützt an – um sie zu ändern, muss die VM mit einer anderen Aufbewahrungsdauer neu gestartet werden. `-retentionPeriod` Wert (eigener Docker: ändern Sie den `--retentionPeriod=...` Parameter in `docker run` /`docker-compose.yml` und den Container neu erstellen; mit der [Docker-Option des Adapters](#docker-managed-by-the-adapter) : das Feld **Aufbewahrungsdauer** ändern).
 
 Die aktuelle Speicherdauer ist an drei Stellen sichtbar (alle schreibgeschützt, einmalig ausgelesen). `/flags` Endpunkt beim Start des Adapters):
 
-- Datenpunk&#x74;** `<instance>.info.retention` ** (Zeichenkette, z. B. `"100y"`) – für Skripte/vis
+- Datenpunk&#x74;** `<instance>.info.retention` ** (Zeichenkette, z. B.) `"100y"`) – für Skripte/vis
 - Logeintrag beim Start (`VictoriaMetrics reachable at ... (Retention: 100y)`)
 - Erfolgsmeldung der Schaltfläche **„Verbindung testen“** auf der Registerkarte „Verbindung“.
 
@@ -285,36 +308,49 @@ Die aktuelle Speicherdauer ist an drei Stellen sichtbar (alle schreibgeschützt,
 
 ## Entwicklung
 
-| Skript                 | Beschreibung                                                                                                                                                               |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run lint`         | ESLint                                                                                                                                                                     |
-| `npm run check`        | Typprüfung (`tsc --noEmit`)                                                                                                                                               |
-| `npm run test:js`      | Unit-Tests                                                                                                                                                                 |
-| `npm run test:package` | Schecks `package.json` / `io-package.json`                                                                                                                                  |
-| `npm run dev-server`   | Beginnt[`dev-server`](https://github.com/ioBroker/dev-server) für einen lokalen Testlauf inkl. Admin-Oberfläche                                                            |
-| `npm run release`      | Erstellt eine Release-Version (Versionserhöhung, Changelog-/News-Synchronisierung, Git-Tag) über[`@alcalzone/release-script`](https://github.com/AlCalzone/release-script) |
+| Skript                     | Beschreibung                                                                                                                                                               |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run build`            | Kompiliert die TypeScript-Quellen in `src/` Zu `build/` (Vor dem Starten des Adapters erforderlich)                                                                          |
+| `npm run lint`             | ESLint                                                                                                                                                                     |
+| `npm run check`            | Typprüfung (`tsc --noEmit`)                                                                                                                                               |
+| `npm test`                 | Unit-Tests (`npm run test:js`) und Paketprüfungen (`npm run test:package`)                                                                                               |
+| `npm run test:integration` | Startet den erstellten Adapter in einem Test-JS-Controller gegen ein simuliertes VictoriaMetrics-Objekt.                                                                   |
+| `npm run dev-server`       | Beginnt[`dev-server`](https://github.com/ioBroker/dev-server) für einen lokalen Testlauf inkl. Admin-Oberfläche                                                            |
+| `npm run release`          | Erstellt eine Release-Version (Versionserhöhung, Changelog-/News-Synchronisierung, Git-Tag) über[`@alcalzone/release-script`](https://github.com/AlCalzone/release-script) |
+
+### Codestruktur
+
+| Datei                       | Zweck                                                                                           |
+| --------------------------- | ----------------------------------------------------------------------------------------------- |
+| `src/main.ts`               | Adapterklasse: Lebenszyklus, Abonnements, Pufferung, Leerung, Nachrichtenverteilung             |
+| `src/lib/filters.ts`        | Wertfilter pro Datenpunkt (Schwellenwerte, Rundung, Mindeständerung, nur Änderungen, Blockzeit) |
+| `src/lib/vmClient.ts`       | HTTP-Client für die VictoriaMetrics-API                                                         |
+| `src/lib/history.ts`        | `getHistory` einschließlich PromQL-Pushdown                                                     |
+| `src/lib/dataManagement.ts` | `storeState`, `deleteAll`, `features`                                                          |
+| `src/lib/buffer.ts`         | Schreibpuffer und Importnutzlast                                                                |
+| `src/lib/metricName.ts`     | Ableitung von Metriknamen und -bezeichnungen                                                    |
+| `src/lib/config.ts`         | Konstanten- und Timervalidierung                                                                |
 
 ## Changelog
+### 0.7.0 (2026-11-16)
+* (SeaSpotter) Code review and cleanup: removed unused code, merged duplicated logic (value filters in `lib/filters.ts`, HTTP error handling, datapoint lookups, timer validation), shortened and translated code comments; no functional changes except the two items below
+* (SeaSpotter) `getHistory`: supports the `intervalBorders` option of `@iobroker/aggregate`; an aggregate name like `constructor` no longer selects a non-existent PromQL pushdown
+* (SeaSpotter) Added unit tests for filters, buffer, HTTP client and `getHistory`, and an integration test that writes a state change to a mock VictoriaMetrics
+* (SeaSpotter) Dependency updates (axios 1.21.1, `@iobroker/aggregate` 1.1.0, `@iobroker/testing` 6.3.2, TypeScript 6.0, others); README and German manual updated
+
+### 0.6.1 (2026-11-08)
+* (SeaSpotter) Raised the minimum Node.js version to 22.19.0, as required by `@iobroker/plugin-docker` (flagged by the repository checker, W0069)
+
+### 0.6.0 (2026-11-05)
+* (SeaSpotter) New: optional self-hosted VictoriaMetrics in Docker, managed by the adapter like in the InfluxDB and SQL adapters (retention period configurable, default `100y`); Admin >= 7.7.2 required (feature request #26)
+* (SeaSpotter) Set `common.nogit` in `io-package.json`: the compiled `build/` directory is not committed, so the adapter is installable from npm only (flagged by the repository checker, E5019)
+
+### 0.5.0 (2026-11-04)
+* (SeaSpotter) Rewrote the adapter in TypeScript (sources in `src/`, compiled to `build/`); no functional changes
+
 ### 0.4.5 (2026-10-02)
 * (SeaSpotter) Translated one remaining German error string in `getHistory`'s invalid-id response (`lib/history.js`) that the review's log/sendTo/errors.push sweep had missed - it's returned to the caller via `sendTo`, same category as the `dataManagement.js` fix in 0.4.4
 * (SeaSpotter) Added full i18n names for the `info` channel and the `adminTab` (flagged by the official repo review's object-structure check)
-
-### 0.4.4 (2026-09-11)
-* (SeaSpotter) Addressed maintainer review findings: translated all remaining German log/error messages to English, fixed the `cache` object's German-only name to a full i18n object, replaced the German `"zeitreihe"` keyword with `"timeseries"`, added code-level validation for `writeInterval`/`requestTimeout` against Node.js' timer maximum
-* (SeaSpotter) CI: added Node.js 26.x to the test matrix; upgraded `@iobroker/testing` to 6.2.1
-
-### 0.4.3 (2026-08-29)
-* (SeaSpotter) Completed `info.retention`'s `common.name` translations to all 11 languages (flagged by the official repo review's object-structure check)
-
-### 0.4.2 (2026-08-28)
-* (SeaSpotter) Fixed official ioBroker repo-checker findings: moved `encryptedNative`/`protectedNative` to the top level of `io-package.json` (were incorrectly nested under `common`), removed `common.docs` (redundant with the English README), fixed `info.retention`'s role, bumped `engines.node`/admin dependency minimums, added full responsive breakpoints to all admin config fields
-* (SeaSpotter) Added `CHANGELOG_OLD.md`, `.github/dependabot.yml`, and dependabot auto-merge workflow
-* (SeaSpotter) Releases now auto-publish to npm via trusted publishing (OIDC) and auto-create the GitHub release when a version tag is pushed
-
-### 0.4.1 (2026-08-28)
-* (SeaSpotter) README is now the canonical English documentation (required for official repo submission); full German documentation moved to `docs/de/victoriametrics.md`
-* (SeaSpotter) GitHub repository renamed to `ioBroker.victoriametrics` (capital B) to match convention
-* (SeaSpotter) Adapter-checker compliance fixes: trimmed unpublished versions from `common.news`, removed deprecated `common.title`, corrected `keywords`/`common.keywords` per-file rules
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

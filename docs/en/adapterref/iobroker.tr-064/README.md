@@ -100,7 +100,7 @@ For a longer history, switch on a history instance (history, sql or influxdb) fo
 
 ### Answering machine (in German: `Anrufbeantworter`)
 
-You can switch the answering machine on and off. With the state `cbIndex` you select the number of the answering machine.
+You can switch the answering machine on and off with the state `states.ab`. With the state `states.abIndex` you select the number of the answering machine (0 = the first). Alternatively write `<index>,<on>` into `states.ab`, e.g. `1,0` switches the second answering machine off (`0`, `false` and `off` mean off).
 
 ### Call monitor
 
@@ -203,6 +203,10 @@ Switch the answering machine off:
 
 You find a detailed description of the actions and of the parameters for TAM here: [x_tam.pdf](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/x_tam.pdf). This link is also contained in the AVM documentation above.
 
+### Messages for scripts and AI agents
+
+`sendTo('tr-064.0', 'help', {})` answers `{ help, commands }`: a description of all messages (`presence`, `discovery`, `mesh`, `guestWlan`, `setHostName`, ...) and of the states to switch, written for AI agents (e.g. ioBroker.pi-agent) and script authors; `commands` lists every message with `write: true` if it changes something.
+
 ### Switch on the call monitor
 
 Before you can use the call monitor, you must switch it on in the AVM Fritz!Box. To switch the call monitor on, dial `#96*5*` on a connected telephone. The Fritz!Box then opens the TCP/IP port 1012. To close the port, dial `#96*4*`.
@@ -230,9 +234,13 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: writing `<index>,0` (or `false`, `off`) into `states.ab` switches the answering machine off instead of on
+* (@GermanBluefox) Fixed: after a restart the answering machine selected in `states.abIndex` is used again instead of the first one
+
+### 5.5.0 (2026-11-19)
 * (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
 ### 5.4.0 (2026-11-08)
 * (GermanBluefox) Added web components for Aura and other hosts (`common.webComponents`): FRITZ!Box, mesh topology, presence, person and Wi-Fi QR code
@@ -245,9 +253,6 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
 
 ### 5.3.0 (2026-10-23)
 * (GermanBluefox) New widget "Guest Wi-Fi QR code" for vis-2 and `ioBroker.devices`: the QR code of the guest WLAN on the tile, in a dialog after a click or in a dialog after a PIN
-
-### 5.2.6 (2026-10-22)
-* (GermanBluefox) Widget "FRITZ!Box Person": the comings and goings can be exported as a CSV file for Excel (#763)
 
 ## License
 The MIT License (MIT)

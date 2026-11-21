@@ -68,6 +68,10 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.3.1 (2026-11-19)
+* (patricknitsch) Adjustable delay for the InfluxDB connection failure notification: short outages no longer send a failure and a restored message (refers to #259)
+* (patricknitsch) Update Dependencies
+
 ### 2.3.0 (2026-10-21)
 * **ADAPTER MEETS ioBroker SECRETS**
 * (patricknitsch) ioBroker secrets (credentials of the Admin settings, Admin 8 and newer) can now be used for the InfluxDB connection: a credential "Login & password" provides URL (login) and token (password)
@@ -84,16 +88,6 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 * (patricknitsch) Formula engine: values that are only used internally can get their own alive timeout; stale inputs are shown in the overview tab under Formula Engine. If an enabled sensor uses the value, the sensor takes precedence
 * (patricknitsch) Formula engine: alive monitoring can be turned off per input, e.g. for values that are only written on change; the value is still used in the calculation
 * (patricknitsch) Alive monitoring of sensors fed by the formula engine now also checks the input values of the formula; stale inputs are marked in the overview tab
-
-### 2.1.0 (2026-10-12)
-* (patricknitsch) Add new SOLECTRUS car sensors for multiple vehicles (`CAR_BATTERY_SOC`, `CAR_ODOMETER`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE`, suffix `_1`–`_5`) (#209 and #212)
-* (patricknitsch) Default sensors are sorted into the folders of the HELIOS sensor overview
-* (patricknitsch) New default sensors are added disabled to existing instances on start; deleted ones do not come back
-* (patricknitsch) New sensor option "Write only on change": the value is written when the source changes, with the time of the change (#212)
-* (patricknitsch) Fix DS warning "Tick time budget exceeded": the budget now covers only the evaluation, not the snapshot reads
-* (patricknitsch) Add Node.js 26 in test-and-release.yml
-* (patricknitsch) Add guide for contributors working with Claude Code (CLAUDE.md)
-* (patricknitsch) Update Dependencies
 
 **Older changelog entries can be found in CHANGELOG_OLD.md.**
 

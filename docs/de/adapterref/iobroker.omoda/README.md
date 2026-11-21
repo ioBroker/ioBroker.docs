@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
+hash: m0LHgcx8TRA2KcHBmmt2FxW/PTs79hcc+YOlMz2lpJ4=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.omoda.svg)
@@ -35,11 +35,20 @@ Verbrauch, Warnung bei niedrigem Kraftstoffstand. Das Fahrzeug zeigt den Kraftst
 
 Registerkarte „Region & Umfragen“; Standardwert: km).
 
-- **Befehle** - Verriegeln/Entriegeln, Klimaanlage ein/aus mit einstellbarer Zieltemperatur, GPS-Anfrage
+- **Befehle** - Verriegeln/Entriegeln, Klimaanlage ein/aus mit einstellbarer Zieltemperatur, zeitgesteuert
 
-Standort, Fahrzeug finden (Blinklichter) und "Wake & Refresh Full Status".
+Laden, Starten/Stoppen des Ladevorgangs von Elektrofahrzeugen, Anfordern des GPS-Standorts, Finden des Fahrzeugs (Blinken der Lichter) und "Wecken & Aktualisieren des vollständigen Status".
 
-Zusätzliche Funktionen der Fahrzeug-App (individuelle Sitzheizung/-belüftung, Entfroster, Start/Stopp des Ladevorgangs von Elektrofahrzeugen und geplantes Laden, Steuerung von Fenstern/Schiebedach/Kofferraum, Diebstahlalarm) sind für eine spätere Version geplant.
+### Ladekontrolle
+- **Geplantes Laden** - setze `charging.scheduleStart` (`HH:MM`, Ortszeit) und
+
+Schreiben Sie zunächst `charging.scheduleDuration` (Minuten) und anschließend `true` bis `commands.chargeSchedule`. Solange der Zeitplan aktiv ist, lädt das Auto nur in diesem Zeitfenster, und zwar täglich (das Auto akzeptiert keine Zeitpläne für einzelne Wochentage). Um die Zeiten zu ändern, schreiben Sie die neuen Werte und anschließend erneut `true`. Schreiben Sie `false`, um den Zeitplan zu deaktivieren. Ein Zeitfenster kann über Mitternacht hinausgehen, z. B. endet `21:15` für 585 Minuten um 7:00 Uhr. Wenn das Auto bereits lädt, wird der Ladevorgang durch das Aktivieren des Zeitplans bis zum Beginn des neuen Zeitfensters unterbrochen.
+
+- **Ladevorgang jetzt starten/stoppen** - `commands.chargeStart` / `commands.chargeStop` während des Ladevorgangs
+
+Vernetzt. Nicht jedes Auto unterstützt dies: Ein Omoda 9 beispielsweise verweigert den Befehl mit der Meldung „Befehl in diesem Auto nicht zulässig“. Nutzen Sie bei solchen Autos die planmäßige Ladung.
+
+Zusätzliche Funktionen der Fahrzeug-App (individuelle Sitzheizung/-belüftung, Entfroster, Fenster-/Schiebedach-/Kofferraumsteuerung, Diebstahlalarm) sind für eine spätere Version geplant.
 
 ### Anforderungen
 - **Node.js >= 22**, **js-controller >= 6.0.11** und **admin >= 7.8.23**.
@@ -86,6 +95,10 @@ Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-13)
+* (Alan Paris) Added scheduled charging: `charging.scheduleStart`, `charging.scheduleDuration` and `commands.chargeSchedule`, so the car charges only in a chosen window, for example on a night tariff. See "Charging control" above
+* (Alan Paris) Added `commands.chargeStart` and `commands.chargeStop` to start or stop charging while the plug is connected. After either one, the car is re-read within about 2 minutes so `charging.state` and `charging.power` follow the change. Not every car allows this; a car that does not refuses with "command not allowed on this car"
+
 ### 0.4.0 (2026-10-04)
 * (Alan Paris) Added fuel states for hybrid/combustion cars: `fuel.remaining` (L), `fuel.range` (km), `fuel.averageConsumption` (L/100 km) and `fuel.lowWarning`. They are not created on a pure-electric car
 * (Alan Paris) Added `commands.findCar` — flashes the lights so you can find the car
@@ -134,9 +147,6 @@ Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit
 * (Alan Paris) Config: clearer "Dept ID" help — it must match your account country's dialing code (UK=44, IT=39, …)
 * (Alan Paris) Require Node.js >= 22 and admin >= 7.6.17; enabled automated npm publishing via trusted publishing (OIDC)
 * (Alan Paris) Marked the OTP code as protected; various adapter-checker compliance fixes
-
-### 0.1.0 (2026-07-18)
-* (Alan Paris) initial release
 
 ## License
 MIT License

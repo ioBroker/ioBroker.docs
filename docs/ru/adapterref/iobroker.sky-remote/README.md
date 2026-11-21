@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sky-remote/README.md
 title: ioBroker.sky-remote
-hash: 0oMJWHO+YyxkzcHsnAyenfkq0LAJzTq0cR1eXuJbOfo=
+hash: 86HuellWWLd3v6IaOnkGINPT29t6CW5lnMv1yI28XUs=
 ---
 # ioBroker.sky-remote
 
@@ -25,7 +25,7 @@ hash: 0oMJWHO+YyxkzcHsnAyenfkq0LAJzTq0cR1eXuJbOfo=
 
 ## Предварительные требования
 
-- установка ioBroker
+- Для работы требуется установка ioBroker с js-controller 6.0.11 или более новой версии и Node.js 22 или более новой версии.
 - Приставка Sky Q, подключенная к вашей сети.
 - IP-адрес вашей приставки Sky Q
 
@@ -116,7 +116,7 @@ hash: 0oMJWHO+YyxkzcHsnAyenfkq0LAJzTq0cR1eXuJbOfo=
 В ioBroker вы можете использовать визуальный программный интерфейс Blockly для создания последовательностей команд:
 
 1. Создайте новый скрипт Blockly.
-2. Используйте блок "Установить состояние", чтобы задать значение. `sendSequence` состояние
+2. Используйте блок "Установить состояние", чтобы задать параметры. `sendSequence` состояние
 3. Добавьте последовательность команд, разделенных запятыми.
 
 ## Интеграция с JavaScript
@@ -144,15 +144,16 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.7 (2026-11-09)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- (Alan Paris) Corrected admin and changelog translations that used the wrong sense of "box", translated the brand name Sky as "sky", or inverted the meaning of write-only
+- (Alan Paris) README now states the minimum Node.js and js-controller versions
 
 ### 1.0.6 (2026-08-19)
 - (Alan Paris) Button states are now write-only (`read: false`) as required for the `button` role; existing installations are migrated on start
 - (Alan Paris) Fixed info.connection latching at a stale value after a failed or successful command; all writers now share one code path
 - (Alan Paris) An unknown command name in sendSequence no longer marks a reachable box as offline
-- (Alan Paris) Stop writing states and drop the in-flight connection check when the instance is unloaded
+- (Alan Paris) Stopped writing states and dropped the in-flight connection check when the instance is unloaded
 - (Alan Paris) Stopped shadowing the adapter base class `host` property, which misrouted js-controller crash notifications
 - (Alan Paris) A command now fails with an error instead of hanging silently when the Sky box closes the connection mid-command
 - (Alan Paris) Corrected the German, Dutch and Chinese admin translations of "Port", which used the harbour sense of the word
@@ -167,15 +168,7 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 - (Alan Paris) Removed the abandoned `sky-remote` third-party dependency; the Sky Q / Sky+HD control protocol is now built in and modernized (node:net, Buffer.from, promise-based, no deprecated APIs)
 
 ### 1.0.3 (2026-07-04)
-- (Alan Paris) Verify automated release publishing via GitHub Actions trusted publishing (no functional changes)
-
-### 1.0.2 (2026-07-04)
-- (Alan Paris) Modernized adapter for community submission: jsonConfig admin UI, updated dependencies, CI/release tooling
-
-### 1.0.0 (2025-05-05)
-- (Alan Paris) Initial release
-
-[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.sky-remote/blob/main/CHANGELOG_OLD.md)
+- (Alan Paris) Verified automated release publishing via GitHub Actions trusted publishing (no functional changes)
 
 ## License
 

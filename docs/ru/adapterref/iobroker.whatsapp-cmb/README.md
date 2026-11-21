@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: lYtxUhl+rQUeHLNemk+zcyVV1CgJ01ScINDOgBXnsGI=
+hash: p1uoOf8Ped3iQt9DWuJEsFehO449X+1sww2jj/JWI5I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
-![Количество установок](http://iobroker.live/badges/whatsapp-cmb-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
+![Количество установок](https://iobroker.live/badges/whatsapp-cmb-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
@@ -51,16 +51,29 @@ sendTo('whatsapp-cmb.0', 'send', {
 });
 ```
 
-![Блокли](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
+`sendTo('whatsapp-cmb.0', 'help', {})` ответы `{ help, commands }`: описание всех сообщений с их параметрами для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов, а также список всех команд с `write` (имеет ли команда какое-либо действие, например, отправляет ли сообщение).
 
-Если вы хотите отправлять смайлики, пожалуйста, обратитесь к <https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/>
+![Blockly](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
+
+Если вы хотите отправлять эмодзи, пожалуйста, обратитесь к ссылке <https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/>
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.0 (2026-11-19)
+- (bluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 1.0.0 (2026-10-13)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) Breaking: Node.js >= 22.19, js-controller >= 6.0.11 and admin >= 7.0.0 are required now
+- (bluefox) Replaced the deprecated `request` package with `axios`
+- (bluefox) The Blockly block was migrated to TypeScript and works again with the current Blockly editor
+- (bluefox) Blockly: an empty message no longer breaks the script, the log shows the phone number value
+
 ### 0.3.0 (2024-05-25)
 * Important: Node.js 18 and js-controller 5.0.19 is required at least
 * (Sneak-L8) Treats all response codes other than 200 as errors
@@ -71,23 +84,10 @@ sendTo('whatsapp-cmb.0', 'send', {
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 
-### 0.2.1 (2022-03-25)
-* (Apollon77) Add Emoticons support
-* (Apollon77) Add Sentry for crash reporting
-
-### 0.1.6 (2020-08-31)
-* (Apollon77) Fixed the error with the phone number
-
-### 0.1.3 (2020-08-29)
-* (bluefox) The documentation and translations were added.
-
-### 0.0.1 (2020-08-27)
-* (bluefox) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2020-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2026 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv-Programm
-hash: +H6/erkYXupe/94fXa4xlWF5+NPPeA05PyHrf0pmbiM=
+hash: IS9kTGL3DCPaaYoGAnCKtLElAfvB8ExEIPXFSf7MnnQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -108,9 +108,11 @@ Beispiele für die CSS-Anpassung von Widgets finden Sie unter [Widget-Styling](/
 
 Das Widget „Zeitplan“ zeigt Programme nach Kanal auf einer Zeitachse an. Es markiert die aktuelle Uhrzeit, unterstützt Zoom und Tagesnavigation und öffnet Programmdetails aus der vollständigen Programmübersicht.
 
-Öffnen Sie die Kanalauswahl über das Widget-Menü. Klicken Sie auf eine Karte, um einen Kanal zu aktivieren oder zu deaktivieren. Aktive Kanäle werden zuerst angezeigt und behalten ihre benutzerdefinierte Reihenfolge bei. Ziehen Sie eine aktive Karte, um sie zu verschieben; auf Touchscreens halten Sie sie kurz gedrückt, bevor Sie sie ziehen. Die Suchfunktion filtert die sichtbaren Karten. Mit der Sortierschaltfläche können Sie inaktive Kanäle nach Quellreihenfolge, A–Z und Z–A sortieren. Das Häkchen speichert die Änderungen, das Kreuz oder die Escape-Taste schließen das Fenster ohne Speichern. Die Schaltfläche oben rechts schaltet zwischen der konfigurierten Größe und dem Vollbildmodus um.
+Öffnen Sie die Kanalauswahl über das Widget-Menü. Klicken Sie auf eine Karte, um einen Kanal zu aktivieren oder zu deaktivieren. Aktive Kanäle werden zuerst angezeigt und behalten ihre benutzerdefinierte Reihenfolge bei. Ziehen Sie eine aktive Karte, um sie zu verschieben; auf Touchscreens halten Sie sie kurz gedrückt, bevor Sie sie ziehen. Die Suche findet Namen und Kanal-IDs in allen Kanälen, auch auf anderen Seiten. Mit der Sortierschaltfläche können Sie inaktive Kanäle nach Quellreihenfolge, A–Z und Z–A sortieren. Das Häkchen speichert die Änderungen, das Kreuz oder die Escape-Taste schließt das Fenster ohne Speichern. Die Schaltfläche oben rechts schaltet zwischen der konfigurierten Größe und dem Vollbildmodus um.
 
-Logos behalten ihre Proportionen und werden innerhalb der konfigurierten Kanalbreite und Zeilenhöhe zentriert. Bilder werden nahe am sichtbaren Bereich geladen, mit bis zu vier gleichzeitigen Anfragen und einem Wiederholungsversuch. Die vertikale Scrollleiste ist ausgeblendet; eine schmale horizontale Scrollleiste bleibt unterhalb der Programmzeilen sichtbar.
+Der Bereich **„Andere Kanäle“** zeigt standardmäßig bis zu 100 Kanäle pro Seite an. Verwenden Sie die Schaltflächen „Erste Seite“, „Minus“ (vorherige Seite), „Plus“ (nächste Seite) und „Letzte Seite“ unterhalb der Überschrift zur Navigation. Die Anzeige zeigt die aktuelle Seite und die Gesamtseitenzahl an. Ausgewählte Kanäle bleiben in ihrem separaten Bereich sichtbar. Die Anzahl **der Kanäle pro Seite kann in der Kanalauswahl** festgelegt werden (`tvprogram_channelpagesize` In den Widget-Einstellungen kann die Seitengröße angepasst werden. Vorhandene Widgets verwenden standardmäßig den Wert 100, wenn diese Einstellung leer ist. Die Suche und die Änderung der Sortierreihenfolge führen zurück zur ersten Seite; die Suchergebnisse werden weiterhin mit derselben Seitengröße paginiert.
+
+Logos behalten ihre Proportionen und sind innerhalb der konfigurierten Kanalbreite und Zeilenhöhe zentriert. Bilder werden nahe am sichtbaren Bereich geladen, mit bis zu vier gleichzeitigen Anfragen und einem Wiederholungsversuch. Die vertikale Scrollleiste ist ausgeblendet; eine schmale horizontale Scrollleiste bleibt unterhalb der Programmzeilen sichtbar.
 
 Nach dem Laden des aktuellen Tages wartet das Widget mindestens zehn Sekunden und lädt die Daten der beiden folgenden Sendetage vor. Laufende Bild-Downloads können diesen Vorgang verzögern.
 
@@ -125,6 +127,7 @@ Nach dem Laden des aktuellen Tages wartet das Widget mindestens zehn Sekunden un
 | `broadcastfontpercent`  | `75`                  | Schriftgröße des Programms in Prozent       |
 | `highlightcolor`        | `yellow`              | Lieblings-Strähnchenfarbe                   |
 | `markerpositionpercent` | `25`                  | Aktuelle Zeitmarkierungsposition            |
+| `channelpagesize`       | `100`                 | Weitere Kanäle pro Seite im Selektor        |
 | `dialogwidthpercent`    | `90`                  | Dialogbreite relativ zum Widget             |
 | `dialogheightpercent`   | `90`                  | Dialoghöhe relativ zum Widget               |
 
@@ -142,11 +145,11 @@ Das Favoriten-Widget listet anstehende Sendungen auf, deren Titel im TV-Menü an
 | `highlightcolor`             | `yellow`              | Lieblingssymbolfarbe                          |
 | `channeliconwidth`           | `35`                  | Breite des Kanallogos in Pixeln               |
 
-Wenn die Kanalauswahl beschränkt ist, verwendet Favoriten die Programmübersicht für denselben Fernseher. Bevor eine Auswahl gespeichert wurde, werden die ersten vier Kanäle verwendet. Eine explizit leere Auswahl führt zu keinen Ergebnissen.
+Wenn die Kanalauswahl beschränkt ist, verwendet Favoriten die Programmübersicht für denselben Fernseher. Bevor eine Auswahl gespeichert wird, werden die ersten vier Kanäle verwendet. Eine explizit leere Auswahl führt zu keinen Ergebnissen.
 
 ### TV-Steuerung
 
-Die TV-Steuerung zeigt das aktuell laufende Programm oder das Programm zu einem festgelegten Zeitpunkt an. Ein Klick auf das Kanallogo löst einen Umschaltbefehl aus; ein Klick auf eine beliebige Stelle der Programmkarte öffnet deren Details. Die Navigation erfolgt vertikal ohne Scrollleiste.
+Die TV-Steuerung zeigt das aktuell laufende Programm oder das Programm zu einem festgelegten Zeitpunkt an. Ein Klick auf das Kanallogo löst einen Umschaltbefehl aus; ein Klick auf eine beliebige Stelle der Programmkarte öffnet deren Details. Die Liste lässt sich vertikal scrollen, ohne dass eine Scrollleiste angezeigt wird.
 
 | Attribut               | Standard/Beispiel      | Beschreibung                                            |
 | ---------------------- | ---------------------- | ------------------------------------------------------- |
@@ -246,6 +249,14 @@ Alle längeren Beispiele sind in [docs/EXAMPLES.md](/#/docs/adapterref/iobroker.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.2.1 (2026-10-29)
+
+- fix problem with loading channel logos while paging
+
+### 6.2.0 (2026-10-28)
+
+- Configurable paging mechanism in the channel select dialog
+
 ### 6.1.0 (2026-09-28)
 
 - more fixes and adjustments
@@ -263,17 +274,6 @@ Alle längeren Beispiele sind in [docs/EXAMPLES.md](/#/docs/adapterref/iobroker.
 ### 5.0.1 (2026-09-23)
 
 - fix tests
-
-### 5.0.0 (2026-09-23)
-
-- Comprehensive revision
-- New data source added
-
-### 4.0.4 (2026-03-27)
-
-- update dependencies
-- fix repochecker
-- tranform translation files
 
 ## License
 

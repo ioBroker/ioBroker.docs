@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
+hash: 82/oHefABenjIs9F0fF9kos6YG/39UCXY+p9QSIFOBg=
 ---
 ![Logo](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
@@ -27,9 +27,11 @@ Dieser Adapter verbindet ioBroker über die GraphQL-API mit Unraid-Servern, um S
 - Überwachung der CPU- und Speicherauslastung (einschließlich Statistiken pro Kern)
 - Überwachung der Temperatursensoren auf dem Mainboard (Chipsatz, Umgebungstemperatur usw.) – erfordert Unraid 7.2+
 - Serverstatus und Netzwerkinformationen verfolgen
-- Docker-Container überwachen und steuern (Starten/Stoppen/Pausieren/Fortsetzen/Aktualisieren) – Pause/Fortsetzen/Aktualisieren erfordert Unraid 7.2+
+- Docker-Container überwachen und steuern (Starten/Stoppen/Neustarten/Pausieren/Fortsetzen/Aktualisieren, alle aktualisieren) – Pause/Fortsetzen/Aktualisieren erfordert Unraid 7.2+
 - Docker-Update-Erkennung pro Container und als Zusammenfassung – erfordert Unraid 7.2+
 - Array-Festplatten (Daten, Parität, Cache) mit Zustandsinformationen anzeigen
+- Führen Sie die Paritätsprüfung durch (Status, Fortschritt, Fehler).
+- Zähle ungelesene Unraid-Benachrichtigungen (Warnungen, Hinweise, Informationen) – z. B. um sie an dein Handy weiterzuleiten.
 - Netzwerkfreigaben überwachen (Nutzung, Konfiguration, Dateisystemdetails)
 - Virtuelle Maschinen überwachen und steuern (Starten/Stoppen/Anhalten/Fortsetzen/Neustarten)
 - Konfigurierbares Abfrageintervall
@@ -106,6 +108,21 @@ Der Adapter erstellt eine strukturierte Objektstruktur für die überwachten Dat
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-11-21)
+
+- (Schimi1983) New: a restart button for every Docker container, plus a button to update all containers at once (`docker.commands.updateAll`)
+- (Schimi1983) New data area "Parity check": status, progress, errors, speed, date and duration of the running or last parity check
+- (Schimi1983) New data area "Unread notifications": number of unread Unraid alerts, warnings and information messages
+- (Schimi1983) New state `info.os.bootTime`: when the server was started
+- (ingel81) **Existing instances:** the two new data areas have to be ticked in the adapter settings; only new instances get them automatically
+- (Schimi1983) New state `info.connection`: the instance now shows whether the Unraid server answers
+- (Schimi1983) Detection of Unraid features works again on current Unraid versions; the warning at startup is gone
+- (Schimi1983) Clear log messages for a wrong API key, an unreachable server or a timeout. Each problem is logged once, not on every poll
+- (Schimi1983) The adapter no longer stalls when Unraid stops answering: requests are given up after 30 seconds and never pile up
+- (Schimi1983) Noticeably less load on ioBroker: objects and values are only written when they actually change
+- (ingel81) Security fixes in the network libraries (`undici`, `ws`)
+- (ingel81) Now also tested with Node.js 26
+
 ### 0.10.0 (2026-08-21)
 
 - (ingel81) Security fixes in the network libraries (`ws`, `undici`)
@@ -130,12 +147,6 @@ Der Adapter erstellt eine strukturierte Objektstruktur für die überwachten Dat
 ### 0.7.2 (2026-01-04)
 
 - (ingel81) Updated dependencies and admin UI (React 19)
-
-### 0.7.1 (2025-11-30)
-
-- (ingel81) Minor pipeline issues fixed
-
-[Older changelogs can be found there](https://github.com/ingel81/ioBroker.unraid/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

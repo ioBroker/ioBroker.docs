@@ -83,6 +83,10 @@ sendTo('email', {
 
 To send email from another adapter, use `adapter.sendTo` function.
 
+`sendTo('email.0', 'help', {})` answers `{ help, commands }`: a description of all messages with their parameters
+for AI agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands with `write` (whether the
+command has an effect, e.g. sends an email).
+
 ## Supported services
 - 1und1 / ionos
 - AOL
@@ -129,6 +133,16 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2026-11-19)
+* (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 3.1.2 (2026-11-16)
+* (@GermanBluefox) Fixed build of the rules block (missing Emotion dependencies for MUI 9) and CI lint
+
+### 3.1.1 (2026-11-15)
+* (mcm1957) Adapter requires node.js >= 22.19.0, admin >= 8.1.0 and js-controller >= 7.2.4 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.1.0 (2026-10-26)
 * (@GermanBluefox) Migrated the build script (`tasks.js` => `tasks.mts`) to TypeScript
 * (@GermanBluefox) Migrated blockly to TypeScript
@@ -146,18 +160,6 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
 * (@ipod86) Added configurable number of file attachments to the Blockly email block via plus/minus buttons
 * (@GermanBluefox) Migrated to admin 8
-
-### 2.0.5-alpha.0 (2025-10-06)
-* (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
-* (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
-* (mcm1957) Dependencies have been updated
-
-### 2.0.4 (2025-04-15)
-* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
-* (mcm1957) Dependencies have been updated
-
-### 2.0.3 (2025-03-24)
-* (@GermanBluefox) Added t-online.de to the list of supported services
 
 ## License
 

@@ -639,6 +639,15 @@ Here is a list of the problems that have occurred so far and their solutions, if
 ---
 
 ## Changelog
+### 5.0.2 (2026-11-15)
+* (simatec) Tab: download and restore from the recent backups also find backups on the storages (NAS, cloud)
+* (simatec) Tab: only one link to the backup history
+* (simatec) Fix notification: the NAS server is only shown for CIFS and NFS
+* (simatec) Slave instances that no longer exist are shown in the log and skipped
+* (simatec) Compact mode disabled
+* (simatec) Dependabot: only patch updates for typescript
+* (simatec) Dependencies updated
+
 ### 5.0.1 (2026-11-09)
 * (simatec) Fix download of backups from a NAS ("Copy" mode, and CIFS / NFS when the file is not in the mounted directory)
 * (simatec) CCU backups in an own NAS directory (CIFS / NFS) are listed and can be downloaded
@@ -674,10 +683,6 @@ Here is a list of the problems that have occurred so far and their solutions, if
 * (simatec) Fix signed FTP Certificates
 * (simatec) Fix Backup Timeout
 * (simatec) Fix lint check
-
-### 4.0.2 (2026-08-18)
-* (simatec) Fix Backitup Tab
-* (simatec) dependencies updated
 
 ## License
 

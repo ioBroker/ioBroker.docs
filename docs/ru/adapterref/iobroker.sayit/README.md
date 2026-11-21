@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sayit/README.md
 title: ioBroker sayit адаптер
-hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
+hash: A6qaHOVK/4pRMXRx+uRimgtJ8twX99PPlctxbYNK8Vk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
-![Количество установок](http://iobroker.live/badges/sayit-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sayit.svg)
+![Количество установок](https://iobroker.live/badges/sayit-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.sayit.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sayit.svg)
@@ -23,7 +23,7 @@ hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
 
 Фактически поддерживаются следующие выходные данные:
 
-- _Браузер_ — браузер воспроизведет текст внутри открытого окна. `iobroker.vis` Эта страница поддерживается практически всеми настольными браузерами и некоторыми мобильными браузерами.
+- _Браузер_ — браузер воспроизведет текст внутри открытого окна. `iobroker.vis` страница. Она поддерживается практически всеми настольными браузерами и некоторыми мобильными браузерами. При установке параметра "Экземпляры Vis" на _панели мониторинга Aura_ текст воспроизводится на открытых панелях мониторинга [Aura](https://github.com/hdering/ioBroker.aura) . Параметр "Экземпляр браузера" принимает список идентификаторов клиентов Aura, разделенных запятыми, или `FFFFFFFF` для каждой панели мониторинга.
 
 - _[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)_ — текст будет отправлен и воспроизведен на устройстве Android с установленным Home24-MediaPlayer. Для этого будет использоваться встроенный в Android механизм преобразования текста в речь. Порт изменить нельзя, он должен быть установлен на 50000.
 
@@ -37,7 +37,25 @@ hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
 
 - _Heos_ - воспроизведение текста на устройстве HEOS. Убедитесь, что веб-адаптер включен. Он необходим для того, чтобы HEOS мог читать сгенерированные файлы mp3.
 
+- _Squeezebox_ — воспроизведение текста на плеере Logitech Media Server (Lyrion) с адаптером [squeezeboxrpc](https://github.com/oweitman/ioBroker.squeezeboxrpc) (версия 2.0.0 или новее). Текст записывается в состояние `Announce` Из-за этого воспроизведение проигрывателя останавливается и возобновляется позже. Громкость объявления настраивается в адаптере squeezeboxrpc. Убедитесь, что веб-адаптер включен, чтобы медиасервер мог читать сгенерированные файлы mp3.
+
+- _WiiM / LinkPlay_ — воспроизведение текста на устройствах WiiM, Arylic или других устройствах на базе LinkPlay с помощью адаптера [WiiM](https://github.com/KaiIOB/ioBroker.wiim) . На устройствах Arylic с прошивкой 4.6.415145 или новее, а также на других устройствах LinkPlay ссылка на файл записывается в состояние. `playPromptUrl` стримера, поэтому файл воспроизводится как уведомление: текущая скорость воспроизведения снижается, а затем возобновляется. Устройства WiiM не поддерживают эту функцию. `playPromptUrl` Таким образом, ссылка записывается в состояние. `play_URL` Воспроизведение останавливается и не возобновляется после объявления. Объявление воспроизводится с фактической громкостью стримера. Убедитесь, что веб-адаптер включен, чтобы стример мог считывать сгенерированные файлы mp3.
+
+- _Голосовые сателлиты ассистента_ — воспроизведение текста на голосовых сателлитах адаптера [ассистента](https://github.com/ioBroker/ioBroker.assistant) . Выберите экземпляр (например, `assistant.0`) воспроизвести текст на всех спутниках (государственных) `tts.text`) или один спутник (государство) `satellites.<id>.tts` Текст озвучивается голосом, выбранным в sayit, вспомогательный адаптер воспроизводит только сгенерированный файл mp3, поэтому ему необходим [ffmpeg](https://ffmpeg.org/) на хосте. Убедитесь, что веб-адаптер включен, чтобы вспомогательный адаптер мог читать сгенерированные файлы mp3.
+
+- _Alexa_ — произнесите текст на устройстве Echo (или группе устройств) с адаптером [alexa2](https://github.com/Apollon77/ioBroker.alexa2) . Alexa произносит текст своим **собственным голосом** , поэтому голос (движок) sayit, кэш и звуковое объявление не используются, и звуковые файлы (mp3, wav) воспроизводиться не могут. Текст записывается в состояние `Commands.speak` или `Commands.announcement` (со звуковым сигналом Alexa, только если для устройства включены уведомления и отключен режим «Не беспокоить»). Длинные тексты разбиваются на блоки по 250 символов, громкость устанавливается перед текстом и восстанавливается после него адаптером Alexa2. Поскольку Alexa говорит в облаке, она может лишь приблизительно оценить продолжительность текста до отправки следующего.
+
+- _Fully Kiosk Browser_ — воспроизведение текста на планшете Android с помощью [Fully Kiosk Browser](https://www.fully-kiosk.com) и адаптера [fullybrowser](https://github.com/arteck/ioBroker.fullybrowser) (версия 3.0.5 или новее). Команда REST `playSound` отправляется через государство `Commands.setRAW` громкость устройства регулируется с помощью `Commands.setAudioVolume` Убедитесь, что веб-адаптер включен, чтобы планшет мог считывать сгенерированные файлы mp3.
+
+- _Bose SoundTouch_ — воспроизведение текста на колонке Bose SoundTouch, подключенной к адаптеру [bosesoundtouch](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch) (один экземпляр на колонку). sayit отправляет ссылку на файл непосредственно в интерфейс уведомлений. `/speaker` (порт 8090) динамика, поэтому текущее воспроизведение приостанавливается и возобновляется позже. Это поддерживают только некоторые модели (например, SoundTouch 10, 20 и 30 Series III), другие модели отклоняют объявление (см. журнал). Динамик проверяет ключ приложения в облаке Bose, которое было отключено 6 мая 2026 года, поэтому без замены облака Bose (например, сервиса [Bose SoundTouch Toolkit](https://gesellix.github.io/Bose-SoundTouch/) , который принимает любой непустой ключ) динамик может отклонить объявление. Убедитесь, что веб-адаптер включен, чтобы динамик мог читать сгенерированные файлы mp3.
+
+- _Kodi_ — воспроизведение текста в Kodi с помощью адаптера [Kodi](https://github.com/iobroker-community-adapters/ioBroker.kodi) (один экземпляр на каждый Kodi). Ссылка на файл записывается в состояние. `open` В данном случае адаптер Kodi очищает музыкальный плейлист Kodi и переключается на полноэкранный плеер, поэтому текущее воспроизведение останавливается и **не восстанавливается** после текста. Файл воспроизводится с фактической громкостью Kodi. Убедитесь, что веб-адаптер включен, чтобы Kodi мог читать сгенерированные файлы mp3.
+
+- _Asterisk (телефонный звонок)_ — позвоните по номеру телефона с помощью адаптера [Asterisk](https://github.com/schmupu/ioBroker.asterisk) и воспроизведите текст звонка. Sayit отправляет путь к сгенерированному файлу MP3 с помощью команды. `dial` к адаптеру Asterisk, который преобразует его в GSM и отправляет на сервер Asterisk. Таким образом, sayit и адаптер Asterisk **должны работать на одном хосте** . Каждое текстовое сообщение — это отдельный вызов, поэтому звуковое оповещение не воспроизводится. Номер телефона, идентификатор вызывающего абонента и количество повторов сообщения задаются в конфигурации; номер и идентификатор вызывающего абонента также можно указать в файле конфигурации. `say` сообщение (`asteriskTelnr`, `asteriskCallerId`).
+
 - _Chromecast_ — воспроизведение текста на устройстве Chromecast.
+
+- _Google Home_ — воспроизведение текста на Google Home или другом устройстве с функцией трансляции, которым SayIt управляет напрямую. Текущее воспроизведение (например, музыки из Spotify) останавливается и **не возобновляется** после текста. Используйте тип вывода _Chromecast_ с адаптером Chromecast, если необходимо возобновить воспроизведение.
 
 - _MPD_ — воспроизведение текста в демоне музыкального проигрывателя. Используйте только **HTTP** для веб-адаптера, не используйте HTTPS.
 
@@ -62,6 +80,14 @@ hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
 - PicoTTS (только для Linux): английский, немецкий, итальянский, испанский, французский; для работы PicoTTS необходимо установить следующие пакеты: `libttspico-utils` и отстой. Команда установки: `sudo apt-get install libttspico-utils lame`
 
 - Coqui TTS: английский, немецкий, испанский, французский, голландский, японский, китайский; инструкции по использованию см. в [официальной документации.](https://tts.readthedocs.io/en/latest/index.html)
+
+- Piper: быстрые локальные голосовые системы на многих языках, например, немецкие голоса [Thorsten-Voice](https://www.thorsten-voice.de) . [Piper](https://github.com/OHF-Voice/piper1-gpl) работает как HTTP-сервер в локальной сети (на хосте ioBroker или на любом другом), поэтому один сервер может использоваться несколькими приложениями. Для работы не требуется подключение к интернету и никаких других инструментов на хосте ioBroker. Установка сервера (см. [HTTP API](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_HTTP.md) ):
+  ```
+  python3 -m pip install piper-tts[http]
+  python3 -m piper.download_voices de_DE-thorsten-high
+  python3 -m piper.http_server -m de_DE-thorsten-high --host 0.0.0.0 --port 5000
+  ```
+  Введите адрес сервера, например: `http://192.168.1.10:5000` В настройках. Голосовые модули, установленные на сервере, предлагаются в диалоговом окне настроек.
 
 ### Тестирование генерации текста
 
@@ -111,6 +137,8 @@ hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
 - `sayit.N.tts.playing`: true, если текст воспроизводится, и false, если нет. Поддерживается только для режимов воспроизведения "Windows" и "System".
 - `sayit.N.tts.cachetext` Фраза, которую необходимо кэшировать, после чего её можно будет использовать без подключения к интернету. Например, вы можете вручную ввести сюда "Нет интернета", и если пинг до google.com окажется отрицательным, напишите "Нет интернета" в "tts.text", и это будет произнесено. Конечно, кэширование должно быть включено.
 
+Кэшированные файлы хранятся в каталоге кэша. Относительный путь указывается относительно `iobroker-data/sayit` Абсолютный путь используется как есть. Значение по умолчанию для новых экземпляров —`cache`, т.е. `iobroker-data/sayit/cache` Более старые экземпляры сохраняют `../../cache/`, т.е. `<ioBroker installation>/cache`.
+
 Состояние `tts.text` Поддерживает расширенный синтаксис, поэтому язык/движок и громкость могут быть определены вместе с текстом. Используется для включения многоязычных движков преобразования текста в речь. Например, если адаптер имеет движок `Google-english` Это возможно с помощью фразы. `de:Sag es` принудительно использовать речевой движок Google-Deutsch.
 
 С `ru;75;Погода хорошая` Мы можем принудительно включить русский язык и громкость на 75%.
@@ -135,6 +163,10 @@ sendTo('sayit.0', 'say', {
 });
 ```
 
+### Сообщения для скриптов и агентов искусственного интеллекта.
+
+`sendTo('sayit.0', 'help', {})` ответы `{ help, commands }`: описание всех сообщений (например) `say` со всеми его параметрами) для агентов ИИ (например, pi-agent) и авторов скриптов, а также список всех команд с `write` (`true` (если команда имеет эффект, например, воспроизводит что-либо).
+
 ### Приоритеты
 
 Чтобы текст был произнесен немедленно, несмотря на наличие текста в очереди, у вас есть два варианта:
@@ -149,7 +181,7 @@ sendTo('sayit.0', 'say', {
 #### Google
 
 - **эн** - английский
-- **де** - немецкий
+- **de** - Deutsch
 - **pl** - Polski
 - **ру** - Русский
 - **uk** - український
@@ -165,6 +197,12 @@ sendTo('sayit.0', 'say', {
 - **freeTTS** — голос, скорость и высота тона берутся из конфигурации экземпляра.
 
 Язык является частью голосового сопровождения, поэтому существует только одно название движка. Голосовое сопровождение, например... `de-DE-KatjaNeural` В диалоговом окне настроек выбирается соответствующий параметр, и из сервиса считывается список всех доступных голосов. Запрос ограничен 10000 символами, поэтому более длинные тексты разбиваются на части и произносятся один за другим.
+
+#### Пайпер
+
+- **Piper** — параметры сервера, голоса, динамика и скорости берутся из конфигурации экземпляра.
+
+Как и в FreeTTS, язык является частью голоса, например... `de_DE-thorsten-high` Если голос не выбран, используется голос сервера по умолчанию.
 
 #### Яндекс
 
@@ -311,40 +349,31 @@ sendTo('sayit.0', 'say', {
 -->
 
 ## Changelog
-### 5.3.1 (2026-08-13)
-* (@GermanBluefox) Added the button "Test text generation" to the "Engine" tab, so the selected engine can be tested with an own text
-* (@GermanBluefox) Test generations do not overwrite the cached files anymore
-* (@GermanBluefox) Adapter requires node.js >= 22 and js-controller >= 6.0.11 now
-* (@GermanBluefox) Older changelog entries were moved to CHANGELOG_OLD.md
-* (@GermanBluefox) Updated the dependabot and auto-merge configuration
+### 5.7.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
-### 5.3.0 (2026-08-13)
-* (@GermanBluefox) Added freetts.org as a new TTS engine with more than 400 voices. An API key is required
-* (@GermanBluefox) The engine is selected in two steps now: first the provider and then the voice
-* (@GermanBluefox) The words of the Blockly block are translated into all 11 languages now
-* (@GermanBluefox) Blockly block migrated to TypeScript and the generated code is unchanged
+### 5.6.1 (2026-11-18)
+- (@GermanBluefox) Fixed: WiiM streamers use the state play_URL, as they do not support playPromptUrl (#537)
 
-### 5.2.4 (2026-08-07)
-* (@GermanBluefox) Corrected the upload of the announcement mp3 files and the location of the cache directory
-* (@GermanBluefox) Corrected the splitting of long texts for the Google engine
-* (@GermanBluefox) Corrected the detection of sonos devices in the configuration dialog
-* (@GermanBluefox) Cached files will be deleted again if the engine was changed
-* (@GermanBluefox) The queue does not block anymore if an error occurs by processing of a task
-* (@GermanBluefox) Texts with semicolons will not be interpreted as "language;volume;text" anymore
-* (@GermanBluefox) The local engines (PicoTTS, CoquiTTS) and the windows player are called without shell now
-* (@GermanBluefox) Corrected the default settings of a new instance
+### 5.6.0 (2026-11-04)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) Fixed: the announcement sound was overwritten by the following text, so external players (e.g. Squeezebox) said the text twice (#527)
+- (@GermanBluefox) Added the output type "WiiM / LinkPlay" for the streamers of the wiim adapter
+- (@GermanBluefox) Added the output type "Assistant satellites" for the voice satellites of the assistant adapter
+- (@GermanBluefox) Added the output type "Alexa" for the Echo devices of the alexa2 adapter
+- (@GermanBluefox) Added the output type "Bose SoundTouch" with the notification interface of the speaker, which resumes the playback
+- (@GermanBluefox) Added the output type "Kodi" for the kodi adapter
+- (@GermanBluefox) Added the output type "Asterisk (phone call)": the text is played in a phone call of the asterisk adapter
+- (@GermanBluefox) The configuration shows a hint for the output types, which do not restore the playback (Google Home, Kodi)
 
-### 5.1.0 (2025-09-17)
-* (bluefox) Adapter was rewritten with TypeScript
-* (bluefox) Updated Polly voices list
-* (bluefox) Added an option to send sonos device as a parameter in sendTo command
+### 5.5.0 (2026-10-27)
+* (@hdering) Added the Aura dashboards as a target of the output type "Browser" (#518)
+* (@GermanBluefox) Added the output type "Fully Kiosk Browser" for the tablets of the fullybrowser adapter
 
-### 5.0.0 (2024-07-16)
-* (mcm1957) Adapter requires admin v7 or newer now
-* (mcm1957) Adapter requires jas-controller 5 or newer now
-* (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sayit/blob/master/CHANGELOG_OLD.md)
+### 5.4.0 (2026-10-23)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
+* (@GermanBluefox) Added Piper as a new local TTS engine, e.g. with the voices of Thorsten-Voice (#398)
 
 ## License
 

@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.telegram
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/test-and-release.yml/badge.svg
@@ -16,7 +16,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: 9mTX9zkdPtB1mIqP3xgS+1iSybr5vhzedy/Z5k2I3Ik=
+hash: nhYBS+UyYVpZqDQL7enaXWaIRcfhV6i3xOMTqDRTRGU=
 ---
 ![Logo](../../../en/admin/telegram.png)
 
@@ -48,7 +48,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 });
 ```
 
-Wenn Sie das obige Beispiel verwenden, beachten Sie bitte, dass Sie „UserName“ entweder durch den Vornamen oder den öffentlichen Telegram-Benutzernamen des Empfängers ersetzen müssen. (Dies hängt davon ab, ob die Option „Benutzernamen statt Vornamen speichern“ in den Adaptereinstellungen aktiviert ist.) Ist diese Option aktiviert und der Benutzer hat in seinem Telegram-Konto keinen öffentlichen Benutzernamen angegeben, verwendet der Adapter weiterhin den Vornamen. Beachten Sie, dass der gespeicherte Vorname beim nächsten Senden einer Nachricht an den Bot durch den Benutzernamen ersetzt wird, sobald der Benutzer einen öffentlichen Benutzernamen festlegt (nach der Authentifizierung bei Ihrem Bot).
+Wenn Sie das obige Beispiel verwenden, beachten Sie bitte, dass Sie „UserName“ entweder durch den Vornamen oder den öffentlichen Telegram-Benutzernamen des Empfängers ersetzen müssen. (Dies hängt davon ab, ob die Option „Benutzernamen statt Vornamen speichern“ in den Adaptereinstellungen aktiviert ist.) Ist diese Option aktiviert und der Benutzer hat in seinem Telegram-Konto keinen öffentlichen Benutzernamen angegeben, verwendet der Adapter weiterhin den Vornamen. Beachten Sie, dass der gespeicherte Vorname beim nächsten Senden einer Nachricht an den Bot durch den Benutzernamen ersetzt wird, sobald der Benutzer später (nach der Authentifizierung bei Ihrem Bot) einen öffentlichen Benutzernamen festlegt.
 
 Es können mehrere Empfänger angegeben werden (trennen Sie die Benutzernamen einfach durch Kommas). Beispiel: Empfänger: „User1,User4,User5“
 
@@ -92,6 +92,27 @@ Um das herauszufinden `chat_id` Sie müssen den Protokollierungsgrad des Adapter
 ## Verwendung
 
 Sie können Telegram mit [dem Text2Command-](https://github.com/ioBroker/ioBroker.text2command) Adapter verwenden. Es gibt ein vordefiniertes Kommunikationsschema, und Sie können Befehle in Textform an Ihr Zuhause senden.
+
+Anstatt `text2command` Sie können eine [Assistenteninstanz](https://github.com/ioBroker/ioBroker.assistant) auswählen („Assistenteninstanz“ in den Einstellungen). Nachrichten, die keiner Regel oder keinem Befehl dieses Adapters entsprechen, werden dorthin gesendet, und die Antwort wird an den Chat zurückgeschickt:
+
+- **Der Text** ist die Frage.
+- **Sprachnachrichten** werden vom Assistenten erkannt (dazu werden eine Sprachsteuerungsfunktion, eine Spracherkennungs-Engine und ffmpeg benötigt); die Antwort beginnt mit dem erkannten Text (🎤 …).
+- **Fotos** werden als Bilder dargestellt, die Bildunterschrift ist die Frage (ohne Bildunterschrift beschreibt der Assistent das Bild). Die Fotos eines Albums bilden eine Frage, maximal vier. Der Assistent benötigt ein Cloud-Modell, das Bilder anzeigen kann.
+- **Die Videos** werden nicht mitgesendet, sondern im Ordner gespeichert. `assistant` von dieser Instanz (die neuesten 20 werden beibehalten) und der Assistent lernt nur, wo - mit js-controller 8.0+ im Datenverzeichnis (`iobroker-data/telegram_0/assistant`) als `iobdisk://` Die URL, die der Assistent von jedem Host liest, verwendet einen älteren JS-Controller im Dateispeicher. Videos werden noch nicht unterstützt. Telegram erlaubt Bots nur das Herunterladen von Dateien bis zu 20 MB.
+
+Fotos und Videos können mit der Option „Fotos und Videos an den Assistenten senden“ deaktiviert werden. Der Assistent hat zwei Minuten Zeit für eine Antwort; danach wird dem Nutzer mitgeteilt, dass er nicht rechtzeitig geantwortet hat.
+
+### Sprachnachrichten als Text (Sprache)
+
+Mit einer [Sprachinstanz](https://github.com/ioBroker/ioBroker.voice) („Spracherkennungsinstanz“ in den Einstellungen) werden Sprachnachrichten lokal in Text umgewandelt, und dieser Text wird wie eine getippte Nachricht verarbeitet: er geht an `communicate.request` und die Befehle dieses Adapters, `text2command` Und der Assistent versteht es. Der erkannte Text wird auch geschrieben an `communicate.requestVoiceText` Die
+
+- Bei der Einstellung „Erkannten Text im Chat anzeigen“ (Standardeinstellung: aktiviert) antwortet der Bot zunächst mit dem, was er verstanden hat (🎤 …).
+- Ein Punkt oder ein Ausrufezeichen am Ende des erkannten Textes wird entfernt, sodass z. B. „Licht an“ einem Befehl entspricht.
+- Die Namen der Befehle dieses Adapters lauten wie folgt: `prompt` so, dass sie wie konfiguriert geschrieben werden (sofern diese Funktion in Voice aktiviert ist).
+- Für OGG/Opus wird ffmpeg benötigt (kann auf der Registerkarte **Spracherkennung** heruntergeladen werden).
+- Die Spracherkennung hat 90 Sekunden Zeit. Schlägt sie fehl, erhält der Benutzer die Meldung: „Die Sprachnachricht konnte nicht erkannt werden.“
+- Wenn zusätzlich eine Assistenteninstanz ausgewählt ist, erkennt die Sprachausgabe die Sprachnachricht und der Assistent erhält den Text.
+- Eine Sprachnachricht mit Untertitel wird wie bisher mit ihrem Untertitel beantwortet.
 
 Um ein Foto zu senden, senden Sie einfach den Dateipfad anstelle von Text oder einer URL: `sendTo('telegram', 'absolute/path/file.png')` oder `sendTo('telegram', 'https://telegram.org/img/t_logo.png')` Die
 
@@ -202,7 +223,7 @@ Neben einem lokalen Dateipfad oder einer Web-URL, `text` Es kann sich um eine **
 
 Folgende Programme werden unterstützt:
 
-- `iobfile://<adapter.instance>/<path>`— eine Datei aus dem ioBroker-Dateispeicher.
+- `iobfile://<adapter.instance>/<path>` — eine Datei aus dem ioBroker-Dateispeicher.
 - `iobstate://<state.id>` — der Wert eines Zustands (siehe unten, wie der Wert interpretiert wird).
 - `iobobject://<object.id>/<path>` — ein Wert, der in einem ioBroker-Objekt verschachtelt ist (dem `path` navigiert in das Objekt durch `/`).
 
@@ -348,6 +369,21 @@ sendTo('telegram.0', 'send', {
     text: 'Message to chat',
     chatId: 'SOME-CHAT-ID-123',
     message_thread_id: 7,
+});
+```
+
+Der Blockly-Block „Telegramm“ verfügt außerdem über eine optionale Eingabe „Thema (Thread-ID)“.
+
+## Nachrichten-IDs der gesendeten Nachrichten
+
+Der Rückruf von `send` Ermittelt die Anzahl der Empfänger. Um die Nachricht später zu bearbeiten oder zu löschen, fragen Sie stattdessen nach den IDs mit `returnMessageIds: true` Der Callback erhält dann ein Objekt `chat id => message id`, Und `error` (`chat id => reason`) falls ein Empfänger ausgefallen ist.
+
+```javascript
+sendTo('telegram.0', 'send', { text: 'Washing machine is done', chatId: 12345678, returnMessageIds: true }, ids => {
+    // ids = { '12345678': 4711 }
+    setTimeout(() => sendTo('telegram.0', 'send', {
+        deleteMessage: { options: { chat_id: 12345678, message_id: ids['12345678'] } },
+    }), 3600000);
 });
 ```
 
@@ -636,7 +672,7 @@ oder
 ```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
-    user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
+    user: '@Username', // optional: without user and users every user in telegram.0.communicate.users with a username is called
     lang: 'de-DE-Standard-A', // optional and the system language will be taken
     repeats: 0, // number of repeats 
 });
@@ -659,6 +695,8 @@ sendTo('telegram.0', 'call', {
     users: ['@Username1', '@Username2'] // Array of `users' or telephone numbers.
 });
 ```
+
+Mithilfe eines Callbacks antwortet der Adapter, sobald alle Aufrufe abgeschlossen sind: `{ called: <number of successful calls>, error?: <the reasons of the failed calls> }` Die
 
 Mögliche Werte für Sprache:
 
@@ -692,7 +730,7 @@ Mögliche Werte für Sprache:
 - `fr-CA-Standard-A` - Französisch (Kanada) (weibliche Stimme)
 - `fr-CA-Standard-B` - Französisch (Kanada) (Männliche Stimme)
 - `fr-CA-Standard-C` - Französisch (Kanada) (Weiblich, 2 Stimmen)
-- `fr-CA-Standard-D` - Französisch (Kanada) (Männlich, 2 Stimmen)
+- `fr-CA-Standard-D`- Französisch (Kanada) (Männlich, 2 Stimmen)
 - `fr-FR-Standard-A` - Französisch (Frankreich) (Weibliche Stimme - wird verwendet, wenn die Systemsprache FR ist und keine andere Sprache angegeben wurde)
 - `fr-FR-Standard-B` - Französisch (Frankreich) (Männliche Stimme)
 - `fr-FR-Standard-C` - Französisch (Frankreich) (Weiblich, 2 Stimmen)
@@ -736,7 +774,7 @@ Mögliche Werte für Sprache:
 - `pt-PT-Standard-A` - Portugiesisch (Portugal) (weibliche Stimme)
 - `pt-PT-Standard-B` - Portugiesisch (Portugal) (Männliche Stimme)
 - `pt-PT-Standard-C` - Portugiesisch (Portugal) (Männlich, 2 Stimmen)
-- `pt-PT-Standard-D`- Portugiesisch (Portugal) (Weiblich, 2 Stimmen)
+- `pt-PT-Standard-D` - Portugiesisch (Portugal) (Weiblich, 2 Stimmen)
 - `ru-RU-Standard-A` - Russisch (Russland) (Weibliche Stimme - wird verwendet, wenn die Systemsprache RU ist und keine andere Sprache angegeben wurde)
 - `ru-RU-Standard-B` - Russisch (Russland) (Männliche Stimme)
 - `ru-RU-Standard-C` - Russisch (Russland) (Weibliche Stimme 2)
@@ -807,7 +845,7 @@ Welcher Text wird angezeigt auf `ON` Schaltfläche. Wie hier:![Einstellungen](..
 
 Erzeugt die folgende Tastatur:![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
-### Text einschalten
+### EIN Text
 
 Der Text, der im staatlichen Bericht angezeigt wird. Z.B. `Door lamp => activated` Wenn sich der Status des Geräts auf „wahr“ ändert und der **Text „EIN“** angezeigt wird `activated`
 
@@ -853,7 +891,7 @@ BotFather: Success! The new status is: DISABLED. /help
 
 ## Wie man Nachrichten über Node-RED versendet
 
-Für einfache Textnachrichten an alle Benutzer fügen Sie einfach den Text in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand. `telegram.INSTANCE.communicate.response` Die
+Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand. `telegram.INSTANCE.communicate.response` Die
 
 Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzdaten mit einem JSON-Objekt, zum Beispiel:
 
@@ -875,58 +913,26 @@ Bevor Sie es senden an `telegram.INSTANCE.communicate.responseJson you need to s
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 6.0.0 (2026-09-02)
-- (@GermanBluefox) Adapter requires Node.js >= 22.19 now (required by undici 8)
-- (@GermanBluefox) The connection to the telegram servers can be routed through an HTTP(S) or SOCKS5 proxy (new "Use proxy" settings; the old proxy fields had been without function for years)
-- (@GermanBluefox) Migrated to `node-telegram-bot-api` v2. Updates are now received via long polling, so the "Polling interval" setting became obsolete and was removed from the configuration dialog. Errors thrown while processing an update are logged by the adapter instead of ending up on the console
-- (@GermanBluefox) An empty "API URL" field no longer breaks every API call with "EFATAL: Failed to parse URL" - the default `https://api.telegram.org` is used again (#1371)
-- (@GermanBluefox) A `text2command`/`assistant` instance stored in the long form (`system.adapter.text2command.0`, written by the config UI before v1.12.6) is migrated to the short form on startup, so the config dialog shows the selected instance again (#1365)
-- (@GermanBluefox) Added the states `communicate.requestLocationLive` (live location is still being shared), `communicate.requestLocationHeading` and `communicate.requestLocationAccuracy` for received (live) locations
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: the message `call` now answers when the calls are done: `{called, error?}`
+- (@GermanBluefox) The speech recognition instance is now selected from the `voice` adapter instead of `ai-parakeet`
 
-### 5.0.4 (2026-09-01)
-- (@GermanBluefox) Blockly migrated to TypeScript
-- (@bjoernjaeschke87-beep) Live location updates (delivered by Telegram as `edited_message`) now update `communicate.requestLocation` while the location is being shared
+### 6.5.0 (2026-11-19)
+- (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
 
-### 5.0.3 (2026-08-10)
-- (@GermanBluefox) Fixed: the configured `text2command`/`assistant` instance may now also be stored in the long form (`system.adapter.text2command.0`) - the alive check no longer fails with "instance is not running"
+### 6.4.0 (2026-11-09)
+- (@GermanBluefox) Voice messages can be converted to text by an `ai-parakeet` instance (new setting "Speech recognition instance"); the text is then processed like a typed message (`communicate.request`, commands, `text2command`, assistant) and also written to the new state `communicate.requestVoiceText`. "Show the recognised text in the chat" answers with what was understood (🎤 …)
 
-### 5.0.2 (2026-08-03)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 8.0.0 now
-- (@klein0r) admin 8.0.0 and js-controller 6.0.11 (or later) are required
-- (@klein0r) Updated dependencies
+### 6.3.0 (2026-11-07)
+- (@GermanBluefox) Added "Delete received files after (days)": saved voice messages, photos, videos, audio files and documents older than that are deleted, in the file system or in the file storage, checked every hour. 0 (default) keeps them as before
 
-### 5.0.0-alpha.0 (2026-07-10)
-- (@GermanBluefox) Channel posts (from a channel where the bot is an admin) are now received and written to `communicate.request`/`communicate.requestChatId` (previously ignored)
-- (@GermanBluefox) Robustness: all `setState` calls now catch their errors (via a `setStateSafe` helper), so a failing state write can no longer cause an unhandled promise rejection
-- (@GermanBluefox) Added the state `communicate.chats`: every chat/group the bot receives a message from is remembered as JSON (`id => {title, type}`), so other adapters can offer a chat/group picker
-- (@GermanBluefox) Outgoing messages that fail because telegram is unreachable are now queued in memory and resent automatically once the connection is back (bounded queue, permanent errors like "chat not found" are not retried)
-- (@GermanBluefox) Documented that an unanswered `ask` returns the string `'__timeout__'`, and that the calling adapter's own `sendTo` timeout (JavaScript adapter defaults to ~20 s) must be larger than the configured answer timeout - otherwise the callback fires early (looks like a "No" answer)
-- (@GermanBluefox) A received location or venue is now written to the new state `communicate.requestLocation` as `latitude;longitude` (role `value.gps`), so it can be shown e.g. on a map
-- (@GermanBluefox) Fixed: recipients can now be mixed by username and first name in one list - a recipient without a public telegram username is matched by first name even when "store username" is active
-- (@GermanBluefox) Added the missing translations for the configuration labels (API URL, port, certificates, media quality, ...) in all languages
-- (@GermanBluefox) Robustness: all telegram API calls now catch their errors, so a failing call can no longer terminate the adapter with an unhandled promise rejection
-- (@GermanBluefox) The inline keyboard of a broadcast `ask` question is now removed for the user who answered (taken from the pressed callback message)
-- (@GermanBluefox) Fixed: the adapter no longer crashes (unhandled promise rejection) when the inline keyboard of an answered/timed-out `ask` question cannot be removed (e.g. "message to edit not found")
-- (@GermanBluefox) Fixed: `deleteMessage`/`editMessage*` without an explicit `user`/`chatId` is now executed once for the chat given in its options instead of being broadcast to every user (which made the other users fail)
-- (@GermanBluefox) The caption of a received photo/video/document is now written to `communicate.request` (like a normal text message), so image captions are no longer lost
-- (@GermanBluefox) Added a "Parsemode" option to the "ask via Telegram" Blockly block, so questions can be formatted with HTML/MarkdownV2
-- (@GermanBluefox) Added support for sending files directly from the ioBroker file storage via `iobfile://`, `iobobject://` and `iobstate://` URIs (works with Redis/jsonl where the file is not on the local filesystem)
-- (@GermanBluefox) The `/password` message is now deleted from the chat after a successful authentication
-- (@GermanBluefox) Fixed: `requestChatId`/`requestMessageId`/`requestUserId` are now set when receiving a photo, document or other media
-- (@GermanBluefox) Fixed: sending to a recipient by numeric user id (`{ user: "12345" }`) now works
-- (@GermanBluefox) Fixed: no longer crashes when a system notification contains an empty messages list
-- (@GermanBluefox) Added an optional `ioBroker.assistant` instance: messages that no internal rule/command matched are forwarded to it and its answer is sent back to the chat
-- (@GermanBluefox) Migrated the adapter backend to TypeScript; texts are now provided as `i18n` JSON files loaded via `I18n`
-- (@GermanBluefox) The target instance is now checked to be alive before a message is forwarded (text2command/assistant)
-- (@GermanBluefox) States without a value are now reported as "uncertain" instead of showing an unset boolean as "ON"
-- (@GermanBluefox) Timers are now managed by the adapter and cleared on unload (including pending question timeouts)
-- (@GermanBluefox) Fixed: the "allow states" option could not be disabled
-- (@GermanBluefox) Fixed: a question timeout could drop other pending questions
-- (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
-- (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
+### 6.2.1 (2026-11-07)
+- (@GermanBluefox) Videos for the `assistant` instance are stored in the data directory of the instance (`iobroker-data/telegram_0/assistant`, the newest 20) and go along as `iobdisk://` URL, which the assistant reads from any host (js-controller 8.0+). With an older js-controller they still go to the file storage
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+### 6.2.0 (2026-11-04)
+- (@GermanBluefox) Questions to the `assistant` instance (text and voice) wait at most 2 minutes for the answer; after that the user gets "The assistant did not answer in time." instead of no reply at all (e.g. when the assistant restarted meanwhile)
+- (@GermanBluefox) Photos and videos are forwarded to the `assistant` instance too: photos (an album as one question, at most 4) with their caption as the question, videos are stored in the file storage of the instance (folder `assistant`, the newest 20) and only their place goes along. Can be switched off with "Photos and videos to the assistant"
+- (@GermanBluefox) Added the state `communicate.pathFileUrl`: the `iobdisk://` URL of the last received file (e.g. `iobdisk://pi4/telegram.0/video/2026-11-04_10-00-00.mp4`), which instances on other hosts can read with `readDiskFile(url)` - the path in `communicate.pathFile` is only valid on the host of telegram. Needs js-controller 8.0 and `saveFilesTo: filesystem`, otherwise the state stays empty
 
 ## License
 

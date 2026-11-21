@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.samsung_tizen/README.md
 title: ioBroker.samsung_tizen
-hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
+hash: lPV0xhmcYhsN6JkQEXky/I7+GWuCvmcBCicpBKjJgls=
 ---
 ![Логотип](../../../en/adapterref/iobroker.samsung_tizen/admin/samsung.png)
 
@@ -15,7 +15,7 @@ hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
 
 ## 1. Конфигурация
 
-Как настроить этот адаптер. Сначала проверьте настройки телевизора: включите телевизор и перейдите в «Настройки» / «Общие» / «Диспетчер внешних устройств» / «Диспетчер подключений устройств». Там для уведомления о доступе необходимо установить параметр «Только при первом использовании».
+Как настроить этот адаптер. Сначала проверьте настройки телевизора: включите телевизор и перейдите в «Настройки» / «Основные» / «Диспетчер внешних устройств» / «Диспетчер подключений устройств». Там для уведомления о доступе необходимо установить значение «Только при первом использовании».
 
 ### 1.1. Протокол
 
@@ -26,6 +26,8 @@ hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
 ### 1.2. IP-адрес
 
 IP-адрес вашего телевизора Samsung.
+
+Не знаете адрес? Нажмите **«Поиск телевизора»** в верхней части настроек: адаптер выполнит поиск в сети включенного телевизора Samsung и заполнит его IP-адрес, MAC-адрес, протокол и порт. Если ответят несколько телевизоров, будет выбран первый, а остальные будут предложены в списке полей IP-адреса, которые заполняются при открытии настроек. Для поиска экземпляр адаптера должен быть запущен. Телевизор, находящийся в режиме глубокого ожидания или в другой подсети, не найден — в этом случае введите его адрес вручную.
 
 ### 1.3. Порт
 
@@ -85,6 +87,8 @@ wscat -n -c wss://tvIp:8002/api/v2/channels/samsung.remote.control?name=aW9Ccm9r
 
 MAC-адрес вашего телевизора Samsung используется для функции Wake-on-LAN.
 
+Кнопка «Считать MAC-адрес с телевизора» запрашивает у телевизора введенный IP-адрес. Телевизор должен быть включен.
+
 Это работает только в том случае, если ваш телевизор подключен кабелем, а не по беспроводной связи.
 
 Если ваш телевизор подключен по беспроводной сети, его можно включить только из кратковременного режима ожидания.
@@ -115,78 +119,43 @@ MAC-адрес вашего телевизора Samsung используетс�
 
 ## 2. Использование
 
-### 2.1. Контроль
+### 2.1. Мастер настройки
 
-#### Отправить один ключ
+Первая вкладка настроек, «Настройка», проходит весь процесс установки: она ищет телевизор в сети, сопрягает его (телевизор один раз спрашивает, может ли ioBroker подключиться — выберите «Разрешить» на телевизоре, помощник самостоятельно получает токен), считывает MAC-адрес для Wake-on-LAN и отправляет тестовый ключ с новыми данными, прежде чем что-либо будет сохранено. Кнопка «Применить и сохранить» записывает IP-адрес, протокол, порт, токен и MAC-адрес в настройки. Экземпляр должен быть запущен; для этой вкладки требуется admin 8 или более поздняя версия. Ручной способ (состояние) `config.getToken` токен на имя `config.token`) по-прежнему работает.
 
-Для отправки одной клавиши нажмите кнопку соответствующего объекта, например. `samsung_tizen.0.control.KEY_MUTE`.
+### 2.2. Сцены
 
-#### Отправить ключ без заранее определенной кнопки
+Вкладка «Сцены» содержит таблицу именованных последовательностей, например: `SceneYouTube`: `HOME, YOUTUBE, WAIT 3000, OK` - Откройте YouTube и подтвердите выбор учетной записи. Этот шаг имеет ключевое значение (`HOME`, `OK`, `BACK`, `UP`, `VOLUP`, `0` -`9` имена `TV_KEYS` детектора типа или кода Samsung `KEY_...`), приложение (`YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`... - ключи `TV_APPS`) или пауза (`WAIT 2000` Каждая сцена становится кнопкой. `samsung_tizen.0.scenes.<name>` и клавиша вкладки пульта дистанционного управления.
 
-Вы можете отправить пользовательский (не предопределенный) ключ вместе с этим. `samsung_tizen.0.control.sendCmd` объект. Введите ключ, который хотите отправить, например: `KEY_POWER`.
+### 2.3. Вкладка «Пульт дистанционного управления»
 
-#### Отправка нескольких нажатий клавиш в одной команде
+Вкладка «Пульт дистанционного управления» в настройках отображает пульт дистанционного управления: питание, Wake-on-LAN, источник, меню, информация, клавиши со стрелками, кнопки OK, назад, домой, отключение звука, регулировка громкости и переключение каналов, клавиши воспроизведения и кнопки для каждого известного приложения, установленного на телевизоре (YouTube, Netflix, Disney+, Prime Video и т. д.). При нажатии на кнопку также работают клавиши со стрелками, Enter, Backspace, + и - на клавиатуре. Светодиод отображает состояние питания, если включен опрос состояния питания. Клавиши реагируют на запущенный экземпляр с сохраненной конфигурацией, поэтому сначала сохраните изменения после изменения IP-адреса или токена. Если клавиша не доходит до телевизора, под пультом отображается сообщение об ошибке. Для работы с этой вкладкой требуется admin 8 или более поздняя версия.
 
-Для отправки нескольких нажатий клавиш в одной команде используйте... `samsung_tizen.0.control.sendCmd` объект. Введите клавиши, разделенные запятыми, например: `KEY_POWER`, `KEY_HDMI`, `KEY_VOLUP`.
+### 2.4. Сообщения для скриптов и агентов ИИ
 
-#### Создайте макросы для команд.
-
-Перейти к `samsung_tizen.0.command` Там вы найдете примеры макросов, а также сможете создавать свои собственные.
-
-### 2.2. Приложения
-
-#### Загрузите установленные приложения
-
-Чтобы загрузить установленные приложения, нажмите на кнопку. `samsung_tizen.0.apps.getInstalledApps` кнопка. После этого — отдельный объект с именем `start_<app name>` создается для каждого установленного приложения.
-
-#### Запустите приложение
-
-Вы можете запустить приложение, нажав на кнопку. `samsung_tizen.0.apps.start_<app name>` объект.
-
-### 2.3. Состояние питания
-
-Если опрос состояния питания настроен, как описано выше, `samsung_tizen.0.powerOn` является `true` пока ваш телевизор включен и `false` пока он выключен.
-
-### 2.4. Команды
-
-Команды можно отправлять вручную через `samsung_tizen.0.control.sendCmd` объект, как описано в разделе «Управление», или с помощью пользовательского объекта ниже. `samsung_tizen.0.command` Здесь приведено несколько примеров команд, но вы также можете создавать свои собственные макросы.
-
-#### Как создать макрос команды
-
-1. Перейдите на вкладку «Объекты» и откройте `samsung_tizen.0.command`.
-
-2. Нажмите значок «+», чтобы создать новый объект.
-
-   ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
-
-3. Убедитесь, что родительский объект является `samsung_tizen.0.command`.
-
-4. Введите имя для вашей команды и убедитесь, что тип указан правильно. `datapoint` и `stateType` является `boolean`.
-
-   ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
-
-5. В поле «Имя» введите ключи, которые хотите отправить.
-
-6. Эта роль должна быть `button`.
-
-7. Сохраните объект.
-
-   ![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
-
-8. Теперь вы можете отправить свою команду с помощью только что созданного объекта.
-
-   ![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
-
-## Кредиты
-
-Первое поколение этого адаптера было разработано Stefan0875 ( <https://github.com/Stefan0875> ). Затем его адаптировали и поддерживали Highpressure ( <https://github.com/Highpressure> ), а затем dahuby ( <https://github.com/dahuby> ). Большое спасибо им за работу и за предоставление публичной лицензии.
+`sendTo('samsung_tizen.0', 'help', {})` Отвечает на описание сообщений и состояний адаптера для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов: `{ help, commands }`, где `commands` перечисляет все сообщения с `write` (Изменит ли это что-нибудь). Скрипты могут использовать `apps` (известные приложения, установленные на телевизоре), `launchApp` (`{ app: 'YOUTUBE' }`), `remote` (`{ key: 'KEY_HOME' }`), `wake`, `scenes` и `runScene` (`{ scene: '<id>' }`).
 
 ## Changelog
-
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (GermanBluefox) The pairing token is no longer written to the log (startup config, websocket URL, getToken)
+
+### 2.2.0 (2026-11-19)
+* (GermanBluefox) Fixed the README structure (changelog section) (#321)
+* (GermanBluefox) Added the message "help": a description of all messages and states for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 2.1.0 (2026-10-29)
+- (GermanBluefox) Added: button "Search TV" that finds the TV in the network and fills in IP address, MAC address, protocol and port; the IP address field lists all TVs found (SSDP, confirmed by the REST API of the TV)
+- (GermanBluefox) Added: button to read the MAC address for Wake-on-LAN from the TV
+- (GermanBluefox) Added: setup assistant (tab "Setup"): search, pairing without copying the token, Wake-on-LAN, test key and save in one go
+- (GermanBluefox) Added: `powerOn` can be written to switch the TV on (Wake-on-LAN, then KEY_POWER) or off (KEY_POWER, held on The Frame); the power state is asked right after that until it is reached
+- (GermanBluefox) Added: scenes - named sequences of keys, apps and pauses, configured in a table, each with a button `scenes.<name>`
+- (GermanBluefox) Added: buttons for the apps installed on the TV; the adapter knows the Samsung app IDs of YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Paramount+, DAZN, Joyn, RTL+, MagentaTV, ARD, ZDF, Spotify, Twitch, Plex and the browser and asks the TV which of them are installed
+- (GermanBluefox) Added: tab "Remote control" in the settings with a remote control to test the connection right away (custom component, needs admin 8)
+
 ### 2.0.2 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access token one more time 
 - (copilot) Adapter requires node.js >= 22 now
@@ -205,13 +174,6 @@ MAC-адрес вашего телевизора Samsung используетс�
 
 ### 1.0.0 (2023-09-30)
 - (mcm1957) An official release has been created
-
-### 1.0.0-alpha.2 (2023-09-24)
-- (mcm1957) Dependencies have been updated
-
-### 1.0.0-alpha.1 (2023-09-24)
-- (mcm1957) Adapter requires node 16 or newer now.
-- (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
 
 ## License
 

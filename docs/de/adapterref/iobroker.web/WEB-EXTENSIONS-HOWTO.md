@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md
 title: Web-Erweiterungen
-hash: YsC2LxA9ZntaqevDfmqQdd8PMltS5u3+XfZmmZD3XKc=
+hash: ncUHv9aw1g0VDkD+pKAlG66oLB0mM9tgiLIW6bRoZ+I=
 ---
 # Web-Erweiterungen
 
@@ -58,7 +58,7 @@ Als Nächstes sollten Sie ein Zustandsobjekt erstellen. `info.extension` und leg
 }
 ```
 
-Fünftens die Datei `lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
+Fünftens, die Datei `lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
 
 ```js
 /**
@@ -82,21 +82,15 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
     // instanceSettings and this.config contain instance config (not web adapter, but this one with web-extension)
     this.config.demoParam = this.config.demoParam || 'demo';
 
+    // Optional. When the settings of this instance change, web stops this object and starts a new one
+    // instead of restarting itself. Set it only if unload() gives back everything, see below
+    this.supportsHotReload = true;
+
     this.unload = function () {
-        return new Promise(resolve => {
-            adapter.log.debug('Demo extension unloaded!');
-            
-            // unload app path
-            const middlewareIndex = app._router.stack.findIndex(layer => 
-                layer && layer.route === '/' + that.config.demoParam);
-                
-            if (middlewareIndex !== -1) {
-                // Remove the matched middleware
-                app._router.stack.splice(middlewareIndex, 1);
-            }
-            
-            resolve();
-        });
+        // The routes need no cleanup: web drops them together with the router of this extension.
+        // Stop here what web cannot know about: timers, subscriptions, listeners, child processes
+        adapter.log.debug('Demo extension unloaded!');
+        return Promise.resolve();
     };
 
     // Optional: deliver to web the link to Web interface
@@ -112,11 +106,8 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
     }
 
     // Optional. Say to web instance to wait till this instance is initialized
-    // Used if initalisation lasts some time
-    this.readyCallback = null; 
-    this.waitForReady = cb => {
-        this.readyCallback = cb;
-    }
+    // Used if initialisation lasts some time: call onReady when it is done
+    this.waitForReady = onReady => onReady();
 
     // self invoke constructor
     (function __constructor () {
@@ -126,9 +117,6 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
             res.setHeader('Content-type', 'text/html');
             res.status(200).send('You called a demo web extension with path "' + req.url + '"');
         });
-        
-        // inform web about that all routes are installed
-        this.readyCallback && this.readyCallback(that);
     })();
 }
 
@@ -147,6 +135,82 @@ const dataDir = getAbsoluteInstanceDataDir(this.namespace);
 ```
 
 Das Gleiche gilt für alles andere, was Sie normalerweise aus Ihrem eigenen Adapterobjekt auslesen würden: `adapter` gehört zum Web, während `instanceSettings` gehört dir.
+
+### Abonnements
+
+Web, seine Socket-Clients und alle Erweiterungen teilen sich eine Verbindung zu den Datenbanken, und js-controller verwaltet dort ein Abonnement pro Muster – unabhängig davon, wer es angefordert hat. Bis Web 9.4 war die erste `unsubscribeForeignStates()` Ein solches Muster beendete es daher für alle: Eine Erweiterung, die einen Zustand aufgab, nahm ihn den Socket-Clients des Webs und den anderen Erweiterungen weg.
+
+Seit Version 9.5.0 werden die Abonnements, die Sie mit `adapter` sind Ihre eigenen:
+
+- Die Web-Notizen erfassen, wer welches Muster besitzt. Die Datenbank wird für den ersten Eintrag abonniert und abgemeldet, sobald der letzte Eintrag das Muster freigibt. `unsubscribe…()` Es endet lediglich Ihr Abonnement.
+- Wie zuvor wird ein zweimal abonniertes Muster nur einmal gespeichert: eins `unsubscribe…()` beendet es.
+- Abonnements von Objekten und Dateien werden hinsichtlich des Benutzers überprüft. `options` bei jedem Anruf, wie zuvor.
+- Wenn Ihre Erweiterung stoppt, gibt das Web alles auf, was Sie noch halten, und ignoriert anschließend Ihre weiteren Anfragen.
+- Dies umfasst `subscribeForeignStates()`, `subscribeStates()`, `subscribeForeignObjects()`, `subscribeObjects()` mit ihren `unsubscribe…()` Und `…Async` Varianten und `subscribeForeignFiles()` /`unsubscribeForeignFiles()` Muster zählen so, wie sie geschrieben sind: `hm-rpc.0.*` Und `hm-rpc.0.STATE` Es handelt sich um zwei Abonnements.
+
+`stateChange()`, `objectChange()` Und `fileChange()` Sie erhalten weiterhin alle Änderungen, die das Web empfängt, einschließlich derer von Mustern, die nur andere abonniert haben. Prüfen Sie die ID, bevor Sie darauf reagieren.
+
+### Wege mit eigenen Anmeldeinformationen
+
+Wenn die Authentifizierung aktiviert ist, lässt das Web keine Anfrage ohne Anmeldung durch, und die OAuth2-Schicht beantwortet jedes Bearer-Token, das sie nicht selbst ausgestellt hat. `401` Ein Client, der Anmeldeinformationen mitbringt, die dem Web unbekannt sind – beispielsweise ein MCP-Client mit dem statischen Token Ihres Adapters oder ein Webhook mit Signatur – erreicht daher niemals Ihre Routen.
+
+Benennen Sie solche Pfade in `publicRoutes()`.web übergibt sie Ihrem Handler vor jedem Authentifizierungsschritt:
+
+```js
+// Optional. Paths this extension protects itself. Called once, right after the constructor
+this.publicRoutes = () => [
+    {
+        path: '/example/api', // "/example/api" and everything below it
+        handler: (req, res, next) => {
+            if (req.headers.authorization !== `Bearer ${that.config.token}`) {
+                res.status(401).json({ error: 'unauthorized' });
+                return;
+            }
+            // ... answer the request
+        },
+    },
+];
+```
+
+- Der Pfad muss unterhalb des Adapternamens der Erweiterung liegen (`/example` für `example.0` Nur einfache Segmente: nein `.` oder `..` Keine Anfrage, nichts kodiert. Das Web lehnt andere Pfade ab und protokolliert dies; jeder akzeptierte Pfad wird ebenfalls protokolliert.
+- Ihr Handler empfängt die Anfrage so, wie sie eingegangen ist: **nein `req.body` ** (lies den Stream selbst), keine Sitzung und keine `req.user`.web weiß nichts über den Anrufer.
+- `next()` Die Anfrage wird an web zurückgegeben: Anschließend ist die übliche Anmeldung erforderlich, als wäre der Pfad nicht öffentlich. Ein Pfad, auf den Sie nicht antworten, öffnet also niemals etwas von web.
+- Der spezifischere Pfad setzt sich durch, und wenn zwei Instanzen den gleichen Pfad angeben, behält die erste diesen.
+- Der Schutz des Pfades liegt nun allein in Ihrer Verantwortung. Ohne Authentifizierung im Web wird der Handler auf demselben Weg erreicht.
+
+### Einstellungen wurden ohne Neustart der Webseite geändert.
+
+Der `app` Eine Erweiterung erhält eine Webanwendung mit einem eigenen Router: alles, was registriert ist bei `app.use()`, `app.get()`, `app.post()`, `app.all()`, `app.route()` oder `app.param()` landet in diesem Router, während Einstellungen, `app.locals` Und `app.get('<setting>')` Es handelt sich um die Routen des Webs. Der Router befindet sich dort, wo sich die Routen der Erweiterungen immer befanden: hinter den Routen des Webs, vor den Dateien aus der Objektdatenbank. Wenn die Erweiterung beendet wird, entfernt das Web den Router und damit alle von ihm registrierten Routen und Middleware. `app._router` Und `app.router` ist dieser Router auch.
+
+Was Web tut, wenn sich das Instanzobjekt einer Erweiterung ändert:
+
+- Ein Schreibvorgang, der weder noch ändert `common` noch `native` (nur `ts`, `from`, `user`) wird ignoriert.
+- Eine Erweiterung, die nun zu dieser Webinstanz gehört - aktiviert, oder `native.webInstance` Umstellung auf it - wird gestartet, ohne Neustart der Webseite.
+- Eine neue Version des Adapters (`common.version`, `common.installedVersion`, `common.installedFrom` oder ein anderes `common.webExtension` Die Webseite wird immer neu gestartet: Bereits geladener Code kann nicht ersetzt werden.
+- Andere Änderungen und eine deaktivierte oder auf eine andere Webinstanz verschobene Erweiterung erfordern einen Neustart der Webanwendung – es sei denn, die Erweiterung legt Folgendes fest: `supportsHotReload` Dann Webaufrufe `unload()` und startet ein neues Objekt mit den neuen Einstellungen oder entlädt es einfach. Die Webanwendung läuft weiter: Die Sitzungen und Socket-Verbindungen aller anderen Benutzer bleiben erhalten.
+
+```js
+class MyExtension {
+    // or as a field of the object: this.supportsHotReload = true
+    static supportsHotReload = true;
+    ...
+}
+```
+
+Stelle es nur ein, wenn `unload()` Gibt alles zurück, was die Erweiterung vom Web übernommen hat, außer ihren Routen und Abonnements:
+
+- Timer und Intervalle,
+- Kindprozesse, offene Sockets und Streams,
+- Zuhörer `adapter` oder auf `server`, wie `adapter.on('message')` oder `server.on('upgrade')` Die
+
+Was das Web von selbst tut:
+
+- Vor `unload()` wird aufgerufen, die Routen und die öffentlichen Pfade der Erweiterung sind verschwunden, und es erhält keine `stateChange()`, `objectChange()` oder `fileChange()` mehr.
+- `unload()` hat 5 Sekunden.
+- Listener, die der Konstruktor hinzugefügt hat `adapter` oder zu `server` die noch da sind nach `unload()` werden entfernt, wobei eine Warnung im Protokoll vermerkt wird. Später hinzugefügte Listener bleiben unverändert.
+- Abonnements, die Verlängerung gilt weiterhin nach `unload()` werden aufgegeben (siehe [Abonnements](#subscriptions) ). Abonnements für Muster, die auch andere verwenden, bleiben Sie deshalb abonniert.
+
+Ein Fehler, der von einer Middleware der Erweiterung weitergegeben wurde (`next(err)`) wird an die Fehlerbehandlung des Webs weitergeleitet; Fehlerbehandler anderer Erweiterungen sehen dies nicht.
 
 `common.mode` könnte sein:
 

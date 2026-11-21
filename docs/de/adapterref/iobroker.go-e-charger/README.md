@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.go-e-charger/README.md":{"title":{"en":"ioBroker.go-eCharger"},"content":"en/adapterref/iobroker.go-e-charger/README.md"},"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md":{"title":{"en":"Migrating from the go-e adapter (ioBroker.go-e) to go-e-charger"},"content":"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md"},"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md":{"title":{"en":"Umstieg vom go-e-Adapter (ioBroker.go-e) auf go-e-charger"},"content":"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: Q3TGnsN2MMlqYJQN0aR5fNSDA11UQPHw2QSrPd1L/Q8=
+hash: HSBobmRDRjnbpxGq9t94YTVLSkGvaRp13NlzED0uAmA=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -28,6 +29,10 @@ hash: Q3TGnsN2MMlqYJQN0aR5fNSDA11UQPHw2QSrPd1L/Q8=
 # ioBroker.go-eCharger
 
 ## Versionen
+
+## Sentry
+
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## ioBroker-Adapter für go-e Charger EV-Wallboxen
 
@@ -155,11 +160,14 @@ Nach dem Start des Adapters verwenden Sie die unten aufgeführten beschreibbaren
 | ------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `go-e-charger.0.Settings.Setpoint_HomeBatSoC`     | Mindestladezustand der Heimbatterie, bevor zusätzliches Laden zulässig ist        |
 | `go-e-charger.0.Wallbox_0.Settings.ChargeManager` | Aktiviert oder deaktiviert die PV-Überschusssteuerung                             |
-| `go-e-charger.0.Wallbox_0.Settings.ChargeNOW`     | Überschreibt ChargeManager und erzwingt das Laden                                 |
+| `go-e-charger.0.Wallbox_0.Settings.ChargeNOW`     | Erzwingt den Ladevorgang; schaltet ChargeManager aus                              |
 | `go-e-charger.0.Wallbox_0.Settings.ChargeCurrent` | Stromverbrauch von ChargeNOW                                                      |
 | `go-e-charger.0.Wallbox_0.Settings.Charge3Phase`  | Wählt bei unterstützter Hardware zwischen einphasigem und dreiphasigem Laden aus. |
+| `go-e-charger.0.Wallbox_0.Settings.PhaseMode`     | `1` /`3` korrigiert die Phasenanzahl, `0` Schaltet automatisch                     |
 
-Für Überschussladung einstellen `ChargeNOW` Zu `false` Und `ChargeManager` Zu `true` Wenn beide aktiviert sind, hat ChargeNOW Vorrang und verwendet die konfigurierte `ChargeCurrent` ohne Berücksichtigung des verfügbaren Überschusses.
+Für Überschussladung einstellen `ChargeManager` Zu `true` ChargeNOW lädt zu dem konfigurierten Preis. `ChargeCurrent` ohne Berücksichtigung des verfügbaren Überschusses. Die beiden Modi schließen sich gegenseitig aus: Das Einschalten des einen schaltet den anderen aus.
+
+ChargeNOW schaltet sich automatisch ab, sobald das Fahrzeug vom Stromnetz getrennt wird. **Ist die Funktion „Ladevorgang beenden“** für die Wallbox aktiviert, schaltet sich ChargeNOW automatisch ab, sobald das Fahrzeug 5 Minuten lang keinen Strom mehr verbraucht. Das Einschalten von ChargeNOW vor dem Anschließen des Fahrzeugs ist unbedenklich: Das Ladegerät wartet auf das Fahrzeug, ohne den Ladevorgang zu unterbrechen.
 
 #### Einphasen- und Dreiphasenladung
 
@@ -178,16 +186,23 @@ Da die aktuelle Implementierung den Ladevorgang startet, sobald der interne Ziel
 - Sobald der Überschuss nicht mehr ausreicht, um das dreiphasige Minimum (\~4,1 kW bei 6 A) aufrechtzuerhalten, schaltet das System **auf einphasig um.** Dadurch wird der Ladevorgang bei schrumpfendem Überschuss einphasig fortgesetzt, anstatt zu stoppen.
 - Die Differenz zwischen diesen Schwellenwerten zuzüglich einer Verweilzeit verhindert ein schnelles Hin- und Herschalten, das den Ladevorgang jedes Mal unterbrechen würde.
 
-Wenn die Option aktiviert ist, steuert der Adapter die Einstellungen. `Charge3Phase` Bei der Wallbox sollte die Funktion deaktiviert bleiben, um den Lademodus weiterhin manuell auszuwählen. Da ein Schalter den Ladevorgang kurzzeitig unterbricht und nicht jedes Fahrzeug damit problemlos zurechtkommt, ist diese Funktion optional.
+Diese Option ermöglicht das automatische Umschalten; `Settings.PhaseMode` Wählt es zur Laufzeit aus, ohne den Adapter neu zu starten:
+
+- `0` Automatische Umschaltung (nur akzeptiert, wenn die Option aktiviert ist und Hardware der 3. Generation oder höher verwendet wird; dann Standardeinstellung), beginnt mit der Phasenanzahl, die das Ladegerät verwendet
+- `1`: feste einphasige Ladung, Sätze `Charge3Phase` Zu `false`
+- `3`: feste dreiphasige Ladung, Sätze `Charge3Phase` Zu `true`
+
+Im Automatikmodus wählt der ChargeManager die Phasenanzahl aus, ohne sie zu ändern. `Charge3Phase`, das sich immer wieder bei ChargeNOW bewirbt. Schreiben `Charge3Phase` Das direkte Beenden des Automatikmodus wird dadurch nicht beendet. Da ein Schalter den Ladevorgang kurzzeitig unterbricht und nicht jedes Fahrzeug dies problemlos verkraftet, ist diese Option standardmäßig deaktiviert.
 
 #### Betriebsarten
 
 | ChargeNOW | ChargeManager | Ergebnis                                                       |
 | --------- | ------------- | -------------------------------------------------------------- |
-| `false`   | `false`       | Das Laden ist deaktiviert                                      |
+| `false`   | `false`       | Der Adapter lädt nicht.                                        |
 | `false`   | `true`        | Die Ladung erfolgt entsprechend dem berechneten PV-Überschuss. |
-| `true`    | `false`       | Zwangsladung bei `ChargeCurrent`                               |
-| `true`    | `true`        | ChargeNOW hat Vorrang.                                         |
+| `true`    | `false`       | Zwangsladung bei `ChargeCurrent`                                |
+
+Sind beide Modi deaktiviert, entnimmt der Adapter nur die von ihm selbst freigegebene Ladung. Ein Ladevorgang, der über die go-e App, die Taste am Ladegerät oder die Standardeinstellung des Ladegeräts gestartet wurde, bleibt unberührt.
 
 Im Nur-Lese-Modus können diese Zustände zwar noch geändert werden, es wird jedoch kein resultierender Steuerbefehl an das Ladegerät gesendet.
 
@@ -219,9 +234,12 @@ Solange das Budget aktiv ist, **passt sich der Adapter dem tatsächlich gemessen
 
 > Es handelt sich um ein konservatives, phasenunabhängiges Modell: Jeder Ampere zählt zu einem Gesamtbudget, unabhängig davon, auf welcher Phase er anliegt. Die Nennleistung der Sicherung wird nie überschritten, aber bei Lasten, die auf mehrere Phasen verteilt sind, kann ein Teil der Kapazität ungenutzt bleiben.
 
-## Sentry
+## Migration vom go-e Adapter
 
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
+Kommen Sie vom Adapter [ioBroker.go-e](https://github.com/MK-2001/ioBroker.go-e) ? Der Migrationsleitfaden ordnet Datenpunkte und Einstellungen zu, beantwortet häufig gestellte Fragen (go-e-App-Modus, HTTP-API v1/v2, Vorzeichen der Eingabewerte, paralleler Betrieb beider Adapter im Nur-Lese-Modus) und listet auf, was noch nicht unterstützt wird:
+
+- [Migrationsleitfaden (Englisch)](/#/docs/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md)
+- [Umstiegsanleitung (Deutsch)](/#/docs/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md)
 
 ## Spenden
 
@@ -233,52 +251,50 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 1.8.0 (2026-10-04)
 
-- (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
-- (hombach) the total current budget now follows the measured charging current: a wallbox that draws less than allowed has its unused current reclaimed after a dwell and handed to the next wallbox, growing back one ampere per cycle when it uses what it gets - reductions are always applied before increases so the summed current never exceeds the fuse
-- (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
-- (hombach) docs: documented the total current budget
-- (typhosj) the phase mode (`psm`) is now only written when the charger reports a different mode instead of every cycle, because it is a stored charger setting
-- (typhosj) ChargeManager: no charge release, charging current or phase switch is sent while no vehicle is plugged in, and an unchanged release or current is no longer re-sent every cycle - each write woke the charger's LEDs
-- (typhosj) the charging current is no longer re-sent every cycle: the charger reports a written `amx` back as 0 and only shows the applied current in `amp`, so the check for an unchanged value never matched
-- (typhosj) the charge release is no longer re-sent on every single cycle while the vehicle reports that it has finished charging - the charger confirms each write and keeps ignoring it, for up to 90 minutes in one logged case; it is still retried, just at a lower rate after the first five minutes
-- (typhosj) ChargeManager: the charging current no longer follows a one-ampere change of its target, so a passing cloud no longer makes it step back and forth every cycle
-- (typhosj) ChargeManager: a running charge now follows a falling surplus down to the minimum current - the 10 A start current also applied to a running charge, so currents between the minimum and 10 A were never written and the charger stayed at the 10 A written last, drawing the difference from the grid or the home battery until the surplus recovered or the shutdown delay ran out
+### **WORK IN PROGRESS**
+
+- (HombachC) moved the Sentry notice near the top of README.md to satisfy the repository checker (#938)
+- (hombach) updated iobroker/testing
 - (hombach) updated dependencies
 
-### 1.7.0 (2026-09-18)
+### 1.10.2 (2026-11-01)
 
-- (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
-- (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
-- (typhosj) ChargeManager: a wallbox without a connected vehicle no longer reserves surplus and can no longer starve a wallbox that has a car waiting
-- (hombach) ChargeManager: optional automatic 1-/3-phase switching per wallbox (gen 3+, off by default) - switches up when one-phase charging saturates and back down when the surplus can no longer sustain three phases, with a dwell time to prevent flapping
-- (hombach) fixed: automatic phase switching no longer overwrites the manual `Settings.Charge3Phase` request - the automatic decision is now tracked internally, so the user's manual 1-/3-phase setting is preserved (and no longer persisted across restarts as if the user had set it)
-- (hombach) docs: clarified the multi-wallbox behaviour (list order = priority) and noted that no combined current limit across wallboxes is enforced yet
-- (hombach) updated axios
-- (hombach) switch to iobroker testing 6.x
-- (hombach) fixed repochecker warnings
-- (hombach) added node 26 tests
+- (HombachC) added a migration guide from the go-e adapter (ioBroker.go-e) in English and German
+- (HombachC) fixed the RFID card energy (statistics.RFID<n>.chargedEnergy) on gen 3+ chargers freezing at the value read at adapter start: it is now read from the API V2 card keys in Wh precision, with an API V1 fallback refreshed every cycle (#889)
 
-### 1.6.1 (2026-09-04)
+### 1.10.1 (2026-10-31)
 
-- (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
+- (HombachC) an unreachable charger (e.g. without power) is now shown offline: its info.connection turns false, live readings are cleared and it is left out of ChargeManager and current budget until it answers again; the error is logged once instead of every cycle
+- (HombachC) added read-only state info.ipAddress with the configured IP address of each charger
+- (HombachC) log messages now name a charger by its configured name (e.g. charger "WEST - Tesla" (192.168.11.181)) instead of its number; the number is only used when no name is configured
+- (typhosj) ChargeManager: new state `Settings.PhaseMode` switches between fixed one-phase, fixed three-phase and automatic phase switching at runtime; the instance option now only makes the automatic mode available
 
-### 1.6.0 (2026-08-29)
+### 1.10.0 (2026-10-29)
 
-- (hombach) added optional per-wallbox minimum and maximum charging current, applied to both ChargeManager and ChargeNOW and always kept within the installation-wide maximum
-- (hombach) the per-wallbox current limits now also respect the charger's reported hardware caps (absolute max, cable limit, minimum charging current), published as `info.hardwareMaxChargeCurrent` / `info.hardwareMinChargeCurrent`
-- (typhosj) ChargeManager: added home-battery modes (disabled, minimum SoC, battery priority); installations without a home battery no longer need a constant helper state
-- (typhosj) ChargeManager: added a battery SoC hysteresis and an optional maximum SoC age so surplus control stops on stale battery data
-- (hombach) admin: moved the maximum charging current to the standard settings tab and clarified that it is an installation-wide limit of the shared power supply, valid for all wallboxes and both charging modes
+- (HombachC) improved log message for invalid wallbox responses (no longer suggests checking the IP)
+- (HombachC) fixed maxAmpTotal config: default 16 A, max 64 A consistent between admin and code
+- (HombachC) fixed outdated native defaults in io-package.json (e.g. subtractSelfConsumption undefined on new installs)
+- (typhosj) with ChargeNOW and ChargeManager both off, the adapter no longer aborts a charge it did not start - a charge started from the go-e app, the button or after a charger restart used to be cut off in the next cycle, until the vehicle gave up
+- (typhosj) ChargeNOW now switches itself off when the vehicle is unplugged, and with the option above when the vehicle stops drawing power; it used to hold the charge release until switched off by hand, so the next vehicle plugged in started charging at the full ChargeNOW current. While ChargeNOW waits for a vehicle, nothing is sent to the charger
+- (typhosj) ChargeNOW and ChargeManager are now exclusive: switching one on switches the other off, instead of ChargeNOW silently taking precedence
+- (typhosj) a ChargeManager that takes over a charger - at adapter start or after ChargeNOW - continues a running charge at its current, with a fresh shutdown delay; it used to start from its previous state and could withdraw the release in its first cycle
+- (typhosj) ChargeManager: a charger in force state neutral, where it decides by itself and charges any vehicle, is now held off unless the adapter released it - firmware 60.6 comes back from every restart in that state, the go-e app sets it when a setting is saved, and firmware 59.4 and 60.6 set it when a vehicle is unplugged; the next vehicle used to charge at full power from the grid until the shutdown delay ran out. The release the charger reports in that state is no longer taken for one the adapter gave
+- (HombachC) fixed TypeError in log when a state change arrives for an unconfigured wallbox number
 
-### 1.5.0 (2026-08-25)
+### 1.9.0 (2026-10-28)
 
-- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
-- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
-- (hombach) the configurable maximum charging current now caps ChargeNOW as well
-- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
+- (solar0x) new states `Wallbox_X.Power.VoltageL1`, `VoltageL2` and `VoltageL3` show the voltage the charger measures on each grid phase, in V; all hardware generations. As in the go-e app, a single-phase supply with L and N swapped shows its N voltage as L1
+- (typhosj) new state `Wallbox_X.Power.GridFrequency` shows the grid frequency the charger measures, in Hz; hardware gen 3 and newer with HTTP API v2 enabled only, and it stays empty while the charger reports the frequency as unknown [#898]
+- (typhosj) new state `Wallbox_X.info.chargeState` explains why the charger is charging or not - waiting for a vehicle, charging the home battery first, not enough PV surplus, ramping up to the start current, charging, current budget exhausted, both modes off; every change of the reason is also logged once. A charger that never started used to leave no trace in the log, because most of these reasons were only logged together with a write to the charger
+- (typhosj) ChargeManager: new per-wallbox option to withdraw the charge release when the vehicle draws no power for 5 minutes - vehicles such as the Renault Zoe otherwise stay in charging mode, e.g. in the evening when the battery bonus keeps the release active (reported by a user)
+- (hombach) phase voltages and grid frequency are rounded to 2 decimal places
 - (hombach) updated dependencies
+
+### 1.8.1 (2026-10-11)
+
+- (typhosj) after an automatic switch from one to three phases the ChargeManager now continues at the power the car was charging with instead of the one-phase current; 16 A on one phase used to become 16 A on three phases (about 11 kW) and came down only one ampere per cycle, drawing the difference from the battery or the grid
+- (typhosj) after an automatic switch from three to one phase the ChargeManager now also continues at the power reached so far, capped at what the surplus carries on one phase; it used to keep the three-phase current, so a car plugged in while the charger still held three phases from the last charge took about a minute longer to start
 
 ## License
 

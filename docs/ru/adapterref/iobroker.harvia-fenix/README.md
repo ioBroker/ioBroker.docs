@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
+hash: 8da0ZDfp9fK4og734MhWL3GmnLq3RMHjvXsVMMK476g=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -12,6 +12,7 @@ hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
 ![Проблемы на GitHub](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Количество установок](https://iobroker.live/badges/harvia-fenix-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/harvia-fenix-stable.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -25,7 +26,7 @@ hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
 
 ### Адаптер ioBroker для интеграции и управления блоком управления сауны **Harvia Fenix** через облачную инфраструктуру MyHarvia.
 
-Для получения более подробной информации о компании Harvia и ее блоках управления сауной, пожалуйста, посетите [официальный сайт Harvia](https://www.harvia.com) .
+Для получения более подробной информации о компании Harvia и их блоках управления сауной, пожалуйста, посетите [официальный сайт Harvia](https://www.harvia.com) .
 
 ---
 
@@ -71,7 +72,7 @@ _Примечание: Мы рекомендуем создать отдельн
 2. Перейдите на вкладку « **Экземпляры»** и щелкните значок настроек вашего экземпляра. `harvia-fenix.0` пример.
 3. Введите свой **адрес электронной почты** и **пароль** от учетной записи MyHarvia.
 4. Если оставить поле **«Идентификатор устройства»** пустым, адаптер автоматически выполнит поиск устройств, связанных с вашей учетной записью, при запуске. В качестве активного устройства будет использоваться первое найденное устройство.
-5. Настройте дополнительные параметры: **интервал опроса** (секунды), **минимальный/максимальный предел целевой температуры** (°C) и **максимальная продолжительность нагрева** (минуты).
+5. Настройте дополнительные параметры: **минимальные/максимальные предельные значения целевой температуры** (°C) и **максимальную продолжительность нагрева** (минуты).
 6. Нажмите **«Сохранить и закрыть»** .
 
 ### Настройка устройства и поддержка нескольких устройств
@@ -149,6 +150,7 @@ _Примечание: Мы рекомендуем создать отдельн
 | `heatOn`                        | логический | `switch.power`        | Чтение/Запись     | Главный переключатель для включения нагревателя сауны (`true`) или ВЫКЛ. `false`).                                                                                                                                                   |
 | `heaterPower`                   | число      | `value.power`         | Только для чтения | _Примечание:_ Этот объект предоставляется через структуру API MyHarvia, но в настоящее время поставляется в виде `0 kW` (незаполнено). По всей видимости, это поле зарезервировано для будущих обновлений оборудования или приложений. |
 | `lightOn`                       | логический | `switch.light`        | Чтение/Запись     | Переключатель позволяет включить или выключить встроенное освещение сауны.                                                                                                                                                            |
+| `fanOn`                         | логический | `switch`              | Чтение/Запись     | Переключатель позволяет включить или выключить вентилятор сауны/дополнительное освещение.                                                                                                                                             |
 | `maxDuration`                   | число      | `level.timer`         | Чтение/Запись     | Максимально допустимая продолжительность нагрева сауны в минутах (`min`).                                                                                                                                                            |
 | `panelTemp`                     | число      | `value.temperature`   | Только для чтения | Показания температуры, измеренные на физическом блоке управления.                                                                                                                                                                     |
 | `targetTemp`                    | число      | `level.temperature`   | Чтение/Запись     | Заданная целевая температура для сауны (например, `90 °C`).                                                                                                                                                                           |
@@ -166,7 +168,7 @@ _Примечание: Мы рекомендуем создать отдельн
 | `activeProfile`                 | число      | `level`               | Чтение/Запись     | Указатель профиля текущей активной сауны (`0` = мягкий, `1` = уютный, `2` = горячий).                                                                                                                                                   |
 | `events.lastEvent`              | нить       | `text`                | Только для чтения | Код или идентификатор последнего события, полученного от службы организации мероприятий Harvia Events Service.                                                                                                                        |
 | `events.lastEventType`          | нить       | `text`                | Только для чтения | Категория последнего события (`SAFETY`, `ERROR`, `SYSTEM`, и т. д.).                                                                                                                                                                 |
-| `events.lastEventSeverity`      | нить       | `text`                | Только для чтения | Уровень серьезности последнего инцидента (`info`, `warn`, `error`, `critical`).                                                                                                                                                      |
+| `events.lastEventSeverity`      | нить       | `text`                | Только для чтения | Уровень тяжести последнего инцидента (`info`, `warn`, `error`, `critical`).                                                                                                                                                          |
 | `events.lastEventMessage`       | нить       | `text`                | Только для чтения | Удобочитаемое сообщение или описание последнего события.                                                                                                                                                                              |
 | `events.lastEventTime`          | нить       | `date`                | Только для чтения | ISO-метка времени последнего события.                                                                                                                                                                                                 |
 | `events.safetyTripped`          | логический | `sensor.alarm`        | Только для чтения | Указывает, произошло ли срабатывание активного защитного отключения или блокировки.                                                                                                                                                   |
@@ -232,7 +234,7 @@ _Примечание: Эти состояния будут автоматиче
 ### 4. Центр мероприятий и безопасности (`events.*`)
 
 - **Система контроля аварийной остановки (`events.safetyTripped` &`events.safetyReason`):**\
-  &#x20;Адаптер отслеживает работу защитных контуров дверей, термопредохранителей и блокировок предохранительных выключателей от службы Harvia Events Service. Если во время обогрева срабатывает активный предохранительный выключатель, `events.safetyTripped` переключается на `true` с четким объяснением в `events.safetyReason`.
+  &#x20;Адаптер отслеживает работу защитных контуров дверей, термопредохранителей и блокировок предохранительных выключателей от службы Harvia Events Service. Если во время обогрева срабатывает активный предохранительный выключатель, `events.safetyTripped` переключается на `true` с ясным объяснением в `events.safetyReason`.
 - **История событий (`events.history`):**\
   &#x20;Сохраняет историю последних 15 событий, связанных с системой, дверями, ошибками и безопасностью, в виде структурированного массива JSON для панелей мониторинга VIS и ведения журналов аудита.
 
@@ -259,8 +261,27 @@ _Примечание: Эти состояния будут автоматиче
 ---
 
 ## Changelog
-
 ### **WORK IN PROGRESS**
+* (meistermopper) Update node-forge override to ^1.4.3 (Dependabot alerts)
+* (meistermopper) Add Weblate translation badge to README and sync German i18n
+* (meistermopper) Update @iobroker/testing to 6.3.2 (W0037)
+
+### 1.2.1 (2026-11-05)
+* (meistermopper) Remove obsolete pollInterval setting from instance configuration
+* (meistermopper) Update dependency overrides to resolve Dependabot security alerts
+
+### 1.2.0 (2026-10-19)
+* (meistermopper) Add fanOn state and FAN command support for sauna fan or secondary light
+* (meistermopper) Add patch-ps-tree script for dev-server Windows 11 compatibility
+* (meistermopper) Update dependency overrides to resolve security advisories
+
+### 1.1.2 (2026-10-02)
+* (meistermopper) Fix potential infinite loop in auth retry logic
+* (meistermopper) Update @iobroker/testing to 6.3.0 (W0037)
+* (meistermopper) Use adapter timer methods in push client (S5005)
+
+### 1.1.1 (2026-09-21)
+* (meistermopper) Fix remoteControl flapping on push measurement updates
 * (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
 
 ### 1.1.0 (2026-09-17)
@@ -268,31 +289,6 @@ _Примечание: Эти состояния будут автоматиче
 * (meistermopper) Add safety trip detection, alarm indicators, and sliding history
 * (meistermopper) Fix activeProfile endpoint to use PATCH /devices/profile per API spec
 * (meistermopper) Document profiles and activeProfile switching behavior in README
-
-### 1.0.0 (2026-09-17)
-* (meistermopper) Add AWS AppSync WebSocket real-time push client
-* (meistermopper) Add token refresh via /auth/refresh using refreshToken
-
-### 0.6.0 (2026-09-16)
-* (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
-* (meistermopper) Implement Harvia native 13-interval heating curve calculation
-* (meistermopper) Add profiles, activeProfile, and standby time prognosis
-* (meistermopper) Increase adapter logo display size in README files to 200px
-* (meistermopper) Add breaking change callouts and older tag support to release notes
-* (meistermopper) Add automated release notes generator for GitHub releases
-* (meistermopper) Add check:repo script and integrate repochecker into test:local
-* (meistermopper) Restore email in license copyright lines (S4050, S4051)
-* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
-
-### 0.5.1 (2026-09-12)
-* (meistermopper) Replace adapter logo with custom MyFenix homage logo
-* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
-* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
-
-### 0.5.0 (2026-09-09)
-* (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
-* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
-* (meistermopper) Add Node.js 26 to test matrix
 
 ## License
 MIT License

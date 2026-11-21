@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: mrBUOE8cCisE3fLpGWokCSAe3GXzudhP9SXI5h9A1Nw=
+hash: EES+Hc/hLLHOxWa4hW+F7YmPPCoYQf7Vh48fXeexaZc=
 ---
 ![Logo](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -34,7 +34,7 @@ Keine Sorge, in diesem Fall können Sie das Gerät manuell über die IP-Adresse 
 
 1. Stellen Sie sicher, dass Ihr WLED-Gerät eingeschaltet und vom Netzwerk erreichbar ist.
 2. Installieren Sie den Adapter
-3. Konfigurieren Sie die Intervallzeiten für die Datenabfrage und die automatischen Erkennungszyklen.\
+3. Konfigurieren Sie das Intervall für die Datenabfrage (Geräte werden einmalig beim Start und über die Schaltfläche „Suchen“ im Geräte-Manager erkannt).\
    &#x20;4 - A) Schalten Sie den Adapter ein, die Geräte sollten automatisch erkannt werden.\
    &#x20;4 - B) Falls A fehlschlägt, verwenden Sie die Schaltfläche „Gerät hinzufügen“ und geben Sie die IP-Adresse des Geräts an.
 4. Der Adapter sendet Änderungen sofort und fragt Daten alle x Sekunden ab (konfigurierbar).
@@ -66,7 +66,7 @@ setState('wled.0.XXXXXXXXXXXX.rawCommand', 'SM=0&SS=0&SV=2&S=15&S2=299&GP=7&SP=3
 Gängige Rohbefehlsparameter:
 
 - `A` - Masterhelligkeit (0-255)
-- `R`, `G`, `B` - RGB-Werte der Primärfarben (0-255)
+- `R`, `G`, `B` - RGB-Werte der Primärfarbe (0-255)
 - `R2`, `G2`, `B2` - Sekundärfarben-RGB-Werte (0-255)
 - `W`, `W2` - Weißkanalwerte (0-255)
 - `FX` - Effekt-ID
@@ -165,6 +165,28 @@ Veröffentlichungen werden von der `deploy` Job von `.github/workflows/test-and-
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+* (DutchmanNL) **FIXED**: `_info.time` is a read-only text again, the command `time` stays a writable number ([#956](https://github.com/DrozmotiX/ioBroker.wled/issues/956))
+* (DutchmanNL) **FIXED**: Effect parameters `c1`, `c2` (0–255) and `c3` (0–31) are numbers ([#957](https://github.com/DrozmotiX/ioBroker.wled/issues/957))
+* (DutchmanNL) **FIXED**: `addSegment` keeps the white channel of `[r,g,b,w]` colours ([#958](https://github.com/DrozmotiX/ioBroker.wled/issues/958))
+* (DutchmanNL) **FIXED**: Bundling no longer merges two individual LED commands (`i`) for the same segment, they are sent one after the other ([#959](https://github.com/DrozmotiX/ioBroker.wled/issues/959))
+* (DutchmanNL) **FIXED**: `udpn.recv` also sets the receive groups (`rgrp`), WLED 0.15 and newer ignore `recv` ([#960](https://github.com/DrozmotiX/ioBroker.wled/issues/960))
+* (DutchmanNL) **FIXED**: `tt` and `udpn.nn` are sent with the next command to the device, on their own they had no effect ([#961](https://github.com/DrozmotiX/ioBroker.wled/issues/961))
+* (DutchmanNL) **FIXED**: All states under `_info` are read-only, `_info.leds.cct` no longer looks like the colour temperature command ([#962](https://github.com/DrozmotiX/ioBroker.wled/issues/962))
+* (DutchmanNL) **FIXED**: `nl.on` and `seg.<id>.on` have the role `switch`, only the device `on` keeps `switch.light` ([#963](https://github.com/DrozmotiX/ioBroker.wled/issues/963))
+* (DutchmanNL) **FIXED**: Help texts for polling interval, retry attempts and auto discovery in the instance settings ([#964](https://github.com/DrozmotiX/ioBroker.wled/issues/964))
+* (DutchmanNL) **FIXED**: The delete confirmation in the Config manager shows the device name with the MAC ([#965](https://github.com/DrozmotiX/ioBroker.wled/issues/965))
+
+### 0.10.0 (2026-11-14)
+* (DutchmanNL) **NEW**: Rebuilt instance settings (JSON config): device overview with online status, firmware and link to WLED, add devices by IP or host name with checks, search devices, delete with confirmation, light and dark theme ([#266](https://github.com/DrozmotiX/ioBroker.wled/issues/266))
+* (DutchmanNL) **NEW**: Option to switch off automatic Bonjour/mDNS discovery; found devices use the announced IPv4 address instead of the sender (mDNS relay) ([#897](https://github.com/DrozmotiX/ioBroker.wled/issues/897))
+* (DutchmanNL) **NEW**: Commands to the same device are bundled for a short time (`bundleDelay`, default 50 ms, 0 = off), switchable per device with `<MAC>.bundleCommands` ([#926](https://github.com/DrozmotiX/ioBroker.wled/issues/926))
+* (DutchmanNL) **NEW**: Device Manager: "Edit device" with name, "Take name from WLED" and "Bundle commands" ([#927](https://github.com/DrozmotiX/ioBroker.wled/issues/927))
+* (DutchmanNL) **NEW**: Channel `<MAC>.light` with `on`, `dimmer` and `rgb` so the type detector and the iot adapter (Alexa/Google) recognise a light ([#328](https://github.com/DrozmotiX/ioBroker.wled/issues/328))
+* (DutchmanNL) **NEW**: Usermod values from `info.u` as states with unit, e.g. buttons, sensors or pins a usermod reports ([#929](https://github.com/DrozmotiX/ioBroker.wled/issues/929), [#928](https://github.com/DrozmotiX/ioBroker.wled/issues/928), [#931](https://github.com/DrozmotiX/ioBroker.wled/issues/931))
+* (DutchmanNL) **NEW**: `seg.<id>.last.col/fx/pal` keep the values before the last change, `seg.<id>.last.restore` restores them ([#930](https://github.com/DrozmotiX/ioBroker.wled/issues/930))
+* (DutchmanNL) **FIXED**: A command for a device that is offline triggers an immediate reconnect attempt, so a device that was switched on again is used at once instead of after the next watchdog run (up to one hour after several failed attempts) ([#939](https://github.com/DrozmotiX/ioBroker.wled/issues/939))
+
+### 0.9.3-beta.0 (2026-11-14)
 * (DutchmanNL) Maintenance: use adapter timer API (this.setTimeout/this.clearTimeout) so all timers are cleared on unload
 * (DutchmanNL) Maintenance: translated the delete device confirmation message into all supported languages
 * (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
@@ -177,6 +199,34 @@ Veröffentlichungen werden von der `deploy` Job von `.github/workflows/test-and-
 * (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#872](https://github.com/DrozmotiX/ioBroker.wled/issues/872))
 * (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
 * (DutchmanNL) Removed a broken README link ([#876](https://github.com/DrozmotiX/ioBroker.wled/issues/876))
+* (DutchmanNL) **FIXED**: Writing a HEX colour sends the tertiary colour from `2_HEX` instead of `1_HEX` ([#906](https://github.com/DrozmotiX/ioBroker.wled/issues/906))
+* (DutchmanNL) **FIXED**: Writing a 6-digit HEX colour keeps the current white channel instead of setting it to 255, an 8-digit HEX sets the white channel ([#907](https://github.com/DrozmotiX/ioBroker.wled/issues/907))
+* (DutchmanNL) **FIXED**: `rawCommand` is only acknowledged when the device accepted the command, a failed request is logged as warning ([#908](https://github.com/DrozmotiX/ioBroker.wled/issues/908))
+* (DutchmanNL) **FIXED**: Usermod data (`u`) in the state section is removed correctly, the object id contained a tab character ([#921](https://github.com/DrozmotiX/ioBroker.wled/issues/921))
+* (DutchmanNL) **FIXED**: Segment mirroring `seg.N.mi` can be written ([#918](https://github.com/DrozmotiX/ioBroker.wled/issues/918))
+* (DutchmanNL) **FIXED**: The `time` state can be written to set the module time (unix timestamp) as documented ([#919](https://github.com/DrozmotiX/ioBroker.wled/issues/919))
+* (DutchmanNL) **FIXED**: The debug message "State attribute definition missing" is logged once per attribute instead of on every update ([#917](https://github.com/DrozmotiX/ioBroker.wled/issues/917))
+* (DutchmanNL) **FIXED**: The websocket ping timer no longer resets the handle of the watchdog timer, so all timers are stopped correctly ([#902](https://github.com/DrozmotiX/ioBroker.wled/issues/902))
+* (DutchmanNL) **FIXED**: Device Manager: deleting a device waits for the result, shows an error if it fails and works for instance numbers from 10 ([#914](https://github.com/DrozmotiX/ioBroker.wled/issues/914))
+* (DutchmanNL) **FIXED**: Device Manager: adding a device that does not respond shows a message instead of failing silently ([#916](https://github.com/DrozmotiX/ioBroker.wled/issues/916))
+* (DutchmanNL) **FIXED**: Adding a device checks the IP address range and reports a device that is already added instead of "failed" ([#915](https://github.com/DrozmotiX/ioBroker.wled/issues/915))
+* (DutchmanNL) **FIXED**: An outage of a device is logged as one warning, reconnect attempts are logged at debug level ([#903](https://github.com/DrozmotiX/ioBroker.wled/issues/903))
+* (DutchmanNL) **FIXED**: A command for a device that is offline or unknown logs a clear warning instead of an error reported to Sentry; commands sent by websocket are acknowledged ([#904](https://github.com/DrozmotiX/ioBroker.wled/issues/904))
+* (DutchmanNL) **FIXED**: When the websocket connection of a device closes, `_info._online` is reset and the disconnect is logged again (regression since 0.7.2) ([#899](https://github.com/DrozmotiX/ioBroker.wled/issues/899))
+* (DutchmanNL) **CHANGED**: `on` and `bri` keep their last value when a device goes offline or the adapter starts; the current values are read from the device on reconnect ([#899](https://github.com/DrozmotiX/ioBroker.wled/issues/899))
+* (DutchmanNL) **FIXED**: `_info._online` turns `false` when a device did not answer for two polling intervals, as intended ([#900](https://github.com/DrozmotiX/ioBroker.wled/issues/900))
+* (DutchmanNL) **FIXED**: Devices that are found or added after the adapter start are monitored by the watchdog (offline detection, reconnect) without a restart ([#901](https://github.com/DrozmotiX/ioBroker.wled/issues/901))
+* (DutchmanNL) **FIXED**: Discover in the Device Manager stops the previous Bonjour search before starting a new one; README no longer mentions auto-detect cycles ([#905](https://github.com/DrozmotiX/ioBroker.wled/issues/905))
+* (DutchmanNL) **FIXED**: A device name changed in ioBroker is kept; the WLED name is only taken over for new devices or when the name was not changed ([#910](https://github.com/DrozmotiX/ioBroker.wled/issues/910))
+* (DutchmanNL) **FIXED**: The effect and palette lists of `fx` and `pal` are refreshed on every reconnect, new effects after a firmware update appear without restart ([#912](https://github.com/DrozmotiX/ioBroker.wled/issues/912))
+* (DutchmanNL) **FIXED**: The reboot button `rb` is created for every device; `hp` and `rd` appear when the device provides them ([#911](https://github.com/DrozmotiX/ioBroker.wled/issues/911))
+* (DutchmanNL) **FIXED**: Errors are logged once; the Sentry hand-over is only logged at debug level ([#913](https://github.com/DrozmotiX/ioBroker.wled/issues/913))
+* (DutchmanNL) **FIXED**: `addSegment` checks segment id, `start` and `stop` (stop greater than start) and accepts numbers given as text ([#920](https://github.com/DrozmotiX/ioBroker.wled/issues/920))
+* (DutchmanNL) The labels of the retry settings are part of the i18n translation files ([#922](https://github.com/DrozmotiX/ioBroker.wled/issues/922))
+* (DutchmanNL) **FIXED**: Removed the unused setting `devices` from the instance configuration; devices are taken from the object tree ([#923](https://github.com/DrozmotiX/ioBroker.wled/issues/923))
+* (DutchmanNL) **FIXED**: A polling interval below 1 second or an invalid number of retries is replaced by the default and logged as warning ([#924](https://github.com/DrozmotiX/ioBroker.wled/issues/924))
+* (DutchmanNL) **FIXED**: Small corrections: device names with spaces in the settings table, device model without "undefined", typo in the connection state name ([#925](https://github.com/DrozmotiX/ioBroker.wled/issues/925))
+* (DutchmanNL) **FIXED**: Segments added or removed in WLED are synchronised without restart; segment states are stored by their WLED segment id, so writing works when segment numbers have gaps ([#909](https://github.com/DrozmotiX/ioBroker.wled/issues/909))
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -197,15 +247,6 @@ Veröffentlichungen werden von der `deploy` Job von `.github/workflows/test-and-
 * (ticaki) allow sending of raw json from state
 * (DutchmanNL) **FIXED**: Implement proper Bonjour browser cleanup in onUnload() to prevent resource leaks
 * (DutchmanNL) **CI/CD**: Migrated deployment workflow to NPM Trusted Publishing (OIDC) for enhanced security
-
-### 0.7.3 (2024-10-26)
-* (HaggardFFM) allow write on segments, solves #688 #706
-* (DutchmanNL) Fixed error when a device is not available Solves #698
-
-### 0.7.2 (2023-10-31) - Improve online visibility of devices
-* (DutchmanNL) Show online state of device in object tree
-* (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
-* (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
 
 ## License
 MIT License

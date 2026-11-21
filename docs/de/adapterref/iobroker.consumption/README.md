@@ -3,113 +3,120 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.consumption/README.md
 title: ioBroker.consumption
-hash: PtcwnNZx9+3u0/ZklKIRGknfGy+cH7yKo+iZU8jeTYQ=
+hash: Habz0VSs2mT7KSVKMcEgLkZ6XDqppxugMpLAJCPpktI=
 ---
 ![Logo](../../../en/adapterref/iobroker.consumption/admin/consumption.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.consumption.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.consumption.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.consumption.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/bluefox/iobroker.consumption.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/bluefox/ioBroker.consumption/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.consumption.png?downloads=true)
 
-# IoBroker.consumption
-## Verbrauchsadapter für ioBroker
+# ioBroker.consumption
+
+## Konsumadapter für ioBroker
+
 Berechnet den Verbrauch für definierte Sensoren und Ressourcen.
 
-Sie können verschiedene Ressourcen wie Wasser, Heizung, Strom definieren und damit eine Analyse durchführen.
+Sie können verschiedene Ressourcen wie Wasser, Heizung und Strom definieren und damit eine Analyse in vis durchführen.
 
-Es sind 4 verschiedene Analysetypen implementiert:
+Es werden vier verschiedene Analysetypen implementiert:
 
-- Plan - Tatsächlicher Verbrauch in €/$ in diesem Jahr im Vergleich zu Planwerten und im Vergleich zum Vorjahr.
-- Donut – Vergleich zwischen Sensoren oder Ressourcen in Form eines Kreis-/Donut-Diagramms
+- Plan - Tatsächlicher Verbrauch in €/$ in diesem Jahr im Vergleich zu den Planwerten und im Vergleich zum Vorjahr.
+- Donut-Diagramm – Vergleich von Sensoren oder Ressourcen in Form eines Torten-/Donut-Diagramms
 - Stack – Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zu den Daten des Vorjahres in Form eines Stack-Balkendiagramms.
-- Heatmap – Stündlicher Ressourcenverbrauch in diesem Jahr
-- Tabelle - Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zum Vorjahr in Tabellenform
+- Wärmebild – Stündlicher Ressourcenverbrauch in diesem Jahr
+- Tabelle – Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zum Vorjahr (Tabelle)
 
 ## Anforderungen
-Der Adapter erfordert die Installation der my-SQL- oder Postgres-SQL-Datenbank und des ioBroker.sql-Adapters (wird automatisch installiert). Er sollte auch mit SQLite funktionieren, wird aber aus Leistungsgründen nicht empfohlen.
 
-MS-SQL wird noch nicht unterstützt, könnte aber bei Bedarf problemlos implementiert werden.
+Der Adapter benötigt die MySQL- oder PostgreSQL-Datenbank und den ioBroker.sql-Adapter (dieser wird automatisch installiert). Er sollte auch mit SQLite funktionieren, dies wird jedoch aufgrund der Leistung nicht empfohlen.
 
-**Adapter ist noch Beta.**
+MS-SQL wird derzeit noch nicht unterstützt, könnte aber bei Bedarf problemlos implementiert werden.
 
-**Die kostenlose Edition unterstützt nur vier Sensoren und nur eine Station.** Um mehr Sensoren oder Stationen zu unterstützen, benötigen Sie eine gültige Lizenz. Fordern Sie es unter info@iobroker.com an.
+**Der Adapter befindet sich noch in der Beta-Phase.**
+
+**Die kostenlose Version unterstützt nur vier Sensoren und eine Station.** Um mehr Sensoren oder Stationen zu nutzen, benötigen Sie eine gültige Lizenz. Diese können Sie unter <info@iobroker.com> anfordern.
 
 ## Verwendung
+
 Sie verfügen über Ressourcen (wie Wasser, Energie, Heizung, Gas usw.), Stationen (wie Haus, Datscha, Dorfvilla usw.) und Sensoren.
 
-Der Sensor ist ein Zähler, der seinen Wert ständig erhöht, wie ein Stromzähler, der ständig wächst.
+Der Sensor ist ein Zähler, dessen Wert ständig steigt, ähnlich wie bei einem Stromzähler, dessen Wert immer weiter ansteigt.
 
-Sie müssen alle diese Sensoren zunächst auf definierte Ressourcen und dann auf Stationen verteilen.
+Sie müssen all diese Sensoren zuerst in definierten Ressourcen und dann in Stationen verteilen.
 
-**Tatsächlich wird nur eine Station unterstützt!**
+**Tatsächlich wird nur ein Sender unterstützt!**
 
-Anschließend können Sie Ihren Zeit- und Ressourcenverbrauch über Jahre hinweg analysieren.
+Anschließend können Sie Ihren Zeit- und Ressourcenverbrauch über die Jahre analysieren.
 
-Sie können das aktuelle Jahr mit dem vorherigen vergleichen und eine Prognose über den Verbrauch erstellen.
+Sie können das aktuelle Jahr mit dem Vorjahr vergleichen und daraus eine Prognose über den Verbrauch ableiten.
 
-Planen Sie alle Kosten für das laufende Jahr.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/planAll.png)
+Planen Sie alle Kosten für das laufende Jahr.![Prognose](../../../en/adapterref/iobroker.consumption/img/planAll.png)
 
-Verteilung der Kosten nach Ressourcen.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/pieAll.png)
+Kostenverteilung nach Ressourcen.![Prognose](../../../en/adapterref/iobroker.consumption/img/pieAll.png)
 
-Verteilung des Verbrauchs durch Sensoren einer Ressource.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/pieHeating.png)
+Verteilung des Verbrauchs einer Ressource durch Sensoren.![Prognose](../../../en/adapterref/iobroker.consumption/img/pieHeating.png)
 
-Verteilung des Verbrauchs nach Sensoren und Monaten einer Ressource.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/stackBarWater.png)
+Verteilung des Verbrauchs nach Sensoren und Monaten einer Ressource.![Prognose](../../../en/adapterref/iobroker.consumption/img/stackBarWater.png)
 
-Heatmap des Verbrauchs einer Ressource für das laufende Jahr.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/heatmap.png)
+Heatmap des Verbrauchs einer Ressource für das laufende Jahr.![Prognose](../../../en/adapterref/iobroker.consumption/img/heatmap.png)
 
-Verbrauchstabelle einer Ressource für das laufende Jahr für jeden Monat.
-![Prognose](../../../en/adapterref/iobroker.consumption/img/tableHeating.png)
+Verbrauchstabelle einer Ressource für das laufende Jahr für jeden Monat.![Prognose](../../../en/adapterref/iobroker.consumption/img/tableHeating.png)
 
 ### Verdeckte Funktion
-Die Sensordaten können umgerechnet werden, allerdings muss die Formel linear sein.
-Sie können die Formel in Javascript schreiben, achten Sie jedoch darauf, dass das Ergebnis eine Zahl (Float) sein muss.
-Beispiele:
 
-- Wh => kWh: „Wert / 1000“.
+Die Sensordaten lassen sich umrechnen, die Formel muss jedoch linear sein. Sie können die Formel in JavaScript schreiben, achten Sie aber darauf, dass das Ergebnis eine Zahl (float) ist. Beispiele:
+
+- Wh => kWh: `val / 1000`
 - kWh => Wh: `val * 1000`
-- °F => °C: „(Wert - 32) / 1,8“.
-- °C => °F: „Wert * 1,8 + 32“.
+- °F => °C: `(val - 32) / 1.8`
+- °C => °F: `val * 1.8 + 32`
 
-## Echarts aktualisieren (nur für die Entwickler)
-Gehen Sie zu https://echarts.apache.org/en/builder.html. Wählen Sie:
+## eCharts aktualisieren (nur für Entwickler)
 
-- Diagramm: Balken, Linie, Kreis, Heatmap,
+Gehen Sie zu <https://echarts.apache.org/en/builder.html> und wählen Sie Folgendes aus:
+
+- Diagramm: Balken-, Linien-, Kreis-, Heatmap-Diagramm
 - Koordinatensysteme: Gitter
-- Komponente: Titel, Legende, Tooltip, MarkPoint, MarkArea, VisualMap, Toolbox
-- Andere: SVG-Renderer, Dienstprogramme, Codekomprimierung
+- Komponenten: Titel, Legende, QuickInfo, Markierungspunkt, Markierungsbereich, VisualMap, Toolbox
+- Sonstige: SVG-Renderer, Hilfsprogramme, Codekomprimierung
 
-## Machen
-- Preis für jeden Sensor möglich
-- Preise ändern:
-  - alle Preise nach Ressourcen entfernen,
-  - Kontrollkästchen bei jedem Sensor hinzufügen: eigener Preis
-  - Station ausblenden=>Ressourcenpreis, wenn jeder Sensor einen eigenen Preis hat
-  - direkt in Zustände schreiben und den Preis nicht im Objekt speichern
+## Aufgaben
+
+- Preis für jeden möglichen Sensor
+
+- Preisänderungen:
+  - Alle Preise nach Ressourcen entfernen,
+  - Kontrollkästchen neben jedem Sensor hinzufügen: Eigenpreis
+  - Station ausblenden => Ressourcenpreis, wenn jeder Sensor einen eigenen Preis hat
+  - Schreiben Sie direkt in die Zustände und speichern Sie den Preis nicht im Objekt.
 
 - Heatmap
   - Nach Jahr anzeigen
+
 - Diagramme
 
 - Daten als PDF exportieren
-- Mehr als eine Station.
-- Stilauswahl nach Thema (Einheit, Anfang, Ende)
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+- Mehr als ein Bahnhof.
 
-### **ARBEIT IN ARBEIT** -->
-## Zulässige Verwendung
-Eine Lizenz gewährt das Recht, eine Installation der Software durchzuführen.
-Für jede weitere Installation der Software ist eine zusätzlich erworbene Lizenz erforderlich.
+- Stilauswahl gemäß Thema (Einheit, Start, Ende)
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 1.0.0 (2023-09-13)
+### 1.0.3 (2026-10-14)
+* (@GermanBluefox) Updated packages and the metadata, the adapter requires node.js >= 22 and js-controller >= 6.0.11 now
+
+### 1.0.2 (2024-03-19)
+* (bluefox) Fixed plan display
+
+### 1.0.1 (2023-09-14)
 * (bluefox) Fixed pie chart
 
 ### 0.8.0 (2023-05-12)
@@ -119,83 +126,18 @@ Für jede weitere Installation der Software ist eine zusätzlich erworbene Lizen
 ### 0.7.0 (2023-02-08)
 * (bluefox) Added offset and factor to sensors
 
-### 0.6.7 (2023-02-06)
-* (bluefox) Added new features to table
-
-### 0.6.0 (2023-01-30)
-* (bluefox) Activated ignoring of null values by SQL
-
-### 0.5.0 (2022-11-15)
-* (bluefox) Charts were corrected
-
-### 0.4.20 (2022-09-30)
-* (bluefox) GUI was improved
-
-### 0.4.18 (2021-07-09)
-* (bluefox) The warnings were corrected
-
-### 0.4.17 (2021-01-16)
-* (bluefox) Corrected the conversion of values
-
-### 0.4.15 (2021-01-06)
-* (bluefox) Corrected forecast calculation based on current second of the month
-* (bluefox) Added convert function
-
-### 0.4.14 (2021-01-05)
-* (bluefox) Corrected price calculation
-
-### 0.4.13 (2020-12-13)
-* (bluefox) Updated the select ID dialog
-
-### 0.4.12 (2020-12-12)
-* (bluefox) Added stations editor
-
-### 0.4.11 (2020-12-10)
-* (bluefox) Corrected the widget errors
-
-### 0.4.9 (2020-12-06)
-* (bluefox) Corrected error with the pie chart
-
-### 0.4.7 (2020-11-16)
-* (bluefox) Implemented the combine by unit
-
-### 0.4.3 (2020-09-11)
-* (bluefox) Fixed the layout in firefox
-
-### 0.4.1 (2020-06-13)
-* (bluefox) Ignore nulls and zeros
-
-### 0.3.4 (2020-06-05)
-* (bluefox) Added possibility to define the station
-
-### 0.3.2 (2020-05-29)
-* (bluefox) Fixed the units for heat-map
-
-### 0.3.0 (2020-05-18)
-* (bluefox) Calculate plan only in euro
-
-### 0.2.7 (2020-05-16)
-* (bluefox) Set index for every sensor
-
-### 0.1.6 (2020-05-03)
-* (bluefox) Implement planning start from
-
-### 0.1.4 (2020-05-03)
-* (bluefox) Make widget compatible with older devices
-* (bluefox) Added price for every sensor
-
-### 0.1.2
-* (bluefox) finished
-
-### 0.0.2
-* (bluefox) initial release
-
 ## License
 
 Commercial license.
 
-(c) Copyright 2020-2023 Bluefox <dogafox@gmail.com>, all rights reserved.
+Copyright (c) 2020-2026 Bluefox <dogafox@gmail.com>, all rights reserved.
 
 This license is a legal agreement between you and ioBroker GmbH (“ioBroker”) for the use of `ioBroker.consumption` adapter (the “Software”).
 By downloading of `ioBroker.consumption` adapter you agree to be bound by the terms and conditions of this license.
 ioBroker GmbH reserves the right to alter this agreement at any time, for any reason, without notice.
+
+### Permitted Use
+One license grants the right to perform one installation of the Software.
+Each additional installation of the Software requires an additional purchased license.
+
+The complete license text can be found in the [LICENSE](https://github.com/ioBroker/ioBroker.consumption/blob/master/LICENSE) file.

@@ -3,226 +3,169 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.volvo/README.md
 title: ioBroker.volvo
-hash: AAbv6DdI6q3l3O0pGuWeABqjhcpSqk9CYVIsdu4dO+g=
+hash: slYG5A/JKM+Vw8tSYHn5/ghv5VJpzkgG3yMovIJmrOw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.volvo.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.volvo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.volvo.svg)
 
-# IoBroker.volvo
+# ioBroker.volvo
+
 ## Адаптер Volvo Cars для ioBroker
-Этот адаптер подключает ваш автомобиль Volvo к ioBroker с помощью [[Volvo Connected Vehicle API](https://developer.volvocars.com/apis/) и [Energy API v2]](https://developer.volvocars.com/apis/energy/v2/overview/).
+
+Этот адаптер подключает ваш автомобиль Volvo к ioBroker, используя [API Volvo Connected Vehicle](https://developer.volvocars.com/apis/) и [Energy API v2](https://developer.volvocars.com/apis/energy/v2/overview/) .
 
 ### Поддерживаемые функции
+
 - 🔋 Уровень заряда батареи, запас хода на электротяге, состояние зарядки (PHEV / BEV)
 - ⛽ Уровень топлива, показания одометра, статистика поездки
 - 🚪 Состояние двери, окна и замка
 - 📍 Местоположение по GPS
 - 🔧 Диагностика (предупреждения о необходимости технического обслуживания, тормозная жидкость, масло, шины, освещение)
 - 🔑 Дистанционное управление (блокировка/разблокировка, звуковой сигнал, мигание фар, климат-контроль)
+- 🔌 Настенный зарядный блок Volvo (API Energy Device): информация о зарядном блоке, сеансы зарядки, запуск/пауза зарядки, ограничение тока зарядки/разрядки
 - 🔄 Автоматическое обновление данных с настраиваемыми интервалами
 - 🔐 Сохранение токена — обеспечивает работу адаптера после перезагрузки без повторного входа в систему.
 
 ---
 
 ## Руководство по настройке
-### 1. Получите ключ API VCC
-1. Перейдите на сайт [developer.volvocars.com](https://developer.volvocars.com/account/) и войдите в систему (через учетную запись Google или GitHub).
-2. Создайте новое **приложение**.
-3. Скопируйте **ключ API VCC (основной)**.
+
+### 1. Получите ключ API VCC.
+
+1. Перейдите на [сайт developer.volvocars.com](https://developer.volvocars.com/account/) и войдите в свою учетную запись (Google или GitHub).
+2. Создайте новое **приложение** .
+3. Скопируйте **ключ API VCC (основной)** .
 
 ![VCC ApiKey](../../../en/adapterref/iobroker.volvo/vccapikey.png)
 
 ### 2. Настройка адаптера
+
 1. Откройте настройки адаптера в ioBroker.
-2. Введите свой **адрес электронной почты Volvo ID** и **пароль** (те же учетные данные, которые вы используете в приложении Volvo Cars).
-3. Вставьте **ключ API VCC**.
+2. Введите адрес электронной почты и **пароль** от вашей **учетной записи Volvo ID** (те же учетные данные, которые вы используете в приложении Volvo Cars).
+3. Вставьте **ключ API VCC** .
 4. Установите **интервал обновления** (по умолчанию: 5 минут).
 
-### 3. Вход с помощью OTP
+### 3. Вход с помощью OTP (одноразового пароля)
+
 API Volvo использует двухфакторную аутентификацию с одноразовым паролем (OTP):
 
-1. В настройках адаптера нажмите кнопку **"Начать вход в систему (отправить OTP)"**.
-2. Проверьте свою электронную почту на наличие OTP-кода от Volvo.
-3. Введите код и нажмите **"Отправить OTP"**.
-4. Адаптер будет хранить токен обновления, поэтому вам не нужно будет повторять эту процедуру, если только срок действия токена не истечет (обычно через несколько недель/месяцев).
+1. В настройках адаптера нажмите **«Начать вход в систему (отправить OTP)»** .
+2. Проверьте свою электронную почту — там будет код OTP от Volvo.
+3. Введите код и нажмите **«Отправить OTP»** .
+4. Адаптер сохраняет данные для входа и автоматически обновляет их. Повторный ввод одноразового пароля (OTP) требуется только в том случае, если адаптер был отключен примерно на 90 дней или компания Volvo завершает сессию (например, после смены пароля).
 
-> **Примечание:** Если срок действия токена обновления истечет, адаптер отобразит предупреждение в журнале. Просто повторите вход по одноразовому паролю (OTP) в настройках адаптера.
+> **Примечание:** Если данные для входа больше недействительны, адаптер регистрирует одну ошибку и приостанавливает обновления. Просто повторите ввод одноразового пароля (OTP) в настройках адаптера.
 
 ---
 
 ## Точки данных
-Адаптер создает следующую структуру точек данных в разделе `volvo.0.<VIN>`:
 
-| Путь | Описание |
-|---|---|
-| `energy.batteryChargeLevel.*` | Уровень заряда батареи (%), метка времени обновления |
-| `energy.chargingStatus.*` | Состояние зарядки (В режиме ожидания, на зарядке и т. д.) |
-| `energy.chargerConnectionStatus.*` | Подключение зарядного устройства (ПОДКЛЮЧЕНО, ОТКЛЮЧЕНО) |
-| `status.doors.*` | Состояния двери (ОТКРЫТО/ЗАКРЫТО), центральный замок |
-| `status.windows.*` | Состояния окон, включая люк |
-| `status.fuel.*` | Количество топлива (литры) |
-| `status.odometer.*` | Показания одометра (км) |
-| `status.diagnostics.*` | Предупреждения о необходимости обслуживания, расстояние/время до места обслуживания |
-| `status.statistics.*` | Расход топлива/энергии, счетчики пробега |
-| `status.engine-status.*` | Состояние работы двигателя |
-| `status.warnings.*` | Световые предупреждения (стоп-сигналы, противотуманные фары, указатели поворота и т. д.) |
-| `location.*` | Координаты GPS, направление, метка времени |
-| `remote.*` | Дистанционные команды (кнопки) |
-| `remote.*` | Удаленные команды (кнопки) |
+Адаптер создает следующую структуру точек данных в рамках `volvo.0.<VIN>`:
+
+| Путь                               | Описание                                                                                          |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `energy.batteryChargeLevel.*`      | Уровень заряда батареи (%), отметка времени обновления.                                           |
+| `energy.electricRange.*`           | Запас хода на электротяге (км)                                                                    |
+| `energy.chargingStatus.*`          | Состояние зарядки (в режиме ожидания, в процессе зарядки и т. д.)                                 |
+| `energy.chargerConnectionStatus.*` | Подключение зарядного устройства (ПОДКЛЮЧЕНО, ОТКЛЮЧЕНО)                                          |
+| `status.doors.*`                   | Состояние двери (открыта/закрыта), центральный замок                                              |
+| `status.windows.*`                 | Состояние окон, включая люк в крыше.                                                              |
+| `status.fuel.*`                    | Объем топлива (литры)                                                                             |
+| `status.odometer.*`                | Показания одометра (км)                                                                           |
+| `status.diagnostics.*`             | Предупреждения о необходимости технического обслуживания, расстояние/время до сервисного центра   |
+| `status.statistics.*`              | Расход топлива/энергии, счетчики пробега                                                          |
+| `status.engine-status.*`           | Состояние работы двигателя                                                                        |
+| `status.warnings.*`                | Световые предупреждающие сигналы (стоп-сигналы, противотуманные фары, указатели поворота и т. д.) |
+| `location.*`                       | GPS-координаты, направление, отметка времени                                                      |
+| `remote.*`                         | Дистанционное управление (кнопки)                                                                 |
 
 ## Удаленные команды
-Для управления транспортным средством используйте кнопки под `volvo.0.<VIN>.remote`:
 
-- `lock` / `unlock` — Заблокировать или разблокировать автомобиль
-- `climatization-start` / `climatization-stop` — Запуск или остановка предварительной подготовки
-- `гудок` / `мигание` / `гудок-мигание` — Подать звуковой сигнал, включить фонарики или и то, и другое.
-- `lock-reduced-guard` — Блокировка с уменьшенным уровнем защиты
+Воспользуйтесь кнопками ниже `volvo.0.<VIN>.remote` для управления вашим транспортным средством:
+
+- `lock` /`unlock` — Заблокировать или разблокировать автомобиль
+- `climatization-start` /`climatization-stop` — Начать или остановить предварительную подготовку
+- `honk` /`flash` /`honk-flash` — Подать звуковой сигнал, включить фонарики или и то, и другое.
+- `lock-reduced-guard` — Замок с ослабленной защитой
 - `refresh` — Обновить все данные вручную
+
+## Настенный распределительный щит Volvo (опционально)
+
+Поддерживаются только настенные зарядные устройства Volvo (API Energy Device). API Volvo не может отобразить список ваших зарядных устройств, поэтому в настройках адаптера введите **идентификатор EVSE** из документа, предоставленного Volvo вместе с зарядным устройством (несколько идентификаторов, разделенных запятыми). Оставьте поле пустым, если у вас нет зарядного устройства Volvo — в этом случае адаптер не будет отправлять запросы к нему.
+
+Если вы добавили настенное устройство после последнего входа в систему, войдите в систему еще раз, используя одноразовый пароль (OTP), чтобы адаптер получил права доступа к настенному устройству.
+
+Точки данных под `volvo.0.wallbox.<EVSE ID>` (персонажи, подобные `*` заменяются на `_`):
+
+| Путь                                                    | Описание                            |
+| ------------------------------------------------------- | ----------------------------------- |
+| `info.*`                                                | Информация о настенном блоке из API |
+| `chargingSessions.count` /`totalEnergy` /`json`         | Сеансы зарядки за последние 7 дней  |
+| `chargingSessions.last.*`                               | Последняя сессия зарядки            |
+| `remote.start` /`remote.pause`                          | Начать или приостановить зарядку    |
+| `remote.chargingAmpLimit` /`remote.dischargingAmpLimit` | Запишите текущий лимит в A.         |
+| `remote.refresh`                                        | Обновите данные настенного блока.   |
+| `remote.lastCommandStatus`                              | Результат последней команды (JSON)  |
+
+> **Примечание:** Поддержка настенных зарядных устройств была реализована на основе документации API Volvo без тестового устройства. Пожалуйста, сообщайте о проблемах в разделе Issues на GitHub.
 
 ---
 
 ## Changelog
 
-### 2.0.0
-- BREAKING CHANGE: API key now stored encrypted, reenter of API key **required**
+### 4.0.1
+- Fix: remote commands (lock, unlock, climatization, …) failed with error 415, Volvo now requires a JSON body for commands
 
-### 1.0.5
-- Fix: restart-resilient OTP login flow — auth state persists across adapter restarts
+### 4.0.0
+- **Breaking:** Volvo ID moves to a new login system (Keycloak) and the old one stops working after January 2027. The adapter now logs in like the current Volvo Cars app. **Please log in again once:** click "Start Login (Send OTP)" in the adapter settings and submit the OTP from the email
+- Change: the login stays valid as long as the adapter runs; a new OTP login is only needed after about 90 days without the adapter running
+- New: Volvo wallbox support via the Energy Device API (wallbox info, charging sessions, start/pause, current limits); enter the EVSE ID in the settings. Built from the documentation without a test device
+- Removed: the warning before the fixed 180-day login limit, Volvo no longer has such a limit
+- Fix: when a car is removed from the Volvo ID (e.g. replaced by a new one), the adapter logs one warning and reloads the vehicle list instead of logging 403 errors every few minutes until a restart
 
-### 1.0.4
-- Fix: 404 errors for location/energy/vehicle endpoints handled gracefully (GPS off, non-EV vehicles)
+### 3.1.0
+- New: login method of the Volvo Cars app (Authorization Code with PKCE, DPoP-bound tokens). Volvo disabled the client the adapter used before, see [#155](https://github.com/TA2k/ioBroker.volvo/issues/155). **Please log in again once:** click "Start Login (Send OTP)" in the adapter settings and submit the OTP from the email
+- Change: the OTP email is only sent when you click "Start Login (Send OTP)", no longer automatically on adapter start
+- Change: the OTP is submitted with the "Submit OTP" button only; it is no longer saved in the settings
 
-### 1.0.3
-- Fix: adapter no longer terminates on first start without stored token
-- Fix: removed manual password decrypt (now handled by `encryptedNative`)
-- Fix: full try-catch in `onReady()` prevents crashes on startup errors
+### 3.0.4
+- Fix: Volvo disabled the login client used by this adapter on 2026-10-26 (`invalid_client`). The adapter now logs one clear error and pauses updates instead of repeating errors every few minutes. Login does not work until a new login method is implemented, see [#155](https://github.com/TA2k/ioBroker.volvo/issues/155)
+- Chore: dependency updates
+  - `json2iob` 2.6.26 → 2.6.28
+  - `qs` 6.16.0 → 6.16.1
+  - `@iobroker/testing` 6.2.2 → 6.3.1, `@types/node` 22.20.4 → 22.20.5
 
-### 1.0.2
-- Fix: adapter stays alive waiting for OTP login when no token stored
-- Fix: better startup log messages explaining next steps
-- Fix: CI deploy job upgraded to Node 24 (resolves `promise-retry` error)
+### 3.0.3
+- Fix: no more log spam after the Volvo login (refresh token, ~180 days) expired; updates pause until you log in again
+- New: warning 7 days before the login expires
+- Chore: dependency updates
 
-### 1.0.1
-- Fix: multi-language support (ru, pt, nl, fr, it, es, pl, uk, zh-cn)
-- Fix: jsonConfig admin UI size attributes for all breakpoints
-- Fix: `protectedNative` / `encryptedNative` for sensitive fields
-- Fix: OTP/sendTo message handlers null-safe
-- Chore: added dependabot, `@iobroker/adapter-dev`, `@iobroker/eslint-config`
-- Chore: CI `adapter-tests` now runs after linting
-- Chore: migrated `.npmignore` to `package.json` `files`
+### 3.0.2
+- Chore: dependency updates
+  - `axios` 1.16.1 → 1.19.0
+  - `qs` 6.15.2 → 6.16.0
+  - `@iobroker/adapter-core` 3.3.2 → 3.4.3
+  - `json2iob` 2.6.22 → 2.6.25
+  - dev: `@iobroker/testing` 5.3.0, `@tsconfig/node22` 22.0.6, `@types/node` 22.20.1, `@alcalzone/release-script` 5.2.1, `@alcalzone/release-script-plugin-license` 5.2.2
+  - transitive: `brace-expansion`, `adm-zip`, `deepl-node`, `browserslist`, `js-yaml`, `form-data`
 
-### 1.0.0 🎉
+### 3.0.1
+- Fix: address ioBroker repo checker findings:
+  - `eslint.config.mjs` now imports `@iobroker/eslint-config`
+  - Added `prettier.config.mjs`
+  - License copyright line updated to `(c)` format
+  - All `setInterval`/`setTimeout` migrated to `this.setInterval`/`this.setTimeout`
+  - i18n migrated to short format (`{lang}.json`)
 
-First stable release — complete rewrite of the Volvo ioBroker adapter.
-
-**New Features:**
-- **Vehicle Details**: Model, year, color and images fetched from API
-- **Retry Logic**: Automatic retry with exponential backoff on API errors (429/5xx)
-- **Command Status Tracking**: Polls async command results (up to 5x) and stores status in `lastCommandStatus`
-- **Auto-Refresh after Commands**: Doors auto-refresh after lock/unlock, engine-status after climatization
-- **Last Update Timestamp**: `lastUpdate` state per vehicle shows last successful data fetch
-- **Admin UI: jsonConfig Migration**: Modern React-based settings UI (Admin5) with i18n support
-- **Admin UI: Connection Test**: Test API connection directly from adapter settings
-- **Admin UI: Vehicle Info**: Display vehicle details from settings page
-
-**Versioning Policy (SemVer):**
-- MAJOR: Breaking changes (config changes, removed states, new minimum Node.js)
-- MINOR: New features (new data points, commands, UI features)
-- PATCH: Bug fixes, dependency updates, cleanup
-
-### 0.2.7
-
-- Extracted inline JavaScript from `admin/index_m.html` into separate `admin/index_m.js`
-- Added ESLint config for admin browser JS (jQuery/browser globals)
-
-### 0.2.6
-
-- Removed obsolete files: `.create-adapter.json` (wrong adapter name), `lib/tools.js` (unused), `.prettierrc.js`/`.prettierignore` (Prettier not installed)
-- Updated `.npmignore` (removed references to deleted `.eslintrc.json`)
-- Updated CI workflow: dropped Node 18 (EOL), testing on Node 20 + 22
-
-### 0.2.5
-
-- Updated all dependencies to latest major versions
-- @alcalzone/release-script 3.7 → 5.1, eslint 9 → 10, @iobroker/testing 5.0 → 5.2
-
-### 0.2.4
-
-- Migrated from ESLint 8 to ESLint 9 (flat config) — fixes CVE-2025-50537
-- Removed deprecated `.eslintrc.json` and `.eslintignore`
-
-### 0.2.3
-
-- Fixed all npm audit vulnerabilities (0 remaining)
-- Added npm overrides for serialize-javascript, diff, esbuild
-
-### 0.2.2
-
-- Fixed ESLint lint error (single quotes)
-- Removed credentials and IPs from AGENTS.md, added discovery instructions
-- Updated devDependencies: @iobroker/testing 5.2, @types/node 25.5, eslint 8.57
-
-### 0.2.1
-
-- Fixed refresh token not being preserved across token refreshes (caused 401 errors after ~25 minutes)
-- Removed dead legacy code: old VOC API (`vocapi.wirelesscar.net`), `request` module, `uuid`, `json-bigint`
-- Updated dependencies: axios 1.14, qs 6.15, json2iob 2.6.22, @iobroker/adapter-core 3.3
-- Added update migration notice for users upgrading from pre-0.2.0 versions
-- Removed unused `newApi` config option from io-package.json
-
-### 0.2.0
-
-- **Complete rewrite of authentication**: Replaced dead `grant_type: password` OAuth flow with new multi-step OTP (one-time password) login via PingFederate
-- **All API endpoints updated to v2**: Vehicle list (`connected-vehicle/v2`), Energy (`energy/v2`), Commands (`connected-vehicle/v2/commands`)
-- **Fixed remote commands**: Changed `Content-Type` from deprecated vendor-specific format to `application/json` (was causing HTTP 415 errors)
-- **Fixed refresh button**: Now triggers a data re-fetch instead of sending an invalid API command (was causing HTTP 404)
-- **Buttons are now proper buttons**: Remote controls use `role: button` with auto-reset instead of toggle booleans
-- **Fixed Energy API parsing**: `batteryChargeLevel`, `electricRange`, `chargingStatus` etc. now update correctly (v2 response format differs from v1)
-- **Added OTP login UI** in adapter settings with step-by-step flow
-- **Added token persistence**: Refresh token stored in ioBroker state, survives adapter restarts
-- **Removed dead code**: Old VOC API (`vocapi.wirelesscar.net`), `extended-vehicle/v1`, `energy/v1`, `newApi` checkbox — all removed
-- **Admin UI localized**: English + German via `words.js`
-- **Updated README** with new setup guide
-
-### 0.1.2 (2024-05-02)
-
-- Added support for v2 API
-
-### 0.1.1
-
-- Added location API information
-
-### 0.1.0
-
-- (TA2k) Add new API for electric cars
-
-### 0.0.6
-
-- (TA2k) Fix trip object naming
-
-### 0.0.5
-
-- (TA2k) Fix receiving data
-
-### 0.0.4
-
-- (TA2k) Fix jscontroller
-
-### 0.0.3
-
-- (TA2k) Fix preclimate
-
-### 0.0.2
-
-- (TA2k) Initial release
+Older changes: CHANGELOG_OLD.md
 
 ## License
 
 MIT License
 
-Copyright © 2020-2026 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ikettle2/README.md
 title: ioBroker.ikettle2
-hash: j2KCnjHrE+WnwVFCmw+o4QvSGmrU73BoLr1LIWABrro=
+hash: +hiz9s4kj7xNWnWuB7sPLudqIK/Qz927+t/yqpv6Ju8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ikettle2/admin/ikettle2.png)
 
@@ -49,7 +49,9 @@ hash: j2KCnjHrE+WnwVFCmw+o4QvSGmrU73BoLr1LIWABrro=
 
 **water\_temperature** - Фактическая температура воды.
 
-**water\_level** - Фактическое количество воды в чайнике. Примечание: Точность невелика, показания могут быть неточными, поэтому проверяйте наличие воды в чайнике визуально.
+**water\_level** - Количество воды в чайнике в литрах. Весовой датчик в основании смещается в зависимости от температуры, поэтому уровень измеряется только тогда, когда чайник находится в режиме ожидания и температура ниже заданной в настройках (по умолчанию 40 °C). Во время нагрева и при горячей воде сохраняется последнее измеренное значение. См. _Калибровка уровня воды_ ниже.
+
+**water\_level\_raw** — Необработанное значение датчика веса (медиана последних значений). Используется для калибровки уровня воды.
 
 **warming\_time** — Время, в течение которого чайник будет поддерживать температуру воды, указанную в формуле, до выключения. Примечание: 0 = Не используется, минимальное время — 5 минут, максимальное — 30 минут.
 
@@ -63,11 +65,34 @@ hash: j2KCnjHrE+WnwVFCmw+o4QvSGmrU73BoLr1LIWABrro=
 
 Достаньте чайник из подставки, затем установите параметр калибровки объекта в значение «истина». После звукового сигнала с подставки вы можете поставить чайник обратно на подставку и использовать его.
 
+### Калибровка уровня воды
+
+Адаптер преобразует исходное значение датчика в литры с использованием калибровочных точек из настроек экземпляра. Значения по умолчанию (2090 = 0 л, 2185 = 1,8 л) соответствуют значениям более ранних версий и подходят не для всех чайников.
+
+Датчик нелинейный: на протестированном чайнике первый литр увеличил исходное значение на 64, следующие 0,8 л — всего на 31 (пустой 2067, 1 л 2131, 1,8 л 2162). Поэтому можно установить дополнительную третью точку для пустого чайника; точки соединяются прямыми линиями.
+
+1. Поставьте пустой чайник на подставку, подождите около минуты и запишите результат. `kettle.water_level_raw` как _пустой чайник_ .
+2. Налейте известное количество холодной воды (например, 1 л) и запишите значение как точку 1.
+3. Наполните емкость до второго объема (например, до максимальной отметки, налив 1,8 л) и запишите значение как точку 2.
+
+Исходное значение изменяется на несколько единиц, поэтому считывайте показания после того, как чайник некоторое время постоит неподвижно.
+
 ---
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (sadam6752-tech) Fix: messages are split at the terminator 0x7e, answers to commands are no longer mixed up with status messages
+- (sadam6752-tech) Fix: reconnect with a growing delay (5 s to 60 s) instead of reconnecting at once in a loop
+- (sadam6752-tech) Fix: `kettle.preset.get_preset` works now (it was not subscribed)
+- (sadam6752-tech) Fix: command states are confirmed only after the kettle accepted the command; invalid temperatures are not sent
+- (sadam6752-tech) Water level only measured while the kettle is idle and cold, calibration with two or three points (optional empty kettle) in the instance settings, new state `kettle.water_level_raw`
 - (copilot) Adapter requires node.js >= 22 now
+### 1.0.11 (2026-11-03)
+* chore(deps-dev): bump @types/node from 25.9.8 to 25.9.9
+
+### 1.0.10 (2026-10-03)
+* chore(deps-dev): bump @types/node from 25.9.5 to 25.9.8
+
 ### 1.0.9 (2026-09-03)
 * chore(deps-dev): bump @tsconfig/node22 from 22.0.5 to 22.0.6
 * chore(deps-dev): bump @alcalzone/release-script-plugin-license
@@ -116,8 +141,6 @@ hash: j2KCnjHrE+WnwVFCmw+o4QvSGmrU73BoLr1LIWABrro=
 
 ### 1.0.0
 * (Jey Cee) initial release
-
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.ikettle2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

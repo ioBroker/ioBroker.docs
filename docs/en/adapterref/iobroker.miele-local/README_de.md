@@ -91,9 +91,18 @@ wird damit an den meisten Stellen entbehrlich.
 Die Gerätekarten im Device-Manager nutzen sie nicht: Seit 0.5.1 zeigt eine Karte den Rohwert mit
 einer Wertetabelle in der **Systemsprache** des ioBroker (alle elf Admin-Sprachen). Status,
 Programmart, Trockenstufe und Phase sind in jeder Sprache vollständig. Programmnamen stammen aus
-der Community-Übersetzung von Home Assistant; wo eine Sprache dort keine hat (Ukrainisch ganz,
-Polnisch fast ganz, Russisch und Niederländisch teilweise), zeigt die Karte den englischen Namen –
-geraten wird nicht. Ein unbekannter Rohwert erscheint als Zahl.
+der Community-Übersetzung von Home Assistant; für Polnisch kommen die Waschmaschinen- und
+Trocknerprogramme aus den polnischen Miele-Gebrauchsanweisungen (`lib/werte_eigen.js`, nur Namen,
+die dort wörtlich stehen). Wo keine der beiden Quellen einen Namen hat (Ukrainisch ganz, Polnisch
+für die übrigen Geräte und für Programme, die in den Anleitungen fehlen, Russisch und
+Niederländisch teilweise), zeigt die Karte den englischen Namen – geraten wird nicht. Ein unbekannter Rohwert erscheint als Zahl.
+
+**Text-Datenpunkte in einer weiteren Sprache (optional).** *Abfrage & Werte → Sprache der
+Text-Datenpunkte* schreibt `statusText`, `programText`, `programPhaseText`, `programTypeText` und
+`dryingStepText` - und die Wertelisten der Rohwerte - in einer der elf Admin-Sprachen statt auf
+Deutsch oder Englisch. Fehlt eine Übersetzung, steht der englische Text da. Programmnamen kommen
+aus Home Assistant und für polnische Waschmaschinen und Trockner aus den polnischen
+Miele-Gebrauchsanweisungen, wie auf den Karten. Die Vorgabe lässt alles, wie es war.
 
 Ist „Datenpunkt-Namen auf Deutsch“ aus, bleiben Namen und Beschreibungen mit Absicht schlichter
 englischer Text: Ein mehrsprachiger Name brächte im deutschen Admin wieder den deutschen Namen
@@ -117,9 +126,22 @@ ihre Knöpfe damit ein und aus, VIS kann das genauso.
 
 `eco.energy` (kWh), `eco.energyWh` (Wh), `eco.water` (l), soweit das Gerät sie liefert, dazu
 `eco.source` mit der Herkunft des Werts. Gelesen wird über DOP2; bislang liefern das
-Waschmaschinen. **Der vom Gerät gemeldete Wert ist seine eigene Erwartung, keine Messung.** Wer
-eine echte Zahl will, trägt im Reiter **Abfrage & Werte** den Zähler-Datenpunkt einer
-Messsteckdose ein – dann schreibt der Adapter mit, was ein Programm wirklich gezogen hat.
+Waschmaschinen. **Die Energie ist keine Messung:** Die Waschmaschine meldet die für die
+Hauptwäsche *geplante* Heizenergie – geplante Heizzeit × Nennleistung des Heizstabs bei 230 V
+(WCR860: 2020 W). Sie steht zu Beginn der Heizung fest und wird nicht nachgeführt; sie enthält weder
+Motor, Pumpen und Elektronik noch die Heizung anderer Phasen, kalte und kurze Programme melden 0.
+An einer WCR860 nachgemessen trifft sie die tatsächliche Heizung normaler warmer Programme auf
+wenige Prozent, den Gesamtverbrauch aber nicht. Wer eine echte Zahl will, trägt im Reiter
+**Abfrage & Werte** den Zähler-Datenpunkt einer Messsteckdose ein – dann schreibt der Adapter mit,
+was ein Programm wirklich gezogen hat.
+
+Zusätzlich fragt der Adapter den Gerätekontext `2/1585` (und `2/391`) ab, unabhängig vom
+Waschmaschinen-Leaf `2/6195`. Dessen Werte erscheinen unter `detail.ecoFeedback` (nur, wenn das Gerät
+sie wirklich führt): Energie und Wasser des letzten Programms (6.3/6.4), Lebenszähler (6.5/6.6) und
+TwinDos/AutoDos-Behälter (6.7). Die Werte „letztes Programm“ ersetzen `eco.*` **nicht** – im Lauf
+zeigen sie noch das vorige Programm. Geräte ohne `2/6195` (etwa eine Spülmaschine) bekommen ihren
+Verbrauch je Programm aus der **Differenz der Lebenszähler** zwischen Start und Ende; dann steht
+dieser Wert in `eco.*`, und `eco.source` lautet `Appliance (lifetime counters 2/1585)`.
 
 ### `history` und `stats` – was gelaufen ist
 
@@ -292,7 +314,10 @@ passt, mit welchem Teiler und wie genau.
 
 **Leaf-Suche.** DOP2 adressiert Daten als `Unit/Attribut`, und nur eine Handvoll dieser Adressen
 ist überhaupt irgendwo dokumentiert. Die Suche arbeitet den Adressraum schonend genug ab, um das
-Modul nicht zu überlasten; in `collection.scanJson` sammelt sich, was geantwortet hat. Mit
+Modul nicht zu überlasten; in `collection.scanJson` sammelt sich, was geantwortet hat – samt
+Seriennummer, MAC, IP und WLAN-Namen. **Zum Teilen `collection.scanJsonAnonym` verwenden:** dieselben
+Daten, diese Angaben maskiert. Adressen, deren Antwort der Adapter noch nicht dekodieren kann, gelten
+mit Fehlertext und Rohbytes als beantwortet – der Scan wird damit immer fertig. Mit
 `collection.trendLeaf` lässt sich ein einzelnes Leaf während eines laufenden Programms
 engmaschig mitschreiben – das Feld, dessen Wert mit dem Verbrauch mitwächst, ist das gesuchte.
 
@@ -348,6 +373,14 @@ Reverse-Engineering-Arbeit der Projekte `MieleRESTServer` (akappner),
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2026-11-19)
+- (SmarthomeElektroniker) Der DOP2-Parser liest Typ 33 (Liste von Strukturen, AStruct). Bisher scheiterte ein Leaf, das ihn enthält (z. B. `2/1585`, `2/17`, `2/131`), komplett mit „Unknown DOP2 field type 33“.
+- (SmarthomeElektroniker) Der Gerätekontext `2/1585` (ersatzweise `2/391`) wird unabhängig vom Waschmaschinen-Leaf `2/6195` abgefragt. Werte des geräteeigenen EcoFeedback (Felder 6.3–6.6, 6.29, 6.31) beachten den Einheitentyp (121/46 = Wh, 45 = kWh, 44 = l) und entstehen nur, wenn das Gerät sie führt; TwinDos/AutoDos-Behälter (6.7) erscheinen als JSON. Geräte ohne `2/6195` (Spülmaschine) bekommen Energie und Wasser je Programm aus der Differenz der Lebenszähler 6.5/6.6. Die Werte „letztes Programm“ ersetzen `eco.*` im laufenden Programm nicht mehr.
+- (SmarthomeElektroniker) Leaf-Suche: Antworten, die sich nicht dekodieren lassen, gelten als beantwortet (Status 200, Fehlertext und Rohbytes getrennt abgelegt) – die Suche wird damit immer fertig. Neu `collection.scanJsonAnonym` ohne Seriennummer, Modulnummer, MAC, IP und WLAN-Namen, zum Teilen.
+- (SmarthomeElektroniker) `/State.ExtendedState` wird protokolliert (debug) und als Hex-Rohwert in `collection.extendedState` abgelegt, nur zur Diagnose.
+- (SmarthomeElektroniker) Namen nach den Messungen vom 13.11.2026 (Objekt-IDs unverändert): `eco.energy`/`eco.energyWh` „Heizenergie (Vorgabe bei 230 V)“, `detail.process.heatingEnergy`/`heatingTime` „(Vorgabe)“, Feld 16 `energyConsumed` „Antriebsenergie“ in Wh (Endstand bleibt nach dem Programm stehen), Feld 4 „Laufzeit“.
+- (SmarthomeElektroniker) Debug-Protokoll: je Gerät eine Zeile für 2/6195, 2/1585, 2/391 und ExtendedState, ohne vollständige Seriennummer.
+- (KPIotr89) Neue Option **Sprache der Text-Datenpunkte** (Abfrage & Werte): `statusText`, `programText`, `programPhaseText`, `programTypeText`, `dryingStepText` und die Wertelisten der Rohwerte in einer der elf Admin-Sprachen. Vorgabe unverändert (Deutsch oder Englisch, je nach „Datenpunkt-Namen auf Deutsch“); fehlende Übersetzungen fallen auf Englisch zurück. Polnische Programmnamen für Waschmaschinen und Trockner, wörtlich aus den polnischen Miele-Gebrauchsanweisungen, auch auf den Gerätekarten. Danke an @KPIotr89 für den Beitrag (PR #23)
 
 ### 0.5.2 (2026-11-12)
 - (SmarthomeElektroniker) Fehlerbehebung: Eine Karte konnte „nicht verbunden“ zeigen und trotzdem den Ein-Knopf (oder das Licht) anbieten. Nach Stopp oder Neustart des Adapters behielten die `control.can*`-Datenpunkte ihren letzten Wert, ebenso bei Geräten, die beim Start nicht gefunden wurden. Jetzt setzt der Adapter sie beim Beenden und für jedes beim Start nicht gefundene Gerät zurück; ein nicht erreichbares Gerät oder eines mit Status 255 („nicht verbunden“) bekommt gar keinen Knopf

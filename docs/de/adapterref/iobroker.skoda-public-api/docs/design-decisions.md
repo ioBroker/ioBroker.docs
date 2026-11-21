@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/docs/design-decisions.md
 title: Entwurfsentscheidungen - ioBroker.skoda-public-api
-hash: zV0G2eT8/11jCgsfrbVf/WJvQ/7B4ftQDSL/x+NdtXo=
+hash: awDVfZsnj/wUed/ou8r1NiqqIz6uLeGLvH5uPF1FUAQ=
 ---
 # Entwurfsentscheidungen – ioBroker.skoda-public-api
 
@@ -32,9 +32,9 @@ Nicht in der API enthalten und daher unmöglich: Ver-/Entriegeln, Hupe/Lichthupe
 
 ## Entscheidungen
 
-### E1 – Qualitätsniveau: Veröffentlichung über npm und ioBroker
+### E1 — Qualitätsniveau: Veröffentlichung über npm und ioBroker
 
-Der Adapter wird öffentlich auf npm und GitHub veröffentlicht und für das offizielle ioBroker-Repository `latest` gepflegt. `stable` folgt erst nach öffentlichem Test und Nutzerfeedback. Grundlage sind eine vollständige `io-package.json`, JSON Config, automatisierte Tests, eine Plattformmatrix für Releases und reproduzierbare npm-Pakete. **Begründung:** Öffentliche Verteilung braucht nachvollziehbare Metadaten, Migrationen und Prüfungen über alle unterstützten Plattformen.
+Der Adapter wird öffentlich auf npm und GitHub veröffentlicht und für das offizielle ioBroker-Repository `latest` gepflegt. Version `0.1.11` wurde nach öffentlichem Test und Nutzerfeedback am 11. Oktober 2026 mit [Repository-PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832) in `stable` Aufgenommen. Weitere Stable-Versionen werden nach öffentlichem Test und Nutzerfeedback beantragt. Grundlage sind eine vollständige `io-package.json`, JSON Config, automatisierte Tests, eine Plattformmatrix für Releases und reproduzierbare npm-Pakete. **Begründung:** Öffentliche Verteilung braucht nachvollziehbare Metadaten, Migrationen und Prüfungen über alle unterstützten Plattformen.
 
 ### E2 — Name: `ioBroker.skoda-public-api`
 
@@ -60,7 +60,7 @@ Der beobachtete Bestätigungsstatus steht getrennt unter `info.commandConfirmati
 
 ### E6 – Befehls-Schnittstelle: Schalter primär, Tasten sekundär
 
-`<vin>.charging.enabled`(`role: switch`) trägt den **Soll-Zustand** ; `<vin>.charging.start` /`.stop` (`role: button`) erzwingen einen Aufruf. Boolean-Abbildung: `true` genau bei `charging.status.state === 'CHARGING'` Die `CONNECT_CABLE`, `READY_FOR_CHARGING`, `CONSERVING` sind `false`. **Begründung:** Coalescing auf einem Soll-Zustand ist ein trivialer Vergleich; auf Buttons wäre es eine Heuristik. `ack=true` bedeutet **„an die API übergeben“** , nicht „das Auto hat es getan“ – mehr weiß der Adapter wegen `202` ohne Status-Endpunkt nicht.
+`<vin>.charging.enabled` (`role: switch`) trägt den **Soll-Zustand** ; `<vin>.charging.start` /`.stop` (`role: button`) erzwingen einen Aufruf. Boolean-Abbildung: `true` genau bei `charging.status.state === 'CHARGING'` Die `CONNECT_CABLE`, `READY_FOR_CHARGING`, `CONSERVING` sind `false`. Das gilt ebenfalls für die bekannten inaktiven Werte `DISCHARGING` und `CHARGING_INTERRUPTED`. Fehlende und unbekannte Werte bleiben unbekannt: Der Schalter behält den letzten Wert mit schlechterer Qualität; Die Queue darf damit keinen Stop-Befehl als bereits erfüllt verwerfen oder bestätigen. Die optionalen Steckerzustände `plugConnectionState` und `plugLockState` Werden separat gelesen und erlauben keine Ableitung, ob das Fahrzeug lädt. Anzeige, Coalescing und Bestätigung verwenden dieselbe Zuordnung bekannter aktiver und inaktiver Werte. **Begründung:** Coalescing auf einem Soll-Zustand ist ein trivialer Vergleich; auf Buttons wäre es eine Heuristik. `ack=true` bedeutet **„an die API übergeben“** , nicht „das Auto hat es getan“ – mehr weiß der Adapter wegen `202` ohne Status-Endpunkt nicht.
 
 ### E7 – Objektbaum: 1:1-Spiegel der API
 
@@ -84,7 +84,7 @@ Ein Quota-Bucket pro VIN. Die API begrenzt ihre 20 Anfragen pro Stunde je Fahrze
 
 ### E11 – Stack: TypeScript, minimale Laufzeitabhängigkeiten
 
-Node ≥ 22, CI-Matrix 22 und 24. Typen werden aus der eingecheckten Spezifikation generiert. HTTP-Aufrufe verwenden natives `fetch`; Die einzige direkte Laufzeitabhängigkeit ist `@iobroker/adapter-core`. JSON Config statt HTML-Admin. Ein wöchentlicher CI-Job vergleicht Škodas Live-Spec mit der eingecheckten Kopie. **Begründung:** Der Antwortbaum ist fünf Ebenen tief und auf jeder Ebene optional – in JS ist ein `TypeError` auf `undefined` nur eine Frage der Zeit.
+Node ≥ 22, CI-Matrix 22 und 24. Typen werden aus der eingecheckten Spezifikation generiert. HTTP-Aufrufe verwenden natives `fetch`; einzige direkte Laufzeitabhängigkeit ist `@iobroker/adapter-core`. JSON Config statt HTML-Admin. Ein wöchentlicher CI-Job vergleicht Škodas Live-Spec mit der eingecheckten Kopie. **Begründung:** Der Antwortbaum ist fünf Ebenen tief und auf jeder Ebene optional – in JS ist ein `TypeError` auf `undefined` nur eine Frage der Zeit.
 
 ### E12 — Teststrategie: Mock-Server plus Unit- und Integrationstests
 

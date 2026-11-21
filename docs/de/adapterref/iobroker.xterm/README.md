@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
+hash: xVOkh97m+CsrMwxUeqaRiInQzGfB552iSh403h5e1CA=
 ---
 ![Logo](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/xterm-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.xterm.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/xterm-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.xterm.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xterm.svg)
@@ -27,6 +27,8 @@ Basierend auf den Paketen xterm.js und node-pty.
 
 Wenn die Authentifizierung aktiviert ist, kann sich nur der ioBroker-Benutzer "admin" anmelden.
 
+Bei Admin-Versionen neuer als 8.2.0 läuft die Registerkarte im Admin-Bereich über den Port von Admin (`/proxy/xterm.0/` Daher muss der Port von xterm nicht vom Browser aus erreichbar sein. Wenn Sie als Administrator angemeldet sind, öffnet sich das Terminal ohne erneute Anmeldung (Option „Anmeldung des Administrators akzeptieren“).
+
 ## Verwendung
 
 Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty). Unter Linux läuft bash unter dem `iobroker` Benutzer – Sie können zu einem anderen Benutzer mit mehr Berechtigungen wechseln über `su USER` Die
@@ -36,6 +38,16 @@ Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-
 Die Shells laufen im Adapter und nicht im Browser. Bei Verbindungsverlust oder Seitenneuladung bleiben die Terminals aktiv und werden inklusive ihres Inhalts wiederhergestellt – auch langlaufende Befehle werden nicht unterbrochen.
 
 Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten) kein Browser zurückkehrt; `0` (Die Shells werden sofort beendet, wenn die Browserverbindung getrennt wird.)
+
+### HTTP/2
+
+Mit aktiviertem HTTPS verwendet der Webserver HTTP/2: Der Browser lädt die Seite und alle zugehörigen Dateien über eine einzige Verbindung mit vielen parallelen Anfragen. Clients, die HTTP/2 nicht unterstützen, greifen automatisch auf HTTP/1.1 zurück, und die Terminalverbindung bleibt bestehen – Browser öffnen WebSockets über eine separate HTTP/1.1-Verbindung. Ohne HTTPS hat diese Option keine Auswirkung, da Browser ausschließlich HTTP/2 über TLS verwenden.
+
+Wenn ein Client damit Probleme hat, schalten Sie die Option **"HTTP/2 verwenden** " um (`http2`) um bei HTTP/1.1 zu bleiben.
+
+### Verwendeter Hafen
+
+Der Adapter öffnet einen TCP-Port (standardmäßig 8099) für die Weboberfläche und die Terminalverbindung. Ab js-controller Version 8 wird der tatsächlich verwendete Port dem Host gemeldet und in der Übersicht der verwendeten Ressourcen angezeigt, sodass keine weitere Instanz für denselben Port konfiguriert wird.
 
 ## Tastenkombinationen
 
@@ -52,6 +64,15 @@ Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) The tab in admin runs through the port of admin, the login of admin is accepted
+
+### 4.0.2 (2026-10-14)
+* (@GermanBluefox) Admin 7.6.20+ is required. Compact mode no longer can exit the whole host process. The tests run on Windows and macOS too
+* (@GermanBluefox) Added HTTP/2 (with HTTP/1.1 fallback) for HTTPS, can be switched off with the option "Use HTTP/2"
+* (@GermanBluefox) The used port is reported to js-controller 8+
+* (@GermanBluefox) macOS: the shells could not start, because the `spawn-helper` of node-pty was not executable
+
 ### 4.0.1 (2026-08-07)
 * (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 * (@GermanBluefox) Dropped support of Node.js 20
@@ -79,12 +100,6 @@ Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb
 * (bluefox) xterm library updated
 * (bluefox) Move Lets encrypt settings to acme adapter
 * (bluefox) Minimal supported node.js version is 16
-
-### 1.1.0 (2022-10-08)
-* (Apollon77) Updated the xterm library
-* (Apollon77) Prepared for future js-controller versions
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.xterm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

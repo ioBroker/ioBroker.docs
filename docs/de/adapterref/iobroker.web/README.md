@@ -4,10 +4,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: Gs/qbO+1pjIZueRWwbBH8E8MU5eC7XTFLuIcG2bG22I=
+hash: QU5x44ZlNBT3wbOqUlp+SsA8enj4wLIHHKhPoBtmtt0=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/web-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.web.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
@@ -198,7 +198,7 @@ Diese Liste legt lediglich fest, **wer sich anmelden darf** – sie vergibt kein
 
 ### Standardweiterleitung
 
-Soll beim Öffnen des Webports im Browser keine App-Auswahl, sondern eine bestimmte Anwendung angezeigt werden, kann der Pfad hier angegeben werden (z. B. `/vis/`) Dieser Pfad wird also automatisch geöffnet.
+Soll beim Öffnen des Webports im Browser keine App-Auswahl angezeigt werden, sondern eine bestimmte Anwendung, kann der Pfad hier angegeben werden (z. B. `/vis/`) Dieser Pfad wird also automatisch geöffnet.
 
 ### Einbetten dieses Servers in eine andere Website
 
@@ -241,9 +241,57 @@ Die Antwort lautet etwa so:
 
 Weitere Informationen finden Sie hier: <https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support>
 
+## Single Sign-On (OIDC)
+
+Nutzer können sich anstelle eines Passworts mit einem OpenID Connect-Identitätsanbieter (z. B. Keycloak) auf der Anmeldeseite anmelden. Daraufhin wird eine zusätzliche Schaltfläche **für Single Sign-On** angezeigt; Benutzername und Passwort bleiben weiterhin verfügbar.
+
+Web verwendet die gleiche Kontoverknüpfung wie der Admin-Adapter: die Identität (`sub`) des Anbieters wird gespeichert in `common.externalAuthentication.oidc.sub` Für einen bestehenden ioBroker-Benutzer. **Web erstellt weder Benutzer noch verknüpft es Identitäten.** Verknüpfen Sie den Benutzer zuerst im Admin-Adapter. Eine nicht verknüpfte Identität wird abgelehnt und die Anmeldeseite zeigt einen Fehler an.
+
+Einstellungen ( **die Authentifizierung** muss aktiviert sein und ist standardmäßig deaktiviert):
+
+- **Single Sign-On (OIDC)** – aktiviert diese Funktion. Ohne Aussteller- und Client-ID werden keine Leistungen angeboten. Die Verwendung mit der [Benutzerliste](#user-list) ist nicht möglich (siehe unten).
+- **OIDC-Aussteller-URL** – die Adresse des Anbieters, z. B. `https://keycloak.example.com/realms/home` Die
+- **OIDC-Client-ID** – der für diese Webinstanz registrierte Client.
+- **OIDC-Client-Geheimnis** – optional. Lassen Sie dieses Feld für einen öffentlichen Client leer; dieser verwendet dann PKCE. Das Geheimnis wird verschlüsselt gespeichert.
+- **OIDC-Bereiche** - Standard `openid profile email`. Nur `openid` wird benötigt, weil nur die `sub` wird verwendet.
+- **Öffentliche URL** – die externe Adresse dieses Servers. Die Einstellungen zeigen die Umleitungs-URI für die Registrierung beim Anbieter an: `<public URL>/sso-callback` Ohne eine öffentliche URL wird diese aus der Anfrage abgeleitet, was hinter einem Reverse-Proxy nicht korrekt ist.
+
+Was passiert beim Einloggen?
+
+- Das Ergebnis wird als Einmalcode an die Anmeldeseite übermittelt und gegen das Webtoken eingetauscht. Tokens erscheinen niemals in der URL.
+- Der Benutzer meldet sich als der verknüpfte ioBroker-Benutzer an, und zwar als kein anderer. Einem deaktivierten Benutzer wird der Zugriff verweigert, wie beispielsweise bei einem Passwort (abgesehen von …). `admin`).
+- Sitzungsdauer: dieselbe wie bei einer Passwortanmeldung über `/oauth/token` Das Zugriffstoken ist bis zum Ablauf des _Anmelde-Timeouts_ gültig, das Aktualisierungstoken mindestens 30 Tage lang.
+- Der Zugriffstoken-Cookie wird mit dem Ende der Browsersitzung ungültig. Im Gegensatz zur Anmeldung mit einem Passwort wird ihm durch die Option „Angemeldet bleiben“ keine dauerhafte Gültigkeitsdauer zugewiesen; sie legt lediglich fest, wo die Anmeldeseite die Token im Browser speichert.
+- Nach Ablauf des Tokens erscheint die Anmeldeseite erneut. Ein weiterer Klick auf _„Single Sign-On“_ ermöglicht die Anmeldung ohne Passwort, sofern die Sitzung beim Identitätsanbieter noch gültig ist.
+- Das Abmelden vom Web beendet lediglich die Websitzung. Die Sitzung beim Identitätsanbieter bleibt bestehen, sodass beim nächsten Klick auf _Single Sign-On_ eine erneute Anmeldung ohne Passwort möglich ist.
+
+### Single Sign-On und die Benutzerliste
+
+Single Sign-On und die [Benutzerliste](#user-list) schließen sich gegenseitig aus. Bei _aktivierter Webinterface-Zugriffsoption_ würde die Benutzerliste einen anderen Benutzer in das Anmeldetoken einfügen. Dieses Token ist sowohl für den Admin-Adapter als auch für alle anderen Adapter gültig: Ein Benutzer könnte dort ebenfalls die Rechte des ausgewählten Benutzers erhalten. Die Einstellungen bieten daher nur eine der beiden Optionen. Sind beide aktiviert (z. B. aufgrund einer älteren Konfiguration), deaktiviert das Webinterface Single Sign-On und protokolliert eine Warnung, sodass die Benutzerliste weiterhin Anwendung findet.
+
+### Keycloak einrichten
+
+Der `sub` Die Benutzerkennung ist für alle Clients eines Realms identisch, daher funktioniert die im Admin-Adapter erstellte Verknüpfung auch für Webanwendungen. Wir empfehlen, pro Adapter einen Client zu verwenden (z. B. einen für Admin und einen für Web) im selben Realm.
+
+- Gültige Umleitungs-URI: genau `https://<host>:<port>/sso-callback` der Webinstanz, kein Platzhalter.
+- Aktivieren Sie nur den _Standard-Workflow_ .
+- Ein für den Administratorclient ausgestelltes Token wird von Web abgelehnt, da die Zielgruppe nicht übereinstimmt.
+- Keycloak erfordert HTTPS für alle Redirect-URIs außer `localhost` Aktivieren Sie die Verschlüsselung oder legen Sie eine öffentliche HTTPS-URL fest.
+
+## Zwei-Faktor-Authentifizierung
+
+Ein Benutzer kann die Zwei-Faktor-Authentifizierung mithilfe einer Authentifizierungs-App (Google Authenticator, Microsoft Authenticator, Aegis, 2FAS usw.) im Admin-Adapter aktivieren: Menü des angemeldeten Benutzers, _Zwei-Faktor-Authentifizierung_ . Die Einstellung wird mit dem Benutzer gespeichert und gilt daher sowohl für die Web- als auch für die Admin-Oberfläche.
+
+- Auf der Anmeldeseite wird nach dem Passwort nach dem Code gefragt. Beim Anmeldeformular wird zuerst das Passwort überprüft, anschließend wird nur noch der Code abgefragt (dieser zweite Schritt ist 5 Minuten gültig). Alternativ kann einmalig einer der 10 Backup-Codes verwendet werden.
+- `POST /loginApp` Und `POST /oauth/token` Antwort `401` mit `{"error": "otp_required"}` oder `"otp_invalid"` Der Client sendet den Code als `otp` mit der nächsten Anfrage.
+- Ein Benutzer mit Zwei-Faktor-Authentifizierung kann sich nicht nur mit dem Passwort anmelden: Basisauthentifizierung, ein Passwort in der URL und die Anmeldung über einen Socket mit Benutzername und Passwort werden abgelehnt. Skripte und Geräte, die sich auf diese Weise anmelden, benötigen entweder einen eigenen Benutzer ohne Passwort oder ein Token.
+- Beim Single Sign-On wird kein Code abgefragt: Hier ist der Identitätsanbieter dafür verantwortlich.
+- Falsche Codes zählen beim [Brute-Force-Schutz](#brute-force-protection) genauso wie falsche Passwörter.
+- Nach Verlust eines Telefons schaltet ein Administrator dieses im Benutzerdialogfeld der Administration aus. Falls der Administrator selbst ausgesperrt ist: `iobroker object set system.user.admin common.externalAuthentication.totp=null`
+
 ## Autorisierung von Drittanbieterclients (OAuth)
 
-Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren von **„Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
+Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren **von „Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
 
 Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 
@@ -252,42 +300,30 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 - Web-Erweiterungen veröffentlichen ihre eigenen Ressourcenmetadaten unter `/.well-known/oauth-protected-resource/<path>` Diese Dokumente bleiben auch ohne Zugangsdaten lesbar.
 - **Legen Sie die öffentliche URL fest** , wenn der Server hinter einem Reverse-Proxy läuft, und verwenden Sie HTTPS: Remote-Clients lehnen unverschlüsselte Daten ab. `http://` Die
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.7.0 (2026-11-15)
+* (@GermanBluefox) Two-factor authentication with an authenticator app: the login page asks for the code after the password, users with it cannot log in with the password alone (basic authentication, socket)
+* (@GermanBluefox) Updated `@iobroker/webserver` to 3.5.0 and `@iobroker/socket-classes` to 2.11.0 (two-factor authentication)
 
-### 9.1.12 (2026-10-04)
+### 9.6.0 (2026-11-13)
+* (@matthiasnissen) Added optional single sign-on with OpenID Connect for users that are linked in the admin adapter. It cannot be used together with the user list
+* (@GermanBluefox) Updated `@iobroker/webserver` to 3.4.1: a disabled user cannot sign in with single sign-on, like with a password (apart from `admin`)
 
-- (@GermanBluefox) Behoben: Bei aktiviertem Cache wird eine Datei, die ein Adapter unter demselben Namen erneut schreibt, neu ausgeliefert, anstatt dauerhaft in der zuerst gelesenen Version gespeichert zu werden. Das war die Ursache. `sayit` Die gleiche Meldung wird wiederholt. Der Cache hatte keinerlei Möglichkeit, von einer Änderung zu erfahren – der Adapter hatte die zwischengespeicherten Dateien nie abonniert. Das ändert sich nun, allerdings nur für diese Namensräume, und der Eintrag wird gelöscht, sobald sich die Datei ändert.
-- (@GermanBluefox) Behoben: Ein Adapter, der als Web-Erweiterung läuft, ist auf der Übersichtsseite mit diesem Server verknüpft, anstatt mit einem eigenen Port, auf dem kein Dienst lauscht. Der Eintrag, den ein solcher Adapter bereitstellt, lautet: `welcomePage()` wurde erst erfasst, nachdem die Liste bereits bereinigt und ihre Links aufgelöst worden waren, daher wurde sie nie erfasst. `localLink` Die Seite wurde wortlos gelöscht und hinterließ nur den toten Link von `common.localLinks` hinter
-- (@GermanBluefox) Die Ordnerübersicht sieht jetzt aus wie die Admin-Oberfläche: Eine App-Leiste zeigt Pfad und Anzahl der Einträge an, Ordner- und Dateisymbole werden angezeigt, die Größe in einer lesbaren Einheit, und die Seite wählt automatisch ein helles und ein dunkles Design aus den Systemeinstellungen. Ein Ordner mit 0 Byte zeigt nun „0 B“ statt nichts an, und der Pfad nach oben führt nicht mehr vom Stammverzeichnis eines Adapters aus, wo er zuvor angezeigt wurde.
-- (@GermanBluefox) Ein unerwarteter Fehler beim Lesen einer Sitzung beendet die Instanz nicht mehr. Der Sitzungsspeicher antwortet aus einem eigenen Task, sodass eine Ausnahme in einem seiner Callbacks weder Express noch einen anderen Task erreicht. `try/catch` Der Controller beendete den gesamten Webserver aufgrund einer einzigen Anfrage. Die vier Callback-Funktionen sind nun abgesichert und antworten stattdessen mit einem 500-Fehler. Dasselbe galt für zwei Promises in `onObjectChange` /`onStateChange` ohne `catch`, wobei ein abgelehnter Lesevorgang der Socket-URL als unbehandelte Ablehnung eintraf
-- (@GermanBluefox) Die Option „Einbettung auf anderen Websites zulassen“ wurde hinzugefügt: Der Session-Cookie wird mit `SameSite=None; Secure` Eine Seite dieses Servers behält ihre Sitzung bei, wenn sie von einer anderen Website in einem iFrame eingebettet wird. Hierfür ist SSL oder ein HTTPS-Reverse-Proxy mit der festgelegten öffentlichen URL erforderlich. SSL ist standardmäßig deaktiviert, da dadurch der Schutz verloren geht. `SameSite` regelt gegen Anfragen ausländischer Seiten
-- (@GermanBluefox) Behoben: ein Aufruf von `/prolongSession` Die Instanz wird nicht mehr beendet. Die Sitzung wurde dem Speicher ohne Gültigkeitsdauer übergeben, der Speicher hat das Sitzungsobjekt selbst verwendet, und die Typprüfung des Controllers hat den Adapter mit der Fehlermeldung „Parameter ttl muss vom Typ Zahl sein“ beendet. Die Sitzung wird außerdem unter der ID, die ihr Cookie enthält, zurückgeschrieben. `req.session.id` Es handelt sich um eine andere Sitzung, sobald express-session eine neue Sitzung für die Anfrage startete, und dann wurde die falsche Sitzung verlängert.
-- (@GermanBluefox) Behoben: Eine Adresse ohne schließenden Schrägstrich -`/vis-2` anstatt `/vis-2/` Die Fehlermeldung führt zur Anwendung anstatt zu einem 404-Fehler. Sie wird, wie jeder andere Webserver auch, mit einer Weiterleitung zur Adresse mit Schrägstrich beantwortet.
-- (@GermanBluefox) Ein 404-Fehler gibt die angeforderte Adresse an, nicht den Dateinamen, der nach dem Abschneiden des Adapternamens übrig bleibt, und protokolliert dies im Debug-Modus.
-- (@hdering) Eine Webinstanz, die neu gestartet wird, um eine geänderte Web-Erweiterung zu laden, protokolliert dies als Information mit dem Grund anstelle der Warnung "Beendet (-100): Ohne Grund"
+### 9.5.1 (2026-11-09)
+* (@GermanBluefox) The setting "Login timeout" (`ttl`) applies to the OAuth2 access token now. Before, the access token always expired after 1 hour, whatever was set. The refresh token lives at least 30 days, or as long as the access token if that is longer
+* (@GermanBluefox) Updated `@iobroker/socket-classes` to 2.10.4: a logged-in user without the permission `other.sendto` may now send `checkLicense` to vis and `dm:loadItems` to devices, so that widgets with a license and the device tiles work for users who may only look. Also: no more "REAUTHENTICATE!" log flood, and the host commands `readDiskDir` and `deleteDiskFile` need the permission for `cmdExec`
 
-### 9.1.11 (2026-10-02)
+### 9.5.0 (2026-11-06)
+* (@GermanBluefox) web, its socket clients and the web extensions no longer take subscriptions away from each other. js-controller keeps one subscription per pattern, so when an extension like rest-api gave up a state, the socket clients of web and the other extensions got no more changes of it either. web now notes who subscribed what and unsubscribes in the database only when nobody needs the pattern any more. What a stopped extension still holds is given up for it (#196)
 
-- (@hdering) Das Aktualisieren eines Adapters mit einer Web-Erweiterung startet nur die Webinstanzen neu, auf denen er ausgeführt wird, nicht jede Webinstanz.
-- (@GermanBluefox) Behoben: Ein Benutzer, der über die „Benutzerliste“ aufgrund einer Gruppe zugelassen wurde, wurde unabhängig von der jeweiligen Gruppe zugelassen. Bisher wurde nur die erste Gruppe, der der Benutzer angehörte, mit den zulässigen Gruppen verglichen. Daher wurde ein Benutzer, der mehreren Gruppen angehörte, abgelehnt, wenn die erste Gruppe nicht in der Liste aufgeführt war. Die Reihenfolge der Gruppen entspricht ihrer Erstellungsreihenfolge, was den Eindruck erweckte, dies sei willkürlich.
-
-### 9.1.9 (2026-09-28)
-
-- (@GermanBluefox) OnScreen-Status für App hinzugefügt
-
-### 9.1.8 (2026-09-24)
-
-- (@GermanBluefox) Ein leerer Körper für `cloud.X.remote.command` wird mit einem 400-Fehler abgelehnt, anstatt einen leeren Befehl zu schreiben, der ohne Wort verworfen wird.
-
-### 9.1.7 (2026-09-21)
-
-- (@joltcoke) Behoben: Nach dem Login landete der Benutzer erneut auf der angeforderten Seite, selbst wenn die URL einen Query-String enthielt. Das Ziel wurde nach der Dekodierung anhand einer Zeichenliste ohne "=" validiert, sodass jeder gültige Query-Parameter den Benutzer stattdessen zur Root-Seite weiterleitete. Ein Fragment der angeforderten URL wurde ebenfalls gespeichert.
-- (@GermanBluefox) Behoben: Bei einem Tippfehler im Passwort wird man nun mit einer Fehlermeldung zur Anmeldeseite weitergeleitet, anstatt einen 404-Fehler zu erhalten. Die angeforderte Seite geht dabei nicht verloren.
-- (@GermanBluefox) Behoben: Ein Deep Link, der mit einer JavaScript-Datei beantwortet wurde, behielt seine gesamte Abfragezeichenfolge bei – sie war beim ersten „&“ abgeschnitten worden.
-- (@GermanBluefox) Ein Ziel mit einem Steuerzeichen wird erneut abgelehnt: Browser entfernen Tabulatoren und Zeilenumbrüche, bevor sie eine URL lesen, die zu "/" wurde.<TAB> /host" in einen Link umwandeln, der diesen Server verlässt
+### 9.4.0 (2026-11-05)
+* (@GermanBluefox) A changed web extension no longer restarts web every time: a write of its instance object that changes nothing is ignored, and a newly enabled extension is started while web keeps running. An extension that sets `supportsHotReload` is stopped and started again with its new settings, or just stopped when it is disabled - the sessions and socket connections of everybody else stay. A new version of an extension still restarts web. See [WEB-EXTENSIONS-HOWTO.md](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md)
+* (@GermanBluefox) Every web extension gets a router of its own, so web can take all of its routes back when it stops
+* (@GermanBluefox) Updated packages
 
 ## License
 The MIT License (MIT)

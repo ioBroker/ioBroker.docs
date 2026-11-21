@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.skoda-public-api/README.md
 title: ioBroker.skoda-public-api
-hash: 8NycFERLKDzY62pF2xAE4T4hM4vt/BwXBJcH84S7nME=
+hash: Z6HbHns2AA3begwIoG/DO4evMbCr+t2DJsxsYIK0fS4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.skoda-public-api/admin/skoda-public-api.png)
 
@@ -21,7 +21,19 @@ hash: 8NycFERLKDzY62pF2xAE4T4hM4vt/BwXBJcH84S7nME=
 
 Управление автомобилями Škoda осуществляется через официальный [API MyŠkoda Public](https://public.api.connect.skoda-auto.cz/docs) .
 
-Адаптер опубликован в npm и доступен в ioBroker. `latest` Репозиторий. В [тестовой ветке](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) собираются отзывы от других транспортных средств. Статус разработки и открытые задачи задокументированы в [файле HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) .
+Адаптер опубликован в npm и доступен в ioBroker. `latest` Репозиторий. Версия **0.1.11** была принята в официальный репозиторий. `stable` Репозиторий обновлен 11 октября 2026 г. ( [стабильный PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832) ). Он станет виден в административной панели ioBroker после обновления каталога репозитория. В [тестовой ветке](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) собираются отзывы от других транспортных средств. Статус разработки и открытые задачи задокументированы в [файле HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) .
+
+## Установка
+
+Требования: Node.js версии 22 или новее, js-controller версии 6.0.11 или новее и Admin версии 7.6.20 или новее.
+
+1. Выберите `stable` В репозитории в административной панели ioBroker обновите каталог адаптеров.
+2. Откройте **раздел «Адаптеры»** , найдите…`skoda-public-api` и установите выпущенный адаптер.
+3. Создайте экземпляр и введите ключ API и авторизованные VIN-коды в его конфигурации.
+
+Если адаптер еще не отображается в списке после стабильного включения, дождитесь следующего обновления каталога репозитория и обновите страницу. Выпущенная версия также доступна в `latest`.
+
+Для установки выпущенного пакета используйте ioBroker Admin или ioBroker CLI. В исходном коде содержится TypeScript; точка входа скомпилированного адаптера включена в опубликованный npm-пакет. URL-адрес репозитория предназначен для разработки и проверки.
 
 ### Единственное ограничение, которое определяет всё.
 
@@ -31,7 +43,7 @@ API допускает **20 запросов в час на каждый VIN** .
 
 Адаптер использует **официальный** публичный API MyŠkoda, а не интерфейс приложения, полученный путем обратной разработки. `iobroker.vw-connect` разговаривает с.
 
-1. Откройте приложение MyŠkoda (версия 8.16 или новее) и перейдите в **раздел «Ключ API»** .
+1. Откройте приложение MyŠkoda (версия 8.16 или новее) и перейдите в **раздел «Ключ API» в меню «Профиль/Умный дом»** .
 2. Выберите транспортные средства, к которым может быть подключен ключ. Ключ привязан к этому выбору: если VIN-номер не был выбран, он выдаст ответ. `403`, независимо от того, насколько правильно это выглядит.
 3. Скопируйте ключ в экземпляр адаптера. Через некоторое время он **истечет** — адаптер отслеживает дату истечения срока действия и предупреждает вас (см. Истечение [срока действия ключа](#key-expiry) ).
 
@@ -78,12 +90,12 @@ setState('skoda-public-api.0.<VIN>.refresh', true);
 
 | Состояние                                  | Значение                                                                                                                                                                |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `info.connection`                          | `false` Когда ключ отклоняется (401/403). **Остается `true` Когда квота исчерпана** , пустой бюджет — это нормальная работа, а не ошибка.                                |
+| `info.connection`                          | `false` Когда ключ отклоняется (401/403). **Остается `true` Когда квота исчерпана** , пустой бюджет — это нормальная работа, а не ошибка.                                 |
 | `<vin>.rateLimit.*`                        | `limit`, `remaining`, `resetAt`, `lastRequestAt` — отдельный бюджет для этого VIN-номера, не связанный с... `RateLimit-*` заголовки и память адаптера при перезагрузках. |
 | `info.apiKey.expiresAt`, `.daysRemaining`  | Из `X-API-Key-Expires-At` заголовок каждого ответа.                                                                                                                      |
 | `<vin>.info.dataAge`                       | Секунды с момента последнего `carCapturedTimestamp` в ответе.                                                                                                            |
 | `<vin>.info.lastErrors`                    | Он `errors[]` последний ответ в формате JSON.                                                                                                                            |
-| `<vin>.info.lastCommand.*`                 | `name`, `result`, `timestamp`, `problemType` последней команды.                                                                                                          |
+| `<vin>.info.lastCommand.*`                 | `name`, `result`, `timestamp`, `problemType` последней команды.                                                                                                         |
 | `<vin>.info.commandConfirmation.<group>.*` | Принятие, цель, крайний срок и подтвержденное наблюдением выполнение последней принятой команды в каждой контрольной группе.                                            |
 | `<vin>.info.polling.nextPollAt`            | Запланированное время следующей попытки опроса, в миллисекундах Unix; `0` во время опроса, приостановления или повторной попытки записи в локальное состояние.           |
 | `<vin>.info.polling.lastSuccessfulPollAt`  | Время последнего успешного ответа API автомобиля в миллисекундах Unix; сохраняется после перезапуска. `0` если таковой не зафиксирован.                                  |
@@ -128,7 +140,7 @@ setState('skoda-public-api.0.<VIN>.refresh', true);
 
 Другие диапазоны и одометр уже используют километры; время зарядки уже использует минуты. Значения делятся без округления. Существующие единицы измерения объекта и описания по умолчанию обновляются при следующем получении соответствующего значения; пользовательские имена сохраняются. Скрипты, считывающие эти три состояния, должны использовать км/мин. Существующие записанные временные ряды не перезаписываются. Ответы API и полезные нагрузки команд сохраняют единицы измерения API.
 
-API может опускать `charging.status.state` даже при подключенном зарядном кабеле. Использовать `charging.status.plugConnectionState` для указанного кабельного соединения и `charging.status.plugLockState` для проверки статуса блокировки, если эти необязательные поля доступны. Если ранее указанное поле исчезает, его последнее значение остается с флагом плохого качества; не следует рассматривать это значение как текущее состояние транспортного средства.
+API может опускать `charging.status.state` даже при подключенном зарядном кабеле. Использовать `charging.status.plugConnectionState` для указанного кабельного соединения и `charging.status.plugLockState` для статуса блокировки, если эти необязательные поля доступны. Если ранее сообщенное поле исчезает, его последнее значение остается с флагом плохого качества; не следует рассматривать это значение как текущее состояние транспортного средства. Оба состояния разъема представляют собой строки только для чтения; будущие значения сохраняются без изменений. Существующие автоматически созданные состояния разъемов получают свою роль и отсутствующие значения выбора при следующем опросе после обновления, сохраняя пользовательские имена, метки и историю. Если состояние зарядки отсутствует или неизвестно, `charging.enabled` Сохраняет последнее зарегистрированное значение с плохим качеством. Такое состояние не может подавить запрос на остановку или подтвердить команду. Состояние подключения и блокировки разъема само по себе не указывает на активную зарядку.
 
 ## Управление транспортным средством
 
@@ -178,7 +190,7 @@ on({ id: 'skoda-public-api.0.<VIN>.info.commandConfirmation.charging.status', ch
 
 Статус записывается после остальных полей записи, в том числе, когда новая принятая команда заменяет уже имевшуюся. `WAITING`. Читать `name`, `target` и `sentAt` для идентификации наблюдения. Подтверждение не меняет сути. `info.lastCommand.result` или повторно запишите значение элемента управления: `SENT` и `ack: true` «Продолжать» означает принятие API.
 
-Соответствующий блок ответа должен иметь свой собственный более новый формат. `carCapturedTimestamp` Отсутствующие или неисправные детали, несвязанные временные метки и неизвестные состояния транспортного средства не могут подтвердить команду. Более новое соответствующее состояние является наблюдением, а не подтверждением операции на стороне сервера; другой клиент мог запросить ту же настройку. Данные, впервые полученные после истечения крайнего срока, оставляют запись в состоянии `TIMED_OUT` При перезапуске по заданной конфигурации отображаются только незавершенные операции. `WAITING` записи становятся `INTERRUPTED` Завершенные записи остаются доступными. Пока адаптер остановлен, локальные таймеры подтверждения не запускаются, и сохраненные значения остаются неизменными.
+Соответствующий блок ответа должен иметь свой собственный более новый формат. `carCapturedTimestamp` Отсутствующие или неисправные детали, несвязанные временные метки и неизвестные состояния транспортного средства не могут подтвердить команду. Более новое соответствующее состояние является наблюдением, а не подтверждением операции на стороне сервера; другой клиент мог запросить ту же настройку. Данные, впервые полученные после истечения крайнего срока, оставляют запись в состоянии `TIMED_OUT` При перезапуске по заданной конфигурации отображаются только незавершенные процессы. `WAITING` записи становятся `INTERRUPTED` Завершенные записи остаются доступными. Пока адаптер остановлен, локальные таймеры подтверждения не запускаются, и сохраненные значения остаются неизменными.
 
 ### Лимит зарядки
 
@@ -268,7 +280,7 @@ API заменяет **весь профиль** . Сохраните все п�
 
 Чего этот API не может вам предоставить, независимо от его конфигурации:
 
-- **Отсутствует посекундный мониторинг.** 20 запросов в час — это один запрос каждые три минуты, и это весь бюджет.
+- **Нет посекундного мониторинга.** 20 запросов в час — это один запрос каждые три минуты, и это весь бюджет.
 - **Никакого уведомления об окончании зарядки сразу не будет.** Вы узнаете об этом на следующем опросе.
 - **Отсутствует модуляция тока в амперах.** API позволяет установить целевое состояние заряда, режим зарядки и профиль. `REDUCED` /`MAXIMUM` Предварительно настроенный режим. Он не может плавно регулировать силу тока, поэтому в примере с избыточной зарядкой используется управление включением/выключением.
 
@@ -309,6 +321,12 @@ API заменяет **весь профиль** . Сохраните все п�
 Škoda и MyŠkoda являются товарными знаками Škoda Auto. Этот проект представляет собой независимый адаптер с открытым исходным кодом и не связан с Škoda Auto, а также не поддерживается ею. Он использует общедоступный API MyŠkoda с ключом, который владелец автомобиля создает самостоятельно. Значок адаптера является оригинальным, нейтральным по отношению к бренду изображением проекта и не воспроизводит официальный логотип Škoda; он распространяется под лицензией MIT этого проекта.
 
 ## Changelog
+
+### 0.1.12 (2026-11-06)
+
+- Add API 1.1.0 plug connection and lock states with translated names and metadata migration for existing objects.
+- Preserve unknown charging activity instead of reporting it as stopped or suppressing stop commands; use the existing polls without additional requests.
+- Cover optional plug fields, future values, missing data, restarts and upgrades in unit and controller integration tests.
 
 ### 0.1.11 (2026-09-20)
 

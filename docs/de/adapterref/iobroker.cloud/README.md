@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
+hash: xszmW+E0YWADNBq80MTgRrTglgnitPpQZYA5c6Ndeig=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/cloud-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.cloud.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/cloud-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.cloud.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cloud.svg)
 ![NPM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
@@ -17,7 +17,7 @@ hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
 
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 
@@ -32,6 +32,18 @@ Dies ist der Anwendungsschlüssel, den der Benutzer auf der Website <https://iob
 ### Beispiel
 
 Alle Anfragen vom Cloud-Adapter werden an die jeweilige Webinstanz weitergeleitet. Der Benutzer muss hier die Webinstanz angeben; diese wird ihm beim Einloggen auf <https://iobroker.net> angezeigt.
+
+### Rechte
+
+Das Konto bei iobroker.net oder iobroker.pro bestimmt nicht, worauf in ioBroker zugegriffen werden kann. Die Rechte ergeben sich aus dem Benutzer mit den Berechtigungen „Zugriff als“ (`defaultUser`) der Instanzen:
+
+- Seiten und Dateien von web, admin und lovelace werden mit dem Benutzer der entsprechenden Instanz angefordert.
+- Lovelace-Zustände werden mit dem Benutzer der Lovelace-Instanz gelesen und geschrieben.
+- Objekte, Zustände und Dateien, die von den Seiten der Web- und Admin-Oberfläche angefordert werden, werden unter dem Benutzerkonto der Web-Instanz ausgeführt. Web- und Admin-Oberfläche teilen sich diese Verbindung, daher gibt es nur einen Benutzer für beide. Ohne eine Web-Instanz wird das Benutzerkonto der Admin-Instanz verwendet, andernfalls das der Lovelace-Instanz.
+
+Wenn Sie Administratorzugriff erlauben und die Webinstanz einen anderen Benutzer als die Administratorinstanz besitzt, verfügt der Administrator nur über die Rechte des Webbenutzers. Der Adapter protokolliert in diesem Fall eine Warnung.
+
+Bei eingeschränkten Benutzern wird nicht für jedes einzelne Änderungsereignis geprüft: Wenn ein solcher Benutzer Zustände oder Objekte abonnieren kann, erhält er die Änderungen von allem, was dem Muster entspricht, wie bei jedem anderen ioBroker-WebSocket.
 
 ### Selbstsignierte Zertifikate zulassen
 
@@ -89,12 +101,12 @@ Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, 
 
 ## Remote-Shell (SSH)
 
-Auf **der Pro-Version** kann die Cloud als SSH-Jump-Host fungieren, sodass Sie von überall aus auf eine Shell (oder einen beliebigen TCP-Dienst) auf diesem Rechner zugreifen können. Die Authentifizierung erfolgt mit Ihrer Cloud-E-Mail-Adresse und Ihrem Passwort. Die interne SSH-Verbindung ist zwischen Ihrem Client und dem lokalen Server Ende-zu-Ende-verschlüsselt. `sshd` Die Cloud leitet also nur Bytes weiter.
+Auf **der Pro-Version** kann die Cloud als SSH-Jump-Host fungieren, sodass Sie von überall aus auf eine Shell (oder einen beliebigen TCP-Dienst) auf diesem Rechner zugreifen können, authentifiziert mit Ihrer Cloud-E-Mail-Adresse und Ihrem Passwort. Die interne SSH-Verbindung ist zwischen Ihrem Client und dem lokalen Server Ende-zu-Ende-verschlüsselt. `sshd` Die Cloud leitet also nur Bytes weiter.
 
 Aktivieren Sie es unter **„Remote Shell“** in den Adaptereinstellungen:
 
 - **Remote-Shell aktivieren** – standardmäßig deaktiviert.
-- **Zulässige Ziele** – eine Regeltabelle; ein Ziel ist zulässig, wenn es in einer Zeile übereinstimmt. Dies ist die maßgebliche Zulassungsliste; die Cloud öffnet nur Ziele, die der Adapter erlaubt. Jede Zeile enthält:
+- **Zulässige Ziele** – eine Regeltabelle; ein Ziel ist zulässig, wenn es in einer Zeile übereinstimmt. Dies ist die maßgebliche Zulassungsliste; die Cloud öffnet nichts, was der Adapter nicht erlaubt. Jede Zeile enthält:
 
   - **Host** – eine einzelne IP-Adresse oder ein Hostname (`127.0.0.1`, `localhost`), ein Joker (`192.168.*`), ein CIDR (`192.168.1.0/24`), oder ein Bereich (`192.168.1.10-192.168.1.50`).
   - **Ports** — eine Liste und/oder Bereiche (`22`, `22, 8081`, `8000-8100`), oder leer /`*` /`all` für jeden beliebigen Hafen.
@@ -128,23 +140,26 @@ Nun waren sie zu finden in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
-### 6.2.5 (2026-09-24)
-* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
-* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
+### 6.4.0 (2026-11-15)
+* (@GermanBluefox) Prepared the switch to socket.io 4: a cloud address with `wss://` is connected with socket.io 4. If it cannot be reached, the adapter goes back to the current cloud
+* (@GermanBluefox) A cloud address counts as one of ioBroker.pro if it contains "iobroker.pro", whatever protocol and port it names. Before, only `https://iobroker.pro:<port>` did, so a pro key with `wss://iobroker.pro:<port>` was sent to `https://iobroker.pro:10555`
+* (@GermanBluefox) After a big answer (e.g. all objects for the editor of vis-2 via the cloud) the adapter waits longer for the pong of the cloud: as long as a slow upload needs for what was sent, at most 160 seconds. Before, it disconnected with "Ping timeout" while the answer was still on its way, and the editor never got its objects
+* (@GermanBluefox) After a lost connection the adapter always comes back: if it cannot get its app-key at the start because the network or the server is away (timeout, no DNS, reset, 5xx), it tries again after 10 seconds, then twice as long each time, at most every 5 minutes. Before, only "connection refused" was retried; any other network error (e.g. `ETIMEDOUT`) ended the start, and the instance stayed alive without a connection to the cloud. The request for the app-key now gives up after 15 seconds instead of minutes. A wrong login still stops with an error
 
-### 6.2.4 (2026-09-21)
-* (@GermanBluefox) Updated packages
+### 6.3.0 (2026-11-09)
+* (@GermanBluefox) Commands from the cloud run as the "access as" user of the web instance and no longer always as admin. If this user is restricted, the pages of web and admin only have its rights via cloud
 
-### 6.2.1 (2026-09-17)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Clear subscriptions on cloud disconnection
+### 6.2.11 (2026-10-16)
+* (@GermanBluefox) The adapter is stopped with `terminate()` only, `process.exit()` is no longer used (compact mode)
+* (@GermanBluefox) Added the missing translations and the Ukrainian words for the blockly block
+* (@GermanBluefox) Corrected the responsive sizes of the settings dialog
+* (@GermanBluefox) Removed the unused dependency `cookie-parser`
 
-### 6.1.3 (2026-08-26)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Migrated blockly to TypeScript
+### 6.2.10 (2026-10-14)
+* (@GermanBluefox) Corrected the loading of materialized configurations on ioBroker.pro
 
-### 6.1.2 (2026-06-13)
-* (@GermanBluefox) Added support of credentials manager
+### 6.2.8 (2026-10-12)
+* (@GermanBluefox) The states `alive` and `onScreen` of an app device are corrected to type boolean if an earlier version created them as string, so values written to them are no longer refused
 
 ## License
 The MIT License (MIT)

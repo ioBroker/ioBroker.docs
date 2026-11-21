@@ -37,12 +37,14 @@ English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/e
 
 German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
-> I strongly recommend not to use any dev versions of ems-esp firmware with this adapter
-> Especially any early versions !!!!
-> I can not guarantee that the adpapter is still working
-> Do not expect me to react fast !!!
+> **I strongly recommend not to use any dev versions of ems-esp firmware with this adapter**  
+> **Especially NOT any early versions !!!!**  
+>  
+> **I can not guarantee that the adpapter will still be working** 
+> **Do not expect me to react fast !!!**  
 
 ## Changelog
+
 ### 7.0.9 (2026-11-13)
 * Update for ems-esp 3.10.x
 * dependabot updates

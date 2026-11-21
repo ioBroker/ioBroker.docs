@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README_de.md
 title: ioBroker mihome-vacuum Adapter
-hash: MiiR2/98JnklM2zog3nArw9wBqun3eknZLQLPJgAsqY=
+hash: kFwAWeBYbR8F4/aTvKfmbCmgrKHg5R9ZU2shUtubG2I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -26,7 +26,7 @@ Zu den unterstützten Gerätefamilien gehören Roborock/rockrobo, Viomi und Drea
 
 ## Установка
 
-Установите и актуализируйте адаптер для администратора ioBroker с соответствующей версией npm. Непосредственная установка на GitHub не будет выполняться и будет отключена администратором. Das Quellrepository позволяет создавать Laufzeit-, Admin-UI- или VIS-2-Bundles; veröffentlichte Pakete enthalten diese Dateien bereits.
+Установите и актуализируйте адаптер для администратора ioBroker с определенной версией npm. Непосредственная установка на GitHub не будет выполняться и будет отключена администратором. Das Quellrepository позволяет создавать Laufzeit-, Admin-UI- или VIS-2-Bundles; veröffentlichte Pakete enthalten diese Dateien bereits.
 
 ## Unterstützte Geräte und Funktionen
 
@@ -96,7 +96,7 @@ Xiaomi Cloud не является обязательным для обычно�
 5. Ссылка будет открыта, а Xiaomi-Anmeldung в браузере будет лучшим.
 6. Когда ioBroker зарегистрируется, вы получите статус Cloud-Status **Angemeldet** anzeigt.
 7. После **этого** нажмите кнопку и нажмите кнопку «Saugroboter» в списке «Auswählen».
-8. Автоматическое создание токенов, IP-адресов, моделей и менеджеров.
+8. Автоматическое получение токенов, IP-адресов и моделей; Менеджер по **автосервису** .
 9. Настройка и контроль конфигурации, `info.connection` ден Верт `true` erhält.
 
 ![Verbindung und Xiaomi-Cloud-Anmeldung](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
@@ -114,7 +114,7 @@ Geräte-Token, Xiaomi-Anmeldelinks, Cookies, Cloud-Sitzungen und ungekürzte Deb
 - **Токен:** шестнадцатеричный локальный токен
 - **IP-адрес:** актуальный региональный адрес роботов
 - **Modell:** Modellkennung wie `roborock.vacuum.s5`
-- **Менеджер:** Wird Normalerweise Autotisch erkannt; Роборок, Виоми или Dreame nur bei Bedarf manuell auswählen
+- **Менеджер:** auf **Auto** lassen; Менеджер работал над моделью ermittelt. Roborock, Viomi, Dreame или Xiaomi MIoT при необходимости вручную, если модель не работает. Roborock-Geräte unterstützen kein MIoT и lassen sich mit dem Dreame- или Xiaomi-MIoT-Manager nicht steuern; Адаптер включается в Roborock-Manager и выдается предупреждение в журнале
 - **Порт-де-Роботеры:** нормальный `54321`
 - **Собственный порт:** локальный UDP-порт dieser Adaptorinstanz, Normalerweise `53421`
 
@@ -126,7 +126,7 @@ Geräte-Token, Xiaomi-Anmeldelinks, Cookies, Cloud-Sitzungen und ungekürzte Deb
 
 [Anleitung zum Auslesen des Tokens](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/)
 
-Die Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise nicht mit jedem Modell, прошивка или актуальная версия приложения Mi-Home. Токен должен быть введен с паролем, проверен и сохранен в журналах, скриншотах, проблемах и других важных событиях.
+Die Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise nicht mit jedem Modell, прошивка или актуальная версия приложения Mi-Home. Токен должен быть указан в виде пароля, проверен и сохранен в журналах, скриншотах, проблемах и других важных событиях.
 
 ## Конфигурация
 
@@ -285,6 +285,10 @@ Jedes Bedienelement erscheint nur, wenn der Adaptor den passenden Datenpunkt fü
 
 ![VIS-2-Saugroboter-Widget](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%202%20VacuumControlWidget.png)
 
+Dasselbe Widget в einer dunklen vis-2-Ansicht, Übersicht mit Karte, Akku, gereinigter Fläche und Zeit, Saugleistung und Schnellsteuerung:
+
+![vis-2 Saugroboter-Виджет, дизайн Данклса](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/vis2-vacuum-control-dark.png)
+
 ### Ройме, Saugleistung und Darstellung
 
 **Автоматическое подключение** (стандартное) для виджета VIS-2 со всеми параметрами, с помощью адаптера `rooms.*` ангельская шляпа, включая eigener Saugstufe, wenn der Roboter das unterstützt. Ohne die Option может быть выбран вручную с помощью Anzeigename, Start-Datenpunkt и Saugleistungs-Datenpunkt configurieren. Виджет VIS-1 можно вручную настроить.
@@ -329,7 +333,7 @@ Der Kartenrenderer добавляет дополнительный собств�
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Keine alte `canvas` -Версия 2.x будет установлена вручную при установке адаптера.
+Keine alte `canvas` -Версия 2.x устанавливается вручную при установке адаптера.
 
 ### Мехрере Роботер
 

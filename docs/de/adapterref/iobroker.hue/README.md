@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hue/README.md
 title: ioBroker Philips Hue Bridge Adapter
-hash: 0X9y0QmRkp+rBWmMBuHG0wLIH/lcjhp7i6MxNGVbpxQ=
+hash: BTVpn7tDx1kib2iwoH58Kl1Y0zVmQta+Oea13SaSD74=
 ---
 ![Logo](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/hue-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.hue.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/hue-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.hue.svg)
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)
@@ -25,7 +25,7 @@ Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der ioBroker GmbH die Berechtigung zur Erfassung von Diagnosedaten erteilt haben, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
-## Englisch :gb:
+## Beschreibung
 
 Dieser Adapter verbindet Ihre Philips Hue Bridges mit ioBroker, um Philips Hue LED-Lampen, Friends of Hue LED-Lampen, LED-Streifen, Steckdosen wie von Osram und andere SmartLink-fähige Geräte (wie LivingWhites und einige LivingColors) zu steuern.
 
@@ -76,16 +76,15 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 
 Mit Version 3.3.0 erklärt die Gruppe: `anyOn` Und `allOn` wurden kontrollierbar, beachten Sie, dass sie sich einfach so verhalten werden. `on` Zustand, wenn kontrolliert. In manchen Fällen kann es wünschenswert sein, einen kontrollierbaren Zustand zu haben. `anyOn` Zustand in Ihrer Visualisierung.
 
-## Deutsch :de:
-
-Bindet Philips Hue / LivingColors / LivingWhites Lampen ein. In den Adapter-Einstellungen muss die IP der Hue Bridge sowie ein Benutzername konfiguriert werden. Um einen Benutzer zu aktivieren, drücken Sie einmal auf „Benutzer erstellen“ und drücken Sie dann innerhalb von 30 Sekunden den Button an der Hue Bridge. Dann wird der Benutzer automatisch übergeben.
-
 ## Roadmap/Aufgaben
 
 - Automatische Brückenerkennung
 - Automatische Benutzereinrichtung über Bridge-Link-Taste
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__

@@ -20,6 +20,9 @@ a password is required. you can set it in settings of BYD Manager
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 ### 1.1.0 (2023-10-27)
 * switch to intervall
 
@@ -41,7 +44,7 @@ a password is required. you can set it in settings of BYD Manager
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

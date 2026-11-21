@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: JKzFmLXBgRPhcmnQZNF8yjhw5+IJPYdrMgamvBwuTkw=
+hash: iaRRaXtfVLW1QwmnEJOj4lrmpTYTZWSDbtViA799az4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -31,6 +31,10 @@ hash: JKzFmLXBgRPhcmnQZNF8yjhw5+IJPYdrMgamvBwuTkw=
 
 [🇩🇪 Документация](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/docs/de/README.md)
 
+## Сообщения для скриптов и агентов искусственного интеллекта.
+
+`sendTo('frigate.0', 'help', {}, result => ...)` ответы `{ help, commands }`: описание всех сообщений и состояний для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов, а также список всех команд, каждая с указанием их содержимого. `write: true` если это оказывает влияние, выходящее за рамки простого возврата информации.
+
 ## Обсуждение и вопросы
 
 <https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker>
@@ -41,24 +45,24 @@ hash: JKzFmLXBgRPhcmnQZNF8yjhw5+IJPYdrMgamvBwuTkw=
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 3.2.1 (2026-09-28)
-- (@GermanBluefox) In broker mode the adapter reports the port of its built-in MQTT broker to js-controller 8, which keeps a per-host registry of the occupied ports (`system.host.<name>.usedResources`). The default 1883 is also the default of the MQTT adapter, so the log now names the instance that already declared the port instead of only reporting "port is already in use". The port is taken from the running server and given back when it closes. In client mode nothing is reported: the broker is on another machine. An older js-controller is unaffected
-- (@GermanBluefox) The fullscreen dialog of the camera widgets for `ioBroker.devices` opened as a bare strip with some cameras: the dialog takes its height from the picture in it, and a picture that has not arrived yet is zero pixels high. The dialog now keeps a place for it and shows that it is on its way. The live widget also stops the stream of the tile for as long as the dialog is open - a browser grants about six connections per server, every camera tile holds one of them for as long as its stream runs, and the stream of the dialog was therefore the one that never got a turn. A stream that still brings no frame within ten seconds is given up on, and the pictures come over the socket instead, as they already did when a stream reported an error
+### 3.4.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+- (@GermanBluefox) Every export in Frigate left 12 objects behind for good in `job_state.export.results.<camera>_<id>`, with the status "running" (a motion search one state per result): Frigate only reports the jobs that are queued or running. The objects of a job are now deleted as soon as it is no longer in `job_state`, and the job states from before the start are deleted at the start
+- (@GermanBluefox) New settings "Event history per camera" (off: only `events.history`) and "Event history as single states" (off: only the JSON). As single states each event takes about 34 objects, (cameras + 1) × the number of events, which brought installations with many cameras over the limit at which ioBroker warns about too many objects (5000 per instance). Objects that are no longer needed are deleted at the start. Both settings are on by default, so nothing changes until they are switched off. The history of each camera is now also written as JSON to `<camera>.history.json`
+- (@GermanBluefox) Dependencies have been updated; Dependabot now also updates the web components
 
-### 3.2.0 (2026-09-22)
-- (@GermanBluefox) The live widget for `ioBroker.devices` still tried the stream relative to admin (port 8081) when the adapter did not report the address of the web instance in time. Without an address the widget now takes single pictures over the socket and tells the reason in the browser console; an address that arrives late still switches to the stream
-- (@GermanBluefox) Added the names Frigate recognizes (face recognition, known license plates): `<zone>.sub_labels` lists the names in a zone right now, and `sub_labels.<name>` is `true` as long as a running event carries that name. With face recognition enabled, the names of the face library are created on start, so automations can be set up before somebody is recognized for the first time (#277)
-- (@GermanBluefox) Fixed repochecker warnings: literal placeholders of the settings dialog are in the translation files, and dependabot also watches `src-devices`
+### 3.3.0 (2026-11-08)
+- (@GermanBluefox) Added the web components `iob-frigate-snapshot` and `iob-frigate-live` - the devices widgets "Frigate Snapshot" and "Frigate Live" for Aura and other hosts (`common.webComponents`). The names of the devices widgets are translated now
 
-### 3.1.5 (2026-09-22)
-- (@GermanBluefox) The live widget for `ioBroker.devices` did not show the stream in admin: before the adapter had reported the address of the web instance, the widget already loaded the stream relative to admin (port 8081), and the error of that attempt stayed on the tile even after the right address had arrived. The widget now waits for the address, and if the stream still cannot be loaded (web instance not reachable, http stream inside an https admin), it switches to single pictures over the socket
+### 3.2.6 (2026-11-06)
+- (@GermanBluefox) `thumbnail` in the event history (`events.history.*`, `<camera>.history.*`, `events.history.json`) was the broken picture `data:image/jpeg;base64,null` with Frigate 0.14 and newer: Frigate keeps the thumbnails as files since then and no longer sends them with the events. It is now the address of the thumbnail (`http://<frigate>/api/events/<id>/thumbnail.jpg`), like `websnap` and `webclip`. Older Frigate versions that still send the picture keep it as before
 
-### 3.1.4 (2026-09-14)
-- (@GermanBluefox) The live widget for `ioBroker.devices` switches to single pictures over the socket by itself when the page is opened through the ioBroker cloud (iobroker.pro / iobroker.net): the cloud cannot relay the MJPEG stream, and the address of the web instance is not reachable from outside anyway
+### 3.2.5 (2026-11-06)
+- (@GermanBluefox) The event history showed values of older events: the entries are numbered by position, and a field the new event at a position does not have (e.g. `sub_label` without a recognized name, a zone it did not enter) kept the value of the event that was there before. When Frigate returned fewer events than before (e.g. after its retention period), the positions beyond kept the old events. Such values are now set to `null`, also the ones left from before an update of the adapter
 
-### 3.1.3 (2026-09-09)
-- (@GermanBluefox) The camera name in the device manager tile moved below the picture: at the top of the tile the drag handle and the favourite star of the widget manager were drawn over it
-- (@GermanBluefox) The build helper is written in TypeScript itself now.
+### 3.2.4 (2026-11-06)
+- (@GermanBluefox) The event history (`events.history.*`, `<camera>.history.*`, `events.history.json`) is fetched again after every event, and nearly all of it was written again unchanged - several thousand writes within seconds, which every adapter subscribed to all states (e.g. MQTT with `*`, JavaScript) had to process as well. Now only values that changed are written, also after a restart. After an event only the overall history and the history of that camera are fetched, no longer those of all cameras. Live values from MQTT are written as before
 
 ## License
 

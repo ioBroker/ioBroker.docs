@@ -62,10 +62,11 @@ Adapter installieren, Instanz 0 starten. In den Instanz-Einstellungen musst du z
 nichts ändern: mDNS ist an, die Anmeldung ist aus, und der Adapter lauscht auf allen
 Schnittstellen.
 
-Hat dein ioBroker-Rechner mehrere Netzwerkkarten, stell **Interface binden** auf die,
-in der deine Displays hängen. Der Adapter kündigt sich unter dieser Adresse an — kündigt er
-eine an, die das Display nicht erreicht, ist das der häufigste Grund dafür, dass die
-Erkennung scheinbar klappt, die Verbindung danach aber nicht.
+Hängt dein ioBroker-Rechner in mehreren Netzen, brauchst du dafür keine Einstellung: auf
+allen Schnittstellen kündigt sich der Adapter in jedem Netz mit dessen Adresse an, und jedes
+Display bekommt die Adresse seines eigenen Netzes — in der Ankündigung, bei der Anmeldung
+und in den Dashboard-Adressen. Stell **Interface binden** nur ein, wenn hassemu ein einziges
+Netz bedienen soll; dann lauscht, kündigt und antwortet er nur dort.
 
 ### 2. Server am Display eintragen
 
@@ -142,7 +143,6 @@ nie auf einer Seite, die du für sie nicht ausgewählt hast.
 hassemu.0.
 ├── info.
 │   ├── connection      der Adapter läuft
-│   ├── serverUuid      die Identität, an der die Displays den Server wiedererkennen
 │   └── refreshUrls     Knopf: erneut nach Dashboards suchen
 ├── global.
 │   ├── enabled         Hauptschalter (siehe oben)
@@ -157,13 +157,18 @@ hassemu.0.
         └── remove      Knopf: dieses Display vergessen
 ```
 
-**serverUuid** ist gut zu kennen: Daran erkennen die Displays den Server wieder. Sie wird
-einmal erzeugt und behalten, damit ein Adapter-Neustart für das Display nicht wie ein anderer
-Server aussieht. Änderte sie sich, wollte sich jedes Display neu einrichten.
+**Die Identität des Servers** steht nicht im Baum: Die Displays erkennen den Server an einer
+Kennung, die einmal erzeugt und in einer Datei im Datenordner der Instanz behalten wird, zusammen
+mit Cookie und Tokens jedes Displays. Ein Adapter-Neustart ändert sie nicht, damit er für das
+Display nicht wie ein anderer Server aussieht. Änderte sie sich, wollte sich jedes Display neu
+einrichten.
 
-**remove** löscht den Eintrag und damit die Identität des Displays. Verbindet es sich das
-nächste Mal, ist es ein neues und startet auf `---`. Gedacht für Displays, die du abgebaut
-hast; Einträge, die 30 Tage nicht gesehen wurden, räumt der Adapter ohnehin selbst weg.
+**remove** löscht den Eintrag und damit die Identität des Displays. Eine offene Verbindung des
+Displays endet sofort; verbindet es sich das nächste Mal, ist es ein neues und startet auf `---`.
+Gedacht für Displays, die du abgebaut hast. Beim Start entfernt der Adapter außerdem jedes
+Display, das mehr als 30 Tage vor dem zuletzt gesehenen Display zuletzt gesehen wurde — gemessen
+an diesem Display, nicht an der Uhr, sodass nach einem langen Stillstand der ganzen Anlage keines
+fällt.
 
 **resolvedUrl** beantwortet die Frage „wo ist dieses Display tatsächlich gelandet". Der Wert
 ist nur lesbar und folgt jeder Änderung: Wählst du ein Dashboard, steht dessen Adresse drin;
@@ -278,6 +283,9 @@ Verläufe laufen in ihrer bisherigen Reihe weiter, und das Display wird weiter e
 neu eingerichtet werden. Das Log nennt jeden Umzug. Skripte und Visualisierungen mit den alten IDs
 müssen angepasst werden. Danach nicht auf 1.x zurückgehen.
 
+Den Datenpunkt `info.serverUuid` gibt es nicht mehr: Die Identität des Servers zieht beim selben
+Start in den Datenordner der Instanz, die Displays erkennen den Server weiter.
+
 Ein Display, das sich zum ersten Mal verbindet, bekommt das Modell, das seine Home-Assistant-App
 meldet, und vier Zeichen, die hassemu selbst wählt, zum Beispiel `clients.pixel-tablet-02b7`;
 meldet das Display kein Modell, beginnt die ID mit `display`. Eine vergebene ID ändert sich nie.
@@ -347,20 +355,22 @@ App-Einstellungen erlauben.
 - New: optional HTTPS with a certificate from ioBroker
 - New: hassemu reports Home Assistant 2026.8.0 — the apps keep their loading screen until the dashboard is there, and the iPhone app shows it edge to edge
 - Changed: only displays in the host's own networks get an answer, and a chosen address is the only one hassemu listens, announces and connects on
+- Changed: on a host with several networks, every display finds and reaches hassemu at the address of its own network
 - Changed: the server ID and each display's cookie and tokens live in a file in the instance data folder; the datapoint `info.serverUuid` is gone
 - Changed: the redirect mode datapoints are of type text
 - New: every display carries a display pictogram in the object tree
 - Changed: a new instance is created disabled
-- Changed: the master switch, the dashboard refresh and the remove button log their result on debug
-- Improved: a start no longer rewrites hassemu's own objects that are current, updates a display's object with one write instead of three, and reads all its values with one request
+- New: two settings decide whether a datapoint you record is deleted when hassemu no longer needs it, and whether its recorded data goes too
+- Improved: a start puts less load on the ioBroker database
 - Fixed: an update from 1.0 or 1.1 removes the empty hostname and visUrl datapoints a display kept until now
 - Fixed: the dashboard list takes the page of the devices adapter and other admin tiles it used to drop
 - Changed: the dashboard list follows the admin start page — its link cards come in, a tile hidden there drops out; a display keeps a target that drops out
 - Fixed: aura served by a web instance is listed at that address; an aura that only listens on its own machine is no longer listed
 - Fixed: an address of this machine only (127.x, ::1, localhost) is no longer listed; a display keeps such a target it already chose
 - Fixed: the password of a rejected address with credentials no longer appears in the log
-- Fixed: the sign-in pages show their text in the system language
+- Fixed: the sign-in pages show their text in the language set in ioBroker
 - Fixed: an update from 1.0 or 1.1 with several displays keeps the room and function assignments of every display
+- Fixed: removing a display ends its running app connection at once, not only at its next message
 - Fixed: known security advisories in bundled libraries are closed
 
 ### 1.46.1 (2026-09-25) — stable

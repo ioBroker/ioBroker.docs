@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
+hash: KU2dcFVfQywWE9ekaB76wadKND4ImSnQmaGVDHrsSjo=
 ---
 # ioBroker.schlueter-thermostat
 
@@ -31,7 +31,7 @@ hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 
 Он основан на интеграции с Home Assistant от @robbinjanssen. Для получения дополнительной информации см. документацию.
 
-> Работает **только в облаке** — локальный шлюз, Modbus или API локальной сети не требуются.
+> Работает через облако сразу после подключения. Дополнительное **локальное управление (в стадии тестирования)** : адаптер может выступать в качестве шлюза устройств термостатов в вашей локальной сети (режим ретрансляции или только локальный режим) – см. документацию.
 
 ##
 
@@ -46,11 +46,12 @@ hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 | Имя пользователя      | Ваш логин в облаке Schlüter/OJ                       |
 | Пароль                | Пароль облака                                        |
 | Ключ API              | Приведённый ниже код работает в большинстве случаев. |
-| Идентификатор клиента | Найдено в информации о термостате.                   |
-| Версия клиентского ПО | Числовое значение с термостата                       |
+| Идентификатор клиента | Найдено в информации о термостате (по умолчанию: 3)  |
 | Интервал опроса       | По умолчанию: 60 секунд                              |
 
 4. Сохраните и запустите адаптер.
+
+Дополнительное локальное управление (в тестовом режиме, для пользователей, знакомых с DNS): см. документацию, раздел _«Локальное управление»_ .
 
 Для получения API-ключа можно попробовать следующее: `f219aab4-9ac0-4343-8422-b72203e2fac9` Этот ключ можно найти на форуме: `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Таким образом, это выглядит как глобальный ключ.
 
@@ -68,6 +69,8 @@ hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 
 ### Архитектурные значки
 
+![Локальное управление](https://img.shields.io/badge/Local-Relay%20|%20Local%20only%20\(in%20testing\)-brightgreen?style=for-the-badge)
+
 ### Компактная структура программы
 
 ```mermaid
@@ -78,6 +81,10 @@ flowchart LR
   ADP -->|read| OWD5[OWD5 Cloud]
   ADP -->|write| OCD5[OCD5 Cloud]
   OCD5 --> TH[Thermostat]
+
+  TH -->|DNS redirect, port 9513| GW[Local gateway - in testing]
+  GW --> ADP
+  GW -.->|relay| VG[Vendor device gateway]
 
   ADP --> OBJ[Object Tree]
   OBJ --> RO[Read States]
@@ -97,7 +104,9 @@ flowchart TB
   INC --> POLL
   RESET --> POLL
 
-  APPLYBTN[Apply Button] --> ROUTER[applyRouter]
+  APPLYBTN[Apply Button] --> LOCAL{Connected locally?}
+  LOCAL -- yes --> CMD[Local command + acknowledgement]
+  LOCAL -- no / failed --> ROUTER[applyRouter]
   ROUTER --> API[updateThermostat]
 ```
 
@@ -116,28 +125,37 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-11-19)
 
-### **WORK IN PROGRESS**
-* (patricknitsch) Add Node.js 26 in test-and-release.yml
-* (patricknitsch) Update Dependencies
-* (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Web component `iob-schlueter-thermostat-card` (ioBroker web-components): thermostat card in the look of the Device Manager with temperatures, status and controls, usable in vis-2, devices, admin and other hosts
+- (patricknitsch) Update Dependencies
+
+### 0.8.0 (2026-11-14)
+
+- (patricknitsch) Add Node.js 26 in test-and-release.yml
+- (patricknitsch) Update Dependencies
+- (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Add experimental local control (BETA): own device gateway with relay and local-only mode, see docs
+- (patricknitsch) Remove the legacy cleanup (option "Legacy Cleanup"); no longer needed since 0.5.2
+- (patricknitsch) Docs: DNS redirect via CNAME
+- (patricknitsch) Local control: DNS check button, DNS check on start and warning when no thermostat connects
+- (patricknitsch) Device Manager: live status indicators on the cards (heating, temperatures, mode, vacation, energy, connection) and in the instance toolbar
+- (patricknitsch) Device Manager: compact single-page controls with thermostat and serial number; information tab removed
+- (patricknitsch) New state setpoint.active (setpoint of the current mode, in schedule mode of the current event), shown on the Device Manager card
+- (patricknitsch) Notifications when the local connection of a thermostat is lost / restored
+- (patricknitsch) Default customer ID is 3 for new instances
 
 ### 0.7.4 (2026-06-05)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.3 (2026-05-25)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.2 (2026-05-23)
-* (copilot) Add Icons for Notifications
 
-### 0.7.1 (2026-05-21)
-* (copilot) Modify notification manager to work with instances
-* (copilot) Update Dependencies
-
-### 0.7.0 (2026-05-14)
-
-- (claude) Add Notification Manager
+- (copilot) Add Icons for Notifications
 
 **Older changelog entries can be found in CHANGELOG_OLD.md.**
 

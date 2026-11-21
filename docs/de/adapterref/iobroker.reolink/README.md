@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: TxLhExDJhw2JKFwBO4r96XR7TVhPJ0xkrgj5i90aYPk=
+hash: mcmyT3Z8WQBkYnCIcnHWnPd7v+7ziMg+rwuym75+aqE=
 ---
 ![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
@@ -140,8 +140,9 @@ Akkubetriebene Kameras (Argus PT, Argus 3 Pro, ...) verwenden ein proprietäres 
 | `ptz.speed`              | Nummer          | R/W | PTZ-Bewegungsgeschwindigkeit (1–100, Standardwert 32)                                     |
 | `status.motion`          | boolescher Wert | R   | Bewegung erkannt (via MQTT)                                                               |
 | `status.battery_level`   | Nummer          | R   | Akkustand in % (über Neolink CLI, periodisch)                                             |
-
-|`snapshotImage` | Zeichenkette | R | Letztes Snapshot-Bild (base64, Daten-URI) | |`snapshotStatus` | Zeichenkette | R | Snapshot-Status: `idle` /`capturing` /`success` /`error` | |`info.neolink_status` | Zeichenkette | R | Neolink-Prozessstatus: `stopped` /`running` |
+| `snapshotImage`          | Zeichenkette    | R   | Letzte Momentaufnahme (base64, Daten-URI)                                                 |
+| `snapshotStatus`         | Zeichenkette    | R   | Momentaufnahmestatus: `idle` /`capturing` /`success` / `error`                             |
+| `info.neolink_status`    | Zeichenkette    | R   | NeoLink-Prozessstatus: `stopped` /`running`                                                |
 
 ### PTZ-Steuerung
 
@@ -205,17 +206,45 @@ Steuerungsthemen (vom Adapter an die Kamera gesendet):
 | Der Akku entlädt sich schnell           | Streaming deaktivieren, wenn nicht verwendet; MQTT nur für Bewegungserkennung verwenden |
 | PTZ reagiert nicht                      | Jeder PTZ-Befehl benötigt ca. 2 Sekunden (P2P-Kameraanmeldung) – das ist normal.        |
 
+## Türklingelkameras
+
+Kabelgebundene Reolink-Türklingeln nutzen die standardmäßige HTTP-API plus ONVIF zur Klingelerkennung. Aktivieren Sie **„Türklingelkamera“** in der Adapterkonfiguration, um türklingelspezifische Zustände hinzuzufügen. (Dies ist unabhängig von der Option „Akku-Kamera“.)
+
+| Zustand                     | Typ             | R/W | Beschreibung                                                                                                   |
+| --------------------------- | --------------- | --- | -------------------------------------------------------------------------------------------------------------- |
+| `sensor.visitor.state`      | boolescher Wert | R   | Türklingelknopf gedrückt (Klingeln) — übermittelt über ONVIF-Ereignis (automatische Löschung nach 10 Sekunden) |
+| `sensor.visitor.support`    | boolescher Wert | R   | Ob die Kamera meldet `visitor` KI-Typisierung via HTTP (modellabhängig)                                         |
+| `doorbell.audioFileList`    | Zeichenkette    | R   | JSON-Liste der gespeicherten Audiodateien (`id`, `fileName`, ...) für schnelle/automatische Antworten         |
+| `doorbell.quickReplyPlay`   | Nummer          | W   | Schreiben Sie eine Audiodatei `id` um diese Nachricht über die Türklingel abzuspielen                           |
+| `doorbell.autoReplyEnabled` | boolescher Wert | R/W | Automatische Antwort bei Klingeln aktivieren/deaktivieren.                                                     |
+| `doorbell.autoReplyFileId`  | Nummer          | R/W | Audiodatei `id` Als automatische Antwort abgespielt (siehe `doorbell.audioFileList`)                            |
+| `doorbell.autoReplyTimeout` | Nummer          | R/W | Sekunden nach dem Klingeln, bevor die automatische Antwort ausgelöst wird                                      |
+
+Suchen Sie die verfügbaren Datei-IDs in `doorbell.audioFileList` Verwenden Sie dann diese ID für `doorbell.quickReplyPlay` oder `doorbell.autoReplyFileId` Die
+
+### Ringerkennung (ONVIF)
+
+Bei den meisten Reolink-Türklingeln ist das Drücken des Klingelknopfes **nicht** über die HTTP-Polling-API verfügbar (`GetAiState` hat keine `visitor` Der Adapter öffnet daher ein **ONVIF PullPoint-Abonnement** und wartet auf das Feld). `visitor` Ereignis – wenn jemand anruft, `sensor.visitor.state` ist eingestellt auf `true` (und wird nach 10 Sekunden automatisch gelöscht). Reagiere in deinen Skripten/Automatisierungen auf diese Zustandsänderung.
+
+- Erfordert, **dass ONVIF auf der Kamera aktiviert ist** (Reolink-App → Einstellungen → Netzwerk → Erweitert → ONVIF).
+- Den **ONVIF-Port** in der Adapterkonfiguration festlegen (Reolink-Standardeinstellung: `8000`).
+- Es wird kein eingehender Port/Webhook auf dem ioBroker-Host benötigt – der Adapter fragt die Kamera regelmäßig ab.
+
 ---
 
 ## Bekannte funktionierende Kameras
 
 ### HTTP-API (Standard)
 
-RLC-420-5MP, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
+RLC-420-5MP, E1 Outdoor, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
 
 ### Akku-Kameras (über Neolink)
 
 Reolink Argus PT, Reolink Argus 3 Pro
+
+### Türklingeln (HTTP-API + ONVIF-Klingelerkennung)
+
+Reolink Video-Türklingel PoE (D340P)
 
 ---
 
@@ -224,6 +253,13 @@ Reolink Argus PT, Reolink Argus 3 Pro
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Gaspode69) Keep white LED states in sync during API refresh
+
+### 1.4.3 (2026-10-27)
+* (@GermanBluefox) Doorbell support: ring detection via ONVIF events (`sensor.visitor.state`), quick reply and auto reply (enable via "Doorbell camera" in config; requires ONVIF enabled on the camera)
+* (oelison) Adapter requires node.js >= 22 now
+
 ### 1.4.2 (2026-03-16)
 * (oelison) fast fix for issue #230
 
@@ -240,54 +276,6 @@ Reolink Argus PT, Reolink Argus 3 Pro
 * (bluefox) migration to ts
 * (bot) revoking classic token #204
 * (oelison) state changes from info log to debug #206
-
-### 1.2.3 (2025-06-30)
-* (oelison) settings email notification #170
-* (oelison) testing node.js 24 #172
-
-### 1.2.2 (2025-05-01)
-* (oelison) update readme #141 #155
-* (oelison) supress errors with axios timeout #154
-
-### 1.2.1 (2025-02-09)
-* (oelison) set some errors to debug logs
-
-### 1.2.0 (2025-02-07)
-* (oelison) update disk info
-* (oelison) uri enconding is switchable (helps sometimes by one special char)
-* (oelison) #28 PTZ check added
-
-### 1.1.2 (2024-09-14)
-* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
-* (oelison) adapter warnings resolved
-
-### 1.1.1 (2024-08-03)
-* (oelison) removed warnings from adapter check
-* (olli) added ftp support
-* (oelison) channel now distinguishing most requests
-* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
-
-### 1.1.0 (2024-05-16)
-* (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
-* (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
-* (Nibbels) added setWhiteLedMode function
-* (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
-* (oelison) removed node 16
-
-### 1.0.3 (2024-01-21)
-* (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
-* (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)
-
-### 1.0.2 (2023-12-19)
-* (oelison) known working cameras added
-* (oelison) setIrLights accept "On" now
-* (oelison) [#40](https://github.com/aendue/ioBroker.reolink/issues/40)
-* (oelison) [#42](https://github.com/aendue/ioBroker.reolink/issues/42)
-
-### 1.0.1 (2023-11-11)
-* (oelison) resolve review for latest adapter addition
-* (oelison) maybe the last node 16 version
-* (oelison) booleans are now false/true and not 0/1
 
 ## License
 MIT License

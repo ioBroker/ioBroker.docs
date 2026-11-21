@@ -1,14 +1,14 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-inventwo/README.md":{"title":{"en":"inventwo Widgets for ioBroker vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/README.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/README.md":{"title":{"en":"vis-2-widgets-inventwo — Documentation"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/README.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/universal-widget-design-examples.md":{"title":{"en":"Universal Widget – Design Examples"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/universal-widget-design-examples.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/hexagonal-view.md":{"title":{"en":"Example View – Hexagonal Smart-Home Dashboard"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/hexagonal-view.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/rectangle-view.md":{"title":{"en":"Example View - Smart Home Dashboard (3x3 Grid)"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/rectangle-view.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/index.md":{"title":{"en":"inventwo Widgets for ioBroker VIS 2 — User Guide"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/index.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal-widget.md":{"title":{"en":"Universal Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/slider-widget.md":{"title":{"en":"Slider Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/slider-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/radial-slider-widget.md":{"title":{"en":"Radial Slider Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/radial-slider-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/switch-widget.md":{"title":{"en":"Switch Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/switch-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/checkbox-widget.md":{"title":{"en":"Checkbox Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/checkbox-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/table-widget.md":{"title":{"en":"Table Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/table-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/dropdown-widget.md":{"title":{"en":"Dropdown Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/dropdown-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/marquee-widget.md":{"title":{"en":"Marquee Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/marquee-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/value-list-widget.md":{"title":{"en":"Value List Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/value-list-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/calendar-widget.md":{"title":{"en":"Calendar Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/calendar-widget.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-inventwo/README.md":{"title":{"en":"inventwo Widgets for ioBroker vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/README.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/README.md":{"title":{"en":"vis-2-widgets-inventwo — Documentation"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/README.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/migration.md":{"title":{"en":"Migrating inventwo vis-1 widgets"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/migration.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/universal-widget-design-examples.md":{"title":{"en":"Universal Widget – Design Examples"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/universal-widget-design-examples.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/hexagonal-view.md":{"title":{"en":"Example View – Hexagonal Smart-Home Dashboard"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/hexagonal-view.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/rectangle-view.md":{"title":{"en":"Example View - Smart Home Dashboard (3x3 Grid)"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/example-views/rectangle-view.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/index.md":{"title":{"en":"inventwo Widgets for ioBroker VIS 2 — User Guide"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/index.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/interaction-types.md":{"title":{"en":"Universal Widget — Interaction Types"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/interaction-types.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal-widget.md":{"title":{"en":"Universal Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/slider-widget.md":{"title":{"en":"Slider Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/slider-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/radial-slider-widget.md":{"title":{"en":"Radial Slider Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/radial-slider-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/switch-widget.md":{"title":{"en":"Switch Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/switch-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/checkbox-widget.md":{"title":{"en":"Checkbox Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/checkbox-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/table-widget.md":{"title":{"en":"Table Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/table-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/dropdown-widget.md":{"title":{"en":"Dropdown Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/dropdown-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/marquee-widget.md":{"title":{"en":"Marquee Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/marquee-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/value-list-widget.md":{"title":{"en":"Value List Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/value-list-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/calendar-widget.md":{"title":{"en":"Calendar Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/calendar-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/event-calendar-widget.md":{"title":{"en":"Event Calendar Widget"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/event-calendar-widget.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/content-types.md":{"title":{"en":"Universal Widget — Content Types"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/content-types.md"},"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/styling-and-shapes.md":{"title":{"en":"Universal Widget — Styling and Shapes"},"content":"en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/universal/styling-and-shapes.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: Виджеты inventwo для ioBroker vis 2.0
-hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
+hash: cOS1g4BoGd78iSn58Bgc6qLb703xfzqXu2S57CQJ/ZY=
 ---
 ![Логотип](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
-![Количество установок](http://iobroker.live/badges/vis-2-widgets-inventwo-stable.svg)
+![Количество установок](https://iobroker.live/badges/vis-2-widgets-inventwo-stable.svg)
 ![Версия NPM](https://nodei.co/npm/iobroker.vis-2-widgets-inventwo.svg?style=shields&data=v,u,d&color=orange)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-inventwo.svg)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
@@ -22,6 +22,18 @@ hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
 Набор настраиваемых виджетов для **ioBroker vis 2.0** — создан для пользователей, которые хотят полностью контролировать внешний вид своих панелей управления. Каждый виджет имеет обширные возможности стилизации и легко интегрируется с данными ioBroker.
 
 📖 **[Пользовательская документация](/#/docs/adapterref/iobroker.vis-2-widgets-inventwo/docs/README.md)** — подробные руководства по всем виджетам, настройкам и примерам.
+
+---
+
+## Переход от vis-inventwo (vis 1)
+
+Вы используете адаптер vis-1 **[vis-inventwo](https://github.com/inventwo/ioBroker.vis-inventwo)** ? Этот адаптер включает инструмент миграции, который преобразует старые виджеты (`i-vis-*`) проекта, импортированного в Vis 2, в виджеты этого набора. Вы найдете его в настройках экземпляра. `vis-2-widgets-inventwo` в административной панели ioBroker.
+
+Сначала отображается предварительный просмотр, затем результат можно записать в новый проект или создать резервную копию существующего, после чего отображается список всего, что следует проверить вручную. Не каждый виджет можно полностью преобразовать.
+
+📖 **Руководство по миграции:** [английский](/#/docs/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/migration.md) · [немецкий](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/docs/de/migration.md)
+
+> **Обратите внимание:** миграция была разработана с особой тщательностью, но нет гарантии, что она будет безупречно работать для каждого проекта — проекты vis-1 слишком разнообразны, чтобы это было так. Если что-то не конвертируется должным образом, пожалуйста, [создайте заявку](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/issues) . Ваши отзывы помогают улучшить инструмент.
 
 ---
 
@@ -306,7 +318,7 @@ hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
 - Корректно обрабатывает многодневные/целодневные события (согласно протоколу iCal с эксклюзивным завершением).
 - Требуется только точка данных событий — отдельный идентификатор объекта не нужен.
 - Настраиваемые правила раскрашивания событий: раскрашивание событий по заголовку (совпадение подстроки без учета регистра), переопределяя исходный цвет — обходит ограничение адаптера ioBroker "ical", предоставляющего только один цвет для календаря, а не для события.
-- Полностью настраиваемый заголовок (цвет/размер заголовка, текст кнопки/фон/граница/радиус, включая наведение курсора), дни недели (цвет/фон/размер), день недели (цвет/размер, цвет за пределами месяца, фон выходных), сегодняшний день (цвет фона/текста/границы + ширина, линия индикатора "Сейчас в режиме реального времени"), плитки событий (фон/текст/граница/радиус/размер, цвет ссылки "+N ещё") и границы сетки (показать/скрыть, ширина, цвет) — каждая цветовая группа с независимым повторным использованием стиля "Из виджета".
+- Полностью настраиваемый заголовок (цвет/размер заголовка, текст кнопки/фон/граница/радиус, включая наведение курсора), дни недели (цвет/фон/размер), день недели (цвет/размер, цвет за пределами месяца, фон выходных), сегодняшний день (цвет и ширина фона/текста/границы, линия индикатора "Сейчас в режиме реального времени"), плитки событий (фон/текст/граница/радиус/размер, цвет ссылки "+N ещё") и границы сетки (показать/скрыть, ширина, цвет) — каждая цветовая группа с независимым повторным использованием стиля "Из виджета".
 - Календарь автоматически изменяет размер при изменении размера виджета в редакторе визуализации (перезагрузка страницы не требуется).
 - Применяет язык браузера для отображения названий месяцев и дней недели.
 
@@ -323,25 +335,30 @@ hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.10.0 (2026-09-01)
-- Event Calendar Widget: Added support for showing multiple calendars at once via a new "Additional calendars" group (datapoint + color + label per calendar, e.g. one iCal calendar per family member), merged into a single view with an optional color/label legend below the calendar and a persistent per-event colored left border showing which calendar an event belongs to (kept even when an Event color rule overrides the tile's fill color). The original single "Events (datapoint)" field keeps working unchanged when no additional calendars are configured; once at least one is added, that field is ignored
-- Event Calendar Widget: Added "Max. events per day" setting (Month/Multi-month views) to cap how many event tiles are shown per day cell before the rest collapse behind FullCalendar's "+N more" popover link, instead of day cells always growing with the number of events
-- Universal Widget: Fixed the dialog title "Size" setting, which was configurable but had no effect on the rendered dialog title font size
+### **WORK IN PROGRESS**
+- Universal Widget: Password/PIN protection is now available for all types that trigger an action (switch, button, view in dialog, increase/decrease, HTTP), not only for navigation
+- Universal Widget: Type button can reset the value after a configurable time; the migration assistant takes over the reset time of vis-1
+- Slider & Radial Slider: New color zones – the active part changes its color depending on the value (e.g. green/yellow/red), either as a whole, per zone segment or as a fixed scale along the whole track, with a hard cut or a gradient between the zones
+- Radial Slider: Decimals, decimal separator and unit for the displayed value; the thumb can be hidden (thumb size 0) to use the widget as a gauge
+- Radial Slider: Optional scale ticks with labels, a needle, a second value (e.g. setpoint) and the time of the last change
+- Slider: Fixed min/max not being taken over from the object when selecting the object ID
 
-### 1.9.0 (2026-07-29)
-- Added new Event Calendar Widget: Google-Calendar-style view for events/appointments based on FullCalendar, fed from a datapoint holding a JSON list of events (either a simple custom shape or the native JSON produced by the ioBroker "ical" adapter). Supports all FullCalendar free/MIT views (Month, Week, Day, Multi-month, List day/week/month/year), optional calendar week numbers, optional header bar/navigation, live resizing in the vis editor, and fully configurable header/weekday/day/today/event-tile/border styling (colors, font sizes, border radius/width, hover states, now-indicator), each with independent "From widget" style reuse
+### 2.2.0 (2026-11-17)
+- Adapter settings: New migration assistant that converts the old vis-1 widgets of the adapter vis-inventwo (`i-vis-*`) in a vis-2 project into the widgets of this adapter – with preview, a list of widgets to check manually and either an automatic backup or a converted copy as new project. It can also restore widgets shown in several views, which vis-2 drops when importing a vis-1 project. Based on the community tool [inventwo-vis1-to-vis2](https://github.com/crunchip77/inventwo-vis1-to-vis2) by crunchip77
 
-### 1.8.1 (2026-07-23)
-- Added preview image for calendar and value list widgets
+### 2.1.1 (2026-11-03)
+- Universal Widget: Fixed content color of images not being applied for `rgb()` colors and colors given as hex (`#rgb`, `#rrggbb`, with optional alpha)
 
-### 1.8.0 (2026-07-16)
-- Radial Slider Widget: Added "Read only" option to prevent value changes, matching the Slider widget's behavior
-- Table Widget: Added pagination support ("Pagination" / "Rows per page") to split large tables across pages instead of showing all rows at once
-- Table Widget: Added weekday (WD/WDL) and calendar week (KW/K) tokens
-- Added new Calendar Widget: month calendar based on MUI's Date Calendar, usable as a datepicker (read/write a date), a read-only date display, and/or a today-highlighter, with configurable first day of week, ISO/simple calendar week numbers, and full color/size customization
+### 2.1.0 (2026-11-03)
+- Universal Widget: Up to 5 additional inner and outer shadows per widget; X/Y offsets of shadows may now be negative (#286)
+- Universal Widget (View in dialog): New option "Set value false on close" – closing the dialog (close button, click outside, timeout) writes "Value false" to the object ID, as long as it still holds "Value true" (#309)
 
-### 1.7.0 (2026-06-24)
-- Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
+### 2.0.2 (2026-10-17)
+- Removed default react 19 border on universal widget
+
+### 2.0.1 (2026-10-17)
+- Breaking: Requires vis-2 >= 2.20.0 (React 19 / MUI 9). Older vis-2 versions (React 18) are no longer supported
+- Updated dependencies to React 19 and MUI 9
 
 ## License
 The MIT License (MIT)

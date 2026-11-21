@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
+hash: w5bPhWctCaVc7Ge/ZG7UfVCvCU9XElr2tS0801j6tr4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -20,17 +20,31 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 
 Этот адаптер получает данные прогноза погоды из бесплатного [API Open-Meteo](https://open-meteo.com) и предоставляет их в виде точек данных ioBroker. Ключ API не требуется. Он отправляет индивидуальные уведомления о настраиваемых погодных событиях (штормы, грозы, официальные предупреждения) и предоставляет несколько независимо настраиваемых HTML-виджетов для каждого местоположения.
 
+![Обзор виджетов](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/widgets_en.jpg)
+
+![Доступные наборы иконок (анимированные)](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/icon-sets_en.gif)
+
 ## Основные моменты
 
 ### Уведомления о погоде через менеджер уведомлений ioBroker
 
-Адаптер отправляет индивидуальные уведомления о настраиваемых погодных событиях — предупреждениях о штормах, оповещениях о грозах и официальных предупреждениях национальных метеорологических служб (DWD для Германии, MeteoAlarm для Европы). Все адреса уведомлений (Telegram, электронная почта, Pushover и т. д.) настраиваются централизованно через **менеджер уведомлений ioBroker** — отдельная настройка для каждого адаптера не требуется.
+Адаптер отправляет индивидуальные уведомления о настраиваемых погодных явлениях — предупреждениях о штормах, оповещениях о грозах и официальных предупреждениях национальных метеорологических служб (DWD для Германии, MeteoAlarm для Европы). Они поступают в **систему уведомлений ioBroker** (пересылаются менеджером уведомлений) и/или напрямую в мессенджеры: Telegram, электронная почта, Pushover, Pushsafer, Gotify, WhatsApp и Signal (CallMeBot), SMS (gsmsms, seven.io), Discord, MAX, приложение ioBroker Visu (iot) и Synology Chat — каждый в своем формате с необходимыми полями (получатель, номер телефона, канал и т. д.). Предлагаются только установленные мессенджеры; любой другой мессенджер можно использовать через менеджер уведомлений.
 
 ### Настраиваемый HTML-виджет
 
 Адаптер генерирует готовую к использованию точку данных в формате HTML (`widget`), который можно встроить непосредственно в VIS, vis-2 или любую панель управления ioBroker — без использования внешних инструментов или ручного CSS. Тема (светлая/темная), прозрачность фона, прозрачность карточки, размер шрифта и цвет карточки — все это можно настроить непосредственно в параметрах адаптера.
 
-### Анимированные обои/заставка с погодой
+**Вариант графика:** помимо _простого_ и _подробного,_ есть виджет _графика_ , созданный по образцу карточки прогноза погоды в Home Assistant:
+
+- Текущая погода с подробной информацией (ощущаемая влажность, ветер, давление, видимость, УФ-излучение, восход/закат солнца).
+- Ежедневный и почасовой прогноз в виде графика – коснитесь прогноза, чтобы переключаться между ежедневным и почасовым прогнозом.
+- Кнопка с изображением шестеренки выбирает отображаемые на графике значения: температура и осадки, ощущаемая температура, вероятность осадков, скорость ветра и порывы, влажность, давление, УФ-индекс.
+- Сила ветра (по Бофорту) с указанием направления для каждого столбца
+- Настраиваемые параметры: начальный вид (ежедневный/почасовой/только ежедневный), какие значения отображаются в меню, блок с подробной информацией, включение/выключение ряда данных о ветре и фаз луны.
+- Для взаимодействия необходим браузер с поддержкой CSS. `:has()` (Chrome/WebView 105+, Safari 15.4+, Firefox 121+); более старые браузеры отображают настроенный начальный вид без переключения.
+- Чистый HTML/CSS без JavaScript; отображаются только значения, которые адаптер фактически получает (отключенные группы данных исчезают из сведений и меню).
+
+### Анимированные обои/заставка с изображением погоды
 
 Адаптер генерирует автономные анимированные обои с погодными условиями для каждого местоположения — полноэкранную анимацию на холсте (дождь, снег, туман, молния, солнечные блики, звезды), управляемую реальными текущими погодными условиями, а не вручную, что идеально подходит в качестве заставки для планшета, крепящейся на стену, или фона для приборной панели/дисплея.
 
@@ -42,6 +56,15 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 - **Независимый интервал обновления в реальном времени** — обновляется только информация о текущих условиях и обои (0/5/10/15/30 мин), отдельно от основного интервала обновления прогноза.
 - Настраивается через специальную **вкладку «Обои» в административной панели** (положение, цвета, размеры шрифтов, часы, предупреждения) с предварительным просмотром в реальном времени, имитирующим распространенные разрешения экрана.
 - Доступен напрямую по URL-адресу для каждого экземпляра веб-сайта (`current.wallpaper_url_<instance>`) — привязка VIS не требуется
+
+### Виджеты (веб-компоненты) для AURA, vis-2, устройств и других средств визуализации.
+
+Виджет погоды и заставка также доступны в виде веб-компонентов. `@iobroker/web-components`). AURA (0.106.0+, рекомендуется 0.112.0+), vis-2 (2.20.7+), адаптер устройств (4.3.0+) и любая другая визуализация, поддерживающая веб-компоненты, отображают их в своей палитре виджетов — привязка HTML не требуется.
+
+- **Погода в OpenMeteo** — либо виджет из настроек адаптера, либо настройка непосредственно в визуализации: местоположение, вариант (простой/подробный/график), дни, набор значков, цвета, размеры и параметры графика.
+- При желании можно выбрать цвет текста, соответствующий теме визуализации.
+- уменьшается до размера плитки вместо прокрутки.
+- **Заставка Open-Meteo** — анимированная сцена погоды в виде плитки или на весь экран (например, вид для заставки AURA), с наложением, часами и предупреждениями экземпляра или собственными, а также дополнительным фоновым изображением из файловой системы ioBroker (например, `/0_userdata.0/images/garden.jpg`)
 
 ### Поиск по адресу в полном тексте
 
@@ -65,7 +88,7 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 - **Единицы измерения** : температура (°C / °F), скорость ветра (км/ч, м/с, миль/ч, узлов), количество осадков (мм / дюйм).
 - **5 наборов иконок погоды** с предварительным просмотром в реальном времени в настройках:
   - Метеоконтраст от Баса Милиуса – статический PNG (по умолчанию)
-  - Метеоконтансы Баса Милиуса – анимированный SVG-файл
+  - Метеоконтансы от Баса Милиуса – анимированный SVG-файл
   - Анимированные иконки погоды amCharts в формате SVG _(дождь/снег/гром: нет варианта день/ночь)_
   - Иконки погоды amCharts – статический SVG _(дождь/снег/гроза: нет варианта день/ночь)_
   - Метеорологические символы ВМО OGC – Папуа-Новая Гвинея
@@ -98,6 +121,8 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 | Другой        | —                                                  | Недоступно (используйте рассчитанные предупреждения Open-Meteo) |
 
 Предупреждения хранятся в `location.warnings.*` независимо от источника. А `warnings.source` точка данных показывает `"DWD"` или `"MeteoAlarm"`.
+
+**Исключить ключевые слова** (например) `Frost, Fog`) подавляют соответствующие предупреждения в виде уведомлений. При использовании параметра **"Также скрывать исключенные предупреждения в виджетах и заставке"** они также исключаются из предупреждающего значка виджетов и баннера заставки; точки данных всегда сохраняют все предупреждения.
 
 ## Установка
 
@@ -153,6 +178,7 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 | `icon_url`                    | URL значка погоды (значок можно выбрать в настройках)                                                                                                                                                               |            |
 | `precipitation`               | Общее количество осадков за последний час                                                                                                                                                                           | мм/дюйм    |
 | `rain`                        | Количество осадков за последний час                                                                                                                                                                                 | мм/дюйм    |
+| `showers`                     | За последний час наблюдались ливневые (конвективные) осадки.                                                                                                                                                        | мм/дюйм    |
 | `snowfall`                    | Снегопад за последний час                                                                                                                                                                                           | см         |
 | `snow_depth`                  | Текущая глубина снега на земле                                                                                                                                                                                      | см         |
 | `cloudcover`                  | Облачность                                                                                                                                                                                                          | %          |
@@ -172,11 +198,11 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 | `air_quality.*`               | Индекс качества воздуха (AQI), PM10, PM2.5, NO₂, CO, пыль, озон _(если включено)_                                                                                                                                   |            |
 | `pollen.*`                    | Текущее количество опрашиваемых устройств каждого типа _(если включено)_                                                                                                                                            | Зерна/м³   |
 | `agriculture.solar_radiation` | Коротковолновое солнечное излучение на уровне земли _(если включено)_                                                                                                                                               | Вт/м²      |
-| `agriculture.cape`            | CAPE – Конвективная потенциальная энергия: энергия, доступная для развития грозовых явлений; > 500 Дж/кг = значительный риск, > 2000 Дж/кг = высокий риск _(если он существует)._                                   | Дж/кг      |
+| `agriculture.cape`            | CAPE – Конвективная потенциальная энергия: энергия, доступная для развития грозовых явлений; > 500 Дж/кг = значительный риск, > 2000 Дж/кг = высокий риск _(при наличии такой возможности)._                        | Дж/кг      |
 | `agriculture.soil_temp`       | Температура почвы на глубине 0 см _(если включена)_                                                                                                                                                                 | °C/°F      |
 | `comfort.heat_index`          | Индекс жары (Ротфус) – показатель того, насколько жарко ощущается температура и влажность; значимыми считаются только значения ≥ 27 °C и ≥ 40 % относительной влажности. `null` в противном случае _(если включено)_ | °C/°F      |
 | `comfort.windchill`           | Ощущаемая температура из-за ветра (NWS) – насколько холодно ощущается температура из-за ветра; имеет значение только температура ≤ 10 °C и скорость ветра > 4,8 км/ч. `null` в противном случае _(если включено)_    | °C/°F      |
-| `comfort.humidex`             | Индекс влажности (Humidex, канадская формула) – комбинированный индекс дискомфорта от жары и влажности; значения выше 40 вызывают дискомфорт, выше 46 – опасность _(если эта функция включена)._                    | °C/°F      |
+| `comfort.humidex`             | Индекс влажности (канадская формула) – комбинированный индекс дискомфорта от жары и влажности; значения выше 40 вызывают дискомфорт, выше 46 – опасность _(если эта функция включена)._                             | °C/°F      |
 | `comfort.humidex_level`       | Уровень дискомфорта по шкале Humidex: 1 = отсутствует (<29) · 2 = незначительный (29–34) · 3 = заметный (35–39) · 4 = сильный (40–45) · 5 = опасный (≥46) _(если включено)_                                         | 1–5        |
 | `comfort.uv_index`            | УФ-индекс (0–11+) – интенсивность ультрафиолетового излучения на уровне земли _(если включено)._                                                                                                                    |            |
 | `comfort.uv_level`            | Уровень защиты от УФ-излучения (шкала ВОЗ): `low` (0–2, без защиты) `moderate` (3–5, солнцезащитный крем) ·`high` (6–7) ·`very_high` (8–10) ·`extreme` (≥11) _(если включено)_                                        |            |
@@ -226,7 +252,7 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 
 ### Почасовые значения (`day1.hourly.h00` …`h23`)
 
-Температура, ощущаемая температура, осадки, дождь, снегопад, глубина снега, высота снегопада, вероятность дождя, облачность, влажность, точка росы, давление, видимость, текущий день, скорость ветра, направление ветра (текст/эмодзи/иконка), Бофорт, УФ-индекс, высота точки замерзания, код погоды, иконка/URL иконки, описание.
+Температура, ощущаемая температура, осадки, дождь, ливни, солнечная активность (в минутах), снегопад, глубина снега, высота снегопада, вероятность дождя, облачность, влажность, точка росы, давление, видимость, текущий день, скорость ветра, направление ветра (текст/эмодзи/значок), индекс Бофорта, УФ-индекс, высота точки замерзания, код погоды, значок/URL значка, описание.
 
 Почасовая оплата (если включено + "также почасово"):
 
@@ -237,6 +263,21 @@ hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 | `hXX.agriculture` | солнечное излучение (Вт/м²), CAPE (Дж/кг), температура почвы (°C/°F), освещенность = глобальная наклонная освещенность на плоской поверхности (Вт/м²), индекс подъема (К) |
 | `hXX.comfort`     | индекс жары, ветровая температура, индекс влажности, уровень влажности, индекс ультрафиолетового излучения, уровень ультрафиолетового излучения                           |
 | `hXX.pollen`      | ольха… амброзия + текст уровня (Кейне/Нидриг/Миттель/Хох)                                                                                                                 |
+
+### Прогноз на 15 минут (`minutely`, необязательный)
+
+Включается в разделе _«Настройки» → «15-минутный прогноз_ с собственным интервалом получения данных (15/30/60 мин) и диапазоном (1–4 часа)».
+
+| Точка данных              | Описание                                                                                                                                                                                                                                                                                                                                              | Единица |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `minutely.0min` …`225min` | Одна папка на каждые пятнадцать минут, название которой определяется количеством минут, начиная с настоящего момента. `0min` = сейчас, `15min`, `30min` …): `time`, `precipitation`, `rain`, `showers`, `snowfall`, `precipitation_probability`, `weathercode`, `temperature`, `windgusts`, `lightning_potential` (Только Германия / Центральная Европа) |         |
+| `minutely.rain_starts_in` | Количество минут до начала осадков (выше порогового значения) – 0 = сейчас, пусто = не в пределах допустимого диапазона                                                                                                                                                                                                                               | мин     |
+| `minutely.rain_ends_at`   | Время окончания текущих осадков – поле пустое, если дождя нет или он продолжается за пределами указанного диапазона.                                                                                                                                                                                                                                  |         |
+| `minutely.text`           | Краткосрочный прогноз в виде текста на языке системы, например: «Дождь с 08:30 (через 45 мин)», «Гроза примерно до 09:00»; если в течение прогнозируемого периода ожидается сухая погода, используется почасовой прогноз: «Дождь примерно с 15:00» (или снег/гроза) или «Осадков не ожидается».                                                       |         |
+
+Дополнительное уведомление "скоро начнутся осадки" (время упреждения и пороговое значение настраиваются), отправляется один раз за период выпадения осадков.
+
+Виджеты отображают краткосрочный прогноз без изменения своего размера (опция для каждого виджета, включена по умолчанию): _в простом_ и _подробном режимах_ сводная строка заменяется текстом, когда ожидаются осадки; _в подробном режиме_ дополнительно разделитель над строкой с почасовым прогнозом превращается в полосу осадков на той же временной оси; в _режиме графика_ текст отображается в строке настроек, а также появляется третий режим просмотра «15 мин» (нажмите на график: дни → часы → 15 мин).
 
 ### Официальные предупреждения (`warnings`)
 
@@ -284,37 +325,44 @@ _(Создается только при включенной функции "О
 Этот адаптер является независимым проектом сообщества и не связан ни с одним из вышеперечисленных сервисов и не поддерживается ими.
 
 ## Changelog
-### 0.2.0 (2026-09-08)
-* (ipod86) feat: add animated, per-location WMO weather wallpaper (canvas rain/snow/fog/lightning/sun/moon animation), self-updating via a companion JSON file (no REST API needed), with a dedicated admin config tab, an optional location carousel, an independent live-update interval and an official warning banner
-* (ipod86) feat: wallpaper sun/moon position and moon phase follow real astronomical data (SunCalc); rain/fog intensity and wind drift follow real weather data
-* (ipod86) feat: add day/night split for precipitation/thunderstorm probability, wind, rain and snowfall amount
-* (ipod86) fix: treat overlapping DWD warning time-shifts as an update instead of lift+new
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.6.1 (2026-11-18)
+* (ipod86) feat: messengers sent to directly in their own format: in addition Gotify, SMS (gsmsms, seven.io), Discord, MAX, ioBroker Visu app and Synology Chat; only supported and installed messengers can be chosen, each with its own fields
+* (ipod86) change: no more generic notification format and free instance input – other messengers via the notification manager
 
-### 0.1.16 (2026-08-17)
-* (ipod86) fix: variable shadowing in fetchDwdWarnings caused every DWD official warning request to fail with "Cannot access 'raw' before initialization", silently freezing the affected warning states
-* (ipod86) fix: guard the official warning update against a single hung request permanently stalling the recurring schedule
+### 0.6.0 (2026-11-18)
+* (ipod86) feat: notifications also directly to messengers (Telegram, e-mail, Pushover, Pushsafer, WhatsApp/Signal cmb and every adapter that receives ioBroker notifications); the notification system stays on by default and can be switched off
+* (ipod86) feat: messages `getLocations` and `getWidgets` for the web components (prepares dropdowns instead of the object browser)
+* (ipod86) chore: description and keywords mention the widgets for vis-2, AURA and other visualisations
 
-### 0.1.15 (2026-07-19)
-* (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
+### 0.5.1 (2026-11-12)
+* (ipod86) fix: build script of the web components throws instead of process.exit (repochecker E5050)
 
-### 0.1.14 (2026-07-16)
-* (ipod86) fix: persist warning dedup state across adapter restarts to prevent duplicate notifications on restart
-* (ipod86) fix: deduplicate DWD warnings from combined warnings+vorabInformation API arrays (same event rounded to minute)
+### 0.5.0 (2026-11-09)
+* (ipod86) chore: clearer adapter title ("Open-Meteo Weather & Severe Weather Alerts") and keywords for existing features (pollen, air quality, UV, astronomy, no API key)
+* (ipod86) docs: widget overview and animated icon set images in the README
+* (ipod86) feat: option to hide excluded official warnings in widgets and screensaver too (data points unchanged)
+* (ipod86) fix: negative frost threshold can be typed in the settings
+* (ipod86) fix: excluded official warnings no longer send "lifted" or update messages
+* (ipod86) feat: widgets (web components) for AURA (0.106.0+), vis-2 (2.20.7+), devices (4.3.0+) and other visualisations – weather widget and screensaver
+* (ipod86) feat: own icon set per widget (web component)
+* (ipod86) fix: a widget never draws more days than the forecast has (empty second row)
+* (ipod86) fix: WMO symbols light on dark backgrounds with an own text color
+* (ipod86) fix: wind chart showed NaN where a view has no gust values
 
-### 0.1.13 (2026-07-15)
-* (ipod86) fix: add random jitter to daily and interval update scheduling to spread cloud load
-* (ipod86) fix: validate warnIntervalMinutes — reset to 15 if < 1
-* (ipod86) fix: remove orphaned i18n keys (iconPreviewAnimated, iconPreviewBasmilius, iconPreviewWmo, openmeteo adapter settings) from all 11 language files
-* (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
-* (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
+### 0.4.1 (2026-10-22)
+* (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged
 
-Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.openmeteo-notify/blob/main/CHANGELOG_OLD.md).
+Older changelogs are available in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 ipod86
+Copyright (c) 2026 ipod86 <david@graef.email>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -48,26 +48,51 @@ Port 8080, solange du keinen anderen wählst.
 
 ### 2. Host / IP-Adresse
 
-Lass **Host / IP** auf `0.0.0.0` („auf allen Schnittstellen lauschen"). Der Adapter
-ermittelt dann selbst die erreichbare Adresse deines ioBroker-Rechners und kündigt
-diese den Clients an.
+Lass **Host / IP** auf `0.0.0.0` („[IPv4] 0.0.0.0 - Zugriff von allen IPs zulassen“). Die
+Bridge lauscht dann in jedem Netz deines ioBroker-Rechners und nennt jedem Client die Adresse
+des Rechners in dessen Netz — sie wählt nie selbst eine Adresse aus.
 
-Eine feste Adresse trägst du nur ein, wenn dein Rechner in **mehreren Netzen** hängt
-und der Client ihn nur über eines davon erreicht.
+Eine feste Adresse wählst du nur, wenn die Bridge **nur ein Netz** bedienen soll: dann
+lauscht und antwortet sie allein dort. Die Liste ist die von ioBroker und zeigt jede
+IPv4-Adresse des Rechners, auch 127.0.0.1 — damit gewählt, erreicht nur der ioBroker-Rechner
+selbst die Bridge.
 
 ### 3. Port
 
 `8080` ist die Vorgabe und funktioniert mit einem Harmony-Hub.
 
-**Alexa braucht Port 80, und aktuelle Echo-Geräte versuchen zusätzlich HTTPS auf 443.**
-Für Alexa stellst du **Port** auf `80` und **HTTPS-Port** auf `443`; die Bridge antwortet
-auf HTTPS mit ihrem eigenen, selbst signierten Zertifikat. Ein Port unter 1024 braucht
+**Alexa braucht Port 80, und neuere Echo-Geräte versuchen zusätzlich HTTPS auf 443.**
+Für Alexa stellst du **Port** auf `80`; für einen neueren Echo schaltest du zusätzlich
+**HTTPS verwenden** ein und stellst **HTTPS-Port** auf `443`. Ein Port unter 1024 braucht
 das Recht, ihn zu belegen — der ioBroker-Installer gibt es Node.js unter Linux; meldet
 das Protokoll, dass der Port nicht belegt werden kann, fehlt dieses Recht.
+
+**HTTPS** ist eine Option für genau diesen Fall, und sie ist deine Sache:
+
+- HTTPS ist nur für neuere Echos da, die zusätzlich Port 443 versuchen — der HTTPS-Port
+  muss dafür `443` sein.
+- Die Harmony nutzt nur HTTP, ebenso die Ansage im Netz und ältere Echos: HTTPS
+  einzuschalten bringt der Harmony nichts, und HTTP läuft immer weiter.
+- HTTPS schützt hier nichts: Der Echo prüft das Zertifikat nicht, und HTTP bleibt
+  daneben offen.
+
+Mit **HTTPS verwenden** nimmt die Bridge das in den Zertifikatsfeldern gewählte Zertifikat
+von ioBroker (Systemeinstellungen → Zertifikate; ohne Auswahl ioBrokers eigenes Paar, auf
+Wunsch Let's-Encrypt-Sammlungen des acme-Adapters). Ein Zertifikat, das ioBroker nicht
+hat, oder HTTPS ohne HTTPS-Port stoppt die Instanz mit einer Benachrichtigung, bis du die
+Einstellungen korrigierst. Hat eine frühere Version HTTPS bedient, schaltet das Update
+**HTTPS verwenden** einmal selbst ein.
 
 **X-Forwarded-\* Header vertrauen** bleibt aus, außer der Adapter steht hinter einem
 Reverse-Proxy, dem du vertraust und der vom Client mitgeschickte Weiterleitungs-Header
 entfernt. Es ändert nur, welche Client-Adresse das Debug-Protokoll zeigt.
+
+**Löschen von Datenpunkten** — stellt der Adapter einen Datenpunkt nicht mehr bereit (eine
+auf ihrer Karte gelöschte Lampe, ein Objekt einer früheren Version), löscht er ihn.
+**Datenpunkte mit Aufzeichnung löschen** (an) entscheidet, ob das auch für einen Datenpunkt
+gilt, den du aufzeichnest (history, sql, influxdb); aus, bleibt er stehen und das Log zählt
+ihn. **Auch die aufgezeichneten Daten löschen** (aus, nur bei der ersten Option sichtbar)
+lässt jede aufzeichnende Instanz vorher ihre Daten löschen.
 
 ### 4. Lampen veröffentlichen
 
@@ -82,12 +107,16 @@ steht anschließend als Anzahl in der Meldung — es verschwindet also nichts st
 **Von Hand** — auf **Licht hinzufügen** klicken, Namen vergeben, Lampentyp wählen und
 jedes Feld per Objektauswahl auf einen ioBroker-Datenpunkt zeigen lassen.
 
-| Lampentyp          | Was der Client sieht                     |
-| ------------------ | ---------------------------------------- |
-| **Ein/Aus**        | ein und aus (als dimmbare Lampe gezeigt) |
-| **Dimmbar**        | ein/aus und Helligkeit                   |
-| **Farbtemperatur** | ein/aus, Helligkeit, Warm-/Kaltweiß      |
-| **Farbe**          | ein/aus, Helligkeit, volle Farbe         |
+| Lampentyp           | Was der Client sieht                        |
+| ------------------- | ------------------------------------------- |
+| **Ein/Aus**         | ein und aus (als dimmbare Lampe gezeigt)    |
+| **Dimmbar**         | ein/aus und Helligkeit                      |
+| **Farbtemperatur**  | ein/aus, Helligkeit, Warm-/Kaltweiß         |
+| **Farbe**           | ein/aus, Helligkeit, volle Farbe            |
+| **Farbe ohne Weiß** | ein/aus, Helligkeit, Farbe, kein Weißregler |
+
+Eine Lampe mit Farbe, aber ohne Weißtemperatur, etwa ein Lichtstreifen, wird von Hand
+auf **Farbe ohne Weiß** gestellt; die Suche bietet jede Farblampe als **Farbe** an.
 
 Jede Lampe behält ihre Nummer dauerhaft: Lampen löschen oder umsortieren ändert für die
 anderen nichts, Alexas Routinen zeigen weiter auf die Lampen, mit denen sie eingerichtet
@@ -188,19 +217,19 @@ angenommen.
 
 ## Ports, die der Adapter benutzt
 
-| Port | Protokoll | Wofür                                    | Einstellbar                            |
-| ---- | --------- | ---------------------------------------- | -------------------------------------- |
-| 8080 | TCP       | die Hue-Schnittstelle selbst (Alexa: 80) | ja — Clients erfahren ihn per SSDP     |
-| 1900 | UDP       | Erkennung, damit Clients dich finden     | nein — vom UPnP-Standard festgelegt    |
-| —    | TCP       | optionales HTTPS (Alexa: 443)            | ja, aus, solange kein Port gesetzt ist |
+| Port | Protokoll | Wofür                                    | Einstellbar                                  |
+| ---- | --------- | ---------------------------------------- | -------------------------------------------- |
+| 8080 | TCP       | die Hue-Schnittstelle selbst (Alexa: 80) | ja — Clients erfahren ihn per SSDP           |
+| 1900 | UDP       | Erkennung, damit Clients dich finden     | nein — vom UPnP-Standard festgelegt          |
+| —    | TCP       | optionales HTTPS (Alexa: 443)            | ja, aus, solange **HTTPS verwenden** aus ist |
 
 ## Wenn etwas nicht geht
 
 **Der Client findet die Bridge nicht.** Prüfe, ob UDP-Port 1900 zwischen Client und
 ioBroker-Rechner offen ist und beide im selben Netzsegment liegen — ein Gastnetz oder
-ein eigenes VLAN funktioniert ohne zusätzliche Wegeleitung nicht. Hat der Rechner
-mehrere Netzwerkkarten, trag unter **Host / IP** die konkrete Adresse ein statt
-`0.0.0.0`. Für Alexa siehe Port 80 und HTTPS 443 oben.
+ein eigenes VLAN funktioniert ohne zusätzliche Wegeleitung nicht: die Bridge antwortet
+nur Clients in einem Netz, in dem der ioBroker-Rechner selbst hängt. Für Alexa siehe
+Port 80 und HTTPS 443 oben.
 
 **Die Kopplung schlägt fehl.** `startPairing` muss `true` sein, **bevor** du die Suche
 im Client startest, und das Fenster ist nur 50 Sekunden offen. Ein Client, der sich per
@@ -241,8 +270,9 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-11-20)
 
+- New: Two new options decide whether a vanished datapoint you record is deleted and whether its recorded data goes too.
 - Changed: The bridge now answers only clients in its own networks, with a chosen address only those in that network.
 - Changed: Saving the settings can no longer reset the bridge identity.
 - Changed: A damaged identity file stops the start with an error.
@@ -261,9 +291,13 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 - Fixed: Opening the device manager right after the instance started no longer fails.
 - Fixed: A new instance shows "Unknown" as the reason until its first start instead of an empty text.
 - Fixed: A bridge that cannot start, for example on a taken port, now ends with an error and js-controller restarts it.
+- New: A wrong setting, for example an invalid port, stops the instance with a notification in the admin — it starts again when you save the settings.
+- Changed: Listening on all addresses, the bridge now works in every network of the host.
 - Fixed: A message the adapter does not know (sendTo from a script) now gets an error answer instead of none.
+- New: Light type "Color without white".
 - Improved: A chosen address the host does not have no longer stops the bridge — it listens on every address and warns once.
 - Improved: The settings always open on the first tab, Configuration.
+- Changed: HTTPS is switched on with the new option "Use HTTPS" and takes a certificate ioBroker holds instead of its own; an HTTPS port set before keeps HTTPS on.
 
 ### 1.19.0 (2026-09-25) — stable
 
@@ -304,10 +338,6 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 - Fixed: A light whose configured datapoint does not exist is reported as unreachable instead of pretending to work.
 - Fixed: Edit and delete in the devices tab always act on the light you clicked, even when the list changed in the meantime.
 - Improved: The first start after this update completes the scales of lights added earlier — if it finds anything to complete, the instance restarts once.
-
-### 1.16.0 (2026-09-03)
-
-- Fixed: If an action in the devices tab fails, you now get a message saying what went wrong instead of a dialog that never finishes.
 
 ## License
 

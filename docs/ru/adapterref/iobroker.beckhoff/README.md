@@ -1,138 +1,163 @@
 ---
-BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff
-BADGE-npm: https://img.shields.io/npm/v/iobroker.beckhoff.svg
-BADGE-Number of Installations: http://iobroker.live/badges/beckhoff-installed.svg
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.beckhoff.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/beckhoff/svg-badge.svg
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.beckhoff.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/beckhoff-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/beckhoff-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/codeql.yml/badge.svg
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.beckhoff/README.md
 title: ioBroker.beckhoff
-hash: pz8eEIO01aYfgLmjSOGh38tMxgZTE2PCRqETLkUQ3xE=
+hash: xZyURy7uSQ5MPdlkG8CJ8ObSfn2EDCJXkTAkV1nqsVU=
 ---
 ![логотип](../../../de/adapterref/iobroker.beckhoff/img/beckhoff.png)
 
-![Гитхаб](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)
-![нм](https://img.shields.io/npm/v/iobroker.beckhoff.svg)
-![Количество установок](http://iobroker.live/badges/beckhoff-installed.svg)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg)
+![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)
+![Количество установок](https://iobroker.live/badges/beckhoff-installed.svg)
 
-# IoBroker.beckhoff
-Этот адаптер ioBroker реализует связь с контроллером Beckhof (Twincat 2 или 3) по протоколу ADS.
-Протокол ADS реализован в каждом контроллере Beckhoff и может использоваться без лицензии.
+# ioBroker.beckhoff
 
-Этот проект не имеет никакого отношения к компании Beckhoff.
+Этот адаптер ioBroker обеспечивает связь с контроллером Beckhoff (TwinCAT 2 или 3) по протоколу ADS. Протокол ADS реализован в каждом контроллере Beckhoff и может использоваться без лицензии.
+
+Данный проект не имеет никакого отношения к компании Beckhoff.
 
 ## Описание
+
 ### Требования
-- Beckhoff с сетевым подключением, которое подключено к сети, доступной для ioBroker
-  - Контроллеру должен быть назначен фиксированный IP-адрес
-  - Контроллер должен быть пропингован ioBroker.
-  - TwinCat 2 **кроме элементов управления BC** или TwinCat 3
 
-### Конфигурация контроллера
-1. В проекте должна быть активирована ADS. Для этого зайдите в настройку задачи в контрольном проекте и активируйте чекбокс «Создать символы». Затем загрузите конфигурацию в контроллер и перезапустите его. Перезапуск необходим только в том случае, если используется TwinCat 2.
+- Устройство Beckhoff с сетевым подключением, расположенное в сети, доступной для ioBroker.
+  - Контроллеру необходимо присвоить фиксированный IP-адрес.
+  - Контроллер должен быть доступен для проверки связи (ping) через ioBroker.
+  - TwinCAT 2 **(за исключением контроллеров BC)** или TwinCAT 3
 
-   ![создатьсимволы](../../../de/adapterref/iobroker.beckhoff/img/createSymbols.png)
+### Управление конфигурацией
 
-2. В контроллере должен быть создан статический маршрут. Маршрут должен соответствовать ioBroker (IP-адрес и AMS-Net-ID).
+1. В проекте необходимо включить ADS. Для этого перейдите в конфигурацию задачи в управляющем проекте и снимите флажок. `Symbole erzeugen` Активируйте. Затем загрузите конфигурацию на контроллер и перезапустите его. Перезапуск необходим только в том случае, если используется TwinCAT 2.
 
-   Вот пример того, как это может выглядеть, когда маршрут добавляется непосредственно в контроллер. Маршрут также можно добавить через инженерный калькулятор.
+   ![createSymbols](../../../de/adapterref/iobroker.beckhoff/img/createSymbols.png)
 
-   ![создатьсимволы](../../../de/adapterref/iobroker.beckhoff/img/addRoute.png)
+2. В контроллере необходимо создать статический маршрут. Маршрут должен быть совместим с ioBroker (IP-адрес и идентификатор AMS-Net).
 
-   Дополнительную информацию о маршрутизаторе TwinCat и управлении в целом можно найти в [Информационная система Бекхофф](https://infosys.beckhoff.com/ 'Beckhoff Information System').
+   Вот пример того, как может выглядеть маршрут, добавленный непосредственно в контроллер. Маршрут также можно добавить через инженерный компьютер.
 
-3. При использовании TwinCat 2 в контроллере все равно должна быть создана структура. Затем добавьте структуру в таблицу глобальных переменных. Затем здесь можно создать все необходимые переменные. В этом случае обмен данными осуществляется ADS и адаптером независимо друг от друга.
+   ![createSymbols](../../../de/adapterref/iobroker.beckhoff/img/addRoute.png)
 
-   ##### Поддерживаемые в настоящее время типы данных: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
-   НЕОБЯЗАТЕЛЬНО: Переменная может быть создана прямо в таблице переменных без вложенности с точным именем -> ioBrokerResync (верхний/нижний регистр и тип данных не имеют значения) -> Каждый раз, когда это значение изменяется, таблица переменных в ioBroker считывается заново .
+   Дополнительную информацию о маршрутизаторе TwinCAT и системе управления в целом можно найти в [информационной системе Beckhoff](https://infosys.beckhoff.com/ "Beckhoff Information System") .
 
-4. В TwinCat 3 в контроллере также должна быть создана таблица глобальных переменных. Затем здесь можно создать все необходимые переменные. В этом случае обмен данными осуществляется ADS и адаптером независимо друг от друга.
+3. В TwinCAT 2 сначала необходимо создать структуру в контроллере. Затем эта структура добавляется в глобальную таблицу переменных. Здесь можно определить все необходимые переменные. После этого обмен данными осуществляется автоматически системой ADS и адаптером.
 
-   ##### Поддерживаемые в настоящее время типы данных: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
-   НЕОБЯЗАТЕЛЬНО: Переменная может быть создана прямо в таблице переменных без вложенности с точным именем -> ioBrokerResync (верхний/нижний регистр и тип данных не имеют значения) -> Каждый раз при изменении этого значения таблица переменных в ioBroker считывается заново .
+   ##### В настоящее время поддерживаются следующие типы данных: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME\_OF\_DAY, TOD, DATE, DATE\_AND\_TIME, DT, STRING
+
+   ДОПОЛНИТЕЛЬНО: Переменную можно создать непосредственно в таблице переменных без вложенности, используя точное имя -> ioBrokerResync (регистр и тип данных не имеют значения) -> Каждый раз, когда это значение изменяется, таблица переменных в ioBroker перечитывается.
+
+4. В TwinCAT 3 необходимо создать глобальную таблицу переменных в контроллере. Здесь можно определить все необходимые переменные. После этого обмен данными осуществляется автоматически системой ADS и адаптером.
+
+   ##### В настоящее время поддерживаются следующие типы данных: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME\_OF\_DAY, TOD, DATE, DATE\_AND\_TIME, DT, STRING
+
+   ДОПОЛНИТЕЛЬНО: Переменную можно создать непосредственно в таблице переменных без вложенности, используя точное имя -> ioBrokerResync (регистр и тип данных не имеют значения) -> Каждый раз, когда это значение изменяется, таблица переменных в ioBroker перечитывается.
 
 ### Настройки адаптера
-#### Twincat 3 и Twincat 2
-1. Выберите версию среды выполнения
-2. Введите целевой IP-адрес и сетевой идентификатор AMS.
-3. В TwinCat 2 введите имя экземпляра структуры из таблицы глобальных переменных.
-4. Введите правильное имя таблицы переменных для TwinCat 3.
-5. Остальные пункты обычно менять не нужно.
 
-#### Twincat 2 <= v2.11.2240
-Необходимо загрузить файл \*.tpy из проекта ПЛК. -> Всякий раз, когда что-то изменяется в структуре, отвечающей за связь с ioBroker, этот файл необходимо загрузить снова.
+#### Twincat 3 и Twincat 2
+
+1. Выберите версию среды выполнения
+2. Введите целевой IP-адрес и AMS-Net-ID.
+3. В TwinCAT 2 введите имя экземпляра структуры из глобальной таблицы переменных.
+4. Введите правильное имя таблицы переменных в TwinCAT 3.
+5. Остальные пункты, как правило, менять не нужно.
+
+#### TwinCAT 2 <= v2.11.2240
+
+Необходимо загрузить файл \*.tpy из проекта ПЛК. -> Этот файл необходимо загружать повторно при каждом изменении структуры, отвечающей за связь с ioBroker.
 
 ### Обмен данными
-- Как только переменная в контроллере изменяется, это значение автоматически переносится в соответствующее состояние в ioBroker.
-- Если значение изменяется в ioBroker (важно: ACK должно быть FALSE!!), оно автоматически передается в контроллер. Если значение принимается контроллером, ACK устанавливается в TRUE.
+
+- Как только значение переменной в контроллере изменяется, оно автоматически передается в соответствующее состояние в ioBroker.
+- Когда значение изменяется в ioBroker (важно: ACK должно быть FALSE!!), оно автоматически передается контроллеру. Как только контроллер принимает значение, ACK устанавливается в TRUE.
 
 ### Важный
-1. Маршрутизатор TwinCAT AMS не допускает нескольких соединений TCP с одного и того же хоста. Если два экземпляра настроены с одного и того же хоста на один и тот же маршрутизатор TwinCat, маршрутизатор автоматически закрывает первое соединение и отвечает только на самое новое соединение.
-2. Адаптер автоматически синхронизирует все переменные в ioBroker. Существует несколько способов запуска повторной синхронизации:
-   - При изменении значения переменной Resyc (см. [здесь](#configuration-of-the-controller))
-   - Если контроллер не находится в режиме RUN дольше, чем интервал повторного подключения -> Таблица переменных повторно синхронизируется, когда контроллер переключается в режим RUN.
-   - Когда проект загружается в контроллер. Исключение -> OnlineChange
-   - При перезапуске адаптера.
-3. «Синхронизация» или «Чтение» означает не обмен значениями переменных, а синхронизацию самих переменных и их создание или удаление в ioBroker.
+
+1. Маршрутизатор TwinCAT AMS не допускает множественных TCP-соединений с одного и того же хоста. Если с одного и того же хоста на один и тот же маршрутизатор TwinCAT устанавливаются два соединения, маршрутизатор автоматически закрывает первое соединение и отвечает только на новое.
+2. Адаптер автоматически синхронизирует все переменные в ioBroker. Существует несколько способов инициировать повторную синхронизацию:
+   - Когда значение переменной Resyc изменяется (см. [здесь](#Konfiguration-der-Steuerung) ).
+   - Если контроллер не находится в режиме RUN дольше, чем интервал переподключения, таблица переменных синхронизируется повторно при переходе контроллера в режим RUN.
+   - При загрузке проекта в контроллер возникает исключение -> OnlineChange
+   - При перезагрузке адаптера.
+3. «Синхронизация» или «чтение» относится не к обмену значениями переменных, а к синхронизации самих переменных и их созданию или удалению в ioBroker.
+
+## Кэш соединений и символов
+
+Новая конфигурация принимает либо IPv4-адрес, либо имя хоста. Идентификатор сети AMS по-прежнему требуется указывать отдельно.
+
+- `adsTimeout` Время ожидания для каждого запроса ADS в миллисекундах, по умолчанию 500. Для медленных соединений может быть более подходящим значение 2000.
+- `reconnectInterval` Время ожидания перед новой попыткой подключения и интервал проверки состояния ПЛК, стандартный — 15 секунд.
+- `cacheSymbolTable` Повторное использование описаний символов во время кратковременных прерываний соединения (по умолчанию включено).
+- `symbolCacheMaxAge` Максимальное время простоя для повторного использования, по умолчанию 300 секунд. Значение ноль отключает повторное использование после сбоя.
+
+После переподключения проверяется версия символа, создаются новые дескрипторы ADS и уведомления, а также считываются текущие значения. Если версия символа остается неизменной, символы и типы данных загружаются не полностью; поэтому синхронизация объектов пропускается. Существующие идентификаторы, имена и сопоставления сохраняются.
+
+Изменены версии символов, обнаружены переходы ПЛК «остановка/запуск», ошибки с кэшированными символами и внесены изменения в `ioBrokerResync` Это запускает полную синхронизацию. Отсутствие подтверждения записи лишь обновляет значения и не повторяет команды записи ПЛК.
+
+Символьная версия представляет собой 8-битный счетчик. Если перезапуск ПЛК останется незамеченным во время прерывания или если счетчик переполнится, может появиться та же самая версия. По возможности в системе отключите кэш или `ioBrokerResync` Изменения в ПЛК происходят при запуске и при модификации программы. Одного лишь временного ограничения недостаточно для надежного обнаружения таких изменений.
+
+## Загрузка файла TPY
+
+Для TwinCAT 2 <= v2.11.2240, `.tpy` Файл можно загрузить и выбрать. Файлы находятся в файловом хранилище ioBroker в папке... `beckhoff.<Instanz>.tpy` Адаптер считывает выбранный файл при запуске. Если файл не выбран, сохраняется существующее содержимое. `xmlTpyData` Используемый файл по-прежнему можно редактировать. Приоритет имеет выбранный файл. После внесения изменений в определения символов ПЛК необходимо обновить файл TPY.
 
 ## Changelog
 
-### 1.5.2 (2023-03-21)
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2026-10-19)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (zonfacter) Reuse validated symbol metadata after short reconnects, renew ADS handles and refresh values; fully synchronize on metadata changes, observed PLC stops or expired caches
+- (zonfacter) Add a configurable ADS request timeout and hostname support; preserve variable-table prefix matching and existing object mappings
+- (zonfacter) Migrate to responsive jsonConfig with native TPY upload, persistent filename feedback and packaged translations; retain legacy XML and TPY paths
+- (zonfacter) Prepare a named TPY file directory without removing originals or overwriting differing files; support configuration requests through supportedMessages.custom
+- (zonfacter) Isolate compact-mode sessions, reject stale callbacks and avoid a metadata reload when only a write acknowledgement is missing
+- (zonfacter) Fix synchronization when a metadata notification arrives during the final connection-state write
+- (mcm1957) Dependencies have been updated
 
-- (dkleber89) Fix Adapter Checker Issues
+### 1.7.0 (2026-02-12)
+- (mcm1957) Adapter requires node.js >= 20 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (copilot) Migrated to ESLint 9 and @iobroker/eslint-config standard configuration
+- (mcm1957) Dependencies have been updated
 
-### 1.5.1 (2022-03-19)
+### 1.6.0 (2024-04-02)
 
-- (PLCHome) Add TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME and DT support
-- (PLCHome) Support for strings with all char length
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
-### 1.5.0 (2021-09-28)
+### 1.5.3 (2023-10-29)
 
-- (dkleber89) Process next state in list when register subscriptions not before the previous is finish processed in plc
+- (mcm1957) Dependencies have been updated
 
-### 1.4.1 (2021-06-13)
+### 1.5.3-alpha.0 (2023-10-29)
 
-- (dkleber89) Some little Adapter maintenance
-
-### 1.4.0 (2021-01-25)
-
-- (dkleber89) Add LREAL Support
-
-### 1.3.0 (2021-01-25)
-
-- (dkleber89) Set correct type for channels
-
-### 1.2.2 (2020-05-30)
-
-- (dkleber89) Clear reconnectTimeout on Adapter unload;
-
-### 1.2.1 (2020-04-20)
-
-- (dkleber89) Add CI over Github Actions; Update Dependencies;
-
-### 1.2.0 (2020-01-02)
-
-- (dkleber89) Add Support for Strings with fixed length to 80 Chars
-
-### 1.1.0 (2019-11-12)
-
-- (dkleber89) Add Support for older TwinCat2 Systems with no autosync
-
-### 1.0.7 (2019-10-25)
-
-- (dkleber89) Add Support for Compact Mode -> JS Controller >= 2.0.0
-
-### 1.0.6 (2019-08-11)
-
-- (dkleber89) Add check change of Datatype on resync
-
-### 1.0.5 (2019-08-10)
-
-- (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
+- (mcm1957) Standard test environment has been updated
 
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

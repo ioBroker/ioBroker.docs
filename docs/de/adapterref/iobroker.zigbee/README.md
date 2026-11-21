@@ -5,136 +5,175 @@ BADGE-Test and Release: https://github.com/ioBroker/iobroker.zigbee/workflows/Te
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/zigbee/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 ---
-# ioBroker Adapter for ZigBee Devices
-Using a ZigBee network coordinator, a dedicated ZigBee network is created, to which ZigBee devices (lights, dimmers, sensors, etc.) can join. Thanks to direct interaction with the coordinator, the ZigBee adapter allows the devices to be controlled without any gateways/bridges from the manufacturers (Xiaomi/Tradfri/Hue). Additional information about ZigBee can be found [here](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
+# ioBroker Adapter für Zigbee-Geräte
+Mit Hilfe eines Koordinators für ZigBee-Netzwerke wird ein eigenes ZigBee-Netz erschaffen, dem ZigBee-Geräte (Lampen, Dimmer, Sensoren, …) beitreten können. Dank der direkten Interaktion mit dem Koordinator erlaubt der ZigBee-Adapter die Steuerung der Geräte ohne jegliche Gateways/Bridges der Hersteller (Xiaomi/Tradfri/Hue). Zusätzliche Informationen zu ZigBee kann man hier [hier nachlesen (Englisch)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
 
-## Hardware
-The coordinator (see above) requires additional hardware that enables the conversion between USB and ZigBee wireless signals. There are three types of coordinators:
+## Schnellstart in 5 Schritten
+Für alle, die einfach loslegen wollen. Ausführliche Erklärungen stehen weiter unten unter [Installation](#installation).
 
-- Plug-in modules for the Raspberry Pi (The use of these modules is **not** recommended.)
-- USB-connected modules, either in the form of development boards or USB sticks
-- Network coordinators
+1. **Koordinator anschließen.** USB-Stick einstecken oder Netzwerk-Koordinator ins Netzwerk bringen. Läuft ioBroker in Docker oder einer VM, muss der USB-Stick an den Container/die VM durchgereicht werden.
+2. **Adapter installieren** (ioBroker Admin → Adapter → „Zigbee“) und die Konfiguration öffnen.
+3. **Reiter „Hardware“: Port eintragen.** USB: Gerät aus der Liste wählen (z. B. `/dev/ttyUSB0` oder `/dev/serial/by-id/...`). Netzwerk-Koordinator: `tcp://IP-Adresse:Port`. Den Koordinator-Typ passend zur Firmware wählen. PAN-ID, Extended PAN-ID und Kanal sind bereits sinnvoll vorbelegt – nach dem ersten Start **nicht mehr ändern**.
+4. **Testen:** Mit dem Knopf „Zigbee-Netzwerk zum Testen manuell starten oder stoppen“ (Reiter „Hardware“) starten und im Log prüfen, ob „Zigbee started“ erscheint. Klappt es, auf dem Reiter „Einstellungen“ den Haken **„Zigbee-Netzwerk automatisch starten“** setzen und speichern.
+5. **Geräte koppeln:** Auf der Adapterseite den grünen Knopf „Kopplung jetzt starten!“ drücken und das Gerät in den Kopplungsmodus bringen (meist zurücksetzen, siehe Anleitung des Geräts). Danach erscheint es als Kachel, die Datenpunkte liegen unter `zigbee.0.<Geräte-ID>`.
 
-A complete list of compatible coordinators can be found [here](https://www.zigbee2mqtt.io/guide/adapters/). We recommend using only coordinators listed as 'recommended'. Instructions for installing the required firmware can also be found there.
+## Die Hardware
+Für den Koordinator (siehe oben) ist eine zusätzliche Hardware erforderlich, welche die Umsetzung zwischen USB und ZigBee-Funksignalen ermöglicht. Es gibt 3 Arten von Koordinatoren:
 
-Coordinators are also sold with pre-installed firmware. The following applies: **Any coordinator whose firmware is compatible with Zigbee2mqtt.io can also be used with the ZigBee adapter**.
+   - Aufsteckmodule für den RaspberryPi (Die Nutzung dieser Module wird **nicht** empfohlen.)<br>
+   - Per USB angeschlossene Module, entweder in Form von Entwicklungsboards oder USB-Sticks
+   - Netzwerk Koordinatoren
 
-Currently (as of March 2025), the "Sonoff ZIGBEE 3.0 USB-STICK CC2652P" (both the CC2652P and EZSP chipset versions) and network coordinators with Cod.m and/or XTG firmware are particularly popular. The Conbee II and Conbee III are also frequently used. The use of TI coordinators with CC2530/CC2531 is strongly discouraged – these are now considered obsolete.
+Eine vollständige Liste der kompatiblen Koordinatoren (auf englisch) ist [hier](https://www.zigbee2mqtt.io/guide/adapters/) zu finden. Wir empfehlen ausschliesslich den Einsatz von als 'recommended' gelisteten Koordinatoren. An gleicher Stelle finden sich auch Anleitungen zum aufspielen der benötigen Firmware.
 
-The devices connected to the ZigBee network transmit their status to the coordinator and notify them of events (button presses, motion detection, temperature changes, etc.). This information is displayed in the adapter under the respective ioBroker objects and can thus be further processed in ioBroker. It is also possible to send commands to the ZigBee device (change of status of sockets and lamps, color and brightness settings, etc.).
+Koordinatoren werden auch mit bereits aufgespielter Firmware verkauft. Dabei gilt: **jeder Koordinator dessen Firmware mit Zigbee2mqtt.io kompatibel ist kann auch mit dem Zigbee Adapter verwendet werden**.
 
-## Software
+Aktuell (Stand März 2025) sind insbesondere "Sonoff ZIGBEE 3.0 USB-STICK CC2652P" (Sowohl in der Variante mit CC2652P als auch mit EZSP Chipsatz) sowie Netzwerk-Koordinatoren mit Cod.m und/oder XTG Firmware beliebt. Auch der Conbee II und Conbee III werden oft eingesetzt. Vom Einsatz der TI Koordinatoren mit CC2530/CC2531 wird dringend abgeraten - diese gelten inzwischen als veraltet.
 
-The software is divided into "converter" and "adapter".
+Die mit dem ZigBee-Netz verbundenen Geräte übermitteln dem Koordinator ihren Zustand und benachrichtigen über Ereignisse (Knopfdruck, Bewegungserkennung, Temperaturänderung, …). Diese Infos werden im Adapter unter den jeweiligen ioBroker-Objekten angezeigt und können so in ioBroker weiterverarbeitet werden. Außerdem ist es möglich Kommandos an das ZigBee-Gerät zu senden (Zustandsänderung Steckdosen und Lampen, Farb- und Helligkeitseinstellungen, …).
+
+## Die Software
+
+Die Software wird unterteilt in "Konverter" und "Adapter".
 
 ![](img/software1.jpg)
 
-   - Converter
-    The converter is divided into two parts: <br>
-      a) General provision of the data from the ZigBee radio signals. This [software part](https://github.com/Koenkk/zigbee-herdsman) is used for all ZigBee devices. <br>
-      b) Device-specific [processing](https://github.com/Koenkk/zigbee-herdsman-converters) of the data to a defined interface to the adapter.
-   - Adapter<br>
-      This software part is the connection of the converter to ioBroker. The [adapter](https://github.com/ioBroker/ioBroker.zigbee) includes the graphical user interface for managing the ZigBee devices and the creation of ioBroker objects for controlling the ZigBee devices.
+   - Konverter <br>
+    Der Konverter gliedert sich auf in zwei Teile: <br>
+    a) Allgemeine Bereitstellung der Daten aus den ZigBee-Funksignalen. Dieser [Softwareteil](https://github.com/Koenkk/zigbee-herdsman) wird für alle ZigBee-Geräte verwendet.  <br>
+    b) Gerätespezifische [Aufbereitung](https://github.com/Koenkk/zigbee-herdsman-converters) der Daten auf eine definierte Schnittstelle zum Adapter. <br>
+
+   - Adapter <br>
+    Dieser Softwareteil ist die Anbindung des Konverters an ioBroker. Der [Adapter](https://github.com/ioBroker/ioBroker.zigbee) beinhaltet die grafische Darstellung zur Verwaltung der ZigBee-Geräte, sowie die Erzeugung der ioBroker-Objekte zur Steuerung der ZigBee-Geräte.
 
 ## Installation
-1. Connect the coordinator hardware to computer running ioBroker (or the network, in case of LAN/WLan coordinators).<br>
-2. Open a console on the server. In case of Unix/Linux based systems, this can be done remotely via ssh. Depending on the OS used, additional programs (e.g. puTTY on Windows) may be needed.<br>
-3. Determine the coordinator path. On Unix/Linux systems, this is often located in the /dev/serial/by-id directory. Alternatively, /dev/ttyUSB*, /dev/ttyAM* (Unix/Linux), /dev/tty.usbserial-* (macOS), or com* (Windows) are expected.<br>
-The following example shows a Linux installation on a Raspberry Pi. The command `ls -la /dev/serial/by-id/` produces the output shown in the image.
-![](../de/img/Bild2.png)
-4. ioBroker -> Install the ZigBee adapter, here version 1.8.10 as an example. <br> ![](../de/img/Bild3.png) <br> This installs all required software components (converter and adapter). <br>![](img/Zigbee_config_en.png)<br>
-5. Open the adapter configuration. The above image shows the interface version 3.0.0 or newer.
-In this situation, the admin indicates whether the ZigBee subsystem is started (A).
-6. Enter the port for the coordinator (B). In the case of USB coordinators, this is the previously determined device path. For coordinators controlled via the network, the network address and port must be specified in the form tcp://ip:port instead of the device path. If the adapter itself (not the Zigbee subsystem) is active, a list of available serial interfaces is available for selection. The following applies when selecting:
-- If multiple adapters with different USB devices are used for communication on the system, a port from the /dev/serial/by-id directory (if available) should **absolutely** be selected. This ensures that the adapter's association with the coordinator is retained when the system is restarted.
-- If only one USB device is used, the /dev/TTY* port is preferable. This allows the coordinator to be replaced with an identical device in the event of a defect without having to adjust the configuration.
-7. Assign a Network ID and Pan ID to distinguish it from other ZigBee networks within wireless range. e.g., starting with adapter version 2.1.0, ExtPanID (C) and PanID (D) are automatically pre-assigned with random values ​​until the configuration is saved.<br>
-8. Select a suitable ZigBee channel (E). Please note that ZigBee and 2.4GHz Wi-Fi share the same frequency band. The optimal channel therefore depends, among other things, on the Wi-Fi channels used in the area. The channel names for ZigBee and Wi-Fi are **not** identical, e.g. WIFI channel 11 and Zigbee channel 11 do **not** interfere with each other. It is also advisable to limit your selection to the ZigBee Light Link channels (11, 15, 20, 25). If a channel is selected that does not belong to the ZLL, the interface displays a yellow triangle with an exclamation mark above the entered channel. <br>After the adapter has been successfully started, a scan of the network channels can also be performed via the configuration.<br>
-**Note:** Starting with adapter version 3.1.0, it is possible to change the channel without deleting the configuration and re-pairing all devices. Individual devices may not respond to the channel change request; these devices will then need to be re-paired. This is most often true for end-devices.<br>
-9. Check whether the Zigbee subsystem is starting. To do this, try starting the Zigbee subsystem using *Start/Stop* (F). The progress of the start attempt can be observed in the log. The icon (A) changes from black/red to black/orange while the Herdsman starts. If the attempt was successful, the icon disappears completely; otherwise, it turns red again, and the messages in the log provide clues as to the cause.<br>
-The Herdsman can also be stopped using the same button. The icon is also displayed in black/orange. **Important: Stopping can take up to 2 minutes in some cases – especially when using network coordinators.** Patience is required here. After Herdsman has been terminated, the icon appears in black/red and the message 'Herdsman stopped!' appears.
-Depending on the error, there are various possible reasons why Herdsman may not start. If it is 'just' a timeout, it is certainly advisable to repeat the attempt immediately. If the configuration is inconsistent, the relevant data is displayed in the log. The adapter offers two options for resolving the conflict:
-- Reading the data from the NV backup. In this case, the adapter's configuration is adjusted.
-- Deleting the NV backup. In this case, the adapter's configuration remains as it is. This **forces** a rebuild of the network, which subsequently requires all previously trained devices to be reset and retrained.<br>
-The log output can also be used to search for a solution in the [ioBroker Forum](https://forum.iobroker.net). Please highlight the messages and post them **as text** in the forum.
+1.	Koordinator Hardware am RaspberryPi anstecken.<br>
+2.	Über z.B. PuTTY mit RaspberryPi verbinden.<br>
+3.	Pfad des Koordinators ermitteln. Auf Linux Systemen befindet sich dieser oft im Verzeichnis /dev/serial/by-id. Alternativ dazu werden /dev/ttyUSB*, /dev/ttyAM* (Linux), /dev/tty.usbserial-* (macOS) oder com* (windows) erwartet.<br>
+Das folgende Beispiel zeigt eine Linux-Installation auf einem Raspberry PI. Der Befehl `ls -la /dev/serial/by-id/` erzeugt die im Bild erkennbare Ausgabe.
+![](img/Bild2.png)
+4.	ioBroker -> ZigBee-Adapter installieren, hier als Beispiel die Version 1.8.10 <br> ![](img/Bild3.png)  <br> Hiermit werden alle erforderlichen Softwareteile (Konverter und Adapter) installiert.
+5. Konfiguration des Adapters öffnen. Das folgende Bild zeigt das Interface ab der Version 2.1.0.<br>![](img/Zigbee_config2_de.jpg)<br>
+Der Admin zeigt in dieser Situation an ob das Zigbee-Subsystem gestartet ist (A).
+6. Port zum Koordinator eintragen. (B) Im Fall von USB Koordinatoren ist das der zuvor ermittelte Device-Pfad. Im Fall von über das Netzwerk angesteuerten Koordinatoren muss an Stelle des Gerätepfades die Netzwerkaddresse samt port in der Form tcp://ip:port angegeben werden. Sofern der Adapter selber (nicht das Zigbee-Subsyste) aktiv ist steht eine Liste der verfügbaren seriellen Schnittstellen zur Auswahl zur Verfügung. Bei der Auswahl gilt:
+- Sofern am System mehrere Adapter mit unterschiedlichen USB Geräten zur Kommunikation verwendet werden und der ioBroker nativ auf dem System läuft (nicht in einem Container) sollte **unbedingt** ein Port aus dem Verzeichnis /dev/serial/by-id (sofern verfügbar) ausgewählt werden. Damit wird sicher gestellt das bei einem Neustart des Systems die Zuordnung des Adapters zum Koordinator erhalte bleibt.
+- Sofern ausschliesslich ein USB Gerät verwendet wird oder wenn der ioBroker *virtualisiert* - sprich in einem Container oder einer VM läuft - ist die Verwendung des /dev/TTY* Anschlusses zu bevorzugen. Damit kann der Koordinator bei Defekt durch ein baugleiches Gerät ersetzt werden ohne das die Konfiguration des Adapters zwingend angepasst werden muss. Bei der *virtuellen* Umgebung muss allerdings die Weitergabe des korrekten USB Gerätes an die virtuelle Umgebung angepasst werden.
+7.	Netzwerk-ID und Pan ID vergeben zur Unterscheidung von anderen ZigBee-Netzwerken in Funkreichweite, z.B. Ab Adapter Version 2.1.0 weden ExtPanID (C) und PanID (D) automatisch mit zufälligen Werten vorbelegt bis die Konfiguration gespeichert wurde.<br>
+8. Geeigneten Zigbee-Kanal (E) auswählen. Dabei ist zu beachten das Zigbee und 2.4GHz WLAN sich das gleiche Frequenzband teilen. Der optimale Kanal hängt also unter anderem auch von den in der Umgebung verwendeten WLan Kanälen ab. Dabei sind die Kanalbezeichnungen von Zigbee und WLan **nicht** identisch. Weiterhin ist es Sinnvoll sich bei der Auswahl auf die Zigbee Light Link Kanäle (11,15,20,25) zu beschränken. Wird ein Kanal ausgewählt der nicht zum ZLL gerhört zeigt das Interface ein gelbes Dreieck mit Ausrufungszeichen über dem eingetragenen Kanal.<br>Ab Version 3.1 unterstützt der Zigbee-Adapter den Wechsel des Kanals bei bestehenden Zigbee Netzwerken. Allerdings ist hier vorsicht geboten - nicht alle Zigbee-Geräte akzeptieren einen Kanalwechsel. Insbesondere bei Endgeräten muss damit gerechnet werden das diese neu angelernt werden müssen.
+Nachdem der Adapter erfolgreich gestartet wurde kann über die Konfiguration auch ein Scan der Netzwerkkanäle durchgeführt werden.<br>
+**Hinweis:** Ab Adapter Version 2.1.0 ist es Möglich den Kanal zu wechseln ohne das die Konfiguration gelöscht und alle Geräte neu angelernt werden müssen. **Diese Funktion ist als Experimentell zu betrachten** - es kann sein das einzelne Geräte den Kanalwechsel nicht mit machen - diese müssen in der Folge neu angelernt werden.
+9.	Prüfen ob das Zigbee-Subsystem startet. Dazu via *Start/Stop* (F) versuchen das Zigbee-Subsystem zu starten. Im Log (Log) kann der Verlauf des Startversuchs beobachtet werden. Das Icon (A) ändert seine Farbe von Schwarz/Rot auf Schwarz/Orange während der Herdsman startet. Wenn der Versuch erfolgreich war erlischt das Icon komplett, ansonsten wird es wieder Rot und die Meldungen im Log geben Hinweise auf die Ursache.<br>
+Über die gleiche Schaltfläche kann der Herdsman auch angehalten werden. Auch dabei wird das Icon in Schwarz/Orange dargestellt. **Wichtig: Das Anhalten kann in einzelfǎllen bis zu 2 Minuten dauern - insbesondere bei der Verwendung von Netzwerk Koordinatoren.** Hier ist Geduld gefragt. Nachdem der Herdsman beendet wurde erscheint das Icon in Schwarz/Rot und die Meldung 'Herdsman stopped!'.
+Je nach Fehlerbild gibt es verschiedene mögliche Ursachen dafür das der Herdsman nicht startet. Sofern es sich dabei 'nur' um eine Zeitüberschreitung (Timeout) handelt ist es durchaus Sinnvoll den Versuch direkt zu widerholen. Bei inkonsistenter Konfiguration werden die relevanten Daten im Log angezeigt. Hier bietet der Adapter zwei Möglichkeiten den Konflikt zu lösen:
+- Lesen der Daten aus dem NVBackup. In diesem Fall wird die Konfiguration des Adapters angepasst.
+- Löschen des NVBackups. In diesem Fall bleibt die Konfiguration im Adapter wie sie ist. Dieses **erzwingt** einen Neuaufbau des Netzwerkes so das in der Folge alle bereits angelernten Geräte zurückgesetzt und neu angelernt werden müssen.<br>
+Die Ausgaben im Log sind auch dazu geeignet bei der Suche nach einer Lösung im [ioBroker Forum](https://forum.iobroker.net) eingesetzt zu werden. Dazu bitte die Meldungen markieren und **als Text** im Forum posten.
 
-10. Once the zigbee network is configured correctly and starts without issues, it is time to set the adapter to automatically start the network at start. This is done by checking the checkbox labeled 'start the zigbee network automatically'.
+10. Nachdem das Zigbee-Subsystem sauber konfiguriert wurde und anstandslos startet muss der Haken bei 'Start the zigbee network automatically' (G) gesetzt werden. Erst dann startet der Adapter das Zigbee Netzwerk automatisch beim Start.
 
 ## Pairing
-Each ZigBee device (switch, bulb, sensor, ...) must be paired with the coordinator (pairing):  <br>
+Jedes ZigBee-Gerät (Schalter, Lampe, Sensor, …) muss mit dem Koordinator gekoppelt werden (Pairing):  <br>
 
-   - ZigBee device:
-    Each ZigBee device can only be connected to exactly 1 ZigBee network. If the ZigBee device still has pairing information saved for a different coordinator (e.g. Philips Hue Bridge), then it must first be decoupled from this ZigBee network. This decoupling from the old ZigBee network preferably is done via the user interface of the old ZigBee network (z.B. Philips Hue App). Alternatively, you can reset the ZigBee device to factory settings.  <br>
-There are typically the following options for putting a ZigBee device into pairing mode <br>
-        1.	Unpair a ZigBee device from a ZigBee network
-        2.	Press the pairing button on the ZigBee device
-        3.	Switch the supply voltage of the ZigBee device off and then on again
+   - ZigBee-Gerät:
+    Jedes **ZigBee-Gerät** kann nur mit genau 1 ZigBee-Netzwerk verbunden sein. Hat das ZigBee-Gerät noch Pairing-Informationen zu einem fremden Koordinator (z.B. Philips Hue Bridge) gespeichert, dann muss es von diesem ZigBee-Netzwerk zuerst entkoppelt werden. Dieses Entkoppeln vom alten ZigBee-Netzwerk erfolgt vorzugsweise über die Bedienoberfläche des alten ZigBee-Netzwerkes (z.B. Philips Hue App). Alternativ kann man das ZigBee-Gerät auf Werkseinstellungen zurücksetzen.  <br>
+    Um ein ZigBee-Gerät nun in den Pairing-Mode zu versetzen, gibt es typischerweise folgende Möglichkeiten: <br>
+        1.	ZigBee-Gerät von einem ZigBee-Netzwerk entkoppeln
+        2.	Pairing-Button am ZigBee-Gerät drücken (ggf. mehrfach)
+        3.	Versorgungsspannung des ZigBee-Gerätes aus- und dann wieder einschalten  (ggf. mehrfach)
 
-The ZigBee device is then in pairing mode for typically 60 seconds. Similar to the procedure for resetting to factory settings, activating the pairing mode also depends on the respective device type (if necessary, read the operating instructions of the ZigBee device).
+Danach ist das ZigBee-Gerät für typischerweise 60 Sekunden im Pairing-Mode. <br>
+Ähnlich wie die Vorgehensweise zum Rücksetzen auf Werkseinstellungen ist auch das Aktivieren des Pairing-Mode abhängig vom jeweiligen Gerätetyp (ggf. Bedienungsanleitung des ZigBee-Gerätes lesen).  <br>
 
-   - Coordinator:
-Press the green button to put the coordinator into pairing mode for 60 seconds. <br>
-![](img/Zigbee_pairing_en.png)
+   - Koordinator:
+Grünen Knopf drücken, um den Koordinator für 60 Sekunden (oder die in den Adaptereinstellungen gewählte Zeit) in den Pairing-Mode zu versetzen. <br>
+![](img/Bild12.png)
 
-   - Wait until "New device joined" appears in the dialog:  <br>
+   - Warten bis im Dialog `Interview Successful` erscheint:<br>
 ![](img/Bild13.png)
+   - Pairing überprüfen:
+Das zu koppelnde Gerät muss vom ioBroker ZigBee-Adapter unterstützt werden. Im Gutfall wird im ZigBee-Adapter ein neues Gerät angezeigt (z.B. Philips Light Stripe) mit dem Hinweis `"supported":true` und entsprechende ioBroker-Objekte angelegt:<br>
+![](img/Bild14.png) ![](img/Bild15.png)
 
-   - Check Pairing:
-The device to be paired must be supported by the ioBroker ZigBee adapter. In the best case, a new device is displayed in the ZigBee adapter (e.g. Philips Light Stripe) and corresponding ioBroker objects are created:
-![](../de/img/Bild14.png) ![](../de/img/Bild15.png)
+   - Im Schlechtfall wird das ZigBee-Gerät aktuell noch nicht unterstützt. Im nächsten Abschnitt ist beschrieben, was zu tun ist, um dieses ZigBee-Gerät dennoch nutzen zu können.
 
-   - In the worst case, the ZigBee device is not currently supported. The next section describes what needs to be done to use this ZigBee device anyhow.
+## Pairing von bisher unbekannten ZigBee-Geräten
 
-## Pairing of unknown ZigBee devices so far
+Bei bisher unbekannten ZigBee-Geräten erscheint beim Pairing der ZigBee-Name des ZigBee-Gerätes (z.B. HOMA1001) mit dem Zusatz `"supported": false` <br>
+![](img/Bild16.png) <br>
 
-For previously unknown ZigBee devices, the ZigBee name of the ZigBee device (e.g., HOMA1001) appears during pairing with the suffix "supported": false. <br>
-![](../de/img/Bild16.png) <br>
+Durch Drehen dieser Kachel erhält man Detailinformationen zu dem ZigBee-Gerät: <br>
+![](img/Bild17.png) ![](img/Bild18.png) <br>
 
-Rotating this tile provides detailed information about the ZigBee device: <br>
-![](../de/img/Bild17.png) ![](img/Bild18.png) <br>
+Nach einer Registrierung bei [github.com](https://github.com/ioBroker/ioBroker.zigbee/issues) kann über einen "Issue" das fehlende ZigBee-Gerät gemeldet werden:
 
-After registering at [github.com](https://github.com/ioBroker/ioBroker.zigbee/issues), the missing ZigBee device can be reported via an "issue":
+![](img/Bild19.png) <br>
 
-![](../de/img/Bild19.png) <br>
+Detailinformationen der Kachel (siehe oben) in dem Issue einfügen, erstelle eine kurze Dokumentation (vorzugweise auf Englisch) und absenden. Ein Entwickler wird sich daraufhin über den Issue melden.
 
-Include the detailed information about the tile (see above) in the issue, create a brief documentation (preferably in English), and submit it. A developer will then respond to the issue.
+Als Ergebnis kommt eine von zwei Möglichkeiten in Frage:
+- Anpassung an den Zigbee-Herdsman-Converters. Dieses erfordert eine aktualiserte Version des Zigbee-Adapters, der zunächst getestet und dann im Latest Repository zur Verfügung gestellt wird
+- Erstellung eines "externen Konverters" - einer Datei mit JS Code welche in das Datenverzeichnis des Zigbee-Adapters kopiert und in der Konfiguration des Adapters angegeben werden kann.
+In Beiden Fällen ist es hinreichend den Adapter neu zu starten - die entsprechend angepassten Datenpunkte des Adapters werden angelegt. Sofern dabei Datenpunkte nicht weiter unterstützt werden so werden diese in orange eingefärbt und der Adapter zeigt die Schaltfläche zum löschen der verwaisten Datenpunkte an.
 
-One of two options is possible as a result:
-- Adapting to the Zigbee Herdsman converter. This requires an updated version of the Zigbee adapter, which is first tested and then made available in the Latest Repository.
-- Creating an "external converter" – a file with JS code that can be copied to the Zigbee adapter's data directory and specified in the adapter's configuration.
-In both cases, restarting the adapter is sufficient – ​​the adapter's correspondingly adapted data points will be created. If data points are no longer supported, they will be highlighted in orange, and the adapter will display a button for deleting the orphaned data points.
+## Symbole im ZigBee-Adapter
 
-## Symbols within the ZigBee adapter
+| Bild                | Beschreibung |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](img/Bild30.png) | **State Cleanup** <br> Löschen von unverbundenen ioBroker-Objekten. Diese können  welche durch den Vorgang "Ausschliessen" entstehen können. |
+| ![](img/Bild38.png) | **Show stashed errors** <br> Anzeigen von gesammelten Fehlermeldungen die widerholt auftreten. Dieses Icon ist nur dann sichtbar wenn das System wiederkehrende Fehlermeldungen unterdrückt hat und dient dazu den Benutzer auf deren Existenz hin zu weisen. |
+| ![](img/Bild31.png) | **Auf Firmware Updates überprüfen** <br> Der Zigbee Adapter ist unterstützt OTA Firmware upgrades, sofern die angeschlossenen Geräte dieses unterstützen. Mit dieser Schaltfläche wird die Überprüfung auf neuere Firmware angestossen - das eigentliche Upgrade miss in der Folge an jedem Gerät einzenl angestossen werden.  |
+| ![](img/Bild32.png) | **Add Group**  <br>Die Zigbee-Spezifikation unterstützt das anlegen von Gruppen von Geräten, die gemeinsam über einen Befehl angesteuert werden könne. Während die Spezifikation fast b eliebige Befehle als Gruppenbefehle unterstützt ist die Umsetzung im Zigbee-Adapter auf Leuchtmittel begrenzt - Mit dieser Schaltfläche kann eine neue Gruppe angelegt werden. Das hinzufügen und entfernen von Mitgliedern geschieht über die Geräte  |
+| ![](img/Bild33.png) | **Touchlink zurücksetzen und koppeln** <br> Touchlink ist eine Funktion von des Zigbee Light Link (ZLL), die es physisch nahe beieinander liegenden Geräten ermöglicht miteinander zu kommunizieren, ohne an einen Koordinator angebunden zu sein. Diese Funktion wird nicht von allen Geräten unterstützt. Um ein ZigBee-Gerät über Touchlink auf Werkseinstellungen zurückzusetzen, bringe das Gerät in die Nähe (< 10 cm) des ZigBee-Koordinators und drücke dann das grüne Symbol. **Warnung** durch inkorrekte Umsetzung des Touchlink reset Prozesses kann es passieren das auch Geräte mit grösserem Abstand zurück gesetzt werden. Im Zweifelsfall ist es Angeraten eventuell betroffene Geräte kurzfristig stromlos zu machen.  |
+| ![](img/Bild34.png) | **Pairing mit QR Code**  <br>Es gibt Geräte die für das Pairing mit einem Netzwerk einen zusätzlichen Sicherheitscode benötigen. Dieser ist üblicherweise als QR Code auf dem und/oder der Anleitung angebracht. Ein Pairing mit diesen Geräten kann nur erfolgen wenn der entsprechende Code vorher angegeben wurde. **Hinweis** In vielen Anleitungen sind werden QR Codes angegeben die mit der Herstellerspezifischen App gelesen werden sollen um das Gerät an das Hersteller-Gateway anzubinden, obwohl die Geräte keinen Sicherheitscode unterstützen. In diesem Fall gibt der Adapter einen Fehler wenn versucht wird den Code einzugeben. Wenn das passiert macht es Sinn zu versuchen das Gerät 'normal' anzulernen.  |
+| ![](img/Bild35.png) | **Pairing**  <br> Anlernvorgang neuer ZigBee-Geräte (Pairing) starten. Durch drücken auf diese Schaltfläche wird das Netzwerk für eine (konfigurierbare) Zeit zwischen 10 und 250 sekunden geöffnet so das neue Geräte in das Netzwerk aufgenommen werden
+## Gerätekacheln - Symbole (oben)
+| Bild  | Beschreibung  |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](img/Bild36.png) | Zeit seit mit diesem ZigBee-Gerät  <br> zuletzt ein Datenaustausch stattgefunden hat.  |
+| ![](img/battery.png) | Batteriestand <br> sofern das Gerät einen Batteriestand meldet.  |
+| ![](img/Bild37.png)<br>![](img/disconnected.png) | Stärke des ZigBee-Funksignals <br> an diesem ZigBee-Gerät (<10 schlecht, <50 mittel, >50 gut).ZigBee ist ein Funk-Mesh-Netzwerk. Die meisten netzbetriebenen ZigBee-Geräte (z.B. Philips Hue Lampe) können als ZigBee-Router wirken, also als Funkknotenpunkt. ZigBee-Geräte müssen somit nicht zwingend eine direkte Funkverbindung zum Koordinator aufbauen sondern können stattdessen jeden Router im Netzwerk zur Funkverbindung nutzen. Mit jedem ZigBee-Router wird somit die Funkreichweite des Netzwerkes erweitert. Alle ZigBee-Geräte prüfen regelmäßig, ob es eine bessere Funkroute gibt und stellen sich automatisch um. Dieser Vorgang kann jedoch etliche Minuten dauern.<br>Eine manuelle zuordnugn von Geräten zu Routern ist **nicht** möglich.<br> Das rote, durchgestrichene Symbol wird angezeigt wenn ein Gerät als 'nicht verbunden' gewertet wird. |
+| ![](img/grp_ok.png) ![](img/grp_nok.png) | Zustand einer Gruppe <br> Ein grüner Kreis signalisiert das eine Gruppe mit Mitgliedern versorgt und Funktionstüchtig ist, das rote X erscheint wenn eine Gruppe leer oder aus anderen Gründen nicht einsetzbar ist.  |
+## Gerätekacheln - Buttons (unten)
+| Bild  | Beschreibung  |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](img/Info.png) | Info <br> Öffnet die Informationsanzeige zum Gerät. Die auf dieser Seite dargestellten Informationen stammen direkt vom Gerät. Sie sind auch für unbekannte Geräte verfügbar.  |
+| ![](img/debug.png) | Gerät debuggen <br> Aktiviert / deaktivert die Erzeugung von erweiterten Debug-Meldungen für dieses Gerät. Die Farbe des Icons zeigt den aktuellen Status an: (Schwarz/Weiss: keine Debug Meldungen, Grün Debug Meldungen - deaktivierbar mit dieser Schaltflächce. Orange - Debug Meldungen via Filter unter zigbee.x.info.debugmessages.  |
+| ![](img/on_off.png) | An/Aus <br> Mit dieser Schaltfläche kann ein Gerät aktiviert / deaktiviert werden. Mit deaktiverten Geräten findet keine Kommunikation statt. |
+| ![](img/edit_image.png) | Bild / Name zusweisen <br> Mit dieser Schaltfläche ist es Möglich die Bezeichnung des Gerätes, das Bild des Gerätes oder die Optionen des Gerätes anzupassen. Wichtig - die Einstellungen können hier **nur** auf Gerätebasis durchgeführt werden. Die Vorgabe auf Modellbasis ist in der Konfiguration hinterlegt.Vorgaben die so gemacht werden bleiben erhalten wenn das Gerät gelöscht wird.  |
+| ![](img/reconfigure.png) | Das Gerät konfigurieren. <br> Mit dieser Schaltfläche ist es Möglich für das Gerät erneut zu konfigurieren. Dabei wird der *Converter* Angewiesen die Aktionen durchzufuehren die zur Konfiguration vorgesehen sind. Ueblicherweise werden damit verscheidene Cluster / Attribute an den Koordinator gebunden, um dafuer zu sorgen das das Gerät Informationen *Event* getriggert an den Koordinator sendet.<br>Damit dieses erfolgreich ist muss das Gerät aktiv sein. Insbesondere bei Batterie-betriebenen Geräten ist das of nut kurz nach einer Aktivierung der Fall.<br>Bei einer erfolgreichen Konfiguration verschwindet der Dialog ohne weitere Meldung, und es wird eine Info Meldung im Log platziert. Nur wenn die Konfiguration nicht erfolgreich war gibt es eine Meldung. Dabei sind 2 Arten von Meldungen zu unterscheiden - eine allgemeine Zeitüberschreitung (The device did not repond in time to the configuration request. Another attempt will be made when the device is awake.) oder eine echte Fehlermeldung. Im Falle der Zeitüberschreitung wird das Gerät in eine Liste eingetragen und bei der naechsten Kontaktaufnahme konfiguriert. Im Fehlerfall unterbleibt die Konfiguration. |
+| ![](img/edit_grp.png) | Name / Gruppen editieren <br> Über diese Schaltfläche lässt sich die Zuordnung des Gerätes zu einer oder mehreren Gruppen anpassen. Der Button ist nur bei Geräten verfügbar die sich auch gruppieren lassen. Hinweis: Fernbedienungen werden den Gruppen nicht hinzugefügt - statt dessen müssen diese via 'binding' an die Gruppe gebunden werden.  |
+| ![](img/delete.png) | Gerät löschen <br> Started den Löschvorgang für dieses Gerät.  |
 
-| Icon                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](../de/img/Bild30.png) | **State Cleanup** <br> Deletes unconnected ioBroker objects. These can be created by the "Exclude" operation. |
-| ![](../de/img/Bild38.png) | **Show stashed errors** <br> Displays accumulated error messages that occur repeatedly. This icon is only visible if the system has suppressed recurring error messages and serves to alert the user to their existence. |
-| ![](../de/img/Bild31.png) | **Check for Firmware Updates** <br> The Zigbee adapter supports OTA firmware upgrades, provided the connected devices support them. This button initiates the check for newer firmware – the actual upgrade must then be initiated individually on each device. |
-| ![](../de/img/Bild32.png) | **Add Group** <br>The Zigbee specification supports the creation of groups of devices that can be controlled together via a single command. While the specification supports almost any command as group commands, the implementation in the Zigbee adapter is limited to light bulbs - this button can be used to create a new group. Members can be added and removed via the devices |
-| ![](../de/img/Bild33.png) | **Reset and pair Touchlink** <br> Touchlink is a function of the Zigbee Light Link (ZLL) that allows devices that are physically close to one another to communicate with each other without being connected to a coordinator. This function is not supported by all devices. To reset a Zigbee device to factory settings via Touchlink, bring the device close (< 10 cm) to the Zigbee coordinator and then press the green symbol. **Warning** If the Touchlink reset process is not carried out correctly, devices located further away may also be reset. If in doubt, it is advisable to briefly unplug any affected devices. |
-| ![](../de/img/Bild34.png) | **Pairing with a QR Code** <br>There are devices that require an additional security code to pair with a network. This is usually provided as a QR code on the device and/or in the instructions. Pairing with these devices is only possible if the corresponding code has been entered beforehand. **Note** Many instructions specify QR codes that should be read with the manufacturer-specific app in order to connect the device to the manufacturer's gateway, even though the devices do not support a security code. In this case, the adapter displays an error when you try to enter the code. If this happens, it makes sense to try to program the device 'normally'. |
-| ![](../de/img/Bild35.png) | **Pairing** <br> Start the pairing process for new ZigBee devices. Pressing this button opens the network for a (configurable) time between 10 and 250 seconds so that new devices can be added to the network.
-## Device tiles
-| Icon                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](../de/img/Bild36.png) | Time since a data exchange last took place with this ZigBee device. |
-| ![](../de/img/battery.png) | Battery level, if the device reports a battery level. |
-| ![](../de/img/Bild37.png)<br>![](../de/img/disconnected.png) | Strength of the ZigBee radio signal on this ZigBee device (<10 poor, <50 medium, >50 good). ZigBee is a wireless mesh network. Most mains-powered ZigBee devices (e.g., Philips Hue lamps) can act as ZigBee routers, i.e., as wireless nodes. ZigBee devices therefore do not necessarily have to establish a direct wireless connection to the coordinator, but can instead use any router in the network for a wireless connection. With each ZigBee router, the wireless range of the network is extended. All ZigBee devices regularly check whether there is a better wireless route and automatically switch over. However, this process can take several minutes.<br>Manually assigning devices to routers is **not** possible.<br> The red, crossed-out symbol is displayed when a device is considered 'not connected'. |
-| ![](../de/img/grp_ok.png) ![](../de/img/grp_nok.png) | Status of a group <br> A green circle indicates that a group has members and is functional; the red X appears when a group is empty or unusable for other reasons. |
-| ![](../de/img/Info.png) | Info <br> Opens the information display for the device. The information shown on this page comes directly from the device. It is also available for unknown devices. |
-| ![](../de/img/reconfigure.png) | (re)configure the device. <br> This button allows to trigger a device configuration, which is used to tell the device what data to report automatically to the coordinator. The configuration items are defined in the *converter* for this device. Note that the device needs to be active for a configuration attempt to be successful. If the device is not active, the attempt will time out, and the device will be placed in a queue of devices to be configured the next time the device i sends a message.  |
-| ![](../de/img/debug.png) | Debug device <br> Enables / disables the generation of extended debug messages for this device. The color of the icon indicates the current status: (Black/White: no debug messages, Green: debug messages - can be deactivated with this button. Orange: debug messages via filter under zigbee.x.info.debugmessages. |
-| ![](../de/img/on_off.png) | On/Off <br> This button can be used to activate/deactivate a device. No communication takes place with deactivated devices. |
-| ![](../de/img/edit_image.png) | Assign image/name <br> This button allows you to Assign a name, an icon or options for a specific device. Note that this assignment is **solely** on device level. model-level assingment is done via the settings. Settings made in this way are retained even if the device is deleted. |
-| ![](../de/img/edit_grp.png) | Edit name/groups <br> This button can be used change the devices associationw ith one or more groups. This button is only available on devices which can be assigned to groups. Note: Remotes are not added to the groups - they need to be bound to the group using the 'binding' tab. |
-| ![](../de/img/delete.png) | Delete device <br> Starts the deletion process for this device. |
-## Additional information
-The Zigbee-Adapter shares the same libraries (zigbee-herdsman, zigbee-herdsman-converters) asn the [Zigbee2mqtt](https://www.zigbee2mqtt.io/) Project ([Github Link](https://github.com/Koenkk/zigbee2mqtt)). It is possible to use zigbee2mqtt.io directly with ioBroker using MQTT or its own [Adapter](https://github.com/arteck/ioBroker.zigbee2mqtt).<br>
-As the libraries are shared, any device supported in zigbee2mqtt.io will in time also be supported in the Zigbee Adapter. Due to the need for compatibility-checks, this can occur with a delay of a few days or weeks. Generating an issue describing the device and its zigbee2mqtt.io integration usually leads to either a temporary solution or an adapter update to include the support in the zigbee Adapter.<br>
-Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
+## Häufige Probleme und Lösungen
+| Problem | Lösung |
+|---|---|
+| Adapter startet nicht, im Log „No such file“, „ENOENT“ oder „Cannot open port“ | Port prüfen (Reiter „Hardware“). Bei Docker/VM: USB-Gerät an Container/VM durchreichen. Der Port darf nicht von einem anderen Programm (z. B. Zigbee2MQTT) belegt sein. |
+| Zeitüberschreitung („timeout“) beim Start | Erneut starten – oft reicht das. Bei Netzwerk-Koordinatoren IP-Adresse und Port prüfen und kurz warten, falls der Koordinator gerade neu startet. |
+| „Inkonsistente Konfiguration“ beim Start | Die Einstellungen passen nicht zur Netzwerk-Sicherung im Koordinator. Am besten mit „Netzwerk-Sicherung aus dem Koordinator lesen“ die Werte übernehmen. **Achtung:** „Gespeicherte Netzwerk-Sicherungsdatei löschen“ baut ein neues Netzwerk auf – alle Geräte müssen danach neu gekoppelt werden. |
+| Gerät lässt sich nicht koppeln | Gerät näher an den Koordinator oder einen Router (netzbetriebenes Gerät, z. B. Lampe) bringen, Gerät vorher auf Werkseinstellungen zurücksetzen, Kopplung erneut starten. |
+| Gerät wird als „nicht unterstützt“ angezeigt | Siehe [Pairing von bisher unbekannten ZigBee-Geräten](#pairing-von-bisher-unbekannten-zigbee-geräten). |
+| Gerät reagiert unzuverlässig, schlechter Empfang | Mehr netzbetriebene Geräte (Router) im Netz verteilen. Abstand des Koordinators zu USB-3-Anschlüssen und WLAN-Routern vergrößern (USB-Verlängerung). |
+
+## Eigene Firmware-Liste (OTA)
+Firmware-Updates für Geräte kommen normalerweise aus der öffentlichen Liste von [Zigbee2MQTT](https://github.com/Koenkk/zigbee-OTA). Wer eine Firmware nutzen möchte, die dort (noch) nicht enthalten ist, kann auf dem Reiter „Einstellungen“ unter „Firmware-Updates (OTA)“ eine **eigene Firmware-Liste** angeben:
+- einen Dateinamen – die Datei liegt dann im Datenordner des Adapters (z. B. `iobroker-data/zigbee_0/meine-liste.json`),
+- einen vollständigen Pfad oder
+- eine Web-Adresse (URL).
+
+Einträge der eigenen Liste haben Vorrang vor der öffentlichen Liste. Der Aufbau entspricht dem von Zigbee2MQTT ([Beschreibung](https://www.zigbee2mqtt.io/guide/usage/ota_updates.html)); zum Erstellen eignet sich der [Zigbee OTA File Editor](https://nerivec.github.io/zigbee-ota-file-editor/). Feld leer lassen = nur die öffentliche Liste.
+
+## Zusätzliche Informationen
+Der Zigbee Adapter teilt sich die Bibliortheken mit dem [Projekt](https://www.zigbee2mqtt.io/) Zigbee2mqtt. Dieses erlaubt die Steuerung von Zigbee-Geräten über MQTT oder über einen eigenen ioBroker [Adapter](https://github.com/arteck/ioBroker.zigbee2mqtt) Durch die verwendung der gleichen Bibliotheken wird jedes Gerät das unter zigbee2mqtt läuft auch im Zigbee Adapter laufen. Allerdings kann es dabei zu Verzögerungen kommen da wir die Kompatibilität der Bibliotheken mit dem Adapter verifizieren müssen. Durch eröffnen eines *issues* bei Github könnt Ihr diesen Prozess anstossen und/oder beschleunigen. Oft bekommt Ihr da auch Hilfe das Gerät ohne Aktualiserung des Adapters nutzbar zu machen.<br>
+Weitere Themen zu diesem Adapter sind auch im zugehörigen [Wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki) dokumentiert.
 
 ## Changelog
+### 3.6.1 (2026-11-20)
+* (reloxx13) Add optional group membership restoration after rejoin or successful interview (disabled by default), and report membership update failures after synchronization.
+* (asgothian) cleanup, ZH11. ZHC 26.133
+* (schimi1983) performance tweaks
+* (schimi1983) Updated documentation
+* (schimi1983) Use custom firmware files
+
 ### 3.5.5 (2026-08-06)
 * (kropipd) Improved handling for device configuration
 * (bueste) Respond to unsolicited OTA messages
@@ -166,11 +205,6 @@ Other topics related to this adapter are also documented in the associated [wiki
 * ZH 10.5.0
 * default model options for BSD-2
 * additional role definitions
-
-### 3.4.9 (2026-06-22)
-* (asgothian) Removed 'forced configure on start'
-* (krobipd) - various bugfixes
-* (asgothian) - updated versioning for adapter options
 
 Older changelog entries can be found here.
 

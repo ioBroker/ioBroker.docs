@@ -116,6 +116,7 @@ You can use patterns in acknowledgements:
 - `%u`: unit
 - `%n`: name (planned!)
 - `{objectId}`: the state of this objectID will be placed here. Actually, it will be the same bindings supported as by [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects), except special bindings.
+- `\n`: will be replaced by a line break (e.g. useful for Telegram). E.g. `Line 1\nLine 2`.
 
 The following commands are supported:
 
@@ -263,6 +264,9 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 5.0.2 (2026-11-21)
+* (@GermanBluefox) Allowed new line (\n) in the answer texts of rules (#220)
+
 ### 5.0.1 (2026-10-14)
 * (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Admin 7.6.20+ is required. Added Ukrainian translations. Older changelog entries are moved to CHANGELOG_OLD.md
@@ -277,9 +281,6 @@ If activated so by every command (no matter if the request came via state or sen
 
 ### 3.0.3 (2023-12-18)
 * (bluefox) Corrected GUI
-
-### 3.0.2 (2023-02-27)
-* (bluefox) Corrected link from admin
 
 ## License
 

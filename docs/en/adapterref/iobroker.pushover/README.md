@@ -100,6 +100,13 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: the message `send` with `user` and `token` answers the error in `error` like the other messages (`err` is kept)
+* (@GermanBluefox) Fixed: the message `send` answers the text of a network error instead of an empty `error` object
+
+### 6.2.0 (2026-11-19)
+* (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
 ### 6.1.0 (2026-09-23)
 * (BenAhrdt) Added support for the system notifications (notification-manager)
 * (BenAhrdt) `user` and `token` can be overwritten per message
@@ -121,11 +128,6 @@ sendTo('pushover', 'glances', {
 ### 4.1.1 (2025-05-19)
 * (robseh) Added a field "tags" to hand over a tag to pushover-service
 * (@GermanBluefox) Updated packages
-
-### 4.1.0 (2024-08-17)
-* (isi07) added HTML/monospace options to blockly
-* (isi07) fixed issue that blockly block is invalid when different priority other than normal is selected
-* (isi07) fixed the error when log level selected by duplicate quotes
 
 ## License
 

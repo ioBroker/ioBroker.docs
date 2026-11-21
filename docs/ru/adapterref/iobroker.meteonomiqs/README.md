@@ -3,183 +3,204 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteonomiqs/README.md
 title: ioBroker.meteonomiqs
-hash: 1FtdjtxxtBtEGZXhpJxm73hHRh9NYVgkW21Z8uYbJc8=
+hash: +MspArVqcrGGytPar66V+P6X2ukIe2XTZ9GtFYqUMVc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteonomiqs/admin/meteonomiqs.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.meteonomiqs.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.meteonomiqs.svg)
 ![Количество установок](https://iobroker.live/badges/meteonomiqs-installed.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/meteonomiqs-stable.svg)
 ![Лицензия](https://img.shields.io/github/license/Schimi1983/ioBroker.meteonomiqs)
 ![Тестирование и выпуск](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.meteonomiqs.png?downloads=true)
+![Спонсоры GitHub](https://img.shields.io/badge/GitHub%20Sponsors-Schimi1983-ea4aaa?logo=githubsponsors&logoColor=white)
+![PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?logo=paypal&logoColor=white)
 
 # ioBroker.meteonomiqs
 
-Прогноз погоды от **wetter.com** , полученный через [общедоступный API погоды Meteonomiqs версии 4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html) .
+**Deutsche Anleitung:** [docs/de/README.md](https://github.com/Schimi1983/ioBroker.meteonomiqs/blob/main/docs/de/README.md)
 
-Прогноз погоды на срок до 14 дней, данные по дням, почасовые значения, текущий час, предупреждения о погоде, данные о Солнце и Луне — все это за **один** вызов API за один запрос. Адаптер разработан с учетом того, что бесплатный тарифный план позволяет совершать только 100 вызовов в месяц.
-
----
-
-## Функции
-
-|                             |                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Ежедневный прогноз**      | 1–14 дней: температура, осадки, ветер, облачность, влажность, продолжительность солнечного сияния, давление. |
-| **Дневные разделы**         | Утро, день, вечер и ночь в течение дня                                                                       |
-| **Почасовые значения**      | На один или несколько дней, с расчётами в часовом поясе места прогнозирования.                               |
-| ** `current` папка**          | Текущий час отображается и обновляется **каждый час без вызова API.**                                        |
-| **Предупреждения о погоде** | Групповой, текстовый и числовой уровень серьезности (0–4) — сравнение строк в скриптах не требуется.         |
-| **Солнце и луна**           | Восход солнца, закат, сумерки, продолжительность дня, восход луны, фаза луны, зодиакальный знак              |
-| **Снег**                    | Снежная линия, свежий снег, эквивалент воды в снеге                                                          |
-| **JSON-агрегаты**           | `forecast_json` и `hourly_json` для виджетов VIS, Jarvis и Material                                           |
-| **Управление бюджетом**     | Приоритетные уровни, которые плавно снижают приоритет, а не останавливаются.                                 |
-| **Правильные значки**       | Использует значок, предоставляемый API, включая варианты для ночного времени, грозы и ветра.                 |
+Прогноз погоды от **wetter.com** в вашем ioBroker: до 14 дней, почасово, с предупреждениями о погоде, восходом и закатом солнца. Вам понадобится только бесплатный ключ от wetter.com (Meteonomiqs).
 
 ---
 
-## Установка
+## Быстрый старт
 
-Установите адаптер через административный интерфейс ioBroker.
+1. Получите бесплатный API-ключ от [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/) .
+2. Убедитесь, что ваше местоположение указано в ioBroker в разделе _Настройки → Система → Местоположение_ .
+3. Установите адаптер в административной панели (вкладка _«Адаптеры_ », найдите «meteonomiqs»).
+4. Откройте настройки экземпляра, вставьте ключ в **поле «Ключ API»** и нажмите _«Сохранить и закрыть»_ .
 
-### ключ API
-
-Для работы требуется ключ, который можно получить у [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/) . Бесплатный тарифный план в настоящее время включает 100 звонков в месяц, что точно соответствует расписанию по умолчанию. Ключ хранится **в зашифрованном виде** в конфигурации экземпляра.
-
----
-
-## Конфигурация
-
-### Общий
-
-| Параметр                                     | Значение                                                                                                                               |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| ключ API                                     | Ваш ключ Meteonomiqs. Хранится в зашифрованном виде.                                                                                   |
-| Используйте местоположение системы ioBroker. | Координаты широты и долготы берутся из _Настройки → Система → Местоположение_ . Отключите эту опцию, чтобы вводить координаты вручную. |
-| Язык текстов о погоде                        | Применяется к описаниям, предоставляемым API. Пусто = системный язык ioBroker.                                                         |
-| Прогнозируемые дни                           | 1–14. Снижение значения удаляет папки с днями, которые больше не нужны.                                                                |
-
-### Расписание
-
-Время выборки — это таблица `HH:MM` плюс **приоритет** . Значение по умолчанию:
-
-| Время | Приоритет | Цель                                                                                       |
-| ----- | --------- | ------------------------------------------------------------------------------------------ |
-| 01:10 | 1         | Планирование дня — полный прогноз погоды составляется еще до того, как кто-либо проснется. |
-| 11:40 | 2         | Коррекция перед критическим днем: грозы, порывы ветра, пик жары.                           |
-| 18:40 | 3         | Ночь и завтра: заморозки, грозы, прогноз на следующее утро.                                |
-
-Каждая установка сдвигает эти временные интервалы на фиксированное смещение до 15 минут, определяемое по UUID установки ioBroker — в противном случае каждая установка этого адаптера обращалась бы к API в одну и ту же минуту. Смещение одинаково для всех трех временных интервалов, поэтому промежутки между ними остаются точно такими, как настроено. Фактически используемое время записывается в журнал при запуске.
-
-**Минимальный интервал между обновлениями** — это задержка, предотвращающая зацикливание перезапуска. Она должна быть _меньше_ , чем кратчайший промежуток между двумя запросами — в противном случае каждый день пропускается один запрос. Адаптер проверяет это при запуске и записывает ошибку в журнал, если значения не соответствуют действительности.
-
-### бюджет API
-
-Три запроса в день приводят к 93 звонкам за 31 день месяца — на 7 меньше, чем 100 звонков в бесплатном плане. Вместо того чтобы достигать предела в конце месяца, каждый запрос имеет свой приоритетный уровень:
-
-> Запрос уровня N выполняется только до тех пор, пока оставшийся бюджет позволяет обрабатывать **N вызовов в день** до конца месяца.
-
-Когда ситуация становится напряженной, вечерний сбор данных прекращается первым, затем дневной. Ночной сбор данных длится дольше всего и в экстренной ситуации переключается на сбор данных через день, вместо того чтобы прекращаться вовсе. Подтверждено в течение целого смоделированного месяца:
-
-| Отправная точка                  | Использованные звонки | 01:10 | 11:40 | 18:40 |
-| -------------------------------- | --------------------- | ----- | ----- | ----- |
-| Чистый месяц (31 день)           | 93 / 100              | 31    | 31    | 31    |
-| 20 звонков уже потрачены впустую | 98 / 100              | 31    | 31    | 16    |
-| 40 звонков уже потрачены впустую | 99 / 100              | 31    | 28    | 0     |
-| 70 звонков уже потрачены впустую | 100 / 100             | 30    | 0     | 0     |
-
-Счетчик представляет собой **локальную оценку** — API не сообщает об оставшемся объеме квоты. Только HTTP-код 429 является эталонным. `info.reset_counter` Если вам когда-либо понадобится, он обнулит это значение.
-
-### Данные
-
-Все данные поступают из одного и того же API-ответа, поэтому включение большего количества групп **не требует дополнительных вызовов** — только больше объектов. Примерные размеры на 7 дней прогноза:
-
-| Конфигурация                                     | Объекты |
-| ------------------------------------------------ | ------- |
-| Всё включено, почасовая оплата в течение 2 дней. | \~2430  |
-| Почасовая оплата в течение 1 дня                 | \~1780  |
-| Почасовой отпуск                                 | \~1130  |
-| Только суточные значения                         | \~380   |
-
-На Raspberry Pi разумным компромиссом является отображение почасовых значений за сутки.
+Готово. Адаптер сразу же получает прогноз, а затем три раза в день. Значения вы найдете в разделе... `meteonomiqs.0` на вкладке _«Объекты»_ . Изменять какие-либо другие настройки не требуется.
 
 ---
 
-## Дерево штата
+## Что вы получите
+
+- **Ежедневный прогноз** на срок до 14 дней: температура, осадки, ветер, облачность, продолжительность солнечного сияния и многое другое.
+- **Утро, день, вечер и ночь** каждого дня
+- **Почасовые значения** на ближайшие дни
+- **Текущий час** находится в отдельной папке. `current` Обновляется каждый час.
+- **Предупреждения о погоде** в текстовом формате с указанием уровня опасности от 0 до 4.
+- **Солнце и луна** : восход, закат, продолжительность дня, фазы луны.
+- **Иконки погоды** с сайта wetter.com, готовые для визуализации.
+
+---
+
+## Используя значения
+
+Наиболее важные данные:
+
+| Что вы хотите                                               | Точка данных                                                 |
+| ----------------------------------------------------------- | ------------------------------------------------------------ |
+| Температура прямо сейчас                                    | `meteonomiqs.0.current.temp`                                 |
+| Текущая погода (текст и иконка)                             | `current.weather_text`, `current.weather_icon`               |
+| Сегодняшние минимумы и максимумы                            | `day_0.temp_min`, `day_0.temp_max`                           |
+| Завтра будет дождь?                                         | `day_1.prec_probability` (в %), `day_1.prec_sum` (в мм)       |
+| сила ветра                                                  | `current.wind_bft` (Бофорт 0–12), `current.wind_gusts` (км/ч) |
+| Есть ли предупреждение о неблагоприятных погодных условиях? | `day_0.warn_active` (верно/неверно), `day_0.warn_text`        |
+| Восход и закат солнца сегодня                               | `current.sunrise`, `current.sunset`                          |
+
+`day_0` сегодня, `day_1` завтра, `day_2` послезавтра и так далее.
+
+Несколько идей для скриптов или Blockly:
+
+- **Защитите навес:** уберите его, когда... `current.wind_bft` достигает 6 или более.
+- **Пропустите полив:** не поливайте сад, когда `day_0.prec_probability` выше 70.
+- **Предупредите семью:** отправьте сообщение, когда `day_0.warn_active` становится истинным, при `day_0.warn_text` в качестве сообщения.
+
+Для виджетов в VIS, Jarvis или Material весь прогноз представлен в одной точке данных: `forecast_json` (дней) и `hourly_json` (часы сегодняшнего дня).
+
+Все значения являются **прогнозом** , а не измерением.
+
+---
+
+## Настройки
+
+Настройки по умолчанию соответствуют бесплатному тарифному плану. Вам нужно ввести только ключ API. Все остальное необязательно.
+
+### Вкладка «Общие»
+
+| Параметр                                     | Что это делает                                                                                                              |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| ключ API                                     | Ваш ключ от Meteonomiqs. **Обязательно.**                                                                                   |
+| Используйте местоположение системы ioBroker. | По умолчанию включено. Отключите эту функцию, если хотите увидеть погоду для другого места, затем введите широту и долготу. |
+| Язык текстов о погоде                        | Язык текста, например, "частично облачно". Пустой адрес означает язык вашего ioBroker.                                      |
+| Прогнозируемые дни                           | От 1 до 14 (по умолчанию 7). Увеличение количества дней не влечет дополнительных затрат на звонки.                          |
+
+### Вкладка "Расписание"
+
+Когда адаптер получает прогноз погоды. По умолчанию: **01:10, 11:40 и 18:40** . Каждая строка требует одного вызова в день.
+
+**Приоритет** указывает на важность запроса. 1 — самый важный. Если количество запросов за месяц окажется недостаточным, первым будет обработан запрос на строку с наибольшим номером. При стандартных настройках и бесплатном тарифе в обычный месяц этого не происходит.
+
+### Вкладка «Ежемесячный лимит»
+
+Бесплатный тарифный план позволяет **совершать 100 звонков в месяц** . Адаптер автоматически распределяет их по месяцу. Меняйте номер только в том случае, если у вас другой тарифный план.
+
+### Вкладка «Данные»
+
+Выберите, какие значения будут созданы. Включение дополнительных параметров **не потребует дополнительных вызовов** , только увеличит количество точек данных. Все параметры включены по умолчанию.
+
+| Параметр                                                          | Что это делает                                                                        |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Дневные разделы                                                   | Утро, день, вечер и ночь в течение дня                                                |
+| Почасовые значения                                                | Одно значение в час, по умолчанию в течение 2 дней. На Raspberry Pi достаточно 1 дня. |
+| Текущий час                                                       | Папка `current` с указанием текущих значений за час. Требуются почасовые значения.     |
+| Прогноз в формате JSON                                            | `forecast_json` и `hourly_json` для виджетов                                           |
+| Предупреждения о погоде, Солнце и луна, Давление/точка росы, Снег | Дополнительные точки данных, отключите то, что вам не нужно.                          |
+
+### Экспертные настройки
+
+Некоторые редко используемые настройки появляются только при включении **экспертного режима** в административной панели: минимальный интервал между двумя запросами (по умолчанию 5 часов), время ожидания ответа (20 секунд), повторные попытки после ошибки (1) и зарезервированные вызовы (5). Обычно они вам не нужны.
+
+---
+
+## Вопросы и проблемы
+
+**Значения не изменяются после перезапуска.** Так и задумано. После каждого запуска адаптер сразу же выполняет одну выборку данных. Если следующая запланированная выборка данных должна состояться менее чем через 5 часов, она пропускается, чтобы сэкономить вызовы. Об этом сообщается в журнале, например: `Fetch "11:40" skipped …`.
+
+** `info.status` Отображается сообщение "нет ключа API".** Введите ключ на вкладке _"Общие"_ и сохраните.
+
+** `info.status` Отображается сообщение «Неверный ключ».** Ключ был отклонен. Проверьте его в своем аккаунте Meteonomiqs, введите его снова и сохраните.
+
+** `info.status` Отображается сообщение «Местоположение отсутствует».** Укажите свое местоположение в разделе _«Настройки» → «Система» → «Местоположение»_ или отключите _опцию «Использовать местоположение системы ioBroker»_ и введите координаты.
+
+**В журнале указано «Режим экономии» или «Аварийный режим».** Количество звонков в этом месяце ограничено, поэтому менее важные заказы приостановлены. С 1-го числа следующего месяца все вернется в норму.
+
+** `info.requests_month` Это отличается от данных в моем аккаунте Meteonomiqs.** Адаптер считает звонки самостоятельно. В вашем аккаунте Meteonomiqs всегда все правильно.
+
+**Папка `current` Остается пустым.** Требуются почасовые значения. Включите _почасовые значения_ на вкладке _«Данные»_ .
+
+**Административная панель работает медленно.** Почасовые значения создают много точек данных. Сократите их до одного дня или отключите на вкладке _«Данные»_ .
+
+Другие вопросы: [форум ioBroker](https://forum.iobroker.net/topic/85314) или [раздел "Проблемы" на GitHub](https://github.com/Schimi1983/ioBroker.meteonomiqs/issues) .
+
+---
+
+## Поддерживать
+
+Адаптер бесплатен и останется бесплатным. Если он вам полезен и вы хотите выразить благодарность, вы можете поддержать разработку:
+
+Сообщения об ошибках и предложения в разделе ["Проблемы"](https://github.com/Schimi1983/ioBroker.meteonomiqs/issues) также очень помогают.
+
+---
+
+<details>
+<summary><b>For advanced users</b></summary>
+
+### Все точки данных
 
 ```
 meteonomiqs.0
-├── info
-│   ├── connection            Connected to the API
-│   ├── status                ok / no API key / HTTP 429 / …
-│   ├── last_sync             Last successful fetch
-│   ├── requests_month        Local estimate of calls used this month
-│   ├── requests_left         Remaining calls
-│   ├── force_update          Button: fetch now (skips the cooldown)
-│   └── reset_counter         Button: reset the monthly counter
-├── current                   The hour in progress, refreshed hourly
-│   ├── temp, weather_text, weather_icon, is_night, …
-│   ├── temp_min_today, temp_max_today, sunrise, sunset
-│   ├── valid                 false when no data covers this hour
-│   └── source                Which state the values were copied from
-├── day_0 … day_N
-│   ├── date, day_name, temp_min, temp_max, weather_icon, …
-│   ├── warn_active, warn_severity_int
-│   ├── astro                 sunrise, sunset, moon phase, day length …
+├── info                      connection, status, last_sync, requests_month, requests_left,
+│                             force_update (button: fetch now), reset_counter (button)
+├── current                   the hour in progress (copied from day_N.hourly.HH every hour)
+├── day_0 … day_N             daily values, warn_*, wind_bft, …
+│   ├── astro                 sun and moon
 │   ├── spaces                morning, afternoon, evening, night
 │   └── hourly                00 … 23
 ├── forecast_json
 └── hourly_json
 ```
 
-### Две вещи, которые стоит знать об этом дереве.
+- `day_N.spaces.night` Это ночь _после_ того дня.
+- API отображает сильный ветер на значке (`d_w_60.svg`) независимо от официальных предупреждений; `wind_significant` показывает, когда это имеет место.
+- `day_0` Обладает официальными функциями прогнозирования и распознается детектором типов ioBroker как прогноз погоды. Добавьте его в комнату или функцию на вкладке _«Перечисления»_ , чтобы использовать его в Material, IoT или устройствах.
+- `info.force_update` Получает данные немедленно, игнорируя минимальный разрыв и приоритеты; применяется только месячный лимит.
 
-** `day_N.spaces.night` Это ночь _после_ этого дня.** Следовательно, ее минимум приходится на ранние часы. `day_N+1` Чтение `day_0.spaces.night.temp_min` Отображает сегодняшний минимум, а не вчерашний.
+### Как работает месячный лимит
 
-** `wind_significant` поясняет значение значка.** API помечает сильный ветер в имени файла значка (`d_w_60.svg` вместо `d_60.svg`) независимо от `warn_active` В течение дня может наблюдаться изменение направления ветра без какого-либо официального предупреждения, поэтому значок и штаты, выдающие предупреждения, могут расходиться.
+Три запроса в день приводят к 93 вызовам за 31 день в месяце. Запрос с приоритетом N выполняется только до тех пор, пока оставшиеся вызовы по-прежнему охватывают N вызовов в день до конца месяца. Когда ситуация становится напряженной, сначала останавливается вечерний запрос, затем дневной; приоритет 1 переключается на выполнение через день вместо остановки.
 
-### `current` — как это работает
+| Отправная точка             | Использованные звонки | 01:10 | 11:40 | 18:40 |
+| --------------------------- | --------------------- | ----- | ----- | ----- |
+| Обычный месяц               | 93 / 100              | 31    | 31    | 31    |
+| 20 звонков уже использованы | 98 / 100              | 31    | 31    | 16    |
+| 40 звонков уже использованы | 99 / 100              | 31    | 28    | 0     |
+| 70 звонков уже использованы | 100 / 100             | 30    | 0     | 0     |
 
-`current` отражает структуру `daswetter` и `open-meteo-weather` адаптеры, с двумя преднамеренными выборами:
+Счетчик представляет собой приблизительную оценку, хранящуюся в адаптере; API не сообщает об оставшихся вызовах. Он снова обнуляется при создании нового экземпляра.
 
-**Обновляется ежечасно, а не только при получении данных.** `current` Папка, которая обновляется только при запросе к API, к вечеру устареет на семь часов. Отдельный почасовой таймер копирует значения каждый полный час — это ничего не стоит, поскольку почасовые данные уже находятся в дереве объектов.
+### Расписание
 
-**Чтение происходит из состояний, а не из кэша.** Чтение из кэшированной полезной нагрузки привело бы к... `current` Пустое поле после каждого перезапуска адаптера до следующего запланированного запроса. Чтение из `day_N.hourly.HH.*` Всегда работает.
+Каждая установка сдвигает время получения данных на несколько минут (до 15, определяемых по идентификатору установки), чтобы не все установки обращались к API в одну и ту же минуту. Используемое время записывается в журнал при запуске. Минимальный промежуток должен быть меньше самого короткого промежутка между двумя запросами; адаптер проверяет это при запуске.
 
-День решается посредством `date_iso` а не фиксированный индекс. Между полуночью и первым запросом данных за день "сегодняшний день" всё ещё существует. `day_1` — жестко закодированный `day_0` Это приводило бы к неправильному отображению значений в этом окне каждую ночь.
-
-`current` Это **прогноз** на текущий час, а не измерение. Для получения значений в реальном времени потребуется... `/nowcast` или `/stations` конечные точки, стоимость каждого запроса которых составляет один вызов и которые не вписываются в тарифный план на 100 вызовов.
-
----
-
-## Разработка
-
-```bash
-npm install          # install dependencies
-npm run build        # compile TypeScript to build/
-npm run watch        # rebuild on change
-npm run check        # type check without emitting
-npm run lint         # ESLint
-npm run test:ts      # unit tests
-npm run test:package # validate package.json / io-package.json
-npm run test:integration  # boots a real js-controller
-npm run translate    # @iobroker/adapter-dev translation helper
-```
-
-Локальный тестовый экземпляр с [сервером разработки](https://github.com/ioBroker/dev-server) :
+### Разработка
 
 ```bash
-npm install --global @iobroker/dev-server
-dev-server setup
-dev-server watch
+npm install
+npm run build
+npm run lint
+npm test
 ```
+
+</details>
 
 ---
 
 Данные о погоде © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com) . Этот адаптер не связан с wetter.com.
-
----
 
 ## Changelog
 
@@ -187,49 +208,38 @@ dev-server watch
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.11 (2026-10-30)
+
+- State roles follow the ioBroker role catalogue more closely. The day values carry the official forecast roles (`value.temperature.max.forecast.0` for today, `.forecast.1` for tomorrow, …), so the ioBroker type detector recognises `day_0` as a weather forecast (Material, iot, devices). In `current` the felt temperature is now recognised as well
+- Corrected roles: sunrise/sunset as "HH:MM" are `text` (a `date` role needs a full date; the `_iso` states keep `date.sunrise`/`date.sunset`), felt temperature `value.temperature.windchill`, weekday `dayofweek`, snow line `value.snowline`, fresh snow and snow amount `value.snow`, warning level `value.severity`, location `location`, JSON states `weather.json`. The short wind direction is `text`, so it no longer competes with the long one
+- Value ranges (`min`/`max`) for percentages, wind force (0–12), wind direction (0–360°) and warning level (0–4)
+- Existing installations take over the new roles automatically on the next start. Values and history are kept
+
+### 0.2.10 (2026-10-29)
+- Easier to set up for beginners: the settings page starts with a short "Getting started" box, the help texts are written in plain words, and rarely needed options (minimum gap, waiting time, retries, reserve) only show in expert mode. The tab "API budget" is now called "Monthly limit". Nothing changes for an existing installation
+- README and German guide rewritten in plain words, with examples for everyday use; technical details moved to a collapsed section
+- Support links (GitHub Sponsors, PayPal) in the README, in `package.json` (`npm fund`) and as an optional section at the bottom of the *General* tab. Nothing changes for an installation
+
+### 0.2.9 (2026-10-15)
+
+- A fetch skipped because of the cooldown ("Minimum hours between updates") is now logged at info level, e.g. `Fetch "11:40" skipped: last fetch 3.0 h ago, minimum gap is 5 h`. The typical case is the first scheduled fetch after an adapter update or a host restart, because both trigger a startup fetch. Until now such a skip only showed as an `info.last_sync` that did not move
+- One info line per fetch instead of two: `Forecast updated (11:40): 14 days.` The line announcing the request moved to debug
+- README reworked for beginners: quick start, every setting with its default per admin tab, a troubleshooting table. New German guide in `docs/de/README.md`
+
+### 0.2.8 (2026-09-30)
+
+- New state `wind_bft` in the day, day-section and hourly values, and with that in `current`: the wind force on the Beaufort scale (0-12), derived from the average wind speed. Handy for scripts that react to wind strength without converting km/h themselves, e.g. retracting an awning from force 6
+- Objects deleted in the object browser while the adapter is running are created again on the next fetch. Until now they only came back after a restart of the instance, and every write in between was logged as "has no existing object"
+
 ### 0.2.7 (2026-09-06)
 
 - Raised the required `@iobroker/adapter-core` to `^3.4.3` (`[W0034]`) and the release-script license plugin to `^5.2.2` (`[S0064]`). Both caret ranges already resolved to those versions; only the declared minimums lagged behind, so nothing changes at runtime
-
-### 0.2.6 (2026-08-16)
-
-- The buttons `info.force_update` and `info.reset_counter` are write-only now. A state with role `button` carries no value to read, and `read: true` made the admin offer it as a readable one (repository review)
-- The `warn_severity_int` states in the day, day-section and hourly subtrees carry the generic `value` role. `value.severity` is not part of the ioBroker role catalogue (repository review)
-- Both corrections reach existing installations on the next adapter start — the object metadata is compared and rewritten on drift
-
-### 0.2.5 (2026-08-16)
-
-- The field tables are covered by tests now: 138 of them, running every getter against a hand-built API response, plus the structural rules — unique ids, both label languages, roles from the ioBroker catalogue, unit and precision only on numbers. Every leaf of the fixture carries a value that appears nowhere else, so a getter reading `min` where it should read `max` cannot pass
-- The admin translations moved to the short i18n form, `admin/i18n/<lang>.json` instead of `admin/i18n/<lang>/translations.json` (`[S5601]`)
-- Added `.vscode/settings.json` with the ioBroker JSON schemas for `io-package.json` and `jsonConfig.json` (`[S4036]`)
-- Nothing changes for an installation: no state, no role, no unit and no configuration option is affected
-
-### 0.2.4 (2026-08-16)
-
-- Raised the minimum admin version to 7.8.23 and `@types/node` to the major that matches `engines.node` — both proposed by the ioBroker bot
-
-### 0.2.3 (2026-08-16)
-
-- Installing from GitHub works again without an install lifecycle script. The compiled `build/` folder is committed to the repository, which is what the repository checker asks for (`[E5019]`), so the `prepare` script added in 0.2.1 could be dropped again (`[E0092]`)
-- Trimmed `common.news` in io-package.json to the seven entries the repository builder keeps (`[E1032]`); the older ones moved to CHANGELOG_OLD.md (`[W6020]`)
-
-### 0.2.2 (2026-08-16)
-
-- Removed `mocha` from the devDependencies. It is a dependency of `@iobroker/testing`, so npm hoists it and the test scripts still find the binary — this clears the last error the repository checker reported (`[E0063]`)
-
-### 0.2.1 (2026-08-16)
-
-- The adapter can be installed straight from GitHub again. Since the compiled `build/` folder was removed from the repository (`[E5019]`), a GitHub installation had nothing to start; a `prepare` script now makes npm compile the TypeScript sources during such an installation. Installing from npm is unaffected — the published package already contains the compiled files
-
-[Older changelogs can be found there](https://github.com/Schimi1983/ioBroker.meteonomiqs/blob/main/CHANGELOG_OLD.md)
-
----
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2026 Schimi <szymon.haiduk@world-mg.de>
+Copyright (c) 2026 Schimi <github@world-mg.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -20,20 +20,21 @@ Deutsche Version: [Anleitung](https://github.com/backfisch88/ioBroker.shelfmate/
 5. [Stock in, take out and move](#stock-in-take-out-and-move)
 6. [Creating storage locations](#creating-storage-locations)
 7. [Products without a barcode](#products-without-a-barcode)
-8. [Minimum stock and shopping list](#minimum-stock-and-shopping-list)
-9. [Best-before date](#best-before-date)
-10. [Shopping list modes](#shopping-list-modes)
-11. [Checking ingredients](#checking-ingredients)
-12. [Stocking a whole shelf](#stocking-a-whole-shelf)
-13. [Doing a stocktaking](#doing-a-stocktaking)
-14. [Scanner mode without the app](#scanner-mode-without-the-app)
-15. [Suggestions](#suggestions)
-16. [Notifications](#notifications)
-17. [Export and backup](#export-and-backup)
-18. [Offline mode](#offline-mode)
-19. [HTTPS and certificates](#https-and-certificates)
-20. [Printing labels](#printing-labels)
-21. [Appearance](#appearance)
+8. [Books, magazines, sheet music and medicines](#books-magazines-sheet-music-and-medicines)
+9. [Minimum stock and shopping list](#minimum-stock-and-shopping-list)
+10. [Best-before date](#best-before-date)
+11. [Shopping list modes](#shopping-list-modes)
+12. [Checking ingredients](#checking-ingredients)
+13. [Stocking a whole shelf](#stocking-a-whole-shelf)
+14. [Doing a stocktaking](#doing-a-stocktaking)
+15. [Scanner mode without the app](#scanner-mode-without-the-app)
+16. [Suggestions](#suggestions)
+17. [Notifications](#notifications)
+18. [Export and backup](#export-and-backup)
+19. [Offline mode](#offline-mode)
+20. [HTTPS and certificates](#https-and-certificates)
+21. [Printing labels](#printing-labels)
+22. [Appearance](#appearance)
 
 ---
 
@@ -220,7 +221,9 @@ Products with a known barcode can get their information from Open Food Facts.
 
 In the product editor you find "Reload from Open Food Facts" at the very bottom. It always searches the source the product came from; for products without a safe source it reads "Update data from the web" and searches the web. When you scan, ShelfMate asks dm automatically after Open Food Facts, and only then Open Beauty Facts and the other sister databases; Rossmann and the rest of the web search you start yourself. ShelfMate remembers where a product came from, and "Reload tags & Nutri-Score" reloads dm products from dm again. For dm and Rossmann, ShelfMate also takes the shop category as tags and derives the category (drugstore, household …) from it; for Rossmann it comes from the product link. Drugstore and household products get no automatic food shelf life. Image search works the same way: for a product from a database it only asks that database, the web is only used for products without a safe source. For cosmetics, pet food and household products the source is Open Beauty Facts, Open Pet Food Facts or Open Products Facts, and ShelfMate shows the matching name there.
 
-If none of these databases knows a barcode, the product is new. The editor then shows a "Search the web" button at the top. It works step by step and stops at the first sure hit: first it asks the official MCP service of dm (free, no key) for name, brand and pictures. Then come the barcode databases ean-suche.net (free, at most 50 lookups per hour, also hands out the picture of its product page), ean-search.org and, if a key is entered, Open EAN (opengtindb.org). The website of ean-search.org blocks you after a few lookups; with a free token in the adapter settings, ShelfMate uses its official interface instead, and asks it first. Last it searches the barcode on the web, the way I would by hand: on DuckDuckGo and Bing with `ean "<barcode>" <country>`, where the country follows from the barcode prefix (400–440 is Germany), then with the number alone. A hit on rossmann.de counts when its address ends with the barcode, as Rossmann closes its pages to scripts, and the name then comes from the search result. Pages of other countries (a Polish shop of the same brand, say) are ignored. If the sources only know the name, it looks for pictures of that name in the image search of DuckDuckGo and Bing, where only hits whose title contains at least two words of the product name count. The message names the source, and you should check the data before saving. A hit of the web search only counts if the page or the search result really shows the barcode; otherwise the product stays unchanged. A grey line below the button shows which steps ran. This never runs on its own, only when you tap the button, and only the barcode is sent. To search only for a picture, use "Find images" next to the image: it asks the open databases first and only if they have nothing, the web. For a product whose data does not come from such a database, "Update data from the web" at the bottom of the editor searches again and fills the fields (nothing is saved until you tap save). If a search finds nothing, "Technical details" at the very bottom holds a short log you can copy into a bug report. If several new products are waiting under Tasks → Edit new products, "Search all on the web" searches them one after the other and shows the progress. An overview then lists all matches with name, brand, size, picture and source. Untick wrong matches and tap "Apply selected". Only the ticked products are saved; the others stay unchanged in the list. You can turn the web search off in the adapter settings.
+If you create a product yourself (Tasks → Create new product) and enter the barcode at the top, the button "Search product data" appears. It asks all sources like the scanner does, in the order of the adapter settings (Open Food Facts and its sister databases, dm, the book catalogues, the pharmacy shops), and goes to the web only last.
+
+If none of these databases knows a barcode, the product is new and is listed under Tasks → Edit new products. As the databases were asked for it already, the "Search the web" button in the editor of that product only searches the web. It works step by step and stops at the first sure hit: first it asks the official MCP service of dm (free, no key) for name, brand and pictures. Then come the barcode databases ean-suche.net (free, at most 50 lookups per hour, also hands out the picture of its product page), ean-search.org and, if a key is entered, Open EAN (opengtindb.org). The website of ean-search.org blocks you after a few lookups; with a free token in the adapter settings, ShelfMate uses its official interface instead, and asks it first. Last it searches the barcode on the web, the way I would by hand: on DuckDuckGo and Bing with `ean "<barcode>" <country>`, where the country follows from the barcode prefix (400–440 is Germany), then with the number alone. A hit on rossmann.de counts when its address ends with the barcode, as Rossmann closes its pages to scripts, and the name then comes from the search result. Pages of other countries (a Polish shop of the same brand, say) are ignored. If the sources only know the name, it looks for pictures of that name in the image search of DuckDuckGo and Bing, where only hits whose title contains at least two words of the product name count. The message names the source, and you should check the data before saving. A hit of the web search only counts if the page or the search result really shows the barcode; otherwise the product stays unchanged. A grey line below the button shows which steps ran. This never runs on its own, only when you tap the button, and only the barcode is sent. To search only for a picture, use "Find images" next to the image: it asks the open databases first and only if they have nothing, the web. For a product whose data does not come from such a database, "Update data from the web" at the bottom of the editor searches again and fills the fields (nothing is saved until you tap save). If a search finds nothing, "Technical details" at the very bottom holds a short log you can copy into a bug report. If several new products are waiting under Tasks → Edit new products, "Search all on the web" searches them one after the other and shows the progress. An overview then lists all matches with name, brand, size, picture and source. Untick wrong matches and tap "Apply selected". Only the ticked products are saved; the others stay unchanged in the list. You can turn the web search off in the adapter settings.
 
 These details are refreshed:
 
@@ -245,7 +248,7 @@ This is how a normal booking works:
 
 1. Tap Scan at the bottom right of the overview and capture the barcode with the camera or type it in.
 2. For known products the product page opens.
-3. Unknown barcodes are looked up on Open Food Facts. You can check and save what was found.
+3. Unknown barcodes are looked up on Open Food Facts, books, magazines and sheet music in the book catalogues, medicines (PZN) at Shop Apotheke. You can check and save what was found.
 4. Choose Stock in, Take out or Move.
 5. Set the amount and the storage location and save the booking.
 
@@ -292,6 +295,12 @@ Tick "Freezer location" when editing a location (chest freezer, freezer drawer).
 - **Vacuum-sealed and frozen:** cold cuts keep the same barcode. Give the product its own frozen value and print the "Freezer EAN label" from the product page.
 
 The date is only filled in automatically if automatic shelf life is switched on for stocking in; you can always change it by hand.
+
+### Default location for categories
+
+At the bottom of a location there is "Default for categories". Tick "Books" on the bookcase, for example. A product of that category is then suggested for this location when stocking in, and an external scanner books it there if you give no location. A category belongs to one location only; if you tick it on another one, it moves there. If a product already has a last location of its own, that one applies.
+
+With an external scanner a single scan is enough: scan the barcode of the book and nothing else. After the waiting time (10 seconds by default) ShelfMate books it at the default location, and the feedback names that location right when you scan. If you scan a location within that time, that one counts, and if you scan the book again, you take it out as usual. If you start stocking in (scan a location, then the products), the scanned location counts and the default is overridden. Stocking in the app also books at the location you chose. In counting mode the last location of the product comes first, then the default of the category.
 
 ### QR codes for storage locations
 
@@ -363,6 +372,49 @@ Under "Use of the own database" you choose:
 A product found there is filled into the editor like any other, or created directly when you stock in or scan.
 
 ---
+
+## Books, magazines, sheet music and medicines
+
+ShelfMate recognises these products by the number in the barcode and looks them up in the matching catalogues. Food databases do not know them.
+
+### Books, magazines and sheet music
+
+- **Books:** the barcode on the back is the ISBN-13 (starts with 978 or 979). An ISBN-10 or an ISBN with hyphens (`ISBN 3-16-148410-0`) that you type or scan is recognised as well.
+- **Magazines:** the barcode starts with 977 and contains the ISSN.
+- **Sheet music:** the ISMN starts with 9790.
+
+The search goes to Open Library, the German National Library (through lobid.org) and last Google Books. For German books (978-3) I ask the National Library first. The product gets the category "Books", the author as brand, the page count as package size (for example "96 S.") and, if there is one, the cover as picture. Sheet music also gets the tag "Noten", magazines the tag "Zeitschrift". If no source knows the book, it stays as an incomplete product in the list Tasks → Edit new products.
+
+As tags I take over well-known genres such as "Kinderbuch" (children's book), "Krimi" or "Kochbuch" from the subjects of the catalogue, and for German books up to three subject words of the National Library. If a catalogue has no cover or page count, ShelfMate fills it in from another one; if none has a picture, I ask the cover service of the National Library and Open Library by ISBN. Small covers are stored in the product itself, so they are there without a connection too.
+
+For products in the category "Books" the editor hides everything that only makes sense for food: shelf life (best-before date, standard shelf life, after opening, frozen), stock type, unit and Nutri-Score. A book is always counted as one piece. Stocking in does not ask for a best-before date, and a date from a Data Matrix code is ignored for books. The opened and freezer labels and "spoiled" when taking out are gone as well. "Brand" reads "Author / publisher" and "Package size" reads "Pages".
+
+### Medicines
+
+You recognise a medicine by its pharmacy product number (PZN). ShelfMate reads it from the barcode of the pack (Code 39 or the 13-digit number that starts with 4150), from the plain PZN (8 digits, also with `PZN-` in front) and from the Data Matrix code on the pack.
+
+When you scan one, ShelfMate searches the PZN automatically at Shop Apotheke and, if it is not there, at vitality-fit.de. Name, brand, package size and picture are taken over, and the category is "Medicines". Shop Apotheke also knows ordinary barcodes: if no other source finds a product, ShelfMate asks the pharmacy shops for it too, for example for food supplements or care products. A hit only counts when the product page really names the barcode; the category is "Medicines" if the page shows a medicine, otherwise "Other". If no shop knows the number, you get "Unknown product …" in the category Medicines, which you can complete with Search the web or by hand.
+
+### Best-before date from the Data Matrix code
+
+The Data Matrix code on medicine packs (PPN) holds the expiry date and the batch number besides the PZN. GS1 codes with an expiry date (application identifier 17) are read as well. ShelfMate books the date as best-before date when you stock a shelf in the app and in the scanner mode. Day "00" means the last day of the month.
+
+### Order of the product sources
+
+If you scan many books, you do not want to ask the food databases first with every scan. That is why the adapter settings have the table Order of the product sources under Product search. The standard order is:
+
+1. Food (Open Food Facts)
+2. Drugstore (Open Beauty Facts, dm)
+3. Pet supplies (Open Pet Food Facts)
+4. Household (Open Products Facts)
+5. Medicines and pharmacy (PZN and barcode: Shop Apotheke, vitality-fit)
+6. Books, magazines, sheet music (Open Library, German National Library)
+
+Change the order by moving the rows or by changing the source in a row. What is at the top is asked first. ShelfMate adds missing sources at the end. The pharmacy shops are asked for every barcode, books only for ISBN, ISSN and ISMN. Restart the adapter after a change. The setting applies to the app and to the scanner mode.
+
+ShelfMate recognises what a code is: an ISBN, ISSN or ISMN asks the book catalogues first, a PZN asks the pharmacy shops first, whatever the table says. If the catalogue knows the article, the search ends there and no food database is asked. Only when it does not know it, the other sources follow. All other barcodes follow the table, dm sits right after the first Open Facts database.
+
+This chain is the same everywhere: scanning with the phone, with the external scanner, stocking in, creating a product and the batch import. Your own database always comes first. The web is never searched on its own, only after the databases and on a button press: "Search product data" in the product editor and "Search the open ones on the web" in the batch import. The text search on the web runs with strict safe search on DuckDuckGo, Bing and Mojeek.
 
 ## Minimum stock and shopping list
 
@@ -727,7 +779,7 @@ For products by weight or volume, every scan counts as one whole package. The pa
 
 ### Unknown products
 
-If a barcode is not known yet, ShelfMate asks Open Food Facts for the product data and creates the product.
+If a barcode is not known yet, ShelfMate asks Open Food Facts for the product data and creates the product. It searches books, magazines and sheet music in the book catalogues and medicines by their PZN in the pharmacy; an expiry date in the Data Matrix code of a pack is booked as best-before date (see [Books, magazines, sheet music and medicines](#books-magazines-sheet-music-and-medicines)).
 
 If nothing is found there, ShelfMate temporarily creates an entry like:
 
@@ -805,12 +857,13 @@ If there is no best-before date, the location with the largest amount is used.
 
 ### Scanning several times
 
-One scan waits for a location, two scans take out. From three scans of the same product in a row, ShelfMate runs an action that you choose yourself.
+One scan waits for a location and always stocks in. From two scans of the same product in a row, ShelfMate runs an action that you choose yourself. Without a row for two scans, two scans take out.
 
-You set the actions in the adapter settings under "Actions for repeated scans". Each number of scans from 3 to 20 has one row and can be used once.
+You set the actions in the adapter settings under "Actions for repeated scans". Each number of scans from 2 to 20 has one row and can be used once.
 
 | Action | Effect |
 | --- | --- |
+| Take out | One item with the nearest best-before date is taken out, like the default for two scans. A location scanned afterwards is used instead. |
 | Stock in at the last known location | One item goes back to where the product was stocked last. A location scanned afterwards is used instead. |
 | Stock in several at the last location | Like above, but with the quantity from the "Value" field. If it is empty, the number of scans counts. |
 | Mark as empty | The whole stock is set to 0. At a minimum stock the product lands on the shopping list. |
@@ -818,15 +871,15 @@ You set the actions in the adapter settings under "Actions for repeated scans". 
 | Put on the shopping list | The product is noted. The "Value" field can hold a quantity. |
 | Remove from the shopping list | The product is taken off the list. |
 
-By default three scans stock in at the last location, four mark the product as empty and five put it on the shopping list. One and two scans stay as they are.
+By default two scans take out, three scans stock in at the last location, four mark the product as empty and five put it on the shopping list. One scan stays as it is, and two scans take out unless you add a row for two. Example: row 2 = "Toggle opened / closed" and row 3 = "Take out" make two scans open a package and three scans take out one.
 
-From the third scan on, each scan must follow within the time between repeated scans (3 seconds by default). If it takes longer, counting starts over and the earlier scans are booked as a take-out.
+From the first scan with a row on (from the second scan if you use a row for two), each scan must follow within the time between repeated scans (3 seconds by default). If it takes longer, counting starts over and the earlier scans are booked as a take-out.
 
 Every triggered action is written to the log and to the data point `scanner.lastAction` with the number of scans, for example `3x: Pasta ×1 stocked in at Pantry`. You can use it for speech output or a notification. The bookings also show up in the history.
 
 ### Unknown products in scanner mode
 
-If a scanned barcode is not known yet, ShelfMate creates the product by itself before booking it. The data (name, brand, category and tags) comes from Open Food Facts, also from its databases for cosmetics and pet food. The scan is then booked as usual.
+If a scanned barcode is not known yet, ShelfMate creates the product by itself before booking it. The data (name, brand, category and tags) comes from Open Food Facts, also from its databases for cosmetics and pet food. Books, magazines and sheet music come from the book catalogues, medicines (PZN) from the pharmacy. The scan is then booked as usual.
 
 If nothing is found, ShelfMate creates the product as incomplete with a name like `New product 1234567890123` and books it anyway. The scanner result says so. Under Tasks → Edit new products you can complete these entries later.
 
@@ -917,7 +970,7 @@ Possible are 3 to 120 seconds.
 
 Default: 10 seconds.
 
-For repeated scans (from the third scan on) there is a separate short time between repeated scans, 3 seconds by default.
+For repeated scans (from the third scan on, or the second if you use a row for two) there is a separate short time between repeated scans, 3 seconds by default.
 
 ### Connecting an external wireless scanner
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: 8Ndlwz3KyR1bjp1vC8w24cSSo9yeGwaog2bWOE8WKHk=
+hash: oZbE/CJrWLMH9S/H3xmDSRlTaNMHaMNiUtgo8z0/uSY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -24,6 +24,10 @@ hash: 8Ndlwz3KyR1bjp1vC8w24cSSo9yeGwaog2bWOE8WKHk=
 PiCAN-M может работать с Raspberry Pi 4 и [5](https://copperhilltech.com/blog/testing-pican-can-bus-hats-with-the-raspberry-pi-5/) .
 
 ![Виджеты](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
+
+В одном представлении vis-2 виджет "NMEA Complex" отображается четыре раза, при этом каждый экземпляр показывает один параметр: ветер, компас, руль и автопилот.
+
+![Виджеты vis-2: ветер, компас, руль, автопилот](../../../en/adapterref/iobroker.nmea/img/vis2-widget-instruments.png)
 
 [Объяснение на YouTube](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
 
@@ -93,7 +97,7 @@ sudo apt-get install can-utils
 
 ## Часовой пояс
 
-Существует возможность установить часовой пояс по GPS-координатам. Для этого необходимо включить соответствующую опцию в настройках адаптера и разрешить её использование. `iobroker` Пользователь может выполнить команду: `sudo visudo`
+Существует возможность установить часовой пояс по GPS-координатам. Для этого необходимо включить соответствующую опцию в настройках адаптера и разрешить её использование. `iobroker` Пользователь выполняет команду: `sudo visudo`
 
 ```
 iobroker ALL=(ALL) timedatectl set-timezone
@@ -116,35 +120,55 @@ iobroker ALL=(ALL) timedatectl set-timezone
 
 Использовать `windDatumDisplay` для визуализации и `windDatum` для расчетов/автоматизации.
 
+## Веб-компоненты
+
+Помимо виджетов vis-2 и виджетов устройств, адаптер предлагает веб-компоненты для Aura и других хостов. `common.webComponents`, `admin/webcomponents/` Каждый из них представляет собой отдельный модуль и отображает то же самое, что и соответствующий ему виджет:
+
+| Ярлык                      | Шоу                                                                                                                                                                                                          | Настройки                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `iob-nmea-wind`            | Ветроизмерительные приборы: кажущийся и истинный ветер, курс, курс, заход на посадку и снос, предпосылочная скорость, целевая скорость ветра, скорость ветра на попутном ветре, скорость ветра на юге и юге. | например, история изменения направления ветра, зона попутного ветра, единица измерения скорости, настройка паруса. |
+| `iob-nmea-history-chart`   | График состояния в реальном времени с линиями минимального/среднего/максимального значений, заполняемый на основе истории по умолчанию.                                                                      | состояние, метка, единица измерения, временной интервал, ось Y, линии, десятичные знаки, цвет                      |
+| `iob-nmea-autopilot`       | Режим автопилота, фиксированный курс, руль направления и кнопки управления (значительные изменения требуют подтверждения).                                                                                   | например, AWA, рулевая планка                                                                                      |
+| `iob-nmea-ais-radar`       | Система AIS наводит курсор на собственную лодку на морской карте, используя траектории и векторы центра тяжести.                                                                                             | экземпляр, диапазон, скрыть после, векторы, курс вверх, собственный MMSI                                           |
+| `iob-nmea-anchor-position` | На карте отображаются сигналы тревоги: якорь, лодка, качели, рельсы и якорь; в диалоговом окне устанавливается якорь и сигнал тревоги.                                                                       | например, положение якоря/лодки, длина цепи, глубина при сбросе, стиль карты.                                      |
+| `iob-nmea-instrument`      | До четырех значений, как на морском приборе, по одному за раз.                                                                                                                                               | по значению: штат, название, единица измерения, цифры, цвет, знак плюс, изменение мигания                          |
+| `iob-nmea-compass`         | Компас с указанием курса относительно земли, истинного направления ветра и руля направления (окно «Навигация» виджета vis-2 «Комплекс»)                                                                      | например, руль                                                                                                     |
+| `iob-nmea-rudder`          | Индикатор угла руля, позволяющий увеличить масштаб при малых углах (окно «Руль» виджета «Комплекс» в vis-2).                                                                                                 | экземпляр, полный диапазон, порог масштабирования, гистерезис                                                      |
+
+Источники находятся в `src-webcomponents/`; `npm run build:wc` строит их.
+
+## Благодарности
+
+Декодирование NMEA 2000 с помощью [canboatjs](https://github.com/canboat/canboatjs) , используя базу данных [CANboat](https://github.com/canboat/canboat) PGN (лицензия Apache 2.0).
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.1.1 (2026-11-09)
+- (@GermanBluefox) Web components: the heading of the wind display no longer covers a compass label, and the label of the outer ring of the AIS radar no longer sits on the "N"
+
+### 3.1.0 (2026-11-08)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) The maps of the AIS radar and the anchor position work again: CARTO asks for an API key now, they use Esri Dark Gray and OpenStreetMap
+- (@GermanBluefox) Added the web components `iob-nmea-wind`, `iob-nmea-history-chart`, `iob-nmea-autopilot`, `iob-nmea-ais-radar`, `iob-nmea-anchor-position`, `iob-nmea-instrument`, `iob-nmea-compass` and `iob-nmea-rudder` for Aura and other hosts (`common.webComponents`)
+- (@GermanBluefox) The switch of the anchor position widget now arms the anchor watch instead of showing the alarm, which turns the alarm circle red; the widget "Instrument" is no longer a musical instrument in Chinese
+- (@GermanBluefox) The anchor position widget can be given the chain length and the depth at drop for its swing circle; its settings show proper labels and help texts
+- (@GermanBluefox) The anchor position widget speaks all languages, shows the anchor of the anchor alarm when no anchor position is chosen and loads the track from the history also for the own GNSS position; the settings "split view" and "sail trim" of the wind and autopilot widgets are translated into all languages
+
+### 3.0.2 (2026-10-27)
+- (@GermanBluefox) Deleted the states without object at the start, e.g. the AIS data of old vessels left by versions before 1.0.0 (needs js-controller 7.2.3 or newer)
+
+### 3.0.1 (2026-10-19)
 - (@GermanBluefox) Migrated widgets to React 19
 
 ### 2.0.0 (2026-08-04)
 - (bluefox) Migrated to devices V3
-
-### 1.0.3 (2026-07-08)
-- (bluefox) Better decoding of motor PGNs
-
-### 1.0.2 (2026-06-30)
-- (copilot) Adapter requires node.js >= 22 now
-- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
-- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
-- (bluefox) Added the custom icon set
-
-### 1.0.1 (2026-06-26)
-* (bluefox) Implemented Raymarine autopilot support
-* (bluefox) Corrected values simulation for yacht devices gateways
-* (bluefox) Added support of Fusion player
-
-### 0.4.2 (2026-01-05)
-* (bluefox) Updated packages
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.nmea/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.victron-gx/README.md
 title: ioBroker Victron GX Adapter
-hash: DwvNl2P9BI+snAPG4/qHtfZRJ/Yp+T3Ui7xJDxBd/JI=
+hash: 7L66NrKMVpXLu8WBkyNdfjq+184tYSZ7jYt+SrH4kxE=
 ---
 # ioBroker Victron GX Adapter
 
@@ -288,12 +288,16 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 Wenn Sie einen Kanal in eine andere Gruppe verschieben, einen Shelly-Kanal deaktivieren oder einen Node-RED-Schalter löschen, verschwindet dessen MQTT-Thema – die ioBroker-Objekte bleiben jedoch erhalten. Aktivieren Sie die Option **„Verwaiste Kanäle beim Start entfernen“** (Registerkarte „Haupteinstellungen“, standardmäßig deaktiviert), damit der Adapter diese automatisch löscht.
 
 - Wird einmal pro Adapterstart ausgeführt, und zwar erst nach etwa 30 Sekunden ohne neu erkannten Kanal (sodass Mehrkanalgeräte wie der Shelly Pro3, deren Instanzen sich zu leicht unterschiedlichen Zeitpunkten melden, nicht mitten im Startvorgang beeinträchtigt werden).
-- Berührt nur `outputs.<N>` Kanäle. Metadaten auf Geräteebene, `Ac.*` Messungen und `overview.*` werden dadurch niemals entfernt.
+- Entfernt `outputs.<N>` Kanäle, die nicht mehr aktiv sind, und ganze übriggebliebene Geräteordner, die bei einer Gruppenverschiebung zurückgeblieben sind (z. B. ein Kanal, dem seine Gruppe erst zugewiesen wurde, nachdem der Adapter ihn bereits ohne Gruppe erstellt hatte, oder ein Shelly-Kanal, der von einer Gruppe in eine andere verschoben wurde). `overview.*` wird davon nie berührt.
+- Eine Victron-Seriennummer, die von mehreren Diensten gleichzeitig genutzt wird (z. B. ein Relay, das sowohl als als auch als solches freigegeben ist). `switch.*` Und `acload.*`) wird korrekt gehandhabt – jeder aktuell aktive Pfad für diese Seriennummer wird beibehalten, auch wenn nur einer davon eine Gruppe hat.
 - Lassen Sie diese Option deaktiviert, wenn Ihre Geräte häufig offline sind – ein Kanal, der bis zum Zeitpunkt der Überprüfung noch keine Rückmeldung gegeben hat, wird als verwaist betrachtet und gelöscht.
 
 ---
 
 ## Changelog
+
+### 0.10.1 (2026-10-07)
+- Fix: orphan cleanup no longer deletes active device folders when one serial is exposed by several services (e.g. Shelly as switch + acload) and clears stale caches after deletions (fixes repeated 'has no existing object' warnings). The sweep now waits until all device commits have settled. Update mqtt to 5.16.0 (security fixes) and @iobroker/testing to 6.2.2, add Node.js 26 to the CI matrix.
 
 ### 0.10.0 (2026-08-01)
 - **BREAKING:** the `control.*` branch has been removed - writable datapoints now live directly under `devices.*`, with `common.write` gated by two config toggles (Modbus control / MQTT control). See README section "Writable Data Points" for the full old→new mapping and migration steps.
@@ -314,7 +318,6 @@ Wenn Sie einen Kanal in eine andere Gruppe verschieben, einen Shelly-Kanal deakt
 
 ### 0.9.1 (2026-07-27)
 - Added support for EV chargers (read + experimental control) and generic temperature inputs (dbus-adc). Thanks to Samson71 for the catalog. Community testing appreciated.
-
 
 ### 0.9.0 (2026-07-19)
 
@@ -408,10 +411,6 @@ Wenn Sie einen Kanal in eine andere Gruppe verschieben, einen Shelly-Kanal deakt
 - Complete read support for all device types
 
 ---
-
-[Older changelogs](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

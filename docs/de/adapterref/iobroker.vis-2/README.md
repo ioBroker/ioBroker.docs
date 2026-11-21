@@ -1,15 +1,15 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md":{"title":{"en":"ioBroker web components in vis-2 (preview)"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: YH2bBqgRKNBuGBR/5lOuSi9RV7TykVVz1U+VLHgLerE=
+hash: 8TK/ll4xo1OgSGXm0tkWfT0R4jc/uhF008/Mh10/Wa4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/vis-2-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-2.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/vis-2-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2.png?downloads=true)
 
@@ -44,8 +44,6 @@ Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die folgenden L
 
 ![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png)![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
-[Online-Demos](https://iobroker.click/)
-
 ### Widgets
 
 - [Standard-Widgets](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md) – die Geräte eines Hauses, wie Karten für eine Seite mit Abschnitten (`relative`) und als Markierungen für einen Grundriss (`absolute`), mit einem Bild von jedem einzelnen von ihnen
@@ -56,6 +54,8 @@ Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die folgenden L
 Normalerweise verfügen die meisten Widgets über ein ObjectID-Attribut, das mit einer Objekt-ID verknüpft werden kann. Es gibt jedoch noch eine weitere Möglichkeit, _ein beliebiges_ Widget-Attribut an eine ObjectID zu binden.
 
 Schreiben Sie einfach in das Attribut. `{object.id}` z.B `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` und es wird an den Wert dieses Objekts gebunden. Wenn Sie das spezielle Format verwenden, können Sie damit sogar einfache Operationen durchführen, z. B. Multiplikation oder Formatierung.
+
+Die CSS-Attribute einer Ansicht können auf die gleiche Weise gebunden werden, z. B. die Hintergrundfarbe einer Ansicht. `{a:javascript.0.alarm;a ? 'red' : 'green'}` Die
 
 Beispiel: Berechnung der Hypotenuse eines Dreiecks:
 
@@ -118,6 +118,7 @@ Folgende Operationen werden unterstützt:
 - `date(format)` - Wert als Datum formatieren. Das Format ist etwa so: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Wert mithilfe von Moment.js als Datum formatieren. [Zulässige Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/) . `useTodayOrYesterday=true` Die `moment.js` Format `ddd` /`dddd` werden mit heute / gestern überschrieben
 - `array(element1,element2[,element3,element4])`- Gibt das Element mit dem angegebenen Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}` Ein boolescher Wert nimmt das zweite Element an, wenn er wahr ist, und das erste, wenn er falsch ist. `{id;array(off,on)}` funktioniert an einem Schalter
+- `states` - der Text des Wertes in `common.states` des Objekts, z.B. `{hm-rpc.0.ABC.STATE;states}` zeigt „Offen“ anstelle von `1` Ein Wert, der nicht in der Liste enthalten ist, bleibt unverändert; `states(unknown)` zeigt stattdessen den Text in Klammern an. Ein Text in mehreren Sprachen wird in der Sprache von vis angezeigt. Das Objekt wird einmal gelesen, wenn die Bindung zum ersten Mal angezeigt wird; bis dahin zeigt die Bindung den Klartextwert an. Nur in diesem Format: im Format mit Variablen (`{v:id;...}` Die Formel ist JavaScript, das nichts von … weiß. `common.states`
 
 Sie können dieses Muster in jedem beliebigen Text verwenden, zum Beispiel
 
@@ -216,7 +217,7 @@ Befehle:
 
   `control.data` muss die ID des Dialog-Widgets haben, z. B. `w00056` Die
 - `dialogClose`
-- `popup` - öffnet ein neues Browserfenster. Der Link muss angegeben werden in `control.data` z. B. <http://google.com>
+- `popup`- öffnet ein neues Browserfenster. Der Link muss angegeben werden in `control.data` z. B. <http://google.com>
 - `playSound` - Audiodatei abspielen. Der Link zur Datei ist angegeben in `control.data` z. B. <http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3> . Sie können Ihre eigene Datei in vis-2 hochladen und sie beispielsweise abspielen lassen. `/vis-2.0/main/img/myFile.mp3` **Wichtig** : Ihr Browser kann erst dann Audio abspielen, wenn Sie mindestens einmal auf die Seite geklickt haben. Dies ist eine Sicherheitsrichtlinie Ihres Browsers. [Hier](https://github.com/Hugo22O/chrome-autoplay) erfahren Sie mehr.
 
 Wenn der Benutzer die Ansicht ändert oder beim Start, werden die Variablen von vis-2 mit
@@ -230,10 +231,14 @@ Sie können die JSON-Zeichenfolge oder das Objekt in Folgendes schreiben: `contr
 Beispiel für einen JavaScript-Adapter:
 
 ```js
-setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
+setState('vis-2.0.control.command', JSON.stringify({ instance: '*', command: 'refresh', data: '' }));
 ```
 
+Übergeben Sie das Objekt als JSON-Zeichenfolge: `setState()` Der JavaScript-Adapter nimmt ein Objekt ohne `val` Es geht um den Staat selbst, nicht um seinen Wert, und der Befehl kommt nie an.
+
 Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es parsbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}` Beachten Sie die `"` Die
+
+Ein KI-Agent (z. B. pi-agent oder der MCP-Server mit `send_to`) lernt all dies von vis-2 selbst: die Nachricht `help` (`sendTo('vis-2.0', 'help', {}, answer => …)`) Antworten `{help, commands}` - diese Schnittstelle mit den Daten jedes Befehls, den Projekten mit ihren Ansichten und Dialogen sowie den Browsern, die seit dem Start der Instanz ihre Ansicht gemeldet haben, mit ihren IDs.
 
 ## Standardansicht
 
@@ -281,11 +286,15 @@ Wenn der Benutzer keine `read` Fehlende Berechtigungen führen dazu, dass das Wi
 
 ### Neu laden, wenn die Wartezeit länger als
 
-Es gibt eine Regel, nach der die gesamte VIS-Seite nach einer gewissen Zeit ohne Verbindung neu geladen wird, um das Projekt zu synchronisieren. Sie können dies im Menü „Einstellungen…“ konfigurieren. Wenn Sie das Intervall auf „Nie“ setzen, wird die Seite nie neu geladen.
+Wenn sich der Bildschirm eines Tablets ausschaltet, stoppt der Browser die Seite. Beim Aufwachen verarbeitet die Seite alle verpassten Zustandsänderungen und ist daher für einige Sekunden sehr langsam. Mit der Option „Neu laden, wenn länger als (Sekunden) pausiert“ in den Projekteinstellungen lädt die Laufzeitumgebung die Seite stattdessen nach einer entsprechenden Pause neu und liest die Zustände einmalig ein. Auch eine im Hintergrund laufende Seite gilt ab dem Zeitpunkt ihrer Wiederanzeige als pausiert.
 
-### Wiederverbindungsintervall
+Die Wartezeit beträgt mindestens 30 Sekunden; ein leerer Wert oder 0 bedeutet „nie“, was der Standardeinstellung entspricht. Die Laufzeitumgebung wartet auf die Antwort des Servers, bevor sie neu geladen wird, damit Geräte, deren WLAN-Verbindung noch nicht wiederhergestellt ist, nicht auf einer Fehlerseite landen. Der Editor lädt sich niemals selbstständig neu.
 
-Legen Sie das Intervall zwischen den Verbindungsversuchen bei Verbindungsabbruch fest. Bei einer Einstellung von 2 Sekunden wird alle 2 Sekunden versucht, die Verbindung wiederherzustellen.
+### Zurück zur Ansicht ohne Eingabe
+
+In den Projekteinstellungen können Sie unter „Zurück zur Ansicht ohne Eingabe“ eine Ansicht und eine Anzahl von Sekunden auswählen. Wenn die Laufzeitumgebung so lange nicht genutzt wurde, wird diese Ansicht automatisch wieder geöffnet – beispielsweise kehrt ein Bedienfeld an der Wand selbstständig zur Startseite zurück. Jeder Tastendruck, Klick, jede Berührung oder Drehung des Mausrads startet die Zeit neu; die Bewegung der Maus allein hingegen nicht.
+
+Dies geschieht nur zur Laufzeit, nicht im Editor.
 
 ### Dunkler Wiederverbindungsbildschirm
 
@@ -295,7 +304,7 @@ Beachten Sie, dass diese Einstellungen nur für die Wiederverbindung und nicht f
 
 ![Dunkel](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/dark_screen.png)
 
-## SVG und aktuelleFarbe
+## SVG und currentColor
 
 Das CSS-Schlüsselwort \`currentColor\` ermöglicht es Elementen, die aktuelle Textfarbe ihres Elternelements zu übernehmen. Dies ist besonders nützlich bei SVGs (Scalable Vector Graphics), da es dynamischere Formatierungen und eine einfachere Integration in HTML-Inhalte ermöglicht.
 
@@ -308,6 +317,33 @@ Sie können das Schlüsselwort \`currentColor\` anstelle eines spezifischen Farb
 ```
 
 In diesem Fall übernimmt das SVG die Farbe des übergeordneten Elements. Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wäre der Kreis ebenfalls rot.
+
+## Hintergrunddienste von Widget-Sets
+
+Die Laufzeitumgebung rendert nur die geöffnete Ansicht und Ansichten mit der Option „Immer rendern“. Ein Widget ist also nur so lange aktiv, wie seine Ansicht angezeigt wird. Ein Widget-Set kann **Hintergrunddienste** aufrufen, die unabhängig von der Ansicht ausgeführt werden müssen – beispielsweise ein Telefon, das angemeldet bleiben muss, um Anrufe entgegenzunehmen, und das den Dialog eines eingehenden Anrufs über der jeweils geöffneten Ansicht anzeigt.
+
+Ein Service ist eine React-Komponente, die von der Modulföderation des Sets wie ein Widget (Standardexport) bereitgestellt und benannt wird. `io-package.json`:
+
+```json
+"visWidgets": {
+    "vis2IntercomWidgets": {
+        "url": "intercom/customWidgets.js",
+        "components": ["Phone"],
+        "services": ["PhoneService"]
+    }
+}
+```
+
+Die Laufzeitumgebung rendert jeden Dienst einmalig neben den Ansichten, solange das Projekt geöffnet ist – nicht im Editor. Sie ruft die Eigenschaften ab. `VisServiceProps` von `@iobroker/types-vis-2`:
+
+- `widgets` - die Widgets des Sets (ihre `widgetSet` ist einer der Namen des Sets (siehe unten) in allen Ansichten des Projekts, die der Benutzer sehen kann: mit Leseberechtigung für das Projekt, die Ansicht und das Widget und nicht ausgeschlossen durch `visibility-groups` Jeder ist `{ view, id, tpl, data }`, mit `data` Wie im Projekt gespeichert, sind die Bindungen nicht aufgelöst.
+- `adapter`, `socket`, `user` (ohne `system.user.`), `lang` Und `changeView(view)` Die
+
+Der `visSet` dass die Widgets einer Menge in `getWidgetInfo()` Benennt das Set; die Laufzeitumgebung lädt nur die vom Projekt verwendeten Sets. Ein Set kann nach dem Adapter, dem Schlüssel oder dem benannt werden. `name` seiner Sammlung in `visWidgets` - sodass ein Adapter mehrere Sets mit jeweils eigenem Anschluss verbinden kann. `visSet` Die
+
+Ein Dienst wird nur mit seinem zugehörigen Set geladen, d. h. wenn das Projekt ein Widget aus diesem Set verwendet. Ein abstürzender Dienst wird nicht geladen, die Ansichten und die anderen Dienste funktionieren weiterhin.
+
+Ein älteres Vis-2 ignoriert `services` Die Widgets müssen also auch ohne sie funktionieren, z. B. das Telefon selbst halten. Ob der laufende vis-2-Prozess Dienste rendert, fragt ein Widget mit `window.visRxWidget.FEATURES?.includes('services')` - z. B. um dem Benutzer im Editor mitzuteilen, dass die Ansicht "Immer rendern" muss, nur wenn dies nicht der Fall ist.
 
 ## Entwicklung und Fehlersuche
 
@@ -358,162 +394,86 @@ IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machi
 
 ## Changelog
 ### **WORK IN PROGRESS**
-* (@GermanBluefox) The two standard widget sets are written up: [docs/widgets-standard.md](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md) has a picture of every one of the twenty-seven devices, what it reads and writes, every attribute it carries, and what it looks like as a marker on a plan
-* (@GermanBluefox) A chart in a section keeps the height of its card. It drew itself as high as the box it had just measured, which made that box higher, which made the next drawing higher: a card six thousand pixels tall with an axis label every tenth of a degree
-* (@GermanBluefox) A table whose columns are given widths keeps all of them on a narrow card. Every column has a floor of its own now and the card scrolls sideways when they no longer fit, instead of the column without a width being squeezed to nothing - heading, data and all - on a phone
-* (@GermanBluefox) A measured value takes its unit out of the object where its own field is empty, the way the fill level and the input field already did, so a card the assistant built says `21,4 °C` and not `21,4`
-* (@GermanBluefox) The name of a list row and the dropdown beside it share the line. The dropdown was as wide as its longest word, which left `Betrie...` of `Betriebsart`; now both end in an ellipsis instead of one of them
-* (@GermanBluefox) The minus and plus of a number field are left out where the card is too narrow for them - the plus stood outside the card, over its neighbour - and a number that can only be read is written with the decimal separator of the language
-* (@GermanBluefox) vis-2 brings two widget sets of its own for the devices of a house: **Relative**, where a widget is a tile that fills its cell of a section, and **Absolute**, where it is as large as it was dragged. Both show the same devices in the same style - the card, a quiet name over a big value, the control at the bottom edge, and every colour out of the theme, so the two new themes carry them as well - and a device is described once and comes out in both sets. The two sets are not the same widget in two sizes: a page with an absolute layout has a picture of the flat under it, so a device there is **a marker no bigger than a coin** - a ring in the colour of its state around a dark disc with its icon, glowing in that colour so it is found on a busy picture. What it shows follows the shape it is dragged to: wider than tall it is a capsule with the number beside the icon, square it shows the number alone because both would have to be too small, taller than wide it stands the icon over the number. Picking the state for one takes over what the object already knows - its name, its unit, its limits and the icon of its channel - so none of that has to be typed again, and a marker says as much or as little as it is told to: only its icon, the icon with the name under it, or both with the state as well.
-* (@GermanBluefox) A widget attribute can be an icon **or** a picture, in one field: two buttons beside it open the picker of the standard small icons and the file browser of ioBroker, and whichever was chosen last is what the widget shows. The widgets of the sets `Relative` and `Absolute` name their icon that way In a section a widget is a card instead, in one of three arrangements: the name above the value, a single row, or a tile in the colour of its state. The first three devices are there: switch, measured value and blind. Neither set measures the box it ended up in, so neither can chase its own size the way the widgets of the material set did
-* (@GermanBluefox) A page can be built out of the devices of the installation: `Add view` offers `From devices...`, which finds what the type detector knows, sorts it into the rooms - or the functions - it belongs to, and writes one page with a section per room, or a page per room with its entry in the navigation. Every device becomes a widget of `Basic` or `jQui`, so no other adapter is needed: what can be switched becomes a switch, what can be set a slider, what can be read a value. The names can be changed and single devices left out before anything is written, and all of it is one step of the undo
-* (@GermanBluefox) The search of the palette looks at the widget sets as well, by their name and by their label: typing `metro` found nothing, because that is a set and not a widget
-* (@GermanBluefox) A field that still holds `nothing_selected` - what a new widget is created with - shows `--`, and the dialog behind it opens with nothing selected instead of looking for an object of that name
-* (@GermanBluefox) The widgets can be selected, moved and resized with a finger in the editor: every gesture runs on pointer events now instead of mouse events only, and what starts one does not scroll the page (after #658 by @typhosj)
-* (@typhosj) Every signal image of a widget names its small icon again. The label was a word per index, of which there were three - the third of them read `[3]` - so the signals beyond them showed the raw key after six of them became possible (#562)
-* (@typhosj) The tab of the editor keeps its own name and icon. The title and the favicon of the project name the runtime, and an editor tab that carried them could not be told apart from the runtime tab of the same project (#537)
-* (@typhosj) A `border-radius` on a jQui widget is drawn again. Only the frame moves to the button inside the widget, so that it is not drawn twice - the radius stays on the widget as well, whose square background filled in the corners the button had rounded away (#663)
-* (@typhosj) The label of a jQui button follows a `text-align` of left or right in the style of the widget. The button lays out its label as a flex box, which does not care for `text-align`, so the label stayed in the middle (#426)
-* (@typhosj) The widget set of an uninstalled adapter leaves the palette when vis-2 starts again. Once vis-2 had found the first installed widget set, every later one in the directory counted as installed too, so a removed set was kept, stayed in `widgets.html` and went back into the file storage with the next upload: `iobroker del echarts` deleted its widgets, and the restart that followed put them back
-* (@typhosj) A page with the widget `Swipe` can be scrolled with a finger again. The widget held back every move of the finger, also up and down where no view was set. It holds back only a move towards a view now, and it also hears a swipe that starts on the page below the view, where the finger is once the page is scrolled (#499)
-* (@typhosj) The push mode of the widget `Binary control` works on a touch screen: the state is on for as long as a finger holds the button. It ran on mouse events, which a finger fires only when it is lifted. The same held back the repetition of the widget `Write state` while its button is held. A mouse released outside of the button now releases it too, instead of leaving the state on or the repetition running (#475)
-* (@typhosj) A group that is shown in more views (`multi-views`) is drawn in those views again. The widgets of its copy still belonged to the group of their own view, which the other view does not have, so each of them failed to render (#431)
-* (@typhosj) A widget that is taken out of a view in `multi-views`, or deleted, leaves that view in the editor at once. Its copy stayed there until the editor was loaded again (#417)
-* (@typhosj) The title of the widget `Border` takes HTML again, as it did in vis-1 - `<b>` makes it bold instead of being shown as text (#563)
-* (@typhosj) The background of a view covers its whole screen size in the editor. With a screen size larger than the editor, the background stopped where the first screenful ended, and everything scrolled to beyond it was white (#560)
-* (@typhosj) The text of the jQui inputs - input, date, date and time, and the select of the states control - takes the color of the widget, set in its style or by a CSS class. It kept the text color of the theme (#521)
-* (@typhosj) The editor cuts the content of a widget at its border, as the runtime does. An image larger than its widget was shown whole in the editor and cut in the runtime: the editor lifted the clipping for the name plate of the widget, which does not sit inside the widget anymore (#582)
-* (@typhosj) The jQui slider writes every value to its control ID. A value was left out when the object ID shown by the slider had it at that moment - so a slider that shows the temperature of a room and sets its thermostat could not set the temperature the room had (#580)
-* (@typhosj) The groups of the editor toolbar wrap into another row when the window is too narrow for them. They ran on under the user, theme and menu buttons at the right edge and lay over the name of the user, first of all in the narrowest form of the toolbar (#570)
-* (@GermanBluefox) The widget `Number` shows `--` instead of `NaN` when its object has no numeric value
-* (@GermanBluefox) The editor scrolls the view by itself while a widget is dragged or resized near its edge, so a widget can reach a place that is out of sight
-* (@GermanBluefox) A new view - and the first view of a new project - uses the grid layout with sections and starts with one empty section. Existing views keep their layout
-* (@GermanBluefox) A widget can be dragged in the editor without selecting it first: the press selects it and moves it at once. A press that is only a click does not shift a widget by a pixel anymore
-* (@GermanBluefox) The sections of the grid layout can be styled in the new attributes tab `Section`: header with title and icon, background, border, border radius, inner spacing, or the look of a panel. The tab shows the section of the selected widget, or the section clicked on. It is not offered while an absolute widget is selected, as such a widget has no section
-* (@GermanBluefox) The labels of many attributes explain themselves in a tooltip with a picture: the responsive settings, grid, screen limit and navigation of a view, all attributes of a section, and the common CSS attributes of a widget (position, place, size, z-index, overflow, opacity, transform, border, padding, margin, shadow, visibility by view width)
-* (@GermanBluefox) A button next to the title of the attributes switches their tabs between names and icons, so that all tabs fit into a narrow panel
-* (@GermanBluefox) A section of the grid layout can be shown only to some user groups, only at some widths of the view, or only while a state fulfills a condition. The editor offers the condition and the value the way the state has them: true and false for a boolean, the list of a state with states, a number with its unit
-* (@GermanBluefox) A section can be opened and closed by its header, can start closed, and can open and close by a condition on a state. The browser remembers what the user chose
-* (@GermanBluefox) More attributes of a section: subtitle, bindings in the title, color, size and alignment of the title, color of the icon, a line below the header, a link to another view, background image, text color, shadow, glass effect, CSS class, width, a new row, the height of its row or a minimal one, and cells of its own size
-* (@GermanBluefox) Every attribute of a section can be used as a binding, like every field of a widget: the link icon next to its label switches the input to the text of the binding, e.g. `{javascript.0.alarm}` as the border width. A number stays a number and a checkbox stays on or off, and the view shows the result at once
-* (@GermanBluefox) The tabs of the open views can be put in another order by dragging them. The order is the one of the project, so it is there again the next time the editor is opened
-* (@GermanBluefox) The button that opens the runtime shows the page that is being worked on. It used to open whatever page was selected when the editor was started, because the address was built once and never again
-* (@GermanBluefox) A widget that fills the whole view could make the editor flicker: it grew a little too tall, the scrollbar of the work area appeared, the area became narrower, the widget became shorter, and the bar went again. The work area keeps the room for its scrollbar free now
-* (@GermanBluefox) A project in which a widget has no widget set could not be opened in the built adapter: filling it in wrote into the project of the store, which is frozen, and the page died with `Cannot add property widgetSet, object is not extensible`. The repair works on a copy now
-* (@GermanBluefox) The theme switcher offers the two new themes `modernDark` and `modernLight` as well, and its switch stays in the family it is in: a view on `modernLight` turns to `modernDark`, not to `dark`. The variant `Text` of the widget has a word in every language again
-* (@GermanBluefox) The numbers 4 to 8 of the analog clock stood on their heads: they turned with the dial and did not turn back
-* (@GermanBluefox) The history chart of the thermostat and of the static information is drawn by vis-2 itself now - a line or a step curve with its axes, a crosshair that reads the values, panning with the mouse and zooming with the wheel. echarts is not needed for it anymore and left the adapter
-* (@GermanBluefox) Dragging the ring of the thermostat, the color wheel or a blind does not paint the text under the cursor blue anymore
-* (@GermanBluefox) The RGB light moved into vis-2 as well. Its color wheel and the slider for the brightness are drawn by vis-2 itself now, and the second way of choosing - the palette - is the color picker of the ioBroker components, so the widget brings no color library of its own
-* (@GermanBluefox) The attribute `instance` of a widget shows the icon of the adapter on the field itself, not only in the open list
-* (@GermanBluefox) While a widget is dragged out of the palette, the section it would land in is marked. Over no section it becomes an absolute widget, as before, and nothing is marked
-* (@GermanBluefox) An entry a widget set renders itself - the wizard of the material set, say - stands above the tiles of its set over the whole width, instead of being stretched into a tile as if it were a widget to drag
-* (@GermanBluefox) The binding operation `array(...)` takes a boolean as well: true picks the second element, false the first. Until now such a binding - the example `{id.ack;array(…,…)}` of the documentation included - gave `undefined`
-* (@GermanBluefox) The editor dims an empty section the same way as a hidden one, since the runtime leaves an empty section out, and says so when the cursor rests on it
-* (@GermanBluefox) The name of a view in the narrow navigation menu is hidden again, instead of standing cut off beside its icon
-* (@GermanBluefox) A section is selected by a click on it where no widget is, and moved to another place by dragging it from there - the other sections make room while it is dragged.
-* (@GermanBluefox) The CSS attribute `display` of a view is not offered anymore in the grid layout, where it has no effect
-* (@typhosj) `licenseInformation.link` points at the license editions now. For a non-free license that link is meant to name validity, shop and seller, which the source license file does not
-* (@typhosj) A timestamp that arrives as a string is shown as a date again instead of `NaN:NaN:NaN`, and a value that cannot be parsed at all is shown as it is
-* (@typhosj) A widget that leads to the view that is shown gets the CSS class `vis-nav-active`, so the current entry of a self-built navigation can be highlighted. The jQui buttons mark themselves by the active view now instead of the address of the browser, which they never noticed changing
-* (@typhosj) The project setting `States Debounce Time` is applied again: the commands for one object ID are collected during that period. It had no effect at all, as the value was never read from the project
-* (@typhosj) The switch of the `binary control` widget shows the state of the object again if no text and no icon are defined
-* (@typhosj) `widgetOid` delivers the object ID of a widget inside a group again instead of the name of the group attribute
-* (@typhosj) A view can show the navigation menu without being an entry of it: the new view setting `Hide this view in the menu`
-* (@typhosj) A resize of the window does not leave the opened view anymore, unless that view offers itself for a resolution
-* (@typhosj) Fixed the widget attributes keeping the groups of the previously selected widget after a view change
-* (@typhosj) The view of a jQui dialog is drawn inside the dialog again and no longer over its title
-* (@typhosj) Fixed the crash of the `bulb on/off` widget if the value of its object is `null`
-* (@typhosj) An `iFrame` or `echarts` widget is transparent again in the dark mode. The CSS variables put `color-scheme: dark` on `:root`, and a browser paints an opaque canvas behind an iframe whose document declares itself transparent (#661)
-* (@typhosj, @GermanBluefox) The content of a widget is not cut off anymore: `CssBaseline` is gone. It switched the whole document to `border-box` and painted the body, while the widgets - the built-in ones and those of other adapters alike - are laid out for the default `content-box` (#661)
-* (@typhosj) The text of a `Fab` button is readable again in the dark mode. MUI writes `text.primary` into it as soon as the CSS variables are generated, which is white, although the background of the button stays light grey in both themes (#661)
-* (@GermanBluefox) vis-2 uses MUI 9 and `@iobroker/gui-components` now, the successor of `@iobroker/adapter-react-v5`
-* (@GermanBluefox) `@mui/styles` is gone: it does not exist beyond MUI 6 and vis-2 never used it. It stays in the shared modules of the module federation so that a widget set built against MUI 6 keeps its own copy
-* (@GermanBluefox) Replaced the unmaintained `mui-nested-menu`, whose peer range ends at MUI 7, with an own sub menu entry built from MUI components
-* (@GermanBluefox) Followed the MUI props that were consolidated into `slotProps` (`TransitionProps`, `TabIndicatorProps`, `InputLabelProps`, `PaperProps`) and the renamed `HelpOutline` icon
-* (@GermanBluefox) vis-2 runs on React 19 now
-* (@GermanBluefox) Replaced the unmaintained `react-beautiful-dnd` with its api-compatible fork `@hello-pangea/dnd`, which is the only one of the two that supports React 19
-* (@GermanBluefox) Fixed the connectors of react-dnd being passed as a `ref`: React 19 takes what a ref callback returns as its cleanup function, and those connectors return a React element, so React would have tried to call an element on unmount
-* (@GermanBluefox) Fixed the type of `window.VisMaterialIconSelector`, which named the state of the component instead of its properties
-* (@GermanBluefox) A widget set that was built for an older React is recognized by its federation manifest and skipped with a readable message, instead of dying somewhere inside the module federation loader where no error boundary can catch it. As long as vis-2 itself runs on react 18 nothing is skipped
-* (@GermanBluefox) Widget sets that were skipped are named in a dialog in the editor and in the runtime, so a view with missing widgets does not leave the user guessing. It is shown once per affected set
-* (@GermanBluefox) Dropped the `mime` dependency; copied widget files are compared byte for byte instead of by type
-* (@GermanBluefox) `@iobroker/types-vis-2`: `@iobroker/vis-2-widgets-react-dev` left the list of shared modules. vis-2 never provided it anyway, and bundled as a share it dragged its undeclared `@iobroker/adapter-react-v5` into the host build
-* (@GermanBluefox) The check that skips widget sets built for an older React works on a real installation too: it asked for the federation manifest under `/vis-2/vis-2/...`, was always answered 404 and let every set through
-* (@GermanBluefox) The build declares one placeholder remote (`vis2-dynamic-remotes.js`), which makes `@module-federation/vite` 1.21 treat vis-2 as the host it is. Without it the plugin deferred every shared module to the federation bootstrap and vis-2 died on `jsx is not a function` / `createCssVarsProvider is not a function`
-* (@GermanBluefox) `@iobroker/types-vis-2`: `@mui/icons-material` and the i18n JSONs of `@iobroker/gui-components` are not shared modules anymore, and `moment` is one now. Since a shared entry is bundled as a whole namespace, the icons alone put all ~10700 of them into every vis-2 delivery although vis-2 uses 83 - the build shrinks from 11 MB to 5.9 MB. A widget set bundles the icons it really uses instead, which is what already happened for every set of an older MUI major
-* (@GermanBluefox) Dropped the unused `echarts` and `echarts-for-react` dependencies of the editor
-* (@GermanBluefox) A widget could not be dropped on a view anymore: the workspace wrapper carried no height, so the `height: 100%` of the canvas resolved to `auto` and the drop area collapsed to zero pixels. The workspace is a flex column now - the tabs take their height, the canvas takes the rest
-* (@GermanBluefox) `@iobroker/types-vis-2`: `@mui/material` and `@mui/system` are singletons now instead of being versioned by the range of the consumer. A widget set built against 9.1.0 while vis-2 ships 9.1.2 used to carry its own copy; it renders with the MUI of vis-2 now, whatever patch or minor it was built against. Widget sets of an older MUI major are react 18 builds and are skipped before they are evaluated anyway
-* (@GermanBluefox) The federation host uses the `loaded-first` share strategy, so a widget set cannot replace the shared react, MUI or gui-components of vis-2 with its own copy
+* (@GermanBluefox) Editor: the dialog "Import project" got a clearer drop zone - an icon, the allowed file type, the selected file as a card with its real size (base64 size before) and a long file name wrapped instead of running over the border. While the server unpacks the project, which can take a while, a spinner shows it in the dialog and in the button "Import"
+* (@GermanBluefox) Editor: palette and attributes can be pinned as columns beside the view. Since 2.20.3 they float over the view with a fixed width as soon as its resolution does not fit between them - with a view as wide as the screen always, so the attributes had to be opened over the view for every widget. The pin in the head of both panels keeps them as columns, and the view scrolls between them; a window narrower than 1200 pixels still lets them float
+* (@GermanBluefox) servConn._socket.emit forwards sendTo again and throws on unknown commands (#749)
+* (@GermanBluefox) vis-2 answers the message `help` (`common.supportedMessages.help`): an AI agent such as pi-agent learns how to steer the browsers through `control.command` (the data of every command), the projects with their views and dialogs, and the IDs of the browsers that reported their view (to be written into `instance` exactly as listed)
+* (@GermanBluefox) Fully Kiosk Browser and other Android WebViews no longer darken the views on their own in the dark mode. Since 2.20 the page declared no color scheme any more, so the WebView darkened it itself and the vis-1 widgets (hqwidgets, jqui-mfd) came out with swapped light and dark colors, while Chrome showed them right. The page declares `color-scheme: only light` now, which looks the same in every other browser; iframes stay transparent. The workaround `:root { color-scheme: only light !important; }` in the project CSS is no longer needed
+* (@GermanBluefox) Standard widgets: a colour from the colour picker of the editor (`rgb(20, 123, 248)`) works for the faint fill of jump marks, buttons, lists, media players, locks and vacuum cleaners. The opacity was appended as two hex digits, which made `rgb(...)` invalid, and the buttons came out grey
+* (@GermanBluefox) Standard widgets: a text that only begins with a number is shown as text - `07:24` was shown as 7, `17.11.2026, 09:46` as 17,11. A number with a unit behind it (`21,4 °C`, `45%`) is still a number
+* (@GermanBluefox) Chart: the value axes are as wide as their labels, so the top label with the unit keeps its first digits (`5,0 km/h` instead of `35,0 km/h`)
+* (@GermanBluefox) Window widget: the lines of the drawing stay fine at every size, like those of the blind beside it, instead of growing several pixels thick on a large card
+* (@GermanBluefox) Editor: "Show all views" no longer crashes the editor with "Maximum update depth exceeded". It listed the views that were open already a second time and saved that in the project, so the editor crashed again on every load; such a project is repaired when it is loaded
+* (@GermanBluefox) "Limit screen size": a page that is higher or wider than the window starts at the top left and can be scrolled; only a page that fits is centred. Before, what stuck out above and on the left could not be reached - a page of 1280 px in a window of 738 px lost its first 271 px
 
-### 2.15.0 (2026-08-16)
-* (@GermanBluefox) Reworked the name plate of a widget in the editor: it is only as wide as its content, its buttons sit next to the name instead of on fixed positions that left a gap whenever a button was hidden, and the plate of a selected widget is drawn in the same blue as its frame
-* (@GermanBluefox) The three buttons of the name plate have a tooltip now and no longer turn red and double their size when the cursor is over them
-* (@GermanBluefox) The widget under the cursor is highlighted in blue instead of olive in the editor, in both themes
-* (@GermanBluefox) Several selected widgets are marked with the same frame as a single one, only without the handles to resize them. They carried no mark at all before, as the frame is drawn by those handles
-* (@GermanBluefox) Relative widgets can be reordered by dragging them again: a half transparent copy follows the cursor and a placeholder shows the slot the widget will land in. Dragging one never reordered anything before, because the gesture was not started for relative widgets at all
-* (@GermanBluefox) Removed the arrow buttons and the re-order menu of the relative widgets, as dragging replaces them
-* (@GermanBluefox) Moving and resizing a widget is rendered from the widget state now instead of being written into the DOM, which removes the duplicated geometry of the service and the can.js element
-* (@GermanBluefox) Removed the dead `calculateRelativeWidgetPosition` callback from `onMove` and `WidgetReference`: it has been `null` since 2022 and was never called
-* (@typhosj) The `view in widget 8` and `image 8` widgets show the view/image with the number of the value again
-* (@typhosj) `vis.updateStates` does not write the states back to ioBroker anymore, like in vis-1
-* (@typhosj) The `iFrame 8` widget shows the frame with the number of the value, also for a boolean object
-* (@typhosj) Every copy of a group gets its own member widgets if several widgets are pasted at once
-* (@typhosj) A binding can be used as the comparison value of the visibility condition
-* (@typhosj) The application bar is not wider than the window anymore
-* (@typhosj) Fixed the invisible content of the `tabs` widget if the tabs are placed vertically
-* (@typhosj) The tabs of the `tabs` widget are as wide as their title now and can be scrolled on a touch device
-* (@GermanBluefox) Shortened the values that a failing binding writes to the console: a widget with braces in its HTML produced hundreds of failing bindings, each printing the complete HTML, which buried every other error
-* (@typhosj) Fixed the position of the vis-1 widgets in a view with a limited screen size
-* (@typhosj) The `bulb on/off` widget writes numeric min/max values as a number and not as a string
-* (@typhosj) Fixed `min`, `max` and `step` of the vis-1 widget attributes: they are optional and may be fractional
-* (@typhosj) Fixed the doubled border of the jQui widgets: the border is drawn by the button only and not by the widget too
-* (@typhosj) Fixed the missing attributes of a group: the sections could not be opened and the group attributes were not editable
-* (@typhosj) Made the background color and the text color of the selected entry editable for the horizontal navigation menu. The new background color takes precedence over the color of the application bar, which the horizontal menu borrowed before, so a view that was switched from the vertical to the horizontal navigation can change its color once
-* (@typhosj) Fixed the enumerable widget groups and fields that start at the index 0 and were not expanded
-* (@typhosj) Added the MUI CSS variables (`--mui-palette-*`), so the theme colors can be adjusted with CSS
-* (@typhosj) Fixed the overlapping entries of the horizontal navigation menu in a narrow window
-* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views
-* (@GermanBluefox) A widget that crashes while rendering does not take the whole view down anymore, but is replaced by a placeholder
-* (@GermanBluefox) Added `react/jsx-runtime` and `react/jsx-dev-runtime` to the shared modules of the module federation, so a widget set uses the JSX runtime of vis-2 instead of bundling its own
-* (@GermanBluefox) Fixed the shared modules `react-dom/client` and the i18n files of `adapter-react-v5` being dropped if a widget set passes its `package.json` to `moduleFederationShared()`
-* (@GermanBluefox) `@mui/material`, `@mui/system`, `@mui/icons-material` and `@mui/styles` are shared per version now instead of as a singleton. A widget set that is rebuilt keeps its own MUI copy if it was built against another MUI major than vis-2, instead of being given the one of vis-2
-* (@GermanBluefox) Added `@mui/private-theming` to the shared modules, so the theme of vis-2 also reaches a widget set that uses its own MUI major
-* (@GermanBluefox) The widgeteria is not shown in the GUI anymore
+### 2.20.11 (2026-11-17)
+* (@GermanBluefox) Safari 27 (macOS, iOS, iPadOS) and the ioBroker app no longer load the whole page again after every change of the view when vis-2 is opened over plain HTTP: the view changes without a navigation now. Links to a view (`<a href="#view">`) in HTML widgets and link buttons to `#view` do the same (#743)
 
-### 2.14.4 (2026-08-10)
-* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
-* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
-* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
-* (@typhosj) Show the text of the button widgets as entered and not upper cased
-* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
-* (@typhosj) Subscribed to object IDs that are the result of a binding
-* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
-* (@GermanBluefox) Fixed the position of a new group created inside another group
-* (@typhosj) Fixed the position of the members when a nested group is dissolved
-* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
-* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
-* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
-* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
-* (@typhosj) Fixed the user permissions being ignored for widgets inside a group
-* (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
-* (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
-* (@GermanBluefox) Fixed the signal condition if the state value is `null`
-* (@typhosj) Fixed the URL attributes of the `iFrame 8` widget being subscribed as object IDs
-* (@typhosj) Fixed the visibility condition if the state value is `null`
+### 2.20.10 (2026-11-17)
+* (@GermanBluefox) Grid layout: a section can have its own background for the light and for the dark theme. While such a theme is active, it wins over the background of the section and over the colour of the panel, e.g. to set a section apart from its widgets in both themes
+* (@GermanBluefox) The widgets whose ID contains "_" are shown again: since 2.20.2 the runtime took every such widget for a copy of a widget of another view ("multi-views") and dropped it, which left the views of generated projects empty and took out every widget whose ID contained a space. Saving in the editor dropped them too. A copy is now known by a mark, not by its ID, and the editor names the widget it comes from correctly even when its ID contains "_" (#744)
+* (@GermanBluefox) The widgets of the vis-1 widget sets (e.g. hqwidgets, materialdesign, trashschedule) are rendered again after a view change in the editor: a new engine takes over `vis.binds` with the sets already registered instead of starting with empty binds (#741)
+* (@GermanBluefox) Removed the unnecessary vertical scrollbar in runtime (4px overflow caused by inline-block body) (#734)
+* (@GermanBluefox) Runtime: the widget sets without widgets, which bring only styles or fonts (e.g. google-fonts of vis-google-fonts), are loaded again, so the chosen font is shown in the runtime and not only in the editor (#735)
+* (@GermanBluefox) The button of the AI assistant is in the tabs bar of the editor. As a floating button it covered controls in the attributes, e.g. the signal images (#739)
+* (@GermanBluefox) Web components: the setting types `selectSendTo` and `autocompleteSendTo` (`@iobroker/web-components` 0.8) - the options of a select or the suggestions of a text field are asked from an instance of the adapter. Without an instance to ask or without an answer the field stays a text field and says why
+* (@GermanBluefox) Fixed ticks in gauge widget and missing tooltip translation (#732)
+* (@GermanBluefox) Navigation: the header of the menu can show an icon or an image - a logo - in front of its text. It belongs to the project and is the same on every page with a menu, wherever it is set: in the attributes of any view or in the project settings
+* (@GermanBluefox) Grid layout: a section can be its header alone ("Only the header"). The runtime shows none of its widgets and keeps it even without any, so a heading over the page needs no invisible widget any more
+* (@GermanBluefox) Grid layout: the space between the header of a section and its widgets can be set, and the subtitle can be written in italics
+* (@GermanBluefox) Runtime: a theme switched in the runtime (theme widget) also switches the colour of the page under the views. A light theme stood on a black page wherever nothing covered it, e.g. under a menu without its own colour, and the page took the colour of the system on loading instead of the chosen theme
+* (@GermanBluefox) Standard widgets: the clock has no symbol in its corner any more, unless one is set, and a long date like "Mittwoch, 11. November" is made smaller instead of being cut off at both ends
+* (@GermanBluefox) Standard widgets: the theme switcher can leave out the word Light / Dark
+* (@GermanBluefox) Editor: the projects dialog reads the list of projects from the server every time it opens, so a project added, renamed or deleted elsewhere shows up without reloading the editor. A list that cannot be read keeps the one shown before instead of offering to create a first project
+* (@GermanBluefox) Standard widgets, set relative: the header of a card can be switched to "Only the name", "Only the icon" or "Nothing". What it leaves out makes room: without a name the icon moves in front of the value and that row moves up, so a tile one row high shows icon, value and switch; without both the content starts at the top edge
+* (@GermanBluefox) Standard widgets: the size of the value can be set (set relative). A long name takes a second line instead of being cut off after a few letters, and shows in full as a tooltip. A word and a value that do not fit side by side are put under each other instead of breaking in the middle ("Noch 1:28" over a lonely "h" on a washing machine), and a long word as the value is broken at a syllable on a narrow tile instead of losing its end ("Unterw"). The size of the icon can also be a share ("60%"), and the photo of a person follows it; on a wide card the photo stands beside name and value over the whole height
+* (@GermanBluefox) Standard widgets: new widget "Energy flow" - panels, grid, battery and house with moving dots on the lines between them, faster the more power flows. Three states are enough; the flows and the consumption of the house are worked out, a state in kW is read as kW, and grid and battery can count the other way round
+* (@GermanBluefox) Standard widgets: new widget "Status count" - how many of a group of states are on and which ("3 windows open"), with a sentence for some and one for none, a colour, an alarm option and the names of those that are on
+* (@GermanBluefox) Sensor widget: new kind "Person (presence)" with a large round photo that turns grey while the person is away. Without a photo the own symbol of the widget is shown, without that the initials of the name
+* (@GermanBluefox) Alarm widget: the names of the zones get the whole width of their tile and two lines. A zone can say open / closed instead of on / off (yellow while open), and the texts for on and off can be set
+* (@GermanBluefox) Table widget: a column that holds a time can be written as time, date, date and time, weekday and time, "Today 14:30 / Tomorrow 09:00" or with an own pattern like `W DD.MM. hh:mm`, and the rows can be filtered: not over yet, today, or the rest of today. The table checks again every minute
+* (@GermanBluefox) Thermostat widget: the dial fills its card instead of keeping a margin around it, the knob follows the finger also in a card wider than the dial, and presets that do not fit into one row wrap instead of being cut to "1…"
+* (@GermanBluefox) Weather widget: the large picture of OpenWeatherMap is loaded in its largest size and shown at most at its own size, so it stays sharp, and the picture behind the card stays inside the card
+* (@GermanBluefox) Navigation: the menu at the bottom edge shows four pages and a "More" button for the rest when there are more than five; a hand-made page with links to the others is no longer needed. Without an app bar, the button that opens a hidden menu has a background and a shadow of its own and is found on a dark page too
+* (@GermanBluefox) Editor: a setting of the menu changed in the project settings says how many pages still carry a value of their own, and "Use for all pages" makes them follow the project when it is saved. The attributes of a view show the value the page gets from the project instead of an empty field
 
-### 2.14.3 (2026-06-09)
-* (@GermanBluefox) Applied the user-defined style to tplValueInput
+### 2.20.9 (2026-11-10)
+* (@GermanBluefox) Editor: a whole view can be exported and imported with the new buttons in the toolbar of the views, not only from the views dialog. The export saves the view as a file or copies it, the import takes a file, opened or dropped on the field, or pasted JSON. It also takes any view out of a whole project (`vis-views.json`), proposes a free name and warns before a view is replaced
+* (@GermanBluefox) Editor, grid layout: a pasted widget goes into a section - into the selected one, after the selected widget, or next to the widget it is a copy of; a cut widget goes back to its place. Ctrl+V now also works while widgets are selected, and a duplicated widget follows its original
+* (@GermanBluefox) Editor, grid layout: a whole section can be copied, cut and pasted (Ctrl+C / Ctrl+X / Ctrl+V on a selected section), duplicated with a button under it, and exported and imported in the attributes of the section. The import also offers the sections of an exported view or of a whole project
+* (@GermanBluefox) Editor: a deleted widget leaves its section. A new widget that got the same ID turned up in that section
+* (@GermanBluefox) Editor: a widget that shows another one in itself keeps showing its copy when the view is copied or imported, and the widgets the editor only shows because another view shares them are no longer copied along
+* (@GermanBluefox) Editor: the buttons of the toolbar are as wide as their label, so "Einstellungen" no longer runs into "Projekte"
+* (@GermanBluefox) Editor: a view that is copied or imported keeps the order of its widgets and their sections in the grid layout. The widgets get new IDs, but the sections still listed the old ones, so all widgets ended up in one section at the end. An invalid JSON in the import no longer breaks the dialog
+* (@jkvarel) Attributes of type `widget` show the name given to a widget in the "General" group in the list of widgets instead of its type
+* (@GermanBluefox) If the widgets of an adapter on another host cannot be fetched because the js-controller is too old, the log names the host vis-2 runs on, whose js-controller has to be updated
+* (@GermanBluefox) A formula of a binding that fails is reported once in the console instead of in three lines every time the widget is rendered, and not at all while one of its values has not been received yet, e.g. `{v:id;v.toFixed(2)}` while the page loads
+* (@GermanBluefox) A widget from the palette can be dropped on a view again when the view is taller than the editor and scrolled down: the section under the cursor was marked, but letting go did nothing. The palette no longer scrolls by itself while a widget is dragged out of it
+* (@GermanBluefox) Standard widgets (relative and absolute): the size of the name and of the icon can be set, and the CSS settings of a widget now reach its content: font size, colour, font style and the other text settings apply to the value, also inside dials and gauges, and background, border, corner radius, shadow and padding apply to the card
+* (@GermanBluefox) Thermostat and knob: the control can be round, horizontal or vertical. The sliders of the thermostat show the same scale from cold to warm as its dial
+* (@GermanBluefox) The check of a license of a widget set asks iobroker.net at most every 5 minutes per license instead of once per page, and accepts only the name of an adapter
+* (@GermanBluefox) Editor: dragging a color picker quickly no longer crashes the page with "Maximum update depth exceeded". The field handed a color back while the picker already showed the next one, and the two pushed each other back and forth
+* (@GermanBluefox) jQui inputs for time and date: on a touch screen a touch on the value opens the picker again, as a touch on the symbol does, and no number stays marked after it is closed. The value is no longer typed there, so the keyboard of the device does not come up, and if the input can be emptied, the picker has a button for it
+* (@GermanBluefox) Editor: on the Mac the delete key removes the selected widgets, because that key sends `Backspace`. On other keyboards `Backspace` now does the same as `Delete`
+* (@GermanBluefox) Editor: on the Mac `Cmd` now works where `Ctrl` does: undo, redo, copy, cut, paste and select all, adding a widget to the selection with a click, and moving or resizing a widget by 10 pixels with the arrow keys
+* (@GermanBluefox) Weather widget: the accent colour and the colour of the sun can be set. The pictures of OpenWeatherMap are now drawn by the widget, with a yellow sun that has rays and a glow, and the picture behind the card is larger. A new option keeps the pictures of the adapter
+* (@GermanBluefox) Editor and widgets use the animated icons of `@iobroker/gui-components`: the lid of the trash can opens over delete buttons, what is copied to the clipboard is confirmed with a check mark, folders open and close, play and pause turn into each other, the sun and the moon of the theme widget too, and the bell of an alarm rings
+* (@GermanBluefox) Standard widgets: colours that change run into each other instead of jumping, and the sun of the weather widget turns its rays, the rain falls and the lightning flickers. All of it stops when the system is set to reduce motion
 
-### 2.14.0 (2026-05-29)
-* (@GermanBluefox) Refactoring of the build process
+### 2.20.8 (2026-11-07)
+* (@GermanBluefox) The widgets of an adapter that is installed on another host than vis-2 are shown now: vis-2 fetches its `widgets` folder from that host (js-controller 8.0 or newer on both hosts) and keeps a copy in its data directory, which is fetched again only when the version of the adapter changes and is used while that host is not running
 
-### 2.13.19 (2026-04-27)
-* (@GermanBluefox) Refactoring
-
-### 2.13.17 (2026-03-29)
-* (@GermanBluefox) Removed debug code for theme
+### 2.20.7 (2026-11-06)
+* (@GermanBluefox) Added the binding operation `states`: `{hm-rpc.0.ABC.STATE;states}` shows the text of the value in `common.states` of the object instead of the value, e.g. "Open" instead of `1`; `states(unknown)` gives a text for a value that is not in the list
+* (@GermanBluefox) Web components of adapters (`common.webComponents`, see [`@iobroker/web-components`](https://github.com/ioBroker/web-components)) are offered as widgets: their settings become the attributes of the widget, the module of a component is loaded when it is shown, and its dialogs open as dialogs of vis. See [packages/iobroker.vis-2/docs/web-components.md](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md)
+* (@GermanBluefox) Web components are sorted into the palette set of their adapter, beside the widgets of the adapter if it has some, instead of all into one set "Web components". The runtime loads them when the project shows one, without the widgets of their adapter
+* (@GermanBluefox) An object setting of a web component with `root` (e.g. `"types": "config", "root": "flow.0.diagrams"`) offers only the objects below it. Widget sets can give an `id` attribute a `root` too
+* (@GermanBluefox) The dev server forwards `/lib/esm/` to ioBroker, where web components written with React import it from
+* (@GermanBluefox) A section of the grid layout can show the values of up to two states at the right end of its header, each with a name, a unit and an icon - or only the icon, with the name as its tooltip. Picking a state fills in its name and unit; a value from `common.states` is shown as its text
+* (@GermanBluefox) Under web the object dialog of a field with `root` lists the objects of the types `config`, `user` and `group` again (`@iobroker/gui-components` 10.4.0), e.g. the diagrams of flow
+* (@GermanBluefox) If an adapter brings a vis-2 widget and a web component of the same name, like the "Flow diagram" of flow, the palette offers only the vis-2 widget; widgets of the component already placed stay
+* (@GermanBluefox) Web components get the colors, the font and the corners of the theme of vis-2 (`@iobroker/web-components` 0.5.0), not only light or dark
+* (@typhosj) vis-2 takes over a widget adapter that is installed or deleted while it runs again: the widgets of a deleted adapter disappear from the editor, and a new one shows up, without a restart of vis-2. Since 2.11.0 vis-2 noticed both only at its next start (#726)
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

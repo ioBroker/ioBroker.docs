@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: TxLhExDJhw2JKFwBO4r96XR7TVhPJ0xkrgj5i90aYPk=
+hash: mcmyT3Z8WQBkYnCIcnHWnPd7v+7ziMg+rwuym75+aqE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
@@ -32,7 +32,7 @@ hash: TxLhExDJhw2JKFwBO4r96XR7TVhPJ0xkrgj5i90aYPk=
 ### НАБОР
 
 - Управление PTZ / Защита PTZ
-- Push-уведомления
+- Push-уведомление
 - Установите значения автофокуса: 0,1
 - Настройка параметров ИК-подсветки: Авто, Выкл.
 - Установите светодиодную подсветку
@@ -140,8 +140,9 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 | `ptz.speed`              | число      | Р/В | Скорость перемещения PTZ-камеры (1–100, по умолчанию 32)                                                 |
 | `status.motion`          | логический | Р   | Обнаружено движение (через MQTT)                                                                         |
 | `status.battery_level`   | число      | Р   | Уровень заряда батареи в % (через интерфейс командной строки Neolink, периодически)                      |
-
-|`snapshotImage` | строка | R | Последнее изображение снимка (base64, URI данных) | |`snapshotStatus` | строка | R | Статус снимка: `idle` /`capturing` /`success` /`error` | |`info.neolink_status` | строка | R | состояние процесса neolink: `stopped` /`running` |
+| `snapshotImage`          | нить       | Р   | Последнее изображение-снимок (base64, URI данных)                                                        |
+| `snapshotStatus`         | нить       | Р   | Статус снимка: `idle` /`capturing` /`success` / `error`                                                   |
+| `info.neolink_status`    | нить       | Р   | Состояние процесса NeoLink: `stopped` /`running`                                                          |
 
 ### Управление PTZ
 
@@ -179,7 +180,7 @@ PTZ работает через интерфейс командной строк
 
 Протокол MQTT используется для обновления состояния камеры и управления ею. Адаптер автоматически подписывается на него, когда... `mqtt.enable` установлено на `true`.
 
-Темы для обсуждения (публикуются камерой через Neolink):
+Темы для обсуждения (опубликованы камерой через Neolink):
 
 - `neolink/<camera>/status/motion`
 - `neolink/<camera>/status/battery_level`
@@ -205,17 +206,45 @@ PTZ работает через интерфейс командной строк
 | Батарея быстро разряжается             | Отключайте потоковую передачу, когда приложение не используется; используйте MQTT только для передачи данных о движении. |
 | PTZ не реагирует                       | Для каждой команды PTZ требуется примерно 2 секунды (вход в P2P-камеру) — это нормально.                                 |
 
+## Камеры дверных звонков
+
+Проводные дверные звонки Reolink используют стандартный HTTP API плюс ONVIF для определения звонка. Включите параметр **«Камера дверного звонка»** в конфигурации адаптера, чтобы добавить состояния, специфичные для дверного звонка. (Это не зависит от параметра «Камера с питанием от батареи».)
+
+| Состояние                   | Тип        | Р/В | Описание                                                                                                       |
+| --------------------------- | ---------- | --- | -------------------------------------------------------------------------------------------------------------- |
+| `sensor.visitor.state`      | логический | Р   | Нажатие кнопки дверного звонка (звонок) — событие передается через ONVIF (автоматически удаляется через 10 с). |
+| `sensor.visitor.support`    | логический | Р   | Сообщает ли камера о чем-либо `visitor` Тип ИИ через HTTP (зависит от модели)                                   |
+| `doorbell.audioFileList`    | нить       | Р   | Список сохраненных аудиофайлов в формате JSON (`id`, `fileName`, ...) для быстрого/автоматического ответа     |
+| `doorbell.quickReplyPlay`   | число      | В   | Написать аудиофайл `id` чтобы дверной звонок воспроизвел это сообщение                                          |
+| `doorbell.autoReplyEnabled` | логический | Р/В | Включить/отключить автоматический ответ при звонке в дверь                                                     |
+| `doorbell.autoReplyFileId`  | число      | Р/В | Аудиофайл `id` воспроизведено как автоответ (см. `doorbell.audioFileList`)                                      |
+| `doorbell.autoReplyTimeout` | число      | Р/В | Через несколько секунд после звонка, прежде чем сработает автоматический ответ.                                |
+
+Найдите доступные идентификаторы файлов в `doorbell.audioFileList` затем используйте этот идентификатор для `doorbell.quickReplyPlay` или `doorbell.autoReplyFileId`.
+
+### Обнаружение кольца (ONVIF)
+
+На большинстве дверных звонков Reolink нажатие кнопки **недоступно** через API HTTP-опроса (`GetAiState` не имеет `visitor` поле). Таким образом, адаптер открывает **подписку ONVIF PullPoint** и прослушивает ее. `visitor` событие — когда кто-то звонит, `sensor.visitor.state` установлено на `true` (и автоматически очищается через 10 секунд). Реагируйте на это изменение состояния в своих скриптах/автоматизациях.
+
+- Для работы требуется **включить ONVIF** на камере (приложение Reolink → Настройки → Сеть → Дополнительно → ONVIF).
+- Укажите **порт ONVIF** в конфигурации адаптера (по умолчанию Reolink: `8000`).
+- На хосте ioBroker не требуется входящий порт/веб-хук — адаптер выполняет длительный опрос камеры.
+
 ---
 
 ## Известные рабочие камеры
 
 ### HTTP API (стандартный)
 
-RLC-420-5MP, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
+RLC-420-5MP, E1 Outdoor, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
 
 ### Фотоаппараты с батарейным питанием (через Neolink)
 
 Reolink Argus PT, Reolink Argus 3 Pro
+
+### Дверные звонки (HTTP API + обнаружение звонка ONVIF)
+
+Видеодомофон Reolink PoE (D340P)
 
 ---
 
@@ -224,6 +253,13 @@ Reolink Argus PT, Reolink Argus 3 Pro
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Gaspode69) Keep white LED states in sync during API refresh
+
+### 1.4.3 (2026-10-27)
+* (@GermanBluefox) Doorbell support: ring detection via ONVIF events (`sensor.visitor.state`), quick reply and auto reply (enable via "Doorbell camera" in config; requires ONVIF enabled on the camera)
+* (oelison) Adapter requires node.js >= 22 now
+
 ### 1.4.2 (2026-03-16)
 * (oelison) fast fix for issue #230
 
@@ -240,54 +276,6 @@ Reolink Argus PT, Reolink Argus 3 Pro
 * (bluefox) migration to ts
 * (bot) revoking classic token #204
 * (oelison) state changes from info log to debug #206
-
-### 1.2.3 (2025-06-30)
-* (oelison) settings email notification #170
-* (oelison) testing node.js 24 #172
-
-### 1.2.2 (2025-05-01)
-* (oelison) update readme #141 #155
-* (oelison) supress errors with axios timeout #154
-
-### 1.2.1 (2025-02-09)
-* (oelison) set some errors to debug logs
-
-### 1.2.0 (2025-02-07)
-* (oelison) update disk info
-* (oelison) uri enconding is switchable (helps sometimes by one special char)
-* (oelison) #28 PTZ check added
-
-### 1.1.2 (2024-09-14)
-* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
-* (oelison) adapter warnings resolved
-
-### 1.1.1 (2024-08-03)
-* (oelison) removed warnings from adapter check
-* (olli) added ftp support
-* (oelison) channel now distinguishing most requests
-* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
-
-### 1.1.0 (2024-05-16)
-* (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
-* (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
-* (Nibbels) added setWhiteLedMode function
-* (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
-* (oelison) removed node 16
-
-### 1.0.3 (2024-01-21)
-* (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
-* (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)
-
-### 1.0.2 (2023-12-19)
-* (oelison) known working cameras added
-* (oelison) setIrLights accept "On" now
-* (oelison) [#40](https://github.com/aendue/ioBroker.reolink/issues/40)
-* (oelison) [#42](https://github.com/aendue/ioBroker.reolink/issues/42)
-
-### 1.0.1 (2023-11-11)
-* (oelison) resolve review for latest adapter addition
-* (oelison) maybe the last node 16 version
-* (oelison) booleans are now false/true and not 0/1
 
 ## License
 MIT License

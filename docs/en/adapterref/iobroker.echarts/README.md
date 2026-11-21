@@ -177,6 +177,23 @@ sendTo(
 );
 ```
 
+The preset may also be a chart of its own, without a preset object, e.g. the outside temperature of the last 24 hours:
+
+```js
+sendTo('echarts.0', 'send', {
+    preset: {
+        l: [{ id: 'alias.0.Outside.Temperature' }], // the lines: id, and optional name, unit, color, instance (history adapter)
+        range: 1440, // minutes back from now
+        title: 'Outside',
+    },
+    renderer: 'png',
+    background: '#ffffff',
+    fileName: 'agent/outside.png', // then e.g. telegram: sendTo('telegram.0', 'send', { text: 'iobfile://echarts.0/agent/outside.png' })
+});
+```
+
+`sendTo('echarts.0', 'help', {})` answers with a description of the messages for AI agents (e.g. pi-agent) and script authors; the answer lists all commands with `write` (whether a command changes something).
+
 **Attention: You cannot enable/disable lines in legend on touch devices with enabled zoom**
 
 ## Developer manual
@@ -199,60 +216,30 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
-
 ### **WORK IN PROGRESS**
+* (GermanBluefox) The preset editor has a switch "Auto preview" and a button "Update preview": with the switch off, the preview is updated only by the button; with the switch on, the preview waits briefly after a change so fast changes cause only one reload (#1323)
+
+### 6.5.1 (2026-11-20)
+- (@GermanBluefox) The help for AI agents describes charts without a preset (states and time range in the message), e.g. "the outside temperature of today", and how to send a chart with a messenger
+- (@GermanBluefox) Fixed: the message "send" with renderer "pdf" now answers with the PDF instead of never answering; a failure while rendering or writing `fileOnDisk` is answered as an error as well
+- (@GermanBluefox) Fixed: the message "send" now answers errors with their text instead of an empty object
+- (@GermanBluefox) Fixed: the message "send" with an unknown preset now answers with an error instead of no answer at all
+
+### 6.5.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 6.4.1 (2026-11-17)
+- (@GermanBluefox) Fixed the build with echarts-for-react 3.1.0: version 6.4.0 failed to build and was not published, this version contains its changes
+
+### 6.4.0 (2026-11-17)
+- (@GermanBluefox) A chart can show an arrow at each side that moves the time range by its own length: a week back for "7 days", the month before for "this month". After a click into the chart the arrow keys ← and → do the same. The option "Show arrows for the previous and next period" is in the time settings of the preset; it works for lines and for bars, which stay on their raster of days, weeks or months. Stepping forward back to the present brings the live update back
 - (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+- (@GermanBluefox) Updated packages
+- (@GermanBluefox) The editor lists the states of a running history instance from its answer to `getEnabledDPs` and no longer only from `common.custom`, so the states that the recorder selects by itself appear as well
 
 ### 6.3.0 (2026-11-09)
 - (@GermanBluefox) Added web component `<iob-echarts-chart>` for Aura and other hosts (`common.webComponents`)
 - (@GermanBluefox) Fixed: a chart drawn without iframe kept the first fixed time range and ignored every later one
-
-### 6.2.0 (2026-11-09)
-* (GermanBluefox) Bars and lines can be combined in one chart: changing the type of one line no longer changes all the others, and the lines are drawn on their own time axis over the bars (#1319)
-* (GermanBluefox) Bars can be drawn stacked, side by side or overlapping: overlapping bars all start at zero, so a color with transparency shows the bars behind them (#1318)
-* (GermanBluefox) The chart no longer fails with "Show sum over the stack" if the automatic grid padding is off, and the sum disappears when the option is switched off
-* (GermanBluefox) The tooltip can show only the line nearest to the mouse instead of all lines, for charts with many lines (#1280)
-
-### 6.1.0 (2026-10-30)
-* (GermanBluefox) Ask before unsaved preset changes are lost by reloading or leaving the editor (#1290)
-* (GermanBluefox) Bars per day, week or month show the right values after a switch of the daylight saving time. The history adapter split the range into equally long intervals, so after the 25-hour day every value written at 23:59:59 was shown one day later and the day of the switch stayed empty. The chart now sends the borders of its bars along; this needs ioBroker.sql, ioBroker.history or ioBroker.influxdb with `@iobroker/aggregate` 1.1 (#1311)
-* (GermanBluefox) Copying a preset of an older version does not break the editor anymore: the copy was stored without any lines, and the "Diagrams" tab stayed empty every time it was opened. A preset without lines opens as an empty one now (#1285)
-* (GermanBluefox) A line with a thickness stored as text, e.g. "3", is clipped at the border of the grid again instead of being drawn over the X-axis (#1284)
-* (GermanBluefox) The CSV export keeps its line breaks in Firefox: the file was a `data:` URL, from which Firefox removes them, and a `#` in an ID cut the file off (#1282)
-* (GermanBluefox) "Digits after comma" of a line can be emptied again to use the setting of the chart, and 0 is shown as 0 instead of an empty field. The empty field shows which value is used instead (#1288)
-* (GermanBluefox) The chart and the preview opened through the web adapter under the admin address (`/adapter/echarts/...`) move to the address of the web adapter on any port, not only on 8082. The preview offers the link over the own host first, so it also works behind a reverse proxy, and a copied link is absolute (#1273, #1230)
-* (GermanBluefox) Every color of the chart (background, title, labels, ticks, grid, legend, bar labels, border and buttons) can get an own value for the dark theme. With the theme "auto", a chart in vis-2 can thus be adjusted to the light and the dark mode; empty, the color stays the same in both (#1312)
-
-### 6.0.0 (2026-10-14)
-- (@GermanBluefox) Added chart mode "Gauge" (rings or pointers)
-- (@GermanBluefox) Added chart mode "Donut"
-- (@GermanBluefox) Added "Chart mode" setting (Mixed, Donut, Bar, Radar, Gauge); "One bar per line" and "polar" lines are migrated
-- (@GermanBluefox) Added vis-2 widget "E-Charts time range"
-- (@GermanBluefox) vis-2 and devices widgets can draw the chart without an iframe (experimental)
-- (@GermanBluefox) The time range can be passed in the URL hash and changed without reload
-- (@GermanBluefox) Fixed: dark chart in vis-2 was shown on a white background
-- (@GermanBluefox) Fixed: chart in vis-2 did not follow theme changes
-- (@GermanBluefox) Fixed: "undefined" after values without unit
-- (@GermanBluefox) Fixed: overlapping labels in the gauge
-- (@GermanBluefox) Fixed: radar axes were labelled "undefined"
-- (@GermanBluefox) Gauge uses Min/Max of the lines; empty scale ends follow the values
-- (@GermanBluefox) Fixed: gauge showed zero for lines with aggregation other than "current"
-- (@GermanBluefox) Settings that have no effect in the current chart mode are hidden
-- (@GermanBluefox) Only "standard" and "JSON" sources are offered where no history is read; any state can be selected there
-- (@GermanBluefox) JSON source works for current-value charts
-- (@GermanBluefox) Fixed: chart without iframe kept growing or crashed on early time range
-- (@GermanBluefox) Fixed: switching the chart mode left parts of the old chart
-- (@GermanBluefox) Fixed: line ID field lost focus while typing
-- (@GermanBluefox) Fixed: chart setting "After comma" was ignored
-- (@GermanBluefox) Fixed: dropdown tooltip covered the open list
-- (@GermanBluefox) Fixed missing translations of slider labels
-- (@GermanBluefox) Source "standard" can be selected in the opened line too; history sources show the adapter icon
-- (@GermanBluefox) "Expand all" / "Collapse all" are shown for a single entry too
-- (@GermanBluefox) Added widget description to the vis-2 palette tooltip
-- (@GermanBluefox) Build scripts migrated to TypeScript
-
-### 5.1.1 (2026-08-31)
-- (@GermanBluefox) Many GUI fixes
 
 ## License
 

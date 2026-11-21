@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-tools
-hash: 6R2tDpkRmj7rCzgPkl8R1XTZ+58uJYhwQ1t8e4L3MqE=
+hash: SbBOsflLgBbtVCz7AMnPqhsranAWeLx49H+9DHIWcUA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -33,6 +33,38 @@ hash: 6R2tDpkRmj7rCzgPkl8R1XTZ+58uJYhwQ1t8e4L3MqE=
 ### Пинг настроенных IP-адресов
 
 Отправляет пинги на указанные IP-адреса с заданным интервалом и отслеживает результаты (активность, RPS, время). Интервал пинга можно задать на уровне устройства.
+
+#### Задержка и потеря пакетов
+
+Каждый пинг отправляет несколько пакетов (настройка параметра "Пакетов на пинг" устройства, по умолчанию 4, максимум 20). На основе полученных ответов net-tools вычисляет:
+
+| Состояние                       | Значение                                                         |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `ping`                          | Время прохождения последнего ответа в обе стороны (мс)           |
+| `pingMin` /`pingMax` /`pingAvg` | Минимальное/максимальное/среднее время кругового пути пинга (мс) |
+| `packetLoss`                    | Потерянные пакеты пинга в процентах                              |
+
+Времена остаются без ответа. `null` и `packetLoss` равно 100. Каждый пинг занимает примерно одну секунду на пакет.
+
+#### Расширенное обнаружение (смартфоны)
+
+Смартфоны, такие как iPhone, часто не отвечают на пинги в спящем режиме и отображаются как офлайн. Включите «Расширенное обнаружение (смартфоны)» в настройках устройства (диспетчер устройств). Если устройство не отвечает на пинг, net-tools отправляет UDP-пакет на порт 5353 и пытается установить TCP-соединение с портом 62078, что активирует беспроводную сеть устройства, а затем проверяет, отвечает ли устройство на ARP-запрос своим MAC-адресом. Для этого не требуются права root и дополнительные инструменты (например, hping3).
+
+- Работает только для устройств в подсети хоста ioBroker (ARP не проходит через маршрутизаторы).
+- В Linux проверяется состояние записи ARP (`ip neigh` Поэтому устаревшие записи не учитываются. В других системах используется таблица ARP, которая может показывать, что устройство присутствовало некоторое время после того, как оно покинуло систему.
+- iPhone: установите для домашней сети параметр «Частный Wi-Fi-адрес» в положение «Фиксированный» или «Выкл.». При выборе параметра «Постоянный» MAC-адрес изменяется, и устройство перестает обнаруживаться.
+
+#### Мониторинг сервисов (TCP ping)
+
+В настройках устройства (диспетчере устройств) можно добавить службы в таблице «Службы (TCP-порты)». Каждая запись имеет свои собственные настройки:
+
+| Столбец         | Значение                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Порт            | TCP-порт службы, например `80`, `443`, `1883`                                                                                |
+| Интервал (с)    | Как часто проверяется порт. Если пусто, то интервал пинга устройства составляет минимум 5 секунд.                           |
+| Допуск (отказы) | Количество подряд неудачных проверок, которые игнорируются до того, как служба отобразится как недоступная. `0` = немедленно |
+
+net-tools пытается установить TCP-соединение с портом (таймаут 2 с) независимо от результата пинга. Состояние `net-tools.X.<device>.services.port_<port>` является `true` если соединение было установлено и `false` После того, как более чем одна проверка "Допуск" подряд не пройдена, состояния портов, удаленных из таблицы, удаляются. Изменения вступают в силу немедленно.
 
 ### Wake-on-LAN
 
@@ -68,17 +100,64 @@ hash: 6R2tDpkRmj7rCzgPkl8R1XTZ+58uJYhwQ1t8e4L3MqE=
 
 `sendToAsync('net-tools.x', 'wake', 'MAC ADDRESS')`
 
+Команда `'wol'` Работает тоже. Возвращает `true` если пакеты были отправлены.
+
+#### сканирование портов
+
+`sendToAsync('net-tools.x', 'portScan', { ip: 'IP ADDRESS', ports: '22,80,443' })`
+
+`ports` является необязательным; без него используется список портов из настроек адаптера. Возвращает `{ host, ports: [open ports], error? }`.
+
+#### Описание всех сообщений
+
+`sendToAsync('net-tools.x', 'help', {})`
+
+Возвраты `{ help, commands }`: описание всех сообщений и состояний, написанное для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов. `commands` перечисляет все сообщения с `write: true` Если это что-то изменит.
+
+#### Blockly
+
+Адаптер предоставляет блоки Blockly в категории "SendTo" адаптера JavaScript:
+
+- **Ping (net-tools)** – отправляет ping-запрос на IP-адрес или имя хоста.
+- **Сканирование портов (net-tools)** — сканирует порты IP-адреса или имени хоста.
+- **Wake-on-LAN (net-tools)** – отправляет пакеты Wake-on-LAN на MAC-адрес.
+- **net-tools device** – выбирает устройство, найденное программой net-tools, и возвращает его IP-адрес или MAC-адрес. Может быть подключен к входам IP/MAC блоков, указанных выше. IP-адрес считывается при запуске скрипта, поэтому изменения IP-адреса учитываются.
+- **net-tools result** – возвращает информацию о доступности, времени ответа, открытых портах, хосте или ошибке блока ping или сканирования портов. Используйте его только внутри блока "then" этих блоков.
+
 ---
 
 ## Changelog
-
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 1.3.0 (2026-10-11)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 - (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
+- (Jey Cee) Migrate from oui to oui-data
+- (Jey Cee) Add port scan action to device management
+- (Jey Cee) Show IP address and open ports in device details
+- (Jey Cee) Create quicklinks for web ports found by port scan
+- (Jey Cee) Call ping.exe directly on Windows instead of using process.env (compact mode)
+- (Jey Cee) Update @all-smart/all-smart-tools to 1.0.16
+- (Jey Cee) Fix adapter crash when port scan runs on an offline device (#63)
+- (Jey Cee) Use default port list if port list in configuration is missing or empty
+- (Jey Cee) Fix sendTo commands (wake/wol, ping, getMac, addDevice, deleteDevice, updateDevice) being ignored (#71)
+- (Jey Cee) Fix "Wake-on-LAN with IP" sending packets to localhost (#71)
+- (Jey Cee) Wake-on-LAN: also send to the broadcast address of the device subnet, log sent packets, no endless retries on errors
+- (Jey Cee) Add sendTo command portScan
+- (Jey Cee) Add Blockly blocks for ping, port scan and Wake-on-LAN
+- (Jey Cee) Add Blockly block to select a device found by net-tools
+- (Jey Cee) Add extended detection for devices that do not answer pings while sleeping (e.g. iPhone)
+- (Jey Cee) Fix changed device settings (Wake-on-LAN with IP) not being applied until restart
+- (Jey Cee) Add service monitoring via TCP ping for multiple ports per device, with interval and tolerance per port
+- (Jey Cee) Device settings dialog uses the available width (multi-column layout)
+- (Jey Cee) Add latency (ping, min, max, avg) and packet loss per device, with configurable packets per ping
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 1.2.3 (2025-11-09)
 * Change link to license
 
@@ -91,57 +170,14 @@ hash: 6R2tDpkRmj7rCzgPkl8R1XTZ+58uJYhwQ1t8e4L3MqE=
 ### 1.2.0 (2025-06-11)
 * Added network interface information for localhost to device manager
 
-### 1.1.3 (2025-06-05)
-* Fix out of memory while scanning
-
-### 1.1.2 (2025-04-21)
-* (Jey Cee) Add meta object object for instance to store device pictures from device manager
-* (Jey Cee) Fix repository checker errors
-
-### 1.1.1 (2025-03-13)
-* (Jey Cee) Fix "Cannot read properties of undefined (reading 'find')"
-
-### 1.1.0 (2025-02-04)
-* (Jey Cee) New feature ignore list for autodiscovery
-* (Jey Cee) New feature Wake-on-LAN with IP for devices on other subnets
-* (Jey Cee) Optimize config for better responsive behavior
-* (Jey Cee) Sync license key on all instance configurations if a key was already entered in one instance configuration
-* (Jey Cee) Moved translations from configuration interface to i18n files
-* (Jey Cee) Update dependencies
-* (Jey Cee) Fix some stuff that was mentoined by adapter checker
-
-### 1.0.11 27.03.2024
-* (Jey Cee) Fix high CPU load while running discovering devices
-
-### 1.0.9 19.03.2024
-* (Jey Cee) Fix unexpected stop of discovery
-
-### 1.0.6 04.03.2024
-* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
-
-### 1.0.5 04.02.2024
-* (Jey Cee) remove discovery adapter as dependency
-* (Jey Cee) add possibility to choose the interface which will be used for ping operations
-* (Jey Cee) add possibility to enter IP range for device discovery
-* (Jey Cee) add auto search by configurable schedule
-* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
-* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
-
-### 1.0.2 20.01.2024
-* (Jey Cee) bugfix require
-
-### 1.0.1 19.01.2024
-* (Jey Cee) add device manager to configuration
-* (Jey Cee) add use of license
-
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.net-tools/blob/master/CHANGELOG_OLD.md)
-
 ## License
 Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
 
 Copyright (c) 2025-2026 Jey Cee <iobroker@all-smart.net>
 
 http://creativecommons.org/licenses/by-nc/4.0/
+
+The complete license text can be found in the [LICENSE](https://github.com/Jey-Cee/ioBroker.net-tools/blob/master/LICENSE) file.
 
 Short content:
 Licensees may copy, distribute, display and perform the work and make derivative works based on it only if they give the author or licensor the credits in the manner specified by these.

@@ -125,6 +125,39 @@ The **Controls** tab is available for Grohe Sense Guard and Grohe Blue devices. 
 
 ---
 
+## Web component
+
+The adapter brings the web component **Grohe appliance** (`<iob-grohe-device-card>`, [ioBroker web-components](https://github.com/ioBroker/web-components)).
+Hosts such as devices, vis-2 or admin offer it in their palette; it looks like the Device Manager card.
+
+| Part | Content |
+|---|---|
+| Header | appliance icon, name, type; status icons: connection / WiFi quality, battery (Sense), valve closed (Sense Guard), update available. Red when offline |
+| ⓘ button | dialog with information the card does not show: appliance ID, type, online, WiFi quality, update, last measurement, latest notification with category and time; Sense Guard: average daily / monthly consumption, last withdrawal, pressure measurement (time, drop, leakage), snooze duration; Blue: maintenance (filter in the app, last cleaning / CO₂ / filter replacement, counters) and operation (operating and pump times, tap cycles, water running times, idle time, power cuts). The states are read once when the dialog opens; rows without a value are left out. Works while the appliance is offline |
+| **Info** tab | the values of the Device Manager tile (Sense: temperature, humidity, battery; Sense Guard: valve, water temperature, flow rate, pressure, daily / total consumption, pressure drop; Blue: CO₂ and filter in % and liters), last measurement and latest notification |
+| **Controls** tab (Sense Guard) | open / close valve, start pressure measurement (only while the valve is closed), start snooze (asks for the duration) / stop snooze, withdrawal amount limit, sprinkler mode (times and days in one dialog, saved in one call) |
+| **Controls** tab (Blue) | tap type, amount (± 50 ml), dispense; reset CO₂ / filter after a confirmation |
+
+| Setting | Meaning |
+|---|---|
+| Instance | adapter instance (empty: `grohe-smarthome.0`) |
+| Appliance | appliance of the instance (empty: the first one); the list comes from the adapter (`sendTo` command `getDevices`) |
+
+Commands go through the same `controls.*` states as the Device Manager, so the adapter handles them as usual:
+values first (e.g. `controls.snooze.duration`, `controls.tapType`, `controls.tapAmount`), the trigger last. The card
+sends no extra requests to the Grohe cloud and does not change the polling strategy. While an appliance is offline
+the controls are disabled; in the editor of a host the card writes nothing.
+
+| Host | Note |
+|---|---|
+| devices (≥ 4.3) | edit mode → "Add widget" → "Grohe Smarthome" → "Grohe appliance"; the 2×2 size fits best. After an update, upload the adapter files again (`iobroker upload grohe-smarthome`) and reload the page |
+| Aura | set **Click on the component** to **Component** in the widget settings, otherwise Aura keeps the clicks |
+
+Source: `src-webcomponents/`; `npm run build` bundles it into `admin/webcomponents/device-card.js` (the built file is committed).
+`common.webComponents` in `io-package.json` lists the plain manifest path, because devices 4.4 ignores the object short form.
+
+---
+
 ## ioBroker State Structure
 
 Devices are created under the adapter namespace:
@@ -411,6 +444,9 @@ Fallback mode is detected once on startup and maintained for the lifetime of the
 |---|---|
 | `main.js` | Adapter core: polling, state management, command handling, Device Manager messages |
 | `lib/device-manager.js` | Device Manager integration: tiles, info/controls tabs, per-device templates |
+| `lib/web-components.js` | Backend of the web component: appliance list for its settings (`getDevices`) |
+| `src-webcomponents/` | Web component source (browser ESM); bundled into `admin/webcomponents/` by `npm run build` |
+| `admin/webcomponents/` | Web component manifest (hand-written), icon and built module |
 | `lib/groheClient.js` | Grohe API client: authenticated requests, token renewal / re-login on 401 |
 | `lib/waterConsumptionTracker.js` | Persistent total water consumption of the Sense Guard |
 | `lib/auth.js` | OAuth / Keycloak login and token refresh |

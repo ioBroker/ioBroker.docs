@@ -106,8 +106,8 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (arteck) fixed forceReason 
+### 0.6.10 (2026-11-15)
+* (arteck) fixed forceReason
 
 ### 0.6.9 (2026-11-07)
 * (arteck) fix for arm disarm
@@ -126,11 +126,6 @@ or if you have a VM on proxmox check your CPU settings
 ### 0.6.6 (2026-09-30)
 * (arteck) Dependencies have been updated
 * (arteck) fix internal mqtt with node 24
-
-### 0.6.5 (2026-08-27)
-* (arteck) async fix
-* (arteck) fix battery info
-* (arteck) fix orphaned states without house folder from MQTT messages for stations not yet known (startup race and newly added devices)
 
 ## License
 

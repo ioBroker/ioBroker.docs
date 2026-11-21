@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: 8Ndlwz3KyR1bjp1vC8w24cSSo9yeGwaog2bWOE8WKHk=
+hash: oZbE/CJrWLMH9S/H3xmDSRlTaNMHaMNiUtgo8z0/uSY=
 ---
 ![Logo](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -24,6 +24,10 @@ Um diesen Adapter zu verwenden, benötigen Sie eine Hardware, die den NMEA-2000-
 PiCAN-M ist mit Raspberry Pi 4 und [5](https://copperhilltech.com/blog/testing-pican-can-bus-hats-with-the-raspberry-pi-5/) kompatibel.
 
 ![Widgets](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
+
+Das Widget „NMEA Complex“ wird viermal in einer vis-2-Ansicht angezeigt, wobei jede Instanz eine Anzeige enthält: Wind, Kompass, Ruder und Autopilot.
+
+![Vis-2-Widgets: Wind, Kompass, Ruder, Autopilot](../../../en/adapterref/iobroker.nmea/img/vis2-widget-instruments.png)
 
 [YouTube-Erklärung](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
 
@@ -116,35 +120,55 @@ Zusätzlich gibt es einen schreibgeschützten Komfortzustand `seatalkPilotWindDa
 
 Verwenden `windDatumDisplay` zur Visualisierung und `windDatum` für Berechnungen/Automatisierung.
 
+## Webkomponenten
+
+Neben den vis-2-Widgets und den Geräte-Widgets bietet der Adapter Webkomponenten für Aura und andere Hosts (`common.webComponents`, `admin/webcomponents/` Jedes Modul stellt ein einzelnes Element dar und zeigt dasselbe an wie sein natives Widget:
+
+| Etikett                    | Shows                                                                                                                | Einstellungen                                                                       |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `iob-nmea-wind`            | Windinstrumente: scheinbarer und wahrer Wind, Kurs, COG, Strömung und Drift, AWS, TWS, STW, SOG                      | Beispiel: Winddrehungsverlauf, Amwindzone, Geschwindigkeitseinheit, Segeltrimm      |
+| `iob-nmea-history-chart`   | Live-Diagramm eines Zustands mit Min-/Avg-/Max-Linien, gefüllt aus der Standard-Verlaufsinstanz                      | Zustand, Beschriftung, Einheit, Zeitfenster, Y-Achse, Linien, Dezimalstellen, Farbe |
+| `iob-nmea-autopilot`       | Autopilotmodus, Kurs fixiert, Seitenruder und die Tasten zum Steuern (größere Änderungen erfordern eine Bestätigung) | Beispiel: AWA, Ruderstange                                                          |
+| `iob-nmea-ais-radar`       | AIS-Ziele rund um das eigene Boot auf einer Seekarte, mit Spuren und COG-Vektoren                                    | Instanz, Bereich, ausblenden nach, Vektoren, Kurs nach oben, eigene MMSI            |
+| `iob-nmea-anchor-position` | Anker, Boot, Schwenkkreis, Kurs und Ankeralarm auf einer Karte; im Dialog werden Anker und Alarm eingestellt.        | Beispiele: Anker-/Bootsposition, Kettenlänge, Tiefe beim Absetzen, Kartenstil       |
+| `iob-nmea-instrument`      | Bis zu vier Werte wie bei einem Schiffsinstrument, jeweils einer nach dem anderen                                    | pro Wert: Bundesstaat, Name, Einheit, Ziffern, Farbe, Pluszeichen, Blinken ändern   |
+| `iob-nmea-compass`         | Kompass mit Kurs über Grund, wahrer Windrichtung und Ruder (das "Navigationsfenster" des vis-2-Widgets "Komplex")    | zum Beispiel Ruder                                                                  |
+| `iob-nmea-rudder`          | Ruderwinkelanzeige mit Zoomfunktion für kleine Winkel (das Fenster „Ruder“ des vis-2-Widgets „Complex“)              | Instanz, voller Bereich, Zoomschwelle, Hysterese                                    |
+
+Die Quellen sind in `src-webcomponents/`; `npm run build:wc` baut sie.
+
+## Danksagungen
+
+NMEA 2000-Dekodierung durch [canboatjs](https://github.com/canboat/canboatjs) unter Verwendung der [CANboat](https://github.com/canboat/canboat) PGN-Datenbank (Apache-Lizenz 2.0).
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.1.1 (2026-11-09)
+- (@GermanBluefox) Web components: the heading of the wind display no longer covers a compass label, and the label of the outer ring of the AIS radar no longer sits on the "N"
+
+### 3.1.0 (2026-11-08)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) The maps of the AIS radar and the anchor position work again: CARTO asks for an API key now, they use Esri Dark Gray and OpenStreetMap
+- (@GermanBluefox) Added the web components `iob-nmea-wind`, `iob-nmea-history-chart`, `iob-nmea-autopilot`, `iob-nmea-ais-radar`, `iob-nmea-anchor-position`, `iob-nmea-instrument`, `iob-nmea-compass` and `iob-nmea-rudder` for Aura and other hosts (`common.webComponents`)
+- (@GermanBluefox) The switch of the anchor position widget now arms the anchor watch instead of showing the alarm, which turns the alarm circle red; the widget "Instrument" is no longer a musical instrument in Chinese
+- (@GermanBluefox) The anchor position widget can be given the chain length and the depth at drop for its swing circle; its settings show proper labels and help texts
+- (@GermanBluefox) The anchor position widget speaks all languages, shows the anchor of the anchor alarm when no anchor position is chosen and loads the track from the history also for the own GNSS position; the settings "split view" and "sail trim" of the wind and autopilot widgets are translated into all languages
+
+### 3.0.2 (2026-10-27)
+- (@GermanBluefox) Deleted the states without object at the start, e.g. the AIS data of old vessels left by versions before 1.0.0 (needs js-controller 7.2.3 or newer)
+
+### 3.0.1 (2026-10-19)
 - (@GermanBluefox) Migrated widgets to React 19
 
 ### 2.0.0 (2026-08-04)
 - (bluefox) Migrated to devices V3
-
-### 1.0.3 (2026-07-08)
-- (bluefox) Better decoding of motor PGNs
-
-### 1.0.2 (2026-06-30)
-- (copilot) Adapter requires node.js >= 22 now
-- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
-- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
-- (bluefox) Added the custom icon set
-
-### 1.0.1 (2026-06-26)
-* (bluefox) Implemented Raymarine autopilot support
-* (bluefox) Corrected values simulation for yacht devices gateways
-* (bluefox) Added support of Fusion player
-
-### 0.4.2 (2026-01-05)
-* (bluefox) Updated packages
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.nmea/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

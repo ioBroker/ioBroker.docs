@@ -143,6 +143,10 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Schimi1983) Fix state metadata: buttons are write-only, `volume_lock` uses role `switch`, `connected_ip` uses role `info.ip`, `group_volume` gets range 0-100, valid time units
+* (Schimi1983) Remove roles from folder objects, set `dataSource` to `push`, translate the heartbeat header in the settings
+
 ### 3.2.4 (2026-10-04)
 * (withstu) Update dependencies
 * (withstu) Fix #549

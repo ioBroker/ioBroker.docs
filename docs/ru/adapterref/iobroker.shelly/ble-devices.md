@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: 4MfiaMY6Cev6QVHb7fz+v9YrGR+6MN96jHo9/7LQyoY=
+hash: tak8ddyi+iwp5rNGq48akuDOBlFjh9HcQncKCGfZ6TU=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -30,6 +30,8 @@ hash: 4MfiaMY6Cev6QVHb7fz+v9YrGR+6MN96jHo9/7LQyoY=
   }
 }
 ```
+
+Когда BLE-устройство перезапускается (снова начинает работу с низким идентификатором пакета и отправляет информацию о своем устройстве), время в `shelly.0.ble.<macAddress>.lastRestart` Данные были сохранены, и в журнал было записано предупреждение. Частые перезагрузки, например, при каждом нажатии клавиши, обычно указывают на разряженную батарею.
 
 ### Видеоуроки по Shelly BLE на YouTube (на немецком языке)
 
@@ -57,6 +59,8 @@ hash: 4MfiaMY6Cev6QVHb7fz+v9YrGR+6MN96jHo9/7LQyoY=
 
 _Начиная с версии скрипта v1.0, обработка BLE-сообщений перенесена в ioBroker. Более старые версии могут не работать на устройствах Gen3, поскольку им требуется больше ресурсов для распаковки Bluetooth-сообщений._
 
+**ПРИМЕЧАНИЕ:** Сканирование Bluetooth не поддерживается устройствами Gen4 с прошивкой Zigbee (режим Zigbee), см. <https://shelly-api-docs.shelly.cloud/gen2/ComponentsAndServices/BLE/#bluetooth-scan> . В этом случае выполнение скрипта шлюза BLE будет завершено. `Cannot read property 'Start' of undefined` Устройства, предназначенные для использования в качестве BLE-шлюзов, должны работать со стандартной прошивкой (WLAN).
+
 ## Шифрование
 
 Поддержка шифрования появилась начиная с версии адаптера >10.0.0.
@@ -64,7 +68,7 @@ _Начиная с версии скрипта v1.0, обработка BLE-со
 - Используйте приложение Shelly Debug (например, на смартфоне Android), чтобы зашифровать устройство.
 - Скопируйте ключ шифрования
 - Инициируйте новое событие BLE для генерации необходимых состояний.
-- Ключ шифрования в `shelly.0.ble.<macAddress>.encryptionKey` сохранить (с помощью) `ack: false`)
+- Ключ шифрования в `shelly.0.ble.<macAddress>.encryptionKey` сохранить (с `ack: false`)
 
 После этого можно будет расшифровать следующее событие BLE.
 

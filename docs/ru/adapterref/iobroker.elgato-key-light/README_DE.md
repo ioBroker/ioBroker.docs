@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elgato-key-light/README_DE.md
 title: ioBroker.elgato-key-light
-hash: 1fCThb25RZ0vw4eoU/+7eh0Go/1d9S6r0KQg4tCii6A=
+hash: WIbsXPq4eQ9uB7WTNDsLCzuFeF+398k0Zk/jn2HEEjg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.elgato-key-light/admin/elgato-key-light.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.elgato-key-light.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elgato-key-light.svg)
-![Монтаж](https://iobroker.live/badges/elgato-key-light-installed.svg)
+![Монтажены](https://iobroker.live/badges/elgato-key-light-installed.svg)
 ![Стабильный](https://iobroker.live/badges/elgato-key-light-stable.svg)
 
 # ioBroker.elgato-key-light
@@ -34,7 +34,7 @@ Einzelheiten zu den übermittelten Informationen und eine Anleitung zum Deaktivi
 Привязка адаптера Elgato-Leuchten в ioBroker ein. Вы можете использовать такие объекты, скрипты, изображения, визуальные эффекты и другие адаптеры ioBroker-Adapter. Типичный Anwendungen sind:
 
 - Studioleuchten zusammen mit einem Streaming- или Aufnahme-Setup Schalten;
-- Температура окружающей среды и температура окружающей среды;
+- Helligkeit und Farbtemperatur abhängig von der Tageszeit einstellen;
 - einen Elgato Light Strip über RGB-/HSV-Farben steuern;
 - Erreichbarkeit und Zeitpunkt der nächsten Abfrage überwachen;
 - Akku- und Ladestatus eines Key Light Mini anzeigen;
@@ -88,7 +88,7 @@ Netzwerksuchen zeigen nur verfügbare Geräte an. Если устройство 
 | Запись задержки                |   200 мс | Быстрый доступ к Slider-Änderungen zu weniger API-Anfragen zusammen |
 | Тайм-аут обнаружения           |  5000 мс | Dauer eines Bonjour-/mDNS-Suchlaufs                                 |
 
-В зависимости от интервала опроса актуальные данные будут проверены, будут проверены Netzwerk и Gerät aber Stärker. Schalter und Slider на Dashboard были оптимистичными в актуальном состоянии: Ваш выбор действий — это удобная панель, где вы можете найти лучшее сообщение.
+В зависимости от интервала опроса актуальные данные будут проверены, а также проверены и проверены. Schalter und Slider на Dashboard были оптимистичными в актуальном состоянии: Ваш выбор действий — это удобная панель, где вы можете найти лучшее сообщение.
 
 ## Bedienung über das Dashboard
 
@@ -96,19 +96,19 @@ Netzwerksuchen zeigen nur verfügbare Geräte an. Если устройство 
 
 - **Power** schaltet die Leuchte ein oder aus.
 - **Яркость** может варьироваться от 0 до 100 процентов.
-- **Температура** регулируется в диапазоне от 2900 К до 7000 К.
+- **Температура** регулируется в пределах от 2900 К до 7000 К.
 - **Цветовая** палитра в формате RGB используется в браузерах.
 - В **режиме «Студия»** можно включить мини-подсветку клавиши в режиме обхода акку, когда прошивка будет выполнена вместе.
 - Определите последнюю функцию **идентификации** .
 - **Повторно подключите** устройство так, чтобы оно снова отключилось.
 
-Карточка должна быть указана в режиме онлайн/оффлайн, ответах, версии встроенного ПО, полученной информации и живом таймере для вашего текущего счета. **Все включено** и **все выключено.** **Обновите** данные Dashboard-Daten neu; **Диагностика** zeigt Laufzeit- und Gerätedaten für die Fehlersuche.
+Карточка всегда отображается в режиме онлайн/оффлайн, ответах, версии встроенного ПО, полученной информации и живом таймере для вашего текущего счета. **Все включено** и **все выключено.** **Обновите** данные Dashboard-Daten neu; **Диагностика** zeigt Laufzeit- und Gerätedaten für die Fehlersuche.
 
 Beim Ändern der Farbe eines Light Strip bleibt die separat eingestellte Helligkeit erhalten. Датенпункте `hex` унд `rgb` bilden jedoch die aktuell ausgegebene Farbe einschließlich Helligkeit ab. Derselbe blaue Farbton может быть снят с 50-ти процентными ставками и другими `#000080` und bei 100 Prozent als `#0000FF` angezeigt werden.
 
 ## Steuerung über ioBroker-Datenpunkte
 
-Обратите внимание на то, что вы должны указать свой статус на базисном серийном номере:
+Обратите внимание на то, что необходимо соблюдать стандартный номер серийного номера:
 
 ```text
 elgato-key-light.<Instanz>.<Seriennummer>
@@ -172,7 +172,7 @@ Wird ein Gerät über das Papierkorb-Symbol gelöscht, wird es aus der Laufenden
 
 ### Ein Gerät wird nicht gfunden
 
-- Prüfen, ioBroker-Host и Leuchte einander в локальной сети Netzwerk не работают.
+- Prüfen, ioBroker-Host и Leuchte einander в локальном Netzwerk erreichen können.
 - Для такого типа Multicast-DNS/UDP 5353 и Weiterleitung von `_elg._tcp.local.` prüfen.
 - Частный IP-адрес или собственный IP-адрес `.local` -Имя хоста должно быть указано вручную, если такая сеть VLAN не может быть использована.
 - Убедитесь, что TCP-порт 9123 не работает и не работает при изолированном проводе Gast-WLAN-Regel.
@@ -222,7 +222,13 @@ npm run build
 
 ## Änderungsverlauf
 
-### **РАБОТА В ПРОЦЕССЕ**
+### 2.0.1 (2026-10-13)
+
+- (hwiedermann) Nur eine Warnung pro Geräteausfall; weitere Fehler werden auf Debug-Ebene protokolliert (behebt #308, PR #309).
+- (xXBJXx) Abhängigkeiten actualisiert und die Admin-Oberflächen neu gebaut.
+- (xXBJXx) Момент в файлах блокировки в актуальной версии 2.31.0 и регрессионных тестах, выполняемых при манипуляциях с локалью и Pfad (GHSA-4p3w-j4w9-5jqw).
+
+### 2.0.0 (2026-08-16)
 
 - (xXBJXx) Бэкэнд с действительным HTTP-клиентом, поддержкой, надежным опросом и запуском Bonjour-/mDNS-Suche überarbeitet.
 - (xXBJXx) Установка режима настройки RGB, температуры, режима Akku и Studio-Modus, чтобы обеспечить мгновенную тренировку и безопасную работу.

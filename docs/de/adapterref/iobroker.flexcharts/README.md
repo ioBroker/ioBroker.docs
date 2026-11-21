@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: nHTlQfdjQGjC5c/NQgW3KY1lc12Tjkz2z5oIwgINA7E=
+hash: Bnw8y5T/FhP+FPKNZILF/FQAewDDdUx0c5ow9VC+Qwo=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -26,6 +26,13 @@ Werfen Sie einen Blick in die [ECharts-Demogalerie](https://echarts.apache.org/e
 
 Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 
+## Was ist neu in Version 0.7.4?
+
+**Kein weißer Rahmen mehr um eingebettete Diagramme in VIS / VIS2** – die Seite um das Diagramm herum übernimmt nun die Hintergrundfarbe des Diagramms:
+
+- Verwendung `backgroundColor` der Diagrammdefinition oder des aktiven Themas (z. B. mit `&darkmode`)
+- Die Diagrammgröße bleibt unverändert; Diagramme ohne Hintergrundfarbe (oder mit Farbverlauf) behalten wie bisher eine transparente Seite.
+
 ## Was ist neu in Version 0.7.3?
 
 **Konfigurierbares Timeout für `source=script` Widgets** – vermeidet fälschliche Timeout-Fehler bei rechenintensiven oder koordinierten/seriellen Diagrammkonfigurationen:
@@ -40,14 +47,6 @@ Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 - Zwei neue, anfängerfreundliche Vorlagen: [Vorlage 6](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate6.js) (Energie-Stacked-Bar-Chart mit History-Adapter-Daten) und [Vorlage 7](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate7.js) (reaktives Gauge-Chart mit SSE-Auto-Update).
 - Verbesserte Kommentare und STEP-Markierungen in allen bestehenden Vorlagen (1–5)
 - Neues [Wiki mit Kochbuch](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki) : Schritt-für-Schritt-Anleitungen zum Erstellen von Live-Diagrammen von Grund auf – siehe [Weitere Beispiele und Ressourcen](#further-examples-and-resources)
-
-## Was ist neu in Version 0.7.1?
-
-**SSE-Chartaktualisierungen ohne Seitenneuladen** – bei Verwendung `&sse` Das Diagramm wird nun direkt aktualisiert, anstatt die gesamte Seite neu zu laden:
-
-- ECharts-Animationen laufen bei jeder Datenaktualisierung reibungslos.
-- Kein Flackern oder Diagrammneuaufbau beim Aktualisieren
-- Funktioniert transparent für alle bestehenden `&sse` URLs – keine Änderungen erforderlich
 
 ## So funktioniert es
 
@@ -298,6 +297,10 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.4 (2026-10-17)
+* (MyHomeMyData) Page background now follows the chart's background color (option or theme) to avoid a white frame around charts embedded in VIS/VIS2 iframes
+* (MyHomeMyData) SSE timers now use adapter.setInterval() so they are cleaned up when the web adapter stops
+
 ### 0.7.3 (2026-08-24)
 * (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
 
@@ -313,13 +316,9 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 ### 0.7.0 (2026-04-15)
 * (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
 
-### 0.6.2 (2026-04-13)
-* (MyHomeMyData) Restructuring of code for better readability and improved performance.
-* (MyHomeMyData) Restructuring of Readme for better readability.
-
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

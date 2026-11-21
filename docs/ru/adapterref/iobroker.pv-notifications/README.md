@@ -3,9 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pv-notifications/README.md
 title: ioBroker PV Notifications Adapter
-hash: Zxkd51aXJw5pHEzv6vjGzcD00gJ64rryrb523LHNg2Y=
+hash: 3Wn+pMudfeoecRYQXxj03l3YlqvlaykGx7Yxn4pAyYQ=
 ---
 # ioBroker PV Notifications Adapter
+
+![Стабильный](https://iobroker.live/badges/pv-notifications-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.pv-notifications.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.pv-notifications.svg)
+![Лицензия](https://img.shields.io/github/license/sadam6752-tech/ioBroker.pv-notifications.svg)
+![НПМ](https://nodei.co/npm/iobroker.pv-notifications.png?downloads=true)
+![Тестирование и выпуск](https://github.com/sadam6752-tech/ioBroker.pv-notifications/actions/workflows/test-and-release.yml/badge.svg)
+![Количество установок](https://iobroker.live/badges/pv-notifications-installed.svg)
 
 ![Логотип](../../../en/adapterref/iobroker.pv-notifications/admin/pv-notifications.png)
 
@@ -22,6 +30,7 @@ hash: Zxkd51aXJw5pHEzv6vjGzcD00gJ64rryrb523LHNg2Y=
 - 📅 **Еженедельная статистика** по настраиваемому дню недели
 - 📆 **Ежемесячная статистика** (опционально) за настраиваемый день
 - 🌤️ Интеграция **с прогнозом погоды** (требуется адаптер OpenWeatherMap)
+- 🔆 **Прогноз солнечной активности на завтра** (необязательно) из pvforecast или open-meteo-weather
 - ⚡ **Рекомендации** для предприятий с высоким уровнем производства/высоким уровнем потребления
 - 📊 **Статистические данные** из адаптера sourceanalytix
 
@@ -29,11 +38,12 @@ hash: Zxkd51aXJw5pHEzv6vjGzcD00gJ64rryrb523LHNg2Y=
 
 Для полноценной работы необходимы следующие адаптеры:
 
-| Адаптер                             | Описание                                                                         | Необходимый     |
-| ----------------------------------- | -------------------------------------------------------------------------------- | --------------- |
-| **телеграмма**                      | Отправляет уведомления                                                           | ✅ Да            |
-| **sourceanalytix**                  | Статистические данные (потребление, подача электроэнергии в сеть, мощность сети) | ✅ Да            |
-| **daswette** или **openweathermap** | Прогноз погоды для рекомендаций                                                  | ❌ Необязательно |
+| Адаптер                                   | Описание                                                                         | Необходимый     |
+| ----------------------------------------- | -------------------------------------------------------------------------------- | --------------- |
+| **телеграмма**                            | Отправляет уведомления                                                           | ✅ Да            |
+| **sourceanalytix**                        | Статистические данные (потребление, подача электроэнергии в сеть, мощность сети) | ✅ Да            |
+| **daswette** или **openweathermap**       | Прогноз погоды для рекомендаций                                                  | ❌ Необязательно |
+| **pvforecast** или **open-meteo-weather** | Ожидаемая выработка солнечной энергии на завтра                                  | ❌ Необязательно |
 
 ## Конфигурация
 
@@ -75,6 +85,17 @@ hash: Zxkd51aXJw5pHEzv6vjGzcD00gJ64rryrb523LHNg2Y=
 | Температура завтра (°C)  | Температура завтра         | `daswetter.0.Day1.forecast.maxTemp`       | `openweathermap.0.forecast.1.temp` |
 
 **Примечание:** Поля `Weather Today` и `Weather Tomorrow` В качестве альтернативы можно использовать, если адаптер погоды поддерживает другие форматы. Для наилучшей совместимости мы рекомендуем использовать `Weather Text` поля.
+
+### Прогноз выработки солнечной энергии (необязательно)
+
+Ожидаемая выработка солнечной энергии на завтра добавляется к ежедневной статистике, сообщениям о заряде/разряде батареи и тестовому сообщению. `🔆 PV forecast tomorrow: 18.3 kWh`).
+
+| Параметр                               | Описание                                                                                        | Пример (pvforecast)                    | Пример (open-meteo-weather)                                                |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------- |
+| Прогноз солнечной активности на завтра | Ожидаемый уровень энергии на завтра                                                             | `pvforecast.0.summary.energy.tomorrow` | `open-meteo-weather.0.pv-forecast.<location>.daily-forecast.day1.Peak_day` |
+| Единица прогноза                       | `Automatic` (по умолчанию) принимает единицу измерения точки данных; `kWh` или `Wh` принудить это | Автоматический (кВт·ч)                 | Автоматический (Вт·ч)                                                      |
+
+**Примечание:** Если в pvforecast включена опция ватт/ватт-часов, pvforecast будет выводить Wh, в то время как в точке данных по-прежнему будет отображаться kWh. `Wh` в данном случае как единица измерения.
 
 ### Батарея
 
@@ -337,6 +358,47 @@ Alex1808 через LLM: Qwen
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (CHANGE) `@iobroker/testing` 6.3.2 (repository checker W0037)
+
+### 1.2.35 (2026-10-21)
+* (FIX) The footer of the test message ("Test Notification") is now translated like the rest of the message
+
+### 1.2.34 (2026-10-21)
+* (ADD) Optional data point for the expected PV production of tomorrow (e.g. pvforecast or open-meteo-weather), shown in the daily statistics, the battery full/empty messages and the test message; unit taken from the data point (Wh/kWh/MWh) or set explicitly
+* (FIX) Settings: the sunset object and the two weather checkboxes are now disabled correctly (`disabled` expressions use `data.<field>`)
+
+### 1.2.33 (2026-10-08)
+* (FIX) Telegram messages were sent to **all** users of the bot instead of only the configured users (`user` instead of the ignored `users` parameter)
+* (FIX) Bold text was shown with literal asterisks - messages are now sent with HTML formatting (values from other adapters are escaped)
+* (CHANGE) Full/empty thresholds and intermediate steps are detected when reached or crossed (e.g. SOC jumps from 39 to 41, decimal SOC values, battery stopping at 99 % with a 98 % threshold); a jump over several steps sends one message
+* (FIX) Statistics were not saved when the adapter was stopped (unload handler was not registered)
+* (FIX) Last week/month values were overwritten with 0 on the first adapter start of a day
+* (FIX) Daily statistics reset now happens at midnight; before it only ran if the daily stats time was a multiple of 5 minutes
+* (FIX) Min/max SOC of the day are written immediately
+* (FIX) Weekly/monthly auto-save runs once in the window 23:55-23:59, so a delayed timer tick no longer skips it; monthly cycles roll over even when monthly statistics are disabled
+* (FIX) Sunset object may also contain a timestamp or ISO date; missing time settings no longer crash the scheduler
+* (FIX) 0 °C was not shown; numeric weather values no longer break the weather block
+* (FIX) Errors while processing state changes no longer stop the adapter; test button cannot get stuck
+
+### 1.2.32 (2026-10-08)
+* (FIX) Daily, weekly and monthly statistics (cycles, min/max SOC) are no longer reset on every adapter restart
+* (FIX) Monthly statistics reported the daily cycle counters; there are now real monthly counters (`statistics.fullCyclesMonth`, `statistics.emptyCyclesMonth`)
+* (FIX) Weekly/monthly auto-save no longer fails with an unhandled error when the weekly/monthly data points are empty
+* (FIX) SOC delivered as a string (e.g. "100") now triggers the full/empty/intermediate notifications
+* (FIX) Test message: tomorrow's weather no longer breaks when only text or only temperature is configured
+* (FIX) Weekly/monthly own consumption can no longer be negative
+* (ADD) Unit tests (`npm run test:js`), README badges, `.gitattributes` (LF line endings)
+
+### 1.2.31 (2026-09-21)
+* (ADD) CI: Node.js 26 in the test matrix and a new deploy job using npm Trusted Publishing (OIDC) with provenance
+* (FIX) Added the missing changelog entry for 1.2.30
+* (FIX) Completed the short 1.2.29 news translations (es, it, nl, pl, pt, uk)
+* (FIX) Dependencies: @iobroker/testing 6.2.x, @alcalzone/release-script-plugin-license 5.2.2
+
+### 1.2.30
+* (ADD) Optional data point for the current house consumption in W - battery full/empty messages now use this live value instead of the daily kWh total (fixes #74); fallback: PV power minus feed-in
+
 ### 1.2.29
 * (FIX) Corrupted UTF-8 separator lines in the monthly stats message (showed as question marks in Telegram)
 * (FIX) Corrupted Russian translations for "Current charge level" and "Own consumption"
@@ -379,7 +441,7 @@ Alex1808 через LLM: Qwen
 ### 1.2.18 (2026-03-16)
 * (FIX) Missing await in onBatterySOCChange, null-check in buildTestMessage, safe intermediateSteps parsing, remove dead code
 
-> For older changelog entries see [CHANGELOG_OLD.md](https://github.com/sadam6752-tech/ioBroker.pv-notifications/blob/main/CHANGELOG_OLD.md)
+> For older changelog entries see CHANGELOG_OLD.md
 
 ## License
 

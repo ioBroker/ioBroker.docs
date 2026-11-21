@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octopus-energy-monitor/README.md
 title: ioBroker.octopus-energy-monitor
-hash: 3nlMLFe30ktazIo/uo67+AvxMV4TLGxv7F9O03yH50s=
+hash: HvqHQo9IAX7EIYOne5MAJpzfZbWG/wE2SZzV3/UCgyQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octopus-energy-monitor/admin/octopus-energy-monitor.svg?v=3)
 
@@ -20,7 +20,7 @@ hash: 3nlMLFe30ktazIo/uo67+AvxMV4TLGxv7F9O03yH50s=
 
 Адаптер **Octopus Energy Monitor** периодически получает ежедневные данные о потреблении электроэнергии от **[Octopus Energy](https://octopus.energy) (API Kraken)** и **[Inexogy](https://www.inexogy.com) (API Discovergy/Statistics)** , автоматически сохраняя их в дереве объектов ioBroker.
 
-Его основная задача — выявление расхождений в выставлении счетов/измерениях между вашим интеллектуальным счетчиком (Inexogy) и вашим поставщиком энергии (Octopus Energy). Каждую ночь адаптер сравнивает оба набора данных и математически отмечает ежедневные расхождения, превышающие настраиваемый пороговый уровень.
+Его основная задача — выявление расхождений в выставлении счетов/измерениях между вашим интеллектуальным счетчиком (Inexogy) и вашим поставщиком энергии (Octopus Energy). Каждую ночь адаптер сравнивает оба набора данных и отмечает ежедневные расхождения, превышающие заданный математический порог.
 
 ### 🌟 Особенности
 
@@ -35,7 +35,7 @@ hash: 3nlMLFe30ktazIo/uo67+AvxMV4TLGxv7F9O03yH50s=
 - **Inexogy Master Data & Live Reading:** Получение серийных номеров, сведений о местоположении и текущих показаний счетчика (Bezug/Einspeisung) из Inexogy.
 - **Интеллектуальное кэширование:** минимизирует нагрузку на API за счет ретроактивной синхронизации только отсутствующих точек данных (по умолчанию 30 дней).
 - **§14a Расчет цены EnWG:** Дополнительный расчет тарифа для устройств контролируемого потребления (Steuerbare Verbrauchseinrichtung) с настраиваемыми временными окнами (NT/HT) и автоматическим переключением на стандартный тариф (ST).
-- **Настройки расчетных периодов:** система агрегирует и отслеживает потребление энергии и затраты на основе начального дня вашего расчетного периода (например, с 18-го по 17-е число). `octopus.periods` канал, разделенный на стандартные интервалы (например, Go/Standard) со статическим `current` Папка для удобной визуализации.
+- **Настройки расчетных периодов:** система агрегирует и отслеживает потребление энергии и затраты на основе начальной даты выбранного вами расчетного периода (например, с 18-го по 17-е число). `octopus.periods` канал, разделенный на стандартные интервалы (например, Go/Standard) со статическим `current` Папка для удобной визуализации.
 - **Синхронизация истории базы данных:** нативная интеграция с адаптерами InfluxDB, SQL и History для прямой передачи и заполнения исходных 15-минутных интервалов потребления без перегрузки дерева объектов ioBroker.
 
 ---
@@ -75,36 +75,75 @@ hash: 3nlMLFe30ktazIo/uo67+AvxMV4TLGxv7F9O03yH50s=
 
 После настройки адаптер позаботится обо всем остальном! Он периодически синхронизирует данные за последние 30 дней в соответствии с настроенным интервалом обновления. Данные отображаются в разделе... `octopus-energy-monitor.0.history.YYYY.MM.DD` путь.
 
+### Исторические цены
+
+Для новых дней используются согласованные и датированные валовые цены, применимые к каждому интервалу. Отсутствие или неоднозначность цен не исключает потребление: затраты становятся `null`, с `totalCostAvailable=false` и ежедневно `costStatus=missing_historical_price` Динамические тарифы, определяемые на основе прогнозов или названий продуктов, остаются без указания цены до тех пор, пока не будут подтверждены фактические цены за исторический период; прогнозы и текущие цены не используются в качестве замены.
+
+Сумма ежемесячных абонентских платежей рассчитывается пропорционально количеству календарных дней с учетом продолжительности каждого месяца и соответствующего периода действия договора/цены. `totalCostWithStandingChargeAvailable` Указывает, доступна ли указанная сумма. Это приблизительная оценка, а не счет-фактура поставщика.
+
+Существующие положительные дни остаются в кэше. Включите функцию **«Пересчитывать старые дни с историческими ценами»** , чтобы исправить их один раз в пределах настроенного диапазона синхронизации/хранения, только когда будут доступны полные исторические данные о ценах потребления и абонентской плате. Маркеры версий для каждого источника возобновляют незавершенную работу после превышения лимитов API или перезапуска. Существующие интервалы базы данных повторно не экспортируются. Неисправленные записи JSON содержат `costStatus=legacy_unverified`; их предыдущие значения сохраняются. Отключение этой опции предотвращает дальнейшие корректировки устаревших данных.
+
+### Диагностика синхронизации
+
+`info.sync` разоблачает `running`, `currentDay` (последний день обработки) и расчетное значение `nextRun` метка времени. `info.api.octopus` и `info.api.inexogy` Отображается метка времени последнего успешного ответа, очищенный код ошибки и статус ограничения скорости/периода ожидания. Периоды ожидания Octopus учитывают параметр «Повторить попытку»; автоматическая политика повторных попыток Inexogy не применяется. Эти данные описывают ответы API, а не гарантированные полные дни.
+
+Недавно полученные данные о днях интервала показывают `quality` Ниже каждого источника данных за день указаны: ожидаемое/полученное количество различных четвертей часа, отсутствующие интервалы, дубликаты, конфликты, недопустимые интервалы и `complete` В дни перехода на летнее время в Берлине ожидается 92 или 100 интервалов вместо 96. Ответы, содержащие только ежедневные данные, не проходят оценку качества интервалов. Отсутствие интервалов носит исключительно диагностический характер: из-за этого флага данные за положительные кэшированные дни не загружаются повторно. Повторная загрузка данных за дни с нулевым потреблением продолжается.
+
+### Автоматические сборы за подключение к электросети в соответствии с §14a
+
+Включайте **автоматическое начисление платы за электроэнергию модулем Octopus 3** только параллельно с существующим расчетом согласно §14a. Для этого требуются учетные данные Octopus, учетная запись и код оператора сети из выбранного места установки счетчика. При работе только с Inexogy по-прежнему используются ручные настройки. Сохраняйте действительные ручные настройки платы и временных интервалов: они остаются резервными и никогда не перезаписываются.
+
+Адаптер запрашивает данные у немецкого производителя оригинального оборудования (OE). `variableGridFees` Для каждой необходимой даты берлинского календаря. Используются только ответы Модуля 3 с полным, однозначным расписанием на четверть часа, соответствующим оператором, явной действительностью метки времени и уникальной базовой ценой стандартного тарифа. Суммы API обрабатываются как **нетто центы/кВтч** , в соответствии с интеграцией Home Assistant в Германии; автоматическая корректировка валовой стоимости осуществляется с использованием НДС исторического соглашения. Поддерживаются ночные окна и дни перехода на летнее время. Неподдерживаемые расписания или неудачные запросы возвращаются к ручным настройкам с предупреждением.
+
+Кэш в оперативной памяти ограничен учетной записью, оператором и датой (24 часа для действительных ответов, 15 минут для резервных результатов; максимум 400 записей). В бэкэнде имеется собственная система диагностики повторных попыток/периода ожидания. `info.api.gridFees` Ежедневная запись исходных объектов `gridFeeSource` (`api`, `manual`, `manual_fallback`), `gridFeeFallbackReason` и примененное `gridFeeSchedule` Эти поля описывают расчеты на текущий день, а не действующие тарифы.
+
+Изменение настроек §14a приводит к пересчету дней в пределах заданного диапазона синхронизации/хранения. Маркеры конфигурации для каждого источника возобновляют незавершенные перерасчеты после перезапусков или превышения лимитов API без повторного экспорта кэшированных интервалов базы данных. Положительные дни, рассчитанные с помощью ручного резервного варианта, остаются в кэше; последующее восстановление API само по себе не запускает повторную загрузку данных о потреблении. Автоматические сборы покрываются с помощью имитационных тестов API, но все же требуют проверки на реальном счете модуля 3 и выставления счета перед выпуском. Расчетные затраты остаются приблизительными.
+
+Актуальную информацию о тарифах на подключение к сети можно посмотреть по адресу: `info.api.gridFees`: `rawResponse` содержит API `module` и `gridFees` поля перед проверкой, `responseDate` Это запрошенный берлинский день. `httpStatus` — это возвращаемый статус (0, если ответа нет), и `responseTimestamp` датирует попытку диагностики. `rejectionReason` Различает отсутствующие данные/модуль, модуль, отличный от Модуля 3, пустые суммы сборов, недействительные записи, ошибки валидности, пробелы и наложения; индексы записей начинаются с нуля. Пустая причина означает, что проверка прошла успешно. Попадания в кэш не обновляют эти поля, и дополнительные запросы для диагностики не запускаются. В случае неудачных попыток ответ преобразуется в формат JSON. `null` Заголовки аутентификации, токены и данные учетной записи не включены. Эти диагностические данные сообщают то, что говорит API, а не являются независимым подтверждением регистрации модуля.
+
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.2.1 (2026-11-16)
+* (tipp88) Use adapter-managed timers for API retry and pagination delays while preserving cancellation on unload.
+* (tipp88) Add missing responsive layout sizes for historical repricing and automatic grid-fee checkboxes.
+* (tipp88) Update @iobroker/testing from 6.3.1 to 6.3.2.
+
+### 1.2.0 (2026-11-09)
+* (tipp88) Expose raw Module 3 response fields, request date, HTTP status and precise grid-fee rejection reasons.
+* (tipp88) Add opt-in, date-specific Module 3 grid fees with validated schedules, scoped caching and manual fallback.
+* (tipp88) Record applied grid-fee sources and resume interrupted EnWG recalculations per source without duplicate interval exports.
+* (tipp88) Expose sync/API diagnostics and DST-aware daily interval completeness without refetching positive cached days.
+* (tipp88) Add bounded API retries, Retry-After cooldowns, expiry-aware JWT refresh and cancellable requests.
+* (tipp88) Paginate bounded, meter-scoped Octopus measurements with duplicate and cursor checks.
+* (tipp88) Resolve historical consumption prices and monthly standing charges by agreement and gross-price validity.
+* (tipp88) Preserve consumption when historical prices are missing; expose unavailable costs as null with availability indicators.
+* (tipp88) Add opt-in, versioned historical repricing within sync/retention limits without repeated interval exports.
+* (tipp88) Use Europe/Berlin calendar-day boundaries and tariff times, including 23/25-hour daylight-saving days.
+* (tipp88) Exclude out-of-day intervals while retaining the final Inexogy interval ending at midnight.
+* (tipp88) Updated axios from 1.20.0 to 1.21.0.
+* (tipp88) Updated development dependencies: @iobroker/testing 6.1.0 → 6.3.1, @iobroker/types 7.2.2 → 7.2.5, and @types/node 22.20.1 → 22.20.5.
+* (tipp88) Handle all Octopus tariff windows for consumption and cost calculations, including Inexogy comparisons.
+* (tipp88) Reject unmatched tariff intervals instead of assigning them to the first tariff.
+* (tipp88) Recalculate affected multi-window tariff days once within the sync/retention range, resuming after API limits without re-exporting cached intervals.
+* (tipp88) Compare only finite, positive daily consumption values while continuing to refetch zero-consumption days.
+* (tipp88) Log discrepancies only when a day's stored comparison changes to a discrepancy.
+* (tipp88) Mark unavailable comparisons explicitly and clear outdated daily and tariff-slot differences.
+
+### 1.1.0 (2026-09-24)
+* (tipp88) Added standalone Inexogy and Octopus operation with independent data retrieval and history export.
+* (tipp88) Restricted comparisons to days with data from both providers.
+* (tipp88) Added Inexogy monthly, yearly and current billing-period consumption totals.
+* (tipp88) Fixed current billing-period aggregation on the first synchronization by prioritizing recent history.
+* (tipp88) Added diagnostics for Octopus usage API HTTP and GraphQL errors.
+* (tipp88) Stopped repeated Octopus requests within a synchronization after an API rate-limit response.
+* (tipp88) Added EnWG NT, ST and HT consumption and cost totals to Octopus billing periods.
+
+### 1.0.1 (2026-09-14)
 * (tipp88) Fixed consumption data for previous days not updating automatically when initially retrieved with 0 kWh (Issue #31).
+* (tipp88) Upgraded axios dependency to 1.20.0.
+* (tipp88) Upgraded `@iobroker/testing` devDependency to 6.1.0.
 
 ### 1.0.0 (2026-08-27)
 * (tipp88) Fixed the three missing history database synchronization translations reported in issue #18.
-
-### 0.7.0 (2026-07-13)
-* (tipp88) Implemented native historical database synchronization to automatically push 15-minute intervals directly to InfluxDB, SQL, or History instances.
-* (tipp88) Massively optimized Inexogy retroactive API polling by switching to the Discovergy `readings` endpoint, fetching 96 data points in a single request.
-* (tipp88) Fixed strict ioBroker JSON schema compliance bugs in `admin/jsonConfig.json` regarding dropdown instance filtering.
-* (tipp88) Fixed calculated meter reading (`octopus.info.meterReading`) state missing `kWh` unit
-* (tipp88) Fixed permissions in Dependabot auto-merge workflow (`issues: write`)
-
-### 0.6.8 (2026-07-06)
-* (tipp88) Fixed `rate.name` from external API being used unsanitized in ioBroker object IDs.
-* (tipp88) Fixed `setSmartChargeStatus()` sending the sanitized device ID to Octopus API instead of original ID.
-* (tipp88) Optimized database interval sync by consolidating all object scans into a single pre-fetch.
-
-### 0.6.7 (2026-07-01)
-* (tipp88) Fixed missing UI translations for the `updateInterval` minimum warning.
-* (tipp88) Fixed missing external object ID sanitization (ioBroker repo compliance).
-* (tipp88) Enforced a 15-minute minimum for `updateInterval` to prevent excessive cloud polling.
-* (tipp88) Refactored `fetchInexogy` and optimized object scanning overhead during history aggregation.
-* (tipp88) Capped `syncDays` retroactive data fetching to `retentionDays` to avoid fetching data that would immediately be deleted.
-
-### 0.6.6 (2026-06-29)
-* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-[Older changelogs can be found there](https://github.com/tipp88/ioBroker.octopus-energy-monitor/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

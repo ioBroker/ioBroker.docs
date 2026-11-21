@@ -355,6 +355,10 @@ Writing either state applies the ring immediately.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- `@iobroker/testing` 6.3.2 (repository checker W0037)
+
 ### 0.8.3
 
 - The webhook port is declared in the used resources registry of js-controller (js-controller 8 and newer), and a warning is logged when another instance already uses it; nothing changes on older controllers

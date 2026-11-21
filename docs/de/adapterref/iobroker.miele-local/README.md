@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.miele-local/README.md
 title: ioBroker.miele-local
-hash: UJZlgBKJ1sq67WN9MUZZiJQcXcMdVuNOyRe4vl/fBnI=
+hash: SVst0I2yT29yy+nVo0oiHAVhQ0FmawLLWHSmdh40gnY=
 ---
 ![Logo](../../../en/adapterref/iobroker.miele-local/admin/miele-local.png)
 
@@ -66,6 +66,7 @@ Jedes Gerät wird zu einem einzigen Gerät, dessen Seriennummer als ID dient. Da
 | `remainingMinutes`, `elapsedMinutes`, `startInMinutes` | Zeiten in Minuten |
 | `remainingSeconds`, `elapsedSeconds` | bis zur Sekunde, falls aktiviert |
 | `estimatedEndTime` / `estimatedEndTimeText` | Voraussichtliches Ende (Zeitstempel in ms / `HH:MM`) |
+| `progress` | Programmfortschritt in % (verstrichen / (verstrichen + verbleibend)), 0, solange nichts ausgeführt wird |
 | `temperature`, `targetTemperature` (plus Zonen 2 und 3) | Temperaturen |
 | `signalDoor`, `signalInfo`, `signalFailure` | Tür- und Signalfahnen |
 | `mobileStart` | ob das Gerät derzeit Fernsteuerung akzeptiert |
@@ -74,11 +75,27 @@ Jedes Gerät wird zu einem einzigen Gerät, dessen Seriennummer als ID dient. Da
 
 Die Rohwerte und ihre entsprechenden `…Text`-Werte existieren absichtlich nebeneinander: Der Rohwert dient zum Vergleichen und Darstellen, der Textwert zur Anzeige. Seit Version 0.3.37 enthält der Rohwert selbst die Klartextliste, sodass der Textstatus in den meisten Fällen nicht mehr benötigt wird.
 
+**Sprache der Texte.** Die Statusbezeichnungen `…Text` sind auf Deutsch oder, falls die Option „Statusbezeichnungen auf Deutsch“ deaktiviert ist, auf Englisch angegeben - daran hat sich nichts geändert, Skripte vergleichen sie weiterhin.
+
+Die Gerätemanager-Karten verwenden diese Bezeichnungen nicht: Seit Version 0.5.1 zeigt eine Karte den Rohwert zusammen mit einer Wertetabelle in der **Systemsprache** von ioBroker (alle elf Administratorsprachen). Status, Programmtyp, Trocknungsschritt und -phase sind in jeder Sprache vollständig. Die Programmbezeichnungen stammen aus den Community-Übersetzungen von Home Assistant; für Polnisch stammen die Programme für Waschmaschine und Wäschetrockner aus der polnischen Bedienungsanleitung von Miele (`lib/werte_eigen.js`, nur die dort wortwörtlich vorkommenden Bezeichnungen). Wo keine der Quellen eine Bezeichnung enthält (komplett ukrainisch, polnisch für die anderen Geräte und für Programme, die in der Bedienungsanleitung fehlen, teilweise russisch und niederländisch), zeigt die Karte die englische Bezeichnung an - es wird nichts erraten. Ein unbekannter Rohwert wird als seine Nummer angezeigt.
+
+**Textstatus in einer anderen Sprache (optional).** *Abfrage & Werte → Sprache der Textstatus* gibt `statusText`, `programText`, `programPhaseText`, `programTypeText` und `dryingStepText` - sowie die Wertelisten der Rohstatus - in einer der elf Administratorsprachen anstelle von Deutsch oder Englisch aus. Falls eine Sprache nicht übersetzt werden kann, wird der englische Text angezeigt. Die Programmnamen stammen von Home Assistant und, bei polnischen Waschmaschinen und Wäschetrocknern, aus der polnischen Bedienungsanleitung von Miele (siehe Karten). Die Standardeinstellung bleibt unverändert.
+
+Wenn die Option „Bundeslandnamen auf Deutsch“ deaktiviert ist, bleiben die Bundeslandnamen und -beschreibungen absichtlich in reinem Englisch: Eine mehrsprachige Bezeichnung würde in einem deutschen Adminbereich wieder den deutschen Namen anzeigen und die Option überflüssig machen.
+
+### `control` - Befehle (nur bei aktivierter Gerätesteuerung)
+`start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`: Schreiben Sie `true`, um den Befehl zu senden; der Adapter bestätigt jeden Befehl, der Grund für einen Fehler ist im Statuskommentar angegeben.
+
+`canStart`, `canStop`, `canPause`, `canPowerOn`, `canPowerOff` (schreibgeschützt) geben an, ob der Befehl im aktuellen Zustand sinnvoll ist und vom Gerät unterstützt wird - die Gerätekarten zeigen ihre Tasten dazu an, VIS kann dasselbe tun.
+
 ### `info` - Was ist das Gerät?
 `connected`, `techType`, `fabNumber`, `matNumber`, `deviceType`, `xkmType`, `xkmVersion`, `protocolVersion`, `operatingHours` und die Abfragezähler `pollTotal`, `pollErrors`, `pollRetries`, `pollErrorRate`. `lastError` enthält den Grund für das Fehlschlagen der letzten Anfrage.
 
 ### `eco` - Energie und Wasser
-`eco.energy` (kWh), `eco.energyWh` (Wh), `eco.water` (l), sofern vom Gerät angegeben, sowie `eco.source` mit Angabe der Quelle des Wertes. Lesen Sie DOP2; bisher liefern Waschmaschinen diesen Wert. **Der vom Gerät gemeldete Wert ist ein Schätzwert, keine Messung.** Um einen tatsächlichen Wert zu erhalten, geben Sie den Zählerstand des Messsteckers auf der Registerkarte **Abfrage & Werte** ein - der Adapter zeichnet dann den tatsächlichen Stromverbrauch jedes Programms auf.
+`eco.energy` (kWh), `eco.energyWh` (Wh), `eco.water` (l), sofern vom Gerät angegeben, sowie `eco.source` mit Angabe der Quelle des Wertes. Siehe DOP2; bisher liefern Waschmaschinen diese Information. **Die Energieangabe ist keine Messung:** Eine Waschmaschine meldet die Heizenergie, die sie für den Hauptwaschgang *plant* - geplante Heizzeit × Nennleistung des Heizelements bei 230 V (WCR860: 2020 W).
+Diese Angabe wird einmalig beim Heizstart festgelegt und nicht aktualisiert; sie berücksichtigt weder Motor, Pumpen und Elektronik noch die Heizung anderer Phasen. Kalt- oder Kurzprogramme melden 0. Gemessen an einer WCR860 entspricht diese Angabe der tatsächlichen Heizleistung normaler Warmprogramme innerhalb weniger Prozent, jedoch nicht dem Gesamtverbrauch. Um einen konkreten Wert zu erhalten, geben Sie den Zählerstand eines Messsteckers auf der Registerkarte **Abfrage & Werte** ein - der Adapter zeichnet dann auf, wie viel jedes Programm tatsächlich verbraucht hat.
+
+Der Adapter fragt außerdem den Gerätekontext `2/1585` (und `2/391`) unabhängig vom Waschmaschinenblatt `2/6195` ab. Dessen Werte erscheinen unter `detail.ecoFeedback` (nur wenn das Gerät sie tatsächlich speichert): Energie- und Wasserverbrauch des letzten Programms (6.3/6.4), Betriebsstundenzähler (6.5/6.6) und TwinDos/AutoDos-Behälter (6.7). Die Werte des „letzten Programms“ ersetzen **nicht** `eco.*` - während eines Waschgangs wird weiterhin das vorherige Programm angezeigt. Geräte ohne `2/6195` (z. B. ein Geschirrspüler) ermitteln ihren Verbrauch pro Programm aus der **Differenz der Betriebsstundenzähler** zwischen Start und Ende. dann trägt `eco.*` diesen Wert und `eco.source` sagt `Appliance (lifetime counters 2/1585)`.
 
 ### `history` und `stats` - was ist gelaufen
 Jedes abgeschlossene Programm wird mit Dauer, Programm, Energie- und Wasserverbrauch protokolliert. Die Geräte selbst speichern keine Daten, daher beginnt die Historie mit dem Einschalten der Funktion und kann nicht nachträglich aktualisiert werden. `history.cyclesJson` enthält die letzten Programme, `stats.week`, `stats.month`, `stats.year` und `stats.total` die jeweils daneben stehenden Summen.
@@ -86,13 +103,15 @@ Jedes abgeschlossene Programm wird mit Dauer, Programm, Energie- und Wasserverbr
 ### `control` - nur wenn Sie es zulassen
 `start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`. Das Schreiben von `true` löst den Befehl aus; der Status wird anschließend zurückgesetzt. Befehle funktionieren nur, wenn **MobileStart / Fernsteuerung** auf dem Gerät aktiviert ist, und einige Firmware-Versionen lehnen DOP2-Schreibvorgänge kategorisch ab.
 
+Die Schalter `powerOn` und `powerOff` funktionieren wie die Miele-App (ab Version 0.4.3): Sie schreiben den Gerätestatus in das DOP2-Leaf `2/1586` (4 = ein, 1 = aus). Befindet sich das Gerät im Ruhemodus und antwortet mit HTTP 500, wird es mit `{"DeviceAction":2}` aufgeweckt und der Schreibvorgang maximal zweimal wiederholt. Erst dann wird die ältere UserRequest `2/1583` versucht. Kaffeemaschinen mit Protokollversion 2 werden über Dop1 geschaltet. Anschließend wird der Status erneut ausgelesen; der Kommentar `c` des Status gibt an, welche Methode funktioniert hat und ob sich der Status geändert hat. Schlägt dies fehl, erläutert Abschnitt `c` den HTTP-Status: **404** = Das Kommunikationsmodul bietet keine DOP2-Steuerung (z. B. XKM EK057), **403** = Die Fernsteuerung ist am Gerät deaktiviert, **500** = Das Gerät akzeptiert den Befehl im aktuellen Zustand nicht. Bei der Protokollierungsstufe **debug** wird jeder Schritt mit Ressource, HTTP-Status und der Antwort als Hexadezimalwert (ohne Schlüssel) protokolliert.
+
 ## Einstellungen
 | Registerkarte | Inhalt |
 |---|---|
 | **Anmeldung** | Land, geführte Anmeldung, erfasste Adresse |
 | **Geräte** | mDNS-Erkennung, Fallback-IP-Scan, manuelle IP-Adressen |
 | **Abfrage & Werte** | Abfrageintervalle, deutsche Bundeslandnamen, sekundengenaue Zeiten, EcoFeedback, Energiezähler, Geräteinterna |
-| **Push & Ports** | der optionale Echtzeitkanal und sein Eingangsport |
+| **Push & Ports** | der optionale Echtzeitkanal und sein Eingangsport, der optionale Zeitserver |
 | **Steuerung** | der Schalter, der die beschreibbaren Zustände erzeugt |
 | **Verlauf** | Aufzeichnung abgeschlossener Programme, Ringpuffer, Aufbewahrung, Verlaufsadapter |
 | **Diagnose** | Alles zur Fehlersuche und Feldzuordnung - standardmäßig deaktiviert |
@@ -107,6 +126,7 @@ Jedes Feld hat im Adminbereich eine eigene Erklärung; diese Seite wiederholt si
 | Ein-/Ausgang | UDP 5353 (mDNS) | Erkennung und Push-Registrierung | für die Erkennung |
 | ausgehend | TCP 80 → Geräte | Zustände lesen, Befehle senden | ja |
 | Ausgehend | TCP 443 → miele-iot.com | Gruppenschlüssel abrufen | Nur für Anmeldungen |
+| eingehend | TCP *Zeitserver-Port* (Standard 8780) | Geräte beziehen ihre Uhrzeit | nur vom Zeitserver |
 
 Ohne Push-Benachrichtigung ist **kein eingehender Port** erforderlich. Für mDNS müssen sich ioBroker und die Appliances im selben Broadcast-Segment befinden. Separate IoT-WLANs oder VLANs, Firewalls (einschließlich der Windows-Firewall auf einem Testrechner) und Router, die Multicast filtern, verhindern die Erkennung ebenfalls. In all diesen Fällen ist die manuelle IP-Liste die zuverlässigste Methode.
 
@@ -114,12 +134,50 @@ Ohne Push-Benachrichtigung ist **kein eingehender Port** erforderlich. Für mDNS
 
 **So funktioniert Push-Benachrichtigung.** Der Adapter registriert sich pro Gerät als Haushalts-Peer (`PUT /Devices/<series>/SuperVision/<own-fab>`) und abonniert eine Callback-URL. Das Gerät sendet dann Änderungen unaufgefordert innerhalb einer Sekunde. Nicht jedes Modul unterstützt diese Funktion: Die älteren Module XKM EK037 und EK057 akzeptieren zwar die Anmeldung, senden aber keine Daten. In diesem Fall ist das Polling die zuverlässigste Methode.
 
+## Zeitserver für die Geräte (optional)
+Miele-Geräte steuern ihre Uhrzeit **mit einer eigenen HTTP-Anfrage, nicht mit NTP**. Das Kommunikationsmodul löst `ntp.mcs2.miele.com` auf und fragt alle 30 Sekunden ab, bis es eine Antwort erhält.
+
+```
+GET http://ntp.mcs2.miele.com/V2/NTP/ HTTP/1.1
+Host: ntp.mcs2.miele.com
+Accept: application/vnd.miele.v1+json
+```
+
+Miele antwortet mit `{"time":<Unix seconds>}`. Ein Gerät **ohne Internetzugang** (IoT-Netzwerk ohne Ausgang) erhält diese Antwort nie: Seine Uhrzeit driftet ab und kann nach der Umstellung auf Sommerzeit verbleiben. Eine DHCP-NTP-Option oder ein NTP-Server im Netzwerk helfen nicht - das Gerät verwendet kein NTP.
+
+Der Adapter kann dieselbe Antwort aus Ihrem Netzwerk liefern. Aktivieren Sie **Push & Ports → Zeitanfrage der Geräte beantworten** (standardmäßig deaktiviert) und wählen Sie einen Port (Standard: 8780). **Dies allein bewirkt nichts:** Das Ziel ist im Modul festgelegt, daher müssen Sie die Geräte umleiten - entweder auf einen der folgenden Ports:
+
+1. **Router: Ziel-NAT / Portweiterleitung.** Quelle = die Miele-Geräte, Ziel
+
+`ntp.mcs2.miele.com` (derzeit `52.136.223.17`; bitte mit `nslookup` abgleichen) TCP 80, übersetzt in die ioBroker-IP-Adresse und den hier festgelegten Port. Auf UniFi: *Einstellungen → Routing → NAT → Ziel-NAT*.
+
+Der Dienst kann auf einem hohen Port bleiben; die Portübersetzung von 80 auf den Zielport erfolgt durch den Router.
+
+**Wenn sich ioBroker im selben Subnetz wie die Appliances befindet**, fügen Sie für diesen Datenfluss ebenfalls ein Source-NAT hinzu (z. B. durch Masquerading auf die Router-Adresse). Andernfalls antwortet ioBroker der Appliance direkt, die Antwort stammt nicht von der angeforderten Adresse und wird verworfen.
+
+Erlauben Sie den Datenfluss außerdem in der Router-Firewall, falls diese den Datenverkehr innerhalb dieses Netzwerks oder dieser Zone filtert.
+
+2. **DNS-Umleitung** (AdGuard Home, Pi-hole, dnsmasq): `ntp.mcs2.miele.com` → ioBroker-IP.
+
+Das Gerät verbindet sich dann mit **Port 80** dieser IP-Adresse, daher muss der Dienst dort erreichbar sein: In Docker ordnen Sie Host-Port 80 dem konfigurierten Port (`-p 80:8780`) zu; ohne Docker legen Sie entweder Port 80 fest (erfordert Root-Rechte oder `CAP_NET_BIND_SERVICE`) oder leiten Sie Port 80 mit der Host-Firewall weiter. Port 80 darf nicht von einem anderen Webserver auf diesem Host belegt sein.
+
+**Docker:** Bei Bridge-Netzwerken muss der Port in der Portweiterleitung des Containers enthalten sein. Das Hinzufügen eines Ports erfordert die Neuerstellung des Containers. Ist einer der zugeordneten Ports nicht frei, verwenden Sie diesen.
+
+**Firewall:** Eine Firewall auf dem Host (z. B. Synology DSM) muss TCP-Verbindungen von den Appliances zu diesem Port zulassen.
+
+**Prüfen Sie:** `info.timeServer.running` entspricht `true`; `info.timeServer.requests`, `lastRequest`, `lastClient` und `info.timeServer.clients.<ip>.*` zählen jede beantwortete Anfrage. Abhängig von der Docker-Konfiguration und dem Source-NAT kann der Absender als Docker-Gateway (z. B. `172.17.0.1`) oder als Router anstelle des Geräts erscheinen. Wenn keine Pakete ankommen, liegt das Problem an der Umleitung oder der Firewall, nicht am Adapter.
+
+**Einschränkungen:** Der Dienst liefert **nur UTC**. Zeitzone und Sommerzeit werden vom Gerät selbst angewendet (eingestellt am Gerät oder in der Miele App). Alle Anfragen außer `GET /V2/NTP/` führen zu einem 404-Fehler. Anfragen werden nur im Debug-Modus protokolliert.
+
+### Beibehalten der Geräteuhr auf Ortszeit (optional)
+Einige Geräte verwenden zwar die korrekte UTC-Zeit, wenden die Sommerzeit aber nach eigenem Zeitplan an - ein Backofen H2469BP lief beispielsweise noch Stunden nach der Umstellung am 25.10.2026 auf Sommerzeit. **Push & Ports → Geräteuhr auf lokaler Zeit halten** (standardmäßig deaktiviert) prüft jedes Gerät beim Start und stündlich über `Settings/TimeSync`. Weicht die Geräteuhr um mehr als 2 Minuten von der lokalen Zeit des ioBrokers (Zeitzone des ioBroker-Hosts/Containers) ab, wird sie mit einer signierten Anfrage, die nur `DateTime` enthält, korrigiert (`NTPEnabled`, `UTCOffset` und `TimeMaster` bleiben unverändert). Jede Korrektur wird im Info-Protokoll erfasst. `<appliance>.info.timeSync.lastDeviation` (Sekunden, positiv = Gerät voraus) und `lastSet` zeigen das Ergebnis an. Geräte, die `TimeSync` nicht melden (z. B. G5840, WCR860 Antwort 503), werden nicht berücksichtigt. Funktioniert auch ohne den oben genannten Zeitserver und ohne „Steuerung zulassen“.
+
 ## Datenschutz
 Der Adapter speichert **keine personenbezogenen Daten**. GroupID, GroupKey und Refresh-Token befinden sich ausschließlich in der verschlüsselten Instanzkonfiguration oder in ioBroker-Objekten. Es werden keine Daten an Dritte übermittelt; im Normalbetrieb besteht keinerlei Cloud-Verbindung.
 
 Eine wichtige Ausnahme: Die Diagnosedatenerfassung zeichnet **Start- und Endzeitpunkt jedes Programms** auf. Diese Daten bleiben in Ihrer Instanz gespeichert - wenn Sie die Sammlung oder deren CSV-Export jedoch weitergeben, werden auch diese Zeitangaben übermittelt.
 
-## Kompatibilität und Einschränkungen
+## Kompatibilität und Grenzen
 - Getestet mit einer Waschmaschine (WCR860/EK037), einem Geschirrspüler (G5840/EK037) und einem Backofen
 
 (H2469BP/EK057).
@@ -139,7 +197,7 @@ Alle Funktionen in diesem Abschnitt sind **standardmäßig deaktiviert** und wer
 
 **Datenerfassung.** Pro abgeschlossenem Programm wird ein Datensatz erfasst - Modell, Programm, alle Rohdatenfelder und am Ende der Endzustand jedes Antwortknotens. Um daraus eine Zuordnung zu erstellen, benötigt der Adapter einen Referenzwert: entweder von einem Cloud-Adapter oder manuell in `collection.inputEnergy` und `collection.inputWater` eingegeben nach einem Programm. `collection.progress` gibt an, was noch fehlt, `collection.finding` enthält das Ergebnis: welches Feld mit welchem Divisor und wie genau passt.
 
-**Blattscan.** DOP2 adressiert Daten als `unit/attribute`, und nur wenige dieser Adressen sind dokumentiert. Der Scan durchläuft den Adressraum so schonend, dass das Modul nicht überlastet wird; `collection.scanJson` erfasst die Ergebnisse. `collection.trendLeaf` speichert während der Programmausführung ein einzelnes Blatt - das Feld, dessen Wert mit dem Verbrauch steigt, ist das gesuchte.
+**Blattscan.** DOP2 adressiert Daten als `unit/attribute`, und nur wenige dieser Adressen sind dokumentiert. Der Scan durchläuft den Adressraum so schonend, dass das Modul nicht überlastet wird. `collection.scanJson` erfasst die Antworten - einschließlich Seriennummer, MAC-Adresse, IP-Adresse und WLAN-Name. **Zum Teilen verwenden Sie `collection.scanJsonAnonym` **: dieselben Daten, jedoch maskiert. Adressen, deren Antwort der Adapter noch nicht dekodieren kann, werden zusammen mit dem Fehlertext und den Rohdaten als beantwortet gespeichert, sodass der Scan immer abgeschlossen wird. `collection.trendLeaf` zeichnet während der Programmausführung ein einzelnes Blatt genau auf - das Feld, dessen Wert mit dem Verbrauch ansteigt, ist das gesuchte.
 
 **CSV-Export.** Die Schaltfläche auf der Registerkarte „Diagnose“ schreibt zwei Tabellen in den Dateibereich der Instanz und öffnet die erste:
 
@@ -168,284 +226,62 @@ Das lokale Protokoll (`MieleH256`, DOP2, Provisionierung) basiert auf der öffen
 ## Credits
 Die Programm- und Phasentabellen in `lib/enums.js` sowie die Zuordnung der Gerätetypen zu den Tabellen stammen aus [Home Assistant](https://github.com/home-assistant/core) (Apache-Lizenz 2.0, © Home Assistant-Autoren), wurden über [ha-miele-at-lan](https://github.com/tiehfood/ha-miele-at-lan) (MIT, © tiehfood) übernommen und mit [ioBroker.miele-unbound](https://github.com/meistermopper/ioBroker.miele-unbound) (MIT, © meistermopper) abgeglichen. Vielen Dank an alle drei Projekte.
 
+Die Übersetzungen der Status-, Phasen- und Programmnamen in `lib/werte_ha.js` (angezeigt auf den Gerätemanagerkarten) sind die Community-Übersetzungen der Home Assistant Miele-Integration (Apache License 2.0, © Home Assistant Authors), extrahiert mit `tools/werte-uebersetzungen.js`; Lücken und einige Korrekturen befinden sich in `lib/werte_eigen.js`.
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2026-11-19)
+- (SmarthomeElektroniker) DOP2 parser reads type 33 (list of structures, AStruct). Until now a leaf containing it (e.g. `2/1585`, `2/17`, `2/131`) failed completely with "Unknown DOP2 field type 33".
+- (SmarthomeElektroniker) The device context `2/1585` (and `2/391` as fallback) is queried independently of the washing-machine leaf `2/6195`. Values of the appliance's own EcoFeedback (fields 6.3–6.6, 6.29, 6.31) honour the unit type (121/46 = Wh, 45 = kWh, 44 = l) and are only created if the appliance keeps them; TwinDos/AutoDos containers (6.7) appear as JSON. Appliances without `2/6195` (dishwasher) get energy and water per programme from the difference of the lifetime counters 6.5/6.6. The "last programme" values no longer replace `eco.*` while a programme runs.
+- (SmarthomeElektroniker) Leaf scan: answers that cannot be decoded count as answered (status 200, error text and raw bytes kept separately), so the scan always completes. New `collection.scanJsonAnonym` without serial number, module number, MAC, IP and Wi-Fi name, for sharing.
+- (SmarthomeElektroniker) Leaf scan is now slow and gentle: each appliance has its own independent pace, at most one request every 25 s per appliance and never two at once to the same appliance - a hanging appliance no longer holds up the others; the scan gives way while the regular polling of that appliance is running (during a programme at most one per minute per appliance, where a 500 never counts), back-off of 5 → 30 min after connection errors. Rejections (404/500) only become final after two answers at least 6 h apart while the module is proven awake; 500s from old scans are asked again. `14/1565` is masked in `scanJsonAnonym`.
+- (SmarthomeElektroniker) `/State.ExtendedState` is logged (debug) and kept as raw hex in `collection.extendedState`, for diagnostics only.
+- (SmarthomeElektroniker) Names according to the measurements of 13.11.2026 (object IDs unchanged): `eco.energy`/`eco.energyWh` "Heating energy (setpoint at 230 V)", `detail.process.heatingEnergy`/`heatingTime` "(setpoint)", field 16 `energyConsumed` "Drive energy" in Wh (final value kept after the programme), field 4 "Elapsed time".
+- (SmarthomeElektroniker) Debug log: one line per appliance for 2/6195, 2/1585, 2/391 and ExtendedState, without the full serial number.
+- (SmarthomeElektroniker) Debug log: no more "final phase" / "final reading attempt" lines for appliances that have rejected the eco leaf and both context leaves - nothing was queried there anyway.
+- (KPIotr89) New option **Language of the text states** (Polling & values): `statusText`, `programText`, `programPhaseText`, `programTypeText`, `dryingStepText` and the value lists of the raw states in any of the eleven admin languages. Default unchanged (German or English, following "State names in German"); missing translations fall back to English. Polish programme names for washing machines and tumble dryers, word for word from Miele's Polish operating instructions, also on the device manager cards. Thanks to @KPIotr89 for the contribution (PR #23)
 
-### 0.3.45
-- (SmarthomeElektroniker) The last German state ID is gone: `eco.quelle` is now `eco.source`, its value is always English. Existing installations are migrated on start
-- (SmarthomeElektroniker) `statusText`, `programText`, `programPhaseText`, `programTypeText` and `dryingStepText` follow the "German names" option - with the option off they are English (until now they were always German)
-- (SmarthomeElektroniker) Remaining German log and error messages translated; CSV export files are named `collection-<date>.csv` and `finding-<date>.csv`
-- (SmarthomeElektroniker) All JSDoc comments complete (no lint warnings left); `@iobroker/testing` 6.3.0
-- (SmarthomeElektroniker) `eco.felderJson` is now `eco.fieldsJson` (migrated on start)
-- (SmarthomeElektroniker) Settings use English keys: `sammlerAktiv`/`sammlerCloud`/`sammlerCloudInstanz` became `collectorActive`/`collectorCloud`/`collectorCloudInstance`, `leafDatenpunkte` became `leafStates`, the energy meter table `zaehler` became `energyMeters`. Existing settings are carried over once on start (review 2026-10-03)
-- (SmarthomeElektroniker) Background loops (eco, operating hours, seconds, discovery, push renewal, leaf trend) schedule their next run only after the previous one finished - no overlapping runs when an appliance answers slowly
+### 0.5.2 (2026-11-12)
+- (SmarthomeElektroniker) Fix: a card could show "not connected" and still offer the On button (or the light). After a stop or restart of the adapter the `control.can*` states kept their last value, and appliances not found at start kept them as well. Now the adapter clears them on stop and for every appliance not found at start; an appliance that is not reachable or reports status 255 ("not connected") gets no button at all
+- (SmarthomeElektroniker) The light button now also follows two read-only states, `control.canLightOn` and `control.canLightOff` (exactly one is true while the appliance is reachable). The card looks as before
+- (SmarthomeElektroniker) German texts: `fan_plus` is now „Heißluft plus“ (was „Umluft“, also in the combined modes with moisture plus and microwave), `eco_fan_heat` „Eco-Heißluft“, programme `automatic` „Automatik“ (was „Automatic“), drying steps 4–7 corrected (they had wrong names) to „Handbügelfeucht 1/2“, „Maschinenbügelfeucht“, „Glätten“. **Visible change:** the German `state.programText` and `state.dryingStepText` change accordingly - scripts that compare against the old German text must be adjusted
+- (SmarthomeElektroniker) French: the Off button reads „Éteindre“ (was „Arrêt“) and On „Allumer“, so Off and Stop („Arrêter“) are clearly distinguishable
 
-### 0.3.44
-- (SmarthomeElektroniker) History objects are only rewritten when they actually changed - this prevents an empty (null) point in the history adapter after every adapter restart
+### 0.5.1 (2026-11-12)
+- (SmarthomeElektroniker) Device manager cards show status, programme, phase, programme type and drying step in the system language of ioBroker, in all eleven admin languages. Until now the card showed the `…Text` states, which the adapter writes only in German or English. The card now uses the raw values (`state.status`, `programId`, `programPhase`, `programType`, `dryingStep`) with a value table in the system language; the `…Text` states are unchanged, scripts that compare against them keep working
+- (SmarthomeElektroniker) Translations: the community translations of the Home Assistant Miele integration, own translations where a language is missing there (Ukrainian, Polish, large parts of Russian and Dutch, status 144/145) and a few corrections. Programme names only from Home Assistant, otherwise English - nothing guessed
+- (SmarthomeElektroniker) Descriptions of `control.can*` and `state.progress` in all eleven languages
 
-### 0.3.43
+### 0.5.0 (2026-11-12)
+- (SmarthomeElektroniker) Device manager support (`@iobroker/dm-utils`, issue #22, suggested by mcm1957): one card per appliance for the running operation. The header shows name and model, the serial number appears once below it. Status, programme, phase, start time, remaining time and estimated end (large), plus a progress bar; empty values are hidden instead of showing as blank lines. Fault, door open, notices on the appliance display and a locked remote start (MobileStart) are shown as coloured lines while they are active. Expanding the card shows further values (temperatures, elapsed time, spin speed, light, MobileStart, EcoFeedback, operating hours). Deliberately no configuration actions on the cards
+- (SmarthomeElektroniker) With device control enabled the card shows only the commands that make sense right now and that the appliance supports: off → On; ready/programmed → Start, Off; running → Pause, Stop; paused → Start, Stop; end/fault → Off. Start only with MobileStart, Pause only on washing machines and dryers, no switching of fridges and hobs. The buttons follow the state live; every command except the light asks for confirmation and writes the existing `control.*` states
+- (SmarthomeElektroniker) The light is a single toggle button: symbol, label and tooltip show the current state, a click switches to the opposite, without confirmation. The percentage sits right next to the progress bar
+- (SmarthomeElektroniker) Fix: manual inputs, the scan switch and the fine recording of the data collection (`collection.*`) had no effect since the channel was renamed from `sammlung` in 0.3.38
+- (SmarthomeElektroniker) New states `control.canPowerOn`, `canPowerOff`, `canStart`, `canPause`, `canStop` (read only, also usable in VIS) and `state.progress` (programme progress in %)
 
-- (SmarthomeElektroniker) All log messages are English now; diagnostic texts in states (`finding`, `check`, `progress`, `scanState`, `trendSize`), error messages and the CSV export too (review 2026-09-27)
-- (SmarthomeElektroniker) Admin UI: all texts use English i18n keys; the diagnostics tab is translated into all 11 languages
-- (SmarthomeElektroniker) README: diagnostics section uses the current English state IDs
-- (SmarthomeElektroniker) `@iobroker/testing` 6.2.2; `common.news` limited to 7 entries
+### 0.4.3 (2026-11-10)
+- (SmarthomeElektroniker) `control.powerOn`/`powerOff` now switch like the Miele app: DOP2 leaf `2/1586` (appliance state 4 = on, 1 = off), on HTTP 500 wake-up with `{"DeviceAction":2}` and retry (at most two rounds), the previous UserRequest `2/1583` only as fallback; coffee machines with protocol version 2 via Dop1 object 1101. The effect is checked by reading the status again, failures are explained by HTTP status (403/404/500), RemoteEnable is only logged, every step is in the debug log
 
-### 0.3.42
+### 0.4.2
+- (SmarthomeElektroniker) Maintenance: trimmed the version news in `io-package.json` (repository checker W1032/W2004), no functional change
 
-- (SmarthomeElektroniker) All program phases have German names now, a new test keeps it that way; status codes 144 (default) and 145 (locked) added. Translations and test idea by @meistermopper (#14)
-- (SmarthomeElektroniker) Tumble dryer phases no longer point at the washing machine phase table (no visible change, the numbers never overlapped)
+### 0.4.1
+- (SmarthomeElektroniker) New option **Keep the appliance clock on local time** (Push & ports, off by default): checks `Settings/TimeSync` at start and every hour and sets the appliance clock to the local time of ioBroker if it differs by more than 2 minutes. Only the `DateTime` field is written. States `info.timeSync.lastSet` and `info.timeSync.lastDeviation` per appliance
 
-### 0.3.41
+### 0.4.0
+- (SmarthomeElektroniker) New optional **Miele time server** (Push & ports, off by default): answers the appliances' HTTP time request `GET http://ntp.mcs2.miele.com/V2/NTP/` with `{"time":<Unix seconds>}`, so appliances without internet keep the right time. The appliances must be redirected to it (destination NAT on the router or a DNS rewrite) - see "Time server for the appliances". Answered requests are counted under `info.timeServer.*`, per sender under `info.timeServer.clients.*`
+- (SmarthomeElektroniker) Leaf table: `DateTimeInfo` is attribute 122 in unit 14 (`14/122`), not `2/122`
 
-- (SmarthomeElektroniker) Device types corrected: 16 is the microwave (was: steam oven combi), 67 the dialog oven (was: dish warmer, now 25), the washer-dryer (24) uses the washing machine programs, the oven with microwave (13) its own phases
-- (SmarthomeElektroniker) New device types: semi-professional/professional washers, dryers and dishwashers, robot vacuum (23), steam oven combi (31), steam oven with microwave (45, 418 programs), steam oven MK2 (73); dishwasher program 5 added
-- (SmarthomeElektroniker) Programs without a German name are shown readably ("Artichokes small") instead of as raw identifier
-- (SmarthomeElektroniker) Credits for the tables taken over from Home Assistant, ha-miele-at-lan and ioBroker.miele-unbound
-
-### 0.3.40
-
-- (SmarthomeElektroniker) README: hints for a failing login (ad blocker), moving to another system and why mDNS may find nothing; clearer log message when no appliance is found (#12, thanks @meistermopper)
-
-### 0.3.39
-
-- (SmarthomeElektroniker) Unknown program or phase IDs are now shown as "Programm 201" / "Phase 1234" instead of keeping the text of the previous program (#13)
-- (SmarthomeElektroniker) Dishwasher program IDs of the G7771 added (201, 206, 208, 211, 212, 213) (#13)
-
-### 0.3.38
-- **Object IDs are now consistently English.** The diagnostics channel was named `sammlung`
-  and carried German datapoint names throughout (`befund`, `fortschritt`, `datenJson`,
-  `leafVerlaufFein` …), plus four German ones in the otherwise English `history` channel
-  (`laufendSeit`, `zaehlerStart`, `gemessenLetzter`, `gemessenTotal`) - 57 of 446 objects in
-  total. In the repository request the reviewer therefore took them for hand-made script
-  datapoints. `sammlung` became `collection`, `befund` became `finding`, `laufendSeit`
-  became `runningSince`.
-- **On first start the adapter migrates.** Every existing value moves to its new ID, and only
-  then is the old datapoint removed. Collected data is not lost - in a running installation
-  that is the field-search records, the leaf scan over 882 probed addresses and the trend
-  recording. A freshly set up instance finds nothing to migrate and writes nothing.
-- **Recorded history stays**, but under the old ID: history is attached to the object and does
-  not move with it. Only the four numbers in the `history` channel are affected.
-- **Anyone using the old IDs in their own scripts must follow suit.** Checked before renaming:
-  none of them appeared in 56 ioBroker scripts or in the operator's Android app.
-- The IDs now live in one place, `lib/ids.js`, instead of scattered through the source.
-
-### 0.3.37
-- **Plain text on the raw values.** `status`, `programType`, `programPhase` and `programId` now
-  carry their value list in `common.states`, built from the same tables the `…Text` states come
-  from, so the two cannot drift apart. The object browser and VIS show the text, the value stays a
-  number. The `…Text` states remain unchanged. Programme lists above 64 entries are left out - an
-  oven has 168 of them, and they do not belong inside every object.
-- **Descriptions where they were missing.** Not one of the 446 objects carried a `common.desc`.
-  Everything writable now does, plus the whole diagnostic branch, the three timestamps in
-  milliseconds, and the five raw values whose meaning is documented nowhere. At
-  `sammlung.leafVerlaufFein` the format and an example are part of the description - without them
-  nobody could guess what to type in.
-- **Admin rearranged.** "Appliances & polling" carried 25 fields from six unrelated topics and is
-  now split into **Appliances** and **Polling & values**; the three eco field indices moved to
-  Diagnostics, next to the collection that determines them. 18 blocks of running text disappeared:
-  their content now sits as one or two sentences under the field it belongs to, where the admin
-  shows it. Seven of 69 fields had a help text before, 28 have one now.
-- **The diagnostic branch is only created when it is used.** Its fourteen states per appliance
-  used to appear for everyone. They now require data collection or the leaf scan to be switched
-  on; the scan and the close recording bring the channel with them so they cannot fail silently.
-- **CSV: start, end and difference per leaf field.** Until now a record only held the final state
-  of the other leaves. For a lifetime counter like `hoursOfOperation` that says nothing about a
-  single programme - only the difference does, and those leaves are the only route for appliances
-  that do not answer 2/6195 at all. The adapter now reads the state at the start of a programme as
-  well. The export also gained the serial number as its own column, the adapter version, the
-  divisor and unit in the field headings, a unit on the temperature, and a note on records that
-  predate timestamps instead of silently empty cells.
-- **Second file with the analysis.** `befund-<date>.csv` holds one row per field: match against the
-  reference, best divisor, average and largest deviation. That is the question the collection
-  exists for, and it no longer has to be rebuilt by hand in a spreadsheet.
-- **Fix: role `value.volume` had returned.** A newly added table reintroduced a role the ioBroker
-  catalogue does not know; the repository check reports it as E1008. It is `value` again.
-- **Object IDs of the diagnostic branch in one table.** They are not renamed yet, but they now live
-  in `lib/ids.js` instead of scattered through 180 kB of source, so a later rename is an edit to a
-  table rather than a search.
-- **Device internals as datapoints.** The adapter now carries the field tables of every DOP2 leaf
-  documented by the public reverse-engineering projects `MieleRESTServer` (akappner) and
-  `ha-miele-at-lan` (tiehfood) - 52 structures, including those for ovens, coffee machines,
-  failures and the communication module, not just washing machines. A datapoint is created only
-  when the appliance actually delivers the field; nothing is created blindly. The values are
-  written from polls that already run, so no additional requests are made. New branch per device:
-  `detail.<channel>.<field>`. Off switch in the Diagnostics tab.
-- **Fix: Generic value wrappers were read at the wrong position.** Miele wraps every measurement
-  in a small structure, and there are two shapes: `[mask, value, interpretation]` and
-  `[mask, min, max, current, step]`. The adapter always read the second entry - correct for the
-  first shape, the *minimum* for the second, which is 0 on every observed field. Seven fields of
-  the eco leaf were affected, among them `heatingTargetTemperature`: during a 40 °C programme the
-  appliance reported `[9, 0, 0, 40, 0, 0]` and the adapter 0. Field numbers inside structures are
-  now preserved and used.
-- **Water: the appliance's own EcoFeedback comes first.** Where DOP2 2/1585 exists, its value for
-  the last programme is used; only where it does not does the adapter fall back to counting flow
-  meter impulses (field 21 / 200, verified against the house water meter over 24 programmes). The
-  new datapoint `eco.source` (called `eco.quelle` before 0.3.45) says which of the two a value came from.
-- **The collector records every leaf.** At the end of a programme the adapter reads each answering
-  leaf once, gently (five seconds between requests, in the background), and appends the final state
-  to the record. This is what makes the collection useful for appliances that do not answer 2/6195
-  at all - a dishwasher that stays silent there answers nineteen other addresses. The CSV export
-  lists them as columns named `2/119.1 hoursOfOperation`.
-- **Leaf scan covers unit 14.** An oven that answered all 882 scanned addresses with 404 was being
-  asked in the wrong units: `ha-miele-at-lan` documents the cooking programme lists at 14/1570 and
-  14/1571.
-
-### 0.3.36
-- **Fix: the final water reading of short programs is no longer missed.** With the regular ten-minute interval the last reading of a 35-minute
-  program fell up to nine minutes before the end, and the appliance resets its counters
-  immediately afterwards - the intermediate value was then stored as the final one. Eco
-  readings now switch to a one-minute interval for the last ten minutes of a program.
-- A reading that still did not catch the end is **kept but marked**: it counts as a gap
-  rather than as a deviation, so a correct field assignment no longer looks faulty.
-- **Admin translations completed.** Twelve texts of the settings page had no translation
-  entry and showed German to every other language; six stale keys were removed and the
-  language files moved to the short format (`admin/i18n/<lang>.json`). A test now keeps
-  the translations and `jsonConfig.json` in step.
-- Configurable intervals are capped at runtime - Node fires a timer above 2^31-1 ms
-  immediately instead of late.
-- `npm run test:unit` now picks up every test file; three of them had never run.
-- Leaf scan: a pass aborted because the appliance is busy is now logged as info instead of a
-  warning - it is expected during programmes and resumes automatically from the saved progress.
-- **Object structure check:** the data points added since 0.3.5 (data collection, metering
-  socket, operating hours) now carry names in all eleven languages, and the two input fields
-  for values from the Miele app use the writable role `level` instead of read-only `value.*`
-  roles. Existing objects are updated on start; a new test fails whenever a data point name
-  lacks one of the eleven languages.
-- Repository checker: `common.news` limited to published versions and translated into all eleven
-  languages, size attributes for the new settings, `node:http` instead of `http`, contact e-mail
-  address in `package.json`, `io-package.json` and README.
-- **Fix: water field divisor.** The setting was a unit select with 1, 10 or 100, while the default
-  for field 21 is 200 (5 ml per step) - the correct value could not be selected, and a missing
-  value fell back to 100 in one place and 10 in another. It is now a free number ("water field
-  divisor", decimals allowed, default 200); invalid values fall back to 200.
-- **Fix: the measured energy of the metering socket was dropped** before it reached the
-  field check - every collected cycle lacked it. The field check now compares energy
-  fields against the measurement instead of the cloud value rounded to 0.1 kWh.
-
-### 0.3.18
-- Leaf scan now separates a genuine refusal from a fault - a 503 or dropped socket no longer marks an address as checked that was never really asked.
-
-### 0.3.17
-- Leaf scan with short timeout and incremental saving - a full pass takes minutes instead of hours.
-
-### 0.3.16
-- Leaf scan: systematically probes the appliance for DOP2 leaves and records their fields - two passes (idle and running) reveal which fields move with the programme.
-
-### 0.3.15
-- Ongoing check: compares delivered values against cloud or app readings after each cycle and reports when the field mapping drifts.
-
-### 0.3.14
-- Water consumption verified: field 21 at 5 ml per count matches within 0.5% (8 cycles against the cloud) - field 26 was configured before and carries no measurement at all.
-
-### 0.3.13
-- Field analysis detects empty fields and rigidly coupled values - a field that is a fixed multiple of another carries no measurement of its own.
-
-### 0.3.12
-- Field analysis: evaluates collected cycles and reports which field carries energy and water - a field that stays constant is rejected.
-
-### 0.3.11
-- Renaming of the energy fields now actually takes effect - it was reset by object creation as soon as a programme was running.
-
-### 0.3.10
-- Total operating hours from DOP2 leaf 2/119.
-
-### 0.3.9
-- Water field corrected (#26); hold rule no longer keeps stale values during a run.
-
-### 0.3.8
-- Water value of a finished programme is kept instead of falling back to zero.
-
-### 0.3.7
-- Water consumption read from the correct field; eco field indices are now configurable.
-
-### 0.3.6
-- Optional raw eco field recording for diagnosing model-specific field indices.
-
-### 0.3.5
-- **Fix: appliance status no longer flips to "off" during a running program.** A failed status
-  request was reported as a state change instead of being retried; every twenty-fifth poll
-  produced a spurious "off". Requests now get a second attempt, and an implausible jump from
-  "running" to "off" is discarded when the remaining time says the program is still going.
-  The retry count is exposed as `info.pollRetries`.
-- **Fix: remaining time was read from the wrong field.** `remainingSeconds` carries only the
-  seconds component - at "2:01" it reads 0. The plausibility check now uses
-  `remainingMinutes`.
-- **Fix: frozen EcoFeedback values are no longer booked as consumption.** When an appliance
-  keeps reporting the previous cycle's figures, the unchanged value is skipped instead of
-  being added to the new cycle.
-- Requests are serialised per appliance, and a cycle now survives an adapter restart.
-- **EcoFeedback is only requested while an appliance is actually running.** The DOP2 leaf
-  only answers while the appliance is awake - a switched-off machine returns HTTP 500. The
-  washing machine's last reading came in mid-programme; afterwards every poll ran into the
-  void, one per minute for days, each one occupying the XKM module that answers only one
-  request at a time. Polling now happens while a programme runs, during a ten-minute
-  follow-up afterwards (the final reading is not settled the moment the status flips), and
-  once at startup so that appliances without the leaf can still be identified. The follow-up
-  ends early once two consecutive readings are identical.
-- **All object names are complete in eleven languages.** The repository check reported 147
-  W1001 warnings for `common.name`; channels, EcoFeedback data points, appliance names and the
-  instance objects were still English- or German-only. Appliance categories are translated
-  while model and serial number stay untouched - they are proper names.
-
-### 0.3.4
-- **New: cycle history.** Every completed program is recorded with duration, program name,
-  energy and water. The appliances do not keep finished cycles themselves, so the history
-  starts when the feature is enabled - it cannot be filled retroactively. Recent cycles are
-  kept as JSON in `<serial>.history.cyclesJson`, alongside running totals for cycle count,
-  runtime, energy and water. Optionally each cycle is also written to the history adapter,
-  timestamped at the end of the cycle, so charts can cover any period.
-  Configurable on the new **History** tab: ring buffer size (default 50), retention in days
-  (default 730) and the history instance.
-- The step-by-step login instructions were stored in English in nine of the eleven language
-  files. All eight texts are now translated into es, fr, it, nl, pl, pt, ru, uk and zh-cn.
-- `common.news` no longer lists versions that were never published to npm.
-- Dependabot: raised the PR limit, spread the schedule over a cron slot, added automerge.
-
-### 0.3.3
-- Fix E3005: states declared as `number` no longer receive `null` when the appliance does not
-  report a value - the datapoint keeps its default instead. `estimatedEndTime` is cleared with
-  0 rather than null.
-- Fix E1011: `state.light` is read-only and now carries role `sensor.light`; switching happens
-  through `control.lightOn`/`lightOff`.
-
-### 0.3.2
-- EcoFeedback conversion moved into `dop2.ecoValues()` and covered by unit tests against the
-  cloud-verified reference values (1991 Wh = 1.991 kWh, 953 = 95.3 l).
-
-### 0.3.1
-- Fix: `applyIdent` threw on the new `connected` field, which has no ident path. Because that
-  entry comes first, **all** device data stayed empty - model, serial number, firmware.
-- Eco polling now logs why it skips a device instead of failing silently.
-
-### 0.3.0
-- Adopt ioBroker development guidelines and conformity rules.
-- Translate internal log messages to pure English.
-- Add explicit default metadata values (`def`) to all state definitions.
-- Sanitize dynamic object IDs against forbidden characters.
-- Add local verification test script (`npm run test:local`).
-- Add German documentation (`README_de.md`).
-- Fix dev-server packaging issue by removing redundant prepare script.
-- Clarify step-by-step login instructions and i18n translations.
-- Add CHANGELOG_OLD.md for historical pre-rename versions.
-- Add per-device connectivity state (`info.connected`).
-- Add periodic background discovery for waking/standby appliances.
-- Add admin UI configuration for second-precise remaining time polling.
-- Refine EcoFeedback state roles and measurement units.
-- mDNS auto-discovery is no longer marked experimental - confirmed working.
-
-Most of the above was contributed by [meistermopper](https://github.com/meistermopper).
-
-### 0.2.1
-- Released via GitHub Actions with npm provenance (trusted publishing). No functional
-  changes.
-
-### 0.2.0
-- Renamed from `miele-lokal` to `miele-local`: English adapter name and title.
-  First release under the new package name.
+### 0.3.47
+- (SmarthomeElektroniker) A command under `control.*` that cannot be executed (control disabled, appliance not connected, HTTP error, connection error) is now acknowledged (`val=false`, `ack=true`) with the reason in the state comment `c` and a matching quality `q`. Until now it stayed unacknowledged - one `control.powerOn` stood there for 52 days
+- (SmarthomeElektroniker) Unacknowledged commands left over from before a restart are closed on start and are **not** sent to the appliance
+- (SmarthomeElektroniker) `remainingMinutes`/`remainingHHMM` are 0 while the appliance is off, finished or not connected (status 1/7/255), and no end time is calculated. A G5840 reported a remaining time of 0:01 while switched off
+- (SmarthomeElektroniker) A lost connection to an appliance and its return are logged once at info level (until now only at debug)
+- (SmarthomeElektroniker) The IP fallback search ("Search the subnet for the new IP if a device drops out") also runs in the background when mDNS discovery is off - exactly the Docker bridge setup it is meant for. It only probes appliances that currently fail, and searches every /24 network that has a missing appliance, not only the network of the first configured IP
 
 ## License
 

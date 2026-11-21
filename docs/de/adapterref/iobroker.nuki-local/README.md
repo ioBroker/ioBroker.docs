@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nuki-local/README.md
 title: ioBroker.nuki-local
-hash: QRKw55jJMZdxACBm6gUj+ucu1ox0B2WLakLYIAs5VRA=
+hash: HGenMER1vozsrndQXszxbjs8Gd9RYRtmFeoZ9eftQyw=
 ---
 # ioBroker.nuki-local
 
@@ -138,6 +138,27 @@ device.deviceType
 device.mode
 device.online
 ```
+
+## Entfernen eines alten Geräts
+
+So entfernen Sie ein altes Schloss und die darauf gespeicherten MQTT-Daten endgültig:
+
+1. Trennen Sie das alte Schloss von MQTT oder schalten Sie es aus.
+2. Wenn die Web-API aktiviert ist, entfernen Sie die alte Sperre von Nuki Web.
+3. Öffnen Sie in ioBroker Admin die Objekte und identifizieren Sie das alte Gerät anhand seiner Nuki-ID.
+4. Öffnen Sie das ausgewählte Gerät. `maintenance` Kanal.
+5. Satz `maintenance.confirmRemoval` Zu `true` mit `ack=false` Die
+6. Innerhalb von 30 Sekunden einstellen `maintenance.removeDevice` Zu `true` mit `ack=false` Die
+
+Die Bestätigung erlaubt nur eine Löschung. Sie wird nach der Verwendung, nach 30 Sekunden, bei expliziter Deaktivierung oder beim Neustart des Adapters zurückgesetzt. Ohne gültige Bestätigung wird die Löschung abgelehnt.
+
+Der vorherige `commands.removeDevice` Das Objekt wird während der Geräteinitialisierung entfernt. Der alte Befehlspfad führt keine Löschung mehr aus.
+
+Dadurch werden der Objektbaum des ausgewählten Geräts und die zugehörigen MQTT-Themen sofort gelöscht. Andere Geräte bleiben erhalten. Die Aktion kann nicht rückgängig gemacht werden.
+
+Die Verarbeitung des entfernten Geräts wird unterdrückt, bis der Adapter neu gestartet wird. Nach einem Neustart kann ein Schloss, das noch MQTT-Daten sendet oder in Nuki Web aufgeführt ist, wieder gefunden werden.
+
+Löschen Sie nicht das gesamte LevelDB-Verzeichnis, um ein einzelnes Gerät zu entfernen.
 
 ## Befehle
 
@@ -400,6 +421,38 @@ iobroker restart nuki-local.0
 ```
 
 ## Changelog
+
+### 0.1.8 (2026-11-18)
+
+- (helfi9999) Fixed the connection indicator so it turns green only when a Nuki connects via MQTT and resets when the last lock disconnects.
+- (helfi9999) Added tests for rejected MQTT credentials and connections with multiple locks.
+
+### 0.1.7 (2026-11-15)
+
+- (helfi9999) Updated aedes-persistence-level to 9.2.0 and @iobroker/testing to 6.3.2.
+- (helfi9999) Updated locked follow-redirects and node-forge dependencies to address reported vulnerabilities.
+- (helfi9999) Switched Dependabot auto-merge to pull_request and removed the obsolete workflow backup.
+
+### 0.1.6 (2026-10-30)
+
+- (helfi9999) Moved device removal to a separate maintenance channel.
+- (helfi9999) Required a one-time confirmation valid for 30 seconds before deletion.
+- (helfi9999) Removed the legacy deletion button and disabled its command path.
+- (helfi9999) Added tests for missing, expired and revoked confirmations and the disabled legacy command.
+
+### 0.1.5 (2026-10-28)
+
+- (helfi9999) Added a device removal command that deletes the selected device's objects and retained MQTT data.
+- (helfi9999) Serialized MQTT and Web API object updates per device to coordinate device removal.
+- (helfi9999) Added an isolated device removal test with persistent storage.
+
+### 0.1.4 (2026-10-10)
+
+- (helfi9999) Added readable fingerprint and keypad access logs with device name, user name and action.
+
+- (helfi9999) Moved raw MQTT messages to debug logging.
+- (helfi9999) Added readable lock and door state change logs using the device name, suppressing duplicate and initial states.
+
 ### 0.1.3 (2026-10-04)
 
 - (helfi9999) Replaced the default adapter icon with a custom Nuki icon.

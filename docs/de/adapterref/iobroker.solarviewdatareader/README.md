@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
+hash: lCaDZJwB+9mUhMR6b2ZBuS/7TKRIWwTIGNIB9R5XeH8=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -17,43 +17,67 @@ hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
 
 # ioBroker.solarviewdatareader
 
-## SolarViewDataReader-Adapter für ioBroker
+## ioBroker SolarView Datenleser
 
-Der Adapter liest die Daten vom Solarview-Datenlogger aus. Weitere Informationen zu Solarview finden Sie hier: <https://www.solarview.info/solarlogger.aspx>
+Dieser Adapter liest Messdaten von einem SolarView-Datenlogger über dessen TCP-Schnittstelle aus. Informationen zu SolarView und kompatibler Hardware finden Sie auf der [SolarView-Website](https://www.solarview.info/solarlogger.aspx) .
+
+Der Adapter verwendet eine unverschlüsselte TCP-Verbindung. SSL/TLS und Zertifikatsprüfung werden nicht unterstützt.
+
+## Anforderungen
+
+- Node.js 22 oder neuer
+- ioBroker js-controller 6.0.11 oder neuer
+- ioBroker Admin 7.6.20 oder neuer
 
 ## Konfiguration
 
-### IP-Adresse, Port
+### Verbindung
 
-Um die Daten vom Datenlogger abzurufen, müssen Sie die IP-Adresse und den Port Ihres SolarView-TCP-Servers eingeben. Der Standardport ist 15000. Weitere Informationen finden Sie in der SolarView-Dokumentation [unter https://www.solarview.info/solarlogger.aspx](https://www.solarview.info/solarlogger.aspx) .
+Geben Sie die IP-Adresse oder den Hostnamen des SolarView-Datenloggers und seinen TCP-Port ein. Der Standardport ist `15000` Die
 
-### D0-Konverter
+### Abfrageintervall und Zeitfenster
 
-Wenn Sie einen D0-Konverter an den Solarview-Datenlogger angeschlossen haben, können Sie diese Option aktivieren. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
+Legen Sie fest, wie oft der Adapter Daten anfordert (10 bis 3600 Sekunden). Das Zeitfenster steuert die Abfrage von PV- und Wechselrichterdaten, einschließlich der D0-Versorgungsdaten, wenn der D0-Wechselrichter aktiviert ist. Eigenverbrauchsdaten und D0-Verbrauchsdaten werden auch außerhalb dieses Zeitfensters weiterhin abgefragt.
 
-### Eigenverbrauchszählersumme und 1 bis 4
+Für ein ganztägiges Zeitfenster verwenden Sie `00:00` Zu `23:59` Die
 
-Wenn Sie einen S0-Zähler besitzen, können Sie diese Option aktivieren. Sie können bis zu vier Eigenverbrauchszähler einrichten und die Summe aller Zählerwerte berechnen. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
+### Geräte
 
-### Wechselrichter 1 bis 4
+Aktivieren Sie auf der Registerkarte **„Geräte und CCU“** nur die in SolarView konfigurierten Geräte:
 
-Jeder Wechselrichter kann einzeln aktiviert werden. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
+- **D0-Konverter** : erstellt `d0supply` Und `d0consumption` Daten.
+- **Eigenverbrauchszähler** : Aktivieren Sie den Gesamtzähler und/oder die Zähler 1 bis 4.
+- **Wechselrichter** : Wechselrichter 1 bis 4 einzeln aktivieren.
 
-### Intervall, Intervallbeginn, Intervallende
+### Homematic CCU-Systemvariable
 
-Hier können Sie den Zeitraum und das Intervall konfigurieren. Der Zeitraum für 24 Stunden ist 00:00 bis 23:59 Uhr. Nicht 00:00 bis 00:00 Uhr.
+Aktivieren Sie **die Systemvariable CCU,** um die aktuelle PV-Leistung in eine Homematic-CCU-Systemvariable zu schreiben. Geben Sie dazu die zugehörige ioBroker-Status-ID ein, zum Beispiel: `hm-rega.0.12345` Die
 
-### Systemvariable CCU setzen, Systemvariable
+## Staaten
 
-Dies ist eine spezielle Funktion der Homematic CCU. Sie können in der CCU eine Systemvariable definieren. In dieser Systemvariable wird der aktuelle PAC-Wert gespeichert. Sie müssen den ioBroker-Status für diese Systemvariable angeben, z. **B. „hm-rega.0.12345“.**
+Der Adapter erzeugt einen `pvig` Kanal für die gesamten PV-Daten. Je nach Konfiguration wird außerdem ein Kanal erstellt. `pvi1` Zu `pvi4`, `d0supply`, `d0consumption`, Und `scm0` Zu `scm4` Kanäle.
 
-### Geschaffene Staaten
+PV- und Wechselrichterkanäle bieten:
 
-#### pvig, pvi1..4, d0supply, d0consumption
+| Zustand   | Beschreibung         | Einheit |
+| --------- | -------------------- | ------- |
+| `current` | Aktuelle PV-Leistung | W       |
+| `daily`   | Tagesertrag          | kWh     |
+| `monthly` | Monatlicher Ertrag   | kWh     |
+| `yearly`  | Jahresertrag         | kWh     |
+| `total`   | Gesamtertrag         | kWh     |
 
-täglich = Tagesertrag (kWh) monatlich = Monatsertrag (kWh) jährlich = Jahresertrag (kWh) gesamt = Gesamtertrag (kWh) Strom = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt pro MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere pro MPP-Tracker UL1, IL1 = Netzspannung, Netzleistung Phase 1 UL2, IL2 = Netzspannung, Netzleistung Phase 2 UL3, IL3 = Netzspannung, Netzleistung Phase 3 TKK = Temperatur-Wechselrichter
+Aktivierte Wechselrichterkanäle liefern außerdem Gleichspannung und Gleichstrom pro MPP-Tracker: `udc` /`idc`, `udcb` /`idcb`, `udcc` /`idcc`, Und `udcd` /`idcd` (V/A). Je nach SolarView-Protokollversion können auch Netzspannung und -strom pro Phase angegeben werden (`ul1` /`il1` Zu `ul3` /`il3`, V/A) und Wechselrichtertemperatur (`tkk`, °C).
+
+Der `info` Der Kanal enthält den Verbindungsstatus (`info.connection`) und der Zeitstempel der letzten erfolgreichen Aktualisierung (`info.lastUpdate`).
 
 ## Changelog
+### 1.3.0 (2026-10-26)
+* (afuerhoff) legacy polling intervals are migrated from minutes to seconds
+* (afuerhoff) socket error handling and connection status reporting improved
+* (afuerhoff) configuration organized into tabs with improved validation and help texts
+* (afuerhoff) configuration translations updated
+
 ### 1.2.6 (2026-09-13)
 * (afuerhoff) dependencies updated
 * (afuerhoff) issues detected by repository checker fixed [#289], [#305]
@@ -73,11 +97,6 @@ täglich = Tagesertrag (kWh) monatlich = Monatsertrag (kWh) jährlich = Jahreser
 * (afuerhoff) dependencies updated
 * (afuerhoff) repository checker issues fixed
 * (afuerhoff) typescript error fixed
-
-### 1.2.2 (2025-05-30)
-* (afuerhoff) dependencies updated
-* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
-* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
 
 ## License
 MIT License

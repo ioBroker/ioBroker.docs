@@ -77,11 +77,11 @@ If longitude and latitude in the iobroker main settings, the adapter will fill o
 
 | Feature | Free | Light | Plus |
 |---------|------|-------|------|
-| API requests/month | 250 | 3,000 | 3,000 |
+| API requests/month | 250 | 3,000 | 4,500 |
 | Updates per day | 1 | 24 (hourly) | 144 (every 10 min) |
 | Forecast days | 1-2 (today + tomorrow) | 1-7 | 1-7 |
 | Solar arrays | up to 4 | up to 4 | up to 8 |
-| Historical data | no | no | 30 days |
+| Archived forecast | no | no | 7 days |
 
 The **poll interval** is set automatically by the adapter based on the selected tier — no manual configuration required:
 
@@ -134,8 +134,11 @@ Format: `key1=value1&key2=value2`
 ### pvnode Notes
 
 - **15-minute resolution**: pvnode delivers forecast data in 15-minute intervals (v1 and v2)
+- **Daily totals for additional days**: With more than 2 forecast days (Light/Plus), the states `energy.day2` … `energy.day6` (energy in 2 … 6 days) are created for each plant and under `summary.energy`. States for days outside the configured forecast days are removed automatically.
+- **Hourly values for additional days**: If hourly states are enabled, the channels `energy.hoursDay2` … `energy.hoursDay6` and `power.hoursDay2` … `power.hoursDay6` are created for the same days for each plant and under `summary` (analogous to `hoursToday`/`hoursTomorrow`).
 - **Azimuth conversion**: The adapter automatically converts the azimuth (adapter: 0=south) to pvnode format (180=south)
 - **Poll interval**: Set automatically based on subscription tier — no manual configuration needed
+- **Adapter restart**: If the stored forecast data is still current on startup (younger than the poll interval), no new request is made. The next request is scheduled as soon as the data becomes outdated. After a configuration change or a newly added plant, data is requested immediately.
 - **Per-plant forecasts (v2)**: When the pvnode account returns string data, each configured plant receives its own forecast. Clearsky values, temperature, and weather code come from the site-wide data.
 - **Summary data**: The summary JSON includes clearsky values as well as temperature and weather code
 - The "damping morning" and "damping evening" fields are not used for pvnode
@@ -150,10 +153,13 @@ If you want to take the json graph and table you can use this [example](/#/docs/
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 7.0.0 (2026-11-19)
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
+- (@patricknitsch) Fix pvnode v2 Plus tier only fetching every 60 minutes instead of every 10 minutes
+- (@patricknitsch) pvnode: Add daily energy states for additional forecast days (`energy.day2` ... `energy.day6`) for Light/Plus tier
+- (@patricknitsch) pvnode: Add hourly states for additional forecast days (`energy.hoursDay2` ... `energy.hoursDay6`, `power.hoursDay2` ... `power.hoursDay6`) if hourly states are enabled
+- (@patricknitsch) pvnode: Skip the request on adapter start if the stored forecast is still current (saves requests of the monthly quota)
 
 ### 6.2.0 (2026-07-06)
 - (@patricknitsch) pvnode API v2 support: plant configuration via Site ID in the pvnode portal — create a site at https://pvnode.com/sites/new
@@ -178,12 +184,6 @@ If you want to take the json graph and table you can use this [example](/#/docs/
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@Scrounger) solcast user agent bug fix
 * (@klein0r) Updated dependencies
-
-### 5.0.0 (2025-04-23)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Minimum peak power is 0.1 kWp
 
 ## License
 

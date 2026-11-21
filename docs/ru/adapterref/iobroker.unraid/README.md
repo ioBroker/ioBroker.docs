@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
+hash: 82/oHefABenjIs9F0fF9kos6YG/39UCXY+p9QSIFOBg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
@@ -27,9 +27,11 @@ hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
 - Отслеживание использования ЦП и памяти (включая статистику по каждому ядру).
 - Отслеживание показаний датчиков температуры материнской платы (чипсет, температура окружающей среды и т. д.) — требуется Unraid 7.2+
 - Отслеживание состояния сервера и сетевой информации.
-- Мониторинг и управление контейнерами Docker (запуск/остановка/пауза/возобновление/обновление) — для паузы/возобновления/обновления требуется Unraid 7.2+.
+- Мониторинг и управление контейнерами Docker (запуск/остановка/перезапуск/пауза/возобновление/обновление, обновление всех) — для паузы/возобновления/обновления требуется Unraid 7.2+
 - Обнаружение обновлений Docker для каждого контейнера и в сводном виде — требуется Unraid 7.2+
 - Просмотр состояния дисков массива (данные, контрольная сумма, кэш) с информацией о их работоспособности.
+- Проведите проверку четности (статус, ход выполнения, ошибки).
+- Подсчет непрочитанных уведомлений Unraid (оповещений, предупреждений, информации) — например, для пересылки их на ваш телефон.
 - Мониторинг сетевых ресурсов (использование, конфигурация, сведения о файловой системе)
 - Мониторинг и управление виртуальными машинами (запуск/остановка/пауза/возобновление/перезагрузка).
 - Настраиваемый интервал опроса
@@ -68,7 +70,7 @@ hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
 
 4. Скопируйте сгенерированный токен (ключ API) — он понадобится вам для настройки адаптера.
 
-![API-токен Unraid](../../../en/adapterref/iobroker.unraid/docs/de/img/unraid_token01.png)
+![Токен API Unraid](../../../en/adapterref/iobroker.unraid/docs/de/img/unraid_token01.png)
 
 ### Настройки адаптера
 
@@ -106,6 +108,21 @@ hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-11-21)
+
+- (Schimi1983) New: a restart button for every Docker container, plus a button to update all containers at once (`docker.commands.updateAll`)
+- (Schimi1983) New data area "Parity check": status, progress, errors, speed, date and duration of the running or last parity check
+- (Schimi1983) New data area "Unread notifications": number of unread Unraid alerts, warnings and information messages
+- (Schimi1983) New state `info.os.bootTime`: when the server was started
+- (ingel81) **Existing instances:** the two new data areas have to be ticked in the adapter settings; only new instances get them automatically
+- (Schimi1983) New state `info.connection`: the instance now shows whether the Unraid server answers
+- (Schimi1983) Detection of Unraid features works again on current Unraid versions; the warning at startup is gone
+- (Schimi1983) Clear log messages for a wrong API key, an unreachable server or a timeout. Each problem is logged once, not on every poll
+- (Schimi1983) The adapter no longer stalls when Unraid stops answering: requests are given up after 30 seconds and never pile up
+- (Schimi1983) Noticeably less load on ioBroker: objects and values are only written when they actually change
+- (ingel81) Security fixes in the network libraries (`undici`, `ws`)
+- (ingel81) Now also tested with Node.js 26
+
 ### 0.10.0 (2026-08-21)
 
 - (ingel81) Security fixes in the network libraries (`ws`, `undici`)
@@ -130,12 +147,6 @@ hash: irh5aSgPWWG0hJnoGLZo4AoWYaeuHxdRGIT+EPDSlP8=
 ### 0.7.2 (2026-01-04)
 
 - (ingel81) Updated dependencies and admin UI (React 19)
-
-### 0.7.1 (2025-11-30)
-
-- (ingel81) Minor pipeline issues fixed
-
-[Older changelogs can be found there](https://github.com/ingel81/ioBroker.unraid/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

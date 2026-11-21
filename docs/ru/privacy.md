@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/privacy.md
 title: политика конфиденциальности
-hash: 7+1kbLeGZxhPR2Si8FMA1xSoVl1vzg0Glw2yv3N6jxQ=
+hash: Ivh/Ba/TMRIe19mfXW6B5fXdkZ/A87gSsnhW/mCgdXg=
 ---
 # политика конфиденциальности
 
@@ -66,6 +66,10 @@ hash: 7+1kbLeGZxhPR2Si8FMA1xSoVl1vzg0Glw2yv3N6jxQ=
 
 Все данные, полученные через API Google Workspace, обрабатываются строго в соответствии с политикой Google в отношении API и используются исключительно для предоставления соответствующих услуг нашим пользователям.
 
-Мы не храним никаких данных или токенов доступа из приложения ioBroker BackItUp Google Drive. Доступ к Google Drive возможен только с помощью`ioBroker.backitup` Возможно использование адаптеров и токенов доступа, хранящихся в вашем экземпляре ioBroker.
+Мы не храним никаких данных или токенов доступа из приложения ioBroker BackItUp Google Drive. Доступ к Google Drive возможен только с помощью `ioBroker.backitup` Возможно использование адаптеров и токенов доступа, хранящихся в вашем экземпляре ioBroker.
 
-Если вы хотите отозвать доступ, просто удалите токен доступа в настройках.`ioBroker.backitup` -Устанавливать и отзывать доступ третьих лиц к вашей [учетной записи Google.](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+Если вы хотите отозвать доступ, просто удалите токен доступа в настройках. `ioBroker.backitup` -Устанавливать и отзывать доступ третьих лиц к вашей [учетной записи Google.](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+
+## Заставка ioBroker: Google Photos
+
+адаптер `ioBroker.screensaver` Google Photos может отображать фотографии из Google Photos в виде фоторамок и заставок (Google Photos Ambient API). В [политике конфиденциальности Google Photos](/policy/google-photos) описывается, какие данные используются для этой цели, где и как долго они хранятся, а также как можно отозвать доступ.

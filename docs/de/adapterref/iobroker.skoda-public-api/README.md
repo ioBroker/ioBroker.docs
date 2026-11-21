@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/README.md
 title: ioBroker.skoda-public-api
-hash: 8NycFERLKDzY62pF2xAE4T4hM4vt/BwXBJcH84S7nME=
+hash: Z6HbHns2AA3begwIoG/DO4evMbCr+t2DJsxsYIK0fS4=
 ---
 ![Logo](../../../en/adapterref/iobroker.skoda-public-api/admin/skoda-public-api.png)
 
@@ -21,7 +21,19 @@ hash: 8NycFERLKDzY62pF2xAE4T4hM4vt/BwXBJcH84S7nME=
 
 Lesen und steuern Sie Škoda-Fahrzeuge über die offizielle [MyŠkoda Public API](https://public.api.connect.skoda-auto.cz/docs) .
 
-Der Adapter ist auf npm veröffentlicht und im ioBroker verfügbar. `latest` Repository. Der [Test-Thread](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) sammelt Feedback von anderen Fahrzeugen. Entwicklungsstatus und offene Aufgaben sind in [HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) dokumentiert.
+Der Adapter ist auf npm veröffentlicht und im ioBroker verfügbar. `latest` Repository. Version **0.1.11** wurde in das offizielle Repository aufgenommen. `stable` Das Repository wurde am 11. Oktober 2026 ( [stabile PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832) ) veröffentlicht. Es wird nach Aktualisierung des Repository-Katalogs in der ioBroker-Administration sichtbar. Der [Test-Thread](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) sammelt Feedback von anderen Fahrzeugen. Entwicklungsstatus und offene Aufgaben sind in [HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) dokumentiert.
+
+## Installation
+
+Voraussetzungen: Node.js 22 oder neuer, js-controller 6.0.11 oder neuer und Admin 7.6.20 oder neuer.
+
+1. Wählen Sie die `stable` Repository in ioBroker Admin öffnen und den Adapterkatalog aktualisieren.
+2. **Adapter** öffnen, suchen nach `skoda-public-api` und installieren Sie den freigegebenen Adapter.
+3. Erstellen Sie eine Instanz und geben Sie den API-Schlüssel und die autorisierten VINs in deren Konfiguration ein.
+
+Falls der Adapter nach der Aufnahme in die stabile Version noch nicht aufgeführt ist, warten Sie auf die nächste Aktualisierung des Repository-Katalogs und aktualisieren Sie diesen erneut. Die veröffentlichte Version ist auch verfügbar in `latest` Die
+
+Installieren Sie das veröffentlichte Paket mit ioBroker Admin oder der ioBroker CLI. Ein Quellcode-Checkout enthält TypeScript; der kompilierte Adapter-Einstiegspunkt ist im veröffentlichten npm-Paket enthalten. Die Repository-URL ist für Entwicklung und Überprüfung vorgesehen.
 
 ### Die eine Einschränkung, die alles prägt
 
@@ -31,7 +43,7 @@ Die API erlaubt **20 Anfragen pro Stunde und Fahrzeugidentifikationsnummer (VIN)
 
 Der Adapter verwendet die **offizielle** MyŠkoda Public API – nicht die per Reverse Engineering entwickelte App-Schnittstelle, die `iobroker.vw-connect` spricht mit.
 
-1. Öffnen Sie die MyŠkoda-App (Version 8.16 oder neuer) und gehen Sie zu **API-Schlüssel** .
+1. Öffnen Sie die MyŠkoda App (Version 8.16 oder neuer) und gehen Sie zu **API-Schlüssel unter Profil/Smart Home** .
 2. Wählen Sie die Fahrzeuge aus, auf die der Schlüssel zugreifen darf. Der Schlüssel ist an diese Auswahl gebunden: Eine nicht ausgewählte Fahrgestellnummer (VIN) wird mit einem Fehlercode beantwortet. `403`, egal wie korrekt es aussieht.
 3. Kopieren Sie den Schlüssel in die Adapterinstanz. Er **läuft** nach einer gewissen Zeit ab – der Adapter überwacht das Ablaufdatum und warnt Sie (siehe [Schlüsselablauf](#key-expiry) ).
 
@@ -78,12 +90,12 @@ Die Taste wird zurückgesetzt auf `false` mit `ack: true` Die Verarbeitung des A
 
 | Zustand                                    | Bedeutung                                                                                                                                                                                               |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `info.connection`                          | `false` Wenn der Schlüssel abgelehnt wird (401/403). **Bleibt `true` Wenn das Kontingent erschöpft ist** – ein leeres Budget ist normal, kein Fehler.                                                    |
+| `info.connection`                          | `false` Wenn der Schlüssel abgelehnt wird (401/403). **Bleibt `true` Wenn das Kontingent erschöpft ist** – ein leeres Budget ist normal, kein Fehler.                                                     |
 | `<vin>.rateLimit.*`                        | `limit`, `remaining`, `resetAt`, `lastRequestAt` — das separate Budget für diese Fahrgestellnummer, aus dem `RateLimit-*` Header und der Speicher des Adapters werden über Neustarts hinweg gespeichert. |
 | `info.apiKey.expiresAt`, `.daysRemaining`  | vom `X-API-Key-Expires-At` Kopfzeile jeder Antwort.                                                                                                                                                      |
 | `<vin>.info.dataAge`                       | Sekunden seit dem neuesten `carCapturedTimestamp` in der Antwort.                                                                                                                                        |
 | `<vin>.info.lastErrors`                    | Der `errors[]` der letzten Antwort als JSON.                                                                                                                                                             |
-| `<vin>.info.lastCommand.*`                 | `name`, `result`, `timestamp`, `problemType` des letzten Befehls.                                                                                                                                        |
+| `<vin>.info.lastCommand.*`                 | `name`, `result`, `timestamp`, `problemType` des letzten Befehls.                                                                                                                                       |
 | `<vin>.info.commandConfirmation.<group>.*` | Annahme, Zielvorgabe, Frist und beobachtete Bestätigung des zuletzt angenommenen Befehls in jeder Kontrollgruppe.                                                                                       |
 | `<vin>.info.polling.nextPollAt`            | Geplante Fälligkeitszeit des nächsten Abfrageversuchs in Unix-Millisekunden; `0` während der Abstimmung, ausgesetzt oder wiederholt lokale staatliche Schreibvorgänge.                                   |
 | `<vin>.info.polling.lastSuccessfulPollAt`  | Zeitpunkt der letzten erfolgreichen Antwort der Fahrzeug-API in Unix-Millisekunden; bleibt über Neustarts hinweg erhalten. `0` falls keine aufgezeichnet wurden.                                         |
@@ -128,14 +140,14 @@ Die folgenden numerischen Werte verwenden besser lesbare Anzeigeeinheiten. Ihre 
 
 Andere Bereiche und der Kilometerzähler verwenden bereits Kilometer; die Ladezeit wird bereits in Minuten angegeben. Werte werden ohne Rundung dividiert. Vorhandene Objekteinheiten und Standardbeschreibungen werden aktualisiert, sobald der entsprechende Wert das nächste Mal empfangen wird; benutzerdefinierte Namen bleiben erhalten. Skripte, die diese drei Zustände auslesen, müssen km/min verwenden. Vorhandene aufgezeichnete Zeitreihen werden nicht überschrieben. API-Antworten und Befehlsnutzdaten behalten die API-Einheiten bei.
 
-Die API kann auslassen `charging.status.state` auch dann, wenn das Ladekabel angeschlossen ist. `charging.status.plugConnectionState` für die gemeldete Kabelverbindung und `charging.status.plugLockState` Für den Sperrstatus, wenn diese optionalen Felder verfügbar sind. Wenn ein zuvor gemeldetes Feld fehlt, bleibt sein letzter Wert mit einem Qualitätsmerkmal erhalten; dieser Wert darf nicht als aktueller Fahrzeugstatus behandelt werden.
+Die API kann auslassen `charging.status.state` auch dann, wenn das Ladekabel angeschlossen ist. `charging.status.plugConnectionState` für die gemeldete Kabelverbindung und `charging.status.plugLockState` für den Sperrstatus, wenn diese optionalen Felder verfügbar sind. Wenn ein zuvor gemeldetes Feld fehlt, bleibt sein letzter Wert mit einem Qualitätsmerkmal erhalten; dieser Wert darf nicht als aktueller Fahrzeugstatus behandelt werden. Beide Steckerstatus sind schreibgeschützte Zeichenketten; zukünftige Werte bleiben unverändert. Vorhandene automatisch erstellte Steckerstatus erhalten ihre Rolle und fehlende Auswahlwerte bei der nächsten Abfrage nach dem Upgrade zurück, wobei benutzerdefinierte Namen, Bezeichnungen und der Verlauf erhalten bleiben. Wenn der Ladestatus fehlt oder unbekannt ist, `charging.enabled` Der zuletzt gemeldete Wert wird in schlechter Qualität beibehalten. In diesem Zustand kann weder eine Stoppanforderung unterdrückt noch ein Befehl bestätigt werden. Steckerverbindung und Verriegelungsstatus allein deuten nicht auf aktiven Ladevorgang hin.
 
 ## Fahrzeugsteuerung
 
 Jeder vom Fahrzeug unterstützte Bereich erhält drei Zustände, zum Beispiel unter `<vin>.charging`:
 
 - `enabled` Der Schalter (switch) enthält den **Zielzustand** . Durch Schreiben wird ein Befehl gesendet – es sei denn, der Zielzustand entspricht bereits dem, was die letzte Abfrage ergeben hat; in diesem Fall wird nichts gesendet. `info.lastCommand.result` liest `COALESCED` Die
-- `start` Und `stop` (Die Schaltflächen) **erzwingen** den Aufruf. Sie stellen den Ausweg dar, wenn die abgefragten Daten zehn Minuten alt und nicht mehr aktuell sind.
+- `start` Und `stop` (Schaltflächen) **erzwingen** den Aufruf. Sie sind der Ausweg, wenn die abgefragten Daten zehn Minuten alt und nicht mehr aktuell sind.
 
 Der `enabled` Schalter akzeptieren nur boolesche Werte `true` Und `false` Andere Werte, einschließlich Zeichenketten wie z. B. `"true"`, Zahlen und `null` Sie werden ohne API-Anfrage oder Bestätigung ignoriert. Sie ersetzen keine ausstehenden Befehle oder Aktualisierungen. `info.lastCommand` Die
 
@@ -309,6 +321,12 @@ Die Adapterkonfiguration und der Objektbaum werden übersetzt. Backend-Protokoll
 Škoda und MyŠkoda sind Marken von Škoda Auto. Dieses Projekt ist ein unabhängiger Open-Source-Adapter und steht in keiner Verbindung zu Škoda Auto und wird auch nicht von Škoda Auto unterstützt. Es nutzt die öffentlich dokumentierte MyŠkoda Public API mit einem vom Fahrzeughalter selbst erstellten Schlüssel. Das Adapter-Symbol ist ein originelles, markenneutrales Projekt-Artwork und reproduziert nicht das offizielle Škoda-Logo; es wird unter der MIT-Lizenz dieses Projekts verbreitet.
 
 ## Changelog
+
+### 0.1.12 (2026-11-06)
+
+- Add API 1.1.0 plug connection and lock states with translated names and metadata migration for existing objects.
+- Preserve unknown charging activity instead of reporting it as stopped or suppressing stop commands; use the existing polls without additional requests.
+- Cover optional plug fields, future values, missing data, restarts and upgrades in unit and controller integration tests.
 
 ### 0.1.11 (2026-09-20)
 

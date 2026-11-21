@@ -12,56 +12,118 @@
 
 ## evcc adapter for ioBroker
 
-Controll evcc over rest api
+[evcc](https://evcc.io) controls the charging of your electric car with solar power. This adapter connects ioBroker
+with your evcc: it shows all values of evcc in ioBroker (power, charging state, prices, vehicles …) and lets you
+control charging from scripts, Blockly or your visualization – e.g. start or stop charging, set a charging target or a
+charging plan.
 
 Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
+
+## Requirements
+
+- a running evcc installation that ioBroker can reach over the network (web interface, default port 7070)
+- evcc 0.316 or newer is recommended, older versions keep working
+
+## Getting started
+
+1. Install the adapter and open the instance settings.
+2. Enter the IP address or host name of evcc (without `http://`) and the port.
+3. Click **Test connection** – the adapter shows the evcc version and your loadpoints and vehicles.
+4. Save. After a few seconds the values appear in the objects under `evcc.0`.
 
 ## Configuration
 
 | Setting | Meaning |
 |---|---|
-| Host or IP address | IP or host name of evcc, without `http://` (e.g. `192.168.1.10` or `evcc.local`) |
-| Port | port of the evcc web interface, default `7070` |
-| Poll interval | how often evcc is read (5–3600 s, default 60 s) |
-| Test connection | checks the entered host/port without saving and shows the evcc version and number of loadpoints/vehicles |
-| Dissolve status objects | off: grouped values such as `grid`, `pv` or `battery` are stored as one JSON text in `status.*`. On: they are split into single states (e.g. `status.Grid.power`). Only the first level is split. |
-| Forecasts | writes the forecast time series of evcc (solar, prices, CO₂, temperature) to `status.Forecast` – about 1,800 states, only needed if you evaluate them yourself |
+| Host or IP address | address of evcc, e.g. `192.168.1.10` or `evcc.local` |
+| Port | port of the evcc web interface, usually `7070` |
+| Poll interval | how often evcc is read. Shorter = more current values, but more load. Default 60 s |
+| Test connection | checks the entered address without saving |
+| Dissolve status objects | off: values that belong together (e.g. grid, pv, battery) are stored together in one data point. On: every value gets its own data point – handy for visualizations and charts, but creates more data points |
+| Forecasts | stores the forecasts of evcc (solar, prices, CO₂, temperature). Only needed if you want to evaluate them in ioBroker, creates about 1,800 data points |
 
-## Charge mode (evcc >= 0.316.0)
+## Data points
 
-evcc 0.316.0 renamed the mode `pv` to `smart` and replaced `minpv` with the separate setting `alwaysCharge`
-([evcc PR #32490](https://github.com/evcc-io/evcc/pull/32490)). The adapter detects the evcc version automatically
-and keeps working with older versions.
+| Path | Content |
+|---|---|
+| `info.connection` | `true` while evcc is reachable |
+| `status` | values of the whole site, e.g. `pvPower`, `homePower`, `tariffGrid` |
+| `control` | settings of the whole site, e.g. home battery (`bufferSoc`, `prioritySoc`) and price limits |
+| `loadpoint.1`, `loadpoint.2` … | one entry per loadpoint (named like in evcc), with `status` (current values) and `control` (settings and buttons) |
+| `vehicle.<name>` | one entry per vehicle (named like in evcc): minimum and target charge level, charging plan |
 
-| State | Values | Note |
-|---|---|---|
-| `loadpoint.X.control.off` / `.now` / `.smart` | button | set mode |
-| `loadpoint.X.control.alwaysCharge` | `off`, `on`, `once` | evcc >= 0.316.0 only, `once` resets when the vehicle is disconnected |
-| `loadpoint.X.control.pvControl` | `0` off, `1` smart, `2` smart + always charge, `3` now | now also reflects the current evcc mode |
-| `loadpoint.X.control.pv` / `.min` | button | deprecated, mapped to smart + alwaysCharge off / on |
+Everything below `control` can be changed – the adapter sends the new value to evcc.
 
-**Breaking for scripts/visualizations:** with evcc >= 0.316.0, `loadpoint.X.status.mode` reports `smart` instead of `pv`/`minpv`.
-Use `loadpoint.X.status.alwaysCharge` or `loadpoint.X.control.pvControl` to distinguish the former min+pv mode.
+## Controlling charging
+
+| Data point | What it does |
+|---|---|
+| `loadpoint.X.control.off` / `.now` / `.smart` | buttons: stop charging, charge now at full power, charge with solar power |
+| `loadpoint.X.control.pvControl` | the same as one value: `0` off, `1` smart, `2` smart + always charge, `3` now. Also shows the current mode |
+| `loadpoint.X.control.alwaysCharge` | `on`: in smart mode always charge at least with minimum power, `once`: only until the vehicle is disconnected, `off` |
+| `loadpoint.X.control.limitSoc` | charge up to this level (%) |
+| `loadpoint.X.control.minCurrent` / `.maxCurrent` | minimum / maximum charging current (A) |
+| `loadpoint.X.control.batteryBoost` | `true`: also use the home battery for charging, down to `batteryBoostLimit` (%). With `batteryBoostLimit` = 100 the boost is off |
+| `loadpoint.X.control.limitEnergy` | charge only this energy (kWh), for guest vehicles or vehicles without charge level. Removed by evcc when the vehicle is unplugged |
+| `loadpoint.X.control.priority` | with several loadpoints, the one with the higher priority gets the solar power first |
+| `loadpoint.X.control.pv` / `.min` | old buttons, still work (smart without / with always charge) |
+
+## Home battery
+
+If evcc controls your home battery, ioBroker can set its mode with `control.batteryMode`:
+
+| Value | What happens |
+|---|---|
+| `off` | evcc controls the battery itself (default) |
+| `normal` | normal operation |
+| `hold` | the battery is not discharged |
+| `charge` | the battery is charged from the grid |
+| `holdcharge` | the battery is not charged |
+| `discharge` | the battery is discharged to the grid |
+
+The mode stays active until you set `off` again – the adapter repeats it to evcc every 30 s, because evcc falls back
+to its own control after one minute without a new request. While a mode is set, evcc's own battery rules (e.g. price
+limit) do not apply. If evcc cannot control a battery, the adapter writes a warning and sets the value back to `off`.
 
 ## Charging plan
 
-A static charging plan can be set per loadpoint under `loadpoint.X.control.plan`:
+With a charging plan the vehicle is charged up to a target until a given time, preferably with solar power or at low
+prices. Set it per loadpoint under `loadpoint.X.control.plan`:
 
-| State | Meaning |
+| Data point | Meaning |
 |---|---|
-| `plan.active` | `true` creates/updates the plan, `false` deletes it. Reads back whether a plan is set in evcc. |
-| `plan.time` | target time (timestamp in ms). Past or empty: now + 24 h |
-| `plan.soc` | target SoC in % – used when a vehicle is assigned to the loadpoint (soc plan of that vehicle, same as `vehicle.<name>.plan.*`) |
-| `plan.energy` | target energy in kWh – used when no vehicle is assigned (energy plan, e.g. vehicle without SoC / guest vehicle) |
+| `plan.time` | when the target has to be reached. Empty or in the past: in 24 hours |
+| `plan.soc` | target charge level in % (used when a vehicle is assigned to the loadpoint) |
+| `plan.energy` | energy to charge in kWh (used when no vehicle is assigned, e.g. guest vehicle) |
+| `plan.active` | `true` creates the plan, `false` deletes it. Shows whether a plan is set in evcc |
 
-Values written while `plan.active` is `false` are only stored and used when the plan is activated, so set `time` and `soc`/`energy` first, then `active = true`.
-Note: evcc's own `status.planActive` means "currently charging according to plan", not "a plan is set".
+Set `time` and `soc`/`energy` first, then `active = true`. The same works per vehicle under `vehicle.<name>.plan`.
+
+## Notes
+
+- **evcc restarts (e.g. updates):** the adapter writes one warning, sets `info.connection` to `false` and reconnects
+  automatically. When evcc is back, an info message appears in the log.
+- **Changes in evcc** (new, removed or renamed loadpoints and vehicles) are taken over automatically. Objects of
+  loadpoints and vehicles that no longer exist in evcc are deleted after the adapter start or an evcc restart.
+- **Values evcc does not report anymore** (e.g. the remaining charging time after charging) are set to empty (`null`).
+- **Scripts from older versions:** since evcc 0.316 `loadpoint.X.status.mode` shows `smart` instead of `pv` / `minpv`.
+  Use `loadpoint.X.control.pvControl` to tell the modes apart.
+- `loadpoint.X.status.planActive` comes from evcc and means "charging according to plan right now", not "a plan is set".
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2026-11-17)
+* (Schimi1983) new: `control.batteryMode` sets the home battery mode in evcc (normal, hold, charge, holdcharge, discharge) and keeps it active, `off` returns control to evcc
+* (Schimi1983) new per loadpoint: `batteryBoost`, `batteryBoostLimit`, `limitEnergy`, `priority`
+* (Schimi1983) loadpoints and vehicles removed in evcc are deleted, renamed ones get their new name (checked after start and after an evcc restart)
+* (Schimi1983) evcc not reachable (e.g. restart/update): one warning instead of an error on every poll, info message when the connection is restored
+* (Schimi1983) values evcc does not report anymore (e.g. `fatal`, remaining charging time) are set to `null` instead of keeping the last value
+* (Schimi1983) existing status objects are updated to the current roles at start, also for values evcc currently does not report
+* (Schimi1983) README: getting started, data points and charging control explained for users
+
 ### 0.3.2 (2026-11-06)
 * (Schimi1983) state roles according to the ioBroker state roles: writable states use `level.*` / `switch` / `button.*` / `text` instead of `value`, min/max for percent values, JSON values use role `json` (type string), strings `text`, remaining durations `value.timer`; ids and values are unchanged
 * (Schimi1983) complete object tree: folders `loadpoint` / `vehicle`, a device per loadpoint and vehicle (named by its evcc title), channels `control` / `status`
@@ -96,9 +158,6 @@ Note: evcc's own `status.planActive` means "currently charging according to plan
 
 ### 0.2.10 (2026-07-15)
 * (arteck) add configurable weather forcast grid
-
-### 0.2.9 (2026-07-15)
-* (arteck) add grid request
 
 ## License
 MIT License

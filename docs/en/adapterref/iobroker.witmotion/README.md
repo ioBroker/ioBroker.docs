@@ -20,11 +20,37 @@ The following data are read and written to ioBroker:
 - Gyroscope X/Y/Z
 - Magnetometer X/Y/Z
 
+Optionally the adapter calculates the wave height and period from the vertical motion of the sensor (see [Waves](#waves)).
+
 ## Supported devices
 - [WT901blecl 5.0](https://witmotion-sensor.com/products/bluetooth-5-0-accelerometer-inclinometer-wt901blecl-mpu9250-9-axis-imu-sensor)
 
+## Waves
+With **Waves** enabled in the settings, the adapter measures the sea state from the heave of the sensor, the way a wave buoy does. It uses every packet of the sensor (independent of the update intervals of the other states): the acceleration is turned into the vertical with the roll and pitch of the sensor, integrated twice in the frequency domain within the band of the wave periods, and the resulting heave is evaluated:
+
+| State                  | Unit | Meaning                                                                       |
+|------------------------|------|-------------------------------------------------------------------------------|
+| `waves.height`         | m    | Significant wave height Hs = 4·σ of the heave (about the mean of the highest third of the waves) |
+| `waves.heightMax`      | m    | Highest single wave (trough to crest) in the analysis window                  |
+| `waves.period`         | s    | Mean period by zero-up-crossing                                               |
+| `waves.periodPeak`     | s    | Period of the spectral peak, the period with the most energy                  |
+| `waves.length`         | m    | Length of waves of the peak period in deep water, L = g·Tp²/(2π)              |
+| `waves.frequency`      | Hz   | Frequency of the spectral peak, 1/Tp                                          |
+
+Settings: **Update interval** (how often the states are written, default 30 s), **Analysis window** (length of the analysed record, default 300 s; the first values come after half of it), **Shortest** and **Longest wave period** (the band, default 2–20 s).
+
+Things to know:
+- Mount the sensor near the middle of the boat. Far from it, the pitch of the boat adds vertical motion that is not the sea.
+- The values are the motion of the boat. Waves that are short compared to the hull (on a 13 m yacht roughly below 3–4 s) lift the boat less than they are high, so a short wind sea is underestimated.
+- While the boat moves, the periods and the frequency are encounter periods: shorter when heading into the waves, longer when running with them. The heights do not depend on this, the length is only right at anchor or drifting.
+- The length is that of deep water. Where the water is shallower than half of it, the waves are shorter.
+- Below a significant wave height of 5 cm the water counts as calm: the periods, the length and the frequency are 0, as the record is only the noise of the sensor.
+- The angles alone (roll and pitch) do not give the wave height on a boat: they show how the boat rolls in its own rhythm, not the slope of the water.
+- The sensor should send 10 values per second (its default) or more. Below 1.5 values per second (with the shortest period at 2 s) the adapter warns that short waves are not seen.
+- In calm water the noise of the sensor gives a few centimetres.
+
 ## Device manager
-The tab **Device manager** in the instance settings (or the device manager of admin) shows the sensor as a card with its connection and the angles (roll, pitch, yaw). The details list all enabled values and the connection. From the card you can test the connection and change the serial port and the baud rate.
+The tab **Device manager** in the instance settings (or the device manager of admin) shows the sensor as a card with its connection and, one per line, the angles (roll, pitch, yaw) and the height, length and frequency of the waves. The details list all enabled values and the connection. From the card you can test the connection and change the serial port and the baud rate.
 
 ## Visualisation
 ### Devices app
@@ -36,6 +62,8 @@ Add a custom widget of the type **Wit Motion** and select the instance. The tile
 
 A click on the tile opens a big view.
 
+If the instance measures the [waves](#waves), the tile, the vis-2 widget and the web component show the significant wave height: in the compact view next to the name, in the bar next to the values. The wide and the big view add the length (λ) and the frequency of the waves. The setting **Show waves** switches them off.
+
 ### vis-2
 The widget set **WitMotion** contains the widget **Orientation** with the same views. The layout follows the size of the widget (bar, compact, wide or big view) or can be fixed in the settings. A click on the smaller layouts opens the big view.
 
@@ -46,7 +74,7 @@ The orientation is also a web component (`common.webComponents`, [`@iobroker/web
 
 Settings:
 
-- **Adapter instance**, **Value mode** (instant or average), **Name**, **Layout** (automatic or fixed), **Open big view on click**
+- **Adapter instance**, **Value mode** (instant or average), **Name**, **Layout** (automatic or fixed), **Open big view on click**, **Show waves**
 - **Icon type** (boat, car or custom; a custom picture is given by its address)
 - **Primary axis**, **Primary view**, **Visual multiplier**, and optionally a **Secondary axis** with its view and multiplier
 
@@ -57,8 +85,11 @@ The devices app offers its own tile **Wit Motion** instead of the web component 
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 2.3.0 (2026-11-17)
+* (@GermanBluefox) Added wave height and period from the heave of the sensor (`waves.*`)
+* (@GermanBluefox) Added the length and the frequency of the waves (`waves.length`, `waves.frequency`)
+* (@GermanBluefox) The devices tile, the vis-2 widget and the web component show the height, length and frequency of the waves
+* (@GermanBluefox) The card in the device manager shows each value in a line of its own
 * (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
 ### 2.2.0 (2026-11-09)
@@ -81,9 +112,6 @@ The devices app offers its own tile **Wit Motion** instead of the web component 
 
 ### 0.0.4 (2026-03-26)
 * (@GermanBluefox) Tests fixed
-
-### 0.0.3 (2026-01-23)
-* (@GermanBluefox) Initial commit
 
 ## License
 

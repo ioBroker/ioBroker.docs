@@ -69,6 +69,10 @@ existing projects keep their settings. A few things look different:
 
 The text color of the style of a widget (`color`) is used for the value if the widget has no text color of its own.
 
+Units, labels and minimum and maximum are a little paler than the value: they take the text color of the widget if one
+is set (`textColor`, or `color` of the style), otherwise the secondary text color of the vis-2 theme. Most widgets also
+have a *Unit color* (`unitColor`) and a *Label color* (`labelColor`) of their own for them.
+
 ### Colors and levels
 
 Most gauges color their scale or their value by **levels**. All widgets describe the levels the same way:
@@ -107,6 +111,9 @@ The new widgets move smoothly to a new value:
 In the dark theme of vis-2 all colors that are not set follow the theme: text, scales, the empty track of an arc, the
 dial of the radial gauge and the compass. Colors that are set stay as they are.
 
+The theme can differ from browser to browser. If you set the color of a dial or of the background, set the text color
+too - unit and labels follow it, so they stay readable in every theme.
+
 ![Dark theme](../img/dark-theme.png)
 
 ## Color gauge - `tplGauge2Color`
@@ -130,6 +137,7 @@ A half circle of colored segments with a needle.
 | Hide value               | `hideText`         | off               |                                                                                                                                 |
 | Text color               | `textColor`        | text color        | Color of the value.                                                                                                             |
 | Show minimum and maximum | `showMinMax`       | on *(new widget)* | Minimum and maximum at the ends of the arc.                                                                                     |
+| Label color              | `labelColor`       | text color, paler | Minimum and maximum.                                                                                                            |
 | Animate                  | `animate`          | on *(new widget)* | The needle swings to the new value.                                                                                             |
 | Animation delay          | `animDelay`        | 500               | Wait in ms before the needle moves.                                                                                             |
 | Animation duration       | `animateDuration`  | 3000              | Duration in ms.                                                                                                                 |
@@ -246,7 +254,9 @@ The classic round instrument with a scale, color bands and a needle - for power,
 | Minor divisions | `minorTicks` | 5 | Small steps within one major division. |
 | Show labels | `showLabels` | on | Numbers at the major ticks. |
 | Scale color | `scaleColor` | text color | Ticks and numbers. |
-| Label on the dial | `label` | | Short text in the upper half, e.g. `Power`. |
+| Label on the dial | `label` | | Short text in the upper half, e.g. `Power`. `\n` or `<br>` starts a new line. |
+| Label color | `labelColor` | text color, paler | Without a text color: the scale color, paler. |
+| Size of the label | `labelSize` | 0.1 | Font size as part of the radius; long texts get smaller to fit. |
 | Dial color | `dialColor` | white / dark | Without a bezel the dial has no background unless a color is set. |
 | Bezel | `bezel` | Metal | `none`, `thin` (a line in *Bezel color*) or `metal`. Without a bezel only the scale is fitted into the widget, so a half circle fills it. |
 | Needle | `needleType` | Arrow | `arrow`, `line` or `triangle`. |
@@ -254,9 +264,15 @@ The classic round instrument with a scale, color bands and a needle - for power,
 | Hub color | `hubColor` | dark gray | |
 | Show value | `showValue` | on | Value and unit in the lower part of the dial. |
 | Text color | `textColor` | text color | |
+| Unit color | `unitColor` | text color, paler | |
+| Size of the value | `valueSize` | 0.17 | Font size as part of the radius; long texts get smaller to fit. |
 | Number of levels | `levelsCount` | 3 | Color bands along the scale, see [Colors and levels](#colors-and-levels). 0 draws none. |
 | Width of the color band | `bandWidth` | 0.06 | As part of the radius. |
 | Animation | `animate`, `animateDuration`, `animationEasing` | on, 1000, `backOut` | The needle overshoots a little, like a real instrument. |
+
+A dark dial: unit and label follow the text color, or get their own color and size.
+
+![Radial gauge: unit and label](../img/radial-text.png)
 
 ## Arc gauge - `tplGauge2Arc`
 
@@ -280,9 +296,11 @@ value, e.g. a set point.
 | Number of levels | `levelsCount` | 3 | |
 | Show value | `showValue` | on | |
 | Text color | `textColor` | text color | |
+| Unit color | `unitColor` | text color, paler | |
 | Size of the value | `valueSize` | 0.36 | Font size as part of the radius; long texts get smaller to fit. |
 | Text below the value | `subText` | | e.g. `Bathroom`. |
 | Show minimum and maximum | `showMinMax` | on | Below the ends of the arc. |
+| Label color | `labelColor` | text color, paler | Text below the value, minimum and maximum. |
 | Target value object ID | `targetOid` | | Optional: a marker at this value. |
 | Marker color | `targetColor` | text color | |
 | Animation | `animate`, `animateDuration`, `animationEasing` | on, 800, `cubicOut` | |
@@ -309,6 +327,7 @@ A horizontal or vertical bar with a scale.
 | Number of levels | `levelsCount` | 3 | |
 | Show value | `showValue` | on | Above the bar, at the right. |
 | Text color | `textColor` | text color | Also the color of the pointer. |
+| Unit color | `unitColor` | text color, paler | |
 | Target value object ID | `targetOid` | | Optional: a line across the bar at this value. |
 | Marker color | `targetColor` | text color | |
 | Animation | `animate`, `animateDuration`, `animationEasing` | on, 800, `cubicOut` | |
@@ -331,6 +350,7 @@ A glass thermometer with a scale.
 | Coloring                          | `colorMode`                                     | One color              | With *Color of the level* or *Gradient* the column changes its color with the temperature (default levels: blue to red). |
 | Color                             | `valueColor`                                    | red                    |                                                                                                                          |
 | Show value / Text color           | `showValue` / `textColor`                       | on / text color        | The value above the thermometer.                                                                                         |
+| Unit color                        | `unitColor`                                     | text color, paler      |                                                                                                                          |
 | Animation                         | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` |                                                                                                                          |
 
 ## Compass - `tplGauge2Compass`
@@ -353,13 +373,14 @@ middle.
 | Needle color          | `needleColor`                                   | red                    |                                                                                                                               |
 | Color of north        | `northColor`                                    | red                    |                                                                                                                               |
 | Dial color            | `dialColor`                                     | white / dark           |                                                                                                                               |
-| Scale color           | `scaleColor`                                    | text color             |                                                                                                                               |
+| Scale color           | `scaleColor`                                    | text color             | The degrees a little paler.                                                                                                   |
 | Show NE, SE, SW, NW   | `showIntercardinal`                             | on                     |                                                                                                                               |
 | Show degrees          | `showDegrees`                                   | on                     | 30, 60, 120, ...                                                                                                              |
 | Bezel                 | `bezel`                                         | Thin line              | `none`, `thin` or `metal`.                                                                                                    |
 | Show value            | `showValue`                                     | on                     |                                                                                                                               |
 | Show                  | `valueFormat`                                   | Direction and degrees  | `both` (`SW 225°`), `direction` (`SW`) or `degrees` (`225°`). With a speed this is the line below it.                         |
 | Text color            | `textColor`                                     | text color             |                                                                                                                               |
+| Unit color            | `unitColor`                                     | text color, paler      | Unit of the speed.                                                                                                            |
 | Animation             | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` | Always the short way: from 350° to 10° through north.                                                                         |
 
 The names of the directions follow the language of vis-2 (e.g. N, NO, O, SO, S, SW, W, NW in German).
@@ -403,6 +424,8 @@ Up to five values as concentric rings - e.g. PV power, house consumption and bat
 | Legend | `legend` | In the free quarter | `gap`: right-aligned in front of the start of every ring - needs rings that start at the top and a sweep of at most 300°, otherwise the legend goes beside the rings. `side`: beside the rings, or below them in a narrow widget. `none`. |
 | Text in the middle | `centerText` | | |
 | Text color | `textColor` | text color | |
+| Label color | `labelColor` | text color, paler | Labels of the rings. |
+| Unit color | `unitColor` | text color, paler | |
 
 Each ring (group *Ring 1*, *Ring 2*, ...):
 

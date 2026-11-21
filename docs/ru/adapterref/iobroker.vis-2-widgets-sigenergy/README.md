@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
+hash: 0RYBdCZs1IJFZC5gH3MJXD4kRGF9vLQQKV5mUrYE5PY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -18,12 +18,22 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 
 ## vis-2-widgets-sigenergy адаптер для ioBroker
 
-Набор виджетов VIS-2 для адаптера накопителя энергии Sigenergy (`ioBroker.sigenergy` Содержит 8 виджетов для визуализации и управления потоком энергии, состоянием батареи, мощностью в реальном времени, ежедневной статистикой, зарядным устройством переменного тока, зарядным устройством постоянного тока, инвертором и обзором микроинвертора SigenMicro.
+Набор виджетов VIS-2 для адаптера накопителя энергии Sigenergy (`ioBroker.sigenergy` Содержит 11 виджетов для визуализации и управления потоком энергии, энергопотреблением дома, состоянием батареи, мощностью в реальном времени, ежедневной статистикой, зарядным устройством переменного тока, зарядным устройством постоянного тока, инвертором, обзором микроинверторов SigenMicro, солнечными батареями и уровнем заряда автомобиля.
+
+Начиная с версии 2.0.0, виджеты представляют собой нативный набор виджетов vis-2 React (React 19, MUI 9).
 
 ## Требования
 
 - ioBroker с `sigenergy` адаптер установлен и настроен
-- Адаптер ioBroker VIS-2 (≥ 2.0.0)
+- ioBroker VIS-2 адаптер (≥ 2.20.0) — vis-2 2.20 — первая версия, основанная на React 19 и MUI 9.
+- Классический VIS (vis-1) не поддерживается.
+
+## Обновление с версии 1.x
+
+- Существующие виджеты продолжают работать без необходимости повторного размещения: идентификаторы виджетов и все настройки (идентификаторы объектов, заголовки, темный режим, имена) остаются прежними.
+- Для начала необходимо обновить vis-2 до версии 2.20.0 или новее. Более старые версии vis-2 работают на React 18 и не могут загрузить этот набор виджетов.
+- Все тексты соответствуют языку vis-2 (11 языков). Заголовки, введенные вами самостоятельно, сохраняются; пустой заголовок отображает заголовок по умолчанию на языке пользователя.
+- Пояснения к состоянию (зарядное устройство переменного/постоянного тока) отображаются во всплывающей подсказке, которая больше не обрезается виджетом и остается читаемой при любом размере виджета.
 
 ## Виджеты
 
@@ -43,6 +53,32 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 | `gridActivePower` | Потребление электроэнергии из сети → стрелка от сети к центру                          | Подача электроэнергии по сетке → стрелка от центра к сетке |
 | `pvPower`         | Фотоэлектрический элемент производит → стрелка от фотоэлектрического элемента к центру | —                                                          |
 | `housePower`      | Потребление дома → стрелка от центра к дому                                            | —                                                          |
+
+### Энергетический дом
+
+Отображает поток энергии в виде изометрической модели дома с гаражом, автомобилем и устройствами Sigenergy: солнечные батареи на крыше, аккумулятор SigenStor и шлюз на стене дома, настенный блок переменного тока на гараже, зарядное устройство постоянного тока перед ним, балконная электростанция с SigenMicro на крыше гаража и подключение к сети. Анимированные штрихи движутся вдоль кабелей в направлении потока энергии, причем скорость увеличивается с ростом мощности. Смена дня и ночи происходит в соответствии с положением солнца в настройках системы ioBroker. Все элементы нарисованы в векторном формате, поэтому виджет сохраняет четкость изображения при любом размере и пропорциях.
+
+**OID:** `pvPower`, `housePower`, `essPower`, `essSoc`, `gridActivePower`, `acCharger.chargingPower`, `acCharger.systemState`, `dcCharger.outputPower`, `dcCharger.runningState`, `sigenmicro.totalPower`; опционально: температура наружного воздуха (`oid_temp`) и текст состояния (`oid_status`)
+
+![Энергосберегающий дом днем](img/widget-energiehaus.png)![Энергетический дом ночью](img/widget-energiehaus-nacht.png)![Энергоэффективный дом под дождем](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-energiehaus-regen.png)
+
+| Параметр                                                                          | По умолчанию   | Описание                                                                                                                                                                                                                                                                |
+| --------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sig\_daynight                                                                     | Автоматический | Автоматический режим (положение солнца), всегда день или всегда ночь                                                                                                                                                                                                    |
+| sig\_animation                                                                    | на             | Анимированное движение вдоль кабелей                                                                                                                                                                                                                                    |
+| `sig_show_garage`, `sig_show_car`, `sig_show_ac`, `sig_show_dc`, `sig_show_micro` | на             | Показать или скрыть гараж, автомобиль, зарядное устройство переменного тока, зарядное устройство постоянного тока и электростанцию на балконе. Для работы электростанции на балконе необходим гараж; без гаража настенная коробка переменного тока висит на стене дома. |
+
+**Погода (необязательно):** при указании погодного состояния небо будет соответствовать реальной погоде — солнце, облака, дождь, снег, туман или гроза; без указания погоды — ясно. Используйте независимый от языка код адаптера погоды; тексты с погодными условиями на английском языке также считываются.
+
+| Адаптер                           | Погодные условия                           | Облачность (%)                 | Осадки (мм/ч)                    | Числовой код погоды |
+| --------------------------------- | ------------------------------------------ | ------------------------------ | -------------------------------- | ------------------- |
+| открытая метеорологическая погода | `…weather.current.weather_code`            | `…weather.current.cloud_cover` | `…weather.current.precipitation` | Автоматический      |
+| openweathermap                    | `forecast.current.icon`                    | `forecast.current.clouds`      | `forecast.current.precipitation` | Автоматический      |
+| daswetter                         | `location_1.ForecastHourly.Current.symbol` | `…Current.clouds`              | `…Current.rain`                  | Символ DasWetter    |
+
+daswetter пишет `Current` Используйте только канал с возможностью копирования текущего часа; в противном случае используйте `ForecastHourly.Hour_1`. `symbol_URL` Работает также и при настройке кода в режиме «Автоматический».
+
+Облачность и осадки уточняют условия или заменяют их; осадки при температуре 1 °C или ниже изображаются как снег.
 
 ### Состояние батареи и прогнозы
 
@@ -120,16 +156,23 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 
 ### Обзор SigenMicro
 
-Общий и подробный вид всех микроинверторов SigenMicro, подключенных по протоколу Modbus. На вкладке 1 все устройства отображаются в виде анимированного сегмента сети (топология шины Ethernet с вертикальными линиями). На каждой дополнительной вкладке отображаются все 15 регистров соответствующего устройства в порядке возрастания.
+Обзор и подробное описание микроинверторов SigenMicro. `ioBroker.sigenergy` 3.5.0 Адаптер считывает их из облака Sigenergy (вкладка "SigenMicro (Cloud)" в настройках адаптера) и создает одно устройство для каждого микроинвертора в разделе `sigenergy.0.sigenmicro.<serial>`. **Требует `ioBroker.sigenergy` Версия ≥ 3.5.0 с включенным облачным сервисом.** Опрос облачного сервиса выполняется каждые 300 секунд (OpenAPI) или 60 секунд (интерфейс приложения), поэтому виджет не может обновляться быстрее.
 
-| Вкладка              | Содержание                                                                                                                                                                                          |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Обзор**            | Все устройства представлены в виде анимированной топологии шины, сводные данные (общая мощность, суточная выработка, выработка за весь срок службы, количество подключенных устройств).             |
-| **Устройство 01–20** | Изображение устройства в верхнем левом углу (со смещением 10 пикселей), значок модели/серийного номера/прошивки/состояния, все 15 регистров (01–15) со значением, номером устройства и путем к OID. |
+| Вкладка                        | Содержание                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Обзор**                      | Все устройства отображаются в виде анимированной шины переменного тока с указанием состояния каждого устройства; плитки для отображения питания от сети переменного тока (общее количество заряда адаптера). `sigenmicro.totalPower` (в противном случае — сумма показателей устройств), доходность сегодня, доходность за весь срок службы и количество устройств в сети. |
+| **одна вкладка на устройство** | Изображение, название, номинальная мощность, серийный номер, прошивка, время последнего обновления в облаке, индикатор состояния, все текущие значения с указанием устройства и OID, а также входы PV1…PV4, которые сообщает адаптер.                                                                                                                                     |
 
-#### Анимация сегмента сети
+#### Статус
 
-Горизонтальная линия магистрали и вертикальные линии показывают анимированные пунктирные линии, которые перемещаются вдоль кабелей, когда устройство активно (работает). Неактивные устройства (в режиме ожидания/неисправности) отображают только темную базовую линию без анимации.
+| Статус       | Состояние                          | Отображать                     |
+| ------------ | ---------------------------------- | ------------------------------ |
+| Производство | `online` = true, `activePower` > 0  | зеленый, анимированный автобус |
+| Онлайн       | `online` = true, `activePower` = 0  | синий                          |
+| Офлайн       | `online` = ложно — нормально ночью | серый                          |
+| Нет данных   | Значение пока не получено          | серый                          |
+
+Если `info.cloudConnection` является `false` В этом случае виджет отображает предупреждение «Соединение с облаком потеряно», поскольку значения могут быть устаревшими.
 
 #### Динамическая компоновка
 
@@ -142,22 +185,28 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 
 #### Настройки виджета
 
-| Параметр                   | Тип          | По умолчанию             | Описание                                                                                |
-| -------------------------- | ------------ | ------------------------ | --------------------------------------------------------------------------------------- |
-| микро\_счет                | число (1–20) | 3                        | Количество микроинверторов для отображения                                              |
-| sig\_title                 | текст        | Микроинвертор SigenMicro | Заголовок виджета                                                                       |
-| sig\_darkmode              | флажок       | истинный                 | Темный/Светлый режим                                                                    |
-| oid\_micro1 … oid\_micro20 | ОИД          | —                        | Привязывайте OID к каждому устройству (например, sigenergy.0.sigenmicro.11.outputPower) |
+| Параметр                         | Тип          | По умолчанию             | Описание                                                                                                                                                                                                          |
+| -------------------------------- | ------------ | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| микро\_счет                      | число (1–20) | 3                        | Количество микроинверторов для отображения                                                                                                                                                                        |
+| sig\_title                       | текст        | Микроинвертор SigenMicro | Заголовок виджета                                                                                                                                                                                                 |
+| sig\_darkmode                    | флажок       | истинный                 | Темный/светлый режим                                                                                                                                                                                              |
+| micro\_device1 … micro\_device20 | выбор        | —                        | Микроинвертор из списка устройств SigenMicro в экземплярах sigenergy (серийный номер и название). Виджет считывает все состояния самого устройства. Виджеты из версии 1.x сохраняют свой прежний выбор состояния. |
+| micro\_take\_all                 | кнопка       | —                        | Принимает под свой контроль все устройства SigenMicro, указанные в учетной записи (по количеству и выбору).                                                                                                       |
+| micro\_name1 … micro\_name20     | текст        | —                        | Отображаемое имя устройства (по умолчанию: Micro 01, Micro 02, …)                                                                                                                                                 |
 
-![SigenMicro Übersicht — Übersichts-Tab](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_01.png)
+![Обзор SigenMicro — Обзор](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_01.png)
 
-![SigenMicro Übersicht — Вкладка «Детали»](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
+![Обзор SigenMicro — Подробности](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
 
-**Идентификаторы устройств (для каждого устройства, префикс sigenergy.0.sigenmicro.<slaveId> ):** modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequency, temperature, mppt1Voltage, mppt1Current, mppt1Power, mppt2Voltage, mppt2Current, mppt2Power, dailyYield, totalYield
+**Состояния на устройство (`sigenergy.0.sigenmicro.<serial>`):** онлайн, активная мощность, реактивная мощность, мощность pv, pv1…pv4.напряжение / ток / мощность, напряжение сети, ток сети, частота сети, коэффициент мощности, температура, сопротивление изоляции, ежедневный выходной уровень, общий выходной уровень, серийный номер, прошивка, номинальная мощность, последнее обновление
+
+**Кроме того:** `sigenergy.0.sigenmicro.totalPower`, `sigenergy.0.info.cloudConnection` — экземпляр берется из выбранного OID
+
+> **Обновление с версии 1.8.x:** прежние положения Modbus (`runningState`, `outputPower`, `mppt*`, `modelType` …) больше не существуют в адаптере. Выберите микроинверторы снова в настройках виджета — из списка или с помощью кнопки «Взять все SigenMicro».
 
 ### Уровень заряда аккумулятора (EV SOC)
 
-В качестве центрального визуального элемента отображается настраиваемое изображение автомобиля (например, Fiat 500e). В правом верхнем углу расположен цветовой значок с изображением молнии, текущим уровнем заряда в процентах и надписью «LADESTAND». Внизу отображается индикатор выполнения, показывающий текущий уровень заряда батареи. При активации режима зарядки значок мигает зеленым светом.
+В качестве центрального визуального элемента отображается настраиваемое изображение автомобиля (например, Fiat 500e). В правом верхнем углу расположен цветовой значок с изображением молнии, текущим уровнем заряда в процентах и надписью «ЗАРЯДКА» (перевод). Внизу находится индикатор выполнения, отображающий текущий уровень заряда батареи. При активации режима зарядки значок мигает зеленым светом.
 
 #### Цветовая логика
 
@@ -169,21 +218,21 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 
 #### Настройки виджета
 
-| Параметр        | Тип         | По умолчанию       | Описание                                                                      |
-| --------------- | ----------- | ------------------ | ----------------------------------------------------------------------------- |
-| oid\_ev\_soc    | ОИД         | —                  | Уровень заряда 0–100                                                          |
-| oid\_charging   | ОИД         | —                  | Состояние зарядки (опционально) — зеленое свечение при активации.             |
-| sig\_title      | текст       | Fahrzeug-Ladestand | Название транспортного средства указано под изображением.                     |
-| sig\_car\_image | изображение | —                  | Изображение автомобиля из файлового браузера ioBroker (например, /vis-2/img/) |
-| sig\_darkmode   | флажок      | истинный           | Темный/Светлый режим                                                          |
+| Параметр        | Тип         | По умолчанию                                       | Описание                                                                      |
+| --------------- | ----------- | -------------------------------------------------- | ----------------------------------------------------------------------------- |
+| oid\_ev\_soc    | ОИД         | —                                                  | Уровень заряда 0–100                                                          |
+| oid\_charging   | ОИД         | —                                                  | Состояние зарядки (опционально) — зеленое свечение при активации.             |
+| sig\_title      | текст       | — (пусто: "Уровень заряда автомобиля", переведено) | Название транспортного средства указано под изображением.                     |
+| sig\_car\_image | изображение | —                                                  | Изображение автомобиля из файлового браузера ioBroker (например, /vis-2/img/) |
+| sig\_darkmode   | флажок      | истинный                                           | Темный/Светлый режим                                                          |
 
-![Виджет Fahrzeug-Ladestand](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
+![Виджет уровня заряда автомобиля](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
 
 **OID:** `oid_ev_soc`, `oid_charging`
 
 ## Появление
 
-Все виджеты поддерживают **светлый и темный режимы** , переключаемые в настройках виджета. `Dark mode`.
+Все виджеты поддерживают **светлый и темный режимы** , переключаемые в настройках виджета. `Dark mode` Виджеты масштабируются в зависимости от своего размера: ширина и высота следуют за виджетом независимо, в то время как текст сохраняет свои пропорции.
 
 ## Документация
 
@@ -198,6 +247,44 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 - 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pt/README.md)
 
 ## Changelog
+### 2.2.0 (2026-11-18)
+* (ssbingo) **Energy house shows the real weather:** with a weather state (WMO code of open-meteo-weather, OpenWeatherMap icon or id, DasWetter symbol, AccuWeather icon or an English text), optionally cloud cover and precipitation, the sky shows sun, clouds, rain, snow, fog or thunderstorm instead of always the sun; the symbol next to the temperature follows the weather
+
+### 2.1.0 (2026-11-18)
+* (ssbingo) **New widget "Energy house":** the energy flow as an isometric house with garage, car, PV on the roof, SigenStor and gateway on the house wall, AC wallbox, DC charger, a balcony power plant with SigenMicro on the garage roof and the grid connection; animated cables in the direction of the flow, day and night after the position of the sun, optional outdoor temperature and status text, every part can be hidden
+
+### 2.0.2 (2026-11-18)
+* (ssbingo) SigenMicro: new tab bar — "Overview" keeps its width, the device tabs share the rest in equal columns and no longer run out of the widget; up to 3 devices the tabs show the names, with more devices compact numbers 01, 02 … (as on the nodes, name as tooltip); above 10 devices two rows like the nodes
+* (ssbingo) SigenMicro: the labels sit exactly below their nodes, each label row directly below its node row; a click on a node or label opens the detail tab of the device; better contrast of the tile texts; if several selected devices report the same device name, the serial number is shown
+* (ssbingo) Stretched widgets: texts are no longer squeezed twice, centred texts stay centred, and the titles of AC/DC charger, inverter and battery as well as the SigenMicro status badge and section header keep their proportions
+
+### 2.0.1 (2026-11-17)
+* (ssbingo) README screenshots renewed: all widgets as rendered by the React widget set in vis-2 2.20, with English texts
+* (ssbingo) Dependencies updated (vite 7.3.8, `@iobroker/gui-components` 10.4.6, `@iobroker/testing` 6.3.2)
+
+### 2.0.0 (2026-11-17)
+* (ssbingo) **Breaking:** the widgets are now a native vis-2 React widget set (React 19, MUI 9) and require vis-2 2.20.0 or newer. The classic VIS (vis-1) is no longer supported
+* (ssbingo) Existing widgets keep working without being placed again: the widget IDs and all settings are unchanged
+* (ssbingo) All texts are translated into the 11 ioBroker languages (previously mostly German). Titles you entered are kept; an empty title shows the default title in the user's language
+* (ssbingo) AC/DC charger: the status explanation is a MUI tooltip that is no longer cut off by the widget; the charging current and the EMS power share are MUI sliders that write when released
+* (ssbingo) No commands are sent from the vis-2 editor anymore; a click there only selects the widget
+* (ssbingo) Energy flow: the setting "Animated flow" now takes effect
+* (ssbingo) SigenMicro: the detail tab shows the values in three columns, the object ID on one line
+* (ssbingo) SigenMicro: the micro-inverters are chosen in the editor by device (serial number and name) from the SigenMicro devices of the sigenergy instances; the widget reads all states itself. New button "Take all SigenMicro" takes over all devices at once. Widgets from 1.x keep working with their former state selection
+* (ssbingo) Build with Vite and module federation; the widgets were tested in vis-2 2.20.11
+
+### 1.9.1 (2026-11-17)
+* (ssbingo) vis-2 2.20.x: the widgets apply `box-sizing: border-box` to their own content again. vis-2 2.20 no longer loads MUI's `CssBaseline`, which used to switch the whole document to border-box, so padded cards, tiles and buttons could grow wider than designed. The rule is scoped to this widget set; the widget set itself contains no React/MUI code and runs as a classic vis widget set on vis-2 2.20 (React 19, MUI 9)
+
+### 1.9.0 (2026-11-17)
+* (ssbingo) **SigenMicro Overview reworked for the new cloud connection of `ioBroker.sigenergy` 3.5.0.** The widget now reads `sigenergy.0.sigenmicro.<serial>.*` (online, activePower, pvPower, PV inputs pv1…pv4, grid values, temperature, insulation resistance, yield, firmware, rated power, last update), the account total `sigenmicro.totalPower` and `info.cloudConnection`. The former Modbus register model (`runningState`, `outputPower`, `mppt*`, `modelType`) is gone
+* (ssbingo) SigenMicro: status derived from `online` and the AC power (Producing / Online / Offline / No data), warning when the cloud connection is lost, time of the last cloud update and rated power in the detail tab, PV inputs shown only when reported, new optional display name per device (`micro_nameN`), all widget texts in English
+* (ssbingo) SigenMicro: the anchor OID may be any state of the micro-inverter; derived states are now subscribed via `vis.conn.subscribe` (VIS only subscribes attribute OIDs) and released again when the widget is removed. **After updating, select a state under `sigenergy.0.sigenmicro.<serial>` again for each `oid_microN`**
+* (ssbingo) CI: Dependabot auto-merge workflow updated from the ioBroker template — it uses `pull_request` instead of `pull_request_target` (#46, #47); `@iobroker/testing` updated from 6.2.1 to 6.3.1
+
+### 1.8.11 (2026-09-12)
+* (ssbingo) CI: the package tests now run on Node.js 22, 24 and 26 (new `adapter-tests` job, repository checker #41); `@iobroker/testing` updated from 5.3.0 to 6.2.1
+
 ### 1.8.10 (2026-09-07)
 * (ssbingo) Removed the `admin` entry from `globalDependencies`: a widget set has no admin UI, so no admin version needs to be required (repository checker S1091)
 
@@ -264,9 +351,7 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 ### 1.7.3 (2026-04-20)
 * (ssbingo) All 9 widgets now share a unified background based on the PV-Power widget design
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
+Older changelog entries can be found in CHANGELOG_OLD.md
 
 ## License
 MIT License

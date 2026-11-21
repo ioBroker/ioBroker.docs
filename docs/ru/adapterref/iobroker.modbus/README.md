@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: 11vkyIEzyDMjly5UTvXjzRYpHVqoMjvKx9V3keKPqHs=
+hash: cNVcqS8Ba/AK3f5Zi+VvYr3DzIteHma7gQyun9oeSLg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
-![Количество установок](http://iobroker.live/badges/modbus-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.modbus.svg)
+![Количество установок](https://iobroker.live/badges/modbus-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.modbus.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.modbus.svg)
@@ -131,9 +131,19 @@ TCP-порт партнера Modbus, если он настроен как ве
 
 Задержка между двумя запросами на запись в миллисекундах. По умолчанию 0.
 
+### Повторные попытки чтения, повторные попытки записи, интервал повторных попыток
+
+Только для главного узла. Блок чтения или записи, завершившийся ошибкой тайм-аута или потерей соединения, отправляется повторно до указанного количества раз (0 = никогда, максимум 3), прежде чем произойдет сбой. Каждая повторная попытка регистрируется на уровне информации. `[retry/k/N] ...` Предупреждение появляется только после последней попытки. Исключение Modbus или недопустимый ответ не повторяются.
+
+При использовании параметра "Поддерживать соединение по истечении таймаута" отправляется повторная попытка подключения к открытому соединению; в противном случае соединение устанавливается заново. Цикл опроса ожидает во время повторных попыток, поэтому, если несколько устройств используют одну шину RS485, следует выбирать низкое значение. Интервал повторных попыток — это задержка перед каждой повторной попыткой в миллисекундах (по умолчанию 100).
+
 ### Обновить неизмененные состояния
 
 Обычно, если значение не изменилось, оно не будет записано в ioBroker. Этот флаг позволяет обновлять метку времени значения в каждом цикле.
+
+### Игнорировать идентификатор транзакции в ответах
+
+Только для ведущего устройства по протоколам TCP, UDP или TCP с SSL. Обычно ответ принимается только в том случае, если идентификатор транзакции совпадает с идентификатором запроса, в противном случае он отбрасывается с предупреждением. `Dropped a response with transaction ID ...` В противном случае устаревший или дублирующийся ответ может быть использован для следующего запроса, и регистры другого блока будут сохранены (проблема #829). Включайте эту опцию только в том случае, если устройство не отображает идентификатор транзакции, то есть все ответы отбрасываются.
 
 ### Санитизация ценностей
 
@@ -273,7 +283,7 @@ TCP-порт партнера Modbus, если он настроен как ве
 - `int8be` -`Signed 8 bit (Big Endian): AABB => BB`
 - `int8le` -`Signed 8 bit (Little Endian): AABB => AA`
 - `floatbe` -`Float (Big Endian): AABBCCDD => AABBCCDD`
-- `floatle` -`Float (Little Endian): AABBCCDD => DDCCBBAA`
+- `floatle`-`Float (Little Endian): AABBCCDD => DDCCBBAA`
 - `floatsw` -`Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
 - `floatsb` -`Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
 - `doublebe` -`Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
@@ -306,7 +316,7 @@ TCP-порт партнера Modbus, если он настроен как ве
 
 ![Изображение3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
-Кроме того, оба `byte swap` и а `word swap` По сути, это полностью изменило бы последовательность байтов, что привело бы к еще одному результату:
+Кроме того, оба `byte swap` и а `word swap` Это по сути полностью изменило бы последовательность байтов, что привело бы к еще одному результату:
 
 ![Изображение4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
@@ -391,39 +401,33 @@ TCP-порт партнера Modbus, если он настроен как ве
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 9.1.1 (2026-08-27)
-- (@nobl) Fixed stale and overlapping polling cycles after a reconnect (ioBroker.modbus issue #595): a block read error was logged and swallowed, so the polling loop kept running after the request timeout had already trashed the socket and cleared the request FIFO. The next register request was queued after that cleanup and was therefore sent on the reconnected socket, before the fresh cycle started by the connect handler — two polling cycles then ran in parallel. A pending reconnect, a lost connection or a stopping master now aborts the remaining blocks, register types and device IDs of the running cycle
-- (@GermanBluefox) Limited that abort to connection failures: a plain Modbus exception response (illegal data address, illegal function, device busy) leaves the socket intact, so the remaining blocks of that register type are read as before. Otherwise a single register the device rejects would have permanently hidden every block behind it, because the block order is fixed
-- (@GermanBluefox) Fixed a second source of stale requests: the block loops only checked connected, which is still true while a reconnect is pending. A connection that died during the wait between two blocks therefore queued the next request into the already cleared FIFO
-- (@GermanBluefox) A pending reconnect timer is now cancelled when the client reports connect, so the timer of the deliberately dropped socket cannot tear the fresh connection down again
-- (@GermanBluefox) Added a regression test for the polling of the remaining blocks after a device rejects one of them with an exception response
+### 9.5.0 (2026-11-19)
+* (@LoPromise, @GermanBluefox) Settings for retries of reads and writes after a timeout or a lost connection
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.12.0: pending requests are rejected at once when the connection closes; read and write retries
+* (@GermanBluefox) Template library: files marked as optional in the template (e.g. registers of a newer firmware) are not preselected
 
-### 9.1.0 (2026-08-14)
-- (@johannes-lode) Slave mode: added a read-notification UI. Requires `@iobroker/modbus` >= 7.7.0. In slave mode you can now enable per-namespace read notifications (coils, discrete inputs, input registers, holding registers) and a counter expire time from the instance settings. A read-only counter state under `readNotify.<register id>` increments whenever an external master reads a register; the notification fires after the response has already gone out, so an updated value only takes effect on the master's next read
-- (@johannes-lode) Added signed and string-typed 64-bit integer register types to the register-type dropdown (`int64be`/`int64le` and the `uint64`/`int64` be/le "as string" variants) for exact values beyond 2^53; selecting a 64-bit type also sets the register length to 4. Requires `@iobroker/modbus` >= 7.7.0
-- (@johannes-lode) Added sign-extended int8 register types `signExtendedInt8be`/`signExtendedInt8le` to the register-type dropdown, so a foreign master reading the register as int16 gets the correct signed value. Requires `@iobroker/modbus` >= 7.7.0
-- (@GermanBluefox) Updated `@iobroker/modbus` to 7.7.0: fixes the encoding/decoding of 64-bit registers, negative int8 values, and the slave write-back of single (FC6) and multiple (FC16) registers; removes the 100 ms response delay of the TCP slave server
+### 9.4.0 (2026-11-13)
+* (@GermanBluefox) Template library: a template with only one register file shows it checked and disabled
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.11.0
+* (@GermanBluefox) Device detection: each read waits at most 2 seconds, and a device that does not answer a read no longer closes the connection
 
-### 9.0.1 (2026-08-06)
-- (@GermanBluefox) Node.js 22 is required or higher
-- (@GermanBluefox) GUI migrated to React 19/MUI9
+### 9.3.2 (2026-11-13)
+* (@ipod86) Added the electrical measurement roles from the state roles list (`value.voltage`, `value.current`, `value.frequency`, `value.power.*`, `value.energy.*`) to the role select box
 
-### 8.3.1 (2026-07-13)
-- (@GermanBluefox) Fixed repeated `Can not set value: The value of "offset" is out of range` errors when a device answers a combined read block with fewer registers than requested (issue #502, via `@iobroker/modbus`): the short response is now reported with a single clear warning and the values that were returned are still stored. Workaround without the update: set "Max address gap to combine" to 0
-- (@GermanBluefox) Added Modbus/UDP support as a master (issue #222): select "UDP (Master)" as the connection type. Requires `@iobroker/modbus` >= 7.6.0
-- (@GermanBluefox) The register table export/import dialog can now use CSV (`;`-separated, quoted) or JSON in addition to TSV, and the data can be saved to / loaded from a file (issue #249): pick the format in the dialog to mass-edit the data points in Excel or a text editor. Empty columns (e.g. an unused "name") are preserved, so a round-trip export→edit→import no longer breaks the format
-- (@GermanBluefox) Register tables with many data points are now much faster to edit (issue #249): rows are virtualized (only the visible ones are rendered), and a new "freeze order" toolbar button keeps rows from re-sorting/jumping while you type
-- (@GermanBluefox) When "Multi device IDs" is enabled, register tables can be shown as a tree grouped by slave/device ID with collapsible sections (issue #249): toggle it with the new "Group by device ID" toolbar button
+### 9.3.1 (2026-11-12)
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.10.1: cyclic write of holding registers works again, for polled and not polled registers (issue #771)
 
-### 8.3.0 (2026-07-03)
-- (@GermanBluefox) Added a "Max address gap to combine" setting (issue #581): controls how large an address gap may be bridged when combining registers into one read request. Set it to 0 to read only contiguous configured registers, so devices that reject a non-existent register in a gap no longer fail the whole read (requires `@iobroker/modbus` >= 7.5.1)
-- (@GermanBluefox) Added per-device timeout and wait time (issue #605): when "Multi device IDs" is enabled, the Connection tab shows a table of all device IDs used in the register tables, each with its own timeout and wait time (blank = global value)
-- (@GermanBluefox) Added a proxy mode (issue #775): a master can additionally serve its polled data as a Modbus TCP slave. Enable it in the Connection tab (requires `@iobroker/modbus` >= 7.5.1)
-- (@GermanBluefox) Fixed the TCP/SSL master not recovering after a communication loss (issue #594, via `@iobroker/modbus`): the receive buffer is now cleared and the socket recreated on every reconnect, so a frame cut off by the disconnect can no longer desync the parser and permanently break polling until an adapter restart
-- (@GermanBluefox) Fixed cyclic write of non-polled holding registers in immediate-write mode `maxBlock < 2` (follow-up to issue #771, via `@iobroker/modbus`)
-- (@GermanBluefox) Updated the `@iobroker/modbus` package: fixed `Put.floatle()` to write a valid IEEE-754 little-endian float and to stop dropping data written after it
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.modbus/blob/master/CHANGELOG_OLD.md)
+### 9.3.0 (2026-11-12)
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.10.0:
+  - New option "Keep the connection on a timeout" (TCP, UDP and TCP-SSL master, issue #832): for gateways with several devices behind them, a device that does not answer does not close the connection for the others anymore. The connection is still re-established when no device answers
+  - An error while processing a response fails only this request. Before, the master could stop polling (issue #831)
+  - Characters that are forbidden in object IDs (e.g. `–` or `°` of a copied data sheet) are replaced by `_` in the state ID too, so the object and the state get the same ID (modbus-templates issue #58)
+* (@MMeinhardt1, @GermanBluefox) The option `padAddressInId` (pad the address in state IDs with zeros to 5 digits, issue #317) is now available in the admin UI under "Settings"
+* (@GermanBluefox) Admin: animated icons of `@iobroker/gui-components` (delete, expert mode, folders, copy, upload, refresh, results) and own animations: new rows slide in, deleted rows slide out, unfolded slave ID groups, tab changes, live values
+* (@GermanBluefox) Admin: the status of the instance and of the connection is shown next to the tabs
+* (@GermanBluefox) Admin: a file can be dropped on the editor of the import/export dialog
+* (@GermanBluefox) Admin: import of TSV/CSV/JSON accepts an empty "Sanitize Action" and uses "Keep Last Valid" (issue #835)
+* (@GermanBluefox) Admin: the template library converts the scale factor references in formulas (`sf['40083']`) together with the addresses. Before, a template with scale factors did not work if its addresses were converted (alias template, or "Show aliases" in the instance)
 
 ## License
 The MIT License (MIT)

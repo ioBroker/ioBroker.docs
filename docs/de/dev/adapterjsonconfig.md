@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: dJnuOK1HS7XuOqeEVjRHeomQkuOLr8KpDZ1c9vGdGKs=
+hash: hKksmnszE7XHKUVoqZCbIvdKrfbxyiNMw1NwkshDjuk=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -334,7 +334,7 @@ Textkomponente
 | Objekt | Beschreibung |
 |-------------------|--------------------------------------------------------------------------------------------------------|
 | `maxLength` | Maximale Textlänge im Feld |
-| `copyToClipboard` | Schaltfläche „In die Zwischenablage kopieren“ anzeigen, aber nur, wenn deaktiviert oder schreibgeschützt aktiviert ist |
+| `copyToClipboard` | Schaltfläche „In die Zwischenablage kopieren“ anzeigen, aber nur, wenn deaktiviert oder schreibgeschützt auf „true“ gesetzt ist |
 | `trim` | Standardwert ist „true“. Setzen Sie dieses Attribut auf `false`, wenn das Kürzen nicht gewünscht ist. |
 | `minRows` | Standardwert ist 1. Setzen Sie dieses Attribut auf `2` oder höher, wenn Sie ein Textfeld mit mehr als einer Zeile wünschen. |
 | `maxRows` | Maximale Zeilenanzahl des Textbereichs. Wird nur verwendet, wenn `minRows` > 1. |
@@ -623,7 +623,7 @@ Der Benutzer kann das Wort eingeben, und es wird hinzugefügt (siehe Cloud => Di
 | `delimiter` | Wenn diese Option definiert ist, wird sie als Zeichenkette mit Trennzeichen anstelle eines Arrays gespeichert. Beispiel: Aus `delimiter=;` wird `a;b;c` anstelle von `['a', 'b', 'c']` |
 
 ### `alive`
-Es handelt sich lediglich um einen Indikator dafür, ob die Instanz aktiv ist, und er kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
+Dient lediglich als Indikator dafür, ob die Instanz aktiv ist, und kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
 
 Einfacher Text mit einer Status-LED davor: Instanz läuft, Instanz läuft nicht. Die LED blinkt beim Starten der Instanz und vibriert beim Stoppen.
 
@@ -657,13 +657,13 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` auf „true“ gesetzt ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `showProcess` | Ladekreis anzeigen, solange die Anfrage bearbeitet wird |
-| `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
+| `timeout` | Timeout für die Anfrage in ms: Nach Ablauf dieser Zeit meldet die Schaltfläche einen Fehler, und die Antwort der nachfolgenden Instanz wird verworfen. Standard: keiner - die Schaltfläche wartet auf die Antwort, maximal so lange wie die Verbindung der GUI (`callbackTimeout` des Sockets, 30 Sekunden im WS-Client von ioBroker, 10 Minuten in der Administrationsoberfläche seit Version 8.3.14). |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
 | `controlStyle` | Stile für die Schaltfläche. |
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
-Die Schaltfläche bestätigt kurzzeitig die Antwort der Instanz: Bei Erfolg erscheint ein Häkchen, bei einem Fehler ein Kreuz. Erfolg ohne `result`, `openUrl` oder `copyDialog` wird nicht mehr mit einer „OK“-Meldung bestätigt.
+Die Schaltfläche bestätigt kurzzeitig die Antwort der Instanz: Bei Erfolg erscheint ein Häkchen, bei einem Fehler ein Kreuz. Ein Erfolg ohne `result`, `openUrl` oder `copyDialog` wird nicht mehr mit einer „OK“-Meldung bestätigt.
 
 Die benannten Symbole `delete`, `refresh`, `upload` und `play` sind animiert: `refresh` dreht sich, der Upload-Pfeil bewegt sich nach oben und ein Ring dreht sich um `play`, während die Anfrage läuft; der Deckel von `delete` öffnet sich beim Überfahren mit der Maus und bleibt geöffnet, solange der Bestätigungsdialog angezeigt wird.
 
@@ -761,6 +761,20 @@ Die Zellen einer Spalte `text` mit `translate: true` sind i18n-Schlüssel: Sie w
         { "enabled": true, "name": "First_row", "desc": "this is 100" },
         { "enabled": false, "name": "Second_row", "desc": "this is 200" }
     ]
+}
+```
+
+Die Spaltennamen `label`, `help`, `tooltip` und `placeholder` sind in jeder Zeile identisch, es sei denn, sie bilden ein Muster: In einer Zelle entspricht `data` der Zeile (die gesamte Konfiguration lautet `globalData`). Das Ergebnis des Musters wird übersetzt, um aus dem Wert der Zeile einen i18n-Schlüssel zu erstellen. Fügen Sie keine Hilfetexte in die Zeilen selbst ein: Die Zeilen werden in der Konfiguration gespeichert, nicht mit dem Adapter aktualisiert und erhalten keine Hilfetexte für neue Zeilen.
+
+```json5
+{
+    "type": "text",
+    "attr": "desc",
+    "title": "Command description",
+    // i18n keys "help_%DATETIME%", "help_%CLASS%", ... in the translations of the adapter
+    "help": "help_${data.cmd}",
+    // or with a fallback text for unknown commands:
+    // "help": "${{'%DATETIME%': 'help_datetime', '%CLASS%': 'help_class'}[data.cmd] || 'help_other'}"
 }
 ```
 
@@ -1129,6 +1143,8 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
+Wenn die Instanz nicht aktiv ist oder keine Antwort in Form einer Liste liefert, zeigt das Steuerelement ein Textfeld (mit `manual: true`, dem Standardwert) an, sodass der Wert bearbeitbar bleibt.
+
 Der Backend-Handler kann Elemente mit einem optionalen Feld `description` zurückgeben: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
 Ein Element mit `"noTranslation": true` wird unverändert angezeigt, auch wenn `noTranslation` des Steuerelements nicht gesetzt ist: `[{"value": "abc", "label": "My device", "noTranslation": true}, ...]`.
 
@@ -1342,7 +1358,7 @@ Dies lässt sich beispielsweise mit den Web Developer Tools testen, die in jeden
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1512,7 +1528,7 @@ verwendet eines dieser Attribute. Wenn diese nicht gelesen werden können, wird 
 
 Der Wert `default` eines solchen Elements wird jedoch nicht in die Konfiguration geschrieben.
 
-Unter anderen Bedingungen, z. B. bei einer bestehenden Instanz, kann `getObject` in `hidden`: `"hidden": "!getObject('system.adapter.zigbee.0')"` verwendet werden. Wird eine Eigenschaft des Objekts benötigt, verwenden Sie Klammern, da `await` eine schwächere Bindung als `?.`: `"hidden": "!(await getObject('system.adapter.zigbee.0'))?.common?.enabled"` herstellt.
+Unter anderen Bedingungen, z. B. bei einer bestehenden Instanz, kann `getObject` in `hidden`: `"hidden": "!getObject('system.adapter.zigbee.0')"` verwendet werden. Wird eine Objekteigenschaft benötigt, verwenden Sie Klammern, da `await` eine schwächere Bindung als `?.`: `"hidden": "!(await getObject('system.adapter.zigbee.0'))?.common?.enabled"` herstellt.
 
 ### Optionen mit detaillierter Konfiguration
 #### `defaultSendTo`
@@ -1881,6 +1897,15 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.1.24 (2026-11-17)
+- (@GermanBluefox) Fixed: `sendTo` showed a success when the answer of the instance did not arrive in time or the connection was lost; an answer after the `timeout` of the schema is dropped (ioBroker.admin#3737)
+
+### 10.1.23 (2026-11-16)
+- (@GermanBluefox) Changed: the dialog of `diskSelector` is now `DialogSelectDiskPath` of `@iobroker/gui-components` (`@iobroker/gui-components` 10.4.7)
+
+### 10.1.22 (2026-11-13)
+- (@GermanBluefox) Fixed: `selectSendTo` showed an endless spinner when the instance it asks was not alive or gave no list - it shows a text field now, so the value stays editable; `autocompleteSendTo` shows its `options` (or a text field) instead of a spinner that never ends
+
 ### 10.1.21 (2026-11-11)
 - (@GermanBluefox) Added: `translate` for `text`: i18n keys shown translated (`readOnly`) or translated once from `default`, also in tables (ioBroker/ioBroker.admin#3721)
 

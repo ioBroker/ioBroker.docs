@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo-crawler/README.md
 title: ioBroker.netatmo-crawler
-hash: CVGbVFpru4kiQyI3Ccay8JA0clbRH10Rv5Ix1EVdfVM=
+hash: SodssTOgTT8LSD/kUme6utWO4WAhVhv1F2uTgXLd52I=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo-crawler/img/netatmo-logo.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/netatmo-crawler-installed.svg)
-![Stabile Version](http://iobroker.live/badges/netatmo-crawler-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/netatmo-crawler-installed.svg)
+![Stabile Version](https://iobroker.live/badges/netatmo-crawler-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Bart1909/iobroker.netatmo-crawler.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)
 ![Build-Status](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)
@@ -89,6 +89,8 @@ function heat(temperature, humidity) {
 
 ## Wind
 
+`stationData.<station>.windangleDegrees` enthält die numerische Windrichtung in Grad; `lastUpdated.windangleDegrees` enthält seinen Messzeitstempel. `windangle` Der Kompasstext bleibt unverändert. Der Netatmo-Wert `-1` wird für ruhige Bedingungen beibehalten und entspricht dem bestehenden `calm` Text.
+
 Die Windgeschwindigkeit wird anhand der Luftbewegung von hohem zu niedrigem Druck gemessen, üblicherweise aufgrund von Temperaturänderungen. Die Böenstärke ist der höchste Windwert, gemessen innerhalb eines kurzen Zeitraums (etwa drei Sekunden). Sie sollten ein Skript für Ihre Markise oder für die Zambretti-Methode erstellen (siehe oben).
 
 ## Credits
@@ -98,10 +100,24 @@ Dieser Adapter wäre ohne die großartige Arbeit von @bart1909 ( <https://github
 Vielen Dank an [backfisch](https://github.com/backfisch88) für die ursprüngliche Idee und die Unterstützung!
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2026-10-12)
+- (xXBJXx) Updated Moment and translation-tool dependencies ([#211](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/pull/211), [#212](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/pull/212)).
+- (xXBJXx) Added numeric wind direction and its measurement timestamp while retaining the existing compass direction ([#43](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/43)).
+- (xXBJXx) Migrated settings to jsonConfig, preserved existing configuration and translations, and added responsive field widths and spacing below the Admin toolbar ([#174](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/174), [#213](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/213); supersedes [#221](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/pull/221)).
+- (xXBJXx) Fixed missing station data when optional location fields are absent ([#198](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/198), [#94](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/94), [#84](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/84)).
+- (xXBJXx) Fixed token renewal, request timeouts and cancellation when disabling the instance.
+- (xXBJXx) Cancelled active requests when station settings change, preventing overlapping scheduled runs after saving.
+- (xXBJXx) Handled expected network failures as warnings with exit code 0, incorporating [#191](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/pull/191) ([#57](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/57)).
+- (xXBJXx) Preserved weather readings when rain history is unavailable.
+- (xXBJXx) Replaced deprecated request and URL handling with native Node.js APIs, updated adapter-core, and used adapter timers and termination for compact-mode safety ([#213](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/issues/213)).
+
 ### 1.2.0 (2026-05-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -120,9 +136,6 @@ Vielen Dank an [backfisch](https://github.com/backfisch88) für die ursprünglic
 
 ### 0.8.0
 * (Bart19) Adds additional 'rain_lastHour' state as 'rain' state is now real time value
-
-### 0.7.1
-* (Bart19) removed old news (#17)
 
 ## License
 

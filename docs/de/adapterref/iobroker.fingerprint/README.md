@@ -4,8 +4,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fingerprint/README.md
 title: ioBroker.fingerprint
-hash: Kk5+ExG/e5aEtblXjBoKbq93+7YsmLiZs+qGXgMuOwI=
+hash: 99wXQMkIBykzoE0jCJouqLb7XrETk4ClVjwKGlE84w0=
 ---
+![Stabil](https://iobroker.live/badges/fingerprint-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.fingerprint.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.fingerprint.svg)
+![Lizenz](https://img.shields.io/github/license/sadam6752-tech/ioBroker.fingerprint.svg)
+![NPM](https://nodei.co/npm/iobroker.fingerprint.png?downloads=true)
+![Test und Freigabe](https://github.com/sadam6752-tech/ioBroker.fingerprint/actions/workflows/test-and-release.yml/badge.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/fingerprint-installed.svg)
+
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.fingerprint/main/admin/fingerprint.png" width="120" alt="FingerprintDoorbell logo" />
 
 # ioBroker.fingerprint
@@ -73,7 +81,7 @@ Dieser Adapter ist eine unabhängige, von der Community entwickelte Integration.
 - **Kein zertifiziertes Sicherheitsprodukt.** Fingerabdrucksensoren für Endverbraucher (z. B. R503) können Fehlalarme auslösen und manipuliert werden. Verlassen Sie sich **nicht** allein auf diesen Adapter als Schutz für Türen, Schlösser, Alarmanlagen oder andere Einrichtungen, die Personen oder Eigentum schützen. Sorgen Sie stets für einen unabhängigen mechanischen oder anderweitigen Zugang.
 - **Nicht für sicherheitskritische Anwendungen geeignet.** Netzwerk-, WLAN-, Strom- oder Softwareausfälle können zu Verzögerungen oder Abbrüchen führen. Verwenden Sie das Gerät niemals an Orten, an denen ein Ausfall Leben oder Gesundheit gefährden könnte (z. B. Notausgänge).
 - **Ihr Netzwerk, Ihre Verantwortung.** Die WebUI des Geräts und der Webhook verwenden unverschlüsseltes HTTP (Basisauthentifizierung und ein gemeinsames Token werden unverschlüsselt übertragen). Verwenden Sie diese nur in einem vertrauenswürdigen LAN/VLAN, geben Sie den Webhook-Port oder das Gerät niemals dem Internet preis und halten Sie das Token geheim.
-- **Biometrische Daten / Datenschutz (DSGVO).** Fingerabdruckvorlagen, Namen, Zeitstempel und Zugriffsprotokolle sind personenbezogene Daten. Sie sind der Verantwortliche: Holen Sie die Einwilligung der registrierten Personen ein, schützen Sie Sicherungsdateien (`fingerprints-backup.json` enthält die Rohvorlagen (unverschlüsselt) und beachten Sie die für Sie geltenden Gesetze (z. B. DSGVO/BDSG, Betriebsratsvorschriften für Arbeitnehmer).
+- **Biometrische Daten / Datenschutz (DSGVO).** Fingerabdruckvorlagen, Namen, Zeitstempel und Zugriffsprotokolle sind personenbezogene Daten. Sie sind der Verantwortliche: Holen Sie die Einwilligung der betroffenen Personen ein und schützen Sie die Sicherungsdateien (diese enthalten die unverschlüsselten Rohdatenvorlagen) im Speicherordner. `fingerprint.0.storage`, lesbar für jeden Administratorbenutzer und möglicherweise über ein `web` Instanz und auf einem externen SFTP-Server (siehe _Backup_ ) und beachten Sie die für Sie geltenden Gesetze (z. B. DSGVO/BDSG, Betriebsratsvorschriften für Arbeitnehmer).
 - **Aktionen werden unbeaufsichtigt ausgeführt.** Fingerprint-Regeln schreiben in beliebige ioBroker-Objekte (Lampen, Schlösser, Alarme, Skripte). Testen Sie Ihre Regeln sorgfältig, bevor Sie sich darauf verlassen.
 - Die Autoren übernehmen keine Haftung für Schäden, Datenverlust, unbefugten Zugriff, Einbruch oder sonstige Folgen, die sich aus der Verwendung oder dem Missbrauch dieser Software ergeben.
 
@@ -88,7 +96,7 @@ Die Kommunikation ist in beide Richtungen authentifiziert:
 
 Bei Firmware-Versionen < v0.9.1 muss das Token manuell in die Geräte-URLs eingefügt werden. Ab v0.9.1 (Servermodus) stellt der Adapter die URLs und das Token automatisch bereit.
 
-`adminPassword` Und `webhookToken` werden als **geschützte** native Attribute deklariert (`protectedNative` In `io-package.json` Daher können andere Adapter sie nicht lesen. Sie werden als Klartext in der Instanzkonfiguration gespeichert – verschlüsselt über `encryptedNative` wird absichtlich nicht verwendet, da das Webhook-Token vom Adapter selbst generiert wird.
+`adminPassword` Und `webhookToken` werden **verschlüsselt** in der Instanzkonfiguration gespeichert (`encryptedNative`) und sind **geschützt** (`protectedNative` Daher können andere Adapter sie nicht lesen. Werte, die von Version 0.7.12 oder älter als Klartext gespeichert wurden, werden beim ersten Start von Version 0.7.13 automatisch verschlüsselt: Das Protokoll zeigt Folgendes: `… is now stored encrypted (one-time migration)` Die Instanz wird einmal neu gestartet – das ist zu erwarten und kein Absturz.
 
 ## Fingerabdruckaktionen (ohne Skripting)
 
@@ -114,12 +122,70 @@ Bei Firmware-Versionen < v0.9.1 muss das Token manuell in die Geräte-URLs einge
 Über die Registerkarte **„Finger verwalten“** können Sie Finger verwalten, ohne die WebUI des Geräts öffnen zu müssen:
 
 - **Umbenennen** — Geben Sie eine Finger-ID und einen neuen Namen ein und klicken Sie dann auf _Umbenennen_ .
-- **Backup erstellen** – lädt alle Fingerabdruckvorlagen vom Sensor herunter und speichert sie in einer Datei auf dem ioBroker-Host (`<iobroker-data>/fingerprint.0/fingerprints-backup.json`), das Adapteraktualisierungen übersteht.
-- **Wiederherstellung aus der Sicherung** – schreibt die Fingerabdrücke aus dieser Datei zurück auf den Sensor.
+- **Einen neuen Finger registrieren** – siehe unten.
+
+Sicherung und Wiederherstellung befinden sich auf der Registerkarte **„Sicherung** “ (siehe _Sicherung_ ).
 
 Speichern Sie zuerst die Instanzeinstellungen, damit die Geräteverbindung hergestellt werden kann.
 
+## Backup (v0.8.0, Speicherordner und Wiederherstellung v0.8.1)
+
+Alles rund um Backups finden Sie auf der Registerkarte **„Backup“** der Instanzeinstellungen: **Backup erstellen** , **Backup wiederherstellen** + **das ausgewählte Backup wiederherstellen** , das automatische Backup, das Kopieren auf einen externen Server und die Wiederherstellung von diesem Server.
+
 > **Hinweis:** Für eine zuverlässige Sicherung und Wiederherstellung _aller_ Finger ist Firmware- **Version 0.9.4** (vollständige 1536-Byte-Vorlagen) erforderlich. Mit älterer Firmware erstellte Sicherungen sind unvollständig – erstellen Sie diese nach dem Update neu.
+
+### Speicherordner
+
+Jede Datensicherung (manuell, automatisch, vom Server abgerufen, Sicherheitskopie) ist eine Datei im ioBroker-Dateispeicherordner. `fingerprint.0.storage/backups/`:
+
+| Datei                                | Hergestellt von                                                      | Automatisch gelöscht                                                                                                       |
+| ------------------------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `fingerprint-backup-<time>.json`     | _Backup erstellen_                                                   | niemals                                                                                                                    |
+| `fingerprint-auto-<time>.json`       | automatische Sicherung                                               | die ältesten Backups, die über _die automatischen Backups hinaus aufbewahrt werden sollen_ (Standard 7, 0 = alle behalten) |
+| `fingerprint-prerestore-<time>.json` | Sicherheitskopie des Sensors unmittelbar vor einer Wiederherstellung | niemals                                                                                                                    |
+
+- Im Adminbereich, Registerkarte „ **Dateien“** , öffnen `fingerprint.0.storage` →`backups` Um eine Sicherungskopie **herunterzuladen** oder **hochzuladen** (z. B. eine Kopie von Ihrem NAS); hochgeladene Dateien müssen das oben genannte Namensmuster beibehalten.
+- Der Montagepunkt ist vom Typ `meta.user` Daher wird bei ioBroker-Backups (BackItUp: diese Instanz und ihre Dateien einschließen) der Ordner mitgesichert.
+- Die Sicherungsdatei der Version 0.8.0 und älter (`<iobroker-data>/fingerprint.0/fingerprints-backup.json`) wird einmal in den Ordner verschoben als `fingerprint-backup-<time of the file>.json` Die alte Datei wird umbenannt in `fingerprints-backup.json.migrated` Die
+- Wie alle Dateien im Speicher sind auch die Backups für jeden Administrator lesbar, und wenn ein `web` Die Instanz dient dem Dateispeicher ohne Anmeldung, möglicherweise im Browser. Sie enthält die Rohdaten der Fingerabdruckvorlagen (biometrische Daten): Schützen Sie Ihre Admin- und Webinstanzen entsprechend.
+
+### Wiederherstellen
+
+Registerkarte **„Sicherung“** → **Wiederherstellbare Sicherung** : Wählen Sie eine Sicherung (neueste zuerst; öffnen Sie die Einstellungen erneut, um die Liste zu aktualisieren) → **Ausgewählte Sicherung wiederherstellen** → Bestätigen. Der Adapter prüft die Datei (gültiges JSON, Finger-IDs 1–200, keine Duplikate, Vorlagen vorhanden) und speichert den aktuellen Inhalt des Sensors als `fingerprint-prerestore-<time>.json` Anschließend wird die Sicherung auf den Sensor geschrieben. Kann der aktuelle Inhalt nicht vom Gerät gelesen werden, wird die Wiederherstellung abgebrochen.
+
+### Wiederherstellung nach einer Neuinstallation von ioBroker
+
+1. Installieren Sie den Adapter und geben Sie die Geräteeinstellungen ein (IP-Adresse, Administratorbenutzername/Passwort). Speichern.
+2. Bringen Sie eine Ersatzlösung mit – eine der folgenden:
+   - **aus einem ioBroker/BackItUp-Backup** : Nach der Wiederherstellung ist der Speicherordner wieder vorhanden;
+   - **Hochladen** : Admin → **Dateien** →`fingerprint.0.storage` →`backups` → Datei hochladen;
+   - **Vom SFTP-Server** : Registerkarte **„Backup“** → SFTP-Einstellungen eingeben, Kopieren aktivieren, speichern → **Backup auf dem Server** → auswählen → **Vom Server abrufen und wiederherstellen** . Die Datei wird in den Speicherordner abgerufen und in einem Schritt wiederhergestellt.
+3. Für die ersten beiden Methoden: Registerkarte **„Sicherung“** → **Wiederherstellbare Sicherung** → **Die ausgewählte Sicherung wiederherstellen** .
+
+### Automatische Datensicherung
+
+Im Tab **„Backup“** der Instanzeinstellungen kann die automatische Sicherung des Fingerabdrucks **täglich** oder **wöchentlich** erstellt werden – diese Funktion ist standardmäßig **deaktiviert** . Jede automatische Sicherung erzeugt eine neue Datei im Speicherordner; das Gerät muss erreichbar sein.
+
+- Das Zeitintervall beginnt mit der letzten Datensicherung (manuell oder automatisch), auch nach einem Neustart des Adapters. Eine überfällige Datensicherung wird fünf Minuten nach dem Start ausgeführt.
+- Ein Gerät, das **keine** Fingerabdrücke zurückgibt, erstellt keine Sicherung (die automatische Sicherung wird übersprungen und protokolliert).
+- Ist das Gerät nicht erreichbar, erfolgt der nächste Versuch nach einer Stunde. Eine laufende Registrierung verzögert die Datensicherung um zehn Minuten.
+- Der Zeitpunkt der letzten Datensicherung wird angezeigt in `info.lastBackup` Die
+
+### Auf einen externen Server kopieren (SFTP)
+
+Ein Backup, das sich auf demselben Rechner wie ioBroker befindet, geht bei Ausfall dieses Rechners verloren. Über den **Backup-** Tab können Sie **jedes Backup** (automatisch und manuell) per **SFTP** auf einen anderen Computer, beispielsweise ein NAS, kopieren. Der Adapter stellt die SSH-Verbindung selbstständig her: kein Mounten, kein …`sudo`, kein Shell-Befehl.
+
+1. Erstellen Sie auf dem Server einen Benutzer, der nur in das Zielverzeichnis schreiben darf (kein Administrator) und schalten Sie SFTP ein (auf einem Synology: _Systemsteuerung → Dateidienste → FTP → SFTP-Dienst aktivieren_ ).
+2. Im Tab **„Backup“** aktivieren Sie die Kopierfunktion und geben Hostname, Benutzername, Passwort und das Verzeichnis ein (dieses wird automatisch erstellt, falls es fehlt). Das Passwort wird verschlüsselt gespeichert und niemals in das Protokoll geschrieben.
+3. Klicken Sie auf _„Verbindung testen“_ : Der Adapter meldet sich an, erstellt das Verzeichnis, schreibt und löscht eine kleine Testdatei und zeigt den **Fingerabdruck** des Servers an. Geben Sie diesen Fingerabdruck in den Einstellungen ein, um nur diesem Server zu vertrauen – ein anderer Server wird dann abgelehnt, bevor das Passwort gesendet wird. Auch ohne Fingerabdruck funktioniert das Kopieren, der Server wird jedoch nicht verifiziert (das Protokoll warnt bei jedem Kopiervorgang mit dem Fingerabdruck).
+
+So verhält es sich:
+
+- Zuerst wird eine lokale Sicherung erstellt. Schlägt das Kopieren fehl, bleibt die Sicherung erhalten, der Fehler wird protokolliert und angezeigt. `info.remoteBackupError` Die letzte erfolgreiche Kopie befindet sich in `info.lastRemoteBackup` Ein fehlgeschlagener Kopiervorgang wird **nicht wiederholt** : Die nächste Sicherung wird erneut kopiert.
+- Dateinamen: `fingerprint-backup-<time>.json` (von Hand) und `fingerprint-auto-<time>.json` (automatisch), Zeitangabe in UTC.
+- Eine Kopie erscheint erst dann unter ihrem endgültigen Namen, wenn sie fertiggestellt ist (hochgeladen als `.part` (Größe geprüft, umbenannt). Die gesamte Kopie ist auf zehn Minuten begrenzt. Überbleibsel unterbrochener Uploads dieses Adapters werden durch die nächste fehlerfreie Kopie entfernt.
+- _Die Option „Kopien auf dem Server behalten“_ löscht die ältesten **automatisch erstellten** Kopien ab einer bestimmten Anzahl (0 = alle behalten). Manuell erstellte Backups und alle anderen Dateien im Verzeichnis werden niemals gelöscht.
+- Es wird ausschließlich die Anmeldung mit Passwort unterstützt. Die Datei selbst ist serverseitig **unverschlüsselt** , die Übertragung jedoch schon. Sie enthält die Rohdaten der Fingerabdruckvorlagen (biometrische Daten): Bewahren Sie sie auf einem Datenträger auf, auf den nur Sie Zugriff haben.
 
 ## Neuen Finger registrieren (v0.7.0, Firmware ≥ v0.9.4)
 
@@ -150,41 +216,44 @@ Durch Schreiben in einen der beiden Zustände wird der Ring sofort aktiviert.
 
 ## Staaten
 
-| Zustand                      | Typ                            | Beschreibung                                                      |
-| ---------------------------- | ------------------------------ | ----------------------------------------------------------------- |
-| `info.connection`            | boolescher Wert                | Gerät erreichbar (über `/api/status` oder `/debug` Umfrage)         |
-| `info.uptime`                | Nummer                         | Gerätebetriebszeit in Sekunden                                    |
-| `info.freeHeap`              | Nummer                         | Freier Heap in Bytes                                              |
-| `info.firmwareVersion`       | Zeichenkette                   | Geräte-Firmwareversion                                            |
-| `info.serverMode`            | boolescher Wert                | Das Gerät sendet Ereignisse direkt an diesen Adapter.             |
-| `info.wifiRssi`              | Nummer                         | WLAN-Signalstärke in dBm (Firmware ≥ v0.9.4)                      |
-| `fingerprints.<id>.name`     | Zeichenkette                   | Name des registrierten Fingers mit dieser ID                      |
-| `fingerprints.<id>.lastSeen` | Nummer                         | Zeitstempel der letzten Fingerabgleichung                         |
-| `fingerprints.<id>.count`    | Nummer                         | Wie oft der Finger übereinstimmte                                 |
-| `lastAccess.text`            | Zeichenkette                   | Letzter lesbarer Zugriffseintrag (gewährt/verweigert)             |
-| `lastAccess.granted`         | boolescher Wert                | Ob der letzte Zugriff gewährt wurde                               |
-| `lastAccess.timestamp`       | Nummer                         | Zeitstempel des letzten Zugriffs                                  |
-| `stats.totalMatches`         | Nummer                         | Übereinstimmungen der Fingerabdrücke                              |
-| `stats.totalRings`           | Nummer                         | Anzahl der Türklingeln (Finger unbekannt)                         |
-| `stats.lastPerson`           | Zeichenkette                   | Name der zuletzt erkannten Person                                 |
-| `lastMatch.id`               | Nummer                         | ID des zuletzt zugeordneten Fingers (1–200)                       |
-| `lastMatch.name`             | Zeichenkette                   | Name des zuletzt übereinstimmenden Fingers                        |
-| `lastMatch.confidence`       | Nummer                         | Selbstvertrauen im Spiel                                          |
-| `lastMatch.timestamp`        | Nummer                         | Zeitstempel des letzten Spiels                                    |
-| `lastMatch.matched`          | boolescher Wert                | Bei jedem Spielereignis auf „true“ setzen.                        |
-| `ring.ringing`               | boolescher Wert                | Trifft für ein paar Sekunden beim Klingeln an der Tür zu.         |
-| `ring.timestamp`             | Nummer                         | Zeitstempel des letzten Klingelns                                 |
-| `control.reboot`             | boolescher Wert (Schaltfläche) | Starten Sie das Gerät neu.                                        |
-| `control.ignoreTouchRing`    | boolescher Wert (Schalter)     | Den Touch-Ring ignorieren (Firmware ≥ v0.9.1)                     |
-| `control.enrollId`           | Nummer                         | Slot-ID (1–200) für die nächste Registrierung (Firmware ≥ v0.9.4) |
-| `control.enrollName`         | Zeichenkette                   | Name für die nächste Registrierung (Firmware ≥ v0.9.4)            |
-| `control.enrollStart`        | boolescher Wert (Schaltfläche) | Registrierung starten (Firmware ≥ v0.9.4)                         |
-| `control.ledMode`            | Nummer                         | LED-Ringmodus 0–3 (Firmware ≥ v0.9.4)                             |
-| `control.ledColor`           | Nummer                         | LED-Ringfarbe 1–7 (Firmware ≥ v0.9.4)                             |
-| `enroll.active`              | boolescher Wert                | Registrierung läuft (Firmware ≥ v0.9.4)                           |
-| `enroll.step`                | Nummer                         | Aktueller Einschreibungsscan Schritt 0–5                          |
-| `enroll.status`              | Zeichenkette                   | `idle` /`scanning` /`success` / `error`                           |
-| `enroll.message`             | Zeichenkette                   | Letzte Zeile zum Einschreibungsstatus                             |
+| Zustand                      | Typ                            | Beschreibung                                                             |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------ |
+| `info.connection`            | boolescher Wert                | Gerät erreichbar (über `/api/status` oder `/debug` Umfrage)                |
+| `info.uptime`                | Nummer                         | Gerätebetriebszeit in Sekunden                                           |
+| `info.freeHeap`              | Nummer                         | Freier Heap in Bytes                                                     |
+| `info.firmwareVersion`       | Zeichenkette                   | Geräte-Firmwareversion                                                   |
+| `info.serverMode`            | boolescher Wert                | Das Gerät sendet Ereignisse direkt an diesen Adapter.                    |
+| `info.wifiRssi`              | Nummer                         | WLAN-Signalstärke in dBm (Firmware ≥ v0.9.4)                             |
+| `info.lastBackup`            | Nummer                         | Zeitpunkt der letzten Fingerabdrucksicherung (manuell oder automatisch)  |
+| `info.lastRemoteBackup`      | Zeichenkette                   | Pfad der letzten Kopie auf dem externen SFTP-Server                      |
+| `info.remoteBackupError`     | Zeichenkette                   | Fehler beim letzten Kopieren auf den externen Server (leer = in Ordnung) |
+| `fingerprints.<id>.name`     | Zeichenkette                   | Name des registrierten Fingers mit dieser ID                             |
+| `fingerprints.<id>.lastSeen` | Nummer                         | Zeitstempel der letzten Fingerabgleichung                                |
+| `fingerprints.<id>.count`    | Nummer                         | Wie oft der Finger übereinstimmte                                        |
+| `lastAccess.text`            | Zeichenkette                   | Letzter lesbarer Zugriffseintrag (gewährt/verweigert)                    |
+| `lastAccess.granted`         | boolescher Wert                | Ob der letzte Zugriff gewährt wurde                                      |
+| `lastAccess.timestamp`       | Nummer                         | Zeitstempel des letzten Zugriffs                                         |
+| `stats.totalMatches`         | Nummer                         | Übereinstimmungen der gesamten Fingerabdrücke                            |
+| `stats.totalRings`           | Nummer                         | Anzahl der Türklingeln (Finger unbekannt)                                |
+| `stats.lastPerson`           | Zeichenkette                   | Name der zuletzt erkannten Person                                        |
+| `lastMatch.id`               | Nummer                         | ID des zuletzt zugeordneten Fingers (1–200)                              |
+| `lastMatch.name`             | Zeichenkette                   | Name des zuletzt übereinstimmenden Fingers                               |
+| `lastMatch.confidence`       | Nummer                         | Selbstvertrauen im Spiel                                                 |
+| `lastMatch.timestamp`        | Nummer                         | Zeitstempel des letzten Spiels                                           |
+| `lastMatch.matched`          | boolescher Wert                | Bei jedem Spielereignis auf „true“ setzen.                               |
+| `ring.ringing`               | boolescher Wert                | Trifft für ein paar Sekunden beim Klingeln an der Tür zu.                |
+| `ring.timestamp`             | Nummer                         | Zeitstempel des letzten Klingelns                                        |
+| `control.reboot`             | boolescher Wert (Schaltfläche) | Starten Sie das Gerät neu.                                               |
+| `control.ignoreTouchRing`    | boolescher Wert (Schalter)     | Den Touch-Ring ignorieren (Firmware ≥ v0.9.1)                            |
+| `control.enrollId`           | Nummer                         | Slot-ID (1–200) für die nächste Registrierung (Firmware ≥ v0.9.4)        |
+| `control.enrollName`         | Zeichenkette                   | Name für die nächste Registrierung (Firmware ≥ v0.9.4)                   |
+| `control.enrollStart`        | boolescher Wert (Schaltfläche) | Registrierung starten (Firmware ≥ v0.9.4)                                |
+| `control.ledMode`            | Nummer                         | LED-Ringmodus 0–3 (Firmware ≥ v0.9.4)                                    |
+| `control.ledColor`           | Nummer                         | LED-Ringfarbe 1–7 (Firmware ≥ v0.9.4)                                    |
+| `enroll.active`              | boolescher Wert                | Registrierung läuft (Firmware ≥ v0.9.4)                                  |
+| `enroll.step`                | Nummer                         | Aktueller Einschreibungsscan Schritt 0–5                                 |
+| `enroll.status`              | Zeichenkette                   | `idle` /`scanning` /`success` / `error`                                  |
+| `enroll.message`             | Zeichenkette                   | Letzte Zeile zum Einschreibungsstatus                                    |
 
 ## Firmware-Hinweis
 
@@ -194,6 +263,55 @@ Durch Schreiben in einen der beiden Zustände wird der Ring sofort aktiviert.
 - **Anmeldung über Adapter, LED-Ring, `info.wifiRssi` ** Erfordert **Version 0.9.4** .
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- `@iobroker/testing` 6.3.2 (repository checker W0037)
+
+### 0.8.3
+
+- The webhook port is declared in the used resources registry of js-controller (js-controller 8 and newer), and a warning is logged when another instance already uses it; nothing changes on older controllers
+
+### 0.8.2
+
+- Admin UI: *Create backup* and *Restore* moved from *Manage Fingers* to the **Backup** tab, so everything about backups is on one page
+
+### 0.8.1
+
+- New **storage folder** `fingerprint.0.storage/backups/` (`meta.user`): every backup is a file there — download and upload it in the admin tab *Files*; ioBroker/BackItUp backups take it along. The backup file of 0.8.0 is moved there once
+- New: **restore a chosen backup** (list newest first, confirmation). Before every restore the current content of the sensor is saved as a safety copy (`fingerprint-prerestore-…`); the file is checked first (JSON, ids 1–200, no duplicates, templates)
+- New: **restore from the external SFTP server** — list the backups on the server, fetch one into the storage folder and restore it (for a new installation of ioBroker)
+- New setting *Automatic backups to keep* (default 7); backups made by hand and safety copies are never deleted
+- Tests: storage, restore, safety copy and SFTP restore against a real js-controller, a simulated device and an SFTP server inside the test
+
+### 0.8.0
+
+- New **Backup** tab: automatic fingerprint backup (off, daily, weekly; off by default). The interval counts from the last backup, also after a restart; an empty device never replaces an existing backup
+- New: every backup (by hand and automatic) can be copied to an external server over **SFTP** (e.g. a NAS) — upload as `.part` with size check and rename, optional host key fingerprint, test button, cleanup of old automatic copies. The password is stored encrypted (`encryptedNative`)
+- New states `info.lastBackup`, `info.lastRemoteBackup`, `info.remoteBackupError`
+- Admin buttons wait until the adapter has finished its start
+- New dependency `ssh2`; tests against an SFTP server inside the test and an integration test with a simulated device
+
+### 0.7.13
+
+- Security: `adminPassword` and `webhookToken` are stored encrypted (`encryptedNative`), resolving repository checker warning W1074
+- Values stored as plain text by older versions are encrypted automatically on the first start (`lib/secrets.js`). The log shows `… is now stored encrypted (one-time migration)` and the instance restarts once; nothing has to be entered again
+- A newly generated webhook token is stored encrypted
+- Tests: unit tests against the encryption of js-controller 7.2.2 and integration tests with a real js-controller
+
+### 0.7.12
+
+- Security: the webhook token no longer appears in error messages; the backup file is only readable by its owner (`0600`); match events with invalid finger IDs are ignored; device-supplied names are sanitized (control characters, length); rejected webhook requests are logged rate-limited; removed the unused `getWebhookInfo` message command
+- Stability: the webhook start is retried every 30 s if the port is busy
+- Admin UI: quotes and backslashes in the rename/enroll name fields are rejected (they broke the request)
+
+### 0.7.11
+
+- Fix: `lastMatch.matched` is reset after 3 s, so every match is a state change for scripts
+- Fix: `info.connection` is correct when status polling is disabled (one initial poll is always done)
+- Fix: match/ring counters no longer lose concurrent events
+- Faster adapter stop (idle webhook connections are closed)
+- README: added badges
 
 ### 0.7.10
 

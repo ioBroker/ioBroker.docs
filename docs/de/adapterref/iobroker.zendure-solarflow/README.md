@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: YpHqOkWhj9Ejwc/fJdPdykOMvtgiVWuge3KvpX5SIUY=
+hash: DtJpV3VgTyGUvIfZ5JYIUTp0cRCEUpFS8hSwdV6ORbM=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -60,11 +60,12 @@ mDNS verwendet Multicast, das normalerweise nicht zwischen Netzwerksegmenten ger
 
 > **Zendure empfiehlt** : Verwenden Sie den oben beschriebenen Authentifizierungsmodus mit Cloud-Schlüssel. Dieser ermöglicht die volle lokale Kontrolle bei gleichzeitiger Beibehaltung der Cloud-Verbindung. Die Geräte müssen nicht von der Cloud getrennt werden.
 
-- Solarflow 1600 AC Plus, 2400 AC, 2400 AC Plus, 2400 Pro, 800, 800 Plus, 800 Pro
-- Solarflow 3000 Mix AC+, 4000 Mix AC+, 4000 Mix Pro _(noch kein Cloud-Produktschlüssel vorhanden – hinzugefügt nur über [mDNS-Erkennung](#mdns-discovery) )_
+- Solarflow 1600 AC Plus, 2400 AC, 2400 AC Plus, 2400 Pro, 800, 800 Plus, 800 Pro, 3000 Mix AC+
+- Solarflow 4000 Mix AC+, 4000 Mix Pro _(noch kein Cloud-Produktschlüssel vorhanden – hinzugefügt nur über [mDNS-Erkennung](#mdns-discovery) )_
 
 ### Smart-Meter-Zubehör 📊 (nur lesbar, nur zenSDK/mDNS)
 
+- **Smart Meter 1CT** – Spannung einer einzelnen Phase über einen Stromwandler
 - **Intelligenter Zähler 3CT** – Scheinleistung pro Phase (A/B/C) und gesamt, über Stromwandler
 - **Smart Meter D0** – Live-Zählerstände über optische IEC 62056-21-Schnittstelle
 
@@ -106,35 +107,63 @@ Der Adapter verfügt über einen integrierten Nulleinspeiseregler. Er liest Ihre
 
 Global (`zendure-solarflow.X.adapterAutomation.*`):
 
-| Zustand                          | Standard | Beschreibung                                                                                                                                                                                                                                                     |
-| -------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `automationEnabled`              | `false`  | Globaler Ein-/Ausschalter für die Automatisierung.                                                                                                                                                                                                               |
-| `setPoint`                       | `10`     | Ziel-Netzleistung in W. Ein kleiner positiver Wert (geringe Importmenge) vermeidet die Einspeisung ins Netz.                                                                                                                                                     |
-| `setPointNearlyFull`             | `-100`   | Zielnetzleistung in W, verwendet anstelle von `setPoint` Wenn alle Batterien mindestens 90 % geladen sind und Solarstrom eingespeist wird. Negative Werte ermöglichen die Einspeisung ins Stromnetz.                                                              |
-| `acOnlyPenalty`                  | `50`     | Der Vorsprung eines reinen Netzbetriebsgeräts wird in Prozent angegeben, um den es gegenüber anderen Geräten benötigt, um zum führenden Gerät zu werden, sobald der durchschnittliche Ladezustand der anderen Geräte über 35 % liegt. `0` deaktiviert die Strafe. |
-| `surplusChargeTrigger`           | `100`    | Netzexport in Watt über den Sollwert hinaus, ab dem im Leerlauf befindliche, nur netzbetriebene Geräte mit Überschussenergie zu laden beginnen. Minimum `30` Die                                                                                                  |
-| `ignoreSuggestedInverseMaxPower` | `false`  | Wenn `true`, das Gerät `inverseMaxPower` wird als Maximalwert anstelle des empfohlenen Werts verwendet (siehe unten).                                                                                                                                             |
-| `deviceOrder`                    |          | Schreibgeschützt. Aktuelle Gerätereihenfolge, das erste Gerät ist das führende Gerät.                                                                                                                                                                            |
+| Zustand                           | Standard | Beschreibung                                                                                                                                                                                                                                                     |
+| --------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `automationEnabled`               | `false`  | Globaler Ein-/Ausschalter für die Automatisierung.                                                                                                                                                                                                               |
+| `setPoint`                        | `10`     | Ziel-Netzleistung in W. Ein kleiner positiver Wert (geringe Importmenge) vermeidet die Einspeisung ins Netz.                                                                                                                                                     |
+| `setPointNearlyFull`              | `-100`   | Zielnetzleistung in W, verwendet anstelle von `setPoint` Wenn alle Batterien mindestens 90 % geladen sind und Solarstrom eingespeist wird. Negative Werte ermöglichen die Einspeisung ins Stromnetz.                                                              |
+| `acOnlyPenalty`                   | `50`     | Punktevorsprung in Prozent, dass nur AC-Geräte (und Geräte mit `acChargingAllowed`) muss gegenüber den anderen Geräten zum führenden Gerät werden, sobald der durchschnittliche Ladezustand (SOC) der anderen Geräte über 35 % liegt. `0` deaktiviert die Strafe. |
+| `surplusChargeTrigger`            | `100`    | Netzexport in Watt über den Sollwert hinaus, ab dem im Leerlauf befindliche, nur netzbetriebene Geräte mit Überschussenergie zu laden beginnen. Minimum `30` Die                                                                                                  |
+| `minIdleBeforeCharge`             | `60`     | Zeit in Sekunden, die ein Gerät im Leerlauf sein muss (weder lädt es noch Strom empfängt), bevor der Ladevorgang beginnen kann. Minimum `5` Die                                                                                                                   |
+| `ignoreSuggestedInverseMaxPower`  | `false`  | Wenn `true`, das Gerät `inverseMaxPower` wird als Maximalwert anstelle des empfohlenen Werts verwendet (siehe unten).                                                                                                                                             |
+| `suggestedInverseMaxPowerPerPack` | `false`  | Wenn `true` Die festgelegten Leistungsstufen der empfohlenen maximalen Ausgangsleistung (60-500 W) gelten pro Akku und werden mit der Leistung des Geräts multipliziert. `packNum` Die                                                                             |
+| `deviceOrder`                     |          | Schreibgeschützt. Aktuelle Gerätereihenfolge, das erste Gerät ist das führende Gerät.                                                                                                                                                                            |
 
 Pro Gerät (`<productKey>.<deviceKey>.adapterAutomation.*`):
 
-| Zustand                        | Beschreibung                                                                                                                                                                                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `automationEnabled`            | Dieses Gerät in die Automatisierung einbeziehen (Standardeinstellung) `false`).                                                                                                                                                                                          |
-| `forceAcCharging`              | Laden Sie dieses Gerät am Stromnetz vollständig auf. `chargeMaxLimit` bis es voll ist, unabhängig von der aktuellen Nachfrage (Standardeinstellung) `false`).                                                                                                             |
-| `acChargingAllowed`            | Nur für Geräte, die über Netzstrom geladen werden können, aber nicht ausschließlich für Netzstrom ausgelegt sind (z. B. SF 800/2400 Pro, Hyper 2000): Laden Sie dieses Gerät mit überschüssigem Netzstrom wie ein reines Netzstromgerät (Standardeinstellung). `false`). |
-| `suggestedInverseMaxPower`     | Nur lesbar. Die maximale Ausgangsleistung, die die Automatisierung für dieses Gerät verwendet, wird aus dem Ladezustand (SOC) und der niedrigsten Zellspannung berechnet, um die Batterie zu schützen.                                                                   |
-| `suggestedInverseMaxPowerInfo` | Schreibgeschützt. Grund für den aktuell vorgeschlagenen Wert.                                                                                                                                                                                                            |
-| `status`                       | Schreibgeschützt. Was die Automatisierung aktuell von diesem Gerät erwartet (z. B. Einspeisung, Standby, Laden aus Überschuss), in der Systemsprache von ioBroker (Deutsch oder Englisch).                                                                               |
+| Zustand                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `automationEnabled`            | Dieses Gerät in die Automatisierung einbeziehen (Standardeinstellung) `false`).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `forceAcCharging`              | Laden Sie dieses Gerät vollständig über das Stromnetz auf. `chargeMaxLimit` bis es voll ist, unabhängig von der aktuellen Nachfrage (Standardeinstellung) `false`).                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `acChargingAllowed`            | Nur für Geräte, die über Netzstrom geladen werden können, aber nicht ausschließlich für Netzstrom ausgelegt sind (z. B. SF 800/2400 Pro, Hyper 2000): Laden Sie dieses Gerät mit überschüssigem Netzstrom wie ein reines Netzstromgerät (Standardeinstellung). `false`).                                                                                                                                                                                                                                                                                                                                         |
+| `disableAcCharging`            | Nur für Geräte, die ausschließlich mit Netzstrom betrieben werden (z. B. SF 2400 AC, SF 1600 AC+, SF 3000/4000 Mix AC+): Die Hausautomation lädt dieses Gerät niemals aus dem Netz – weder aus Überschuss noch durch …`forceAcCharging` Ein Gerät, das gerade geladen wird, stoppt sofort bei 0 W (Standardeinstellung). `false`).                                                                                                                                                                                                                                                                               |
+| `feedInSolarOnly`              | Nicht für Geräte mit reinem Netzbetrieb: Die Solarstromzufuhr sollte maximal der aktuellen Eingangsleistung entsprechen, damit der Akku nicht entladen wird. **Hinweis:** Dies gilt nur bei einer Solarstromzufuhr von über 50 W. Bei einer Eingangsleistung von 50 W oder darunter (z. B. nachts) kann das Gerät wie gewohnt Strom aus dem Akku beziehen (Standardeinstellung). `false` Der Adapter schaltet ihn nie von selbst um – Sie können dies über ein eigenes Skript einstellen, z. B. während eines Niedrigpreisfensters eines dynamischen Stromtarifs, um die Batterie für teurere Stunden zu schonen. |
+| `suggestedInverseMaxPower`     | Nur lesbar. Die maximale Ausgangsleistung, die die Automatisierung für dieses Gerät verwendet, wird aus dem Ladezustand (SOC) und der niedrigsten Zellspannung berechnet, um die Batterie zu schützen.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `suggestedInverseMaxPowerInfo` | Schreibgeschützt. Grund für den aktuell vorgeschlagenen Wert.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `status`                       | Schreibgeschützt. Statuscode der aktuellen Anweisung der Automatisierung an dieses Gerät (siehe Tabelle unten).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `lastCalibration`              | Schreibgeschützt. Zeitstempel des letzten Zeitpunkts, an dem das Gerät 100 % SOC erreicht hat (der SOC wird dann kalibriert).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `timeSinceLastCalibration`     | Schreibgeschützt. Tage und Stunden seit `lastCalibration` z.B. `3d 5h` (wird jede Minute aktualisiert).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+Statuscodes von `<device>.adapterAutomation.status` Die Etiketten (`common.states`) sind in der ioBroker-Systemsprache (Deutsch oder Englisch) angegeben. Die Variante des führenden Geräts einer Aufgabe ist ihr Code + 1 (`code % 10 === 1`).
+
+| Code         | Status                                                                                              |
+| ------------ | --------------------------------------------------------------------------------------------------- |
+| `0`          | Automatisierung global deaktiviert                                                                  |
+| `1`          | Automatisierung für dieses Gerät deaktiviert                                                        |
+| `2`          | Warten auf eine Änderung des Automatisierungsauslöserstatus                                         |
+| `10` /`11`   | Fütterung                                                                                           |
+| `20` /`21`   | Stehen zu                                                                                           |
+| `30` /`31`   | Aufladen aus Überschuss                                                                             |
+| `40` /`41`   | Aufrechterhaltung der Ladung                                                                        |
+| `50` /`51`   | Zwangsladung                                                                                        |
+| `60` /`61`   | Warten Sie, bevor der Ladevorgang beginnen kann (siehe `minIdleBeforeCharge`)                       |
+| `70` /`71`   | Warten auf Überschussladung                                                                         |
+| `80` /`81`   | Vollständig geladen, im Leerlauf                                                                    |
+| `90` /`91`   | Leerlauf                                                                                            |
+| `100` /`101` | Leerlauf, Batterie mit minimalem Ladezustand (`minSoc`)                                            |
+| `110` /`111` | Leerlauf, keine Ausgangsleistung verfügbar (`suggestedInverseMaxPower` oder `inverseMaxPower` ist 0) |
+| `120` /`121` | Leerlauf, SOC-Kalibrierung läuft (`socStatus` ist 1)                                                |
 
 ### So funktioniert es
 
 - **PI-Regler:** Die benötigte Leistung wird aus dem aktuellen Stromverbrauch (Netzstrom + aktuelle Leistung) zuzüglich einer PI-Korrektur zum Sollwert berechnet. Innerhalb eines kleinen Totbereichs (Sollwert zu Sollwert + 10 W) wird nichts verändert, um ständige Nachjustierungen zu vermeiden.
 - **Leistungsverteilung:** Die benötigte Leistung wird gewichtet nach ihrem SoC-Wert auf die aktiven Geräte verteilt – Geräte mit höherem SoC-Wert erhalten einen größeren Anteil. Geräte mit einem niedrigeren SoC-Wert erhalten einen größeren Anteil. `minSoc` Sie erhalten keinen Anteil. Leistung, die ein Gerät nicht liefern kann (über seinem Maximum), wird an Geräte mit ausreichender Leistungsreserve weitergeleitet.
 - **Leitgerät:** Die Geräte werden nach Ladezustand (SOC) und Solarstromaufnahme sortiert (Neusortierung stündlich). Das Leitgerät ist immer aktiv; weitere Geräte werden hinzugefügt, wenn der Bedarf steigt (über 70 % Auslastung der aktiven Geräte) oder wenn diese fast voll sind. Nach dem Hinzufügen bleiben die Geräte mindestens 5 Minuten aktiv, um ein Flattern zu vermeiden. Inaktive Geräte werden für einige Minuten im 10-W-Standby-Modus gehalten, um eine schnellere Reaktion zu ermöglichen.
-- **Batterieschutz:** `suggestedInverseMaxPower` Die Leistung wird bei niedrigem Ladezustand (SOC) bzw. niedriger Zellspannung begrenzt (z. B. nur 60–500 W bei schwachen Zellen). Nachts (0–5 h) wird die Leistungsbegrenzung vom Ladezustand abgeleitet. Sie überschreitet niemals die maximale Leistung des Geräts. `inverseMaxPower` Die
-- **Netzbetriebene Geräte** (z. B. SF 2400 AC, SF 1600 AC+, SF 3000/4000 Mix AC+) werden weniger bevorzugt als Hauptgerät eingesetzt, sobald die anderen Batterien über 35 % geladen sind. Wenn der Netzzähler einen Überschuss anzeigt (mindestens 35 % eingespeiste Energie), …`surplusChargeTrigger` W über dem Sollwert (Standardwert 100 W), im Leerlauf befindliche AC-Geräte (und Geräte mit `acChargingAllowed`) mit diesem Überschuss belasten, bis zu ihrem `chargeMaxLimit` (Leistung in W).
-- **Ladesicherheit:** Das Gerät schaltet erst dann in den Lademodus, wenn es mindestens 5 Minuten lang mit 0 W im Leerlauf war. Es wechselt also nicht direkt zwischen Entladen und Laden.
+- **Batterieschutz:** `suggestedInverseMaxPower` begrenzt die Leistung bei niedrigem Ladezustand / niedriger Zellspannung (z. B. nur 60–500 W bei schwachen Zellen, optional pro Akkupack) `suggestedInverseMaxPowerPerPack`) und nachts (0-5 h) wird der Grenzwert aus dem Ladezustand (SOC) abgeleitet. Er überschreitet niemals den Grenzwert des Geräts. `inverseMaxPower` Die
+- **Netzbetriebene Geräte** (z. B. SF 2400 AC, SF 1600 AC+, SF 3000/4000 Mix AC+) werden weniger bevorzugt als Hauptgerät eingesetzt, sobald die anderen Batterien über 35 % geladen sind. Wenn der Netzzähler einen Überschuss anzeigt (mindestens 35 % eingespeiste Energie), …`surplusChargeTrigger` W über dem Sollwert (Standardwert 100 W, kontinuierlich für 30 Sekunden), im Leerlauf befindliche AC-Geräte (und Geräte mit `acChargingAllowed`) mit diesem Überschuss belasten, bis zu ihrem `chargeMaxLimit` (Leistung in W).
+- **Ladeaufteilung:** Der Überschuss wird so aufgeteilt, dass die Gesamtladeleistung jedes Geräts (Netzstrom plus eigener Solareingang) anhand seines fehlenden Ladezustands (SOC) und seiner Akkukapazität gewichtet wird. Ein Gerät, das bereits durch seinen eigenen Solareingang geladen wird, erhält weniger Netzstrom, der Rest geht an die anderen Geräte. Die Kapazität wird von den angeschlossenen Akkus abgeleitet (nur verwendet, wenn sie für alle Ladegeräte bekannt ist). Beim Hyper 2000 ist die Netzladeleistung zusätzlich durch die Gesamtladeleistung (Netzstrom + Solar) seiner Akkukonfiguration begrenzt: 950 W mit einem AB1000, 1200 W mit einem AB2000, 1600 W mit zwei oder mehr Akkus.
+- **Ladesicherheit:** Ein Gerät schaltet erst dann in den Lademodus, wenn es mindestens eine Minute lang im Leerlauf mit 0 W betrieben wurde. `minIdleBeforeCharge` Sekunden (standardmäßig 60), sodass es nicht direkt zwischen Entladen und Laden umschaltet. Sobald ein Überschuss bestätigt ist, wird ein im Feed-In-Standby wartendes Gerät freigegeben. `minIdleBeforeCharge` statt 3 Minuten, damit der Ladevorgang beginnen kann.
+- **Laderegelung:** Die Ladeleistung wird direkt aus dem Netzwert ohne Berücksichtigung der Eigenladeleistung der Geräte berechnet, sodass der Überschuss in ein bis zwei Schritten erreicht wird. Nach jeder Änderung wird der Wert gehalten, bis die Geräte ihre neue Ladeleistung erreicht und gemeldet haben (10–30 s); eine deutliche Netzentnahme (über 300 W) reduziert sie sofort.
 
 ## Anmerkungen
 
@@ -142,7 +171,7 @@ Dieser Adapter authentifiziert sich auf den offiziellen MQTT-Servern mithilfe de
 
 ### Sentry (Fehlerberichterstattung und Gerätestatistik)
 
-Dieser Adapter nutzt Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an den Entwickler zu melden. Zusätzlich sendet er 5 Minuten nach dem Start und anschließend einmal alle 24 Stunden anonyme Gerätestatistiken: ein Ereignis pro verwendeter Geräteklasse, das lediglich Geräteklasse, Produktschlüssel, Produktname und Verbindungsmodus enthält. Es werden keine Geräteschlüssel, Seriennummern, IP-Adressen oder Anmeldeinformationen übertragen. Diese Statistiken helfen dabei, die verwendeten Geräte zu erkennen und fehlende Unterstützung aufzudecken.
+Dieser Adapter nutzt Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an den Entwickler zu melden. Zusätzlich sendet er 5 Minuten nach dem Start und anschließend alle 24 Stunden anonyme Gerätestatistiken: ein Ereignis pro verwendeter Geräteklasse, das lediglich Geräteklasse, Produktschlüssel, Produktname und Verbindungsmodus enthält. Es werden keine Geräteschlüssel, Seriennummern, IP-Adressen oder Anmeldeinformationen übertragen. Diese Statistiken helfen dabei, die verwendeten Geräte zu erkennen und fehlende Unterstützung aufzudecken.
 
 Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Fehlerberichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -152,35 +181,31 @@ Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.4.1 (2026-11-11)
 
-### **WORK IN PROGRESS**
+- Adapter automation: Improved AC surplus charge control - grid import while charging (> 100 W) now cuts the charge budget right away, a lasting grid export during charging is corrected, and the lead device no longer feeds battery power into the grid at its standby while other devices charge from surplus
 
-- zenSDK devices: smartMode is no longer turned off in standby (automation limit 0), Note: Currently it'S uncertain whether a permanently enabled smartMode increases the device's standby consumption.
+### 6.4.0 (2026-11-11)
 
-### 6.0.0-alpha.7 (2026-10-06)
+- suggestedInverseMaxPower: The reason now states when the value is held at the minSoc hysteresis and at which SOC it is released
+- Adapter automation: Fixed AC surplus charging with several devices staying "held" and never ramping up (#325) - while the charge budget is held, the devices keep their limits instead of re-splitting it every cycle, the hold is released after 30 s at the latest, and charge limit changes below 10 W / 5% are no longer sent
+- Adapter automation: New global setting `suggestedInverseMaxPowerPerPack` (default `false`) - if enabled, the fixed power tiers of suggestedInverseMaxPower (60-500 W) are multiplied by the device's `packNum`
 
-- (Schattenwelt) Add setting "zenSDK devices by IP address": zenSDK devices can be configured by IP address, so they also work if mDNS doesn't reach them (e.g. devices in another network segment / VLAN). Known devices are matched by serial number and keep their states, unknown devices are created with their serial number as key.
-- Zero-feed in: charging devices are now accounted with their measured AC input power (gridInputPower) instead of their commanded charge limit once settled. Fixes grid import when a nearly full battery charges with much less power than requested (e.g. 80 W instead of 600 W).
-- Output limit can now be set on devices without an autoModel state (previously rejected because autoModel was not '0').
+### 6.3.2 (2026-11-09)
 
-### 6.0.0-alpha.6 (2026-10-06)
+- Adapter automation: Fixed energy being moved from one battery into another - battery feed-in of a device was counted as surplus, so AC-only devices charged from it
+- Adapter automation: A charge keep-alive alone no longer keeps surplus charging running without a confirmed surplus, so it is released after 3 minutes as intended
 
-- Better tracking if device command is accepted
-- Wait for wake up of specific device - don't set the whole script to sleep
+### 6.3.1 (2026-11-09)
 
-### 6.0.0-alpha.5 (2026-10-04)
+- Smart Meter 3CT announced via mDNS as `smartMeter3CT-S` is now auto-created
+- Solarflow 3000 Mix AC+, 4000 Mix AC+ and 4000 Mix Pro: `acMode` is no longer reset to 0 by the device automation (standby via zenSDK, and HEMS initialization)
+- zenSDK devices: New control state `control.chargeMaxLimit` to set the highest acceptable charge power (100 W up to the device's maximum input power)
 
-- zenSDK devices: in standby (automation limit 0), smartMode is now only turned off after at least 10 minutes and only when solar input is below 50 W and the battery level is below 98%. This is checked every minute, so the internal inverter stays on and the device reacts faster when the limit changes again.
-- zenSDK devices: smartMode is now enabled before acMode when switching to charging/discharging, so these writes go to RAM instead of flash.
+### 6.3.0 (2026-11-05)
 
-### 6.0.0-alpha.4 (2026-10-01)
-
-- Zero-feed in: non-lead devices no longer get pulled out of idle into 30/10 W standby for a tiny share, and fully charged devices without solar input are released from standby to 0 W.
-- Zero-feed in: devices are no longer added as extra feed-in device just because they have more than 100 W solar input.
-
-### 6.0.0-alpha.3 (2026-10-01)
-
-- Remove 0-5h reduction of suggested inverseMaxPower as this was related to Octopus Energy in personal setup.
+- Adapter automation: A device running its SOC calibration (`socStatus` is 1) is removed from feed-in (new status code `120`)
+- Adapter automation: New per-device states `lastCalibration` (set when the device reaches 100% SOC) and `timeSinceLastCalibration` (days and hours since then)
 
 For older changes see CHANGELOG_OLD.md.
 

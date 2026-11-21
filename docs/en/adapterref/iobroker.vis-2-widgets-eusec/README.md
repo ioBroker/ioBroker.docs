@@ -12,14 +12,17 @@ respective owners and are used here only to name the cameras the widgets work wi
 ## Widgets
 
 - **Live camera**: plays the livestream while the widget is visible and stops it when it is not.
-  Shows the last snapshot until the first picture arrives. Pan and tilt controls appear for cameras
+  Shows the last snapshot until the first picture arrives, or a loading animation if "While the
+  stream loads" says so. Pan and tilt controls appear for cameras
   that have them, preset buttons from eusec 3.2.0 on.
 - **Event popup**: invisible until one of its triggers turns true (by default `ringing` and
   `person_detected` of the camera, where they exist), then opens the livestream in a dialog and
   closes it after a set time. A trigger that turned true shortly before the view was shown (less
-  than the close time ago) still opens it, so a script may switch to the view after the event. It
-  opens only on the view it is placed on; place it on every view where it should appear, or in a
-  view that all other views include.
+  than the close time ago) still opens it, so a script may switch to the view after the event. The
+  same holds after the page lost its connection, for example on a tablet whose kiosk app pauses
+  the page under its screensaver: a trigger that turned true meanwhile and is still true opens
+  it. It opens only on the view it is placed on; place it on every view where it should appear,
+  or in a view that all other views include.
 - **Snapshot**: the last picture of the camera and its age. A tap opens the livestream.
 
 The dialog of the event popup and the snapshot takes its title, size, colours and font from the
@@ -66,6 +69,12 @@ All widgets and their settings stay as they are.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) New attribute "While the stream loads": shows a loading animation instead of the last event picture until the livestream plays; it stands still when the system asks for reduced motion
+- (typhosj) The event popup also opens for a trigger that turned true while the page had lost its connection, for example under the screensaver of a kiosk tablet
+- (typhosj) After a lost connection, the live view and the snapshot pick up what changed meanwhile (a new event picture, a stream that ended, eusec stopping or starting) instead of waiting for the next change
 
 ### 1.0.0 (2026-11-12)
 

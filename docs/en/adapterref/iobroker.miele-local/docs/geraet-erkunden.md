@@ -41,13 +41,52 @@ genau das findet der Scan heraus.
 
 ### So wird gescannt
 
-Datenpunkt `<gerät>.sammlung.leafScan` auf `true` setzen. Der Schalter **bleibt stehen** und
-bedeutet „scanne, bis fertig": Der Adapter arbeitet Durchgang um Durchgang, mit einer Minute
-Verschnaufpause dazwischen, bis nichts mehr offen ist oder der Schalter umgelegt wird.
+Datenpunkt `<gerät>.collection.scan` auf `true` setzen. Der Schalter **bleibt stehen** und
+bedeutet „scanne, bis fertig", bis nichts mehr offen ist oder der Schalter umgelegt wird.
 
-Der Fortschritt steht in `sammlung.leafScanStand`, die Ergebnisse in `sammlung.leafScanJson`.
-Ein Adapterneustart beendet den Dauerlauf; der Fortschritt ist gesichert, und ein erneutes
-Umlegen macht dort weiter, wo er stand.
+**Seit dem 13.11.2026 langsam und schonend** (vorher Durchgänge zu 40 Adressen im 5-s-Abstand,
+die die EK037-Module von Wasch- und Spülmaschine in Unit 14 überforderten):
+
+- **Jedes Gerät hat seinen eigenen, unabhängigen Takt** (`lib/scanplaner.js`): **höchstens
+  eine Anfrage je 25 s und Gerät** (Kontrollfrage eingeschlossen), nie zwei Anfragen
+  gleichzeitig an dasselbe Gerät, Zeitlimit 8 s je Anfrage. Verschiedene Geräte laufen
+  parallel — es sind verschiedene Module mit eigener IP. Rückzug, Ruhe, Schonphase oder ein
+  hängendes Modul eines Geräts verzögern die anderen nicht. (Bis zum Abend des 13.11.2026
+  gab es einen gemeinsamen Planer für alle Geräte; der Backofen H2469BP, dessen DOP2 nach 3–10
+  Anfragen minutenlang hängt, hielt damit Wasch- und Spülmaschine mit auf.)
+- **Die normale Abfrage hat Vorrang:** Läuft gerade eine Anfrage an das Gerät oder steht eine an
+  (/State, EcoFeedback, Steuerbefehl), weicht der Scan aus und schaut nach 5 s wieder. Ein
+  Gerät, das wartet (Ruhe, Rückzug, gebremst), schaut spätestens nach einer Minute wieder,
+  ob sich etwas geändert hat.
+- Gescannt wird bei Status **aus (1)** oder **an (2)** seit mindestens 5 min, **Programmende
+  (7)** seit mindestens 2 min und — bewusst — **im Programm (5)** ab der zehnten Minute, dort
+  aber höchstens eine Anfrage pro Minute und Gerät, und ein 500 zählt im Programm nie. Grund
+  (gemessen 13.11.2026): Im Aus beantworten die EK037-Module schon die Kontrollfrage mit 500,
+  sie schlafen; die Spülmaschine steht nach dem Programm nur ~9 min auf 7. Nie gescannt wird bei
+  gewähltem/pausiertem/gestörtem Gerät, nicht erreichbarem Gerät oder laufender
+  Feinaufzeichnung. Ob das Modul wach ist, entscheidet die Kontrollfrage 2/1583 (Daten oder
+  404 = wach; 500/503 = schläft → 10 min Ruhe).
+- **Rückzug bei Störungen** (Timeout, Verbindung abgelehnt/abgebrochen): 5, 10, 20, 30 min
+  Pause für dieses Gerät, danach eine Stunde Schonphase mit höchstens einer Anfrage pro Minute
+  (Backofen H2469BP: Timeouts nach ~10 Adressen im 25-s-Takt, /State lief weiter). Rückzug,
+  Schonphase und Stufe gelten je Gerät. Die Stufe
+  sinkt erst wieder, wenn die Schonphase ohne neue Störung abgelaufen ist – eine einzelne gute
+  Antwort reicht nicht (sonst pendelt der Rückzug zwischen 5 und 10 min). Eine Adresse,
+  die dreimal stört oder bei wachem Modul dreimal 503 liefert, wird nicht mehr gefragt.
+- **Absagen gelten erst nach Bestätigung:** 404/500 zählen nur, wenn das Modul kurz vorher
+  (5 min) bewiesen hat, dass es unterscheidet, und erst **zwei solche Antworten im Abstand von
+  mindestens 6 h** machen die Adresse endgültig. Alte Ergebnisse: ein 404 zählt als eine
+  Bestätigung, ein 500 als keine (es kann aus einer Schlafphase stammen — 2/1585 stand so im
+  Ergebnis und antwortet heute mit Daten).
+
+Der Fortschritt steht in `collection.scanState`, die Ergebnisse in `collection.scanJson`.
+**Zum Teilen** (Forum, Fehlerbericht) `collection.scanJsonAnonym` nehmen: `scanJson` enthält
+Seriennummer (2/145), vermutlich EUI/MAC (14/1565), Modulnummer (14/1566), MAC (14/1571) sowie IP
+und WLAN-Namen (14/1573), die
+anonyme Fassung maskiert sie. Eine Antwort, die der Adapter noch nicht dekodieren kann, steht dort
+als `antwortet: true` mit `status: 200`, dem Fehlertext unter `fehler` und den Rohbytes unter `roh`.
+Ein Adapterneustart setzt den Scan fort, solange der Schalter steht; gesichert wird nach jedem
+Treffer, nach zehn Antworten und beim Beenden.
 
 ### Die Bereiche und ihre Reihenfolge
 
@@ -168,8 +207,8 @@ Die Aufzeichnung läuft von selbst: Alle drei Minuten werden die gefundenen Leaf
 gelesen, **aber nur bei Geräten, die gerade arbeiten**. Ein Gerät im Standby liefert dieselben
 Zahlen wie vor einer Stunde.
 
-- `sammlung.leafVerlaufJson` — je Leaf und Feld eine Reihe von Wertwechseln mit Zeitstempel
-- `sammlung.leafVerlaufStand` — Umfang der Ablage
+- `collection.trendJson` — je Leaf und Feld eine Reihe von Wertwechseln mit Zeitstempel
+- `collection.trendSize` — Umfang der Ablage
 
 ### Wenn die drei Minuten nicht reichen
 
@@ -180,7 +219,7 @@ Drei-Minuten-Messung fällt in einen zufälligen Takt — ein vorhandenes Schalt
 grundsätzlich nicht von Rauschen zu unterscheiden. Genau das war das Ergebnis: Über 24
 aufgezeichnete Wahrheitswerte lag die beste Trennschärfe bei 7,6 % gegen 0,6 %, also Zufall.
 
-Dafür gibt es `sammlung.leafVerlaufFein`: die Leaf-Adresse eintragen, und **dieses eine Leaf**
+Dafür gibt es `collection.trendLeaf`: die Leaf-Adresse eintragen, und **dieses eine Leaf**
 wird alle zwanzig Sekunden gelesen, während die normale Runde für das Gerät aussetzt. Die Last
 bleibt dieselbe — ein Leaf alle 20 s statt zehn alle 3 min —, die Auflösung wird neunfach
 feiner. Sie endet von selbst mit dem Programm.
@@ -247,12 +286,14 @@ Trommeldrehzahl zu tun.
 
 ### Was sich nicht finden ließ
 
-**Die Energie steht in keinem Feld von 2/6195.** Geprüft wurden alle 47 Felder in vier
+**Die Gesamtenergie steht in keinem Feld von 2/6195.** Geprüft wurden alle 47 Felder in vier
 Ableitungen (Endwert, Differenz, Maximum, Spanne) gegen elf Vergleichswerte; das beste Feld lag
-25 % daneben. Der Grund ist grundsätzlich: `eco.energyWh` ist die **Erwartung** des Geräts für
-das Programm, gesetzt beim Start — keine Messung. Am 03.09.2026 belegt: Der Wert stand 2:40
+25 % daneben. Der Grund ist grundsätzlich: `eco.energyWh` (Feld 25) ist die **Heizenergie-Vorgabe**
+für die Hauptwäsche — geplante Heizzeit (Feld 26, s) × 2020 W bei 230 V, gesetzt zu Beginn der
+Heizung, keine Messung (Befund 13.11.2026, 31 Läufe). Am 03.09.2026 belegt: Der Wert stand 2:40
 Stunden unverändert auf 770 Wh, während der Shelly von 0 auf 847 Wh stieg; über den ganzen Lauf
-maß der Shelly 1158 Wh.
+maß der Shelly 1158 Wh. Feld 16 zählt dagegen laufend die **Antriebsenergie** (ohne Heizstab, Wh);
+auch Feld 25 + Feld 16 trifft den Gesamtverbrauch nicht (im Mittel 40 % daneben).
 
 Ein zweites Argument, das hier lange stand, ist **falsch und zurückgenommen**: Eine Regression
 über Wassermenge × Temperaturhub ergab 0,000486 kWh/(L·K), also 42 % der Wärmekapazität von

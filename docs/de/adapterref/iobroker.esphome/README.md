@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: 4hg+m44ju2oD61QGzLndKP9MwjzDth1rl/hP3ZxLmTA=
+hash: DoShKKRwJvedWUyYd6TvxzWHFUsIC3hgNjV6DIdXoE4=
 ---
-![NPM-Version](http://img.shields.io/npm/v/iobroker.esphome.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.esphome.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/esphome-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/esphome-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/esphome-installed.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/esphome-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.esphome.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.esphome/badge.svg)
@@ -94,9 +94,9 @@ Der Adapter funktioniert unabhängig und benötigt nur Geräte, bei denen die ES
 
 ### Wie füge ich Geräte zum Adapter hinzu?
 
-1. **Stellen Sie sicher, dass die ESPHome API in der YAML-Konfiguration Ihres Geräts aktiviert ist** (siehe Abschnitt Voraussetzungen).
+1. **Stellen Sie sicher, dass die ESPHome-API in der YAML-Konfiguration Ihres Geräts aktiviert ist** (siehe Abschnitt Voraussetzungen).
 2. **Öffnen Sie den Geräte-Tab des Adapters** in ioBroker Admin (der Adapter muss ausgeführt werden).
-3. **Geräte manuell hinzufügen:** Geräte-IP-Adresse und Anmeldeinformationen eingeben
+3. **Geräte manuell hinzufügen:** Geräte-IP-Adresse und Anmeldeinformationen eingeben.
 4. **Automatische Erkennung:** Verwenden Sie die automatische Erkennungsfunktion, falls diese in den Adaptereinstellungen aktiviert ist.
 
 Der Adapter stellt eine Verbindung her und erstellt alle notwendigen ioBroker-Objekte zur Gerätesteuerung.
@@ -111,7 +111,7 @@ Der Adapter stellt eine Verbindung her und erstellt alle notwendigen ioBroker-Ob
 **So funktioniert ein im Dashboard konfiguriertes Gerät mit dem Adapter:**
 
 1. Flashen Sie das Gerät mit der Konfiguration vom Dashboard (stellen Sie sicher, dass die ESPHome-API in YAML aktiviert ist).
-2. Fügen Sie das Gerät manuell in den Adaptereinstellungen (Registerkarte „Gerät“) hinzu. Geben Sie IP-Adresse/Hostname und Verschlüsselungsschlüssel (empfohlen) oder Passwort (ältere Version) ein.
+2. Fügen Sie das Gerät manuell in den Adaptereinstellungen (Registerkarte „Gerät“) hinzu. Geben Sie IP-Adresse/Hostname und Verschlüsselungsschlüssel (empfohlen) oder Passwort ein (ältere Version, nur ESPHome-Versionen vor 2026.1).
 3. Der Adapter verbindet sich dann über die native API von ESPHome mit dem Gerät.
 
 **Hinweis:** Eine engere Integration zwischen Dashboard und Adapter ist in Zukunft möglich (siehe Problem #228), aktuell arbeiten sie jedoch unabhängig voneinander.
@@ -224,7 +224,7 @@ Die Nutzung des integrierten Dashboards erfordert derzeit einige zusätzliche Sc
    2. URL: `http://localhost:6052`![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
 4. Konfigurieren Sie die vollständige Dashboard-URL im erweiterten Abschnitt der ESPHome-Adaptereinstellungen – ESPHome-Dashboard:
    1. wie: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
-   2. Wo `<iobrokerIP>` ist die IP-Adresse des Hosts, auf dem Ihr iobroker ausgeführt wird (dieselbe wie oben).
+   2. Wo `<iobrokerIP>` ist die IP-Adresse des Hosts, auf dem Ihr iobroker ausgeführt wird (dasselbe wie oben).
    3. Und `<webAdapterPort>` ist der Port des Webadapters (Standard ist 8082).
    4. Es sollte ungefähr so aussehen:![ESPHomeDashboardUrl.png](../../../en/adapterref/iobroker.esphome/admin/img/ESPHomeDashboardUrl.png)
    5. Wenn Sie das Dashboard auf einem externen Host ausführen, können Sie hier auch die URL zu einer externen Dashboard-Instanz verwenden.
@@ -235,6 +235,8 @@ Die Nutzung des integrierten Dashboards erfordert derzeit einige zusätzliche Sc
 
 > \[!WICHTIG] ioBroker ESPHome ermöglicht die Integration von Geräten per Verschlüsselungsschlüssel (empfohlen) oder API-Passwort (ältere Version). Sie müssen Ihre Authentifizierungseinstellungen entsprechend festlegen. Siehe [ESPHome-Dokumentation.](https://esphome.io/components/api.html?highlight=api) Bitte konfigurieren Sie ausschließlich den Verschlüsselungsschlüssel (bevorzugt) oder das API-Passwort (ältere Version).
 
+> \[!WARNUNG] **Wichtige Änderung in ESPHome 2026.1:** Die API-Passwortauthentifizierung wurde von ESPHome entfernt. Ab ESPHome 2026.1 wird ausschließlich die Verschlüsselung als Authentifizierungsmethode unterstützt. Siehe [ESPHome 2026.1 Changelog](https://esphome.io/changelog/2026.1.0/#api-password-authentication-removed) . Geräte, die noch die API-Passwortauthentifizierung verwenden, sind weiterhin betroffen. `api: password:` Die Geräte müssen vor (oder während) des Upgrades auf ESPHome 2026.1 oder höher auf die Verwendung eines Verschlüsselungsschlüssels (sowohl in der Geräte-YAML-Datei als auch in den Adaptereinstellungen) aktualisiert werden. Die API-Passwortkonfiguration dieses Adapters funktioniert nur mit Geräten, auf denen ESPHome-Versionen vor 2026.1 ausgeführt werden.
+
 #### Beispiel für einen Konfigurationseintrag für den Verschlüsselungsschlüssel
 
 ```
@@ -243,7 +245,7 @@ api:
     key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 ```
 
-#### Beispiel für einen API-Konfigurationseintrag
+#### Beispielhafter API-Konfigurationseintrag (ältere Version, nur ESPHome-Versionen vor 2026.1)
 
 ```
 api:
@@ -269,6 +271,7 @@ Bitte geben Sie die IP-Adresse ein (falls das Gerät bereits bekannt ist, könne
 - Geräte hinzufügen / ändern
   - Sendet IP-Adresse und Anmeldeinformationen an den Backend-Server und versucht, eine Verbindung herzustellen.
   - Wenn ein Verschlüsselungsschlüssel angegeben wird, wird das API-Passwort ignoriert. Bitte stellen Sie eine korrekte YAML-Konfiguration sicher!
+  - Das API-Passwort wird nur von Geräten unterstützt, auf denen ESPHome-Versionen vor 2026.1 ausgeführt werden; neuere Versionen erfordern einen Verschlüsselungsschlüssel.
 
 - Gerät löschen
   - Es wird eine Nachricht an den Backend-Server gesendet, um dieses Gerät zu entfernen.
@@ -338,7 +341,8 @@ wifi:
 
 # Enable ESPHome API
 api:
-    password: 'MyPassword'
+  encryption:
+    key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 # Activate i2c bus
 i2c:
   sda: 21
@@ -388,7 +392,7 @@ switch:
 
 ### Automatische Weißkanalumschaltung (`rgbAutoWhite`)
 
-Wenn eine RGBW-fähige Lichtquelle erkannt wird (d. h. sie belichtet ein `white` Der Adapter erstellt automatisch einen beschreibbaren Zustand (Zustand), der durch den Adapter automatisch einen beschreibbaren Zustand erzeugt wird. `config.rgbAutoWhite` Schaltet den Status dieser Entität um. Standardmäßig ist er aktiv. `false` (deaktiviert).
+Wenn eine RGBW-fähige Lichtquelle erkannt wird (d. h. sie belichtet ein `white` Der Adapter erstellt automatisch einen beschreibbaren Zustand (Zustand), der durch den Adapter automatisch einen beschreibbaren Zustand erzeugt wird. `config.rgbAutoWhite` Schalten Sie den Status für diese Entität um. Der Standardwert ist: `false` (deaktiviert).
 
 **Zum Aktivieren:**
 
@@ -424,6 +428,23 @@ Wenn Ihnen meine Arbeit gefällt, erwägen Sie bitte eine persönliche Spende.\
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
+### __WORK IN PROGRESS__
+
+- (@DutchmanNL) **FIXED**: A command to a device that is offline is no longer acknowledged. The state stays at `ack: false` and a warning is logged, so other adapters that wait for the acknowledgement see that the command did not reach the device (#541)
+
+### 1.0.1 (2026-11-09)
+
+- (@DutchmanNL) **BREAKING**: ESPHome 2026.1 removed API password authentication, devices updated to ESPHome 2026.1 or later must use an encryption key. The API password option is kept for devices running older ESPHome versions, see README (#410)
+- (@DutchmanNL) **ENHANCED**: The online state `info._online` of each device has the role `indicator.reachable` (was `state`), so other adapters and visualisations can see whether an ESPHome device is reachable. Existing installations get the new role at the next adapter start
+- (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only
+- (@SimonFischer04) **ENHANCED**: Dependency autopy switched to @simonfischer04/autopy (npm) instead of a GitHub build so dev dependencies do not get installed on user systems #495
+
+### 1.0.0 (2026-09-26) - Public Stable Release
+
+- (@arteck) **FIXED**: A device that drops while its entities are still being announced no longer throws "Not connected", the state subscription is left to the reconnect
+- (@arteck) **FIXED**: A connection loss logs one "Connection destroyed" warning per device instead of one per entity
+- (@DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.2.2 and @iobroker/adapter-core to 3.4.3
+- (@DutchmanNL) **ENHANCED**: Tests now cover Node.js 22, 24 and 26 and the websocket library ws was updated to 8.21.3
 
 ### 1.0.0-beta.2 (2026-07-30)
 
@@ -444,30 +465,6 @@ Wenn Ihnen meine Arbeit gefällt, erwägen Sie bitte eine persönliche Spende.\
 - (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
 - (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
 - (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
-
-### 1.0.0-beta.0 - Stable version release candidate
-
-- (@copilot) **NEW**: Promoted ioBroker.esphome to stable **v1.0.0**
-- (@copilot) **NEW**: Brings ESPHome devices into ioBroker with live state updates and direct control
-- (@copilot) **NEW**: Supports a wide range of device types including lights, switches, sensors, fans, covers, locks, and text entities
-- (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
-- (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
-- (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
-
-### 0.7.0 (2026-05-17)
-
-- (@SimonFischer04) **FIXED** copilot hallucinations
-- (@SimonFischer04) **NEW** 'Always last available' for pillow version
-- (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-
-### 0.7.0-beta.4 (2026-02-21)
-
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-- (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
-- (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
-
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.esphome/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

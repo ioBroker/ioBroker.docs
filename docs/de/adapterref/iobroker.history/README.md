@@ -412,36 +412,44 @@ Zusätzlich kann das Attribut ``rules: true`` verwendet werden, um alle definier
 
 ### Daten löschen
 
-Um einzelne Einträge aus der Datenbank zu löschen, kann **delete** verwedet werden:
+Um einzelne Einträge aus der Datenbank zu löschen, kann **delete** verwendet werden. Es löscht den Wert mit genau dem angegebenen `ts`:
 
 ```javascript
 sendTo('history.0', 'delete', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}}
 ], result => console.log('deleted'));
 ```
+
+Ein einzelner Eintrag kann auch ohne Liste gesendet werden (`{id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}}` oder `{id: 'mbus.0.counter.xxx', ts: 1589458809352}`), mehrere Werte eines Datenpunkts als `{id: 'mbus.0.counter.xxx', ts: [1589458809352, 1589458809353]}`.
 
 Um ALLE Verlaufsdaten für einen Datenpunkt zu löschen, ist **deleteAll** zu verwenden:
 
 ```javascript
 sendTo('history.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx'} 
+    {id: 'mbus.0.counter.xxx'},
     {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
-``` 
+```
 
 Um einen Bereich der Verlaufsdaten für einen Datenpunkt zu löschen, kann **deleteRange** verwendet werden:
 
 ```javascript
 sendTo('history.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
     {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
-``` 
+```
 
-Die Zeit könnte ms seit Epoche oder eine Zeichenfolge sein, die durch das Javascript-Datumsobjekt konvertiert werden könnte.
+Ein einzelner Bereich kann auch ohne Liste gesendet werden: `{id: 'mbus.0.counter.xxx', start: 1589458809352, end: 1589458809353}` oder `{id: 'mbus.0.counter.xxx', state: {start: 1589458809352, end: 1589458809353}}`. `start` ist Pflicht, `end` ist optional, ohne `end` wird bis jetzt gelöscht.
+
+Die Zeit kann in ms seit Epoche oder als Zeichenfolge angegeben werden, die durch das Javascript-Datumsobjekt konvertiert werden kann. `0` ist eine gültige Zeit.
 
 Werte werden **inklusive definierter Grenzen** gelöscht (``ts >= start AND ts <= end``).
+
+Jeder Eintrag braucht einen gültigen `ts` (ein Wert) oder einen gültigen `start` (ein Bereich; `end` allein wird nicht akzeptiert). Hat ein Eintrag keins von beiden, antwortet der Adapter mit `{success: false, error}` und nennt den Eintrag, und es wird nichts gelöscht, auch nicht die gültigen Einträge derselben Nachricht. Um alle Werte eines Datenpunkts zu löschen, ist `deleteAll` zu verwenden.
+
+Ein einzelner Eintrag antwortet mit `{success: false}`, wenn nichts zum Löschen gefunden wurde, eine Liste antwortet immer mit `{success: true}`.
 
 ### Daten aktualisieren
 
@@ -671,6 +679,10 @@ Mögliche Optionen und Parameter:
  Analysedatendateien werden beim Beenden nicht aktualisiert.
 
 ## Changelog
+### 5.4.0 (2026-11-19)
+* (@GermanBluefox) Fixed: `delete` / `deleteRange` without a valid `ts` or range no longer deletes all values of the state. A single `{id, state: {start, end}}`, a state without `ts` or with `ts: 0` deleted all values in RAM and all files up to today, an unparsable `start` everything up to `end`. Such a message is refused now with an error and nothing is deleted; `{id, state: {start, end}}` and `{id, start, end}` delete the range, `ts: 0` the value at 0
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
 ### 5.3.0 (2026-11-04)
 * (@GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range
 * (@GermanBluefox) Data browser: with "Oldest first" and more than 100000 values in the range, the table shows now the oldest values. Before, it showed the oldest of the newest 100000 values
@@ -688,11 +700,6 @@ Mögliche Optionen und Parameter:
 
 ### 5.1.1 (2026-10-13)
 * (@GermanBluefox) Values stored with `storeState` for a datapoint without history settings no longer get an additional `null` value when the object of the datapoint changes
-
-### 5.1.0 (2026-10-13)
-* (@GermanBluefox) Admin 7.6.20+ is required. Added Ukrainian translation. Removed the obsolete "subscribe" attribute
-* (@GermanBluefox) Added the "Statistics" tab: values, size on disk, files and status of every datapoint, and a cleanup of the data of datapoints that are not logged any more
-* (@GermanBluefox) The data browser shows now if a value to edit or delete was not found, and the error of a failed save is no longer hidden by the reload of the table
 
 ## License
 

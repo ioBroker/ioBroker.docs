@@ -2,53 +2,49 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.corrently/README.md
-title: kein Titel
-hash: /DW2QcECua6bcoPQg0f17in1PhDYhgEE7+Zj5dl7hSY=
+title: ioBroker.currently
+hash: h35TtgBmMnxiQNQuCE4ML+8Em7mKQjFwzak/WZQGtu4=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/corrently-installed.svg)
-![Stabile Version](http://iobroker.live/badges/corrently-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.corrently.svg)
+![Logo](../../../en/adapterref/iobroker.corrently/admin/corrently.png)
+
+![Anzahl der Installationen](https://iobroker.live/badges/corrently-installed.svg)
+![Stabile Version](https://iobroker.live/badges/corrently-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.corrently.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.corrently.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/GermanBluefox/iobroker.corrently.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/GermanBluefox/ioBroker.corrently/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.corrently.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/GermanBluefox/ioBroker.corrently/master.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.corrently/workflows/Test%20and%20Release/badge.svg)
 
-<h1><img src="admin/corrently.png" width="64"/>ioBroker.aktuell</h1>
+# ioBroker.currently
 
-## Derzeit Adapter für ioBroker
-Ökostromindex aus [https://www.corrently.de/gsi/PLZ](https://www.corrently.de/gsi/80999) lesen.
-Folgende Daten werden bereitgestellt:
+## Aktueller Adapter für ioBroker
 
- - `data.json` - JSON-Tabelle für die nächsten 36 Stunden mit grünem Index
- - `data.start` - Startzeitstempel der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
- - `data.duration` - Dauer der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
- - `data.green` - ist jetzt grüne Energie oder nicht
- - `data.price` - grüner Preis für den aktuellen Moment
-
-## Aufbau
-Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festgelegt werden) und der Benutzer muss den Post-Index in der Konfiguration eingeben.
-
-## Aktuell Adapter für ioBroker
-Lesen Sie den Index der grünen Energie von [https://www.corrently.de/gsi/PLZ] (https://www.corrently.de/gsi/80999).
-Folgende Daten werden zur Verfügung gestellt:
+Lesen Sie den Green Energy Index unter [https://www.corrently.de/gsi/PLZ](https://www.corrently.de/gsi/80999) . Folgende Daten werden bereitgestellt:
 
 - `data.json` - JSON-Tabelle für die nächsten 36 Stunden mit grünem Index
-- `data.start` - Startzeitstempel der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
+- `data.start` - Startzeitpunkt der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
 - `data.duration` - Dauer der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
-- `data.green` - ist jetzt grüne Energie oder nicht
+- `data.green` - ist es jetzt grüne Energie oder nicht?
 - `data.price` - grüner Preis für den aktuellen Moment
 
-## Einstellungen
-Der Adapter WIRD sündlich ausgeführt (kann beispielsweise als Zeitplan festgelegt Werden), und der Benutzer muss den Post-Index in der Konfiguration eingeben.
+## Konfiguration
+
+Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festgelegt werden) und der Benutzer muss den Beitragsindex in der Konfiguration eingeben.
 
 <!--
-
-### **IN ARBEIT** -->
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 0.0.4 (2023-02-27)
+### 0.1.2 (2026-10-14)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (@GermanBluefox) Adapter requires node.js >= 22 and admin >= 7.6.17 now
+- (@GermanBluefox) Updated packages, migrated to ESLint 9 and removed the outdated admin files
+- (@GermanBluefox) The tests run on Windows and macOS too
+
+### 0.1.1 (2023-03-12)
 * (Maverick78de) URL was corrected
+* (bluefox) Randomize the minutes of the schedule
+* (bluefox) Implemented solar chart for the next 5 days
 
 ### 0.0.2
 * (bluefox) CRON schedule was changed to "1 * * * *"
@@ -59,7 +55,7 @@ Der Adapter WIRD sündlich ausgeführt (kann beispielsweise als Zeitplan festgel
 ## License
 MIT License
 
-Copyright (c) 2019-2023 bluefox
+Copyright (c) 2019-2026 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -45,11 +45,13 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 
 * specify the relevant groups in the instance configuration page (admin => instances => statistics config)
 * specify the configuration in the settings of the state (admin => objects)
+* optional for number states: `Ignore values below` (`ignoreBelowNumber`) and `Ignore values above` (`ignoreAboveNumber`) - values outside these limits are ignored for all calculations (min/max, average, delta). Leave empty to disable.
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22.19.0 now
+* (GermanBluefox) Added options to ignore values below/above a limit (#486)
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__

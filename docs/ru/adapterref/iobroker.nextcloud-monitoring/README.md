@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nextcloud-monitoring/README.md
 title: ioBroker.nextcloud-monitoring
-hash: mvu7g+auWg97ABYzlrU97koyuwyBrvQAaxxLxYCSS1I=
+hash: mVilN9y4UUeZHTGJqCS7yda9STEciBmpd7wAZgPRGEM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nextcloud-monitoring/admin/nextcloud_monitoring.png)
 
@@ -30,7 +30,7 @@ hash: mvu7g+auWg97ABYzlrU97koyuwyBrvQAaxxLxYCSS1I=
 
 - **Состояние системы:** загрузка ЦП, использование ОЗУ, свободное место на диске и версия Nextcloud.
 - **Статистика пользователей:** количество активных пользователей (5 мин, 1 ч, 24 ч), общее количество файлов и объем используемого хранилища.
-- **Совместное использование ресурсов:** Мониторинг обмена ссылками, чатов и объединенных ресурсов.
+- **Совместное использование ресурсов:** Мониторинг обмена ссылками, чатов и федеративных ресурсов.
 - **Состояние сервера:** версия PHP, лимит памяти, частота попаданий в OPcache и подробная статистика процесса FPM.
 - **Виджет:** Используйте встроенный виджет, который создает точку данных htmlWidget в папке location; или, если вы хотите настроить его самостоятельно, используйте [этот](https://github.com/H5N1v2/VIS2-widget-nextcloud-monitoring) .
 
@@ -56,6 +56,19 @@ hash: mvu7g+auWg97ABYzlrU97koyuwyBrvQAaxxLxYCSS1I=
 
 - **Пропустить приложения:** Отключает подробный список установленных приложений для снижения нагрузки на API.
 - **Пропустить проверку обновлений:** Отключает проверку наличия новых версий Nextcloud.
+
+### 3. Требования
+
+- **js-controller >= 7.2.4** – необходим для расшифровки токенов OCS, которые хранятся в таблице сервера (`servers.token`), когда адаптер запускается.
+- **Admin >= 8.1.0** – требуется, поскольку JSON-конфигурация административной панели шифрует и расшифровывает столбцы паролей таблицы только начиная с этой версии (см. `@iobroker/json-config` 10.1.0).
+
+### 4. Хранение токенов и защита доступа.
+
+- OCS-токен каждого сервера в таблице хранится **в зашифрованном виде** в объекте экземпляра. `encryptedNative: ["servers.token"]`).
+- Токен **защищен** от чтения другими адаптерами. `protectedNative: ["servers.token"]`).
+- При запуске адаптер получает расшифрованный токен. Токены никогда не записываются в лог.
+- Токены существующих установок сохраняются — они не удаляются и не сбрасываются. Токен, который всё ещё хранился в виде открытого текста (в административной версии, которая не могла зашифровать столбцы паролей таблицы), шифруется адаптером при следующем запуске, поэтому токен не нужно вводить заново.
+- Сохранение других настроек не приводит к записи токенов обратно в виде обычного текста.
 
 ---
 
@@ -164,6 +177,19 @@ Incorrect: https://mycloud.com or http://mycloud.com/folder
 ---
 
 ## Changelog
+### 3.0.1 (2026-11-09)
+* (H5N1v2) fix: [W1095] remove the unused legacy key `token` from `protectedNative` and from `native`; the adapter stores and protects the OCS token of the server table only (`servers.token`)
+* (H5N1v2) fix: [S5054] datapoints are created with `setObjectNotExistsAsync()` instead of `setObject()`
+
+### 3.0.0 (2026-11-08)
+* (H5N1v2) fix: OCS tokens of all servers are now stored encrypted (`encryptedNative: servers.token`) and are protected against access by other adapters (`protectedNative`). Tokens of existing installations are kept and are encrypted automatically if they were still stored as plain text, so they do not have to be entered again
+* (H5N1v2) fix: OPcache hit rate was written as string although the datapoint expects a number; existing datapoints with wrong type or role are now corrected automatically and state values are converted to match their datapoint type
+* (H5N1v2) update dependencies: adapter requires js-controller >= 7.2.4 and admin >= 8.1.0 (needed for encrypted attributes inside a table)
+
+### 2.1.2 (2026-09-12)
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) update dependencies
+
 ### 2.1.1 (2026-07-06)
 * (H5N1v2) chore: update dependencies
 * (H5N1v2) fix: [W5612] add translations for 'your-cloud.com' in multiple languages
@@ -173,18 +199,6 @@ Incorrect: https://mycloud.com or http://mycloud.com/folder
 * (H5N1v2) widget toggleable in the admin area.
 * (H5N1v2) update dependencies.
 * (copilot) Adapter requires node.js >= 22 now.
-
-### 2.0.6 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.0.5 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
-
-### 2.0.4 (2026-03-25)
-* (H5N1v2) update @types/node dependency to version 22.19.15
-* (mcm1957) fix: update opcache hit rate state type from string to number
-
-[Older changelogs can be found there](https://github.com/H5N1v2/ioBroker.nextcloud-monitoring/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

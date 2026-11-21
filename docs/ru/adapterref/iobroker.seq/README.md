@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: LxFVjAQEAdn40wowoJhw7ayYk1LpN8tbgG0EgRNPtco=
+hash: PxhapoTidY3J2W9Y23wrURuG6eNmqwkHKOxYVzgIpjA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![Количество установок (последние)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Количество установок (стабильных)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
@@ -18,18 +18,22 @@ hash: LxFVjAQEAdn40wowoJhw7ayYk1LpN8tbgG0EgRNPtco=
 
 ## Seq-адаптер для ioBroker
 
-Этот адаптер позволяет передавать логи ioBroker в систему [Seq](https://datalust.co/seq) .\
-&#x20;Также можно применить фильтр к уровням логирования и к адаптерам.
+Этот адаптер позволяет передавать логи ioBroker в систему [Seq](https://datalust.co/seq) . Возможна фильтрация по уровню логирования и по точным идентификаторам источников.
 
 ## Конфигурация
 
 1. Создайте новый экземпляр адаптера.
 2. Укажите URL/IP-адрес и порт экземпляра [Seq.](https://datalust.co/seq)
 3. Укажите, какие события журнала вы хотите отправлять в [Seq.](https://datalust.co/seq)
-4. Сохраните настройки
+4. При желании в **фильтре «Источник»** можно ввести идентификаторы источников, разделенные запятыми (например, `mqtt.0, javascript.0` Оставьте это поле пустым, чтобы отправлять журналы из всех источников.
+5. Сохраните настройки
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.4 (2026-11-15)
+* (arteck) Dependencies have been updated
+
+### 1.0.3 (2026-10-17)
+* (arteck) Dependencies have been updated
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.2 (2026-04-06)
@@ -40,8 +44,6 @@ hash: LxFVjAQEAdn40wowoJhw7ayYk1LpN8tbgG0EgRNPtco=
 
 ### 1.0.0 (2026-04-05)
 * (arteck) new admin
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.seq/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

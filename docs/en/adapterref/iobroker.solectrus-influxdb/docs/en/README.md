@@ -612,6 +612,7 @@ Each provider has an **Instance** dropdown list. Available adapter instances are
 
 - Notification messages are localized via `getNotificationMessage()` using the configured `systemLanguage`.
 - For InfluxDB connection failures, a notification is sent on the **first** failure and can repeat after `notifyRepeatMinutes` while the connection remains down.
+- With **Delay before connection failure notification (s)** the notification is only sent once the connection has been down that long. If it comes back earlier, neither a failure nor a restored notification is sent (e.g. short outages during a NAS backup). 0 = immediately.
 - Sensor timeout notifications are sent when the configured alive-timeout condition is met (Expert Mode) and are throttled by `notifyRepeatMinutes`. The same applies to formula timeout notifications with the alive timeout of the formula item.
 
 ## 15. Backup

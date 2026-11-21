@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-justgage/README.md
-title: kein Titel
-hash: 0RuVCWsCydI+bPVNllo4IEn+1QM+6IYnJUSbLAesZmg=
+title: ioBroker.vis-justgage
+hash: cLxZH4rtVa8jzK/otd+zYCO2i5vx+6daTFLyoDj/Kqo=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)ioBroker.vis-justgage
+![Logo](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vis-justgage)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-justgage.svg)
@@ -15,11 +15,13 @@ hash: 0RuVCWsCydI+bPVNllo4IEn+1QM+6IYnJUSbLAesZmg=
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vis-justgage/latest)
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vis-justgage)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vis-justgage)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-justgage.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-justgage.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-justgage-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-justgage-installed.svg)
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)
 ![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)
+
+# ioBroker.vis-justgage
 
 **Version:**
 
@@ -52,6 +54,9 @@ Es muss sich um ein gültiges JSON-Objekt handeln. Einzelne Kontingente sind nic
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) Repository checker issues have been fixed (#314)
+
 ### 2.1.7 (2024-03-07)
 - (bluefox) Added message by installation or update if vis is not installed
 
@@ -137,7 +142,7 @@ Es muss sich um ein gültiges JSON-Objekt handeln. Einzelne Kontingente sind nic
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2026 iobroker-community-adapters 
+Copyright (c) 2023-2026 iobroker-community-adapters  
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

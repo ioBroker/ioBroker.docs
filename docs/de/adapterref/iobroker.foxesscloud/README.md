@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.foxesscloud/README.md
 title: ioBroker-Adapter für FoxESS Cloud
-hash: yIfFpR3fgy8IRAe4L+rzHOpr4IvXhkCvypK+3vU5jww=
+hash: V3DRWHFfUk1nFNSfRLMx7bLJQimOvNVMu56f9T++3Ek=
 ---
 ![Logo](../../../en/adapterref/iobroker.foxesscloud/admin/foxesscloud-logo.png)
 
@@ -64,7 +64,7 @@ Wenn diese Option im Tab _„Berichterstellung“_ aktiviert ist, leitet der Ada
 - ** `report.day.*` ** Heutige Stromerzeugung, Einspeisung und Netzverbrauch (kWh)
 - ** `report.week.*` ** Gesamtverbrauch dieser Woche (kWh)
 - ** `report.month.*` ** Gesamtverbrauch dieses Monats (kWh)
-- ** `report.year.*` ** Die diesjährigen Gesamtmengen (kWh)
+- ** `report.year.*` ** Gesamtverbrauch dieses Jahres (kWh)
 
 ### PV-Leistungs-JSON-Statistiken (optional)
 
@@ -82,9 +82,9 @@ Die [FoxESS Open API](https://www.foxesscloud.com/public/i18n/en/OpenApiDocument
 
 Bei dem empfohlenen Intervall **von 60 Sekunden** verbraucht eine einzelne Instanz das gesamte Tageskontingent (1440 Minuten = 24 Stunden).
 
-**Wichtig:** Alle Open-API-Clients, die denselben API-Schlüssel verwenden, teilen sich ein Kontingent – beispielsweise mehrere ioBroker-Instanzen, Home-Assistant-Integrationen oder Skripte. Eine Überschreitung des Limits kann zu zeitweiligen API-Fehlern führen (z. B. …). `40400`, `40402` Überprüfen Sie die verbleibenden Aufrufe im FoxESS-Portal unter **Profil → API-Verwaltung** .
+**Wichtig:** Alle Open-API-Clients, die denselben API-Schlüssel verwenden, teilen sich ein Kontingent – beispielsweise mehrere ioBroker-Instanzen, Home-Assistant-Integrationen oder Skripte. Eine Überschreitung des Limits kann zu zeitweiligen API-Fehlern führen (z. B. …). `40400`, `40402` FoxCloud OpenPlatform erlaubt nur **einen aktiven API-Schlüssel pro Konto** , sodass mehrere Clients mit demselben Schlüssel dieses eine Kontingent teilen.
 
-Für zusätzliche Wechselrichter erstellen Sie pro Gerät eine Adapterinstanz (eine Seriennummer pro Instanz) und planen Sie das Abfrageintervall entsprechend, oder verwenden Sie separate API-Schlüssel, falls Ihr Konto dies zulässt.
+Für zusätzliche Wechselrichter erstellen Sie pro Gerät eine Adapterinstanz (eine Seriennummer pro Instanz) und planen Sie das Abfrageintervall entsprechend, damit das gemeinsame Kontingent nicht überschritten wird.
 
 ## Datenpunkte
 
@@ -116,7 +116,7 @@ Der Adapter erzeugt die folgenden Datenpunkte:
 - `foxesscloud.0.report.day.gridConsumption` - Heutiger Netzverbrauch (kWh)
 - `foxesscloud.0.report.week.generation` - PV-Erzeugung dieser Woche (kWh)
 - `foxesscloud.0.report.week.feedin` - Einspeiseleistung dieser Woche (kWh)
-- `foxesscloud.0.report.week.gridConsumption` - Stromverbrauch dieser Woche (kWh)
+- `foxesscloud.0.report.week.gridConsumption` - Stromnetzverbrauch dieser Woche (kWh)
 - `foxesscloud.0.report.month.generation` - PV-Erzeugung dieses Monats (kWh)
 - `foxesscloud.0.report.month.feedin` - Einspeisevergütung dieses Monats (kWh)
 - `foxesscloud.0.report.month.gridConsumption` - Netzstromverbrauch diesen Monat (kWh)
@@ -135,7 +135,7 @@ Der Adapter erzeugt die folgenden Datenpunkte:
 1. Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
 2. Erstellen Sie eine neue Instanz
 3. Konfigurieren Sie die Registerkarte **„Allgemein“** :
-   - **API-Token** : Ihr API-Schlüssel aus dem FoxESS Cloud-Portal
+   - **API-Token** : Ihr API-Schlüssel von der [FoxCloud OpenPlatform](https://developer-eu.foxesscloud.com/)
    - **Seriennummer (SN)** : Die Seriennummer Ihres Wechselrichters
    - **Aktualisierungsintervall** : Datenaktualisierungsintervall in Sekunden (Standard: 60, Minimum: 60)
 4. Optional können Sie die Registerkarte **„Statistiken“** konfigurieren:
@@ -151,10 +151,14 @@ Der Adapter erzeugt die folgenden Datenpunkte:
 
 ### So erhalten Sie Ihre API-Zugangsdaten
 
-1. Melden Sie sich bei [FoxESS Cloud](https://www.foxesscloud.com) an
-2. Gehen Sie zu Ihrem Profil/Ihren Einstellungen
-3. Generieren Sie einen API-Schlüssel (Token)
-4. Finden Sie die Seriennummer Ihres Wechselrichters in der Geräteliste.
+Die Generierung von API-Schlüsseln wurde auf die **FoxCloud OpenPlatform** verlagert. Der alte Pfad im FoxESS Cloud-Portal ( **Profil → API-Verwaltung** ) leitet lediglich dorthin weiter und erstellt keine Schlüssel mehr.
+
+1. Öffnen Sie die [FoxCloud OpenPlatform](https://developer-eu.foxesscloud.com/) und melden Sie sich mit Ihrem FoxESS-Konto an.
+2. Öffnen Sie in der Seitenleiste **die API-Schlüssel.**
+3. Klicken Sie auf **„+ Schlüssel generieren“** (falls Sie noch keinen aktiven Schlüssel besitzen) und verwenden Sie anschließend **die Funktion „Kopieren** “, um den Schlüssel zu kopieren.
+4. Finden Sie die Seriennummer Ihres Wechselrichters in der FoxESS Cloud-Geräteliste (oder App).
+
+Hinweis: FoxCloud OpenPlatform erlaubt nur **einen aktiven API-Schlüssel pro Konto** . Bestehende Schlüssel bleiben gültig.
 
 ## PV-Leistungs-JSON-Statistiken für VIS-Dashboards
 
@@ -246,6 +250,12 @@ Die Ausgangswerte werden beibehalten in `report._baselines` damit sie Neustarts 
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.6.7 (2026-10-09)
+- (skvarel) Fixed repository checker warnings W5605 (outdated i18n keys) and updated @iobroker/testing to 6.3.0
+
+### 0.6.6 (2026-10-08)
+- (skvarel) Updated API key instructions to FoxCloud OpenPlatform (developer-eu.foxesscloud.com) in README and admin UI, including a help box and portal link
+
 ### 0.6.5 (2026-08-20)
 - (skvarel) Fixed repository checker warnings W9008 by aligning .gitignore with tracked test, .env.example and .vscode/settings.json files
 
@@ -254,13 +264,6 @@ Die Ausgangswerte werden beibehalten in `report._baselines` damit sie Neustarts 
 
 ### 0.6.3 (2026-06-05)
 - (skvarel) Fixed repository checker error E0036
-
-### 0.6.2 (2026-06-02)
-- (skvarel) Documented Open API rate limit (per API key, multiple instances) in README and admin General tab
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-
-### 0.6.1 (2026-05-29)
-- (skvarel) Revised config and i18n
 
 ## License
 

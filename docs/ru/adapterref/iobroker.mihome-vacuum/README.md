@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-vacuum adapter
-hash: J3mNBwdK4KcBoe8NFUK/Nie5IIKXDXpguD/mB4VuZWo=
+hash: oHBg9YLDqO9sxbuhpeTN0u+RqaGZkc3fkA6R5XuGaPE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -97,7 +97,7 @@ Xiaomi Cloud является необязательным инструмент�
 5. Откройте указанную ссылку и подтвердите вход в систему Xiaomi в браузере.
 6. Вернитесь в ioBroker после того, как статус облака изменится на **«Аутентифицировано»** .
 7. Нажмите **«Получить устройства»** и выберите пылесос из списка устройств.
-8. Проверьте автоматически заполненные данные токена, IP-адреса, модели и менеджера.
+8. Проверьте автоматически заполненные токен, IP-адрес и модель; оставьте менеджер в **режиме «Авто»** .
 9. Сохраните конфигурацию и убедитесь в этом. `info.connection` становится `true`.
 
 ![Подключение и вход в Xiaomi Cloud](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
@@ -115,7 +115,7 @@ Xiaomi Cloud является необязательным инструмент�
 - **Токен:** локальный шестнадцатеричный токен устройства
 - **IP-адрес:** текущий локальный адрес робота
 - **Модель:** идентификатор модели, например `roborock.vacuum.s5`
-- **Менеджер:** обычно определяется автоматически; выбирайте Roborock, Viomi или Dreame вручную только при необходимости.
+- **Менеджер:** оставить **режим «Авто»** ; менеджер определяется по модели. Выбирайте Roborock, Viomi, Dreame или Xiaomi MIoT вручную только в том случае, если модель не определена. Устройства Roborock не поддерживают MIoT и не могут управляться с помощью менеджера Dreame или Xiaomi MIoT; в этом случае адаптер использует менеджер Roborock и регистрирует предупреждение.
 - **Вакуумный порт:** обычно `54321`
 - **Собственный порт:** локальный UDP-порт, используемый этим экземпляром адаптера, обычно `53421`
 
@@ -249,7 +249,7 @@ Xiaomi Cloud является необязательным инструмент�
 | `info.wifi_signal`  | Уровень сигнала Wi-Fi робота                                                     |
 | `deviceInfo.model`  | Обнаруженная модель                                                              |
 | `deviceInfo.fw_ver` | Версия прошивки                                                                  |
-| `auth.status`       | статус аутентификации в облаке Xiaomi                                            |
+| `auth.status`       | Статус аутентификации Xiaomi Cloud                                               |
 | `auth.loginUrl`     | Временная ссылка для входа; удаляется после завершения/истечения срока действия. |
 | `auth.lastError`    | Последнее сообщение об ошибке безопасной аутентификации                          |
 | `auth.expiresAt`    | Время истечения срока действия ссылки для входа                                  |
@@ -286,6 +286,10 @@ Xiaomi Cloud является необязательным инструмент�
 
 ![Вибровиджет VIS 2](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%202%20VacuumControlWidget.png)
 
+Тот же виджет в темном режиме Vis-2, обзор с картой, уровнем заряда батареи, очищенной областью и временем, уровнем всасывания и быстрыми элементами управления:
+
+![Виджет пылесоса vis-2, темная тема](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/vis2-vacuum-control-dark.png)
+
 ### Комнаты, уровни всасывания и планировка
 
 При **включенной функции автоматического определения комнат** (по умолчанию) виджет VIS 2 отображает все комнаты, созданные адаптером, ниже. `rooms.*` включая собственный уровень всасывания в месте опоры робота. Отключите возможность ручной настройки до шести комнат с отображаемым названием, начальным состоянием и состоянием мощности вентилятора. Виджет VIS 1 всегда использует ручную настройку комнат.
@@ -313,7 +317,7 @@ Xiaomi Cloud является необязательным инструмент�
 - Выберите тот же регион Xiaomi, который используется роботом.
 - Если предыдущая ссылка для входа устарела, создайте новую.
 - Перед нажатием кнопки **«Получить устройства»** завершите авторизацию в браузере.
-- Xiaomi `401` или `403` В результате выполнения команды сохраненная сессия становится недействительной, и требуется повторный явный вход в систему.
+- А Xiaomi `401` или `403` В результате выполнения команды сохраненная сессия становится недействительной, и требуется повторный явный вход в систему.
 
 ### Карта не отображается
 
@@ -322,7 +326,7 @@ Xiaomi Cloud является необязательным инструмент�
 - Для карт Xiaomi проверьте следующее: `auth.status` является `authenticated`.
 - Проверять `cleanmap.mapStatus`, `cleanmap.map64` а также журнал отладки адаптера.
 
-### Установка завершается с ошибкой при создании холста.
+### Установка завершается с ошибкой во время создания холста.
 
 Визуализатор карты использует необязательный собственный механизм. `canvas` Если в Linux нет готового бинарного файла, перед переустановкой установите необходимые системные пакеты:
 
@@ -349,9 +353,18 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
     ### **WORK IN PROGRESS**
     * ()
 -->
-### **WORK IN PROGRESS**
+### 6.2.1 (2026-10-29)
+
+* (bluefox) Fixed the release checks that stopped the publication of 6.2.0; this version contains all changes of 6.2.0
+
+### 6.2.0 (2026-10-29)
 
 * (xXBJXx) Documented how new models are supported and rewrote the GitHub issue templates as English forms
+* (bluefox) Roborock devices are no longer controlled by a manually selected Dreame/Xiaomi MIoT manager; the adapter warns and uses the Roborock manager instead (#1250)
+* (bluefox) The Dreame/Xiaomi MIoT manager reports devices that answer `unknown_method` instead of logging the command as successful (#1250)
+* (bluefox) Clarified the manager selection in the instance settings (#1250)
+* (bluefox) Admin and widget dependencies moved into `src-admin` and `src-widgets`; replaced `chai` with `node:assert` and `qs` with `URLSearchParams`
+* (bluefox) Node.js 22.19 or newer is required
 
 ### 6.1.0 (2026-09-08)
 
@@ -408,17 +421,6 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * (xXBJXx) Prevent delayed status callbacks from losing their manager context and terminating the adapter
 * (xXBJXx) Validate cloud sessions, cloud responses, room objects and optional configuration values before use
 * (xXBJXx) Redact device tokens, cloud sessions, cookies, login URLs and complete API payloads from normal logs
-
-### 5.3.0 (2025-07-24)
-
-* (dirkhe) update dependecies
-* (dirkhe) replace request with axios
-* (dirkhe) fix login issues by replacing and moving code to XiaomiCloudConnector
-
-### 5.2.0 (2025-01-22)
-
-* (dirkhe) add IP Adress to info
-* (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
 ## License
 

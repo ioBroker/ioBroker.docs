@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: bDZ/XMl4dbHVdEUVPUrbZFgmlEIcHxuk2u2Xm550tCs=
+hash: uc8/ZDSKvcDBas1kQfL7/JlJX+tkarFmbZSHwLt62QM=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -77,7 +77,7 @@ hash: bDZ/XMl4dbHVdEUVPUrbZFgmlEIcHxuk2u2Xm550tCs=
 
 4. Нажмите кнопку **«Datenauswahl ändern»** (Изменить выбор данных).
 5. **Выберите ВСЕ категории** (Состояние автомобиля, Зарядка, Данные о поездке и т. д.)
-6. **Вручную проверьте ВСЕ 244 отдельных точки данных.**
+6. **Вручную проверьте ВСЕ 244 отдельные точки данных.**
 7. Или введите это в консоли разработчика Google, нажав F12. `document.querySelectorAll('label.chakra-checkbox:not([data-checked])').forEach(l => l.click());`
 8. Сохраните конфигурацию, нажав кнопку **"Stream löschen",** если необходимо сбросить настройки, а затем выполните повторную настройку.
 
@@ -89,6 +89,38 @@ hash: bDZ/XMl4dbHVdEUVPUrbZFgmlEIcHxuk2u2Xm550tCs=
 2. Выберите **марку** вашего автомобиля (BMW, Mini, Toyota Supra)
 3. Установите **интервал обновления** (минимум 10 минут из-за квоты API).
 4. При необходимости настройте **список игнорируемых VIN-кодов.**
+
+### 3a. Дополнительно: телеметрия в реальном времени от Better Routeplanner (ABRP).
+
+Адаптер может передавать телеметрию высоковольтной батареи BMW в ABRP без использования OBD-адаптера. Эта функция отключена по умолчанию и не создает дополнительных вызовов API BMW. Она использует только актуальные данные, которые адаптер уже получает через потоковую передачу BMW MQTT или настроенное обновление телематики. Основной источник SoC —`vehicle.drivetrain.batteryManagement.header`; `vehicle.powertrain.electric.battery.stateOfCharge.displayed` используется в качестве резервного варианта для обеспечения совместимости.
+
+Вам потребуются два учетных данных ABRP:
+
+1. Создайте бесплатный **ключ API телеметрии** по адресу <https://abetterrouteplanner.com/home/app/api-keys/telemetry> .
+2. В ABRP сохраните/выберите свой автомобиль, откройте его настройки данных в реальном времени, свяжите **универсального** поставщика и скопируйте токен, специфичный для вашего автомобиля.
+3. Включите ABRP в настройках адаптера BMW и введите ключ API телеметрии.
+4. Добавьте по одной строке для каждого автомобиля, указав его VIN-номер BMW и соответствующий универсальный токен ABRP.
+5. Сохраните/перезапустите экземпляр и дождитесь обновления BMW SoC.
+
+Передаются только следующие значения:
+
+- `soc`: текущий процент заряда высоковольтной батареи
+- `utc`: оригинальная метка времени измерения BMW
+- `is_charging`: `1` во время активной зарядки, в противном случае `0`
+- `is_dcfc`: `1` для зарядки постоянным током и `0` Для переменного тока, отправляется только во время зарядки.
+- `est_battery_range`: оставшийся запас хода на электротяге в километрах
+
+Адаптер не отправляет VIN-код, местоположение, скорость, маршрут или историю вождения в ABRP. Ключи API и универсальные токены хранятся в виде защищенных зашифрованных настроек и никогда не записываются в состояния адаптера или журналы.
+
+Для настройки ABRP требуется ioBroker Admin версии 8.2.0 или новее, чтобы токены транспортных средств в таблице конфигурации корректно шифровались и расшифровывались. Для установок, использующих старую конфигурацию двойного шифрования, восстановление происходит во время выполнения; после обновления повторно введите и сохраните каждый универсальный токен, чтобы перенести сохраненные настройки.
+
+Ключ API телеметрии ABRP передается в API версии 1. `Authorization: APIKEY ...` В заголовке запроса в формате URL отправляются только специфический для транспортного средства универсальный токен и JSON-данные телеметрии; ключ API не включается в URL-адрес запроса.
+
+ABRP допускает не более двух запросов телеметрии в секунду и одного ключа API. Адаптер применяет один общий ограничитель ко всем настроенным транспортным средствам, повторным попыткам и ручным отправкам. Если BMW MQTT отправляет пакет данных, старые неотправленные значения заменяются новейшими значениями SoC для данного VIN, а не помещаются в очередь бесконечно.
+
+Статус доступен ниже. `bmw.0.VIN.abrp.*` Эти объекты создаются на основе локальной конфигурации ABRP до обнаружения автомобилей BMW, поэтому они остаются доступными даже после исчерпания квоты BMW REST. `lastAttempt` регистрирует исходящий запрос, `lastSuccess` и `lastSoc` Они обновляются только после того, как ABRP их утвердит, и `lastError` Содержит HTTP-статус, а также, если доступно, отредактированное сообщение об ошибке ABRP. Адаптер также регистрирует первое принятое обновление на уровне информации и отклоненные обновления на уровне предупреждения. `sendNow` Кнопка отправляет повторно только кэшированный, еще актуальный SoC и никогда не инициирует запрос к API BMW. Режим «Live» по-прежнему ограничен моментом публикации BMW CarData нового SoC; автомобиль, находящийся в спящем режиме, может не обновиться немедленно.
+
+После каждого запуска адаптера последнее допустимое сохраненное значение SoC отправляется один раз в качестве текущего значения инициализации. Это позволяет проверить соединение ABRP, пока автомобиль припаркован или находится в спящем режиме. Этот одноразовый стартовый сигнал использует время отправки в качестве `utc` Все последующие обновления в режиме реального времени используют исходную метку времени измерения BMW и должны пройти обычную проверку актуальности. Дополнительные вызовы API BMW для исходных данных не выполняются.
 
 ### 4. Процесс аутентификации
 
@@ -113,7 +145,7 @@ hash: bDZ/XMl4dbHVdEUVPUrbZFgmlEIcHxuk2u2Xm550tCs=
   - Мгновенное обновление при изменении данных об автомобиле.
   - Включает все 244 настроенные точки данных.
 
-### Доступные конечные точки API (настраиваемые)
+### Доступные API-интерфейсы (настраиваемые)
 
 Вы можете включить/отключить эти конечные точки в настройках адаптера (BMW CarData API v1):
 
@@ -220,9 +252,29 @@ _Примечание: Это только команды для получен�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.6 (2026-11-18)
 
-### **WORK IN PROGRESS**
+- (hombach) report MQTT as connected only after a successful subscription acknowledgement
+- (TA2k) add optional ABRP live telemetry using per-vehicle Generic tokens
+- (TA2k) send charging state, DC charging state, and estimated electric range alongside SoC
+- (TA2k) enforce the ABRP limit of two requests per second and API key across all vehicles and retries
+- (TA2k) encrypt and protect ABRP credentials and expose sanitized delivery status states
+- (TA2k) create ABRP diagnostics independently of BMW REST quota and log ABRP response errors without credentials
+- (TA2k) stop further BMW CarData REST calls temporarily after the server reports quota error `CU-429` and preserve that cooldown across adapter restarts
+- (TA2k) prevent BMW OAuth refresh tokens from appearing in debug logs
+- (hombach) updated iobroker/testing
+- (hombach) updated dependencies
 
+### 5.0.5 (2026-10-26)
+
+- (TA2k) container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
+- (TA2k) existing installations update to the new container automatically
+
+### 5.0.4 (2026-10-19)
+
+- (TA2k) fixed unnecessary container cleanup that used up the daily API request limit
+- (TA2k) fixed telematic data fetching (CU-400): the container now uses only the data keys BMW accepts
+- (TA2k) existing installations update to the new container automatically
 - (hombach) fixed repochecker error
 - (hombach) fixed translations
 - (hombach) updated dependencies
@@ -247,33 +299,7 @@ _Примечание: Это только команды для получен�
 - (hombach) moved all jsonConfig.json inline translations to i18n files
 - (hombach) updated dependencies
 
-### 5.0.0 (2026-05-17)
-
-- (copilot) BREAKING: Adapter requires node.js >= 22 now
-- (hombach) fixed axios vulnerability
-- (hombach) removed node 20 tests
-- (hombach) added CHANGELOG_OLD.md
-- (hombach) updated dependencies
-
-### 4.3.5 (2026-04-11)
-
-- (hombach) fix repo checker warnings
-- (hombach) fix vulnerability
-- (hombach) update dependencies
-- (hombach) remove old admin files
-
-### 4.3.4 (2026-02-28)
-
-- enhance docu and logging
-- (hombach) fix vulnerability
-- (hombach) update dependencies
-
-### 4.3.3 (2026-01-02)
-
-- (hombach) year 2026 changes
-- (hombach) update dependencies
-
-### Old Changes see [CHANGELOG OLD](https://github.com/TA2k/ioBroker.bmw/blob/master/CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## License
 

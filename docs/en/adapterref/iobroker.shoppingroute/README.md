@@ -20,7 +20,7 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
-> **Current version: 0.6.2 (2026-11-13).**
+> **Current version: 0.6.3 (2026-11-20).**
 > ShoppingRoute releases appear through the ioBroker **latest** repository after index refresh.
 
 **0.6.1 – faster, safer Bring!/Alexa synchronization:** Once a new acknowledged Bring! list state or an Alexa list change is observed, ShoppingRoute starts a short debounced bridge check instead of waiting for another 90-second bridge poll. It retains a 30-second fallback check and reschedules busy transactions after three seconds; verification checks are rate-conscious and provider updates can wake them early. Original completed writes are confirmed independently from unrelated concurrent user changes, preventing a stale transaction from blocking later completions. The adapter reports delayed confirmations once as warnings, hard failures as errors, and a successful recovery once as informational output.
@@ -113,7 +113,7 @@ Open **ShoppingRoute** in the ioBroker sidebar on your phone. Use the `⋮⋮` h
 
 ## Manual shopping-list changes
 
-Manual shopping-list moves stay in a browser draft. Move all required items, then press **Transfer changes to Alexa**. Only this button starts one verified Alexa sorting transaction for the complete batch. A failed transfer keeps the draft; **Discard changes** reloads the current list. While a draft is pending, switching lists, adding, deleting and resetting are disabled to preserve the draft. Reloading the same browser tab restores the draft when session storage is available.
+Manual shopping-list moves stay in a browser draft. Move all required items, then press **Transfer changes to Alexa**. Only this button starts one verified Alexa sorting transaction for the complete batch. A failed transfer keeps the draft; **Discard changes** reloads the current list. While a draft is pending, switching lists, adding, deleting and resetting are disabled to preserve the draft. Reloading the same browser tab restores valid, unsent moves from session storage without restoring obsolete items. Each reload checks a fresh Alexa list snapshot first; completed or removed items are never reintroduced by a draft. The visible tab refreshes at a low rate and on return to the tab. Failed refreshes show an error and retry option rather than presenting stale products as current. No browser cache clearing is required.
 
 ## Main features
 
@@ -223,6 +223,10 @@ After installation:
 
 For all configuration details, see the [English user guide](/#/docs/adapterref/iobroker.shoppingroute/USER_GUIDE_EN.md) or the [German user guide](/#/docs/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md).
 
+## Messages for scripts and AI agents
+
+`sendTo('shoppingroute.0', 'help', {}, answer => ...)` returns a description of all messages for AI agents (e.g. ioBroker.pi-agent) and scripts: `{ help, commands }`, where `commands` lists every message with `write: true` if it changes something.
+
 ## Feedback and support
 
 ShoppingRoute is still young, so real-world feedback is especially valuable.
@@ -230,6 +234,9 @@ ShoppingRoute is still young, so real-world feedback is especially valuable.
 Please use the [ioBroker tester thread](https://forum.iobroker.net/topic/85510/test-adapter-shoppingroute-v0.4.4) for general testing feedback and the [GitHub issue tracker](https://github.com/RaviniZib/ioBroker.shoppingroute/issues) for reproducible bugs or feature requests.
 
 ## Changelog
+### 0.6.3 (2026-11-20)
+- (@RaviniZib) The shopping-list UI now uses the latest confirmed Alexa list instead of stale browser drafts. Valid pending moves are rebased; removed or completed items cannot reappear, and failed reads show an error.
+- (@GermanBluefox) Added the `help` message and `common.supportedMessages.help` so AI agents and scripts can discover the supported commands and write permissions.
 
 ### 0.6.2 (2026-11-13)
 - Updated @iobroker/testing to 6.3.2 to resolve repository checker warning W0037 (Issue #85).

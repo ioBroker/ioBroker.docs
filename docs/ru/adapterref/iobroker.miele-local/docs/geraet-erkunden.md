@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miele-local/docs/geraet-erkunden.md
 title: Ein unbekanntes Miele-Gerät erkunden
-hash: GpyTyzN80p/yNzKPcczLcdS00dyBFzcUgW+ihCAkffg=
+hash: R4TkORKfjrXb8FS17OVS61YIw6y6uAgfYA2c9+HtOjM=
 ---
 # Ein unbekanntes Miele-Gerät erkunden
 
@@ -37,9 +37,17 @@ Woher sie stammen, ist nicht dokumentiert. Был daneben noch antwortet, weiß 
 
 ### So wird gescannt
 
-Пункт данных `<gerät>.sammlung.leafScan` ауф `true` сетцен. Der Schalter **bleibt stehen** und bedeutet «scanne, bis fertig»: Der Adaptor arbeitet Durchgang um Durchgang, mit einer Minute Verschnaufpause dazwischen, bis nichts mehr offen ist oder der der Schalter umgelegt wird.
+Пункт данных `<gerät>.collection.scan` ауф `true` сетцен. Der Schalter **bleibt stehen** und bedeutet «scanne, bis Fertig», его nichts mehr offen ist oder der der Schalter umgelegt wird.
 
-Der Fortschritt steht in `sammlung.leafScanStand`, die Ergebnisse in `sammlung.leafScanJson`. Ein Adapterneustart bedet den Dauerlauf; der Fortschritt ist gesichert, und ein erneutes Umlegen macht dort weiter, значит, стоит.
+**Seit dem 13.11.2026 langsam und schonend** (vorher Durchgänge zu 40 Adressen im 5-s-Abstand, die die EK037-Module von Wash- und Spülmaschine in Unit 14 überforderten):
+
+- **Jedes Gerät Hat seinen eigenen, unabhängigen Takt** (`lib/scanplaner.js`): **höchstens eine Anfrage je 25 s und Gerät** (Kontrollfrage eingeschlossen), nie zwei Anfragen gleichzeitig an dasselbe Gerät, Zeitlimit 8 s je Anfrage. Альтернативное использование параллельного модуля — это альтернативный модуль с собственным IP-адресом. Rückzug, Ruhe, Schonphase или hängendes Modul eines Geräts verzögern die anderen nicht. (Bis zum Abend des 13.11.2026 gab es einen gemeinsamen Planer für alle Geräte; der Backofen H2469BP, DOP2 nach 3–10 Anfragen lang hängt, hielt damit Wash- und Spülmaschine mit auf.)
+- **Die Normale Abfrage Hat Vorrang:** Läuft gerade eine Anfrage an das Gerät or der Steht eine an (/State, EcoFeedback, Steuerbefehl), weicht der Scan aus und schaut nach 5 s wieder. Ein Gerät, das wartet (Ruhe, Rückzug, gebremst), schaut spätestens nach einer Minute Wieder, obsich etwas geändert Hat.
+- Вы можете выбрать статус **из (1)** или **(2)** в течение 5 минут, **программировать (7)** в течение 2 минут и, что самое интересное, **в программе (5)** в течение нескольких минут, а также в течение нескольких минут и в течение 500 минут в программе. Grund (сообщение от 13.11.2026): Im Aus beantworten die EK037-Module schon die Kontrollfrage mit 500, sie Schlafen; Spülmaschine Steht nach dem Programm примерно через 9 минут после 7. Не нужно ничего делать, чтобы время/пауза/занятия не выполнялись, не задерживайтесь или не пользуйтесь новыми функциями. Ob das Modul wach ist, entscheidet die Kontrollfrage 2/1583 (Daten oder 404 = wach; 500/503 = schläft → 10 min Ruhe).
+- **Rückzug bei Störungen** (Timeout, Verbindung abgelehnt/abgebrochen): 5, 10, 20, 30 мин. Пауза для нескольких дней, danach eine Stunde Schonphase mit höchstens einer Anfrage pro Minute (Backofen H2469BP: Тайм-ауты на \~10 Adressen im 25-s-Takt, /State Лиф Вейтер). Rückzug, Schonphase und Stufe gelten je Gerät. Die Stufe sint erst wieder, wenn die Schonphase ohne neue Störung abgelaufen ist – eine einzelne gute Antwort reicht nicht (sonst pendelt der Rückzug zwischen 5 и 10 min). На ваш адрес, Dreimal Stört или Bei wachem Modul Dreimal 503 Liefert, вы не получите больше удовольствия.
+- **Сначала необходимо получить 404/500 ответов** , после чего модуль будет отправлен (5 минут) после того, как это произойдет, и сначала **вы ответите им, что откажетесь от ответа в течение 6 часов, если хотите, чтобы** адрес был окончательным. Alte Ergebnisse: ein 404 zählt als eine Bestätigung, ein 500 als keine (es kann aus einer Schlaffphase stammen — 2/1585 стоять так им Ergebnis und antwortet heute mit Daten).
+
+Der Fortschritt steht in `collection.scanState`, die Ergebnisse in `collection.scanJson`. **Zum Teilen** (Форум, Fehlerbericht) `collection.scanJsonAnonym` нехмен: `scanJson` введите серийный номер (2/145), сменный EUI/MAC (14/1565), модульный номер (14/1566), MAC (14/1571) с указанием IP и WLAN-имени (14/1573), анонимный Fassung Maskiert Sie. Ответ на этот вопрос: Адаптер не может быть декодирован, также как и другие `antwortet: true` мит `status: 200`, dem Fehlertext unter `fehler` und den Rohbytes unter `roh`. Ein Adaptneustart setzt den Scan fort, solange der Schalter steht; gesichert wird nach jedem Treffer, nach zehn Antworten und beim Beenden.
 
 ### Die Bereiche und ihre Reihenfolge
 
@@ -54,7 +62,7 @@ Der Fortschritt steht in `sammlung.leafScanStand`, die Ergebnisse in `sammlung.l
 
 ### Wann gescannt wird
 
-**Я не знаю, какие программы я могу использовать.** Der Unterschied — это ужасно:
+**Im Leerlauf, nicht während eines Programms.** Der Unterschied — это ужасно:
 
 | Состояние              | Adressen je Durchgang        |
 | ---------------------- | ---------------------------- |
@@ -88,7 +96,7 @@ Drei Dinge Liefen als Schleife или Merkposten im Speicher, Während ihr Schal
 | ----------------------------- | ------------------------------------------------ | -------------- |
 | Feinaufzeichnung              | zeichnete stumm nicht mehr auf                   | 0.3.26 behoben |
 | Leaf-Scan-Dauerlauf           | Стойка для сканирования на 4 шт. от 882 Adressen | 0.3.27 behoben |
-| Zählerstand bei Programmstart | `history.gemessenLetzter` blieb 0                | 0.3.27 behoben |
+| Zählerstand bei Programmstart | `history.gemessenLetzter` блиб 0                 | 0.3.27 behoben |
 
 Ausgelöst wurden alle drei durch etwas völlig Harmloses: **eine Konfigurationsänderung startet die Instantz neu.** Если вы используете Energiezähler einträgt, вы можете выполнить сканирование, а затем выполнить сканирование. Beim Bau eines langlaufenden Vorgangs gehört deshalb immer beides dazu — der Zustand in einem Datenpunkt _und_ eine Fortsetzung beim Adaptstart.
 
@@ -113,14 +121,14 @@ Ein Leaf mit siebenundvierzig Feldern ist eine Wand aus Zahlen. Прежде в�
 
 Die Aufzeichnung läuft von selbst: Alle drei Minuten werden die gefundenen Leafs erneut gelesen, **aber nur bei Geräten, die gerade arbeiten** . Ein Gerät im Standby Lifert Dieselben Zahlen wie vor Einer Stunde.
 
-- `sammlung.leafVerlaufJson` — je Leaf und Feld eine Reihe von Wertwechseln mit Zeitstempel
-- `sammlung.leafVerlaufStand` — Umfang der Ablage
+- `collection.trendJson` — je Leaf und Feld eine Reihe von Wertwechseln mit Zeitstempel
+- `collection.trendSize` — Umfang der Ablage
 
 ### Wenn die drei Minuten nicht reichen
 
-Если вы хотите, чтобы программа была разработана, это необходимо. Für **schaltende Verbraucher** ist sie es nicht: Das Heizelement der WCR860 taktet im Minutenrhythmus zwischen 2200 W und Standby (06.09.2026 г. и 86 Sprünge über 800 W). Jede Drei-Minuten-Messung fällt in einen zufälligen Takt — ein vorhandenes Schaltbit ist so grundsätzlich nicht von Rauschen zu unterscheiden. Genau das war das Ergebnis: Über 24 aufgezeichnete Wahrheitswerte lag die beste Trennschärfe bei 7,6 % gegen 0,6 %, а также Zufall.
+Если вы хотите, чтобы программа была разработана, это необходимо. Für **schaltende Verbraucher** ist sie es nicht: Das Heizelement der WCR860 taktet im Minutenrhythmus zwischen 2200 W und Standby (06.09.2026 и 86 Sprünge über 800 W). Jede Drei-Minuten-Messung fällt in einen zufälligen Takt — ein vorhandenes Schaltbit ist so grundsätzlich nicht von Rauschen zu unterscheiden. Genau das war das Ergebnis: Über 24 aufgezeichnete Wahrheitswerte lag die beste Trennschärfe bei 7,6 % gegen 0,6 %, а также Zufall.
 
-Dafür gibt es `sammlung.leafVerlaufFein`: die Leaf-Adresse eintragen, und **dieses eine Leaf** wird alle zwanzig Sekunden gelesen, Während die Normale Runde für das Gerät aussetzt. Die Last bleibt Dieselbe — ein Leaf alle 20 s statt Zehn alle alle 3 min —, die Auflösung wird neunfach feiner. Sie endet von selbst mit dem Programm.
+Dafür gibt es `collection.trendLeaf`: die Leaf-Adresse eintragen, und **dieses eine Leaf** wird alle zwanzig Sekunden gelesen, Während die Normale Runde für das Gerät aussetzt. Die Last bleibt Dieselbe — ein Leaf alle 20 s statt Zehn alle alle 3 min —, die Auflösung wird neunfach feiner. Sie endet von selbst mit dem Programm.
 
 **Damit fiel die Zuordnung sofort.** Запись на 2/6192 минуты:
 
@@ -139,7 +147,7 @@ Die Lehre ist allgemein: **Если бы Schaltbit был таким, muss schne
 
 ### Die Falle beim Auslesen
 
-`dop2.parseLeaf` Liefert je Feld ein Paar aus Typ und Wert. Bei Listen ist der Wert **selbst wieder** eine Liste solcher Paare. Wer nur die oberste Schicht abstreift, speichert `[{'type':'u8','value':3}, …]` статт `[3, …]` — und keine Auswertung kann damit etwas anfangen. `MieleLocal.reinerWert()` löst das rekursiv auf; Тестирует дазу в `test/leafwerte.js`.
+`dop2.parseLeaf` Liefert je Feld ein Paar aus Typ und Wert. Bei Listen ist der Wert **selbst wieder** eine Liste solcher Paare. Wer nur die oberste Schicht abstreift, speichert `[{'type':'u8','value':3}, …]` статт `[3, …]` — und keine Auswertung kann damit etwas anfangen. `MieleLocal.reinerWert()` löst das rekursiv auf; Испытает дазу в `test/leafwerte.js`.
 
 ---
 
@@ -162,7 +170,7 @@ Die Reihenfolge, in der sich Fragen beantworten lassen:
 
 ### Was sich nicht finden ließ
 
-**Die Energie Steht in keinem Feld von 2/6195.** Geprüft wurden alle 47 Felder in vier Ableitungen (Endwert, Differenz, Maximum, Spanne) gegen elf Vergleichswerte; das beste Feld отстает на 25 %. Der Grund ist grundsätzlich: `eco.energyWh` Если вы **не знаете** , как выполнить программу, необходимо начать — keine Messung. Am 09.03.2026 принадлежит: Der Wert стенд 2:40 Stunden unverändert auf 770 Wh, während der Shelly von 0 auf 847 Wh stieg; über den ganzen Lauf maß der Shelly 1158 Wh.
+**Die Gesamtenergie Steht in keinem Feld von 2/6195.** Geprüft wurden alle 47 Felder in vier Ableitungen (Endwert, Differenz, Maximum, Spanne) gegen elf Vergleichswerte; das beste Feld отстает на 25 %. Der Grund ist grundsätzlich: `eco.energyWh` (Поле 25) ist die **Heizenergie-Vorgabe** für die Hauptwäsche — geplante Heizzeit (Feld 26, s) × 2020 W bei 230 V, gesetzt zu Beginn der Heizung, keine Messung (Befund 13.11.2026, 31 Läufe). Am 09.03.2026 принадлежит: Der Wert стенд 2:40 Stunden unverändert auf 770 Wh, während der Shelly von 0 auf 847 Wh stieg; über den ganzen Lauf maß der Shelly 1158 Wh. Feld 16 zählt dagegen laufend die **Antriebsenergie** (ohne Heizstab, Wh); auch Feld 25 + Feld 16 trifft den Gesamtverbrauch nicht (im Mittel 40 % daneben).
 
 Ein zweites Argument, das hier lange stand, ist **falsch und zurückgenommen** : Eine Rewards über Wassermenge × Temperaturhub ergab 0,000486 кВтч/(л·К), а также 42 % теплового режима Вассера — было недопустимо. Der Fehler лежит в der Wassermenge: Die genannten Liter sind der **Gesamtverbrauch über alle Wasch- und Spülgänge** , geheizt wird nur die Hauptwäsche. Dieselbe Rechnung auf den Katalogwert der Anleitung angewandt (Baumwolle 60 °C: 1,45 кВтч при 65 л и 55 °C Wäschetemperatur) составляет 48 % — für einen Wert aus dem EU-Prüfprogramm. Wo eine Plausabilitätsrechnung auch die geprüfte Referenz verwirft, ist die Rechnung более широкий, nicht die Referenz.
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vofo-speedtest/README.md
 title: ioBroker.vofo-speedtest
-hash: +eNgpVfBxNW+lsw0Dx8Lesq99FztXjXp+4vYgg+DYPA=
+hash: 9ZbE6oSfscyv0H3HB+zcsaB9Z6sw9bmNtPjrHqtvHYQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
@@ -15,7 +15,7 @@ hash: +eNgpVfBxNW+lsw0Dx8Lesq99FztXjXp+4vYgg+DYPA=
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vofo-speedtest-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vofo-speedtest-installed.svg)
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)
@@ -23,16 +23,42 @@ hash: +eNgpVfBxNW+lsw0Dx8Lesq99FztXjXp+4vYgg+DYPA=
 
 # ioBroker.vofo-speedtest
 
-</br>
-**Version:** </br>
-</br>
-**Tests:** </br>
+**Version:**
 
-## Vofo-Speedtest-Adapter für ioBroker
+**Tests:**
+
+> \[!WICHTIG] Dieser Adapter kann nicht von GitHub installiert werden. ## vofo-speedtest-Adapter für ioBroker
 
 Geschwindigkeitstest von Vodafone.de
 
 Wendet dieselbe Technik an wie <https://speedtest.vodafone.de>
+
+Der Test funktioniert auch mit Verbindungen anderer Anbieter. Vodafone meldet die gebuchte Geschwindigkeit nur für seine eigenen Kunden, ohne eine Vodafone-Verbindung also nicht. `downstreamBooked` Und `upstreamBooked` Sie bleiben leer, und die Widgets zeigen keinen Prozentsatz der gebuchten Geschwindigkeit an.
+
+## Starten eines Tests
+
+Der Adapter läuft permanent und startet den Test von selbst:
+
+- gemäß dem Zeitplan in den Instanzeinstellungen (Standard: Minute 11 und 41 jeder Stunde); lassen Sie das Feld leer, um Tests nur bei Bedarf zu starten.
+- Wann `true` wird geschrieben an `vofo-speedtest.0.test.start` z. B. über die Schaltfläche in den Instanzeinstellungen oder den Widgets oder über ein Skript.
+
+Ein Start während eines laufenden Tests wird ignoriert.
+
+| Zustand        | Bedeutung                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `test.start`   | Schreiben `true` einen Test starten                                                                                                                       |
+| `test.running` | Ein Test läuft.                                                                                                                                          |
+| `test.phase`   | Testphase: `init`, `download`, `upload`, `ping` leer, wenn im Leerlauf                                                                                    |
+| `test.speed`   | Aktuelle Download- und Upload-Geschwindigkeit in Mbit/s                                                                                                  |
+| `test.error`   | Fehler des letzten Tests, leer, wenn er erfolgreich war. Zeigt außerdem an, wenn der Ping-Server nicht geantwortet hat: Download und Upload sind gültig. |
+
+## Widgets
+
+Der Adapter bietet für drei Frontends dieselbe Ansicht: Anzeigen für Download- und Upload-Geschwindigkeit, den Prozentsatz der gebuchten Geschwindigkeit (sofern vom Anbieter angegeben), Ping, Paketverlust, den Zeitpunkt des letzten Tests und eine Schaltfläche zum Starten eines Tests. Während eines Tests zeigen die Anzeigen die aktuelle Geschwindigkeit an.
+
+- **vis-2** : das Widget-Set `vofo-speedtest`
+- **ioBroker.devices** : eine Kachel in den Größen 1x1, 2x0,5 und 2x1
+- **Webkomponente** : `<iob-vofo-speedtest>` für jeden Gastgeber `@iobroker/web-components` z. B. Aura
 
 ## Credits
 
@@ -47,11 +73,27 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich stehe in keiner Verbindung zu Vod
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2026-11-16)
+- (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+### 3.0.1 (2026-11-08)
+- (mcm1957) Issues detected by repositorychecker have been fixed
+
+### 3.0.0 (2026-11-08)
+- (copilot) BREAKING: Adapter requires node.js >= 22.19.0 now
+- (copilot) BREAKING: Adapter requires admin >= 8.3.10 now
+- (copilot) BREAKING: Adapter requires js-controller >= 6.0.11 now
+- (bluefox) BREAKING: The adapter runs permanently now and starts the test by itself. A schedule changed in the instance settings is taken over
+- (bluefox) BREAKING: The option "Use curl" has been removed. node-libcurl is not used anymore, download and upload run over node.js https
+- (bluefox) Added: start a test with the state `test.start` (#153), and the states `test.running`, `test.phase`, `test.speed` and `test.error`
+- (bluefox) Added: the instance settings show the result and the running test, with a button to start a test
+- (bluefox) Added: `test.error` tells if the ping server did not answer
+- (bluefox) Added: a vis-2 widget, a tile for ioBroker.devices and the web component `<iob-vofo-speedtest>`
+- (bluefox) Fixed: upload values were missing without curl (#253)
+- (bluefox) Fixed: the adapter did not stop if the API key could not be found on speedtest.vodafone.de, the next start failed with "already running" (#239, #208)
+- (bluefox) Fixed: the download test without curl used outdated server paths
+- (bluefox) The option "Local address" is evaluated now
+- (bluefox) The adapter was refactored to TypeScript
 
 ### 2.0.1 (2024-04-29)
 * (mcm1957) Dependencies have been updated
@@ -62,64 +104,11 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich stehe in keiner Verbindung zu Vod
 * (mcm1957) Metrialize admin UI has been removed as jsonConfig is available
 * (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2023-09-13)
-* (bluefox) Updated packages and refactored code
-
-### 1.0.0 (2023-09-13)
-* (bluefox) Updated packages and refactored code
-
-### 0.0.13 (2022-06-06)
-* some more "already running" fixes
-
-### 0.0.12 (2022-05-28)
-* re-release for 0.0.11 because of a missing version in io-package.json
-
-### 0.0.11 (2022-05-27)
-* updating dependencies
-* adding some timeouts trying to fix "already running with pid"
-* fix extracting API key from js-code (thanks Zwer2k) [#112][pr112]
-
-### 0.0.10 (2022-01-07)
-* Fix version numbers
-
-### 0.0.9 (2022-01-03)
-* Fix to work with new Vodafone Endpoint
-
-### 0.0.8 (2021-07-01)
-* Renamed Adapter due to legal reasons
-* Fixed some dependencies
-
-### 0.0.7 (2021-05-21)
-* Fixed some vulnerabilities in dev-dependencies
-* Fixed js-controller 3* issues
-* Fixed node 16 compatability
-
-### 0.0.6 (2021-01-21)
-* Added Sentry.io Integration
-
-### 0.0.5 (2020-05-26)
-* Added ping results
-* Added calculated values by actual raw data
-
-### 0.0.4 (2020-04-30)
-* Changed Adapter start type to scheduled (re-installation might be needed)
-* Bug fixes and feedback implementation
-
-### 0.0.3 (2020-04-24)
-* Implemented feedback from Forum and GitHub issue
-
-### 0.0.2 (2020-04-19)
-* Added actual settings in Admin interface
-* first version ready for testing
-
-### 0.0.1 (2020-04-18)
-* (Peter Baumert) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
-Copyright (c) 2020-2023 Peter Baumert
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2020-2023 Peter Baumert <ioBroker.unifi-protect@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

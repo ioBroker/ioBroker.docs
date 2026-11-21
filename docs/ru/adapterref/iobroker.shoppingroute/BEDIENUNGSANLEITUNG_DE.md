@@ -4,13 +4,138 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md
 title: ShoppingRoute - Bedienungsanleitung
-hash: MyBXkyjCgaRoJ+7QUx9Y27HZTzVhMy2TBfhaKG4IfV8=
+hash: fHD6REIzoYqEsRGG2d4w4za0guAoTThOo2+7hcwodRM=
 ---
 # ShoppingRoute – Bedienungsanleitung
 
-**Gültig ab Version 0.5.0**
+**Bedienungsanleitung für ShoppingRoute 0.6.3 (20.11.2026)**
+
+**Новое в версии 0.6.3:** Die Einkaufslistenansicht zeigt den aktuellen bestätigten Alexa-Listenstand statt veralteter Browserdaten. Abgehakte oder gelöschte Artikel tauchen nach dem Neuladen nicht erneut auf. Noch gültige lokale Verschiebungen werden an die aktuelle Liste angepasst; bei einem Abruffehler erscheint eine Fehlermeldung statt eines veralteten Listenstands. Außerdem stellt ShoppingRoute einen lesenden Hilfeaufruf für Skripte und KI-Agenten bereit.
+
+### Nachrichten für Skripte und KI-Agenten
+
+Der Aufruf `sendTo('shoppingroute.0', 'help', {}, response => ...)` liefert ein Objekt mit `help` (englische Beschreibung der Schnittstelle) и `commands` (Liste aller unterstützten Nachrichtennamen). Дер Эйнтраг `write: true` bezeichnet einen potenziell verändernden Befehl, `write: false` einen lesenden Befehl. Ein KI-Agent может дать умереть Nachrichtenformate vor der Nutzung ermitteln. Выполните прослушивание или настройку конфигурации, если это необходимо. Пробный запуск, статус активации, лучшие настройки и настройка Amazon-Schreiblimits bleiben aktiv. Дер `help` -Befehl allein verursacht keine Listenänderung.
+
+**Версия 0.6.2: Проверка** ioBroker-Testabhängigkeit для актуальной версии 6.3.2 (Repo-Checker W0037, выпуск № 85). Die bisherigen Alexa-/Bring!-Funktionen und Schutzmechanismen bleiben erhalten.
 
 ShoppingRoute hilft dir dabei, eine Alexa-Einkaufsliste so zu ordnen, wie du tatsächlich einkaufst.
+
+**Новая версия 0.6.1:** ShoppingRoute настроена на лучшие возможности для поиска! - и Alexa-Listen jetzt ereignisgesteuert. Die zusätzliche ShoppingRoute-Wartezeit von bisher bis zu 90 Sekunden entfällt; Также зарезервируйте все 30 секунд для контроля. Предлагаемая статья была найдена в лучших предложениях по использованию. Алекса-Шрайбсперрен bleiben erhalten. В журнале ioBroker-Log есть предупреждения для оптимизации и изменения тайм-аутов без просмотра журнала.
+
+**Wichtig: Diese Wartezeit kann ShoppingRoute nicht beeinflussen.** Отдельный адаптер ioBroker-Adapter Bring! 1.9.1 fragt die Bring!-Cloud в einem eigenen Intervall von ungefähr **90 Sekunden** ab. **ШоппингRoute kann diesen Abruf weder beschleunigen noch vorzeitig auslösen.** Приложение «Ein in der Bring!-App» или дополнительная статья используется для покупок «Route» раньше, чем вы начнете актуализировать Durch Den Bring!-Adapter; Netzwerk- или Cloud-Verzögerungen können hinzukommen. Сначала необходимо получить доступ к подписке ShoppingRoute 0.6.1. 30-секундное восстановление от ShoppingRoute **не** должно превышать 90 секунд для адаптеров Bring!.
+
+**Откройте версию 0.6.1:** Wird während der Bestätigung einer älteren Bring!/Alexa-Übertragung ein weiterer Artikel in Bring! abgehakt, prüft ShoppingRoute die ursprünglichen Schreibvorgänge einzeln. Sobald diese vollständig bestätigt sind, verarbeitet es die spätere Erledigung im nächsten Abgleich, ohne den erledigten Artikel in Bring! видергерцустеллен. Никогда не используйте лучший способ приготовления. При выборе параметров и тайм-аутов в журнале ioBroker-Log вы можете просмотреть журнал, который будет заполнен опросом. Проблемы с синхронизацией умирают Datenpunkte `shoppingroute.0.info.bringSyncStatus` унд `shoppingroute.0.data.bringSyncJournal` прюфен; das Journal nur nach Sicherung und Abgleich beider Слушайте исправления.
+
+## Принесите!-Слушайте в ShoppingRoute 0.6.0 einbinden
+
+Новые функции Bring! являются дополнительными и стандартными.
+
+**Дополнительные сведения:** **«Мгновенный переход» → «Маршрут покупок» → «Bring!-Integration»** для установки «Bring!-Instanz und speicherst». Danach wählst du deine Bring!-Einkaufsliste aus. Для работы с Alexa необходимо настроить Alexa-Einkaufsliste. Belasse zunächst **Dry-Run** eingeschaltet.
+
+Вы должны vier Betriebsarten zur Auswahl:
+
+1. **Авт.:** Alexa работает в версии 0.5.3.
+2. **Приносить! → Alexa:** Die Bring!-Liste Liefert die Artikel. Новая статья была добавлена в Alexa weitergegeben; anschließend bei Bring! Если вы хотите синхронизировать статью, она также будет работать с Alexa. Ergänzungen, die nur bei Alexa vorhanden sind, bleiben dort.
+3. **Nur Bring!:** Alexa wird nicht benötigt. Öffne die **Einkaufsliste** in der ShoppingRoute-Verwaltung, um die Bring!-Artikel nach deinen Märkten und Laufwegen sortiert anzusehen. Bearbeiten kannst du sie weiterhin direkt in Bring!.
+4. **Приносить! ↔ Alexa:** Beide Apps Nuzen DentalBen Artikelbestand. Hinzufügen und Erledigen werden nach dem ersten Abgleich in beide Richtungen übertragen.
+
+**Beim ersten Abgleich werden bestehende Artikel nur ergänzt, niemals gelöscht.** Das betrifft ausdrücklich auch unterschiedliche Artikel in beiden Listen.
+
+### Alexa ohne Bring!-Skill verwenden
+
+Bei eingeschaltetem Modus **Bring! ↔ Alexa** reicht dienormale Spracheingabe **«Alexa, Milch auf die Einkaufsliste»** . Der Artikel Landet Zunächst в der Alexa-Liste; ShoppingRoute sortiert nach deinen Markt- und Laufwegregeln und übernimmt ihn beim nächsten bestätigten Abgleich in Bring!. Den langen Aufruf **«Алекса, мудрец, принеси!…»** brauchst du für diesen Ablauf nicht mehr. Erledigst du Milch anschließend в Bring!, Entfernt ShoppingRoute den gespiegelten Eintrag aus der aktiven Alexa-Liste. Конечно, это технический аспект, но он не может быть определен как маркёрт. Если вы работаете в режиме Verbindung funktioniert und keine Sicherheits- или Konfliktsperre Greeift, то это может привести к неприятным последствиям.
+
+Приносить! selbst sortiert Artikel nach seinen eigenen Produktkategorien. Die App unterstützt **keine frei vorgegebene Reihenfolge einzelner Artikel** . Индивидуальный ShoppingRoute-Laufwege siehst du daher auf der ShoppingRoute-Verwaltungsseite beziehungsweise в Alexa. В приложении Bring!-App вы можете получить доступ к собственной категории вручную.
+
+### Wichtig für den sicheren Betrieb
+
+- **Воспользуйтесь функцией ShoppingRoute:** Отдельный адаптер Bring!-Adapter Fragt Seine Cloud-Liste Normalerweise ungefähr alle **90 Sekunden** ab. ШоппингRoute kann dieses Intervall nicht verkürzen. Sobald ein aktualisierter Listenstand im ioBroker ankommt, wird ShoppingRoute ereignisgesteuert aktiv; собственное Rückfallprüfung рассчитано на 30 секунд.
+- Bei gleichen Artikelnamen mit unterschiedlichen Mengen/Beschreibungen или bei mehrfachen Artikeln wird nichts erraten. Der Abgleich остановился и разрешил конфликт.
+- Werden Daten nicht rechtzeitig bestätigt, bleibt ein Wiederherstellungsjournal bestehen und weitere Schreibvorgänge werden blockiert. Vor einem Zurücksetzen des Journals müssen **beide Listen manuell geprüft** werden.
+- Bei Dry-Run werden weder Принесите! Ночь Алекса бесшрибен.
+- Die Statusmeldung steht unter `shoppingroute.0.info.bringSyncStatus`; die berechnete Bring!-Route unter `shoppingroute.0.info.bringSyncPreview`.
+
+**Praxistest (26.10.2026):** Vorhandene Bring!-Listen und neu in Bring! hinzugefügte Artikel werden in ShoppingRoute übernommen und beim nächsten Sortierlauf entsprechend den Markt- und Laufwegregeln eingeordnet. Приложение Die Bring!-App будет бесплатным для сортировки ваших статей. Автоматические тесты для синхронизации и конфликтов. Nicht durch diesen Praxistest bestätigt sind sämtliche Erledigungs-, Lösch- und Konfliktfälle bei bidirektionalem Live-Abgleich. Diesen Modus zuerst mit Gesicherten Testlisten verwenden.
+
+## Новое в версии 0.5.3: прямой доступ к Alexa-App
+
+**Вы хотите узнать, есть ли у вас Angebot и хотите ли вы найти Einkaufsliste ändern? Это будет прямой рейс к Handy.** Вы можете использовать обычное приложение Alexa.
+
+### Шаг 1: Käse Heute Liber bei LIDL kaufen
+
+Дополнительный список сведений:
+
+```text
+25> Käse
+```
+
+Eigentlich kaufst du Käse bei ALDI. Heute is aber bei LIDL im Angebot.
+
+**Итак, вот:** Tippe in der Alexa-Einkaufsliste auf **Eintrag hinzufügen** und schreibe:
+
+```text
+25WLIDL
+```
+
+**Фертиг.** ShoppingRoute verschebt den Käse für **diesen Einkauf** zu LIDL. Beim nächsten Einkauf wird er Wieder seinem Normalen Markt zugeordnet.
+
+### Действие 2: Как погрузиться в LIDL kaufen
+
+Вы хотите проверить качество LIDL? Данн füge stattdessen diesen Eintrag hinzu:
+
+```text
+25FLIDL
+```
+
+**Der Unterschied:** **W** gilt nur für diesen Einkauf. **F** merkt sich LIDL dauerhaft für diesen Artikel.
+
+### Часть 3: Статья в списке, находящемся на шее
+
+Назовите список в LIDL так:
+
+```text
+10> Gurken
+20> Bananen
+25> Käse
+30> Milch
+40> Butter
+```
+
+Вы можете протестировать Käse **zwei Plätze weiter oben** haben. Füge diesen Eintrag hinzu:
+
+```text
+25H2
+```
+
+Danach steht Käse vor Gurken und Bananen:
+
+```text
+Käse
+Gurken
+Bananen
+Milch
+Butter
+```
+
+Möchtest du Käse stattdessen **zwei Plätze nach unten** schieben, verwendest du:
+
+```text
+25R2
+```
+
+**H = хох, R = бегун.** Если статья не закрыта, она не может быть отключена от номера. Ein Artikel bleibt immer in seinem Markt; an der ersten oder letzten Stelle ist Schluss. Deine festgelegten Laufwege und Produktgruppen werden dadurch nicht geändert.
+
+### Das solltest du wissen
+
+**Die Nummer ist nur ein Beispiel.** Schau vor jedem Befehl nach, welche **zweistellige Number gerade vor deinem Artikel** steht. Bei einem anderen Einkauf kann Käse eine andere Nummer haben. Номера для Marktüberschriften не должны быть указаны в Artikelnummern.
+
+Вы можете быть **более внимательны** в этом списке. Groß- und Kleinschreibung ist egal: `25wlidl` гениальный функционал. Кляйне, eindeutig erkennbare Tippfehler bei Marktnamen werden korrigiert.
+
+**Bitte nicht ungeduldig werden:** ShoppingRoute sortiert **nicht sofort** . Я нахожусь в Интернете и Alexa может быть занят **в течение нескольких минут** . Соланж дер Бефель сегодня в дер Листе, это в первую очередь нормально. Nach erfolgreicher Verarbeitung verschwindet er autotisch.
+
+**Steht der Befehl nach fünf Minuten immer noch da?** Prüfe die Internet-/Alexa-Verbindung und ob Nummer, Buchstabe und Markt richtig sind. Einen falschen Befehl einfach **abhaken und neu eingeben** . Когда ShoppingRoute einen Befehl nicht eindeutig versteht, lässt es ihn stehen, statt den falschen Artikel zu verschieben.
+
+**Vier Funktionen, драгоценности на немецком или английском языке:** `W/C` (Wechsel/Change), `F/E` (Фест/Эвер), `H/U` (Hoch/Up) und `R/D` (Бегущий/Вниз). Зум Бейшпиль Синд `25WLIDL` унд `25CLIDL` gleichwertig. Для большего удобства `25FLIDL` Одер `25ELIDL`. `25D2` bedeutet **zwei Plätze nach unten** , nicht dauerhaft wechseln.
 
 ## Warum ShoppingRoute beim Einkaufen wirklich hilft
 
@@ -47,7 +172,7 @@ Der wichtigste Unterschied zu einer Normalen Einkaufsliste ist das **Marktroutin
 
 Für jeden Markt legt du selbst fest, в welcher Reihenfolge du durch die Abteilungen gehst.
 
-Когда вы LIDL zuerst an Obst und Gemüse vorbeikommst, danach an Brot, dann an Fleisch, Milchprodukten und zuletzt an Tiefkühlware, kannst du genau diesen Weg hinterlegen.
+Когда вы LIDL используете Obst und Gemüse vorbeikommst, danach an Brot, dann an Fleisch, Milchprodukten und zuletzt an Tiefkühlware, kannst du genau diesen Weg hinterlegen.
 
 ShoppingRoute sortiert deine Artikel anschließend passend zu **deinem persönlichen Laufweg** .
 
@@ -198,7 +323,7 @@ Gehe auf **Märkte** und trage die Geschäfte ein, in denen du Normalerweise ein
 
 ShoppingRoute speichert Marktnamen autotisch в **GROSSBUCHSTABEN** .
 
-Вы можете также использовать «Lidl» или «Rewe».
+Вы также можете использовать «Lidl» или «Rewe».
 
 ### Шрифт 5: Produktgruppen prüfen
 
@@ -216,7 +341,7 @@ Unter **Produktgruppen** legt du Bereiche fest, die ungefähr den Abteilungen ei
 - Непродовольственные товары
 - Прочее
 
-Вы не должны ничего делать с Warengruppe anlegen. Es reicht, wenn die Gruppen für deinen Einkauf sinnvoll sind.
+Вы не должны ничего делать с Warengruppe Anlegen. Es reicht, wenn die Gruppen für deinen Einkauf sinnvoll sind.
 
 ### Schritt 6: Laufweg festlegen
 
@@ -249,7 +374,7 @@ Ein Artikel kann zum Beispiel so eingestellt sein:
 
 ### Schritt 8: Testen
 
-Вот несколько статей, посвященных Алексе, из следующего списка, где написано:
+Вот несколько статей, посвященных Алексе, из следующего списка:
 
 - Бананен
 - Молоко
@@ -273,7 +398,7 @@ Unter **Einkaufsliste** siehst du die aktuelle Liste nach Märkten Gegliedert.
 **ЛИДЛ**
 
 - Бананен
-- Томатен
+- Помидоры
 - Молоко
 - Йогурт
 
@@ -286,6 +411,8 @@ Unter **Einkaufsliste** siehst du die aktuelle Liste nach Märkten Gegliedert.
 Если вы хотите найти статью на фальшивом рынке, вы можете получить прямой доступ к ней.
 
 Je nach Ansicht stehen dafür Drag & Drop, Pfeiltasten или eine Marktauswahl zur Verfügung.
+
+Мануэль Вершибунген в Einkaufsliste bleiben zunächst Entwurf im Browser. Verschiebe alle gewünschten Artikel und Drücke Dann **Änderungen an Alexa übertragen** . Сначала нажмите кнопку, чтобы начать работу с Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Вкладки браузера теперь доступны только в том случае, если вы хотите, чтобы они были доступны для быстрого доступа к Alexa Geladene Liste angevendet. Erledigte, gelöschte или umbenannte Artikel werden durch alte Entwürfe nicht wiederhergestellt. Solange die Ansicht sichtbar ist und bei der Rückkehr zum Tab erfolgt eine sparsame Aktualisierung. Ist Alexa nicht erreichbar, zeigt die Oberfläche einen Fehler mit erneuter Lademöglichkeit statt einer veralteten Liste. Ошибка кэширования браузера не имеет значения.
 
 Eine manuelle Änderung Hat Vorrang vor der der Autotischen Zuordnung.
 
@@ -428,7 +555,7 @@ Weitere Geschäfte, in denen der Artikel ebenfalls gekauft werden kann.
 
 ## 9. Эйнен Маркт напрямую от Алексы Неннен
 
-Вы можете посетить ShoppingRoute ausdrücklich sagen на welchem Markt ein Artikel gekauft werden soll.
+Du kannst ShoppingRoute ausdrücklich sagen, на welchem Markt ein Artikel gekauft werden soll.
 
 Пример:
 
@@ -542,7 +669,7 @@ Das bedeutet:
 
 **ShoppingRoute останавливается в Weitere Änderungen, statt auf Verdacht weiterzuschreiben.**
 
-Если вы хотите, чтобы это произошло, вы можете получить актуальный список Alexa-Liste und die Fehlermeldung.
+Если вы хотите получить больше информации, вы можете получить актуальный список Alexa-Liste und die Fehlermeldung.
 
 Ein Sicherheitsstopp — это kein Datenverlust, sondern eine Schutzfunktion.
 
@@ -620,7 +747,7 @@ Der folgende Abschnitt ist für den Normalen Betrieb **nicht erforderlich** .
 
 ### Temporärer Prioritätsmarkt
 
-Для того, чтобы получить больше информации, вы можете воспользоваться рынком:
+Для того, чтобы получить больше информации, вы можете воспользоваться услугами рынка:
 
 `shoppingroute.0.control.temporaryPriorityMarket`
 
@@ -648,7 +775,7 @@ gespeichert.
 
 Die sichtbaren Zahlen von `00>` бис `99>` Sind Interne Sortierschlüssel.
 
-ShoppingRoute не дает вам покоя, когда Алекса-Список умирает, он будет свободен от определенных ограничений. Durch die Einstellung **A–Z** werden diese Zahlen алфавитный bzw. числовые значения в Gewünschte Reihenfolge gebracht.
+ShoppingRoute ничего не значит, что мы умрем Alexa-Liste, который будет свободен от определенных ограничений. Durch die Einstellung **A–Z** werden diese Zahlen алфавитный bzw. числовые значения в Gewünschte Reihenfolge gebracht.
 
 Для нормального использования необходимо знать, что технология неизвестна.
 
@@ -672,6 +799,6 @@ Danach erledigt ShoppingRoute den größten Teil der Arbeitautotisch.
 
 ### Слушайте и рассказывайте статьи
 
-Unter **Listen → В Alexa anlegen** erstellt ShoppingRoute eine echte Alexa-Liste und speichert ihre Zuordnung direkt. Сначала лучше всего пользоваться Amazon zählt als Erfolg. Список будет добавлен в приложение Alexa App для Handy zur Verfügung. Bereits vorhandene Namen werden wiederverwendet.
+Unter **Listen → В Alexa anlegen** erstellt ShoppingRoute eine echte Alexa-Liste und speichert ihre Zuordnung direkt. Сначала лучше всего пользоваться Amazon zählt als Erfolg. Список включен в приложение Alexa App для Handy zur Verfügung. Bereits vorhandene Namen werden wiederverwendet.
 
 Im Bereich **Einkaufsliste** kannst du über **Neuen Artikel hinzufügen → Hinzufügen** direkt in die ausgewählte Alexa-Liste schreiben, auch wenn diese noch leer ist. Адаптер не работает при последующей сортировке. Bei einem Fehler bleibt deine Eingabe erhalten. Dry-Run und Schreibschutz gelten также здесь. Слушайте Alexa-Listen Blockieren keine Anderen Listen.

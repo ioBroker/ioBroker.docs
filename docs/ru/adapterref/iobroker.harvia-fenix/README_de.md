@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: q4T9LDM8xwHBmjuw7owV8NMwiMpDK13TeOrC3Dwg+lE=
+hash: 4cX3PUxGOTPuwfYiyRFwd8Mpw1qG7qVnzsS6BV9DJDA=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -12,6 +12,7 @@ hash: q4T9LDM8xwHBmjuw7owV8NMwiMpDK13TeOrC3Dwg+lE=
 ![Проблемы на GitHub](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Количество установок](https://iobroker.live/badges/harvia-fenix-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/harvia-fenix-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -71,7 +72,7 @@ _Примечание: Es wird ein разделяет Konto für ioBroker в п�
 2. Navigiere zum Reiter **Instantzen** und clicke auf das Einstellungs-Symbol Deiner `harvia-fenix.0` -Инстанц.
 3. Укажите **адрес электронной почты** и **пароль** , указанные в MyHarvia-Kontos.
 4. Когда вы получите **ID-код** , вы увидите, что адаптер будет автоматически запускаться после того, как вы нажмете на него соответствующий значок. Er verwendet das erste gefundene Gerät als aktive Einheit.
-5. Необязательный параметр Passe bei Bei Darf: **Abfrageintervall** (секунды), **Mindest-/Maximal-Zieltemperatur** (°C) и **Maximale Heizdauer** (минуты).
+5. Необязательный параметр Passe bei Bei Darf: **Mindest-/Maximal-Zieltemperatur** (°C) и **Maximale Heizdauer** (минуты).
 6. Нажмите на **Speichern & Schließen** .
 
 ---
@@ -148,10 +149,11 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `errorMsg`                      | нить       | `text`                | Нур Лесен       | Aktuelle Fehlermeldungen или Statustexte des Ofens.                                                                                                  |
 | `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
 | `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется `0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
-| `lightOn`                       | логический | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
-| `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
-| `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Температура напрямую на физическую панель.                                                                                                           |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z. B. `90 °C`).                                                                                         |
+| `lightOn`                       | логический | `switch.light`        | Lesen/Chreiben  | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
+| `fanOn`                         | логический | `switch`              | Lesen/Chreiben  | Schalter für den Saunalufter bzw. умереть Zweitbeleuchtung.                                                                                          |
+| `maxDuration`                   | число      | `level.timer`         | Lesen/Chreiben  | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
+| `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z. B. `90 °C`).                                                                                         |
 | `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B. `17 °C`).                                                                                                       |
 | `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд `true`, wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
 | `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд `true`, если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
@@ -189,7 +191,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 ### 2. Бенахрихтигунген (нажимной курок)
 
-Адаптер, в котором указаны индикаторы-даты для подключения, специально для использования в Push-Benachrichtigungen (z.B. через Telegram, Pushover или Alexa), выглядит следующим образом:
+Адаптер, в котором указан индикатор-дата для подключения, специально предназначен для использования в режиме Push-Benachrichtigungen (например, через Telegram, Pushover или Alexa) следующим образом:
 
 ```javascript
 // Trigger für die 10-Minuten-Vorwarnung
@@ -262,6 +264,21 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 
 ### **РАБОТА В ПРОЦЕССЕ**
 
+- (meistermopper) node-forge Override в актуальной версии ^1.4.3 (Dependabot)
+- (meistermopper) Weblate-Badge в README ergänzt und deutsche i18n synchronisiert
+- (meistermopper) @iobroker/testing для актуальной версии 6.3.2 (W0037)
+
+### 1.2.1 (2026-11-05)
+
+- (meistermopper) Устарело Abfrageintervall (pollInterval) в момент мгновенной конфигурации
+- (meistermopper) Abhaengigkeits-Overrides zur Behebung von Dependabot-Actualisiert
+
+### 1.2.0 (2026-10-19)
+
+- (meistermopper) Datenpunkt fanOn und FAN-Befehl fuer Saunaluefter / Zweitbeleuchtung ergaenzt
+- (meistermopper) patch-ps-tree-Skript для dev-сервера Windows-11-совместимость, исправленная
+- (meistermopper) Abhaengigkeiten und Overrides fuer Sicherheitshinweise actualisiert
+
 ### 1.1.2 (2026-10-02)
 
 - (meistermopper) Endlosschleifen-Risiko в Auth-Retry-Logik behoben
@@ -280,23 +297,6 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 - (meistermopper) Конечный пункт activeProfile в исправлении /devices/profile
 - (meistermopper) Профиль сауны (профили, activeProfile) в документации
 
-### 1.0.0 (2026-09-17)
-
-- (meistermopper) AWS AppSync WebSocket Push-клиент реального времени
-- (meistermopper) Token-Actualisierung ueber /auth/refresh с RefreshToken
-
-### 0.6.0 (2026-09-16)
-
-- (meistermopper) Datenpunkte ReadAt, ReadyAtMessage и timeToTargetFormatted ergänzt
-- (meistermopper) Harvia-Heizkurvenberechnung с 13 интервалами реализации
-- (meistermopper) Профиль сауны (профили, активный профиль) и прогноз режима ожидания
-- (meistermopper) Логотип-Anzeigegroesse в README-Dateien на 200px вердоппельта
-- (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
-- (meistermopper) Автоматическое создание примечаний к выпуску для GitHub eingerichtet
-- (meistermopper) check:repo Скрипт добавлен и в тесте:local integriert
-- (meistermopper) Электронная почта в Lizenz-Copyrightzeilen wiederhergestellt (S4050, S4051)
-- (meistermopper) Lizenzabschnitt в README gemäß Repochecker-Regel W6034 korrigiert
-
 ---
 
 ## Лицензия
@@ -305,4 +305,4 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 
 Авторские права (c) 2026 meistermopper <meister.mopper@gmail.com>
 
-Вы можете получить лицензию Lizenzbedingungen, введя дату [ЛИЦЕНЗИИ,](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) которую вы найдете.
+Вы можете получить лицензию Lizenzbedingungen с датой [ЛИЦЕНЗИИ](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) , которую вы найдете.

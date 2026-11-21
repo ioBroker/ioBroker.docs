@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.autodarts/README.md
 title: Адаптер ioBroker для AUTODARTS
-hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
+hash: R9zbxsnz1nlG6J8F0QOmnWWRkNovqzE8/WFEYQWHCv8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.autodarts/admin/autodarts.svg)
 
@@ -51,7 +51,7 @@ hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
 - ** `visit.score` ** : Общий балл за последний полный визит (3 броска)
 - ** `throw.current` ** Числовой результат последнего брошенного дротика
 - ** `trigger.isTriple` ** : Логический флаг для тройных попаданий в пределах настраиваемого диапазона сегментов (по умолчанию: 1–20)
-- ** `trigger.isDouble` ** Логический флаг, указывающий только на двойные попадания (во всех сегментах).
+- ** `trigger.isDouble` ** Логический флаг, указывающий только на двойные попадания (все сегменты).
 - ** `trigger.isBullseye` ** Логический флаг, указывающий только на попадание в цель.
 - ** `trigger.isMiss` ** Логический флаг, который принимает значение true, если дротик не попадает ни в один допустимый сегмент для набора очков (чистый промах, нет очков).
 
@@ -69,6 +69,7 @@ hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
 - ** `system.software.*` ** : Версии Autodarts (boardVersion, desktopVersion), сведения об ОС и платформе
 - ** `system.hardware.*` ** : модель процессора, архитектура ядра, имя хоста
 - ** `system.cams.cam0/1/2` ** : Конфигурация камеры (ширина, высота, частота кадров) в формате JSON
+- ** `system.cams.calibrate` ** Кнопка для запуска автоматической калибровки камеры через локальный API менеджера платы. `POST /api/config/calibration/auto` Использует IP-адрес и **порт** **платы** из настроек (работает в локальном и облачном режимах, если...). `:3180` доступен).
 
 ### Управление оборудованием
 
@@ -111,11 +112,11 @@ hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
   - `local` — Опросить клиентскую часть платы в вашей локальной сети (`IP:port` (по умолчанию для Autodarts до версии 2)
   - `cloud` — Учетная запись Autodarts + идентификатор доски (необходим для обнаружения бросков в Autodarts v2)
 
-- **Хост платы/IP-адрес** (локальный режим)\
-  &#x20;IP-адрес вашего ПК для Autodarts (например) `192.168.178.50` или `127.0.0.1`).
+- **IP-адрес платы**\
+  &#x20;IP-адрес вашего ПК для Autodarts (например) `192.168.178.50` или `127.0.0.1` Используется для локального опроса и калибровки камеры (в том числе в облачном режиме).
 
-- **Порт** (локальный режим)\
-  &#x20;TCP-порт клиентской платы (обычно) `3180`).
+- **Порт**\
+  &#x20;TCP-порт локального API платы (обычно) `3180` Необходимо для локального режима и для `system.cams.calibrate`.
 
 - **Облачная электронная почта / пароль / идентификатор доски** (облачный режим)\
   &#x20;Ваши данные для входа в Autodarts и идентификатор доски из **раздела «Мои доски»** на [play.autodarts.io](https://play.autodarts.io) .\
@@ -164,9 +165,12 @@ hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
 - Этот адаптер предназначен для работы только с вашей собственной мишенью для дартса.
 
 ## Changelog
-<!--
-	### **WORK IN PROGRESS**
--->
+### 1.2.0 (2026-10-15)
+- (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
+
+### 1.1.1 (2026-10-03)
+- (skvarel) Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)
+
 ### 1.1.0 (2026-09-26)
 - (skvarel) Documented Autodarts v2 incompatibility for local throw detection
 - (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
@@ -177,16 +181,6 @@ hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
 
 ### 1.0.11 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 1.0.10 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
-- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
-
-### 1.0.9 (2026-05-25)
-- (skvarel) Adapter requires node.js >= 22 now
-- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
-- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
 
 ## License
 MIT License

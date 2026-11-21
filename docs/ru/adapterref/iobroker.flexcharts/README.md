@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: nHTlQfdjQGjC5c/NQgW3KY1lc12Tjkz2z5oIwgINA7E=
+hash: Bnw8y5T/FhP+FPKNZILF/FQAewDDdUx0c5ow9VC+Qwo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -26,6 +26,13 @@ hash: nHTlQfdjQGjC5c/NQgW3KY1lc12Tjkz2z5oIwgINA7E=
 
 Примечание: Адаптер еще не тестировался на MacOS.
 
+## Что нового в версии 0.7.4
+
+**Больше нет белой рамки вокруг диаграмм, встроенных в VIS/VIS2** — теперь страница вокруг диаграммы принимает цвет фона диаграммы:
+
+- Применение `backgroundColor` определение диаграммы или активной темы (например, с `&darkmode`)
+- Размер диаграммы остается неизменным; диаграммы без фонового цвета (или с градиентом) сохраняют прозрачность страницы, как и прежде.
+
 ## Что нового в версии 0.7.3
 
 **Настраиваемый тайм-аут для `source=script` виджеты** — позволяют избежать ложных ошибок тайм-аута при ресурсоемких вычислениях или при использовании скоординированных/последовательных диаграмм:
@@ -40,14 +47,6 @@ hash: nHTlQfdjQGjC5c/NQgW3KY1lc12Tjkz2z5oIwgINA7E=
 - Два новых шаблона, удобных для начинающих: [шаблон 6](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate6.js) (энергетический столбчатый график с данными адаптера истории) и [шаблон 7](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate7.js) (реактивный индикаторный график с автоматическим обновлением SSE).
 - Улучшены комментарии и маркеры STEP во всех существующих шаблонах (1–5)
 - Новая [вики с руководством по созданию графиков](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki) : пошаговые инструкции по созданию интерактивных диаграмм с нуля — см. [Дополнительные примеры и ресурсы.](#further-examples-and-resources)
-
-## Что нового в версии 0.7.1
-
-**Обновление диаграммы SSE происходит без перезагрузки страницы** — при использовании `&sse` Теперь диаграмма обновляется на месте, а не перезагружает всю страницу:
-
-- Анимация в ECharts плавно работает при каждом обновлении данных.
-- Отсутствует мерцание и перестроение графика при обновлении.
-- Работает прозрачно для всех существующих систем. `&sse` URL-адреса — никаких изменений не требуется.
 
 ## Как это работает
 
@@ -298,6 +297,10 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.4 (2026-10-17)
+* (MyHomeMyData) Page background now follows the chart's background color (option or theme) to avoid a white frame around charts embedded in VIS/VIS2 iframes
+* (MyHomeMyData) SSE timers now use adapter.setInterval() so they are cleaned up when the web adapter stops
+
 ### 0.7.3 (2026-08-24)
 * (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
 
@@ -313,13 +316,9 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 ### 0.7.0 (2026-04-15)
 * (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
 
-### 0.6.2 (2026-04-13)
-* (MyHomeMyData) Restructuring of code for better readability and improved performance.
-* (MyHomeMyData) Restructuring of Readme for better readability.
-
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

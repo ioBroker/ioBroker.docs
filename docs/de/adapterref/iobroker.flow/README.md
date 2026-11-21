@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flow/README.md
 title: ioBroker.flow
-hash: BZ460Bi+IAr+xqpBzbLi/V/zCcTQsbGm6OFeOk5Zayc=
+hash: tHtmvSAZBRbPrX9M9mHAX5yOvEqjYT3DxPCI5pYV/G8=
 ---
 ![Logo](../../../en/adapterref/iobroker.flow/admin/flow.svg)
 
@@ -53,7 +53,7 @@ Sie platzieren Produzenten, Konsumenten, Speicher und das Grid auf einer Arbeits
 - **Vorlagen als Ausgangspunkt:** Photovoltaikanlage + Netzanschluss + Hausanlage mit Batteriespeicher und entweder einer Wandbox oder einer Wärmepumpe. Wählen Sie eine Option aus und geben Sie nur noch die Bundeslandkennungen an. `examples/` Enthält vollständige Diagramme realer Installationen zum Importieren und Anpassen.
 - **Ein Knoten berechnet seinen eigenen Wert** aus den Linien, die ihn treffen, daher benötigt das klassische Vier-Felder-Diagramm drei Zustands-IDs und nicht sieben.
 - **Ein Zustand pro Verbindung, nicht zwei.** Ein Netzzähler oder eine Batterie meldet einen Wert mit Vorzeichen: positiv in die eine Richtung, negativ in die andere. Das ist eine Verbindung im Diagramm, und Richtung, Farbe und Animation richten sich nach dem Vorzeichen.
-- **Einheiten, die sich selbst skalieren.** Angenommen, ein Wert ist in `W` einmal und das Diagramm zeigt `734 W`, `8.73 kW` oder `2.5 MW` abhängig davon, was tatsächlich fließt.
+- **Einheiten, die sich selbst skalieren.** Angenommen, ein Wert ist in `W` einmal und das Diagramm zeigt `734 W`, `8.73 kW` oder `2.5 MW` abhängig davon, was gerade fließt.
 - **Formeln, bei denen ein einzelner Zustand nicht ausreicht.** `sum(inverter1, inverter2)`, `pv - feedIn`, `if(soc > 95, 0, charge)` — mit einem Faktor, einem Offset, einer Totzone und einem Vorzeichenschalter für die üblichen Skalierungsfälle.
 - **Passt sich der Größe des jeweiligen Feldes an.** Eine SVG-Datei mit einem `viewBox`: eine vis-2-Ansicht in voller Breite oder eine 1×1-Karte im Geräte-Manager.
 - **Die Animation stoppt, sobald niemand hinsieht.** Sie wird in einem ausgeblendeten Browsertab pausiert, während das Widget aus dem sichtbaren Bereich gescrollt wird, und berücksichtigt dabei die Einstellungen. `prefers-reduced-motion` (Dann zeigt ein statischer Pfeil die Richtung an).
@@ -100,6 +100,12 @@ Der Designe&#x72;** `< >` ** Die Schaltfläche öffnet das Dokument als JSON: F�
 Fügen Sie im Widget-Manager ein Widget zu einer Kategorie hinzu und wählen Sie unten in der Liste im Plugin-Bereich **„Flussdiagramm“** aus. Der Einstellungsdialog der Karte bietet dieselben zwei Modi wie in vis-2, sodass ein gespeichertes Diagramm gleichzeitig in vis-2 und im Geräte-Manager angezeigt werden kann.
 
 > Die Geräteseite benötigt `ioBroker.devices` mit dem Widget-Manager und `@iobroker/json-config` 10 — Ältere Versionen kennen den von diesem Plugin verwendeten Mechanismus nicht.
+
+### Als Webkomponente (Vorschau)
+
+Der Adapter bringt außerdem `<iob-flow-diagram>`, eine Webkomponente von[`@iobroker/web-components`](https://github.com/ioBroker/web-components) : ein Modul (`admin/webcomponents/flow-diagram.js`) mit seinem Manifest daneben (`flow-diagram.json`, erklärt in `common.webComponents`), das jeder Host dieses Vertrags auf die gleiche Weise anzeigt – vis-2, ioBroker.devices und Seiten anderer Anwendungen. Ein Host liest das Manifest für seine Palette und die Einstellungen und lädt das Modul nur, wenn er das Diagramm anzeigt. Es zeigt ein **gespeichertes** Diagramm an (`flow.0.diagrams.*` Das Zeichnen eines Diagramms erfolgt über den Tab „Flow“ in der Administration. Einstellungen: Diagramm, Titel, Beschriftungen, Animationen und ob ein Klick das Diagramm vergrößert öffnet. Detail- und Gesamtansicht sind Dialogfelder des Hosts; die Klickaktion „Anzeigen“ ruft diese Ansicht auf.
+
+Das Modul lädt React von `/lib/esm/react-19.js`, die Web- und Admin-Bereiche bedienen.
 
 ### In der Administratorkonfiguration eines anderen Adapters
 
@@ -180,13 +186,28 @@ Es spricht mit dem Administrator bei `ADMIN_URL` In `src-preview/vite.config.ts`
 
 ### Übersetzungen
 
-`packages/translations/src/*.json`—`en` Und `de` sind vollständig, die anderen neun Sprachen sind absichtlich leer: `I18n.t` Bei fehlendem Schlüssel wird auf Englisch zurückgegriffen, und eine leere Datei zeigt „Noch nicht übersetzt“ an, obwohl eine englische Kopie das Gegenteil behaupten würde. Beiträge sind willkommen.
+`packages/translations/src/*.json` —`en` Und `de` sind vollständig, die anderen neun Sprachen sind absichtlich leer: `I18n.t` Bei fehlendem Schlüssel wird auf Englisch zurückgegriffen, und eine leere Datei zeigt „Noch nicht übersetzt“ an, obwohl eine englische Kopie das Gegenteil behaupten würde. Beiträge sind willkommen.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 0.2.1 (2026-11-09)
+* (@GermanBluefox) A line that leaves a node through its label no longer makes the label hard to read
+
+### 0.2.0 (2026-11-06)
+* (@GermanBluefox) Added the web component `<iob-flow-diagram>` (`common.webComponents`)
+* (@GermanBluefox) The web component takes the colors of its host for text, nodes and lines, like the vis-2 widget (`@iobroker/web-components` 0.5.0)
+* (@GermanBluefox) The web component shows its hint "choose a diagram" when the setting names no stored diagram (e.g. `12V` instead of `flow.0.diagrams.12v`), instead of staying empty
+
+### 0.1.0 (2026-10-09)
+* (@GermanBluefox) Corrections devices widget
+
 ### 0.0.2 (2026-10-03)
 
 * (@GermanBluefox) Corrections for publication

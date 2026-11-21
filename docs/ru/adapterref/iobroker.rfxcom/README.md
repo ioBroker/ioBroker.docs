@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: GvbpLgMKc3xWxmn8uNq91vc6QCF1Fqtngx7sFsLufIk=
+hash: +GR89ECL8/X5QLBQ7uFPM12yLupVXCdWj53brSnqg0Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
-![Количество установок](http://iobroker.live/badges/rfxcom-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
+![Количество установок](https://iobroker.live/badges/rfxcom-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
@@ -41,10 +41,25 @@ hash: GvbpLgMKc3xWxmn8uNq91vc6QCF1Fqtngx7sFsLufIk=
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+### 3.0.1 (2026-10-14)
+* (@GermanBluefox) Added the missing sizes to the settings for all screen widths
+
+### 3.0.0 (2026-10-14)
+* (bluefox) The adapter was refactored to TypeScript and JsonConfig
+* (bluefox) Breaking change: Node.js >= 22, js-controller >= 6.0.11 and admin >= 7.6.17 are required
+* (bluefox) Fixed: the subtype was sent as text to the RFXtrx, so all subtypes except the first one (e.g. RFYEXT, ARC) were controlled wrongly
+* (bluefox) Fixed: Lighting1 and Curtain1 devices could not be controlled (wrong device ID format); Curtain1 objects were not created
+* (bluefox) Fixed: received Lighting1/Lighting2/Weight devices crashed the adapter and were never learned; the inclusion mode can be switched on and off now
+* (bluefox) Fixed: the `state` and `level` states of the devices and the venetian blind commands of RFY work now
+* (bluefox) The used serial port is reported to js-controller 8 (`registerUsedResource`), with a warning if another instance already uses it
+* (bluefox) Fixed: pairing of devices that were not saved yet, "All Off"/"All On" of Lighting1 were swapped, the Lighting2 dim level was scaled wrongly
 
 ### 2.0.2 (2021-11-10)
 * (bluefox) Fixed error by deleting of object
@@ -64,7 +79,7 @@ hash: GvbpLgMKc3xWxmn8uNq91vc6QCF1Fqtngx7sFsLufIk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2026, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

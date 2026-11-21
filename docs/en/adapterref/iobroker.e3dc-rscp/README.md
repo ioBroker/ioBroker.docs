@@ -532,6 +532,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+(git-kick)
+* DB: support both REQ_HISTORY_UTC_TIME_START and legacy REQ_HISTORY_TIME_START - [Issue #375](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/375)
+* Display RSCP.AUTHENTICATION state (used to show only number)
+
 ### 1.4.6 (2026-10-02)
 
 (smuenzel)

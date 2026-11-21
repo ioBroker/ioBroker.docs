@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: jcl96/3Wz5w5551JgmSpGIWH0ORpV9jYfrHyTz2Si4g=
+hash: TPNkoPJbFt8lV9kE+BfPQOWeFFstAX3EGddb70PpyK0=
 ---
 ![Logo](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/cul-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.cul.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/cul-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.cul.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cul.svg)
@@ -39,42 +39,37 @@ ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [C
 
 Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein Gerät zu senden. Basierend auf JavaScript/Node.js. `Busware CUL USB / culfw` Adapter
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2026-10-13)
+* (@GermanBluefox) The adapter reports the serial port it has open to js-controller 8, which keeps a per-host registry of the occupied resources (`system.host.<name>.usedResources`). A second instance configured for the same stick is visible as a conflict, and the log names the other instance before the port is opened. In CUNO mode nothing is reported: the configured port belongs to that device on the network, so it is no longer listed as occupied on this host either. An older js-controller is unaffected
 
 ### 3.0.2 (2026-09-02)
-
-- (@GermanBluefox) Ein Vorbereitungsskript wurde entfernt.
+* (@GermanBluefox) Removed a prepare script
 
 ### 3.0.1 (2026-08-25)
-
-- (@GermanBluefox) Der serielle Port kann jetzt manuell eingegeben werden, daher ein symbolischer Link unten. `/dev/serial/by-id` kann verwendet werden (#150)
-- (@GermanBluefox) Die Portliste bietet die `/dev/serial/by-id` zusätzlich zu den `/dev/ttyUSBx` Geräte unter Linux. Sie sind nicht länger hinter der experimentellen Option versteckt und ersetzen nicht mehr die Gerätepfade.
+* (@GermanBluefox) The serial port can be entered manually now, so a symlink below `/dev/serial/by-id` can be used (#150)
+* (@GermanBluefox) The port list offers the `/dev/serial/by-id` symlinks in addition to the `/dev/ttyUSBx` devices on Linux. They are not hidden behind the experimental option any more and do not replace the device paths any more
 
 ### 3.0.0 (2026-08-25)
-
-- (bluefox) EILMELDUNG: Der Adapter benötigt jetzt node.js >= 22, js-controller >= 6.0.11 und admin >= 7.0.0.
-- (bluefox) Der Adapter wurde in TypeScript neu geschrieben. Die Quelltexte befinden sich in `src/`, der veröffentlichte Code in `build/`
-- (bluefox) Aktualisiert `cul` Das Paket wurde auf Version 1.0.0 aktualisiert. Es verwendet serielle Schnittstelle 13, daher sind für die Installation keine Build-Tools mehr erforderlich.
-- (bluefox) EILMELDUNG: `cul` In Version 1.0.0 wurden einige Datenpunkte umbenannt: `battery` ist jetzt `batteryLow` /`batteryState`, `window` /`isopen` ist jetzt `open`, `valveposition` ist jetzt `valvePosition` Die alten Zustände werden nicht mehr gespeichert und können gelöscht werden.
-- (bluefox) Problem mit vertauschten Daten behoben `Mode` Und `Type` Beschriftungen im Konfigurationsdialog
-- (bluefox) Die Portliste im experimentellen Modus wurde korrigiert: die `/dev/serial/by-id` Die Einträge wurden aus einem undefinierten Wert erstellt.
-- (bluefox) Der HTML-Konfigurationsdialog und die gulpfile wurden entfernt.
-- (bluefox) Der Debug-Treiber, der die Wiedergabe wiederholte `lib/rawData.txt` wenn die Umgebungsvariable `DEBUG` wurde gesetzt, wurde entfernt
+* (bluefox) BREAKING: The adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.0.0 now
+* (bluefox) The adapter was rewritten in TypeScript. The sources are in `src/`, the published code in `build/`
+* (bluefox) Updated the `cul` package to 1.0.0. It uses serialport 13, so no build tools are required for the installation any more
+* (bluefox) BREAKING: `cul` 1.0.0 renamed some datapoints: `battery` is now `batteryLow`/`batteryState`, `window`/`isopen` is now `open`, `valveposition` is now `valvePosition`. The old states are not written any more and can be deleted
+* (bluefox) Fixed the swapped `Mode` and `Type` labels in the configuration dialog
+* (bluefox) Fixed the port list in experimental mode: the `/dev/serial/by-id` entries were built from an undefined value
+* (bluefox) The HTML configuration dialog and the gulpfile were removed
+* (bluefox) The debug driver, that replayed `lib/rawData.txt` when the environment variable `DEBUG` was set, was removed
 
 ### 2.2.0 (2023-04-17)
-
-- (jpk) Portauswahl anhand der ID statt des Namens als Option
-- (bluefox) Aktualisierte Benutzeroberfläche für Administrator 6
-
-### 2.0.2 (2022-05-11)
-
-- WICHTIG: Mindestens Node.js 12.x wird jetzt benötigt!
-- (Apollon77/achimmm) Unterstützung für Geräte mit Adresse 0 hinzugefügt
-- (bluefox) Aktualisiertes Serialport-Paket
+* (jpk) Select port by ID instead of name as an option
+* (bluefox) Updated GUI for admin 6
 
 ## License
 
-[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE) Copyright (c) 2014-2026 hobbyquaker
+Copyright (c) 2014-2026 hobbyquaker
+
+[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE)

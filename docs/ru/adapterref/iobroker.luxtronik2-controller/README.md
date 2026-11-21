@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-controller
-hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
+hash: EXOn+abDu6qZeUvXfrKFaFa8Y37i5Fmn+G5FjvwHOXs=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
@@ -17,33 +17,62 @@ hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
 
 ## адаптер luxtronik2-controller для ioBroker
 
-Этот адаптер ioBroker позволяет осуществлять локальное управление и мониторинг тепловых насосов с [контроллерами Luxtronik 2.x](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (например, Alpha Innotec, Novelan). Адаптер полностью написан на TypeScript.
+**100% локальный мониторинг, управление и оптимизация** тепловых насосов с [контроллерами Luxtronik 2.x / 3.x](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (Alpha Innotec, Novelan, Buderus, Siemens и др.) — полностью **без облачных вычислений** .
+
+Осуществляет прямую связь по протоколу **Native TCP (порт 8889)** и, опционально, комбинирует его с **Modbus TCP (гибридный режим)** для записи параметров непосредственно в энергозависимую оперативную память без износа флэш-памяти EEPROM. Включает встроенную **автоматизацию избыточной мощности фотоэлектрических систем** , **расчет COP/JAZ** в реальном времени, интеллектуальную оптимизацию цикла и интеллектуальное управление насосом (HUP и ZIP).
+
+**Руководство:** [английский](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md) · [немецкий](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
+
+> **💡 Нет кабеля LAN рядом с вашим тепловым насосом? Не проблема!** Если у вашего контроллера Luxtronik 2.0 есть только свободный USB-порт вместо ближайшей сетевой розетки, вы можете легко подключить его по Wi-Fi, используя умный проект **USB 2.0 powered WiFi/Ethernet Bridge** от _obermolch_ . Он питается непосредственно от USB-порта контроллера и устанавливает беспроводное соединение без дополнительных источников питания. Полное руководство и обсуждение в сообществе можно найти здесь: [ioBroker Forum: USB 2.0 powered WiFi/Ethernet Bridge für Luxtronik 2.0](https://forum.iobroker.net/topic/85773/usb-2-0-powered-wifi-ethernet-bridge-f%C3%BCr-luxtronik-2-0) .
+
+**Если вам нравится этот проект и вы хотите поддержать его развитие, вы можете оставить пожертвование здесь: <https://paypal.me/TJahnke>**
+
+### Функции
+
+#### 🔌 Режимы связи и работы
+
+- **3 гибких режима работы:** плавное переключение между безопасным **режимом только для чтения** (только мониторинг, запись на все аппаратные устройства заблокирована) и **режимом записи на уровне** порта. `8889`), и **в гибридном режиме Modbus** .
+- **Встроенная связь TCP и WebSocket:** прямое локальное соединение через классический TCP (`8888` /`8889`) или WebSockets (`8214`) с широкой совместимостью с микропрограммами версий V1.x, V2.x и V3.x (динамические коэффициенты масштабирования и адаптивная синхронизация очереди записи).
+- **Поддержка гибридного протокола Modbus TCP (0% износа флэш-памяти):** записывает энергозависимые параметры (целевые температуры, кривые нагрева, режимы работы) и катушки непосредственно в ОЗУ контроллера через Modbus TCP (порт). `502`) без износа флэш-памяти EEPROM, при этом продолжая считывать полную телеметрию через собственный порт. Активные состояния Modbus автоматически помечаются тегами. `(Modbus)` в дереве объектов.
+
+#### ☀️ Автоматизация и повышение эффективности фотоэлектрических систем
+
+- **Управление избытком солнечной энергии (PV-Ready):** Полностью интегрированная система автоматизации управления избытком солнечной энергии, использующая данные о поступающей из сети электроэнергии для повышения заданных параметров отопления и/или горячего водоснабжения (без износа, через Modbus TCP):
+  - **Динамический приоритет последовательности:** непрерывно отслеживает температуру в реальном времени и перенаправляет избыток воды между горячей водой и отоплением, как только целевой показатель с приоритетом достигает насыщения.
+  - **Гистерезис и интеллектуальные таймеры:** настраиваемые задержки запуска/остановки и выделенный порог остановки (логика триггера Шмитта) предотвращают саморазрушающиеся петли обратной связи при увеличении мощности теплового насоса.
+  - **Приоритетное использование батарей:** При желании в расчет избытка энергии включается мощность домашней батареи для ее зарядки, что позволяет отдать приоритет тепловому насосу как тепловому аккумулятору.
+  - **Аппаратная защита от циклов:** ожидает естественного завершения активных циклов отопления или горячего водоснабжения, прежде чем вернуться к заданным значениям при снижении выработки солнечной энергии, защищая компрессор.
+- **COP и JAZ (Калькулятор эффективности):** отслеживание эффективности в режиме реального времени ( _сегодня_ , _последние 7 дней_ , _текущий месяц_ , _текущий год_ ), автоматическое разделение на _отопление_ , _горячее водоснабжение_ и _общее потребление_ . Поддерживает внутренние счетчики Luxtronik или высокоточные внешние счетчики (например, Shelly 3EM, теплосчетчики M-Bus) с постоянным хранением данных. `hidden.cop_buckets`) и защита от падений и предотвращение развевания.
+
+#### 🛡️ Защита оборудования и интеллектуальная оптимизация
+
+- **Аппаратная защита и защита EEPROM-памяти:**
+  - **Кэш «чтение перед записью»:** перехватывает и блокирует избыточные команды записи, если контроллер уже хранит целевое значение.
+  - **Счетчики записи во флэш-память:** прозрачно отслеживают ежедневные данные (`write_cycles_today`) и кумулятивный (`write_cycles_total` Операции записи в EEPROM.
+  - **Настройки по умолчанию в режиме ожидания и интерактивная кривая нагрева:** автоматически восстанавливает безопасные базовые настройки в режиме ожидания, с предварительным просмотром интерактивной кривой нагрева в формате SVG в административном интерфейсе.
+  - **Прошивка `.90` Crash Shield:** Автоматически обнаруживает неисправные прошивки от производителя (`V1.90` /`V2.90`) и блокирует сетевую запись, чтобы предотвратить сбои оборудования.
+- **Защита компрессора (оптимизация цикла):** интеллектуально связывает циклы отопления и горячего водоснабжения, предотвращая ненужные остановки и запуски компрессора.
+- **Динамическое управление циркуляционным насосом отопления (автоматическое ШИМ-определение):** автоматически регулирует управляющее напряжение 0–10 В циркуляционного насоса отопления в зависимости от разницы температур на входе и выходе. Насосы с ШИМ-управлением автоматически определяются и отключаются.
+- **Интеллектуальное трехходовое управление циркуляционным насосом (ZIP):**
+  - Выберите один из вариантов подключения: **внутренний контроллер Luxtronik** , **внешний исполнительный модуль** (например, Shelly с нулевым износом) или **Modbus TCP (катушка 7)** .
+  - Запуск циркуляции по требованию с помощью датчиков движения/кнопок ioBroker (с защитой от циклического охлаждения) или синхронно во время генерации горячей воды.
+  - Включает в себя статус виртуального устройства в режиме реального времени (`Virtual_ZIP_Status`) и обратный отсчет оставшегося времени выполнения в секундах в реальном времени (`Virtual_ZIP_Remaining_Time`).
+
+#### 📊 Мониторинг, диагностика и настройка
+
+- **Интегрированные действия (макросы):** Предварительно заданные триггеры для принудительного нагрева (`Zwangsheizen`), принудительная горячая вода (`Zwangswarmwasser`), кровообращение (`Activate_Zip`), ручные сбросы холостого хода (`Setze_Vorgabewerte`), и полные дампы необработанных данных (`Dump_Raw_To_Log`).
+- **Интеллектуальное управление объектами и фильтр видимости:** запрашивает флаги видимости оборудования (команда) `3005`) при запуске скрывает неподдерживаемые компоненты (охлаждение, солнечная энергия, вентиляция, неустановленные смесительные контуры) и корректно удаляет невыбранные точки данных и пустые папки при перезапуске.
+- **Пользовательские точки данных:** Гибкое добавление пользовательских значений телеметрии (индекс). `3004`) и записываемые параметры (индекс) `3003`) через административный интерфейс, включая пользовательские коэффициенты масштабирования, единицы измерения и автоматическое форматирование меток времени Unix.
+- **Расширенные текстовые сообщения о состоянии и расчеты:** Расчет разброса температур в реальном времени, суммирование тепловой и электрической энергии, а также переведенные текстовые описания состояния системы (на немецком и английском языках).
+- **Интеллектуальные уведомления и проверки прошивки:** отправляет журналы ошибок, оповещения о проблемах с подключением и критических сбоях (например, проблемах со скоростью потока) в **Telegram** и **Центр уведомлений ioBroker** (с 60-минутным периодом ожидания для защиты от спама и кнопкой проверки в реальном времени). Также поддерживает запланированные (Cron) и ручные проверки обновления прошивки, включая получение журнала изменений.
+- **Автоматическое резервное копирование DTA:** ссылки в один клик и загрузка внутренних файлов по расписанию Cron. `.dta` диагностические журналы напрямую от теплового насоса в `0_userdata.0/luxtronik_backups` для анализа в таких инструментах, как _OpenDTA_ .
 
 ## Благодарности и история
 
 Этот проект основан на предварительной работе существующих проектов с открытым исходным кодом. Особая благодарность выражается:
 
-[Буни](https://github.com/bouni/luxtronik-2) , чья новаторская работа и разработка кода составляют важнейшую основу для взаимодействия с контроллерами Luxtronik.
-
-[Coolchip:](https://github.com/coolchip/luxtronik2) Для фундаментального обратного проектирования сетевого протокола Luxtronik.
-
-[UncleSamSwiss:](https://github.com/UncleSamSwiss/ioBroker.luxtronik2) Для оригинального адаптера ioBroker.
-
-Инновации в этой версии: контроллер luxtronik2 изначально интегрирует TCP-связь (порты 8888/8889) и не зависит от внешних библиотек. Кроме того, реализованы управляющие макросы, логика защиты компрессора и автоматическое управление точками данных.
-
-### Функции
-
-- **Встроенная связь по протоколу TCP:** прямое подключение к тепловому насосу без каких-либо дополнительных затрат.
-- **Защита компрессора (оптимизация цикла):** интеллектуальное объединение циклов отопления и горячего водоснабжения для значительного сокращения количества запусков компрессора.
-- **Динамическое управление циркуляционным насосом отопления (ЦНХО):** автоматическая регулировка напряжения циркуляционного насоса отопления (ЦНХО) в зависимости от разброса температур напора и отводимой жидкости для достижения максимальной эффективности.
-- **Интегрированные действия (макросы):** Предварительно заданная логика управления для принудительного отопления, запросов на горячее водоснабжение и циркуляционного насоса (ZIP), включая автоматическое переключение на безопасные значения по умолчанию.
-- **Циркуляция по требованию (ZIP):** управляйте циркуляционным насосом с помощью существующих датчиков движения ioBroker или напрямую с помощью внешних исполнительных механизмов (например, Shelly) — без каких-либо аппаратных модификаций теплового насоса.
-- **Пользовательские точки данных:** Измеренные значения (индекс 3004) и параметры (индекс 3003) можно гибко добавлять через конфигурацию адаптера. Временные метки Unix автоматически преобразуются в удобочитаемый формат.
-- **Расширенные текстовые сообщения о состоянии и расчеты:** Расчет разброса температур, тепловой энергии в режиме реального времени и подробные текстовые сообщения о текущем состоянии системы (включая смещения, защиту от замерзания и состояние охлаждения).
-- **Интеллектуальная система уведомлений:** отправляйте коды ошибок и критические сбои (например, проблемы со скоростью потока) напрямую в Telegram или систему уведомлений ioBroker — с защитой от спама в период ожидания.
-- **Автоматическое резервное копирование DTA:** запланированная загрузка диагностических журналов DTA непосредственно с теплового насоса в хранилище ioBroker для удобного анализа (например, в OpenDTA).
-- **Автоматическое управление объектами:** Отменённые выборки или удалённые точки данных, а также пустые структуры папок автоматически и корректно удаляются из ioBroker при перезапуске адаптера.
-- **Широкая совместимость:** Полная поддержка более старых (V2.x) и более новых (V3.x) поколений прошивки (например, Alpha Innotec, Novelan), использующих динамические коэффициенты масштабирования.
+- **[Буни](https://github.com/bouni/luxtronik-2) :** Чья новаторская работа и разработки кода составляют важнейшую основу для взаимодействия с контроллерами Luxtronik.
+- **[BenPru](https://github.com/BenPru/luxtronik) и rhammen:** Особая благодарность BenPru и rhammen за их постоянное совершенствование в области доступа и управления контроллером Luxtronik. Без их преданности делу, усилий и идей этот адаптер не достиг бы того уровня развития, на котором он находится сегодня. _(Если вы цените их работу, можете угостить их кофе! ☕) [BenPru](https://github.com/sponsors/BenPru) [rhammen](https://github.com/sponsors/rhammen)_
 
 ## ⚠️ Предупреждение
 
@@ -68,67 +97,34 @@ hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
 
 _Данный проект не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или какой-либо другой компанией. Это личный проект, который поддерживается в свободное время. Использование на свой страх и риск._
 
-## Сообщения об ошибках и вклад в разработку
+## Установка
 
-Сообщения об ошибках, примечания о совместимости с конкретными версиями прошивки или запросы на добавление новых функций можно отправлять через систему отслеживания ошибок в [репозитории GitHub](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues) .
+> **Примечание для пользователей Raspberry Pi / ARM:** в журнале установки могут появиться красные сообщения об ошибках, связанные с `node-gyp`, `serialport`, или `usocket` Это необязательные зависимости, которые можно полностью игнорировать. Сетевое управление (TCP) Luxtronik будет по-прежнему работать без каких-либо проблем.
 
-## Информация
-
-[Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
-
-[Информация на английском языке](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
-
-<img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
-<img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
-<img src="documentation/Bilder/Datenpunkte.png" alt="Datenpunkte" width="100%">
-<img src="documentation/Bilder/Benachrichtigung.png" alt="Benachrichtigung" width="100%">
-<img src="documentation/Bilder/EigeneWerte.png" alt="EigeneWerte" width="100%">
-<img src="documentation/Bilder/Fehlermeldung.png" alt="Fehlermeldung" width="100%">
-<img src="documentation/Bilder/Bewegungssensoren.png" alt="Bewegungssensoren" width="100%">
+//### **РАБОТА В ПРОЦЕССЕ**
 
 ## Changelog
+### 1.0.3 (2026-11-18)
 
-// ### **WORK IN PROGRESS**
-### 0.13.1 (2026-10-02)
+- Fixed daily COP reset in `copManager.ts` so Heating and Hot Water values reset to `0` after midnight until an active cycle starts
 
-- **Fix (Circulation/ZIP):** Fixed a bug where the `Virtual_ZIP_Status` datapoint would remain stuck on `true` when using external relays (e.g., Shelly), even though the hardware relay was correctly turned off. The state reset logic has been decoupled and is now guaranteed to execute, ensuring the ioBroker interface stays perfectly synchronized with the actual hardware state.
+### 1.0.2 (2026-11-17)
 
-### 0.13.0 (2026-10-02)
+- Fixed `node:` protocol imports (`node:fs`, `node:path`) and repository checker lint issues
+- Completed and synchronized i18n translations across all supported languages
+- Fixed `jsonConfig` label keys in `generateConfig.ts` to prevent inline language object overrides during build
 
-- **Bugfixes:**
-    - **Critical DHW Target Fix:** Fixed an issue where the hot water target temperature was incorrectly written to parameter 2 instead of 105. This resolves unexpected temperature jumps (e.g., to 65°C) and socket timeouts on various heat pump models.
-    - **Write Queue Timeout:** Added a maximum wait timeout to the write queue lock for legacy V1.x firmware to prevent potential infinite loops during read-write collisions.
-    - **Backup Manager Multi-Instance Fix:** The automated DTA backup cron job is now safely scoped to the specific adapter instance, preventing conflicts when running multiple heat pumps on the same ioBroker host.
-- **Under the Hood / Refactoring:**
-    - **Centralized Typings:** Completely refactored the TypeScript architecture by introducing a centralized `LuxtronikAdapter` interface (`types.ts`). Replaced all fragmented, local interfaces across sub-modules to ensure strict, project-wide type safety and better maintainability.
+### 1.0.1 (2026-11-16)
 
-### 0.12.1 (2026-09-30)
+- **Update of i10n files**
 
-- **Bugfixes:**
-    - **Fixed Null-Values on Startup:** Virtual states for the circulation pump logic (`Actions.Activate_Zip` and `03_Outputs.Virtual_ZIP_Status`) are now explicitly initialized to `false` during adapter startup. This prevents undefined `null` values in the object tree, ensuring immediate compatibility with visualizations and logic scripts (like Blockly) right from the first second.
+### 1.0.0 (2026-11-16)
 
-### 0.12.0 (2026-09-30)
+**STABLE**
 
-- **⚠️ BREAKING CHANGE:**
-    - The datapoint to manually trigger the circulation pump macro (`Activate_Zip`) has been moved from the `Settings` folder to the `Actions` folder for better UX. If you use this state in your scripts or visualizations, please update the datapoint path!
+### 0.25.2 (2026-11-16)
 
-- **Features & Improvements:**
-    - **Virtual Circulation Pump (ZIP) Status:** Added a new read-only indicator datapoint (`Virtual_ZIP_Status`) in the `03_Outputs` folder. This datapoint mirrors the true state of the adapter's intelligent circulation pump macro in real-time. This is highly beneficial for users controlling the ZIP via external smart relays (e.g., Shelly) to avoid controller flash-wear, as it provides an accurate status even when the heat pump's internal display is bypassed.
-
-### 0.11.2 (2026-09-30)
-
-- **Features & Improvements:**
-    - **Smart Parameter Filtering:** Added full support for the Luxtronik visibility registry (Network Command 3005). The adapter now automatically hides parameters in the ioBroker object tree that are physically not supported by your specific heat pump model (e.g., hiding defrost valves on brine-to-water pumps). This dramatically declutters the system.
-    - Added an "Expert Mode" toggle in the adapter configuration to optionally disable the visibility filter and force-show all parameters.
-    - Extended the "Dump Raw to Log" feature to include the visibility matrix (Command 3005).
-    - **Legacy Write-Mode (V1.x):** Added a new connection setting for older heat pumps (Firmware V1.x). This "Fire-and-Forget" mode prevents `Timeout writing TCP parameter` errors on controllers that do not send network acknowledgments after receiving a write command.
-    - **Dynamic Hardware Protection:** The adapter now automatically detects your firmware version and adjusts network write delays dynamically (500ms for V1.x vs. 100ms for modern firmwares) to ensure maximum responsiveness without sacrificing stability.
-    - **Safe Payload Rounding:** Enforced strict integer rounding (`Math.round`) for all numeric write payloads to prevent memory faults and crashes on older Luxtronik controllers.
-    - **Visibility Filter UX:** Added a warning to the visibility filter configuration (Command 3005) to clarify that this feature requires Firmware V3.x and should be disabled on older systems to avoid startup timeouts.
-
-- **Bugfixes:**
-    - **Fixed Heat Pump Crashes / Reboots:** Implemented a global mutex lock between the polling cycle (`updateData`) and the write queue. This guarantees that read and write operations never overlap, preventing fatal network socket collisions that caused V1.x controllers to freeze and reboot.
-    - **Fixed Object Cleanup:** Changed the mass deletion of orphaned objects and empty folders during adapter startup from parallel to sequential execution. This prevents the ioBroker database from being overloaded and silently dropping delete commands.
+- **Fix i18n**
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onvif/README-de.md
 title: ioBroker.onvif
-hash: v1KN29h+PcNGNw+3xNzN1u1LugBoq+wLrq4xiCSSCYM=
+hash: jzyRkABB0BzaComa+4xQJ4i3070HGKYWb7aXa37m2Dw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -37,13 +37,17 @@ hash: v1KN29h+PcNGNw+3xNzN1u1LugBoq+wLrq4xiCSSCYM=
 
 Если камера не работает вручную, Discovery не работает. Вы должны указать диапазон IP-адресов и порты, а также вручную изменить их. Im Log sieht man Подробности о процессе.
 
+### Kameras ignorieren
+
+Камеры, в которых IP-адреса игнорируются (kommagetrennt), не используются адаптером. Позолочено для Дискавери, ручной работы и получения ангельских камер.
+
 ## Точки данных
 
 onvif.0.IP\_PORT.events События камеры, связанные с Bewegungserkennung. Manchmal muss ein Event ausgelöst werden damit er angezeigt wird.
 
 onvif.0.IP\_PORT.general Общая информация о камерах
 
-onvif.0.IP\_PORT.info Информация о камере включена в адаптере, актуализирована или удалена.обновить
+onvif.0.IP\_PORT.info Информация о камере, которую можно активировать при запуске адаптера или на удаленном компьютере.Обновить
 
 URL видео и снимков:
 
@@ -51,13 +55,13 @@ onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl
 
 onvif.0.IP\_PORT.remote Управление камерой
 
-onvif.0.IP\_PORT.remote.refresh Актуализация информационных данных
+onvif.0.IP\_PORT.remote.Refresh Актуализация информационных данных
 
 onvif.0.IP\_PORT.remote.gotoHomePosition PTZ-камера в настройках HomePosition
 
 onvif.0.IP\_PORT.remote.gotoPreset Номер предустановки PTZ-камеры
 
-onvif.0.IP\_PORT.remote.snapshot Выведите снимок экрана под onvif.0.IP\_PORT.snapshot
+onvif.0.IP\_PORT.remote.snapshot Укажите снимок экрана для onvif.0.IP\_PORT.snapshot
 
 ## Сообщение
 

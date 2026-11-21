@@ -171,7 +171,7 @@ WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.4 (2026-11-16)
 
 - fix(lpc,lpp): reconnect to the gRPC server when the CS-LPC/CS-LPP event streams drop (#94)
 - bump @iobroker/testing to 6.3.2
@@ -193,20 +193,6 @@ WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
 
 - Update dependencies
 - allow to configure a Docker API. enabls use of rootless podman
-
-### 1.2.0 (2026-08-25)
-
-- Update instructions with info on how to run prebuilt binaries instead of a docker container
-- Fix: clear discoverd devices on restart
-- Move container image to GHCR: ghcr.io/fernetmenta/eebus-grpc:v2.0.2
-- Fix: reported failsafe to controlbox is wrong because user set objects was not read at startup
-- Fix: handle edge case when failsafeLimit / limit was set to 0
-- More meaningful description
-- Revised logic for distribution of limits to energy guards.
-- Fix: send limit duration to eebus energy guards
-- Fix: downgrade some heartbeat logs to debug level
-- Fix: do not call distributeLimit if nothing changed
-- Fix: Add minimum assured power to config, fix misinterpretation of contractual consumption nominal max.
 
 ## License
 

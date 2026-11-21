@@ -70,6 +70,27 @@ Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (mcm1957) MQTT connection is now disconnected (and re-established by the device) if HTTP polling fails two times in a row; this corrects incorrect local-connection detection without a manual restart
+
+### 12.2.0-alpha.2 (2026-11-17)
+
+- (typhosj) Added support for shelly range extender (Gen 2+ only)
+- (mcm1957) Limit timezone difference messages to one message per connection (if enabled at all)
+- (mcm1957) Added support for Gen2+ devices connected through a Shelly Range Extender; added new states `ip` (real device IP) and `relayed` (true if behind a range extender); `hostname` state now always includes the port
+- (mcm1957) Fixed stale/inverted switch status after MQTT command for Shelly 1PM Gen4 and 1PM Mini Gen4 (refers to #1706)
+- (mcm1957) Added MQTT.connected state for Gen1/Gen2+ devices; online state for MQTT devices now requires both HTTP reachability and an active MQTT connection
+- (mcm1957) Extended WiFi states for Gen2+ devices: all WiFi.GetConfig fields (AP, station, fallback station, roaming) are now available as individual states
+- (mcm1957) Added WiFi.GetStatus states (current IP, connection status, SSID, BSSID, channel, RSSI, AP client count) updated via MQTT notifications with HTTP polling as fallback
+- (mcm1957) Added dynamic AP client states (apClients.{mac}.*) updated each poll cycle via WiFi.ListAPClients
+- (mcm1957) Extended device info states: added originalId, matter, provision, profile, discoverable from Shelly.GetDeviceInfo; versionShort now uses the ver field directly
+- (mcm1957) dependencies have been updated
+
+### 12.1.2 (2026-11-13)
+
+- (mcm1957) Power units corrected for Top AC Portable EV Charger (topacportableevcharger) (#1702)
+
 ### 12.1.1 (2026-11-08)
 
 - (mcm1957) Shelly Pro 1PM: fixed outdated switch status after Switch.Set via MQTT (refers to #1694)
@@ -125,25 +146,6 @@ Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
 - (@floze-the-genius) Corrected roles for Gen 2+ input states. [#1498]
 - (@GermanBluefox) Added option to ignore the timezone mismatch message (device timezone differs from the ioBroker host timezone).
 - (mcm1957) dependencies have been updated
-
-### 11.0.0 (2026-07-03)
-- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
-- (@GermanBluefox) Added firmware update available indicator for devices supporting this feature.
-- (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
-- (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
-- (@copilot) Added Shelly EM Gen4 (shellyemg4)
-- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 now.
-- (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
-- (@mcm1957) IMPORTANT: Please read the changelog at README.md listing more information.
-
-### 11.0.0 additional information 
-- (@mcm1957) Added Shelly Presence Gen 4
-- (@mcm1957) Added Shelly Cury
-- (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
-- (@GermanBluefox) Added detection of new devices in the background
-- (@mcm1957) Some missing states added at an illuminance component
-- (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
-- (@mcm1957) Dependencies have been updated
 
 ## License
 

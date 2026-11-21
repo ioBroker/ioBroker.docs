@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
+hash: KU2dcFVfQywWE9ekaB76wadKND4ImSnQmaGVDHrsSjo=
 ---
 # ioBroker.schlueter-thermostat
 
@@ -31,7 +31,7 @@ hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 
 Es basiert auf der HA-Integration von @robbinjanssen. Weitere Informationen finden Sie in der Dokumentation.
 
-> **Rein Cloud-basiert** – kein lokales Gateway, Modbus oder LAN-API erforderlich.
+> Funktioniert sofort über die Cloud. Optionale **lokale Steuerung (in der Testphase)** : Der Adapter kann als Gerätegateway für die Thermostate in Ihrem LAN fungieren (Relay- oder lokaler Modus) – siehe Dokumentation.
 
 ##
 
@@ -41,16 +41,17 @@ Es basiert auf der HA-Integration von @robbinjanssen. Weitere Informationen find
 2. Konfiguration der offenen Instanz
 3. Eingeben:
 
-| Einstellung            | Beschreibung                                  |
-| ---------------------- | --------------------------------------------- |
-| Benutzername           | Ihr Schlüter/OJ Cloud-Login                   |
-| Passwort               | Cloud-Passwort                                |
-| API-Schlüssel          | Folgendes funktioniert in den meisten Fällen. |
-| Kunden-ID              | Gefunden in den Thermostatinformationen       |
-| Client-Softwareversion | Zahlenwert vom Thermostat                     |
-| Umfrageintervall       | Standardwert: 60 Sekunden                     |
+| Einstellung      | Beschreibung                                          |
+| ---------------- | ----------------------------------------------------- |
+| Benutzername     | Ihr Schlüter/OJ Cloud-Login                           |
+| Passwort         | Cloud-Passwort                                        |
+| API-Schlüssel    | Folgendes funktioniert in den meisten Fällen.         |
+| Kunden-ID        | Gefunden in den Thermostatinformationen (Standard: 3) |
+| Umfrageintervall | Standardwert: 60 Sekunden                             |
 
 4. Adapter speichern und starten
+
+Optionale lokale Steuerung (in der Testphase, für Benutzer mit DNS-Kenntnissen): siehe Dokumentation, Abschnitt _Lokale Steuerung_ .
 
 Für den API-Schlüssel können Sie Folgendes versuchen: `f219aab4-9ac0-4343-8422-b72203e2fac9` Diesen Schlüssel finden Sie im Forum: `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Es sieht also nach einem globalen Schlüssel aus.
 
@@ -68,6 +69,8 @@ Für den API-Schlüssel können Sie Folgendes versuchen: `f219aab4-9ac0-4343-842
 
 ### Architektur-Abzeichen
 
+![Lokale Steuerung](https://img.shields.io/badge/Local-Relay%20|%20Local%20only%20\(in%20testing\)-brightgreen?style=for-the-badge)
+
 ### Kompakte Programmstruktur
 
 ```mermaid
@@ -78,6 +81,10 @@ flowchart LR
   ADP -->|read| OWD5[OWD5 Cloud]
   ADP -->|write| OCD5[OCD5 Cloud]
   OCD5 --> TH[Thermostat]
+
+  TH -->|DNS redirect, port 9513| GW[Local gateway - in testing]
+  GW --> ADP
+  GW -.->|relay| VG[Vendor device gateway]
 
   ADP --> OBJ[Object Tree]
   OBJ --> RO[Read States]
@@ -97,7 +104,9 @@ flowchart TB
   INC --> POLL
   RESET --> POLL
 
-  APPLYBTN[Apply Button] --> ROUTER[applyRouter]
+  APPLYBTN[Apply Button] --> LOCAL{Connected locally?}
+  LOCAL -- yes --> CMD[Local command + acknowledgement]
+  LOCAL -- no / failed --> ROUTER[applyRouter]
   ROUTER --> API[updateThermostat]
 ```
 
@@ -116,28 +125,37 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-11-19)
 
-### **WORK IN PROGRESS**
-* (patricknitsch) Add Node.js 26 in test-and-release.yml
-* (patricknitsch) Update Dependencies
-* (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Web component `iob-schlueter-thermostat-card` (ioBroker web-components): thermostat card in the look of the Device Manager with temperatures, status and controls, usable in vis-2, devices, admin and other hosts
+- (patricknitsch) Update Dependencies
+
+### 0.8.0 (2026-11-14)
+
+- (patricknitsch) Add Node.js 26 in test-and-release.yml
+- (patricknitsch) Update Dependencies
+- (patricknitsch) Change icon from png to jpg
+- (patricknitsch) Add experimental local control (BETA): own device gateway with relay and local-only mode, see docs
+- (patricknitsch) Remove the legacy cleanup (option "Legacy Cleanup"); no longer needed since 0.5.2
+- (patricknitsch) Docs: DNS redirect via CNAME
+- (patricknitsch) Local control: DNS check button, DNS check on start and warning when no thermostat connects
+- (patricknitsch) Device Manager: live status indicators on the cards (heating, temperatures, mode, vacation, energy, connection) and in the instance toolbar
+- (patricknitsch) Device Manager: compact single-page controls with thermostat and serial number; information tab removed
+- (patricknitsch) New state setpoint.active (setpoint of the current mode, in schedule mode of the current event), shown on the Device Manager card
+- (patricknitsch) Notifications when the local connection of a thermostat is lost / restored
+- (patricknitsch) Default customer ID is 3 for new instances
 
 ### 0.7.4 (2026-06-05)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.3 (2026-05-25)
-* (copilot) Fixes for Repo Checker
+
+- (copilot) Fixes for Repo Checker
 
 ### 0.7.2 (2026-05-23)
-* (copilot) Add Icons for Notifications
 
-### 0.7.1 (2026-05-21)
-* (copilot) Modify notification manager to work with instances
-* (copilot) Update Dependencies
-
-### 0.7.0 (2026-05-14)
-
-- (claude) Add Notification Manager
+- (copilot) Add Icons for Notifications
 
 **Older changelog entries can be found in CHANGELOG_OLD.md.**
 

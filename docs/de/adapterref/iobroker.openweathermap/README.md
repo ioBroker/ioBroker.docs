@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: KqS96qVOvaFO5plNp1uz68xyYBPYgrCYbC5hVGI/1/k=
+hash: Dtcf8zGZ9uNI3+/txua731SewLD7QwBYT6gaSKOYCA0=
 ---
 ![Logo](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.svg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/openweathermap-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/openweathermap-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.openweathermap/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/openweathermap/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
@@ -21,32 +21,49 @@ Ruft die 5-Tage-Wettervorhersage von [https://openweathermap.org/](https://githu
 
 Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach der Registrierung [hier](https://home.openweathermap.org/api_keys) .
 
+## vis-2 Widget
+
+Das Widget „Wetter“ zeigt das aktuelle Wetter und die Vorhersage für bis zu sechs Tage an. Über die Schaltfläche „i“ öffnet sich ein Dialog mit weiteren Details (Wind, Luftdruck, Niederschlag). Temperatur und Luftfeuchtigkeit können alternativ zu OpenWeatherMap von einem realen Sensor bezogen werden (Einstellungen „Aktuelle Temperatur-ID“ und „Aktuelle Luftfeuchtigkeits-ID“).
+
+Die Größe der Symbole wird über „Symbolgröße (aktuell)“ und „Symbolgröße (Tage)“ in Pixeln festgelegt. Leere Werte behalten die Standardgrößen bei.
+
+![vis-2 Widget](../../../en/adapterref/iobroker.openweathermap/img/vis2-widget-weather.png)
+
+## Webkomponente
+
+Die gleichen Wetterdaten sind auch als Webkomponente verfügbar. `<iob-openweathermap-weather>` (`@iobroker/web-components`, aufgeführt in `common.webComponents`) für Aura, Admin, ioBroker.devices und alle anderen Hosts von Webkomponenten. vis-2 bietet stattdessen sein eigenes Widget „Wetter“ an, da beide den gleichen Namen tragen.
+
+Es zeigt das aktuelle Wetter über den Vorhersagetagen (oder daneben in einem breiten, niedrigen Feld) an und passt sich dessen Größe an. Ein Klick öffnet Details – Wind, Luftfeuchtigkeit, Luftdruck und Niederschlag für heute und die folgenden Tage – in einem Dialogfeld des Hosts. Einstellungen: Instanz, Titel, anzuzeigende Daten (alle, nur das aktuelle Wetter, nur die Vorhersagetage), Anzahl der Tage (1–6) und optional die IDs eines realen Temperatur- und Feuchtigkeitssensors. Die Einheiten richten sich nach den Instanzeinstellungen (metrisch oder imperial). Die Symbolgrößen des vis-2-Widgets sind irrelevant: Die Symbole skalieren mit der Feldgröße.
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### 2.0.1 (2026-09-08)
-* (@GermanBluefox) The weather widget is now shown as a live preview in the admin configuration too
 
-### 2.0.0 (2026-08-16)
-* (@JDCodes) Added feels_like temperature, visibility and the day name (long and short) as text
-* (@JDCodes) Daily rain and snow are now totals and not averages
-* (@JDCodes) Fixed NaN for rain and snow
-* (@GermanBluefox) Minimal supported Node.js version is now 22
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
-### 1.4.0 (2025-08-03)
-* (@tt-tom17) Added wind direction as text
+### 2.3.0 (2026-11-08)
+* (@GermanBluefox) Added the web component `iob-openweathermap-weather` for Aura and other hosts (`common.webComponents`)
+* (@GermanBluefox) Corrected wrong translations of the vis-2 widget and the web component, e.g. the weather "Clear" and the "Close" button
+* (@GermanBluefox) Corrected the Dutch wind direction south-southeast (ZZO instead of ZSO)
+* (@GermanBluefox) The API key is stored encrypted and shown as a password field. An existing key is encrypted automatically at the next start of the instance
+* (@GermanBluefox) The vis-2 widget applies the CSS settings for text color, font and background color to all of its texts, the info button and the card
 
-### 1.3.0 (2025-05-21)
-* (bluefox) Widget was completely ported to TypeScript
-* (bluefox) Backend was completely ported to TypeScript
+### 2.2.0 (2026-11-05)
+* (@GermanBluefox) The place can be selected on a map in the instance settings (needs an admin version with map support for the coordinates field)
+* (@GermanBluefox) Updated packages
 
-### 1.2.0 (2024-07-23)
-* (bluefox) Widget was partly ported to TypeScript
+### 2.1.0 (2026-10-29)
+* (@GermanBluefox) Added settings for the icon size of the current weather and of the forecast days in the vis-2 widget
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.openweathermap/blob/master/CHANGELOG_OLD.md)
+### 2.0.4 (2026-10-22)
+* (@GermanBluefox) Fixed raw translation keys (e.g. openweathermap_Wed) in the widget with vis-2 2.15.x (#750)
+* (@GermanBluefox) The widget requires vis-2 2.20.2 or newer, if vis-2 is installed
+
+### 2.0.3 (2026-10-17)
+* (@GermanBluefox) Updated packages
 
 ## License
 

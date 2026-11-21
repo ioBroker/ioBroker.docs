@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md
 title: Entwicklerdokumentation für ioBroker.tractive-gps
-hash: bu35S+r/opLGqZ2OleWndOA3n8KI/kTk0TvUCvWq6Gg=
+hash: fftmMgTIxNgKh7vxCASNXolLGx3KbCTpiSsoCvMGlX4=
 ---
 # Entwicklerdokumentation für ioBroker.tractive-gps
 
@@ -12,11 +12,11 @@ Dieses Dokument richtet sich an Mitwirkende. Benutzerinstallation, Konfiguration
 
 ## Entwicklungsanforderungen
 
-- Node.js 22.13 oder neuer
+- Node.js 22.19 oder neuer für Entwicklung und Tests (`@iobroker/testing` Voraussetzung); die Adapterlaufzeit muss >=22.13 sein.
 - npm 10 oder neuer
 - Für lokale Integrationstests wird js-controller 7.2.2 oder neuer benötigt.
 - Admin 7.8.23 oder neuer
-- Für Widget-Tests wird VIS 2 Version 2.12.8 oder neuer benötigt.
+- Für Widget-Tests wird VIS 2 Version 2.15.2 oder neuer benötigt.
 
 Installieren Sie alle Workspace-Abhängigkeiten aus dem Repository-Stammverzeichnis:
 
@@ -59,7 +59,7 @@ Der Synchronisierungsplan ist nach Datentyp unterteilt:
 
 `src/lib/tractive-api.ts` Besitzt alle HTTP-Zugriffe. Wichtige Regeln:
 
-- Die Anmeldeinformationen werden ausschließlich im Text der Anmeldeanfrage gesendet.
+- Die Anmeldeinformationen werden ausschließlich im Text der Anmeldeanfrage übermittelt.
 - Zugriffstoken werden im Speicher abgelegt.
 - Ein einzelnes gemeinsames Aktualisierungsversprechen verhindert gleichzeitige Authentifizierungsaktualisierungen.
 - Eine fehlgeschlagene Anfrage wird nach HTTP 401 einmal wiederholt.
@@ -73,9 +73,9 @@ Die Tractive-Schnittstelle ist inoffiziell und kann sich ohne Vorankündigung ä
 
 ## Anmeldeinformationen
 
-Die Admin-Anwendung verwendet`AdminConnection` aus`@iobroker/socket-client` Die normale ioBroker-Speichern-Schaltfläche ruft die serverseitige Funktion auf.`encrypt()` Methode, damit Passwörter im AES-Konfigurationsformat von ioBroker geschrieben werden.
+Die Admin-Anwendung verwendet `AdminConnection` aus `@iobroker/socket-client` Die normale ioBroker-Speichern-Schaltfläche ruft die serverseitige Funktion auf. `encrypt()` Methode, damit Passwörter im AES-Konfigurationsformat von ioBroker geschrieben werden.
 
-`io-package.json` gibt das Passwort in beiden an`encryptedNative` Und`protectedNative` Der Adapter empfängt den entschlüsselten Wert vom js-Controller zur Laufzeit.
+`io-package.json` gibt das Passwort in beiden an `encryptedNative` Und `protectedNative` Der Adapter empfängt den entschlüsselten Wert vom js-Controller zur Laufzeit.
 
 Fügen Sie keine separate Schaltfläche zum Speichern der Anmeldeinformationen hinzu und speichern Sie keine Zugriffstoken dauerhaft.
 
@@ -86,9 +86,10 @@ Das öffentliche stabile Objektmodell besteht aus:
 - `info.*` für Lebenszyklus- und Synchronisierungsinformationen,
 - `pets.<pet-id>.info.*` für normalisierte Haustierdaten,
 - `trackers.<tracker-id>.*` für normalisierte Tracker-, Positions-, Gesundheits- und Befehlsdaten,
-- `api.data.*` Und`info.currentApi` für den bereinigten API-Spiegel.
+- `account.*` Und `subscriptions.*` für ausgewählte Konto- und Abonnementdaten,
+- `info.currentApi` für den kombinierten lokalen API-Snapshot.
 
-Die API-Spiegelung muss Anmeldeinformationen, E-Mail-Adressen, Zugriffs- und Aktualisierungstoken, Autorisierungsfelder, Benutzer-IDs und IDs benachbarter Benutzer entfernen. Arrays werden als JSON-Strings gespeichert. Vorhandene Tracker-Objekte bleiben erhalten und werden als fehlend markiert, anstatt gelöscht zu werden.
+Passwörter und Zugriffstoken dürfen niemals dem Snapshot hinzugefügt werden. Konto- und Standortdaten bleiben lokal und dürfen weder protokolliert noch an Sentry gesendet werden. Nur relevante, nicht leere Felder werden als einzelne Zustände angezeigt; es gibt keine Duplikate. `api.*` Baumstruktur. Vorhandene Tracker-Objekte bleiben erhalten und werden als fehlend markiert, anstatt gelöscht zu werden.
 
 ## Tracker-Befehle
 
@@ -96,21 +97,23 @@ Befehlszustände werden nur für vom Tracker gemeldete Fähigkeiten erstellt. Be
 
 ## Admin-Oberfläche
 
-Die Anwendung Admin 8 befindet sich in`src-admin/` und verwendet React, TypeScript, Material UI,`@iobroker/gui-components` , Und`AdminConnection` Die
+Die Anwendung Admin 8 befindet sich in `src-admin/` und verwendet React, TypeScript, Material UI, `@iobroker/gui-components`, Und `AdminConnection` Die
 
-Die Konfiguration wird ausschließlich über den Standard-Speicherworkflow von ioBroker gespeichert. Übersetzungen müssen für jedes Gebietsschema aktualisiert werden.`src-admin/src/i18n/` und wiederaufgebaut zu`admin/i18n/` Die
+Die Konfiguration wird ausschließlich über den Standard-Speicherworkflow von ioBroker gespeichert. Übersetzungen müssen für jedes Gebietsschema aktualisiert werden. `admin/i18n/`, das auch von der Admin-Version verwendet wird.
 
 ## VIS-Widgets
 
-Der Quellcode des Widgets befindet sich in`src-widgets/` Die`PetTrackerCard` nutzt die VIS 2 Komponenten-API und Leaflet/OpenStreetMap.
+Der Quellcode des Widgets befindet sich in `src-widgets/` Die `PetTrackerCard` nutzt die VIS 2 Komponenten-API und Leaflet/OpenStreetMap.
 
-Die klassische VIS 1-Implementierung wird registriert durch`widgets/tractive-gps.html` , wie von VIS 1 gefordert. Die Quellressourcen befinden sich in`src-widgets/public/vis1/` Vite kopiert sie nach`widgets/tractive-gps/vis1/` parallel zum VIS 2-Build. Es verwendet das VIS 1 EJS und`vis.binds` APIs. Die bereitgestellten Leaflet-Dateien müssen mit den`leaflet` Version in`src-widgets/package.json` Die
+Das native Widget verwendet React 19, MUI 9 und Module Federation >=1.23.4. Leaflet ist direkt integriert, ohne React-Leaflet. Normalisieren Sie das Host-Theme mit `createTheme` Bevor die Daten an MUI-Komponenten weitergegeben werden, sollte VIS 2 in den Adapterabhängigkeiten optional bleiben, damit reine Backend-Installationen und klassische VIS-1-Installationen weiterhin unterstützt werden; das native Widget benötigt VIS 2 >= 2.15.2.
+
+Die klassische VIS 1-Implementierung wird registriert durch `widgets/tractive-gps.html`, wie von VIS 1 gefordert. Die Quellressourcen befinden sich in `src-widgets/public/vis1/` Vite kopiert sie nach `widgets/tractive-gps/vis1/` parallel zum VIS 2-Build. Es verwendet das VIS 1 EJS und `vis.binds` APIs. Die bereitgestellten Leaflet-Dateien müssen mit den `leaflet` Version in `src-widgets/package.json` Die
 
 Widget-Änderungen müssen Folgendes beibehalten:
 
 - automatische Anpassung der hellen und dunklen Designfarben
 - API-Image und benutzerdefiniertes ioBroker-Image-Fallback,
-- sicher`_PRJ_NAME` Bildpfadverarbeitung
+- sicher `_PRJ_NAME` Bildpfadverarbeitung
 - Konfigurierbare Interaktions- und Zoomgrenzen für die Karte,
 - automatische Anpassung des konfigurierten oder gemeldeten Radius,
 - Bereinigung von Leaflet-Instanzen und Ereignis-Listenern.
@@ -126,7 +129,7 @@ npm test
 npm run build
 ```
 
-Einzelne Befehle:
+Einzelbefehle:
 
 ```bash
 npm run test:ts
@@ -139,26 +142,28 @@ npm run build:widgets
 
 ## Freigabeprozess
 
-Das Root-Adapterpaket sowie die privaten Admin- und VIS-Arbeitsbereiche verwenden eine feste Lerna-Versionsnummerierung. Die Versionen müssen beibehalten werden.`package.json` ,`src-admin/package.json` ,`src-widgets/package.json` ,`io-package.json` , Und`lerna.json` synchronisiert.
+Das Root-Adapterpaket sowie die privaten Admin- und VIS-Arbeitsbereiche verwenden eine feste Lerna-Versionsnummerierung. Die Versionen müssen beibehalten werden. `package.json`, `src-admin/package.json`, `src-widgets/package.json`, `io-package.json`, Und `lerna.json` synchronisiert.
 
-Die Freigaben müssen aus einem sauberen und aktuellen System erstellt werden.`main` Branche. Führen Sie zunächst einen Testlauf mit der entsprechenden semantischen Versionserhöhung durch:
+Die Freigaben müssen aus einem sauberen und aktuellen System erstellt werden. `main` Branche. Führen Sie zunächst einen Testlauf mit der entsprechenden semantischen Versionserhöhung durch:
 
 ```bash
 npm run release -- major --dryRun --noPush --yes
 ```
 
-Verwenden`major` für grundlegende Änderungen,`minor` für abwärtskompatible Funktionen und`patch` für rückwärtskompatible Korrekturen. Nach Überprüfung der Testausgabe führen Sie denselben Befehl ohne`--dryRun` Und`--noPush` Das Release-Skript aktualisiert das Changelog und die ioBroker-News, erstellt das Projekt, generiert den Release-Commit und das annotierte Tag und überträgt diese. Das Tag löst anschließend den Trusted-Publishing-Workflow aus.
+Verwenden `major` für grundlegende Änderungen, `minor` für abwärtskompatible Funktionen und `patch` für rückwärtskompatible Korrekturen. Nach Überprüfung der Testausgabe führen Sie denselben Befehl ohne `--dryRun` Und `--noPush` Das Release-Skript aktualisiert das Changelog und die ioBroker-News, erstellt das Projekt, generiert den Release-Commit und das annotierte Tag und überträgt diese. Das Tag löst anschließend den Trusted-Publishing-Workflow aus.
 
 ## Lokaler ioBroker-Entwicklungsserver
 
-Das Projekt verwendet`@iobroker/dev-server` für lokale Integrationstests:
+Der Git-gepinnte `@iobroker/dev-server` Der Fork ist beabsichtigt und darf im Rahmen der Wartung des Repository-Checkers nicht ersetzt werden (#387). Testhilfsmittel (Mocha, Chai, Sinon, deren Plugins und Typen) werden bereitgestellt von `@iobroker/testing`; Dupliziere sie nicht in den Stamm-devDependencies.
+
+Das Projekt verwendet `@iobroker/dev-server` für lokale Integrationstests:
 
 ```bash
 npm run dev-server -- doctor --json
 npm run dev-server
 ```
 
-Verwenden`npm run dev` für den Uhrenmodus`npm run dev-update` um die lokale Adapterinstallation zu aktualisieren, und`npm run dev-upload` neu erstellte Dateien hochladen.
+Verwenden `npm run dev` für den Uhrenmodus `npm run dev-update` um die lokale Adapterinstallation zu aktualisieren, und `npm run dev-upload` neu erstellte Dateien hochladen.
 
 ## Dokumentations- und Änderungsprotokollregeln
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: a2uctbK0zkcG+p7wsA0II4FdErh/OAUc0TpruUujtf0=
+hash: dN1nTTQMgzzdR9Hw5gilFT0Mi7yc02LYreC/+Tl1A3U=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -38,14 +38,15 @@ Englische Dokumentation: <https://github.com/tp1de/ioBroker.ems-esp/blob/main/do
 
 Deutsches ioBroker-Forum: <https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen>
 
-- Die Adapterversion >= 7.0.0 unterstützt nur ems-esp Firmware-Versionen >= 7.2.0.
+> **Ich rate dringend davon ab, Entwicklerversionen der EMS-ESP-Firmware mit diesem Adapter zu verwenden.**\
+> &#x20;**Insbesondere NICHT frühe Versionen!!!!**
+>
+> **Ich kann nicht garantieren, dass der Adapter noch funktioniert.** **Erwarten Sie keine schnelle Reaktion von mir!**
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-### **WORK IN PROGRESS**
--->
-### **WORK IN PROGRESS**
+
+### 7.0.9 (2026-11-13)
+* Update for ems-esp 3.10.x
 * dependabot updates
 
 ### 7.0.8 (2026-07-05)
@@ -61,10 +62,6 @@ Deutsches ioBroker-Forum: <https://forum.iobroker.net/topic/45862/neuer-adapter-
 
 ### 7.0.4 (2026-06-20)
 * fixing issue on main
-
-### 7.0.3 (2026-05-30)
-* dependabot updates
-* fixing issues detected by repository checker
 
 ## License
 MIT License

@@ -39,6 +39,10 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.1 (2026-11-14)
+* (tt-tom17) Fix: TRIAS no longer logs an error when no departure lies within the time window (quiet stops at night) - the server answers "-100" for an empty window
+* (tt-tom17) dependencies updated
+
 ### 1.5.0 (2026-11-03)
 * (tt-tom17) vis widgets: new "Appearance" attributes - font size and colours can now be set per widget in the vis editor
 * (tt-tom17) vis widgets: all colours and font sizes are CSS variables (--pt-*) now and can be overridden in the project or view CSS
@@ -60,9 +64,6 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 
 ### 1.3.0 (2026-09-02)
 * (tt-tom17) added TRIAS as a new backend with MobiData BW (Baden-Württemberg) as the first network
-
-### 1.2.0 (2026-08-25)
-* (tt-tom17) added EFA as a new backend with VRR (Rhein-Ruhr) as the first network
 
 ## License
 MIT License

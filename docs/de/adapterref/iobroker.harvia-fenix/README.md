@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
+hash: 8da0ZDfp9fK4og734MhWL3GmnLq3RMHjvXsVMMK476g=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -12,6 +12,7 @@ hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
 ![GitHub-Probleme](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/harvia-fenix-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/harvia-fenix-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 ![Test und Freigabe](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -34,7 +35,7 @@ Weitere Informationen zu Harvia und deren Sauna-Steuereinheiten finden Sie auf d
 **Die Fernsteuerung eines Saunaofens unterliegt strengen Sicherheitsbestimmungen!** Gemäß der europäischen Sicherheitsnorm **EN 60335-2-53** in Verbindung mit **EN 60335-1** sind Brandschutzmaßnahmen für ferngesteuerte Saunaanlagen zwingend erforderlich. Die Saunakabine muss mit einem zugelassenen Türsensor oder einer Sicherheitsabschaltung ausgestattet sein. Dadurch wird sichergestellt, dass der Ofen nicht ferngesteuert oder per Zeitschaltuhr gestartet werden kann, wenn sich ein brennbarer Gegenstand (z. B. ein Handtuch) auf oder in der Nähe des Ofens befindet.
 
 - **Haftungsausschluss:** Der Entwickler dieses Adapters übernimmt keinerlei Verantwortung, Gewährleistung oder Haftung für Schäden, Brände, Verletzungen oder rechtliche Probleme, die durch die Nutzung oder Fehlkonfiguration dieser Software entstehen. Die Nutzung dieser Integration erfolgt auf eigenes Risiko.
-- **Markenrechte:** Harvia und MyHarvia 2 sind eingetragene Marken der Harvia Group. Dieser Adapter ist ein unabhängiges, von der Community getragenes Open-Source-Projekt und wird weder offiziell von Harvia unterstützt noch gesponsert.
+- **Markenrechte:** Harvia und MyHarvia 2 sind eingetragene Marken der Harvia Group. Dieser Adapter ist ein unabhängiges, von der Community getragenes Open-Source-Projekt und wird weder offiziell von Harvia unterstützt noch gesponsert oder gefördert.
 
 ---
 
@@ -71,7 +72,7 @@ _Hinweis: Wir empfehlen, ein separates Konto für ioBroker in der Harvia 2-App e
 2. Navigieren Sie zu Tab- **Instanzen** und klicken Sie auf das Einstellungssymbol Ihres `harvia-fenix.0` Beispiel.
 3. Geben Sie Ihre **E-Mail-Adresse** und **Ihr Passwort** für Ihr MyHarvia-Konto ein.
 4. Wenn Sie das Feld **„Geräte-ID“** leer lassen, sucht der Adapter beim Start automatisch nach Geräten, die mit Ihrem Konto verknüpft sind. Das erste gefundene Gerät wird als aktive Einheit verwendet.
-5. Optionale Parameter anpassen: **Abfrageintervall** (Sekunden), **Minimale/Maximale Zieltemperaturgrenzen** (°C) und **Maximale Heizdauer** (Minuten).
+5. Optionale Parameter anpassen: **Minimale/Maximale Zieltemperaturgrenzen** (°C) und **maximale Heizdauer** (Minuten).
 6. Klicken Sie auf **Speichern & Schließen** .
 
 ### Gerätekonfiguration und Unterstützung mehrerer Geräte
@@ -149,6 +150,7 @@ Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Da
 | `heatOn`                        | boolescher Wert | `switch.power`        | Lesen/Schreiben | Hauptschalter zum Einschalten der Saunaheizung (`true`) oder AUS (`false`).                                                                                                                                        |
 | `heaterPower`                   | Nummer          | `value.power`         | Nur lesbar      | _Hinweis:_ Dieses Objekt wird von der MyHarvia-API-Struktur bereitgestellt, wird aber derzeit wie folgt ausgeliefert: `0 kW` (nicht belegt). Es scheint für zukünftige Hardware- oder App-Updates reserviert zu sein. |
 | `lightOn`                       | boolescher Wert | `switch.light`        | Lesen/Schreiben | Mit diesem Schalter kann die integrierte Saunabeleuchtung ein- oder ausgeschaltet werden.                                                                                                                            |
+| `fanOn`                         | boolescher Wert | `switch`              | Lesen/Schreiben | Schalter zum Ein- und Ausschalten des Saunalüfters/der Zusatzbeleuchtung.                                                                                                                                            |
 | `maxDuration`                   | Nummer          | `level.timer`         | Lesen/Schreiben | Maximal zulässige Heizdauer für den Saunagang in Minuten (`min`).                                                                                                                                                   |
 | `panelTemp`                     | Nummer          | `value.temperature`   | Nur lesbar      | Die Temperaturanzeige erfolgte am physischen Bedienfeld.                                                                                                                                                             |
 | `targetTemp`                    | Nummer          | `level.temperature`   | Lesen/Schreiben | Zieltemperaturvorgabe für die Saunakabine (z. B. `90 °C`).                                                                                                                                                           |
@@ -253,14 +255,33 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die
 
 ## Aufgabenliste
 
-- [ ] Automatische Erinnerung an Kaltgetränke programmieren, abgestimmt auf die Abkühlung nach der Sauna 🍺❄️
+- [ ] Automatische Erinnerung an Kaltgetränke programmieren, abgestimmt auf die Abkühlung nach dem Saunabesuch 🍺❄️
 - [ ] Entwerfen Sie einen KI-gesteuerten, roboterhaften Handtuchwedel-Assistenten für den ultimativen Aufguss 🧖‍♂️🪣
 
 ---
 
 ## Changelog
-
 ### **WORK IN PROGRESS**
+* (meistermopper) Update node-forge override to ^1.4.3 (Dependabot alerts)
+* (meistermopper) Add Weblate translation badge to README and sync German i18n
+* (meistermopper) Update @iobroker/testing to 6.3.2 (W0037)
+
+### 1.2.1 (2026-11-05)
+* (meistermopper) Remove obsolete pollInterval setting from instance configuration
+* (meistermopper) Update dependency overrides to resolve Dependabot security alerts
+
+### 1.2.0 (2026-10-19)
+* (meistermopper) Add fanOn state and FAN command support for sauna fan or secondary light
+* (meistermopper) Add patch-ps-tree script for dev-server Windows 11 compatibility
+* (meistermopper) Update dependency overrides to resolve security advisories
+
+### 1.1.2 (2026-10-02)
+* (meistermopper) Fix potential infinite loop in auth retry logic
+* (meistermopper) Update @iobroker/testing to 6.3.0 (W0037)
+* (meistermopper) Use adapter timer methods in push client (S5005)
+
+### 1.1.1 (2026-09-21)
+* (meistermopper) Fix remoteControl flapping on push measurement updates
 * (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
 
 ### 1.1.0 (2026-09-17)
@@ -268,31 +289,6 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die
 * (meistermopper) Add safety trip detection, alarm indicators, and sliding history
 * (meistermopper) Fix activeProfile endpoint to use PATCH /devices/profile per API spec
 * (meistermopper) Document profiles and activeProfile switching behavior in README
-
-### 1.0.0 (2026-09-17)
-* (meistermopper) Add AWS AppSync WebSocket real-time push client
-* (meistermopper) Add token refresh via /auth/refresh using refreshToken
-
-### 0.6.0 (2026-09-16)
-* (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
-* (meistermopper) Implement Harvia native 13-interval heating curve calculation
-* (meistermopper) Add profiles, activeProfile, and standby time prognosis
-* (meistermopper) Increase adapter logo display size in README files to 200px
-* (meistermopper) Add breaking change callouts and older tag support to release notes
-* (meistermopper) Add automated release notes generator for GitHub releases
-* (meistermopper) Add check:repo script and integrate repochecker into test:local
-* (meistermopper) Restore email in license copyright lines (S4050, S4051)
-* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
-
-### 0.5.1 (2026-09-12)
-* (meistermopper) Replace adapter logo with custom MyFenix homage logo
-* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
-* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
-
-### 0.5.0 (2026-09-09)
-* (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
-* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
-* (meistermopper) Add Node.js 26 to test matrix
 
 ## License
 MIT License

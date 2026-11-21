@@ -90,6 +90,9 @@ Only one watering cycle runs at a time per plant. Configure the duration in Sett
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (sadam6752-tech) `@iobroker/testing` 6.3.2 (repository checker W0037)
+
 ### 0.4.8
 - (sadam6752-tech) Fix W1032: reduce common.news to the latest 7 entries
 

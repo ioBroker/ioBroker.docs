@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fakeroku/README.md
 title: fakeroku - эмулированные устройства Roku для вашего пульта дистанционного управления
-hash: xWYoTEUd/qwn/PiRJLxTBDdS3nI5XNHFF77/kAKXYT4=
+hash: ErmYCoRfmDKwd2Ag89zrQ6io9vYJyu8wD5VP49wd49s=
 ---
 # fakeroku — эмулированные устройства Roku для вашего пульта дистанционного управления
 
@@ -26,9 +26,9 @@ hash: xWYoTEUd/qwn/PiRJLxTBDdS3nI5XNHFF77/kAKXYT4=
 
 ## Требования
 
-- Node.js 22 или более поздняя версия
-- js-controller 7.2.2 или новее
-- admin 8.0.14 или новее
+- Node.js 22.19.0 или более поздняя версия
+- js-controller 7.2.5 или новее
+- admin 8.3.5 или новее
 - Удаленный сервер или концентратор, находящийся в **той же локальной сети** , что и ваш хост ioBroker.
 
 ## Настройка
@@ -41,7 +41,7 @@ hash: xWYoTEUd/qwn/PiRJLxTBDdS3nI5XNHFF77/kAKXYT4=
 
 Оставьте **сетевой интерфейс** в режиме "все интерфейсы". В этом случае адаптер будет обслуживать каждую сеть, в которой находится ваш хост ioBroker, и отвечать удаленному пользователю в каждой из них собственным адресом хоста в этой сети — удаленный пользователь в отдельной VLAN получит доступный ему адрес.
 
-Выбирайте конкретный адрес только в том случае, если эмулируемые устройства Roku должны находиться **только в одной сети** . В этом случае все устройства остаются в этой сети: обрабатываются только удаленные запросы из нее, и ничего не предлагается в других сетях. Если этот адрес отсутствует на хосте при запуске экземпляра, адаптер ожидает его до двух минут (сеть, которая появляется после ioBroker), затем сообщает об этом в журнале и ничего не запускает — он никогда не переключается на другую сеть.
+Выбирайте конкретный адрес только в том случае, если эмулируемые устройства Roku должны находиться **только в одной сети** . В этом случае все устройства остаются в этой сети: обрабатываются только запросы от удаленных устройств из нее, и ничего не предлагается в других сетях. Если этот адрес отсутствует на хосте при запуске экземпляра (новый адрес от маршрутизатора, резервная копия, восстановленная на другом оборудовании), адаптер прослушивает все адреса, чтобы удаленные устройства по-прежнему находили Roku, выводит одно предупреждение с указанием причины и отображает состояние экземпляра желтым цветом. `info.connection` ложно) до тех пор, пока вы не выберете адрес, имеющийся у хоста.
 
 ### 3. Добавьте или отредактируйте эмулируемые устройства Roku.
 
@@ -70,7 +70,7 @@ hash: xWYoTEUd/qwn/PiRJLxTBDdS3nI5XNHFF77/kAKXYT4=
 | `info.devicesOnline`    | число, только для чтения               | Сколько из них слушают прямо сейчас?                                                                                                                                                                                                                                                                                                                                               |
 | `info.devicesAllOnline` | логическое значение, только для чтения | `true` при этом каждый настроенный Roku будет слушать; `false` при условии, что ни один параметр не настроен.                                                                                                                                                                                                                                                                       |
 
-Для каждой эмулируемой модели Roku, см. ниже. `fakeroku.0.<name>`:
+Каждый эмулируемый Roku представляет собой устройство в дереве объектов, отображаемое в виде прямоугольника для плеера и в виде экрана для телевизора. Ниже `fakeroku.0.<name>`:
 
 | Точка данных  | Тип                                    | Значение                                                                                                                                                                                                                              |
 | ------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -144,6 +144,16 @@ on({ id: "fakeroku.0.Living_room.command" }, obj => {
 	### **WORK IN PROGRESS**
 -->
 
+### 1.11.0 (2026-11-05)
+
+- (krobipd) New: every emulated Roku shows in the object tree whether it is a player or a TV.
+- (krobipd) Improved: the documentation describes what happens when the chosen network address is missing on the host.
+- (krobipd) Improved: the README has a troubleshooting section.
+- (krobipd) Improved: the update notice links to the description of the object tree.
+- (krobipd) Changed: the interface setting is labelled "Network interface".
+- (krobipd) Changed: js-controller 7.2.5 and admin 8.3.5 or newer are required.
+- (copilot) Changed: Node.js 22.19.0 or newer is required.
+
 ### 1.10.0 (2026-10-03)
 
 - (krobipd) New: every emulated Roku shows whether it runs and, if not, why — a green or grey symbol in the object tree, online or offline on its card with the reason.
@@ -169,22 +179,9 @@ on({ id: "fakeroku.0.Living_room.command" }, obj => {
 - (krobipd) Improved: a start writes only datapoints that changed and reads the key states in one request — no needless updates for history adapters.
 - (krobipd) Improved: the README links the detailed user documentation in English and German.
 
-### 1.8.1 (2026-09-27)
+### 1.8.1 (2026-09-27) — stable
 
 - (krobipd) Improved: the note the Admin shows before an update from 0.x is short now: the apps folder is removed, app launches arrive as launch:<id> in command.
-
-### 1.8.0 (2026-09-25)
-
-- (krobipd) Fixed: Home Assistant and openHAB can set up the emulated Roku again — it now answers the active-app, media-player and TV-channel queries they send.
-- (krobipd) Fixed: keys sent in any upper or lower case (home, POWERON) press the right button, and spaces typed in Home Assistant arrive as spaces.
-- (krobipd) Fixed: an upgrade from the old adapter keeps every object tree with its rooms and history, also for names with an umlaut, a bracket or a double space.
-- (krobipd) Fixed: renaming a device only changes its displayed name; its datapoints and scripts pointing at them stay where they are.
-- (krobipd) Fixed: an instance started before the network is up starts its devices and adds discovery as soon as the host has an address.
-- (krobipd) Fixed: the device dialog greys out OK for a taken name or port and says why.
-- (krobipd) Changed: only devices in the host's own networks are answered; a chosen network interface keeps everything in its network and is never swapped for another.
-- (krobipd) Changed: a chosen network interface that does not exist is waited for up to two minutes at start, then reported, instead of being replaced.
-- (krobipd) New: the TV profile adds the PowerOn, Power, Sleep and InputTuner keys and announces itself the way real Roku TVs do.
-- (krobipd) New: every new emulated Roku gets its own network identity instead of one every installation with the same name would share.
 
 ## License
 

@@ -22,6 +22,7 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
 ## Table of contents
 
 - [Overview](#overview)
+- [What's new in v1.3.0](#whats-new-in-v130)
 - [What's new in v1.2.0](#whats-new-in-v120)
 - [Quick start](#quick-start)
 - [Configuration guide](#configuration-guide)
@@ -60,6 +61,15 @@ Which modes are available depends on your device topology. See the [device topol
 
 > Important parts of this adapter are based on the [open3e](https://github.com/open3e) project.
 > A Python-based collect-only implementation using MQTT is available at [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
+
+---
+
+## What's new in v1.3.0
+
+- **Scan status line:** Device scan and data point scan run in the background. A status line below the scan buttons shows progress and the final result, in green on success and in red on failure. The device scan saves the list of devices itself; reload the page (F5) to see it. This also fixes an empty device list after a gateway scan with admin 7.8.25 or newer.
+- **Gateway configuration:** The MQTT broker field is now called *MQTT broker used by the gateway* and defaults to `mqtt://localhost`.
+- **Data points and enumerations** updated to the current open3e state; the texts of `OpStates` were corrected.
+- **Datapoints tab**: saving no longer clears the descriptions of the schedules in the configuration
 
 ---
 
@@ -119,7 +129,9 @@ If you have a second CAN bus (e.g. internal bus), configure it as the second ada
 Instead of a local CAN adapter, a bus can be read through an [open3e-esp32](https://github.com/boonkerz/open3e-esp32) gateway. Set **Connection type** to *open3e-esp32 gateway* for that bus and fill in:
 
 - **Gateway REST URL**, e.g. `http://open3e-esp32.local`
-- **Gateway MQTT broker URL**, e.g. `mqtt://broker.local`, and the **MQTT base topic**. The base topic must match the gateway's own `mqtt.baseTopic` setting (default `open3e`).
+- **MQTT broker used by the gateway**, e.g. `mqtt://localhost`, and the **MQTT base topic**. Enter the same broker that is set in the gateway's settings, often the MQTT adapter of ioBroker. The base topic must match the gateway's own `mqtt.baseTopic` setting (default `open3e`).
+
+  > **Note:** `localhost` only works from the adapter's point of view, if the broker runs on the ioBroker host. In the gateway's own settings, enter the network address of that host instead. With `localhost` there, the gateway would look for the broker on itself.
 - **MQTT username and password**, if the broker needs them.
 
 On every start the adapter tells the gateway which CAN IDs to relay raw. The list is derived from the energy meters and the Collect IDs of your devices, so you don't configure it on the gateway.
@@ -136,9 +148,9 @@ Rules for gateway mode:
 
 Go to the **List of UDS Devices** tab and press the **Scan** button.
 
-- The scan takes a few seconds. You can watch progress in the adapter log (open a second browser tab).
-- All E3 devices found on the bus will be listed. You can rename devices in the second column — these names are used as identifiers in ioBroker's object tree.
-- Press **SAVE** when done. The instance will restart.
+- The scan runs in the background and takes from a few seconds (local CAN bus) to about two minutes (gateway). Progress and result are shown in the **Scan status** line below the button.
+- When the scan is done, the adapter saves the list of devices to the configuration itself, and the instance restarts. Reload the page (F5) to see the list in the open configuration dialog. If nothing changed, nothing is saved. The final result in the scan status is shown in green, or in red if the scan failed or found no device.
+- All E3 devices found on the bus are listed. You can rename devices in the second column — these names are used as identifiers in ioBroker's object tree. Press **SAVE** after renaming.
 
 > During the device scan, the adapter also reads the device's data format configuration (data point 382), including temperature units (°C or °F) and date/time formats. This is stored and used during subsequent data point scans.
 
@@ -153,7 +165,7 @@ While the device scan runs, the adapter passively listens on the CAN bus for bro
 
 Go to the **List of Data Points** tab, press **Start scan …** and confirm with **OK**.
 
-> **Be patient** – the scan may take up to 5 minutes. Progress is visible in the adapter log.
+> **Be patient** – the scan may take up to 5 minutes. It runs in the background; progress and result are shown in the **Scan status** line below the button.
 
 What the scan does:
 - Discovers all available data points for each device.
@@ -401,6 +413,15 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2026-11-17)
+* (MyHomeMyData) Device scan and data point scan run in the background; progress and result are shown in a new scan status line below the scan buttons (states info.scanStatus and info.scanStatusHtml), the result in green on success and in red on failure. Fixes an empty device list after a device scan with admin 7.8.25 or newer, which drops answers after 30 s (ioBroker.admin#3737)
+* (MyHomeMyData) The device scan saves the list of devices to the configuration itself, and restarts the instance
+* (MyHomeMyData) Only one scan can run at a time
+* (MyHomeMyData) Gateway: the MQTT broker field is now labelled "MQTT broker used by the gateway" and defaults to mqtt://localhost; the old default suggested a broker on the gateway itself
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20261101 (common) and 20261022 (variant)
+* (MyHomeMyData) Update of enumerations to version 20261116; the values of OpStates were corrected (open3e#145)
+* (MyHomeMyData) Datapoints tab: saving no longer clears the descriptions of the schedules in the configuration
+
 ### 1.2.0 (2026-10-15)
 * (MyHomeMyData) Added open3e-esp32 gateway as optional connection type per CAN bus (REST for UDS, MQTT for passively received frames)
 * (MyHomeMyData) Gateway: device and data point scan run on the gateway's scan engine, with progress in the log
@@ -419,12 +440,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 1.1.1 (2026-07-06)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
 * (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
-
-### 1.1.0 (2026-07-05)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260701 (common) and 20260630 (variant)
-* (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
-* (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
-* (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
 
 ### Older versions
 

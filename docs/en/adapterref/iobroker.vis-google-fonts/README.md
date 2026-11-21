@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-google-fonts.png?downloads=true)](https://nodei.co/npm/iobroker.vis-google-fonts/)
 
-Additional fonts fot ioBroker.vis
+Additional fonts for ioBroker.vis and ioBroker.vis-2
 
 ## Usage
 Install fonts and use field **CSS->font-family**. 
@@ -56,6 +56,7 @@ Following fonts will be included:
 
 ### **WORK IN PROGRESS**
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (bluefox) Added vis-2 to restartAdapters and fixed the restart of vis instances after the fonts are updated (#47)
 
 ### 1.0.4 (2022-10-08)
 * (Apollon77) prepare for future js-controller versions

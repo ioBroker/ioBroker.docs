@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ping/README.md
 title: PING-адаптер
-hash: f1oBwZlw077cGSMI9Js2FmSXCNkDcpI9SRK6JkzGKnM=
+hash: LDbyttY0mdNFu/LDvx8N6gl+/QVaYqWwZ2tlkeqZuQc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
-![Количество установок](http://iobroker.live/badges/ping-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ping.svg)
+![Количество установок](https://iobroker.live/badges/ping-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.ping.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
-# Адаптер PING
+# PING-адаптер
 
 ## Пингует настроенные IP-адреса.
 
@@ -23,7 +23,7 @@ hash: f1oBwZlw077cGSMI9Js2FmSXCNkDcpI9SRK6JkzGKnM=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-## Пинг от JavaScript-адаптера
+## Пинг от `javascript` адаптер
 
 С помощью команды ping можно проверить доступность любого IP-адреса через JavaScript-адаптер:
 
@@ -55,23 +55,19 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 Вам необходимо установить `setcap` с `sudo apt-get install libcap2-bin` перед тем, если `setcup` не найдено.
 
-## Поддержка hping3 для устройств, находящихся в спящем режиме (например, iPhone).
+## Устройства, пробуждающие спящего человека (например, iPhone)
 
-Некоторые устройства, особенно iPhone в режиме глубокого сна, не отвечают на стандартный ICMP-пинг. Для надежного обнаружения таких устройств адаптер может использовать `hping3` для отправки серии UDP-пакетов на порт 5353 (mDNS), что пробуждает устройство, после чего следует обычный пинг для подтверждения доступности.
+Некоторые устройства, особенно iPhone в режиме глубокого сна, не отвечают на стандартный ICMP-пинг. Для надежного обнаружения таких устройств адаптер может отправить серию из 10 пустых UDP-пакетов на порт 5353 (mDNS), что пробуждает устройство, выжидает одну секунду, а затем выполняет обычный пинг для подтверждения доступности.
 
-Включите параметр **"Использовать hping3"** для отдельных устройств в таблице "Устройства". Адаптер работает следующим образом:
+Включите параметр **"Пробуждать перед пингом"** для отдельных устройств в таблице "Устройства".
 
-```
-hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
-```
+Пакет данных отправляется самим адаптером (аналогично тому, как это делается в других случаях). `hping3 -2 -c 10 -p 5353 -i u1 -q <IP>`), поэтому никаких дополнительных инструментов устанавливать не нужно, и он работает на всех платформах.
 
-…затем немедленно выполняется обычный ICMP-пинг. Если hping3 не установлен, адаптер автоматически переключается на обычный пинг.
+## Размер упаковки
 
-**Установка (только для Linux):** В основных настройках включите **параметр «Установить hping3, если он недоступен»** . Адаптер будет работать. `sudo apt-get install -y hping3` При запуске системы, если hping3 еще не установлен. В качестве альтернативы, установите его вручную:
+Некоторые устройства отвечают только на эхо-запросы определенного размера. Например, IP-интерфейс KNX 730 компании Weinzierl отвечает на 32 байта данных, отправляемых Windows, но не на 56 байтов, отправляемых Linux.
 
-```bash
-sudo apt-get install hping3
-```
+Введите количество байтов данных в столбце **«Размер пакета»** таблицы «Устройства» (0-65500). Адаптер передает его в качестве параметра. `-s` к `ping` на Linux, macOS и FreeBSD, а также в качестве `-l` к `ping.exe` В Windows. Оставьте это поле пустым, чтобы установить значение по умолчанию.
 
 ## Проверка TCP-порта
 
@@ -79,7 +75,11 @@ sudo apt-get install hping3
 
 Вместо использования ICMP-пинга адаптер будет проверять доступность TCP-порта.
 
-## Функция пробуждения по локальной сети (Wake-on-LAN) из JavaScript-адаптера
+Для IPv6-адреса укажите его в скобках (например, `[fd00::1]:80`). IPv6-адрес без скобок (например, `fd00::1`) всегда проверяется с помощью пинга, как и тот, что в скобках без указания порта (`[fd00::1]` отправлен пинг как `fd00::1` В macOS и FreeBSD пинг IPv6-адресов осуществляется с помощью команды ping. `ping6`.
+
+Порт должен быть в диапазоне от 1 до 65535. Адрес с другим портом (например, `192.168.1.1:0` или `192.168.1.1:99999` Проверка вообще не производится: адаптер при запуске регистрирует предупреждение и сообщает, что устройство находится в автономном режиме.
+
+## Wake-on-LAN из `javascript` адаптер
 
 Вы можете разбудить любое устройство, отправив пакет Wake-on-LAN, используя его MAC-адрес:
 
@@ -95,6 +95,10 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
 });
 ```
 
+## Сообщение `help` для скриптов и агентов искусственного интеллекта
+
+`sendTo('ping.0', 'help', {})` ответы `{ help, commands }`: описание сообщений `ping` и `wakeOnLan` а также состояний устройств, разработанных для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов; `commands` выводит список всех сообщений адаптера с помощью `write: true` если это что-то изменит.
+
 ## Письмо в живые состояния
 
 Состояние каждого устройства доступно для записи и реагирует на неподтвержденные операции записи:
@@ -104,10 +108,10 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
 
 ### Wake-on-LAN
 
-Для работы функции Wake-on-LAN адаптеру необходимо знать MAC-адрес устройства. Решение осуществляется в следующем порядке:
+Для работы функции Wake-on-LAN адаптеру необходимо знать MAC-адрес устройства. Решение этой задачи происходит в следующем порядке:
 
 1. **MAC-адрес обнаруживается при просмотре сети** — если устройство было обнаружено во время просмотра сети, его MAC-адрес автоматически кэшируется.
-2. **Поиск ARP-адреса в реальном времени** — если указанный выше способ недоступен, адаптер пытается определить MAC-адрес через ARP в момент записи.
+2. **Поиск ARP-адреса в реальном времени** — если указанная выше функция недоступна, адаптер пытается определить MAC-адрес через ARP в момент написания.
 
 Если MAC-адрес определить не удаётся, в журнал заносится предупреждение, и пакет не отправляется.
 
@@ -121,32 +125,39 @@ setState('ping.0.myHost.192_168_1_1', false);
 setState('ping.0.myHost.192_168_1_1', true);
 ```
 
+## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: Wake-on-LAN sends the right packet also for a MAC address with "-" or without separators (e.g. `01-23-45-67-89-ab`, `0123456789AB`); only ":" worked before
+- (@GermanBluefox) Fixed: the message `wakeOnLan` also accepts a MAC address separated by "." (`01.23.45.67.89.ab`, `0123.4567.89ab`) and answers "Invalid MAC address" for any other input instead of failing without an answer
 
-## Changelog
-### 3.1.1 (2026-09-01)
-- (@GermanBluefox) Ping says now when this host may not send ICMP at all instead of reporting every device as offline
-- (@GermanBluefox) Added an optional TCP check that keeps the devices monitored on such a host (LXC container)
+### 3.4.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
-### 3.0.1 (2026-08-03)
-- (copilot) Breaking: Adapter requires node.js >= 22 now
-- (@GermanBluefox) Migrated for Admin 8
+### 3.3.0 (2026-11-15)
+- (@GermanBluefox) Added the optional packet size per device (`ping -s` / `ping.exe -l`) for devices that only answer an echo request of a certain size, e.g. the KNX IP interface 730 of Weinzierl (#387)
+- (@GermanBluefox) Updated packages
 
-### 2.2.4 (2026-05-16)
-- (@GermanBluefox) Fixing devices widgets
+### 3.2.1 (2026-11-13)
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+- (@GermanBluefox) Added: alias IDs are accepted in the web component Ping Device (#456)
 
-### 2.2.2 (2026-04-30)
-- (@GermanBluefox) Added support for device manager
-- (@GermanBluefox) Added devices widgets
+### 3.2.0 (2026-11-09)
+- (@GermanBluefox) Added the web components `iob-ping-device` and `iob-ping-overview` - the devices widgets "Ping Device" and "Ping Overview" for Aura and other hosts (`common.webComponents`)
+- (@GermanBluefox) Devices widgets "Ping Device" and "Ping Overview": fixed the state IDs for host names with dots, devices shown by name and disabled devices
+- (@GermanBluefox) Devices widget "Ping Device" shows the status of a newly selected device or instance at once instead of only after reloading; "Ping Overview" no longer mixes in devices of the previously selected instance
+- (@GermanBluefox) IPv6 addresses ending in digits (e.g. `fd00::1`) are pinged now instead of being checked as a TCP port. Write the TCP port of an IPv6 address in brackets: `[fd00::1]:80`
+- (@GermanBluefox) An IPv6 address in brackets without a port (e.g. `[fd00::1]`) is pinged now
+- (@GermanBluefox) A TCP port outside 1-65535 (e.g. `192.168.1.1:99999`) no longer stops the adapter: the device is reported as offline and a warning is logged
+- (@GermanBluefox) IPv6 addresses are pinged with `ping6` on macOS and FreeBSD, and on Windows a device that answers over IPv6 is no longer reported as offline
+- (@GermanBluefox) Devices widget "Ping Device" shows the response time as soon as it is switched on in the settings; "Ping Overview" no longer fails when the instance cannot be read or has no device list
 
-### 2.1.0 (2026-03-04)
-- (@GermanBluefox) Implemented wake-on-lan functionality
-- (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.ping/blob/master/CHANGELOG_OLD.md)
+### 3.1.5 (2026-10-30)
+- (@ipod86) Fixed crash "Invalid IP" when a device is configured with a host name (#445)
 
 ## License
 

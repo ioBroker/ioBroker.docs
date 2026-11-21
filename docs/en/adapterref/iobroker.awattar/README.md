@@ -25,17 +25,29 @@ for the hourly and hourly CAP tariffs.
 With this information you can then control when e.g. your electric car or the home storage should be charged (namely at the cheapest time).
 Since this provider offers its services only in Austria and Germany, note that some field labels in the admin UI are in German.
 
-In the adapter settings you will find 5 fields (each pre-filled with default values):
+In the adapter settings you will find 7 fields (each pre-filled with default values):
 <li>The variable "URL for aWATTar API" contains the URL for aWATTar's API price data feed.</li>
 <li>If you want to know the cheapest hours during the night (e.g. for charging your EV), use the following two parameters.
 <ul>The variable "Start Threshold Loading (e.g. for EV)" contains a time that marks the start of a period for which you want to get the cheapest hours in sorted order.</ul>
 <ul>The variable "End Threshold Loading" contains a time that marks the end of a period for which you want to get the cheapest hours in sorted order.</ul>
 </li>
-<li>The variable "actual VAT rate (percent)" must contain the currently valid VAT rate. The prices delivered by the API do not include VAT.</li>
+<li>The variable "actual VAT rate (percent)" must contain the currently valid VAT rate (decimals are possible, e.g. 19 or 19,5). The prices delivered by the API do not include VAT.</li>
+<li>The variable "Surcharge on the absolute market price (percent)" is optional. Some suppliers add a percentage of the market price, e.g. aWATTar a 3 % procurement component (enter 3). The surcharge is based on the absolute value, so negative prices also get a positive surcharge. Enter 0 if your contract has no such component.</li>
+<li>The variable "Fixed surcharge per kWh (cent, before VAT)" is optional. A fixed amount in cent per kWh that is added to the net price before VAT is applied. Enter 0 if your contract has no such component.</li>
 <li>The variable "Arbeitspreis ('Netznutzung' + 'Umlagen, Abgaben, Steuern' + 'Kosten für Ökostromzertifikate, Abrechnung und Vertrieb', incl. VAT)" lets you enter your personal energy rate (depends on your postal code / grid operator).</li>
 <br>
+<b>How the prices are calculated</b> (market price = value delivered by the API, converted to cent/kWh):
+<pre>
+nettoPriceKwh     = market price
+nettoFullPriceKwh = nettoPriceKwh + |nettoPriceKwh| * (percent surcharge / 100) + fixed surcharge
+bruttoPriceKwh    = nettoFullPriceKwh * (1 + VAT / 100)
+totalPriceKwh     = bruttoPriceKwh + Arbeitspreis
+</pre>
+With both surcharges set to 0, <code>nettoFullPriceKwh</code> equals <code>nettoPriceKwh</code> and the results are the same as in versions before 1.6.0.
+The folder "pricesOrdered" and "pricesOrderedTomorrow" contain the plain market price only (<code>priceKwh</code>), without surcharges, VAT and Arbeitspreis.
+<br><br>
 The results are then available in the adapter's object tree (awattar.0).
-The folder "prices" contains one entry per hour of the day with the electricity price for that hour.
+The folder "prices" contains one entry per hour of the day with the electricity price for that hour (net, net including surcharges, gross and total price).
 The folder "pricesOrdered" contains -sorted by hourly price- one entry for each hour of the period configured in the settings, with the electricity price for that hour.
 The folder "pricesOrderedTomorrow" contains -sorted by hourly price- one entry for each hour of tomorrow (the whole day, independent of the configured period), e.g. to plan the discharge of a home storage in the most expensive hours. It is filled as soon as tomorrow's prices are available (see below); until then it is empty.
 <br><br>
@@ -48,6 +60,10 @@ According to the <a href="https://www.awattar.de/services/api" target="_blank">a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.6.0
+* New: optional settings "surcharge on the absolute market price (percent)" and "fixed surcharge per kWh (cent)" for suppliers like aWATTar (3 % procurement component since 09/2022, see #20); both default to 0. New data point `nettoFullPriceKwh`; `bruttoPriceKwh` and `totalPriceKwh` are based on it. Formula: `net full = net + |net| * percent/100 + fixed`, `gross = net full * (1 + VAT/100)`, `total = gross + energy rate`
+* Changed: the VAT rate now accepts decimals and a comma as decimal separator
 
 ### 1.5.0
 * New: the folder `pricesOrderedTomorrow` contains all hours of tomorrow sorted by price (independent of the configured period, 23-25 entries depending on daylight saving time); outdated entries are removed on every run

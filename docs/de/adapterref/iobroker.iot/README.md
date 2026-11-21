@@ -4,10 +4,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: qVyolqmZHead5TQ7p/VtCV94qoQmzJhaJLhSooFpQh0=
+hash: CUGkxdfGiRfXURf+YgZKHwlsK5/RLXpRz5mq6SvyZHY=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/iot-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.iot.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/iot-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.iot.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
@@ -115,7 +115,7 @@ Beispiel:
 
 Sie können das Verhalten des EIN-Befehls für den jeweiligen Zahlenstatus festlegen. Sie können einen bestimmten Wert auswählen oder den letzten von Null verschiedenen Wert verwenden.
 
-### Schreiben Sie eine Antwort auf
+### Antwort schreiben
 
 Für jeden Befehl wird eine Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden soll. Beispiel: _sayit.0.tts.text_ .
 
@@ -211,7 +211,7 @@ Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt w
 
 ## Helfer erklärt
 
-- `smart.lastObjectID` Dieser Zustand wird eingestellt, wenn nur ein Gerät über den Smart-Home-Skill (Alexa, Google Home) gesteuert wird.
+- `smart.lastObjectID` Dieser Status wird gesetzt, wenn nur ein Gerät über den Smart-Home-Skill (Alexa, Google Home) gesteuert wird.
 - `smart.lastFunction` Funktionsname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
 - `smart.lastRoom`: Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
 - `smart.lastCommand`: Zuletzt ausgeführter Befehl. Der Befehl kann Folgendes sein: `true(ON)`, `false(OFF)`, `number(%)`, `-X(decrease at x)`, `+X(increase at X)`
@@ -227,7 +227,7 @@ Alexa v3 unterstützt den Umschaltmodus. Das bedeutet, dass das Licht ausgeschal
 
 ## Google Home
 
-Wenn die folgende Fehlermeldung im Protokoll angezeigt wird: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
+Wenn Sie die folgende Fehlermeldung im Protokoll sehen: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
 
 ![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
@@ -266,7 +266,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 
 ### `text2command`
 
-Sie können schreiben `text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden. `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` um Daten zu schreiben in `text2command.X.text` Variable.
+Sie können schreiben `text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden. `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` Daten schreiben in `text2command.X.text` Variable.
 
 Sie können auch die GET-Methode verwenden. `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -304,6 +304,7 @@ Der Adapter liefert die Details in zwei Zuständen mit unterschiedlichem Detaill
   - `sessionId` Enthält die Sitzungs-ID der Skill-Sitzung; diese sollte bei mehreren gesprochenen Befehlen identisch sein; wird von Amazon bereitgestellt; ist eine leere Zeichenkette, falls keine angegeben wird.
   - `userId` Enthält eine Benutzer-ID des Gerätebesitzers (oder später des Nutzers, der mit dem Skill interagiert hat), die von Amazon bereitgestellt wird; ist eine leere Zeichenkette, falls nicht angegeben.
   - `userName` Enthält einen zugeordneten Benutzernamen, den Sie in der IoT-Admin-Benutzeroberfläche für gesammelte Benutzer-IDs konfigurieren können.
+  - `lastResponse` enthält den zuletzt von Alexa in derselben Sitzung gesprochenen Text, z. B. den Text von `Starte Dialog mit ...` oder die über `smart.lastResponse`; leere Zeichenkette für eine neue Sitzung
 
 Weitere Details darüber, wie die Wörter erkannt werden und welche Arten von Anfragen die Alexa Custom Skill unterscheidet, finden Sie unter <https://forum.iobroker.net/viewtopic.php?f=37&t=17452> .
 
@@ -313,7 +314,7 @@ Die Antwort muss innerhalb von 200 ms im Zustand gesendet werden. `smart.lastRes
 
 - `responseText` muss den Text enthalten, der an Amazon zurückgesendet werden soll.
 - `shouldEndSession` ist ein boolescher Wert und steuert, ob die Sitzung nach der gesprochenen Antwort geschlossen wird oder offen bleibt, um weitere Spracheingaben entgegenzunehmen.
-- `sessionId` Die Antwort muss die Sitzungs-ID enthalten, für die sie bestimmt ist. Idealerweise sollte diese angegeben werden, um gleichzeitige Sitzungen zu ermöglichen. Wird sie nicht angegeben, wird die erste Sitzung verwendet, die eine Antwort erwartet.
+- `sessionId` Die Antwort muss die Sitzungs-ID enthalten, für die sie bestimmt ist. Idealerweise sollte diese angegeben werden, um parallele Sitzungen zu ermöglichen. Wird sie nicht angegeben, wird die erste Sitzung verwendet, die eine Antwort erwartet.
 
 **Das Ergebnis wird über eine Nachricht an die IoT-Instanz zurückgegeben.**
 
@@ -416,28 +417,41 @@ setState('iot.0.app.message', JSON.stringify({
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Migrated blockly to TypeScript
+### 7.1.9 (2026-11-21)
+- (@GermanBluefox) Alexa V3: discovery size limit is now checked against the compressed size, so large installations are no longer truncated (#1294)
+- (@GermanBluefox) [GHOME] Ignored devices (smartName = false) are logged as debug instead of warn, message clarified (#450)
+- (@GermanBluefox) Added `lastResponse` to `smart.lastCommandObj` with the last text spoken by Alexa in the current custom skill session (#574)
 
-### 7.0.1 (2026-08-06)
-- (@GermanBluefox) Migrated to TypeScript 6 and react 19
+### 7.1.8 (2026-11-03)
+- (@GermanBluefox) Google Home: values are converted into the units and ranges of Google (brightness and position in %, color temperature from mired or % into Kelvin within the range of the device), and a state report contains no internal names anymore. This fixes the error "Cannot updateState: INVALID_ARGUMENT"
+- (@GermanBluefox) Google Home: lights with hue and saturation or with separate red, green and blue states report and set the color correctly, and a new color does not change the brightness anymore
+- (@GermanBluefox) Google Home: blinds report the position from ACTUAL instead of SET
 
-### 6.1.3 (2026-06-12)
-- (@GermanBluefox) Added support of credentials manager
+### 7.1.7 (2026-11-02)
+- (@GermanBluefox) Admin shows a warning on the update from a version before 7.1.6: Alexa routines with blinds must be edited once
+- (@GermanBluefox) Alexa V3: Alexa may ask for the state of all devices, so the tiles of thermostats, lights, plugs etc. in the Alexa app show their values instead of loading forever. A new device discovery in Alexa is required
+- (@GermanBluefox) Alexa V3: a state with `min` or `max` set to null or empty no longer gets null instead of the value from Alexa, e.g. the temperature of a thermostat
+- (@GermanBluefox) Alexa V3: color lights report a valid color to Alexa, also without a saturation state
+- (@GermanBluefox) Alexa V3 tab: a state added to an existing device is added to it instead of becoming its own device
+- (@GermanBluefox) Alexa V3: states with the old Alexa V2 type SCENE_TRIGGER or ACTIVITY_TRIGGER (e.g. of the scene adapter) are offered to Alexa as scenes again
+- (@GermanBluefox) Alexa V3: HomeMatic devices report their reachability from UNREACH again
+- (@GermanBluefox) Alexa V3: thermostats with modes unknown to Alexa (e.g. MANU) send no empty or double modes in the discovery
+- (@GermanBluefox) Custom skill: "Starte Dialog" is not said twice anymore, and answers in SSML (`<speak>...`) are spoken
+- (@GermanBluefox) Google Home: own attributes of a trait are kept, and a thermostat with its own mode state reports this mode
+- (@GermanBluefox) The request of the Alexa V3 devices by the GUI is logged on debug level
 
-### 6.1.0 (2026-06-02)
-- (@GermanBluefox) Implemented new feature to select devices from the list and not by enumeration
-- (@GermanBluefox) Possibility to send messages to the app directly from the state
-- (@GermanBluefox) Migrated google and alisa to TypeScript
+### 7.1.6 (2026-10-19)
+- (@jtolksdo) Alexa V3: blinds are announced as RangeController "Blind.Lift" and understand "open/close". "Down/up" without an amount closes/opens the blind fully. A new device discovery in Alexa is required. **Breaking:** existing Alexa routines with blinds stop working and must be edited once (remove the blind from the routine, add it again and save). The discovery of a blind is about 600 characters bigger
+- (@jtolksdo) Alexa V3: "down" without an amount lowers a slider instead of raising it
+- (@jtolksdo) Alexa V3: all names of a comma-separated smart name get the new value of a state
+- (@GermanBluefox) Alexa V3: several RangeControllers in one device (e.g. a blind and a slider) are discovered and controlled separately
 
-### 6.0.3 (2026-04-23)
-- (@GermanBluefox) Allowed to read temperature information via Alexa
-
-### 6.0.1 (2026-04-07)
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (@GermanBluefox) Removed support for Alexa 2
-- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
-- (@GermanBluefox) Validate Discovery response before sending it back
+### 7.1.5 (2026-10-14)
+- (@GermanBluefox) Alexa V3: a request that fails with an exception is answered with INTERNAL_ERROR instead of "Service is disabled", and the error is logged
+- (@Gehli23) Fixed detection of thermostats in Alexa V3 with type-detector 6 (`requiredOneOf` states)
+- (@GermanBluefox) Alexa V3: removed, renamed and new devices are reported to Alexa without a new discovery, but it is not yet active in the cloud
+- (@GermanBluefox) Alexa V3: error answers carry the correlation token and endpoint of the request, and a device that is gone is reported as NO_SUCH_ENDPOINT
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 
 ## License
 

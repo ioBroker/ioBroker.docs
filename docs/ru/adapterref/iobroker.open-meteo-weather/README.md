@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: TLK82H0b3s6DkF0hNAy7iK7jUBRC63o1B0IZkP9lMpY=
+hash: CGWGIK4Ie7Vi3pZZK1FGsu68wOwaF49Lzg3x7G5mog0=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -102,9 +102,9 @@ hash: TLK82H0b3s6DkF0hNAy7iK7jUBRC63o1B0IZkP9lMpY=
 **Способ применения:**
 
 1. **Включить:** Установите флажок «Создать виджет» в настройках экземпляра для вашего местоположения.
-2. **Найти состояние:** Адаптер создаст состояние с именем `htmlWidget` (под `open-meteo-weather.0.yourLocation.htmlWidget`).
+2. **Найти состояние:** Адаптер создаст состояние с именем `htmlWidget` (под `open-meteo-weather.0.yourLocation.weather.htmlWidget`).
 3. **В VIS/VIS2:** \* Перетащите стандартный **виджет "HTML"** на ваше представление.
-   - Установите свойство "HTML" этого виджета в соответствии с привязкой вашего состояния: `{open-meteo-weather.0.yourLocation.htmlWidget}`.
+   - Установите свойство "HTML" этого виджета в соответствии с привязкой вашего состояния: `{open-meteo-weather.0.yourLocation.weather.htmlWidget}`.
    - Отрегулируйте ширину и высоту контейнера виджета в соответствии с содержимым.
 
 **Настройка:** Основные параметры, такие как размер шрифта, время и дни прогноза погоды, можно изменять только в конфигурации адаптера.
@@ -320,35 +320,39 @@ hash: TLK82H0b3s6DkF0hNAy7iK7jUBRC63o1B0IZkP9lMpY=
 - **Данные о погоде:** Все данные о погоде предоставлены сайтом [Open-Meteo.com](https://open-meteo.com/) . Пожалуйста, ознакомьтесь с их условиями использования для коммерческих целей.
 
 ## Changelog
+### 3.4.0 (2026-11-13)
+
+* (H5N1v2) fix: PV service timers are now properly cleaned up when the adapter stops. The PV service instance is stored and destroyed in `onUnload`, so the sunrise/interval/retry timers are cleared on shutdown.
+* (H5N1v2) fix: Corrected a typo in the PV service configuration key (`sunhine_duration` → `sunshine_duration`). The optional PV `sunshine_duration` data points are now created and updated correctly when the "Sunshine Duration" option is enabled.
+* (H5N1v2) fix: The PV forecast now uses the configured `Forecast Days` (`forecastDays_pv`) instead of the weather forecast day count. The number of PV daily forecast days (and the daily sum) now matches the setting on the PV tab (e.g. 7 days) and is also passed to the Open-Meteo API request.
+* (H5N1v2) enhanced: Unified the default values between `io-package.json` and the admin UI for new installations (`Forecast Days` = 7, `Forecast Hours` = 6, PV `Update Interval` = once before sunrise).
+* (H5N1v2) fix: Cleaned up the adapter description in `io-package.json` (removed stray escaped quotes and trailing commas that showed up in the adapter overview).
+* (H5N1v2) fix: Synced the admin translations of all 11 languages with `jsonConfig.json` — added the missing `px` key, removed the orphaned `pollenEnabled_label` and wired the previously unused `widget_create_help`. Removed the unused `pollenEnabled` and `language` fields from the configuration type definitions.
+* (H5N1v2) fix: Corrected the state role of `sunshine_duration`. It is a duration (unit `h`/`min`), not a radiation level, so the role changed from `value.radiation` to `value.interval` per the official state-role documentation. Existing installations are migrated automatically (role mapping version 2).
+* (H5N1v2) fix: The 15-minute forecast no longer writes `sunshine_duration` twice per update (it is now converted to hours once, before the single write).
+* (H5N1v2) fix: `info.lastUpdate_weather` is now only updated when at least one weather location was processed successfully, instead of also on fully failed/skipped updates.
+* (H5N1v2) enhanced: When a data point already exists, `extendOrCreateState`/`createCustomState` now also correct role and unit (not just the value type) if they drift from the definition. Typed several previously untyped values (`val`, `cachedUnitMap`, weather API result) to reduce `any` usage.
+* (H5N1v2) testing: Added the first unit tests (`src/lib/role_mapping.test.ts`) covering the role mapping (`getRole`), role mapping version/managed keys and the unit maps. `npm run test:ts` now runs real tests.
+* (H5N1v2) fix: The optional `cloud_cover` data point is now also created and filled for the PV **15-minute forecast** (previously it only existed for the hourly forecast). The cleanup also removes it again when the option is turned off.
+
+### 3.3.3 (2026-11-09)
+* (H5N1v2) fixed: Corrected weather location configuration property names and fixed PV longitude validation to properly handle empty values and trigger the system-coordinate fallback.
+* (H5N1v2) Update dependencies.
+
+### 3.3.2 (2026-10-25)
+* (H5N1v2) Bug fixed: "Error Timeout (-xxxxx) is smaller than 0" occurring during the transition to or from daylight saving time.
+* (H5N1v2) Update dependencies.
+
+### 3.3.1 (2026-10-10)
+* (H5N1v2) Added `showers` datapoint to 15-minute forecast.
+* (H5N1v2) Update dependencies.
+
 ### 3.3.0 (2026-09-20)
 * (H5N1v2) Adding some weather keys, in hourly: showers, in daily: showers_sum, in current: rain, showers, snowfall
 * (H5N1v2) Automatic role migration: When `role_mapping.ts` is updated, existing 
   ioBroker objects are automatically updated with the new roles on the next adapter start – 
   no manual deletion of the object tree required.
 * (H5N1v2) Update dependencies
-
-### 3.2.1 (2026-09-12)
-* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
-* (H5N1v2) add node.js 26.x testmatrix
-* (H5N1v2) Update dependencies
-
-### 3.2.0 (2026-09-06)
-* (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
-* (H5N1v2) Update dependencies
-
-### 3.1.4 (2026-07-18)
-* (@GermanBluefox) upscaled the logo
-* (@GermanBluefox) Updated TS to 6
-* (@GermanBluefox) Corrected image in JsonConfig
-* (H5N1v2) Resize logo to 512x512
-* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
-* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
-* (H5N1v2) add open-meteo status link in adapter description and README.
-* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
-* (H5N1v2) Update dependencie.
-
-### 3.1.3 (2026-06-20)
-* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
 
 ## License
 This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/LICENSE) file for details.

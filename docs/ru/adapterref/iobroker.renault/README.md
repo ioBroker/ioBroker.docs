@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
+hash: bp6/FR1ujfjRxdVjGOoZIxiG9+OLYQ+uVZQ92D6PIfU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -136,6 +136,8 @@ hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
 
 **В журнале появляется сообщение "неверный логин или пароль", или вход в систему отклонен.** Установите новый пароль в приложении My Renault (My Dacia, My Alpine), введите его в настройках адаптера и перезапустите устройство. До тех пор адаптер не отправляет команды, поэтому он не может заблокировать учетную запись со старым паролем.
 
+**В журнале или уведомлениях администратора указано, что Renault запрашивает код по электронной почте.** Renault запрашивает код по электронной почте для некоторых учетных записей при входе в систему (двухфакторная аутентификация). Откройте настройки экземпляра и нажмите **«Проверить вход»** . Адаптер отправляет код Renault и указывает адрес. Введите код **из электронного письма в поле «Код»** в течение 10 минут и нажмите **«Подтвердить код»** . Неправильный код можно исправить без отправки нового электронного письма; через 10 минут снова нажмите **«Проверить вход»,** чтобы получить новый код. Если адрес электронной почты на странице совпадает с адресом, используемым экземпляром, экземпляр подключается немедленно и удаляет уведомление; чтобы получить новый адрес электронной почты, сохраните и закройте настройки. Renault запоминает установку ioBroker примерно на 30 дней, и адаптер сохраняет свою сессию входа в систему после перезагрузок, поэтому новый код требуется только тогда, когда Renault завершает эту сессию.
+
 **В журнале указано, что квота запросов Renault исчерпана (429).** Учетная запись позволяет отправлять около 60 запросов в час, которые распределяются между приложением. Адаптер автоматически приостанавливается на 15, 30, а затем на 60 минут. Увеличьте интервал обновления и используйте `refreshAll` Редко; адаптер выдает предупреждение один раз, когда его настройки требуют больше запросов, чем позволяет квота.
 
 ** `chargingStart` Я отключил расписание зарядки.** На Renault 4, Renault 5, Alpine A290, Scenic E-Tech и Master E-Tech зарядка запускается именно так, приложение делает то же самое. Включите программы зарядки снова в приложении.
@@ -148,9 +150,19 @@ hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
-- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
-- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
+
+- The buttons refreshBattery, refreshClimate and refreshLocation no longer fail now and then with "Timeout (-1) is smaller than 0".
+
+### 1.1.0 (2026-10-22)
+
+- New button in the settings to test the login before saving.
+- Accounts that need a login code by email work again. The code is requested and confirmed in the settings.
+- The login is kept across restarts.
+- A space around the email no longer breaks the login (#82).
+- The country setting is shown in the language of the admin.
+- Map widgets now find the vehicle position.
 
 ### 1.0.0 (2026-09-23)
 
@@ -198,10 +210,6 @@ hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
 ### 0.0.23
 
 - (TA2k) align API headers with My Renault Android app, drop EOL Node 18/20, migrate admin UI to jsonConfig
-
-### 0.0.22
-
-- (TA2k) update dependencies, migrate to ESLint 10, fix repochecker findings
 
 ## License
 

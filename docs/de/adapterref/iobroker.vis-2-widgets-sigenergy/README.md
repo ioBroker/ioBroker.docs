@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
+hash: 0RYBdCZs1IJFZC5gH3MJXD4kRGF9vLQQKV5mUrYE5PY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -18,12 +18,22 @@ hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 
 ## vis-2-widgets-sigenergy-Adapter für ioBroker
 
-VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (`ioBroker.sigenergy` Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro-Mikro-Wechselrichters.
+VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (`ioBroker.sigenergy` Enthält 11 Widgets zur Visualisierung und Steuerung des Energieflusses, des Energiehauses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters, der Übersicht des SigenMicro-Mikrowechselrichters, der PV-Strings und des Ladezustands des Fahrzeugs.
+
+Seit Version 2.0.0 handelt es sich bei den Widgets um ein natives vis-2 React Widget-Set (React 19, MUI 9).
 
 ## Anforderungen
 
 - ioBroker mit dem `sigenergy` Adapter installiert und konfiguriert
-- ioBroker VIS-2 Adapter (≥ 2.0.0)
+- ioBroker VIS-2-Adapter (≥ 2.20.0) — vis-2 2.20 ist die erste Version, die auf React 19 und MUI 9 basiert.
+- Das klassische VIS (vis-1) wird nicht unterstützt.
+
+## Upgrade von Version 1.x
+
+- Vorhandene Widgets funktionieren weiterhin, ohne dass sie erneut platziert werden müssen: Die Widget-IDs und alle Einstellungen (Objekt-IDs, Titel, Dunkelmodus, Namen) sind die gleichen wie zuvor.
+- vis-2 muss zuerst auf Version 2.20.0 oder neuer aktualisiert werden. Ältere vis-2-Versionen verwenden React 18 und können dieses Widget-Set nicht laden.
+- Alle Texte folgen der Sprache von vis-2 (11 Sprachen). Selbst eingegebene Titel bleiben erhalten; ein leerer Titel zeigt den Standardtitel in der Sprache des Benutzers an.
+- Statuserklärungen (AC/DC-Ladegerät) werden als Tooltip angezeigt, der nicht mehr vom Widget abgeschnitten wird und bei jeder Widget-Größe lesbar bleibt.
 
 ## Widgets
 
@@ -43,6 +53,32 @@ Zeigt den aktuellen Energiefluss zwischen Solarmodulen, Batterie, Stromnetz und 
 | `gridActivePower` | Netzverbrauch → Pfeil vom Netz zur Mitte                | Netzeinspeisung → Pfeil von der Mitte zum Netz       |
 | `pvPower`         | PV-Anlage erzeugt → Pfeil von der PV-Anlage zum Zentrum | —                                                    |
 | `housePower`      | Hausverbrauch → Pfeil von der Mitte zum Haus            | —                                                    |
+
+### Energiehaus
+
+Die Darstellung visualisiert den Energiefluss als isometrisches Hausmodell mit Garage, Auto und den Sigenergy-Geräten: Photovoltaikanlage auf dem Dach, SigenStor-Batterie und Gateway an der Hauswand, AC-Wallbox an der Garage, DC-Ladegerät davor, eine Balkonanlage mit SigenMicro auf dem Garagendach und der Netzanschluss. Animierte Linien verlaufen entlang der Kabel in Richtung des Energieflusses – je höher die Leistung, desto schneller. Tag und Nacht folgen dem Sonnenstand am Standort der ioBroker-Systemeinstellungen. Alle Elemente sind als Vektorgrafiken dargestellt, sodass das Widget in jeder Größe scharf bleibt und seine Proportionen beibehält.
+
+**OIDs:** `pvPower`, `housePower`, `essPower`, `essSoc`, `gridActivePower`, `acCharger.chargingPower`, `acCharger.systemState`, `dcCharger.outputPower`, `dcCharger.runningState`, `sigenmicro.totalPower`; optional: Außentemperatur (`oid_temp`) und eine Statusmeldung (`oid_status`)
+
+![Energiehaus bei Tag](img/widget-energiehaus.png)![Energiehaus bei Nacht](img/widget-energiehaus-nacht.png)![Energiehaus im Regen](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-energiehaus-regen.png)
+
+| Einstellung                                                                       | Standard    | Beschreibung                                                                                                                                                                       |
+| --------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sig\_daynight                                                                     | Automatisch | Automatisch (Sonnenstand), immer Tag oder immer Nacht                                                                                                                              |
+| sig\_animation                                                                    | An          | Animierter Fluss entlang der Kabel                                                                                                                                                 |
+| `sig_show_garage`, `sig_show_car`, `sig_show_ac`, `sig_show_dc`, `sig_show_micro` | An          | Garage, Auto, AC-Ladegerät, DC-Ladegerät und Balkonstromanlage ein- oder ausblenden. Die Balkonstromanlage benötigt die Garage; ohne Garage hängt die AC-Wanddose an der Hauswand. |
+
+**Wetter (optional):** Mit einer Wetterangabe passt sich der Himmel dem tatsächlichen Wetter an – Sonne, Wolken, Regen, Schnee, Nebel oder Gewitter; ohne Angabe bleibt es klar. Verwenden Sie den sprachunabhängigen Code des Wetteradapters; englische Zustandsbeschreibungen werden ebenfalls berücksichtigt.
+
+| Adapter        | Wetterbedingungen                          | Bewölkung (%)                  | Niederschlag (mm/h)              | Numerischer Wettercode |
+| -------------- | ------------------------------------------ | ------------------------------ | -------------------------------- | ---------------------- |
+| offenes Wetter | `…weather.current.weather_code`            | `…weather.current.cloud_cover` | `…weather.current.precipitation` | Automatisch            |
+| OpenWeatherMap | `forecast.current.icon`                    | `forecast.current.clouds`      | `forecast.current.precipitation` | Automatisch            |
+| daswetter      | `location_1.ForecastHourly.Current.symbol` | `…Current.clouds`              | `…Current.rain`                  | DasWetter-Symbol       |
+
+daswetter schreibt die `Current` Kanal nur mit der Option, die aktuelle Stunde zu kopieren; ansonsten verwenden `ForecastHourly.Hour_1` Die `symbol_URL` Funktioniert auch mit der Codeeinstellung „Automatisch“.
+
+Wolkenbedeckung und Niederschlag präzisieren die Bedingungen oder ersetzen sie; Niederschlag bei oder unter 1 °C wird als Schnee dargestellt.
 
 ### Batteriestatus & Prognosen
 
@@ -120,16 +156,23 @@ Anzeige von bis zu 3 PV-Strings mit aktuellen Leistungswerten und animierten Flu
 
 ### SigenMicro Übersicht
 
-Übersicht und Detailansicht aller über Modbus angeschlossenen SigenMicro-Mikrowechselrichter. Registerkarte 1 zeigt alle Geräte als animiertes Netzwerksegment (Ethernet-Bus-Topologie mit vertikalen Verbindungslinien). Jede weitere Registerkarte zeigt alle 15 Register des jeweiligen Geräts in aufsteigender Reihenfolge.
+Übersicht und Detailansicht der SigenMicro-Mikrowechselrichter. `ioBroker.sigenergy` 3.5.0 Der Adapter liest die Daten aus der Sigenergy-Cloud (Registerkarte „SigenMicro (Cloud)“ in den Adaptereinstellungen) und erstellt ein Gerät pro Mikro-Wechselrichter unter `sigenergy.0.sigenmicro.<serial>`. **Erfordert `ioBroker.sigenergy` ≥ 3.5.0 mit aktivierter Cloud.** Die Cloud wird alle 300 Sekunden (OpenAPI) bzw. 60 Sekunden (App-Oberfläche) abgefragt, daher kann das Widget nicht schneller aktualisiert werden.
 
-| Tab             | Inhalt                                                                                                                                              |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Überblick**   | Alle Geräte als animierte Bustopologie, aggregierte Kacheln (Gesamtleistung, Tagesertrag, Lebensdauerertrag, Anzahl der online befindlichen Geräte) |
-| **Gerät 01–20** | Gerätebild oben links (10 px Versatz), Modell-/Seriennummer-/Firmware-/Status-Badge, alle 15 Register (01–15) mit Wert, Einheit und OID-Pfad        |
+| Tab                   | Inhalt                                                                                                                                                                                                                             |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Überblick**         | Alle Geräte als animierter Wechselstrombus mit Status pro Gerät; Kacheln für Wechselstrom (Adapter gesamt) `sigenmicro.totalPower` (ansonsten die Summe der Geräte), heutiger Ertrag, Lebenszeitertrag und online verfügbare Geräte |
+| **ein Tab pro Gerät** | Bild, Name, Nennleistung, Seriennummer, Firmware, Zeitpunkt des letzten Cloud-Updates, Statusanzeige, alle Live-Werte mit Einheit und OID sowie die PV-Eingänge pv1 … pv4, die der Adapter meldet                                  |
 
-#### Netzwerksegmentanimation
+#### Status
 
-Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Striche, die entlang der Kabel verlaufen, wenn ein Gerät aktiv ist (Betrieb). Inaktive Geräte (Standby/Fehler) zeigen nur die dunkle Grundlinie ohne Animation an.
+| Status      | Zustand                              | Anzeige                |
+| ----------- | ------------------------------------ | ---------------------- |
+| Produktion  | `online` = wahr, `activePower` > 0    | grüner, animierter Bus |
+| Online      | `online` = wahr, `activePower` = 0    | Blau                   |
+| Offline     | `online` = falsch — normal bei Nacht | grau                   |
+| Keine Daten | Es wurde noch kein Wert empfangen.   | grau                   |
+
+Wenn `info.cloudConnection` Ist `false` Das Widget zeigt die Warnung „Cloud-Verbindung verloren“ an, da die Werte möglicherweise veraltet sind.
 
 #### Dynamisches Layout
 
@@ -142,22 +185,28 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 #### Widget-Einstellungen
 
-| Parameter                  | Typ              | Standard                        | Beschreibung                                                      |
-| -------------------------- | ---------------- | ------------------------------- | ----------------------------------------------------------------- |
-| Mikro-Anzahl               | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                     |
-| Signaturtitel              | Text             | SigenMicro Mikro-Wechselrichter | Widget-Titel                                                      |
-| sig\_darkmode              | Kontrollkästchen | WAHR                            | Dunkel-/Hellmodus                                                 |
-| oid\_micro1 … oid\_micro20 | OID              | —                               | Anker-OID pro Gerät (z. B. sigenergy.0.sigenmicro.11.outputPower) |
+| Parameter                        | Typ              | Standard                        | Beschreibung                                                                                                                                                                                                                 |
+| -------------------------------- | ---------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mikro-Zählung                    | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                                                                                                                                                                                |
+| Signaturtitel                    | Text             | SigenMicro Mikro-Wechselrichter | Widget-Titel                                                                                                                                                                                                                 |
+| sig\_darkmode                    | Kontrollkästchen | WAHR                            | Dunkel-/Hellmodus                                                                                                                                                                                                            |
+| micro\_device1 … micro\_device20 | Auswahl          | —                               | Mikro-Wechselrichter aus der Liste der SigenMicro-Geräte der sigenergy-Instanzen (Seriennummer und Name). Das Widget liest alle Zustände des Geräts aus. Widgets ab Version 1.x behalten ihre bisherige Zustandsauswahl bei. |
+| micro\_take\_all                 | Taste            | —                               | Übernimmt alle SignMicro-Geräte des Kontos gleichzeitig (Anzahl und Auswahl).                                                                                                                                                |
+| micro\_name1 … micro\_name20     | Text             | —                               | Anzeigename des Geräts (Standard: Micro 01, Micro 02, …)                                                                                                                                                                     |
 
-![SigenMicro Übersicht — Übersichts-Tab](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_01.png)
+![SignMicro Übersicht — Übersicht](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_01.png)
 
-![SigenMicro Übersicht — Detail-Tab](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
+![SignMicro Übersicht — Details](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
 
-**OIDs (pro Gerät, Präfix sigenergy.0.sigenmicro).<slaveId> ):** Modelltyp, Seriennummer, Firmware-Version, Betriebszustand, Ausgangsleistung, Netzfrequenz, Temperatur, MPPT1-Spannung, MPPT1-Strom, MPPT1-Leistung, MPPT2-Spannung, MPPT2-Strom, MPPT2-Leistung, Tagesertrag, Gesamtertrag
+**Zustände pro Gerät (`sigenergy.0.sigenmicro.<serial>` Online** , Wirkleistung, Blindleistung, PV-Leistung, PV1…PV4-Spannung/-Strom/-Leistung, Netzspannung, Netzstrom, Netzfrequenz, Leistungsfaktor, Temperatur, Isolationswiderstand, Tagesertrag, Gesamtertrag, Seriennummer, Firmware, Nennleistung, letzte Aktualisierung
+
+**Zusätzlich:** `sigenergy.0.sigenmicro.totalPower`, `sigenergy.0.info.cloudConnection` — Die Instanz wird aus der ausgewählten OID entnommen.
+
+> **Upgrade von 1.8.x:** die ehemaligen Modbus-Zustände (`runningState`, `outputPower`, `mppt*`, `modelType` …) sind im Adapter nicht mehr vorhanden. Wählen Sie die Mikro-Wechselrichter in den Widget-Einstellungen erneut aus – entweder aus der Liste oder mit „Alle SigenMicro übernehmen“.
 
 ### Fahrzeugladezustand (EV SOC)
 
-Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelles Element an. Ein farbcodiertes Symbol in der oberen rechten Ecke zeigt einen Blitz, den aktuellen Ladestand in Prozent und die Bezeichnung „LADESTAND“. Ein Fortschrittsbalken am unteren Rand zeigt den aktuellen Ladezustand (SOC) an. Im optionalen Lademodus leuchtet das Symbol pulsierend grün.
+Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelles Element an. Ein farbcodiertes Symbol in der oberen rechten Ecke zeigt einen Blitz, den aktuellen Ladestand in Prozent und die Bezeichnung „LADEN“. Ein Fortschrittsbalken am unteren Rand zeigt den aktuellen Ladezustand (SOC) an. Im optionalen Lademodus leuchtet das Symbol pulsierend grün.
 
 #### Farblogik
 
@@ -169,21 +218,21 @@ Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelle
 
 #### Widget-Einstellungen
 
-| Parameter       | Typ              | Standard           | Beschreibung                                                   |
-| --------------- | ---------------- | ------------------ | -------------------------------------------------------------- |
-| oid\_ev\_soc    | OID              | —                  | Ladezustand 0–100                                              |
-| oid\_charging   | OID              | —                  | Ladezustand (optional) – grünes Leuchten im aktiven Zustand    |
-| Signaturtitel   | Text             | Fahrzeug-Ladestand | Fahrzeugname unterhalb des Bildes                              |
-| sig\_car\_image | Bild             | —                  | Fahrzeugbild aus dem ioBroker-Dateibrowser (z. B. /vis-2/img/) |
-| sig\_darkmode   | Kontrollkästchen | WAHR               | Dunkel-/Hellmodus                                              |
+| Parameter       | Typ              | Standard                                 | Beschreibung                                                   |
+| --------------- | ---------------- | ---------------------------------------- | -------------------------------------------------------------- |
+| oid\_ev\_soc    | OID              | —                                        | Ladezustand 0–100                                              |
+| oid\_charging   | OID              | —                                        | Ladezustand (optional) – grünes Leuchten im aktiven Zustand    |
+| Signaturtitel   | Text             | — (leer: "Fahrzeugladestand", übersetzt) | Fahrzeugname unterhalb des Bildes                              |
+| sig\_car\_image | Bild             | —                                        | Fahrzeugbild aus dem ioBroker-Dateibrowser (z. B. /vis-2/img/) |
+| sig\_darkmode   | Kontrollkästchen | WAHR                                     | Dunkel-/Hellmodus                                              |
 
-![Fahrzeug-Ladestand-Widget](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
+![Widget für den Fahrzeugladestand](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
 
 **OIDs:** `oid_ev_soc`, `oid_charging`
 
 ## Aussehen
 
-Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über die Widget-Einstellungen umgeschaltet werden können. `Dark mode` Die
+Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über die Widget-Einstellungen umgeschaltet werden können. `Dark mode` Die Widgets skalieren mit ihrer Größe: Breite und Höhe passen sich dem Widget unabhängig voneinander an, während der Text seine Proportionen beibehält.
 
 ## Dokumentation
 
@@ -198,6 +247,44 @@ Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über 
 - 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pt/README.md)
 
 ## Changelog
+### 2.2.0 (2026-11-18)
+* (ssbingo) **Energy house shows the real weather:** with a weather state (WMO code of open-meteo-weather, OpenWeatherMap icon or id, DasWetter symbol, AccuWeather icon or an English text), optionally cloud cover and precipitation, the sky shows sun, clouds, rain, snow, fog or thunderstorm instead of always the sun; the symbol next to the temperature follows the weather
+
+### 2.1.0 (2026-11-18)
+* (ssbingo) **New widget "Energy house":** the energy flow as an isometric house with garage, car, PV on the roof, SigenStor and gateway on the house wall, AC wallbox, DC charger, a balcony power plant with SigenMicro on the garage roof and the grid connection; animated cables in the direction of the flow, day and night after the position of the sun, optional outdoor temperature and status text, every part can be hidden
+
+### 2.0.2 (2026-11-18)
+* (ssbingo) SigenMicro: new tab bar — "Overview" keeps its width, the device tabs share the rest in equal columns and no longer run out of the widget; up to 3 devices the tabs show the names, with more devices compact numbers 01, 02 … (as on the nodes, name as tooltip); above 10 devices two rows like the nodes
+* (ssbingo) SigenMicro: the labels sit exactly below their nodes, each label row directly below its node row; a click on a node or label opens the detail tab of the device; better contrast of the tile texts; if several selected devices report the same device name, the serial number is shown
+* (ssbingo) Stretched widgets: texts are no longer squeezed twice, centred texts stay centred, and the titles of AC/DC charger, inverter and battery as well as the SigenMicro status badge and section header keep their proportions
+
+### 2.0.1 (2026-11-17)
+* (ssbingo) README screenshots renewed: all widgets as rendered by the React widget set in vis-2 2.20, with English texts
+* (ssbingo) Dependencies updated (vite 7.3.8, `@iobroker/gui-components` 10.4.6, `@iobroker/testing` 6.3.2)
+
+### 2.0.0 (2026-11-17)
+* (ssbingo) **Breaking:** the widgets are now a native vis-2 React widget set (React 19, MUI 9) and require vis-2 2.20.0 or newer. The classic VIS (vis-1) is no longer supported
+* (ssbingo) Existing widgets keep working without being placed again: the widget IDs and all settings are unchanged
+* (ssbingo) All texts are translated into the 11 ioBroker languages (previously mostly German). Titles you entered are kept; an empty title shows the default title in the user's language
+* (ssbingo) AC/DC charger: the status explanation is a MUI tooltip that is no longer cut off by the widget; the charging current and the EMS power share are MUI sliders that write when released
+* (ssbingo) No commands are sent from the vis-2 editor anymore; a click there only selects the widget
+* (ssbingo) Energy flow: the setting "Animated flow" now takes effect
+* (ssbingo) SigenMicro: the detail tab shows the values in three columns, the object ID on one line
+* (ssbingo) SigenMicro: the micro-inverters are chosen in the editor by device (serial number and name) from the SigenMicro devices of the sigenergy instances; the widget reads all states itself. New button "Take all SigenMicro" takes over all devices at once. Widgets from 1.x keep working with their former state selection
+* (ssbingo) Build with Vite and module federation; the widgets were tested in vis-2 2.20.11
+
+### 1.9.1 (2026-11-17)
+* (ssbingo) vis-2 2.20.x: the widgets apply `box-sizing: border-box` to their own content again. vis-2 2.20 no longer loads MUI's `CssBaseline`, which used to switch the whole document to border-box, so padded cards, tiles and buttons could grow wider than designed. The rule is scoped to this widget set; the widget set itself contains no React/MUI code and runs as a classic vis widget set on vis-2 2.20 (React 19, MUI 9)
+
+### 1.9.0 (2026-11-17)
+* (ssbingo) **SigenMicro Overview reworked for the new cloud connection of `ioBroker.sigenergy` 3.5.0.** The widget now reads `sigenergy.0.sigenmicro.<serial>.*` (online, activePower, pvPower, PV inputs pv1…pv4, grid values, temperature, insulation resistance, yield, firmware, rated power, last update), the account total `sigenmicro.totalPower` and `info.cloudConnection`. The former Modbus register model (`runningState`, `outputPower`, `mppt*`, `modelType`) is gone
+* (ssbingo) SigenMicro: status derived from `online` and the AC power (Producing / Online / Offline / No data), warning when the cloud connection is lost, time of the last cloud update and rated power in the detail tab, PV inputs shown only when reported, new optional display name per device (`micro_nameN`), all widget texts in English
+* (ssbingo) SigenMicro: the anchor OID may be any state of the micro-inverter; derived states are now subscribed via `vis.conn.subscribe` (VIS only subscribes attribute OIDs) and released again when the widget is removed. **After updating, select a state under `sigenergy.0.sigenmicro.<serial>` again for each `oid_microN`**
+* (ssbingo) CI: Dependabot auto-merge workflow updated from the ioBroker template — it uses `pull_request` instead of `pull_request_target` (#46, #47); `@iobroker/testing` updated from 6.2.1 to 6.3.1
+
+### 1.8.11 (2026-09-12)
+* (ssbingo) CI: the package tests now run on Node.js 22, 24 and 26 (new `adapter-tests` job, repository checker #41); `@iobroker/testing` updated from 5.3.0 to 6.2.1
+
 ### 1.8.10 (2026-09-07)
 * (ssbingo) Removed the `admin` entry from `globalDependencies`: a widget set has no admin UI, so no admin version needs to be required (repository checker S1091)
 
@@ -264,9 +351,7 @@ Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über 
 ### 1.7.3 (2026-04-20)
 * (ssbingo) All 9 widgets now share a unified background based on the PV-Power widget design
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
+Older changelog entries can be found in CHANGELOG_OLD.md
 
 ## License
 MIT License

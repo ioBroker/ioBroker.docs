@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: dz3MPzIYcKLeDV62P+U0th7ufAFURanRp24L1wPkkpQ=
+hash: STvU/5u80kIYW6JHWnKFtNkKbiijpC9qTXAxRKNN4Ns=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/sonoff-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/sonoff-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
@@ -40,6 +40,7 @@ Folgende Themen werden erwartet:
 - `tele/DeviceNAME/SENSOR`
 - `tele/DeviceNAME/INFOx`
 - `tele/DeviceNAME/ENERGY`
+- `tele/DeviceNAME/SWITCH` (Fernbedienungen, siehe [Automatische Objekterstellung](#auto-creation-of-objects) )
 - `cmnd/DeviceNAME/POWERx`
 - `stat/DeviceNAME/POWERx`
 - `/DeviceNAME/BM280/Temperature`
@@ -97,7 +98,28 @@ Folgende Themen werden erwartet:
 - `/DeviceNAME/SDS0X1/Longitude`
 - `/DeviceNAME/SR04/Distance`
 
-**Hinweis** : Die Liste kann problemlos erweitert werden. Bitte senden Sie uns Ihre Anfrage. `Pull Requests` oder _Debug-Daten_ für unbekannte Zustände an den Entwickler (über ein Ticket) weiterleiten.
+**Hinweis** : Die Liste kann problemlos erweitert werden. Bitte senden Sie uns Ihre Anfrage. `Pull Requests` oder _Debug-Daten_ für unbekannte Zustände an den Entwickler senden (über ein Ticket). Eigene Themen (z. B. Regeln oder Skripte auf dem Gerät) können in den Einstellungen hinzugefügt werden, siehe `Additional topics` unten.
+
+## Senden eines beliebigen Befehls (`Backlog`)
+
+Jedes Gerät hat den Zustand `Backlog` Sein Text wird gesendet an `cmnd/<topic>/Backlog` Es kann sich also um jeden beliebigen Tasmota-Befehl handeln, auch um Befehle ohne eigenen Zustand, z. B. `POWER1 TOGGLE` oder `POWER1 BLINK` Mehrere Befehle sind durch getrennt `;`: `POWER1 ON; Delay 100; POWER1 OFF` Die Gerätekarte im Geräte-Manager zeigt es als Textfeld an.
+
+Der `POWERx` Die Zustände bleiben boolesch (ein/aus), sodass Visualisierungen, Skripte und Verläufe weiterhin funktionieren. `Backlog` für `TOGGLE` oder `BLINK` Die
+
+## Verschlüsselte Verbindungen (MQTTS)
+
+Bei **Secure (MQTTS)** akzeptiert der integrierte Server nur TLS-Verbindungen. Üblicherweise Port 2020. `8883` Da hierfür ein Port verwendet wird, muss dieser ebenfalls festgelegt werden. Die Zertifikate werden aus den Zertifikaten von ioBroker ausgewählt (Admin: Einstellungen → Zertifikate). Leere Felder verwenden die selbstsignierten Standardzertifikate von ioBroker. Können die Zertifikate nicht gelesen werden, wird der Server nicht gestartet, und der Grund dafür wird im Protokoll angegeben.
+
+Auf der Tasmota-Seite:
+
+- TLS ist nur in der `tasmota32` Und `tasmota-zbbridge` ESP8266-Geräte benötigen einen eigenen Build. `USE_MQTT_TLS` Siehe die [Tasmota TLS-Dokumentation](https://tasmota.github.io/docs/TLS/) .
+- `SetOption103 1` aktiviert TLS, `MqttPort 8883` legt den Port fest.
+- `SetOption132 1` Tasmota prüft den Fingerabdruck des Servers anstelle der integrierten Zertifizierungsstellen (Let's Encrypt, Amazon). Dies ist für selbstsignierte Zertifikate erforderlich, z. B. die Standardzertifikate von ioBroker. Tasmota ermittelt den Fingerabdruck bei der ersten Verbindung.
+- Die Suche nach Geräten im Geräte-Manager schreibt `SetOption103 1; SetOption132 1` automatisch, wenn der Server (oder im Bridge-Modus der externe Broker) `mqtts://`) verwendet TLS.
+
+Ein Gerät ohne TLS am MQTTS-Port wird einmal pro Stunde gemeldet (`TLS connection from <address> failed`), werden die weiteren Versuche als Debug-Versuche protokolliert.
+
+Informationen zur Verbindung mit einem externen Broker finden Sie [unter Verschlüsselte Verbindungen](#encrypted-connections) im Bridge-Modus.
 
 ## Brückenmodus
 
@@ -106,6 +128,8 @@ Standardmäßig verwendet der Adapter einen integrierten TCP-Broker, mit dem sic
 ### Konfiguration
 
 Aktivieren Sie in den Adaptereinstellungen **die Option „Externen MQTT-Broker verwenden“** und geben Sie **die URL des externen Brokers** auf die Adresse Ihres Brokers ein, z. B. `mqtt://192.168.1.10:1883` oder einfach `192.168.1.10:1883` Optional können Sie Benutzername und Passwort festlegen. Wenn diese Option deaktiviert ist (oder keine URL eingegeben wird), wird der integrierte Broker wie zuvor gestartet.
+
+**Anmeldeinformationen aus dem zentralen Speicher:** Anstatt Benutzername und Passwort einzugeben, können Sie **„Anmeldeinformationen: Aus dem Anmeldeinformationsspeicher** “ auswählen – sowohl für den integrierten Server als auch für den externen Broker – und Anmeldeinformationen im Format „Benutzername & Passwort“ festlegen, die einmalig in den Systemeinstellungen des Administrators verwaltet werden (Einstellungen → Anmeldeinformationen, Administratorversion 7.9.0 oder neuer). Dies ist hilfreich, wenn mehrere Adapter oder Instanzen dieselbe MQTT-Anmeldung verwenden. Der Adapter liest die Anmeldeinformationen beim Start und startet neu, falls diese geändert werden. Können die Anmeldeinformationen nicht gelesen werden, wird der MQTT-Server bzw. die Verbindung nicht gestartet und ein Fehler protokolliert.
 
 **Die Option „Zu abonnierende Themen“** definiert, welche Themen der Adapter standardmäßig überwacht. `tele/#, stat/#, +/tele/+, +/stat/+` Erweitern Sie diese Liste, wenn Ihre Geräte andere Themen verwenden, z. B. OpenBeken-Geräte, die Daten an folgende Adresse veröffentlichen: `<devicename>/...` oder ein globales Präfix im vollständigen Thema (`myPrefix/tele/#`).
 
@@ -138,11 +162,11 @@ Im Bridge-Modus kann der Adapter die MQTT CONNECT-Pakete der Geräte nicht sehen
 
 Ein Gerät wird nur dann umbenannt, wenn der neue Name aus derselben oder einer besseren Quelle stammt, sodass die Objekte nicht ständig zwischen den Namen hin und her wechseln. Wird ein Gerät in Tasmota umbenannt, benennt der Adapter die entsprechenden ioBroker-Objekte um, Referenzen in anderen Adaptern (History, VIS usw.) müssen jedoch manuell angepasst werden.
 
-Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Boot-Meldungen nicht. `INFO.Hostname`, `INFO.IPAddress` Und `INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und `cmnd/<topic>/Status 2`) wenn ein Gerät zum ersten Mal gesehen wird. `Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
+Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Startmeldungen nicht. `INFO.Hostname`, `INFO.IPAddress` Und `INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und `cmnd/<topic>/Status 2`) wenn ein Gerät zum ersten Mal gesehen wird. `Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
 
 ### Verfügbarkeit
 
-Mit dem integrierten Broker `alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT`) wird stattdessen verwendet: `Online` Sets `alive` wahr, `Offline` zu falsch.
+Mit dem integrierten Broker `alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT`) wird stattdessen verwendet: `Online` Sets `alive` wahr `Offline` zu falsch.
 
 ## Automatische Objekterstellung
 
@@ -151,8 +175,19 @@ In der Webkonfiguration können Sie festlegen, welche MQTT-Telegramme die neuen 
 - `TELE_SENSOR` - erstellt Objekte aus `tele/xxx/SENSOR` Telegramme
 - `TELE_STATE` - erstellt Objekte aus `tele/xxx/STATE` Telegramme
 - `STAT_RESULT` - erstellt Objekte aus `stat/xxx/RESULT` Telegramme
+- `TELE_SWITCH` - erstellt Objekte aus `tele/xxx/SWITCH` Telegramme von Fernbedienungen (standardmäßig aktiviert)
 
 Normalerweise sollte TELE\_SENSOR für die meisten Benutzer ausreichend sein.
+
+**Fernbedienungen:** Das Berry-Skript [Tasmota-eWeLinkRemote](https://github.com/Flobul/Tasmota-eWeLinkRemote) (eWeLink R5, S-MATE) sendet jeden Tastendruck als `tele/xxx/SWITCH = {"Button1":{"Action":"single"},"Signal":-61,"DeviceId":"5AC87680",...}` Es wird gespeichert in `Button1_Action` (`single`, `double` oder `hold`) Und `Signal`, `DeviceId`, `DeviceType`, `Sequence`, `Timestamp` Jeder Druckvorgang wird aufgezeichnet, und auch die gleiche Handlung wiederholt sich. `DeviceId` wird geschrieben vor `ButtonX_Action` So kann ein durch den Knopf ausgelöstes Skript auslesen, welche Fernbedienung gedrückt wurde.
+
+**Zusätzliche Themen:** Werte zu anderen als den oben genannten Themen werden ignoriert, es sei denn, der letzte Teil des Themas ist aufgeführt. `Additional topics` (durch Kommas getrennt, `*` (als Platzhalter, Groß-/Kleinschreibung wird ignoriert), z. B. `PIR*, Motion`:
+
+- Ein einfacher Wert erzeugt einen schreibgeschützten Zustand mit dem Namen des Themas: `stat/xxx/PIR1 = ON` erstellt `PIR1` Der Typ wird anhand des ersten Wertes erkannt: einer Zahl (`1`, `25.4`), ein/aus (`ON`, `OFF`) oder ein Text. Ein bestehender Zustand behält seinen Typ, Werte, die nicht passen (z. B. `TOGGLE` (für Ein/Aus) werden ignoriert.
+- JSON wird wie folgt verarbeitet: `tele/xxx/SENSOR`, sondern unter dem Namen des Themas: `tele/xxx/Motion = {"State":"detected"}` erstellt `Motion_State` (`Motion.State` mit `Create object tree`).
+- Die Tasmota-Telegramme (`STATE`, `SENSOR`, `RESULT`, `STATUSx`, ...) behalten ihre eigenen Optionen, auch mit `*` Die
+
+Bei mehreren Fernbedienungen kann das Berry-Skript für jede Fernbedienung ein separates Thema festlegen, z. B. `EweTopicMode 3 %prefix%/%topic%/Remote_%alias%` mit dem zusätzlichen Thema `Remote_*` Dann erhält jede Fernbedienung ihre eigenen Zustände (`Remote_kitchen_Button1_Action`, ...).
 
 - `Create object tree` erstellt Objekte als Baumstruktur
 
@@ -169,63 +204,64 @@ Staaten:
 - `modeLedExor` - exor für weiße LEDs und farbige LEDs => Wenn die weißen LEDs eingeschaltet sind, sind die farbigen LEDs ausgeschaltet und umgekehrt (Standardwert: true)
 - `modeReadColors` - Farbinformationen von MQTT auslesen (Standardwert: false)
 
+## Rollen der Objekte seit 5.0
+
+Seit Version 5.0 erhalten Objekte Rollen, die vom Typdetektor korrekt erkannt werden, sodass Adapter wie Alexa (IoT), Matter, Material oder Geräte die richtigen Geräte finden: ein Relais als Lampe oder Steckdose, eine Lampe mit Farbe, Dimmer und Effekt, einen Temperatursensor usw. Zuvor beispielsweise `Wifi_Channel` oder `MqttPort` wurden als dunkler erkannt und `POWER` einer RGB-Leuchte wurde ersetzt durch `WW_POWER` Die
+
+**Das Verhalten der bestehenden Objekte kann sich ändern:**
+
+- Die Rollen der vorhandenen Objekte werden aktualisiert, sobald das Gerät den Wert erneut sendet. Geändert werden nur die Rollen, die von älteren Versionen festgelegt wurden, sowie Rollen, die Sie geändert haben (z. B. `switch.light` An `POWER`) bleibt erhalten. Die ID, der Name, die Verlaufseinstellungen und der Wert bleiben unverändert.
+- Visualisierungen, Skripte oder Aliase, die die Zustände anhand ihrer Rolle auswählen, können jetzt auch andere Zustände finden.
+- `Switch1`... `Switch28` sind die Eingänge des Geräts und daher jetzt schreibgeschützt.
+- Die wichtigsten Änderungen:
+  - Netzwerk- und Firmwareinformationen: `info.ip`, `info.name`, `info.firmware`, `info.hardware`, ...
+  - diagnostische Werte (`Heap`, `LoadAvg`, `Wifi_Channel`, `HTTP_API`, ...): `info.status`, `UptimeSec`: `value.interval`, `Wifi_Signal`: `value.rssi`
+  - `POWER`, `POWER1`... mit `switch.power`: `switch`
+  - `RGB_POWER`, `WW_POWER`, `CW_POWER`: `switch.mode.color`, `switch.mode.white`, `switch.mode.coldwhite`, `Fade`, `modeLedExor`, `modeReadColors`: `switch.setting`, `Scheme`: `level.effect`, `CT`: `level.color.temperature`
+  - `Today`, `Yesterday`: `value.energy.consumed`, `Vcc`: `value.voltage.vcc`, `DewPoint`: `value.temperature.dewpoint`
+  - automatisch erstellte Zustände: Texte `text`, beschreibbare Zahlen `state` (vor `level`)
+
+Ein Gerät mit mehreren Relais (`POWER1`, `POWER2`, ...) in einem Kanal wird weiterhin nur als ein Gerät erkannt, da der Typdetektor jeden Gerätetyp nur einmal pro Kanal findet.
+
+## Gerätemanager
+
+Die Geräte werden im Geräte-Manager des Administrators mit ihren Relais, Dimmern, Farben, Jalousien und Einstellungen angezeigt, die direkt dort gesteuert werden können.
+
+**Firmware-Aktualisierung:** Wenn „Nach Firmware-Aktualisierungen suchen“ aktiviert ist (Standardeinstellung), liest der Adapter einmal täglich die neueste Tasmota-Version von GitHub. Ein Tasmota-Gerät mit älterer Firmware zeigt die Aktualisierungsanzeige und die Aktion „Firmware aktualisieren“ an. Es sendet `Upgrade 1` auf das Gerät, das die Firmware von seiner eigenen OTA-URL herunterlädt (standardmäßig die offizielle Version seiner Build-Variante, z. B. `tasmota` oder `tasmota32`) und startet neu. Der Dialog wartet, bis das Gerät die neue Version meldet, maximal 5 Minuten. Entwicklungsversionen können nicht auf die Version aktualisiert werden, auf der sie basieren.
+
+**Gerätesuche:** Die Aktion „Gerätesuche“ der Instanz fragt über die Weboberfläche von Tasmota den Status jeder Adresse im lokalen Netzwerk (dem /24-Netzwerk jeder eigenen Adresse) ab – die offiziellen Tasmota-Builds melden sich nicht per mDNS an. Die gefundenen Geräte werden mit ihren aktuellen MQTT-Einstellungen aufgelistet, die bereits mit dieser Instanz verbundenen Geräte separat. Für die ausgewählten Geräte aktiviert der Adapter MQTT und schreibt MQTT-Server, Port, Benutzername und Passwort. `Backlog SetOption3 1; MqttHost ...; MqttPort ...; MqttUser ...; MqttPassword ...` Die Einstellungen sind mit der eigenen Adresse, dem Port und den Zugangsdaten des integrierten Servers im Bridge-Modus mit dem externen Broker vorbelegt. Die Geräte starten neu und erscheinen in der Liste, sobald sie verbunden sind. Geräte mit einem Webpasswort müssen dieses im Formular eingeben. Läuft ioBroker in einem Docker-Container ohne Host-Netzwerk, wird nur das Netzwerk des Containers durchsucht.
+
+Die Gerätekarte zeigt die Verbindung und das WLAN-Signal an (`Wifi_Signal` in dBm) live.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### 4.2.0 (2026-09-07)
-* (@patricknitsch) Added Device Manager for existing devices
+### 5.4.0 (2026-11-10)
+* (@GermanBluefox) The built-in MQTT server supports encrypted connections (MQTTS) with the certificates of ioBroker, new option "Secure (MQTTS)". The search for devices enables TLS on the devices then (#529)
 
-### 4.0.0 (2026-08-13)
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
-* (stony2k) Added bridge mode to connect to an external MQTT broker instead of running a built-in broker
-* (stony2k) Fixed the alive state object not being created (warning "has no existing object")
-* (@GermanBluefox/GreatSUN) Fixed the names of data points inside a group: since 3.3.0 e.g. `SML_Total_in` was created as `SML_in` (#489)
-* (@GermanBluefox/baetzst) The MAC address and the other network and firmware information of a device are stored as data points (`INFO.Mac`, `INFO.Gateway`, `INFO.Hardware`, ...) (#513)
-* (@GermanBluefox) Server mode: the adapter requests `Status 5` and `Status 2` from a device with its first message, so the INFO states are filled even if the device did not reboot
-* (@GermanBluefox) The states which were created with a shortened name by 3.3.x are listed in the log on start, so they can be deleted (#489)
-* (@GermanBluefox) Bridge mode: the topics to subscribe are configurable now, and nested full topics as well as OpenBeken topics are supported
-* (@GermanBluefox) Bridge mode: devices are named after their MQTT client ID like with the built-in broker and are no longer renamed by less reliable sources
-* (@GermanBluefox) Bridge mode: the `alive` state is set from the last will topic (LWT), so devices are recognized as offline
-* (@GermanBluefox) Commands for auto-created states are sent to `cmnd/...` again, also for nested full topics
-* (@GermanBluefox) `info.connection` contains the list of the connected clients again (server mode), in bridge mode the URL of the broker
-* (@GermanBluefox/patricknitsch) Bridge mode: support for the full topic structure `%topic%/%prefix%/` (device first), detected automatically per device
-* (@GermanBluefox/patricknitsch) Bridge mode: encrypted connections with CA/client certificates and optional certificate check, configurable client ID, keepalive and clean session
-* (@GermanBluefox/patricknitsch) Bridge mode: a fix prefix in front of the full topic (e.g. `gateway/tele/device/STATE`) is recognized and used for the commands
-* (@Apollon77/@copilot) Added support for OpenBeken LED datapoints (led_enableAll, led_dimmer, led_temperature, led_basecolor_rgb, led_finalcolor_rgbcw, led_basecolor_rgbcw, led_hue, led_saturation) - enables control of OpenBeken LED devices with automatic topic mapping for /get and /set suffixes
-* (@Apollon77/@copilot) Added PulseTime1-PulseTime16 datapoint support - users can now read and set PulseTime values directly from ioBroker to control relay auto-off timers
-* (@GermanBluefox) Breaking: a minimal supported Node.js version is now 22
+### 5.3.0 (2026-11-10)
+* (@GermanBluefox) Presses of remote controls (`tele/<topic>/SWITCH`, e.g. eWeLink R5 with the Berry script Tasmota-eWeLinkRemote) are stored, new option "For tele/SWITCH" (#515)
+* (@GermanBluefox) New option "Additional topics": values of own topics like `stat/<topic>/PIR1` are stored, also with wildcards (`PIR*`) (#281)
+* (@GermanBluefox) Every device has the state `Backlog` to send any Tasmota command, e.g. `POWER1 TOGGLE` (#277)
 
-### 3.3.0 (2025-09-20)
-* (@Apollon77/@copilot) **IMPORTANT**: Commands now correctly use `cmnd/` prefix instead of `tele/` prefix
-* (@Apollon77/@copilot) Added configuration for advanced MQTT settings
-* (@Apollon77/@copilot) Fixed shutter command mapping to use the correct Tasmota format - Transforms Shutter1_Position to ShutterPosition1 for proper device control
-* (@Apollon77/@copilot) Fixed IRHVAC Power, Light and Mode fields showing NULL instead of actual string values
-* (@Apollon77/@copilot) Added Zigbee device control support for Tasmota coordinators - users can now control Zigbee devices (Power/Dimmer) through ioBroker states via automatic ZbSend command generation
-* (@Apollon77/@copilot) Added support for Tasmota tele/MARGINS messages enabling integration of PowerLow, PowerHigh, and PowerDelta limits
-* (@Apollon77/@copilot) Fixed POW R2 energy datapoints not being created by enabling TELE_STATE by default
-* (@Apollon77/@copilot) Fixed pressure and temperature unit display to respect PressureUnit and TempUnit from Tasmota MQTT messages
-* (@Apollon77/@copilot) Added support for decoupled button actions in Tasmota devices - creates Button1-Button8 datapoints for button events
-* (@Apollon77/@copilot) Fixed RESULT message processing bug where tele/*/RESULT messages were incorrectly processed as WAKEUP instead of RESULT
-* (@Apollon77/@copilot) Fixed the deprecated value.power.consumption role for ENERGY_Power datapoint to improve device detection
-* (@Apollon77/@copilot) Added support for SHUTTER5-SHUTTER16 datapoints for ESP32 shutter32 devices
-* (@Apollon77/@copilot) Updated admin UI responsive design to use ioBroker standard values for mobile compatibility
-* (@Apollon77/@copilot) Added support for Sonoff B1 (RGB LED) and Sonoff SC (Environmental Sensor) devices with proper value ranges
-* (@Apollon77/@copilot) Added meaningful state labels for Scheme datapoint (color animation schemes)
-* (@Apollon77/@copilot) Added a configuration option to suppress "not connected" warnings for temporarily offline devices
-* (@Apollon77/@copilot) Added Switch5-Switch28 datapoint definitions for consistent boolean mapping
-* (@Apollon77/@copilot) Fixed a write flag for all Switch datapoints to enable proper control from ioBroker
+### 5.2.2 (2026-11-10)
+* (@patricknitsch) The firmware update dialog of the device manager recognizes the new version also with "Create object tree" ("INFO.Info1.Version"), before it waited till the timeout
+* (@patricknitsch) The firmware update from the device manager clears the "Upgrade" command afterwards, so a restart of the external broker (e.g. the ioBroker MQTT adapter) does not start the update again
+* (@patricknitsch) Bridge mode: "INFO.Version" and the IP address are requested again after a device restarted (e.g. after a firmware update)
+* (@GermanBluefox) A device with a wrong MQTT password is reported only once per hour instead of on every connection attempt, the other attempts are logged as debug (#548)
+* (@GermanBluefox) Control characters (e.g. 0x00) of a corrupted payload are escaped in the warning "cannot parse data", so they do not corrupt the log file (#586)
+* (@GermanBluefox) The timers use the adapter functions, so they are cleared when the adapter stops
 
-### 3.2.1 (2024-10-07)
+### 5.2.1 (2026-10-23)
+* (@GermanBluefox) Firmware with other texts for ON/OFF (e.g. "AN"/"AUS" of a German build) is supported: the texts of every device are requested and recognized automatically
 
-* (bluefox) Sanitize the IDs of the clients
+### 5.2.0 (2026-10-22)
+* (@GermanBluefox) The MQTT login of the built-in server and of the external broker can be taken from the central credential storage of admin (Settings → Credentials), admin 7.9.0+ is required (#629)
 
-### 3.2.0 (2024-08-28)
-* (bluefox) Added information about connected clients in the server mode
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sonoff/blob/master/CHANGELOG_OLD.md)
+Older changes can be found in CHANGELOG_OLD.md
 
 ## License
 

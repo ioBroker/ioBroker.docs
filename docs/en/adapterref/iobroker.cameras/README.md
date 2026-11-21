@@ -42,6 +42,11 @@ sendTo('cameras.0', 'image', {
 
 The result is always in `jpg` format.
 
+### Messages for scripts and AI agents
+`sendTo('cameras.0', 'help', {}, result => ...)` answers `{ help, commands }`: a description of all messages for AI
+agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands, each with `write: true` if it has
+an effect beyond returning information.
+
 ### vis-2 widgets
 The adapter brings two widgets for vis-2: **Polling Camera** loads a new frame in the given interval
 (snapshot), **RTSP Camera** shows the live stream. Select the camera in the widget by its instance and
@@ -260,6 +265,10 @@ If the binary cannot be found or does not start, the adapter transparently falls
 ## Changelog
 
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: the message `image` answers the text of an error (e.g. a timeout of the camera) instead of an empty `error` object
+
+### 3.5.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
 * (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
 ### 3.4.0 (2026-11-08)
@@ -274,21 +283,6 @@ If the binary cannot be found or does not start, the adapter transparently falls
 ### 3.2.2 (2026-10-03)
 * (@hdering) Fixed: after a browser tab with a live stream was closed, "Cannot send to UI: ... is not registered" was logged for every frame and the stream kept running (#201)
 * (@GermanBluefox) Fixed: the live picture of a camera in ioBroker.devices froze after a minute - the widget did not renew its subscription
-
-### 3.2.1 (2026-10-03)
-* (@hdering) Changed: a camera is added by choosing the manufacturer first, then only the fitting connection is offered; the stored configuration keeps its format
-* (@hdering) Changed: the model list is chosen by stream path, sorted by how many models use it; the model is optional. HTTP paths that deliver a stream instead of an image are hidden, they never worked
-* (@hdering) Changed: an RTSP camera is configured with one URL field, also for `rtsps://`; a pasted login goes to its own fields
-* (@hdering) Deprecated: the type "Reolink E1" - it keeps working and can be converted to the Reolink model list in its dialog
-* (@hdering) Fixed: the RTSP dialog showed UDP while the adapter used TCP, and saved UDP as soon as another field was changed
-* (@hdering) Fixed: the URL preview of an RTSP camera was only updated after saving
-* (@hdering) Fixed: changes in the camera dialog were applied to the stored settings instead of the edited ones, so an earlier change could get lost
-* (@hdering) Added: MJPEG streams over HTTP - the first frame is taken; this makes the MJPEG paths of the model lists usable. A video stream over HTTP fails at once with a hint instead of a timeout
-* (@hdering) Added: a grey snapshot of an H.265 stream is recognized and taken again from a key frame; "Key frames only" in the expert settings of the RTSP type sets it permanently
-* (@hdering) Added: the Eufy dialog lists the cameras of the `eusec` adapter; cameras without RTSP of their own are streamed through the station by `eusec` (#205)
-* (@hdering) Fixed: switching the Eufy dialog between `eusec` and IP address was not saved
-* (@GermanBluefox) Fixed: opening or closing the full screen dialog of an RTSP camera asks for the stream in the size it is shown in right away; until now the big view showed the small picture enlarged for up to 14 seconds
-* (@GermanBluefox) Fixed: the dialog of the RTSP camera widget for ioBroker.devices never asked for a bigger picture at all
 
 ## License
 MIT License

@@ -65,6 +65,6 @@ serial-number = < device serial number >
 * NPM release
 
 ## License
-MIT license
+[MIT license]: ./LICENSE
 
 Copyright (c) 2026 mrsuw mrsuw@icloud.com

@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: A/586oDeLSas24NkEsiDfUlJrY/t8lAmtBfWKiNxFlI=
+hash: JHdtwM7if9+G/+pf8StvEiRibCXDyf70CyVJ9o5CxYg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
-![Количество установок](http://iobroker.live/badges/philips-air-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.philips-air.svg)
+![Количество установок](https://iobroker.live/badges/philips-air-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.philips-air.svg)
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
@@ -45,13 +45,14 @@ hash: A/586oDeLSas24NkEsiDfUlJrY/t8lAmtBfWKiNxFlI=
 | ----------------------------------------------------------------------------------------------------- | ----------------- |
 | AC2889 и другие классические очистители, например, AC1214, AC2729, AC2939, AC3059, AC3829 или AC4236. | `AC2889`          |
 | AC3221                                                                                                | `AC3221`          |
+| AC3737/10 2-в-1 очиститель/увлажнитель воздуха                                                        | `AC3737`          |
 | Напольный вентилятор CX3550/01                                                                        | `CX3550`          |
 | башенный вентилятор CX7550/01                                                                         | `CX7550`          |
 | Что-нибудь еще, или если вы не уверены?                                                               | `Generic`         |
 
-Все классические очистители воздуха выдают одни и те же простые сигналы (`pwr`, `om`, `mode` и так далее), поэтому одна запись охватывает все семейство. На данный момент подтверждено на реальном оборудовании: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 и CX7550/01.
+Все классические очистители воздуха выдают одни и те же простые сигналы (`pwr`, `om`, `mode` и так далее), поэтому одна запись охватывает все семейство. На данный момент подтверждено на реальном оборудовании: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 и CX7550/01. `AC3737` Запись была создана на основе полного кадра состояния AC3737/10 (GitHub #407), а затем подтверждена на этом устройстве: показания совпадают с данными приложения, и устройство выполнило операцию записи режима и целевого значения влажности из ioBroker. Два замечания, касающиеся этой модели «2 в 1»: назначены все три пары фильтров, но не так, как в других моделях нового поколения — пара 4800 ч здесь относится к фильтру увлажнителя (фитилю), а пара 2400 ч — к воздушному фильтру. `hepaFilter*`), оба показателя подтвердились, судя по процентам, отображаемым приложением. `status.waterTankPresent` На самом деле это означает «бак установлен»: бак находится внутри, но пуст, и остается на месте. `true`, пока `device.error` переключается на `no water`.
 
-Номер модели сам по себе ничего не говорит о наборе регистров: AC4236/14 имеет более высокий номер, чем AC3221, но это классическое устройство, и для его работы требуется... `AC2889` Выберите запись, которая соответствует ключам, сообщаемым вашим устройством, а не ту, которая наиболее близка по названию.
+Номер модели сам по себе ничего не говорит о наборе регистров: AC4236/14 имеет более высокий номер, чем AC3221, но это классическое устройство, и для его работы требуется... `AC2889` Выберите запись, которая соответствует ключам, отображаемым вашим устройством, а не ту, которая наиболее близка по названию.
 
 Если вы не уверены, свяжитесь с нами. `Generic` Сначала посмотрите на исходные ключи ниже. `unknownStates`: простые названия, такие как `pwr` или `pm25` под этим подразумевается классическое устройство, например, клавиши. `D03102` Это означает устройство следующего поколения. Если ваше устройство окажется моделью следующего поколения, которой нет в списке, пожалуйста, создайте заявку с отладочным логом — именно так были добавлены CX7550/01 и AC3221.
 
@@ -59,13 +60,13 @@ hash: A/586oDeLSas24NkEsiDfUlJrY/t8lAmtBfWKiNxFlI=
 
 ## Вентилятор Philips/Versuni CX3550/01
 
-CX3550/01 поддерживается через локальное зашифрованное CoAP-соединение. API-интерфейсы Philips, Versuni или HomeID не используются.
+CX3550/01 поддерживается через локальное зашифрованное CoAP-соединение. API облачных сервисов Philips, Versuni или HomeID не используются.
 
 Протестированы функции CX3550/01:
 
 - Включение/выключение питания
 - Скорость вращения вентилятора 1, 2 и 3
-- спящий режим
+- Спящий режим
 - Естественный ветерок
 - Включение/выключение колебаний
 - Звуковой сигнал включения/выключения
@@ -84,7 +85,7 @@ CX3550/01 поддерживается через локальное зашиф�
 
 - Включение/выключение питания
 - Скорость вращения вентилятора от 1 до 12 и функция AutoAdapt
-- спящий режим
+- Спящий режим
 - Естественный ветерок
 - Включение/выключение колебаний
 - Таймер (выкл., от 1 до 12 часов) — на этой модели можно записывать.
@@ -95,11 +96,18 @@ CX3550/01 поддерживается через локальное зашиф�
 Более подробная информация содержится в файле [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md) .
 
 ## Changelog
+### 2.4.1 (2026-11-17)
+- (tt-tom17) AC2889 family: the child lock is now written as a boolean, the format the classic devices expect - an AC4236/14 ignored the command before (GitHub #411)
+
+### 2.4.0 (2026-11-06)
+- (tt-tom17) New device model "AC3737" for the AC3737/10 2-in-1 purifier/humidifier: readings, all three filter pairs, the humidity target, the water tank state, the "no water" error and the preferred index are now named instead of appearing as raw values; writing the mode and the humidity target is confirmed on the device
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+
+### 2.3.0 (2026-10-26)
 
 - (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
 - (tt-tom17) With the device model "Generic" the log now names the model your device looks like, so you know which one to select
@@ -136,23 +144,6 @@ CX3550/01 поддерживается через локальное зашиф�
 - (Holly86) Added support for Philips/Versuni CX3550/01 pedestal fan.
 - (Holly86) Added CX fan modes, oscillation, beep and read-only timer state.
 - (Holly86) Timer control is intentionally not exposed because local timer writes can switch the fan off.
-
-### 1.5.0 (2026-06-24)
-- (tt-tom17) CoAP connection now stays stable instead of disconnecting every few minutes
-- (tt-tom17) Fixed adapter checker warnings
-
-### 1.4.0 (2026-06-17)
-- (tt-tom17) Connection to CoAP and HTTP devices is much more reliable now: several cases that could crash the adapter, freeze the connection or stop it from reconnecting have been fixed
-- (tt-tom17) Air quality, filter and on/off values are now shown with the correct type and update reliably
-- (tt-tom17) Clearer log messages, including a hint to switch to CoAP when a device does not answer on HTTP
-- (tt-tom17) HTTP mode no longer needs the extra "philips-air" package and its outdated dependencies
-- (tt-tom17) The device address field now accepts an IP address or a hostname and warns about invalid input
-- (tt-tom17) Dependencies updated
-
-### 1.3.0 (2026-06-15)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (mcm1957) Dependencies have been updated
 
 ## License
 MIT License

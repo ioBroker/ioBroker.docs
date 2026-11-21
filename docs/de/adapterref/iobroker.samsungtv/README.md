@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsungtv/README.md
 title: iobroker.samsungtv
-hash: bq1hEQ5784mHAuEAQAZKwSMfLyMbpZUatvmOb0fiZEs=
+hash: /4He+DxR4cSNgyqzqxoFKMhjTcTaqTWWmNNqvnauBgU=
 ---
 <img src="admin/samsung.svg" alt="Samsung TV logo" width="180">
 
@@ -19,6 +19,7 @@ Deutsche Dokumentation ist verfügbar unter `doc/de/README.md` Die
 
 - Automatische Erkennung über SSDP/UPnP und optionales mDNS
 - Mehrere Fernseher in einem Gerät: `samsungtv.0.<tvname>.*`
+- Mehrere Adapterinstanzen zur Trennung von Fernsehern nach Standort oder Zuständigkeit
 - Tizen WebSocket API (8001/8002) + Pairing/Token
 - PIN-Paarung der H/J-Serie (nach bestem Wissen und Gewissen)
 - Wake-on-LAN (optional)
@@ -37,6 +38,7 @@ Die Registerkarte **„Konfiguration“** enthält:
 - **Entdeckungs-Timeout**
 - **SSDP aktivieren** / **mDNS-Erkennungsquellen aktivieren**
 - **Wake-on-LAN aktivieren**
+- **Energiestatus nach einem Ein-/Ausschaltbefehl** : _Sofort anzeigen_ (Standardeinstellung) `state.power` und bestätigt `control.power` Sobald der Befehl gesendet wurde. _Warten Sie, bis der Fernseher_ ausgeht. `state.power` zum zuletzt bestätigten Status und `control.power` Der Status bleibt so lange unbestätigt, bis eine Umfrage den neuen Status bestätigt. Bestätigt das Fernsehgerät den Befehl nicht innerhalb von 30 Sekunden oder schlägt der Befehl fehl, werden beide auf den gemessenen Status zurückgesetzt.
 - **mDNS-Dienste** im Expertenmodus (kommagetrennt, bestmöglicher Aufwand)
 
 ### Geräte hinzufügen
@@ -51,8 +53,11 @@ Die Aktionen des Geräte-Managers werden sofort angewendet und gespeichert. Die 
 
 - **Tizen** : Wenn Sie auf **„Koppeln“** klicken, erscheint auf dem Fernseher eine Meldung (normalerweise **„Zulassen“/„Abbrechen** “, keine PIN). Bestätigen Sie diese auf dem Fernseher.
 - **H/J-Serien** : Klicken Sie auf **Koppeln** → TV-Sendungen PIN → geben Sie die PIN im nativen Dialogfeld ein.
+- **Tizen, Token bereits bekannt** : Klicken Sie auf **„Token festlegen“** und fügen Sie den Token ein, anstatt die Eingabeaufforderung auf dem Fernseher zu bestätigen. Der Adapter überprüft den Token mit dem Fernseher, bevor er ihn verschlüsselt speichert.
 
 Die dynamische Geräteregistrierung wird im persistenten Instanzdatenverzeichnis von ioBroker gespeichert, sodass Aktionen des Geräte-Managers nicht durch ein bereits geöffnetes Einstellungsformular überschrieben werden können. Tokens/Identitäten in dieser Registrierung werden mit dem ioBroker-Systemgeheimnis verschlüsselt, und die Datei wird nur mit Eigentümerberechtigungen geschrieben. `native.devices` und verschlüsselt `native.tokens` Die Werte werden beim ersten Start automatisch importiert.
+
+Es werden mehrere Adapterinstanzen unterstützt. Jede Instanz verfügt über eine eigene Konfiguration, einen eigenen Objekt-Namespace, eine eigene Geräteregistrierung, eigene Kopplungsgeheimnisse, eigene Timer und eigene Netzwerk-Listener. Fügen Sie denselben Fernseher nicht mehreren Instanzen hinzu, da gleichzeitige Abfragen und Befehle sich gegenseitig beeinträchtigen können. Legacy-Konfiguration von `samsung.0` wird nur importiert von `samsungtv.0` Die
 
 Wenn während des Kopplungsvorgangs **keine Eingabeaufforderung** erscheint:
 
@@ -126,6 +131,9 @@ Hinweis: Nicht jeder Fernseher unterstützt alle Tasten. Einige Tasten funktioni
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- Add an optional **Wait for the TV** power state mode: `state.power` only changes once the TV confirms, and `control.power` stays unacknowledged until then.
+- Add a **Set token** Device Manager action that verifies a known Tizen token before storing it.
+- Poll every 2 s for up to 30 s after a power command until the TV reports the new state.
 - Add absolute volume and mute (`control.volume`, `control.muted`) over UPnP RenderingControl.
 - Fall back to the well-known RenderingControl endpoint when SSDP returns nothing.
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
@@ -152,6 +160,6 @@ Hinweis: Nicht jeder Fernseher unterstützt alle Tasten. Einige Tasten funktioni
 Older changes are documented in CHANGELOG_OLD.md.
 
 ## License
-MIT
+[MIT License](LICENSE)
 
-Copyright (c) 2026 softwarecrash
+Copyright (c) 2026 softwarecrash <dev/null@softwarecrash.de>

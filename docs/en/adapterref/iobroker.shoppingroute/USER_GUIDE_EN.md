@@ -3,7 +3,13 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – User Guide
 
-**Guide for ShoppingRoute 0.6.2 (13 November 2026)**
+**Guide for ShoppingRoute 0.6.3 (20 November 2026)**
+
+**New in 0.6.3:** The shopping-list view uses the latest confirmed Alexa snapshot instead of outdated browser drafts. Completed or deleted items no longer reappear. Valid pending moves are matched against the fresh list; a failed refresh displays an error rather than pretending stale data is current. ShoppingRoute also provides a read-only help message for scripts and AI agents.
+
+### Messages for scripts and AI agents
+
+Call `sendTo('shoppingroute.0', 'help', {}, response => ...)` to receive `{ help, commands }`. The `help` field describes the message formats in English; `commands` lists the supported messages. An entry marked `write: true` can change data, whereas `write: false` is read-only. AI agents should only change lists or configuration at the user's explicit request. Existing Dry Run, enabled-state checks, confirmation safeguards and configurable Amazon write limits remain active. Calling `help` does not change Alexa or Bring! data.
 
 **Maintenance release 0.6.2:** Updated the ioBroker testing development dependency to 6.3.2 (repository checker W0037, Issue #85). Existing Alexa and Bring! runtime features and safeguards are retained.
 
@@ -381,7 +387,7 @@ If ShoppingRoute assigned an item to the wrong market, you can move it directly.
 
 Depending on the view, you can use drag and drop, arrow buttons or a market selector.
 
-Manual shopping-list moves stay in a browser draft. Move all required items, then press **Transfer changes to Alexa**. Only this button starts one verified Alexa sorting transaction for the complete batch. A failed transfer keeps the draft; **Discard changes** reloads the current list. While a draft is pending, switching lists, adding, deleting and resetting are disabled to preserve the draft. Reloading the same browser tab restores the draft when session storage is available.
+Manual shopping-list moves stay in a browser draft. Move all required items, then press **Transfer changes to Alexa**. Only this button starts one verified Alexa sorting transaction for the complete batch. A failed transfer keeps the draft; **Discard changes** reloads the current list. While a draft is pending, switching lists, adding, deleting and resetting are disabled to preserve the draft. Reloading the same browser tab restores only valid moves onto the freshly retrieved Alexa list. Completed, deleted or renamed items cannot be resurrected by an old draft. The open view refreshes at a low frequency while visible and when you return to the tab. If Alexa cannot be reached, the UI displays an error and a retry option instead of displaying an old list as current. No cache clearing is necessary.
 
 A manual change has priority over the automatic assignment.
 

@@ -94,6 +94,7 @@ The following ports are used by default:
 | CUxD            | CUxD                   | 8701                      | not supported |
 | Homegear        | Homegear               | as configured in Homegear | not supported |
 | CCU-Jack        | CCU-Jack               | 2121                      | 2122          |
+| openccu-lite    | lite-rpc of the system | 80 (see [openccu-lite](#openccu-lite)) | 443 |
 
 The HTTPS ports work only with the XML-RPC protocol.
 
@@ -113,6 +114,7 @@ Change this value only in special cases.
 
 A CCU supports different device types (radio, wired, Homematic IP, CUxD, CCU-Jack).
 You must create a separate instance of the adapter for every type.
+The daemon `openccu-lite` connects an interface of an openccu-lite system, see [openccu-lite](#openccu-lite).
 
 #### Protocol
 
@@ -162,6 +164,20 @@ For this reason the option is enabled automatically as soon as you select Homema
 
 With this option enabled, delete the objects of a device that you removed from the CCU manually in the object tree.
 
+#### Suppress interim levels of moving channels
+
+A dimmer or a blind acknowledges a command immediately, before its ramp or movement is finished. The CCU forwards this
+acknowledgement as events with the level at that moment together with `WORKING = true` (Homematic) or
+`PROCESS = NOT_STABLE` (Homematic IP). The final level follows a few seconds later with the next status message
+(for BidCos dimmers after `STATUSINFO_MINDELAY` + `STATUSINFO_RANDOM`, by default 2-3 s). Therefore the state jumps, e.g.
+`0 → 100` (command, `ack: false`) `→ 0.5` (acknowledgement) `→ 100` (final value).
+
+If this option is enabled, a `LEVEL` / `LEVEL_2` of a channel which has a `WORKING` or `PROCESS` data point is held back
+until the flag of the same status message arrives (the CCU sends it a few milliseconds after the level, at most 300 ms
+are waited). The level is dropped if the channel is still moving, otherwise it is written. The state therefore keeps the
+commanded value until the final level arrives. `WORKING`, `PROCESS` and `DIRECTION` are always written, so the movement
+itself can still be detected. Channels without such a flag are not affected.
+
 #### Use https
 
 If this option is enabled, the adapter uses HTTPS instead of HTTP.
@@ -172,6 +188,41 @@ This works only with the XML-RPC protocol.
 If the option "Use https" is enabled, enter the user name and the password of a CCU user here.
 Enter these credentials also if the API of the CCU requires an authentication, the adapter sends them with XML-RPC with and without HTTPS.
 BIN-RPC does not support an authentication.
+
+### openccu-lite
+
+[openccu-lite](https://github.com/openccu-lite/openccu-lite) is a CCU firmware without ReGaHSS. Its interface processes
+are reached through *lite-rpc*: the requests go over the web port of the system with a token, and the events come as a
+stream the adapter opens - no callback server, no callback address, no `init`, so the adapter can run behind a router or
+in a Docker container without any port forwarding.
+
+Select the daemon **openccu-lite** and enter the address of the system in "HomeMatic Address" (the port follows the
+"Use https" option: 443 or 80). Then:
+
+- **Interface**: the interface of the system this instance connects (`HmIP-RF`, `BidCos-RF`, `BidCos-Wired`,
+  `VirtualDevices`). As with a CCU, one instance connects one interface; once the instance is paired, the list shows the
+  interfaces the system runs.
+- **Pair**: the instance must be running. Press the button: a six-digit code appears below it, together with a link to
+  the Status page of the system. Approve the request there (as one of the system's administrators, with a password or a
+  passkey) - the code on the Status page must match. The token and the fingerprint of the system's certificate are then
+  stored in the instance configuration by themselves; save the configuration and the instance restarts with them. A
+  rejected or expired request, a wrong address and a system without pairing are reported in the dialog.
+  Each instance pairs for a token of its own (a system allows a few event streams per token).
+- **Token** and **Certificate fingerprint** are filled by the pairing. An API token created on the system can be entered
+  by hand as well; the fingerprint pins the certificate of the system (leave it empty if the certificate is trusted by
+  Node.js, or the system is reached over HTTP).
+- **Take names, rooms and functions from the system** (default on): the devices, channels and states are named as on
+  the system (`<channel name>.<DATAPOINT>` for the states, as hm-rega names them), and the rooms and functions of the
+  system fill `enum.rooms` and `enum.functions` - live, whenever a name or a room changes on the system. A room tree is
+  flattened: every node becomes an enum of its own, named by its path (`eg/wohnzimmer` → `enum.rooms.eg_wohnzimmer`),
+  and a channel is a member of its innermost room only. The adapter manages only the members of its own instance in an
+  enum, so devices of other adapters stay. Without this option the objects keep the address as name, as with a CCU.
+
+The devices are synchronized at every start of the instance (the system sends its device list with the stream), so
+"Synchronize objects (once)" is not needed on openccu-lite. "Don't delete devices" works as with a CCU. The values the
+system holds are written into the states when the instance connects, so the states are current before the first event.
+The settings "Adapter Address", "Adapter Port", "Protocol", "Adapter Callback Address", "Check communication interval",
+"Reconnect interval", "Username" and "Password" do not apply and are hidden.
 
 ### Device manager
 
@@ -347,13 +398,18 @@ npm run update-images
 ```
 
 ## Changelog
+### 4.3.1 (2026-11-21)
+- (@hobbyquaker) openccu-lite: a device paired later no longer deletes the objects of the other devices of the instance; objects of devices removed on the system are cleaned up when the instance connects, without leaving broken objects behind ("obj.type has to exist")
 
-### **WORK IN PROGRESS**
+### 4.3.0 (2026-11-18)
 - (copilot) Adapter requires node.js >= 22.19.0 now
+- (@hobbyquaker) New daemon `openccu-lite`: connects an interface of an [openccu-lite](https://github.com/openccu-lite/openccu-lite) system through its lite-rpc (requests with a token, events as a stream - no callback server). The pairing runs from the instance settings: press "Pair", approve the six-digit code on the Status page of the system, the token and the certificate fingerprint are stored by themselves. The names of the devices, channels and states, the rooms and functions come from the system's metadata and follow its changes live
+- (@gcaruso73) New option "Suppress interim levels of moving channels": the LEVEL of the acknowledgement of a dimmer or blind (`WORKING = true` / `PROCESS = NOT_STABLE`) is not written, so the state no longer jumps to the start value of the ramp before the final value arrives
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 4.2.4 (2026-10-22)
 * (@GermanBluefox) Do not re-register every 5 minutes if events with an outdated interface id keep arriving (#1542)
 
@@ -364,13 +420,6 @@ npm run update-images
 * (@GermanBluefox) The virtual devices of CCU-Jack can be connected with the new daemon `CCU-Jack` (port 2121, HTTPS 2122, XML-RPC only) (#1003)
 * (@GermanBluefox) The state `updated` (new devices for hm-rega) is no longer marked as writable, as expected for the role `indicator`
 * (@GermanBluefox) Homebrew devices (AskSin++) of the add-ons from jp112sdl (JP-HB-Devices-addon) and TomMajor (HB-TM-Devices-AddOn) get the same icon as in the CCU WebUI (#903)
-
-### 4.2.0 (2026-10-13)
-* (@GermanBluefox) The firmware update state of Homematic IP devices is available in the new state `<device>.0.FIRMWARE_UPDATE_STATE`, e.g. `READY_FOR_UPDATE` when the firmware is transferred. The firmware information of the device object is updated, too (#1137)
-
-### 4.1.3 (2026-10-12)
-* (jhoos70) The invalid temperature 3276.8 of a not connected sensor (e.g. the external probe of a HmIP-STE2-PCB) is delivered as `null` instead of a value above the maximum
-* (@GermanBluefox) The adapter reports the port of its RPC callback server to js-controller 8, which keeps a per-host registry of the occupied ports (`system.host.<name>.usedResources`). Reported is the port the server really got - the configuration only holds a wish for it (`0` means "pick one", and a configured port is moved on when it is taken), so this is the only place where the callback port can be seen. The port of the CCU is not reported, it belongs to another machine. Before the server is created, the log names an instance that has already declared the port. An older js-controller is unaffected
 
 ### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miele-local/README_de.md
 title: ioBroker.miele-local
-hash: TmQ6r+Jh/fKIX0P8RlkR/0lT3RBrspxP6+eujw/f4ds=
+hash: DQupxkfdNYa+Y7TKN3I3YJLI6F7oTWnrIjdc82bA2sM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.miele-local/admin/miele-local.png)
 
@@ -61,6 +61,7 @@ Jedes Gerät wird ein Objekt mit seiner Seriennummer als Kennung. Дарунте
 | `remainingMinutes`, `elapsedMinutes`, `startInMinutes` | Zeiten in Minuten                                                                                                             |
 | `remainingSeconds`, `elapsedSeconds`                   | секунда, wenn eingeschaltet                                                                                                   |
 | `estimatedEndTime` /`estimatedEndTimeText`             | voraussichtliches Ende (Zeitstempel в мс/`HH:MM`)                                                                            |
+| `progress`                                             | Programmfortschritt в % (verstrichen / (verstrichen + Rest)), 0, solange nichts läuft                                         |
 | `temperature`, `targetTemperature` (зоны 2 и 3)        | Температура                                                                                                                   |
 | `signalDoor`, `signalInfo`, `signalFailure`            | Tür- und Signalmerker                                                                                                         |
 | `mobileStart`                                          | ob das Gerät gerade Fernsteuerung annimmt                                                                                     |
@@ -68,13 +69,25 @@ Jedes Gerät wird ein Objekt mit seiner Seriennummer als Kennung. Дарунте
 
 Роверт унд `…Text` stehen mit Absicht nebeneinander: Mit der Zahl rechnet und zeichnet man, den Text zeigt man an. Если в 0.3.37 вы перейдете в раздел «Клартекстовый список», то текстовые пункты будут доступны и доступны для просмотра.
 
+**Sprache der Texte.** Die `…Text` -Datenpunkte stehen auf Deutsch, bei abgeschalteter Option «Datenpunkt-Namen auf Deutsch» auf English – daran ändert sich nichts, Skripte vergleichen damit. Карта в Device-Manager не работает: Seit 0.5.1 Zeigt Eine Karte den Rohwert mit Einer Wertetabelle in der **Systemsprache** des ioBroker (всего Admin-Sprachen). Статус, Programmart, Trockenstufe и Phase sind в jder Sprache vollständig. Название программы указано в Community-Übersetzung von Home Assistant; für Polnisch kommen die Waschmaschinen- und Trocknerprogramme aus den polnischen Miele-Gebrauchsanweisungen (`lib/werte_eigen.js`, nur Namen, die dort wörtlich stehen). Wo keine der beiden Quellen einen Namen Hat (Ukrainisch ganz, Polnisch für die übrigen Geräte und für Programme, die in den Anleitungen fehlen, Russisch und Niederländisch teilweise), zeigt die Karte den English Namen – geraten wird nicht. Ein unbekannter Rohwert erscheint als Zahl.
+
+**Text-Datenpunkte in einer weiteren Sprache (необязательно).** _Abfrage & Werte → Sprache der Text-Datenpunkte_ schreibt `statusText`, `programText`, `programPhaseText`, `programTypeText` унд `dryingStepText` - und die Wertelisten der Rohwerte - в einer der der elf Admin-Sprachen statt auf Deutsch или English. Fehlt eine Übersetzung, steht der English Text da. Программа предназначена для домашнего помощника и для полной мойки и Trockner для полных устройств Miele-Gebrauchsanweisungen, с помощью карты. Die Vorgabe lässt alles, wie es war.
+
+Ist «Datenpunkt-Namen auf Deutsch» aus, bleiben Namen und Beschreibungen mit Absicht schlichter English Text: Ein mehrsprachiger Name brächte im deutschen Admin wieder den deutschen Namen und machte die Option sinnlos.
+
+### `control` – Befehle (Nur mit Freigegebener Gerätesteuerung)
+
+`start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`: `true` шрайбен сендет ден Бефель; Лучший адаптер должен быть описан в разделе «Grund eines Fehlschlags», указанном в комментариях к данным. `canStart`, `canStop`, `canPause`, `canPowerOn`, `canPowerOff` (Nur lesen) sagen, ob der Befehl im jetzigen Zustand sinnvoll ist und das Gerät ihn kann – die Gerätekarten blenden ihre Knöpfe damit ein und aus, VIS kann das genauso.
+
 ### `info` – was das Gerät ist
 
 `connected`, `techType`, `fabNumber`, `matNumber`, `deviceType`, `xkmType`, `xkmVersion`, `protocolVersion`, `operatingHours`, dazu die Abfragezähler `pollTotal`, `pollErrors`, `pollRetries`, `pollErrorRate`. В `lastError` пожалуйста, желайте, чтобы вы были в безопасности.
 
 ### `eco` – Энергия и Вода
 
-`eco.energy`(кВт·ч), `eco.energyWh` (Вх), `eco.water` (l), soweit das Gerät sie Liefert, dazu `eco.source` mit der Herkunft des Werts. Gelesen wird über DOP2; bislangliefern das Waschmaschinen. **Der vom Gerät gemeldete Wert ist seine eigene Erwartung, keine Messung.** Если бы вы выбрали Zahl, перейдя к Reiter **Abfrage & Werte** den Zähler-Datenpunkt einer Messsteckdose ein – dann schreibt der Adaptor mit, была бы программа Wirklich Gezogen Hat.
+`eco.energy` (кВт·ч), `eco.energyWh` (Вх), `eco.water` (l), soweit das Gerät sie Liefert, dazu `eco.source` mit der Herkunft des Werts. Гелесен использует DOP2; bislangliefern das Waschmaschinen. **Die Energie ist keine Messung:** Die Washmaschine meldet die für die Hauptwäsche _geplante_ Heizenergie – geplante Heizzeit × Nennleistung des Heizstabs bei 230 V (WCR860: 2020 W). Sie steht zu Beginn der Heizung fest und wird nicht nachgeführt; sie enthält weder Motor, Pumpen und Elektronik noch die Heizung anderer Phasen, kalte und kurze Programmer melden 0. An einer WCR860 nachgemessen trifft sie die tatsächliche Heizung Normaler Warmer Program auf wenige Prozent, den Gesamtverbrauch aber nicht. Если бы вы выбрали Zahl, перейдя к Reiter **Abfrage & Werte** den Zähler-Datenpunkt einer Messsteckdose ein – dann schreibt der Adaptor mit, была бы программа Wirklich Gezogen Hat.
+
+Фрагмент адаптера в текстовом контексте `2/1585` (унд `2/391`) ab, unabhängig vom Waschmaschinen-Leaf `2/6195`. Dessen Werte erscheinen unter `detail.ecoFeedback` (nur, wenn das Gerät sie wirklich führt): Energie und Wasser des letzten Programms (6.3/6.4), Lebenszähler (6.5/6.6) и TwinDos/AutoDos-Behälter (6.7). Die Werte «letztes Programm» ersetzen `eco.*` **nicht** – im Lauf zeigen sie noch das vorige Programm. Geräte ohne `2/6195` (etwa eine Spülmaschine) становится частью их программы Verbrauch je Programm aus der **Differenz der Lebenszähler** zwischen Start und Ende; Данн Стехт Дизер Верт в `eco.*`, унд `eco.source` лаутет `Appliance (lifetime counters 2/1585)`.
 
 ### `history` унд `stats` – was gelaufen ist
 
@@ -84,6 +97,8 @@ Jedes abgeschlossene Programm wird mit Dauer, Programm, Energie und Wasser festg
 
 `start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`. Эйн `true` löst aus, der Datenpunkt setzt sich selbst zurück. Befehle wirken nur, solange am Gerät **MobileStart / Fernsteuerung** freigegeben ist; manche Firmwares lehnen DOP2-Schreibbefehle grundsätzlich ab.
 
+`powerOn` унд `powerOff` Schalten seit 0.4.3 с приложением Miele-App: Sie schreiben den Gerätezustand in den DOP2-Leaf `2/1586` (4 = эйн, 1 = аус). Ответ на запрос HTTP 500 и ответ с ним `{"DeviceAction":2}` geweckt und der Befehl wiederholt, höchstens zweimal. Первый шаг по изменению UserRequest `2/1583` умереть Рейхе. Автоматический кофемашина с версией протокола 2, предназначенной для адаптера или Dop1. Danach ist er den Status nach; дер комментарий `c` des Datenpunkts sagt, welcher Weg gegriffen Hat und ob sich der Status geändert Hat. Scheitert es, erklärt `c` den HTTP-Status: **404** = das Kommunikationsmodul bietet keine DOP2-Steuerung (z. B. XKM EK057), **403** = Fernsteuerung am Gerät aus, **500** = das Gerät nimmt den Befehl im aktuellen Zustand nicht an. С помощью протокола **отладки** мгновенных сообщений можно использовать ресурс, HTTP-статус и ответ в шестнадцатеричном формате в журнале (ohne Schlüssel).
+
 ## Einstellungen
 
 | Рейтер              | Was darin steht                                                                                  |
@@ -91,7 +106,7 @@ Jedes abgeschlossene Programm wird mit Dauer, Programm, Energie und Wasser festg
 | **Anmeldung**       | Земля, der geführte Логин, die abgefangene Adresse                                               |
 | **Geräte**          | mDNS-Suche, Ausfall-Suche im Subnetz, ручной IP-адрес                                            |
 | **Абфраге и Верте** | Abfrageintervalle, deutsche Namen, Sekundenzeit, EcoFeedback, Energiezähler, geräteinterne Werte |
-| **Push & Ports**    | дополнительный канал Echtzeitkanal и собственный порт                                            |
+| **Push & Ports**    | необязательный канал Echtzeitkanal и собственный порт, необязательный Zeitdienst                 |
 | **Steuerung**       | der Schalter, der die beschreibbaren Datenpunkte anlegt                                          |
 | **Верлауф**         | Программа Mitschrift abgeschlossener, Ringpuffer, Aufbewahrung, History-Adapter                  |
 | **Диагностика**     | alles zur Fehlersuche und Feldzuordnung – ab Werk aus                                            |
@@ -101,18 +116,46 @@ Jedes Feld перейдет к администратору напрямую; di
 
 ## Netz: Порты, Docker, Push
 
-| Рихтунг   | Порт                            | Возу                                     | Нётиг                 |
-| --------- | ------------------------------- | ---------------------------------------- | --------------------- |
-| eingehend | TCP _Push-Port_ (Vorgabe 18082) | Получите больше возможностей от ioBroker | нур мит Пуш           |
-| ein/aus   | UDP 5353 (mDNS)                 | Gerätesuche und Push-Anmeldung           | für die Suche         |
-| ausgehend | TCP 80 → Geräte                 | Zustände lesen, Befehle senden           | джа                   |
-| ausgehend | TCP 443 → miele-iot.com         | GroupKey abrufen                         | nur bei der Anmeldung |
+| Рихтунг   | Порт                                  | Возу                                     | Нётиг                 |
+| --------- | ------------------------------------- | ---------------------------------------- | --------------------- |
+| eingehend | TCP _Push-Port_ (Vorgabe 18082)       | Получите больше возможностей от ioBroker | нур мит Пуш           |
+| ein/aus   | UDP 5353 (mDNS)                       | Gerätesuche und Push-Anmeldung           | für die Suche         |
+| ausgehend | TCP 80 → Geräte                       | Zustände lesen, Befehle senden           | джа                   |
+| ausgehend | TCP 443 → miele-iot.com               | GroupKey abrufen                         | nur bei der Anmeldung |
+| eingehend | TCP _-порт Zeitdienst_ (Vorgabe 8780) | Geräte holen ihre Uhrzeit                | nur mit Zeitdienst    |
 
-Ohne Push ist **kein einghender Port** notig. Для mDNS выберите ioBroker и выберите собственный широковещательный сегмент. Подключите IoT-WLAN или VLAN, межсетевые экраны (например, брандмауэр Windows или брандмауэр Windows) и маршрутизатор, многоадресный фильтр и другие подобные устройства. Во всех случаях Fällen представляет собой ручной список IP-адресов Verlässliche Weg.
+Ohne Push ist **kein einghender Port** notig. Для mDNS выберите ioBroker и выберите собственный широковещательный сегмент. Подключите IoT-WLAN или VLAN, межсетевые экраны (например, Windows-Firewall или Windows-Firewall) и маршрутизатор, многоадресный фильтр и другие подобные устройства. Во всех случаях Fällen представляет собой ручной список IP-адресов Verlässliche Weg.
 
 **Докер.** В контейнере с Bridge-Netz, где многоадресная рассылка не используется, такое соединение также не обнаруживается – IP-адрес, указанный вручную, das Abfragen läuft dann dann. Нажмите на функцию, чтобы она не исчезла, если контейнер не будет установлен: Die Rückadresse Liegt Hinter NAT. Zuverlässiger Push braucht `network_mode: host`.
 
 **Wie Push арбитраж.** Адаптер может быть использован в домашних условиях (`PUT /Devices/<Serie>/SuperVision/<eigene-Fab>`) и abonniert mit einer Rückrufadresse. Das Gerät schickt Änderungen dann von sich aus, im Sekundenbereich. Невозможно использовать модуль: Die älteren XKM EK037 и EK057 не подлежат подписке и не отправляются никуда. Das Abfragen bleibt der verlässliche Weg.
+
+## Zeitdienst für die Geräte (по желанию)
+
+Miele-Geräte stellen ihre Uhr **mit einer eigenen HTTP-Anfrage, nicht for NTP** . Коммуникационный модуль потерян `ntp.mcs2.miele.com` на протяжении 30 секунд и всего 30 секунд, чтобы ответить на комментарий:
+
+```
+GET http://ntp.mcs2.miele.com/V2/NTP/ HTTP/1.1
+Host: ntp.mcs2.miele.com
+Accept: application/vnd.miele.v1+json
+```
+
+Miele antwortet mit `{"time":<Unix-Sekunden>}`. Ein Gerät **ohne Internetzugang** (IoT-Netz ohne Ausgang) bekommt diese Antwort nie: Seine Uhr läuft weg, und nach der Zeitumstellung bleibt es womöglich auf Sommerzeit stehen. NTP-опция в DHCP или NTP-сервер в собственном Netz hilft nicht – das Gerät nutzt kein NTP.
+
+Адаптер может быть дизельным. Ответьте на свой собственный сетевой вопрос. Unter **Push & Ports → Zeitabfrage der Geräte beantworten** einschalten (Стандарт: aus) и einen Port wählen (Vorgabe 8780). **Allein bewirkt das nichts** : Das Ziel ist im Modul fest eingebaut, die Geräte müssen umgeleitet werden – eine der beiden Möglichkeiten:
+
+1. **Маршрутизатор: Ziel-NAT/Portweiterleitung.** Quelle = die Miele-Geräte, Ziel `ntp.mcs2.miele.com` (derzeit `52.136.223.17`; мит `nslookup` prüfen) TCP 80, выберите ioBroker-IP и его собственный порт. Bei UniFi: _Einstellungen → Маршрутизация → NAT → NAT назначения_ . Der Dienst kann auf einem hohen Port bleiben, die Umsetzung 80 → Port übernimmt der Router. **Liegt ioBroker в собственной подсети, в которой вы** зарегистрированы, zusätzlich eine Quell-NAT-Regel (Masquerade, z. B. auf die Adresse des Routers) для вашего запроса – сын ответ ioBroker dem Gerät direkt, die Antwort kommt nicht von der Adresse, die das Gerät gefragt Hat, und Wird Verworfen. Фильтр маршрутизатора-брандмауэра может быть установлен в сети или в зоне, а затем в свободном доступе.
+2. **DNS-Umschreibung** (AdGuard Home, Pi-hole, dnsmasq): `ntp.mcs2.miele.com` → ioBroker-IP. Если вы используете **порт 80** с этим IP-адресом, вы также можете использовать его: для хост-порта Docker 80 с выбранным портом (`-p 80:8780`); без доступа к Docker Port 80 (braucht root или `CAP_NET_BIND_SERVICE`) или 80 на каждый хост-брандмауэр. Порт 80 не доступен на хосте, который принадлежит другому веб-серверу.
+
+**Docker:** Я должен использовать Bridge-Netz для порта в сопоставлении портов контейнеров — это новое сопоставление, а контейнер не может быть изменен. Ist einer der gemappten Ports ungenutzt, diesen nehmen. **Брандмауэр:** Брандмауэр на дем-хосте (например, Synology DSM) должен использовать TCP на одном порту с установленным пользователем портом.
+
+**Контроллер:** `info.timeServer.running` ист `true`; `info.timeServer.requests`, `lastRequest`, `lastClient` унд `info.timeServer.clients.<ip>.*` очень важно, чтобы вы написали Abfrage. Je nach Docker-Aufbau und Quell-NAT также называется Absender das Docker-Gateway (z. B. `172.17.0.1`) или данные маршрутизатора. Коммутация не является частью устройства или брандмауэра, а не адаптера.
+
+**Гренцен:** Der Dienst Lifert **nur UTC** . Zeitzone und Sommerzeit rechnet das Gerät selbst (eingestellt am Gerät orer in der Miele-App). Все остальное `GET /V2/NTP/` wird mit 404 beantwortet. Откройте журнал отладки.
+
+### Geräteuhr auf Ortszeithalten (по желанию)
+
+Manche Geräte führen die UTC-Zeit richtig, stellen die Sommerzeit aber nach eigenem Plan um – ein Backofen H2469BP останется на 25.10.2026 в ночь на летний период. **Push & Ports → Geräteuhr auf Ortszeithalten** (Standard aus) prüft jedes Gerät beim Start und stündlich über `Settings/TimeSync` И вы можете умереть, если пройдете 2 минуты в режиме Ortszeit des ioBroker (Zeitzone des Hosts/Containers) abweicht – mit einer Signierten Anfrage, die nur `DateTime` enthält (`NTPEnabled`, `UTCOffset` унд `TimeMaster` bleiben unberührt). Jede Korrektur steht im Log (информация); `<Gerät>.info.timeSync.lastDeviation` (Sekunden, positiv = Gerät geht vor) и `lastSet` Зейген дас Эргебнис. Geräte ohne `TimeSync` (z. B. G5840, WCR860, ответ mit 503) bleiben unberührt. Функционирование без режима работы и без «Обслуживания».
 
 ## Защита дат
 
@@ -136,7 +179,7 @@ Alles in diesem Abschnitt ist **ab Werk aus** und wird im täglichen Betrieb nic
 
 **Датенсаммлунг.** Legt je abgeschlossenem Programm einen Datensatz an – Modell, Programm, alle Rohfelder und am Ende den Schlussstand jedes antwortenden Leafs. Чтобы получить доступ к адаптеру, необходимо получить доступ к облачному адаптеру или другой программе от Hand in `collection.inputEnergy` унд `collection.inputWater` eingetragen. In `collection.progress` steht, was noch fehlt; in `collection.finding` das Ergebnis: welches Feld passt, mit welchem Teiler und wie genau.
 
-**Лист-Суше.** Адрес DOP2 `Unit/Attribut`, и nur eine Handvoll dieser Adressen ist überhaupt irgendwo dokumentiert. Die suche arbeitet den Adressraum schonend genug ab, um das Modul nicht zu überlasten; в `collection.scanJson` sammelt sich, была шляпа geantwortet. Мит `collection.trendLeaf` lässt sich ein einzelnes Leaf während eines laufenden Programs engmaschig mitschreiben – das Feld, dessen Wert mit dem Verbrauch mitwächst, ist das geuchte.
+**Лист-Суше.** Адрес DOP2 `Unit/Attribut`, и nur eine Handvoll dieser Adressen ist überhaupt irgendwo dokumentiert. Die suche arbeitet den Adressraum schonend genug ab, um das Modul nicht zu überlasten; в `collection.scanJson` Там же было указано имя – серийный номер, MAC, IP и имя WLAN. **Зум Тейлен `collection.scanJsonAnonym` verwenden:** Dieselben Daten, diese Angaben Maskiert. Адрес, где ответ на адаптер не может быть декодирован, отправлен с текстовым сообщением и Rohbytes в виде сообщения – der Scan wird damit immer immertig. Мит `collection.trendLeaf` lässt sich ein einzelnes Leaf während eines laufenden Programs engmaschig mitschreiben – das Feld, dessen Wert mit dem Verbrauch mitwächst, ist das geuchte.
 
 **CSV-Аусдрук.** Der Knopf im Diagnose-Reiter legt zwei Tabellen im Dateibereich der Instanz ab und öffnet die erste:
 
@@ -163,6 +206,8 @@ Das lokale Protokoll (`MieleH256`, DOP2, Provisionierung) от öffentlichen Rev
 
 Die Programm- und Phasentabellen в `lib/enums.js` und die Zuordnung der Gerätetypen stammen aus [Home Assistant](https://github.com/home-assistant/core) (Apache License 2.0, © Home Assistant Authors), übernommen über [ha-miele-at-lan](https://github.com/tiehfood/ha-miele-at-lan) (MIT, © Tiehfood) и abgeglichen mit [ioBroker.miele-unbound](https://github.com/meistermopper/ioBroker.miele-unbound) (MIT, © meistermopper). Дайте мне все остальные проекты.
 
+Die Übersetzungen von Status, Phasen und Programmnamen в `lib/werte_ha.js` (для получения карты в диспетчере устройств) с помощью Community-Übersetzungen der Miele-Integration von Home Assistant (Apache License 2.0, © Home Assistant Authors), ausgelesen mit `tools/werte-uebersetzungen.js`; Lücken und einige Berichtigungen stehen в `lib/werte_eigen.js`.
+
 ## Лицензия
 
 Лицензия MIT – Авторские права (c) 2026, Иммануэль <github@freitag.online>
@@ -173,6 +218,55 @@ Die Programm- und Phasentabellen в `lib/enums.js` und die Zuordnung der Geräte
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2026-11-19)
+- (SmarthomeElektroniker) Der DOP2-Parser liest Typ 33 (Liste von Strukturen, AStruct). Bisher scheiterte ein Leaf, das ihn enthält (z. B. `2/1585`, `2/17`, `2/131`), komplett mit „Unknown DOP2 field type 33“.
+- (SmarthomeElektroniker) Der Gerätekontext `2/1585` (ersatzweise `2/391`) wird unabhängig vom Waschmaschinen-Leaf `2/6195` abgefragt. Werte des geräteeigenen EcoFeedback (Felder 6.3–6.6, 6.29, 6.31) beachten den Einheitentyp (121/46 = Wh, 45 = kWh, 44 = l) und entstehen nur, wenn das Gerät sie führt; TwinDos/AutoDos-Behälter (6.7) erscheinen als JSON. Geräte ohne `2/6195` (Spülmaschine) bekommen Energie und Wasser je Programm aus der Differenz der Lebenszähler 6.5/6.6. Die Werte „letztes Programm“ ersetzen `eco.*` im laufenden Programm nicht mehr.
+- (SmarthomeElektroniker) Leaf-Suche: Antworten, die sich nicht dekodieren lassen, gelten als beantwortet (Status 200, Fehlertext und Rohbytes getrennt abgelegt) – die Suche wird damit immer fertig. Neu `collection.scanJsonAnonym` ohne Seriennummer, Modulnummer, MAC, IP und WLAN-Namen, zum Teilen.
+- (SmarthomeElektroniker) `/State.ExtendedState` wird protokolliert (debug) und als Hex-Rohwert in `collection.extendedState` abgelegt, nur zur Diagnose.
+- (SmarthomeElektroniker) Namen nach den Messungen vom 13.11.2026 (Objekt-IDs unverändert): `eco.energy`/`eco.energyWh` „Heizenergie (Vorgabe bei 230 V)“, `detail.process.heatingEnergy`/`heatingTime` „(Vorgabe)“, Feld 16 `energyConsumed` „Antriebsenergie“ in Wh (Endstand bleibt nach dem Programm stehen), Feld 4 „Laufzeit“.
+- (SmarthomeElektroniker) Debug-Protokoll: je Gerät eine Zeile für 2/6195, 2/1585, 2/391 und ExtendedState, ohne vollständige Seriennummer.
+- (KPIotr89) Neue Option **Sprache der Text-Datenpunkte** (Abfrage & Werte): `statusText`, `programText`, `programPhaseText`, `programTypeText`, `dryingStepText` und die Wertelisten der Rohwerte in einer der elf Admin-Sprachen. Vorgabe unverändert (Deutsch oder Englisch, je nach „Datenpunkt-Namen auf Deutsch“); fehlende Übersetzungen fallen auf Englisch zurück. Polnische Programmnamen für Waschmaschinen und Trockner, wörtlich aus den polnischen Miele-Gebrauchsanweisungen, auch auf den Gerätekarten. Danke an @KPIotr89 für den Beitrag (PR #23)
+
+### 0.5.2 (2026-11-12)
+- (SmarthomeElektroniker) Fehlerbehebung: Eine Karte konnte „nicht verbunden“ zeigen und trotzdem den Ein-Knopf (oder das Licht) anbieten. Nach Stopp oder Neustart des Adapters behielten die `control.can*`-Datenpunkte ihren letzten Wert, ebenso bei Geräten, die beim Start nicht gefunden wurden. Jetzt setzt der Adapter sie beim Beenden und für jedes beim Start nicht gefundene Gerät zurück; ein nicht erreichbares Gerät oder eines mit Status 255 („nicht verbunden“) bekommt gar keinen Knopf
+- (SmarthomeElektroniker) Der Lichtknopf hängt jetzt ebenfalls an zwei Nur-Lese-Datenpunkten, `control.canLightOn` und `control.canLightOff` (genau einer ist true, solange das Gerät erreichbar ist). Die Karte sieht aus wie bisher
+- (SmarthomeElektroniker) Deutsche Texte: `fan_plus` heißt jetzt „Heißluft plus“ (bisher „Umluft“, auch in den Kombinationen mit Feuchtigkeit plus und Mikrowelle), `eco_fan_heat` „Eco-Heißluft“, Programm `automatic` „Automatik“ (bisher „Automatic“), Trockenstufen 4–7 berichtigt (standen falsch) zu „Handbügelfeucht 1/2“, „Maschinenbügelfeucht“, „Glätten“. **Sichtbare Änderung:** die deutschen `state.programText` und `state.dryingStepText` ändern sich entsprechend – Skripte, die auf den alten deutschen Text vergleichen, müssen angepasst werden
+- (SmarthomeElektroniker) Französisch: der Aus-Knopf heißt „Éteindre“ (bisher „Arrêt“) und Ein „Allumer“, damit Aus und Stopp („Arrêter“) klar unterscheidbar sind
+
+### 0.5.1 (2026-11-12)
+- (SmarthomeElektroniker) Gerätekarten im Device-Manager zeigen Status, Programm, Phase, Programmart und Trockenstufe in der Systemsprache des ioBroker, in allen elf Admin-Sprachen. Bisher standen auf der Karte die `…Text`-Datenpunkte, die der Adapter nur auf Deutsch oder Englisch schreibt. Jetzt nutzt die Karte die Rohwerte (`state.status`, `programId`, `programPhase`, `programType`, `dryingStep`) mit einer Wertetabelle in der Systemsprache; die `…Text`-Datenpunkte bleiben unverändert, Skripte, die damit vergleichen, laufen weiter
+- (SmarthomeElektroniker) Übersetzungen: die Community-Übersetzungen der Miele-Integration von Home Assistant, eigene Übersetzungen, wo dort eine Sprache fehlt (Ukrainisch, Polnisch, große Teile von Russisch und Niederländisch, Status 144/145), und einige Berichtigungen. Programmnamen nur aus Home Assistant, sonst Englisch – nichts geraten
+- (SmarthomeElektroniker) Beschreibungen von `control.can*` und `state.progress` in allen elf Sprachen
+
+### 0.5.0 (2026-11-12)
+- (SmarthomeElektroniker) Device-Manager (`@iobroker/dm-utils`, Issue #22, Anregung von mcm1957): je Gerät eine Karte für den laufenden Betrieb. Im Kopf stehen Name und Modell, die Seriennummer einmal darunter. Status, Programm, Phase, Startzeit, Restzeit und voraussichtliches Ende (groß) sowie ein Fortschrittsbalken; leere Werte werden ausgeblendet statt als leere Zeile zu erscheinen. Störung, offene Tür, Hinweise im Gerätedisplay und ein gesperrter Fernstart (MobileStart) erscheinen als farbige Zeile, solange sie anstehen. Aufgeklappt zeigt die Karte weitere Werte (Temperaturen, verstrichene Zeit, Schleuderdrehzahl, Licht, MobileStart, EcoFeedback, Betriebsstunden). Bewusst keine Konfigurationsaktionen auf den Karten
+- (SmarthomeElektroniker) Mit freigegebener Steuerung zeigt die Karte nur die Befehle, die gerade sinnvoll sind und die das Gerät kann: aus → Ein; bereit/programmiert → Start, Aus; läuft → Pause, Stopp; pausiert → Start, Stopp; Ende/Störung → Aus. Start nur mit MobileStart, Pause nur bei Waschmaschinen und Trocknern, kein Schalten von Kühlgeräten und Kochfeldern. Die Knöpfe folgen dem Zustand live; jeder Befehl außer Licht fragt nach und schreibt die vorhandenen `control.*`-Datenpunkte
+- (SmarthomeElektroniker) Das Licht ist ein einziger Umschalter: Symbol, Beschriftung und Tooltip zeigen den aktuellen Zustand, ein Klick schaltet ins Gegenteil, ohne Rückfrage. Die Prozentzahl steht direkt am Fortschrittsbalken
+- (SmarthomeElektroniker) Fehlerbehebung: Handeingaben, Scan-Schalter und Feinaufzeichnung der Datensammlung (`collection.*`) wirkten nicht, seit der Kanal in 0.3.38 von `sammlung` umbenannt wurde
+- (SmarthomeElektroniker) Neue Datenpunkte `control.canPowerOn`, `canPowerOff`, `canStart`, `canPause`, `canStop` (nur lesen, auch für VIS) und `state.progress` (Programmfortschritt in %)
+
+### 0.4.3 (2026-11-10)
+- `control.powerOn`/`powerOff` schalten jetzt wie die Miele-App: DOP2-Leaf `2/1586` (Gerätezustand 4 = ein, 1 = aus), bei HTTP 500 wecken mit `{"DeviceAction":2}` und wiederholen (höchstens zwei Runden), der bisherige UserRequest `2/1583` nur noch als Rückfall; Kaffeevollautomaten mit Protokollversion 2 über Dop1-Objekt 1101. Die Wirkung wird durch Nachlesen des Status geprüft, Fehler werden nach HTTP-Status erklärt (403/404/500), RemoteEnable wird nur protokolliert, jeder Schritt steht im Debug-Log.
+
+### 0.4.2
+- (SmarthomeElektroniker) Pflege: Versionshinweise im `io-package.json` gekürzt (Repository-Checker W1032/W2004), keine funktionale Änderung
+
+### 0.4.1
+- (SmarthomeElektroniker) Neue Option **Geräteuhr auf Ortszeit halten** (Push & Ports, Standard aus): prüft `Settings/TimeSync` beim Start und stündlich und stellt die Geräteuhr auf die Ortszeit des ioBroker, wenn sie mehr als 2 Minuten abweicht. Geschrieben wird nur das Feld `DateTime`. Datenpunkte `info.timeSync.lastSet` und `info.timeSync.lastDeviation` je Gerät
+
+### 0.4.0
+- (SmarthomeElektroniker) Neuer optionaler **Miele-Zeitdienst** (Push & Ports, Standard aus): beantwortet die HTTP-Zeitabfrage der Geräte `GET http://ntp.mcs2.miele.com/V2/NTP/` mit `{"time":<Unix-Sekunden>}`, damit Geräte ohne Internet die richtige Uhrzeit behalten. Die Geräte müssen zu ihm umgeleitet werden (Ziel-NAT am Router oder DNS-Umschreibung) – siehe „Zeitdienst für die Geräte". Beantwortete Abfragen zählt `info.timeServer.*`, je Absender `info.timeServer.clients.*`
+- (SmarthomeElektroniker) Leaf-Tabelle: `DateTimeInfo` ist Attribut 122 in Unit 14 (`14/122`), nicht `2/122`
+
+### 0.3.47
+- Ein Befehl unter `control.*`, der nicht ausgeführt werden kann (Steuerung aus, Gerät nicht verbunden, HTTP-Fehler, Verbindungsfehler), wird jetzt bestätigt (`val=false`, `ack=true`), der Grund steht im Kommentar `c` des Datenpunkts, dazu eine passende Qualität `q`. Bisher blieb er unbestätigt stehen – ein `control.powerOn` stand so 52 Tage da.
+- Unbestätigte Befehle von vor einem Neustart werden beim Start geschlossen und **nicht** an das Gerät gesendet.
+- `remainingMinutes`/`remainingHHMM` sind 0, solange das Gerät aus, fertig oder nicht verbunden ist (Status 1/7/255), und es wird kein Programmende berechnet. Eine G5840 meldete ausgeschaltet eine Restzeit von 0:01.
+- Verbindungsverlust zu einem Gerät und seine Rückkehr stehen je einmal im Log (Stufe info, bisher nur debug).
+- Die IP-Suche bei Ausfall („Bei Ausfall die neue IP im Subnetz suchen“) läuft auch dann im Hintergrund, wenn die mDNS-Suche aus ist – also genau im Docker-Bridge-Betrieb, für den sie gedacht ist. Sie fragt nur Geräte, deren Abfrage gerade scheitert, und durchsucht jedes /24-Netz mit einem fehlenden Gerät, nicht nur das Netz der ersten eingetragenen IP.
+
+### 0.3.46
+- Nur das laufende Gerät wird im kurzen Takt abgefragt („Abfrageintervall (aktiv)“), Geräte in Ruhe behalten den Ruhetakt. Bisher wurden alle Geräte im kurzen Takt abgefragt, sobald eines lief – weniger Anfragen an die Miele-Module, die nur eine Verbindung gleichzeitig bedienen.
 
 ### 0.3.45
 - Die letzte deutsche Datenpunkt-ID ist weg: `eco.quelle` heißt jetzt `eco.source`, der Wert ist immer englisch. Vorhandene Installationen ziehen beim Start um.

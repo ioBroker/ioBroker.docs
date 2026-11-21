@@ -12,10 +12,9 @@
 
 The `millheater` adapter integrates Mill heaters into ioBroker using the local API of the heater.
 
-The adapter is designed to integrate Mill heaters into a smart heating control system. This allows the heater to be controlled by external automation systems in ioBroker, for example based on available photovoltaic (PV) surplus power.
+The adapter is designed for smart heating automation. It provides the values and controls needed to operate Mill devices from ioBroker, for example to use available photovoltaic (PV) surplus power for heating.
 
-For this type of use, the operating mode **`Control individually`** should be selected on the heater. In this mode, the heater follows the individual target temperature without using timers or the weekly program. The target temperature and heater-specific power levels can then be controlled by ioBroker.
-
+For this purpose, select **`Control individually`** as the operating mode on the heater. In this mode, the heater follows the target temperature set by ioBroker instead of its weekly program or timers. Depending on the heater type, ioBroker can also adjust the available heating power.
 This makes it possible, for example, to use available PV surplus power for heating by automatically adjusting the heating level according to the available surplus.
 
 The adapter communicates directly with the heater over the local network. No cloud connection is required for the communication between ioBroker and the heater.
@@ -24,334 +23,230 @@ The adapter currently supports Millheat heater generation 3.
 
 ## Features
 
-* Local communication with the Mill heater
-* Automatic polling of heater status
-* Configurable HTTP request timeout
-* Separate fast and slow polling intervals
-* Automatic detection of the heater type
-* Automatic detection of heater replacement using the MAC address
-* Reading current temperature and heating power
-* Reading and changing the target temperature
-* Reading and changing the operating mode
-* Reading and changing temperature calibration
-* Reading and changing heater-specific power settings
-* Reading and changing the additional mode for Wi-Fi socket heaters
-* Connection status via `info.connection`
-* Centralized API request handling with mutual exclusion
-* Skippable GET polling requests when the API is busy
-* Immediate acknowledgement of successfully processed write commands
-* Automatic verification through the regular polling cycle
-* Suitable as a building block for smart heating automation, such as PV surplus control
+- Local communication with Mill devices; no cloud connection required
+- Manage multiple Mill devices in one adapter instance
+- Support for convection, oil and panel heaters, and Wi-Fi sockets
+- Automatic detection of the connected device type
+- Device identification and replacement detection using the MAC address
+- Separate status and control for each device
+- Reading room temperature, heating power and device status
+- Setting the target temperature and operating mode
+- Reading and changing temperature calibration
+- Device-specific power control for oil and panel heaters
+- Additional mode control for Wi-Fi sockets
+- Separate fast and slow polling intervals
+- Optional polling while a heater is switched off
+- Connection status for each device
+- Suitable for external automation, including PV surplus control
 
 ## Requirements
 
-* ioBroker
-* A supported Mill heater with an available local API
-* The heater and ioBroker must be reachable within the same network
-* Node.js version compatible with the installed ioBroker version (Node.js 22 or newer)
+- ioBroker
+- Supported Mill Generation 3 devices with an available local API
+- The Mill devices and ioBroker must be reachable over the local network
+- Node.js 22 or newer, subject to the requirements of the installed ioBroker version
 
 ## Configuration
 
-The adapter requires the IP address or hostname of the Mill heater.
+Configure the Mill devices in the adapter's device list. Enter the IP address or hostname for each device. Multiple devices can be managed by a single adapter instance.
 
-### One adapter instance per Mill device
-
-**Each `millheater` adapter instance is intended to communicate with exactly one Mill device.**
-The configured host address identifies that single device, and all polling, API requests,
-connection status and data points of the instance belong to it.
-
-If you want to integrate several Mill devices, create a separate adapter instance for each
-device and configure the IP address or hostname of the respective device in that instance.
-For example:
-
-| Instance | Configured device |
-| --- | --- |
-| `millheater.0` | Mill heater in the living room (`192.168.1.101`) |
-| `millheater.1` | Mill heater in the bedroom (`192.168.1.102`) |
-
-This separation is intentional: each device can be configured, monitored, started and stopped
-independently. A connection problem or a configuration change for one device therefore does
-not affect the other devices.
-
-The adapter does **not** manage a list of multiple independent Mill devices within one
-instance. Each instance represents one physical Mill device with its own local API endpoint.
+Use a fixed IP address, a DHCP reservation or a hostname that resolves to the device. If a device receives a new IP address, update its configured address. The MAC address is used to identify the physical device independently of its network address.
 
 ### Configuration parameters
 
-| Parameter             | Description                                          | Default |
-| --------------------- | ---------------------------------------------------- | ------: |
-| host address          | IP address or hostname of the Mill heater            |   empty |
-| HTTP timeout          | Maximum time to wait for an HTTP request, in seconds |       5 |
-| Fast polling interval | Interval for frequently changing values, in seconds  |      30 |
-| Slow polling interval | Interval for slowly changing values, in seconds      |   86400 |
+| Parameter | Description | Default |
+| --- | --- | ---: |
+| Device address | IP address or hostname of each Mill device | — |
+| HTTP timeout | Maximum time to wait for an API response, in seconds | 5 |
+| Fast polling interval | Update interval for frequently changing values, in seconds | 30 |
+| Slow polling interval | Update interval for values that change less frequently, in seconds | 86400 |
+| `pollWhenOff` | Continue polling while a heater is switched off | — |
 
-The HTTP timeout defines how long the adapter waits for an API request before the request is considered failed.
+The timeout and polling intervals must be whole numbers. The adapter checks the values in the Admin interface and again when it starts:
 
-The fast polling interval is used for values such as the current temperature, heating power and operating state.
+- HTTP timeout: 1 to 60 seconds
+- Fast polling interval: At least the HTTP timeout plus 1 second; maximum 3,600 seconds (1 hour)
+- Slow polling interval: At least the fast polling interval plus the HTTP timeout; maximum 86,400 seconds (24 hours)
 
-The slow polling interval is used for values that normally change less frequently, such as the temperature calibration offset.
+### Polling while a heater is switched off
 
-The adapter validates the timing values in the Admin interface and again at startup. All timing values must be integers in seconds and meet the following limits:
+The `pollWhenOff` option determines whether the adapter continues to query heaters while they are switched off.
 
-* **HTTP timeout:** Between 1 and 60 seconds.
-* **Fast polling interval:** At least the HTTP timeout + 1 second, with a maximum of 3,600 seconds (1 hour).
-* **Slow polling interval:** At least the fast polling interval + the HTTP timeout, with a maximum of 86,400 seconds (24 hours).
+- **Enabled:** Polling continues while a heater is off. This is appropriate when the heater may also be switched on or off outside ioBroker.
+- **Disabled:** Once the adapter detects that a heater is off, polling for that heater stops. In this mode, switch the heater on again through the adapter. An external switch-on is not detected while polling is stopped.
 
-For reliable communication, use a static IP address, a DHCP reservation, or a hostname that resolves to the heater.
+This is intentional. Disabling polling while off is intended for installations where the adapter is responsible for controlling the heater. When external control is required, enable this option.
 
 ## Supported heater types
 
-The adapter currently supports:
+The adapter supports the following Mill Generation 3 device types:
 
-* **Convection heaters** 
-* **Oil heaters**
-* **Panel heaters**
-* **Wi-Fi Socket**
+- Convection heaters
+- Oil heaters
+- Panel heaters
+- Wi-Fi sockets
 
-The adapter determines the heater type from the name reported by the Mill API.
+The adapter detects the device type from information reported by the Mill API and provides the corresponding device-specific settings where applicable.
 
 ### Oil heaters
 
-Oil heaters support the following additional setting:
+Oil heaters provide the writable state `settings.heating_level_percentage`:
 
-`settings.heating_level_percentage`
+| Value | Heating level |
+| ---: | --- |
+| `40` | 40 % |
+| `60` | 60 % |
+| `100` | 100 % |
 
-Allowed values:
-
-* `40 %`
-* `60 %`
-* `100 %`
-
-These values represent the selected percentage of the heater's nominal power.
-
-The value can only be written for oil heaters. Invalid values are rejected by the adapter.
-
-This makes the setting particularly useful for smart energy management. For example, an ioBroker automation can select the appropriate heating level based on the currently available PV surplus.
+The setting controls the selected percentage of the heater's nominal power and can be adjusted by ioBroker automation according to the available PV surplus.
 
 ### Panel heaters
 
-Panel heaters support:
+Panel heaters provide the writable state `settings.limited_heating_power`. It accepts integer values from `10` to `100` and sets the maximum available heating power as a percentage.
 
-`settings.limited_heating_power`
+### Wi-Fi sockets
 
-The value can be set to integer values from `10 %` to `100 %`.
-
-The value can only be written for panel heaters. Invalid values are rejected by the adapter.
-
-This setting can also be used by external automation to adapt the available heating power to the current energy situation.
-
-### Wi-Fi Socket
-
-Wi-Fi sockets support the following additional setting:
-
-`settings.additional_mode`
-
-The additional socket mode accepts integer values from `0` to `4`.
-
-The value can only be read and written for Wi-Fi socket devices. Invalid values are rejected by the adapter.
+Wi-Fi sockets provide the writable state `settings.additional_mode`. It accepts integer values from `0` to `4`.
 
 ## Operating modes
 
-The `operation_mode` state supports the following values:
+The `control-status.operation_mode` state supports the following values:
 
-| Value                  | Description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `OFF`                  | Heater switched off                                                                 |
-| `Weekly program`       | Weekly schedule                                                                     |
-| `Independent device`   | Independent device operation                                                        |
-| `Control individually` | Follow the individual target temperature without using timers or the weekly program |
-| `Invalid`              | May be reported by the API but cannot be sent as a command                          |
+| Value | Description |
+| --- | --- |
+| `Off` | The device is switched off |
+| `Weekly program` | The heater follows its weekly schedule |
+| `Independent device` | Independent operation of the heater |
+| `Control individually` | The heater follows the individual target temperature without using timers or the weekly program |
 
-For smart external control through ioBroker, **`Control individually`** should be used.
-
-In this mode, the heater follows the individual target temperature but does not use timers or the weekly program. This allows ioBroker to control the heater based on external conditions.
+For control by ioBroker, especially for PV surplus automation, use **`Control individually`**. This allows ioBroker to adjust the target temperature and the device-specific heating power without interference from the heater's weekly program or timers.
 
 For example, a PV surplus control can use the available surplus power to select an appropriate heating level:
+- Low PV surplus → lower heating level
+- Higher PV surplus → higher heating level
+- No relevant PV surplus → heating level can be reduced again
 
-* Low PV surplus → lower heating level
-* Higher PV surplus → higher heating level
-* No relevant PV surplus → heating level can be reduced again
+## Device identification
 
-This allows surplus photovoltaic energy to be used for heating instead of being fed into the grid.
+The adapter uses the MAC address to identify each physical Mill device. The IP address or hostname is used to communicate with the device; it is not its identity.
 
-## Connection status
+- The same MAC address identifies the same physical device, even if its configured IP address changes.
+- A different MAC address at a configured address is treated as a different device.
+- Previously known devices can be recognised again by their MAC address.
+- If a MAC address is missing or invalid, an already established device identity is retained.
 
-The adapter provides the state:
-
-`info.connection`
-
-This state uses the ioBroker role `indicator.connected` and indicates whether the Mill heater responded to an HTTP request through its local API.
-
-`info.connection` is set to:
-
-* `true` when an HTTP response is received from the heater
-* `false` when a connection error or HTTP request timeout occurs
-
-An HTTP error response such as `4xx` or `5xx` still means that the heater responded to the HTTP request. Therefore, `info.connection` remains `true` in this case, while the failed API request is logged separately.
-
-The connection state is updated centrally by the API request handling and therefore applies to all API requests.
+The adapter does not automatically scan the network for devices at unknown addresses. If a device's IP address changes, update its address in the device list. The MAC address then allows the adapter to recognise the physical device correctly.
 
 ## Data points
 
-The adapter creates the following object structure:
+The adapter creates a separate data point tree for each configured Mill device. The following groups are available for each device. Device-specific settings are only available for the corresponding device type.
 
 ```text
 millheater.0
-
-├── info
-│   └── connection
-│
-├── status
-│   ├── name
-│   ├── custom_name
-│   ├── version
-│   ├── operation_key
-│   └── mac_address
-│
-├── control-status
-│   ├── ambient_temperature
-│   ├── connected_to_cloud
-│   ├── control_signal
-│   ├── current_power
-│   ├── lock_active
-│   ├── open_window_active_now
-│   ├── operation_mode
-│   ├── raw_ambient_temperature
-│   ├── set_temperature
-│   └── switched_on
-│
-└── settings
-    ├── additional_mode
-    ├── heating_level_percentage
-    ├── limited_heating_power
-    └── temperature_calibration_offset
+├── <device 1>
+│   ├── info
+│   │   └── connection
+│   ├── status
+│   │   ├── name
+│   │   ├── custom_name
+│   │   ├── version
+│   │   ├── operation_key
+│   │   └── mac_address
+│   ├── control-status
+│   │   ├── ambient_temperature
+│   │   ├── connected_to_cloud
+│   │   ├── control_signal
+│   │   ├── current_power
+│   │   ├── lock_active
+│   │   ├── open_window_active_now
+│   │   ├── operation_mode
+│   │   ├── raw_ambient_temperature
+│   │   ├── set_temperature
+│   │   └── switched_on
+│   └── settings
+│       ├── additional_mode
+│       ├── heating_level_percentage
+│       ├── limited_heating_power
+│       └── temperature_calibration_offset
+└── <device 2>
+    └── ...
 ```
 
 ### `info`
 
-| State        | Description                      | Read | Write |
-| ------------ | -------------------------------- | :--: | :---: |
-| `connection` | Local HTTP API connection status |   ✓  |       |
+| State | Description | Read | Write |
+| --- | --- | :---: | :---: |
+| `connection` | Local API connection status of this device | ✓ | |
 
 ### `status`
 
-| State           | Description                                        | Read | Write |
-| --------------- | -------------------------------------------------- | :--: | :---: |
-| `name`          | Heater name / model reported by the API            |   ✓  |       |
-| `custom_name`   | Custom name of the heater                          |   ✓  |       |
-| `version`       | API / firmware version information                 |   ✓  |       |
-| `operation_key` | Operation or fault information reported by the API |   ✓  |       |
-| `mac_address`   | MAC address of the heater                          |   ✓  |       |
+| State | Description | Read | Write |
+| --- | --- | :---: | :---: |
+| `name` | Device name or model reported by the API | ✓ | |
+| `custom_name` | Custom device name | ✓ | |
+| `version` | API or firmware version information | ✓ | |
+| `operation_key` | Operation or fault information reported by the API | ✓ | |
+| `mac_address` | MAC address of the device | ✓ | |
 
 ### `control-status`
 
-| State                     | Description                                                 | Unit | Read | Write |
-| ------------------------- | ----------------------------------------------------------- | ---- | :--: | :---: |
-| `ambient_temperature`     | Current ambient temperature including calibration offset    | °C   |   ✓  |       |
-| `connected_to_cloud`      | Indicates whether the heater is connected to the Mill cloud |      |   ✓  |       |
-| `control_signal`          | Current control signal of the PID regulator                 | %    |   ✓  |       |
-| `current_power`           | Current heating power                                       | W    |   ✓  |       |
-| `lock_active`             | Current lock status                                         |      |   ✓  |       |
-| `open_window_active_now`  | Current open-window detection status                        |      |   ✓  |       |
-| `operation_mode`          | Current operating mode                                      |      |   ✓  |   ✓   |
-| `raw_ambient_temperature` | Ambient temperature without calibration offset              | °C   |   ✓  |       |
-| `set_temperature`         | Current target temperature                                  | °C   |   ✓  |   ✓   |
-| `switched_on`             | Indicates whether the device is switched on                 |      |   ✓  |       |
+| State | Description | Unit | Read | Write |
+| --- | --- | --- | :---: | :---: |
+| `ambient_temperature` | Current ambient temperature including calibration offset | °C | ✓ | |
+| `connected_to_cloud` | Indicates whether the device is connected to the Mill cloud | | ✓ | |
+| `control_signal` | Current control signal of the PID regulator | % | ✓ | |
+| `current_power` | Current heating power | W | ✓ | |
+| `lock_active` | Current lock status | | ✓ | |
+| `open_window_active_now` | Current open-window detection status | | ✓ | |
+| `operation_mode` | Current operating mode | | ✓ | ✓ |
+| `raw_ambient_temperature` | Ambient temperature without calibration offset | °C | ✓ | |
+| `set_temperature` | Target temperature | °C | ✓ | ✓ |
+| `switched_on` | Indicates whether the device is switched on | | ✓ | |
 
 ### `settings`
 
-| State                            | Description                             | Unit | Read | Write |
-| -------------------------------- | --------------------------------------- | ---- | :--: | :---: |
-| `additional_mode`                | Additional mode for socket heaters      |      |   ✓  |   ✓   |
-| `heating_level_percentage`       | Heating level for oil heaters           | %    |   ✓  |   ✓   |
-| `limited_heating_power`          | Maximum heating power for panel heaters | %    |   ✓  |   ✓   |
-| `temperature_calibration_offset` | Temperature calibration offset          | °C   |   ✓  |   ✓   |
+| State | Description | Unit | Read | Write |
+| --- | --- | --- | :---: | :---: |
+| `additional_mode` | Additional mode for Wi-Fi sockets | | ✓ | ✓ |
+| `heating_level_percentage` | Heating level for oil heaters | % | ✓ | ✓ |
+| `limited_heating_power` | Maximum heating power for panel heaters | % | ✓ | ✓ |
+| `temperature_calibration_offset` | Temperature calibration offset | °C | ✓ | ✓ |
 
 ## Local API
 
-The adapter communicates directly with the Mill heater using its local HTTP API.
-
-The adapter does not require a Mill cloud account for local communication.
+The adapter communicates directly with Mill devices through their local HTTP API. A Mill cloud account is not required for local communication.
 
 The local API used by this adapter is documented by Mill International AS in their
 
 [Generation 3 REST API documentation](https://github.com/Mill-International-AS/Generation_3_REST_API).
 
-The following API endpoints are used by the adapter
-
-* `/additional-socket-mode`
-* `/control-status`
-* `/limited-heating-power`
-* `/oil-heater-power`
-* `/operation-mode`
-* `/set-temperature`
-* `/status`
-* `/temperature-calibration-offset`
-
-The exact availability of individual functions depends on the heater type.
+The availability of individual functions depends on the device type.
 
 ## Polling
 
-The adapter uses two independent polling intervals.
-Each polling cycle is scheduled using a one-shot timeout after the previous update cycle has completed. The configured interval therefore defines the delay after completion, not a fixed start-to-start interval. If an API update takes longer, the effective time between polling starts increases. This prevents polling cycles from accumulating when API requests are slow.
+The adapter uses two independently configurable polling intervals:
 
-### Startup
+- **Fast polling** updates frequently changing values such as room temperature, heating power, operating mode and target temperature.
+- **Slow polling** updates information that normally changes less frequently, such as device information and temperature calibration.
 
-After configuration validation and object creation, the adapter initially performs:
+Each device is handled independently. The configured intervals determine how frequently its values are refreshed. If an update takes longer, the next cycle starts later; polling cycles do not accumulate.
 
-1. A slow update using `/status`
-2. A fast update using `/control-status` and the heater-specific power endpoint
-
-The `/status` request is performed first because the heater name is required to determine the supported heater type.
-
-### Fast polling
-
-The fast polling interval is used for frequently changing values, including:
-
-* Current temperature
-* Current heating power
-* Control signal
-* Operating mode
-* Target temperature
-* Heater-specific power settings
-
-During scheduled fast polling, API requests are skippable. If another API request is already running, the polling request is skipped rather than waiting for the current request to finish.
-
-### Slow polling
-
-The slow polling interval is used for values that normally change less frequently, currently including:
-
-* Heater status information
-* Temperature calibration offset
-
-Scheduled slow polling requests are also skippable when another API request is already running.
-
-### API request handling
-
-All API requests are serialized through a mutual exclusion mechanism.
-
-Normal API requests wait until the previous request has completed.
-
-Polling requests can be skippable GET requests. This prevents a regular polling cycle from unnecessarily waiting behind another API request.
-
-The skip mechanism is only supported for GET requests. Write requests use POST and are never skippable.
+The `pollWhenOff` option controls whether polling continues for a device while it is switched off. See [Polling while a heater is switched off](#polling-while-a-heater-is-switched-off) for details.
 
 ## Writing values
 
-Writable states are processed only when ioBroker sends a state change with `ack = false`.
+Writable data points can be controlled through ioBroker states. The adapter checks values before sending them to the device and acknowledges successful commands.
 
-The adapter validates the value before sending it to the heater.
+The following limits apply:
 
-The following values are validated by the adapter:
+- **Oil heater power:** `40`, `60` or `100`
+- **Operating mode:** One of the supported modes listed above
+- **Panel heater power limitation:** Integer from `10` to `100`
+- **Target temperature:** 5 °C to 35 °C
+- **Temperature calibration offset:** -30 °C to +30 °C
+- **Wi-Fi socket additional mode:** Integer from `0` to `4`
 
-* Oil heater power must be `40 %`, `60 %` or `100 %`.
-* Operation mode must be one of the supported modes.
-* Panel heater power limitation must be an integer from `10 %` to `100 %`.
-* Socket heater additional mode must be between `0` and `4`.
-* Target temperature must be between `5 °C` and `35 °C`.
-* Temperature calibration offset must be between `-30 °C` and `+30 °C`.
-
-Heater-specific settings can only be written when the detected heater type supports them.
+Device-specific settings can only be changed on devices that support them. Invalid values and unsuccessful commands are not applied as successful state changes.
 
 ### Target temperature
 
@@ -359,39 +254,8 @@ The target temperature can be changed even when the heater is switched off.
 
 After a successful temperature change, the adapter immediately acknowledges the new value in ioBroker.
 
-When the heater is switched off, the changed target temperature may not be returned by `/control-status`. The API returns the configured target temperature through `/control-status` again after the heater has been switched on.
-
+When the heater is switched off, the changed target temperature may not be returned by the heater. The API returns the configured target temperature again after the heater has been switched on.
 This means that the value shown in `control-status.set_temperature` may not immediately reflect the newly configured value when the heater is switched off.
-
-The target temperature can alternatively be read directly through the `/set-temperature` API endpoint.
-
-After a successful temperature change, the adapter starts a fast update cycle to refresh the heater data.
-
-### Successful write operations
-
-After a successful API request, the corresponding state is immediately acknowledged and updated by the adapter.
-
-The fast polling cycle is then triggered to refresh the current heater data.
-
-A changed temperature calibration offset also triggers a slow polling cycle to refresh the calibration value from the API.
-
-If an API request fails, the command is not acknowledged as successful.
-
-## API response validation
-
-API responses are handled centrally.
-
-A successful request must:
-
-* Return a successful HTTP status code
-* Contain a non-empty response body
-* Contain valid JSON
-* Contain a JSON object
-* Report `status = "ok"`
-
-Invalid or unsuccessful responses are logged and are not written to the corresponding ioBroker states.
-
-For read operations, invalid, missing or unavailable API values leave the existing ioBroker state unchanged.
 
 ## Development
 
@@ -410,44 +274,28 @@ This avoids unnecessary database writes and state change events when a value has
 
 The adapter follows these principles:
 
-* Device values are only written when their values change.
-* Successfully processed write commands are acknowledged immediately using `ack = true`.
-* Connection status updates are only written when the connection state changes.
-* Invalid or missing API values never overwrite existing states.
+- Device values are only written when their values change.
+- Successfully processed write commands are acknowledged immediately using `ack = true`.
+- Connection status updates are only written when the connection state changes.
+- Invalid or missing API values never overwrite existing states.
 
 ## Changelog
+
+### 0.2.0
+
+- BREAKING: The adapter now supports multiple Mill devices within a single instance. The configuration and device
+  data point structure have changed. Existing scripts and visualizations may need to be adapted.
+- Introduce per-device handling for status, polling and control.
+- Identify physical devices by MAC address, including recognition after an IP address change.
+- Handle device replacement and previously known devices.
+- Add the `pollWhenOff` option to control polling while a heater is switched off.
+- Improve device-specific state handling and write operations.
+- Improve configuration validation and polling behaviour.
 
 ### 0.1.15
 
 - Use `setStateChanged()` for regular state updates to avoid unnecessary database writes and state change events.
 - Keep `setState()` for explicit state reset operations.
-
-### 0.1.14
-
-* Improved API connection handling and connection status updates.
-* Reduced repeated log messages during connection failures and timeouts.
-
-### 0.1.13
-
-* Fixed handling of the `OFF` operation mode.
-* Corrected translations in several languages.
-
-### 0.1.12
-
-* Replaced interval-based polling with timeout-based scheduling.
-* Renamed polling timer properties to match their corresponding update methods.
-* Pin ESLint to version 9 to avoid dependency conflicts with eslint-plugin-import.
-* Dependencies have been updated.
-
-### 0.1.11
-
-* Added automatic detection of heater replacement using the MAC address. Device state values are reset while state objects and the connection status are preserved.
-* Dependencies have been updated.
-
-### 0.1.10
-
-* Added support for socket and convection heaters.
-* Fixed reading of the limited heating power for panel heaters.
 
 ## License
 

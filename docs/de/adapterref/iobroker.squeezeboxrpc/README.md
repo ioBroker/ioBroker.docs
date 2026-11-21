@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
-hash: uSbXDXAOrDGh4Te3wIrEVbAIgbKG3hu9kanabEvyYQo=
+hash: HBWVwGuxcL6oDGMgDWDXEe3+ts2E6amlmbBytllSLqg=
 ---
 ![Logo](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -51,7 +51,7 @@ Der `LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten
 - die meisten [Daten](#server) , die die `LMS` Der Dienst ist im Adapter verfügbar.
 - Detaillierte [Informationen](#players) zum Abspielstatus, Songtitel, Interpret, Album, Cover und zur Playlist
 - [viele Steuerungsfunktionen](#provided-states) zum Abspielen, Pausieren, Stoppen, Vorspulen,\
-  &#x20;Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten abspielen, zu einer bestimmten Zeit springen\
+  &#x20;Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten auswählen, zu einer bestimmten Zeit springen\
   &#x20;(absolut und relativ), zum Wiedergabelistenindex springen (absolut und relativ),\
   &#x20;Ein-/Ausschalter und Voreinstellungstasten
 - Alle [Favoriten](#favorites) und alle Unterebenen vom Server
@@ -105,13 +105,14 @@ Deaktivieren Sie nicht benötigte Informationen, um die LMS-Anfragen und die Ada
 
 ### Ankündigungseinstellungen
 
-| Option                  | Standard    | Beschreibung                                                                                                                             |
-| ----------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| ioBroker Web-Basis-URL  | leer        | Basis-URL einer ioBroker-Webinstanz, zum Beispiel `http://192.168.1.10:8082` Nur erforderlich für Benachrichtigungen aus lokalen Dateien. |
-| Ankündigungsvolumen     | `50`        | Lautstärke während der Wiedergabe der Ansage. Gültiger Bereich: 0 bis 100.                                                               |
-| Verwenden Sie FadeTools | deaktiviert | Verwendet das optionale [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) vor und nach den Ankündigungen.                |
-| Ausblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an `fadeout stop` Gültiger Bereich: 1 bis 60 Sekunden.                                                    |
-| Einblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an `fadein play` Gültiger Bereich: 1 bis 60 Sekunden.                                                     |
+| Option                         | Standard    | Beschreibung                                                                                                                                   |
+| ------------------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| ioBroker Web-Basis-URL         | leer        | Basis-URL einer ioBroker-Webinstanz, zum Beispiel `http://192.168.1.10:8082` Nur erforderlich für Benachrichtigungen aus lokalen Dateien.       |
+| Ankündigungsvolumen            | `50`        | Lautstärke während der Wiedergabe der Ansage. Gültiger Bereich: 0 bis 100.                                                                     |
+| Verzögerung vor der Wiedergabe | `0` MS      | Warten Sie, bis das LMS die Lautstärke der Ansage bestätigt hat und bevor die Wiedergabe startet. Gültiger Bereich: 0 bis 10000 Millisekunden. |
+| Verwenden Sie FadeTools        | deaktiviert | Verwendet das optionale [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) vor und nach den Ankündigungen.                      |
+| Ausblenddauer                  | `2` S       | Ganze Sekunden wurden übergeben an `fadeout stop` Gültiger Bereich: 1 bis 60 Sekunden.                                                          |
+| Einblenddauer                  | `2` S       | Ganze Sekunden wurden übergeben an `fadein play` Gültiger Bereich: 1 bis 60 Sekunden.                                                           |
 
 Für lokale Ansagedateien muss das LMS die konfigurierte ioBroker-Web-URL erreichen können. HTTP(S)-Ansage-URLs werden direkt an das LMS übermittelt und benötigen diese Einstellung nicht. FadeTools-Befehle werden nur gesendet, wenn die Option aktiviert ist. Ohne FadeTools werden alle Lautstärkewerte direkt festgelegt und mit dem LMS abgeglichen.
 
@@ -175,7 +176,7 @@ Für jeden Favoriten sind alle Attribute schreibgeschützt.
 | `Name`     | Name des Favoriten                                |
 | `hasitems` | Gibt an, ob es sich um ein Verzeichnis handelt.   |
 | `id`       | ID des Favoriten                                  |
-| `image`    | Bild/Symbol für Favorit, falls verfügbar          |
+| `image`    | Bild/Symbol für Favoriten, falls verfügbar        |
 | `isaudio`  | isaudio                                           |
 | `type`     | Beispieltypen: Link, Text, Audio, Wiedergabeliste |
 | `url`      | URL des Titels                                    |
@@ -244,10 +245,10 @@ zusätzlich definierte Schaltflächen:
 | `btnPreset\_\*`   | 1-6 Tasten zur Belegung im Spieler oder Server                                                                                                                                                               |
 | `cmdGeneral`      | Ein allgemeines Befehlsfeld zum Senden von Befehlen an den Spieler. Jedes Feld muss in Anführungszeichen gesetzt werden. Parameter müssen durch Kommas getrennt werden. Beispiel: "play","1"                 |
 | `cmdPlayFavorite` | Um einen Favoriten abzuspielen, legen Sie die ID des Favoriten fest.                                                                                                                                         |
-| `cmdPlayUrl`      | Eine URL abspielen. Beispiel: " <http://50.7.77.114:8101/> "                                                                                                                                                 |
+| `cmdPlayUrl`      | Eine URL abspielen. Beispiel: " <http://50.7.77.114:8101/> ;"                                                                                                                                                |
 | `cmdGoTime`       | Springen Sie zu einer absoluten Position, indem Sie eine Anzahl von Sekunden angeben, oder zu einer relativen Position, indem Sie ein + oder - am Anfang der Sekundenangabe verwenden. Beispiel: 100,-50,+50 |
 
-Die Ansageeinstellungen definieren die Lautstärke und die optionale Integration mit dem [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) . Wenn diese Option aktiviert ist, sendet der Adapter …`fadeout stop` wartet die konfigurierte Ausblenddauer ab und setzt die Wiedergabe später fort. `fadein play` Wenn diese Option deaktiviert ist, werden die vorherigen und die Ankündigungsvolumes direkt festgelegt. Für lokale Dateien müssen Sie die Basis-URL einer ioBroker-Webinstanz konfigurieren (z. B. `http://192.168.1.10:8082` Der LMS-Host muss diese URL erreichen können. Remote-Streams werden ohne Suchfunktion wiederhergestellt, da sie in der Regel keine Wiedergabeposition unterstützen.
+Die Ansageeinstellungen definieren die Lautstärke und die optionale Integration mit dem [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) . Wenn diese Option aktiviert ist, sendet der Adapter …`fadeout stop` wartet die konfigurierte Ausblenddauer ab und setzt die Wiedergabe später fort. `fadein play` Wenn diese Option deaktiviert ist, werden die Lautstärke der vorherigen und der Ankündigung direkt eingestellt. Die optionale Wiedergabeverzögerung wird angewendet, nachdem die Lautstärke der Ankündigung bestätigt wurde und bevor jede Ankündigungsdatei gestartet wird. Für lokale Dateien müssen Sie die Basis-URL einer ioBroker-Webinstanz konfigurieren (z. B. `http://192.168.1.10:8082` Der LMS-Host muss diese URL erreichen können. Remote-Streams werden ohne Suchfunktion wiederhergestellt, da sie in der Regel keine Wiedergabeposition unterstützen.
 
 #### Anmerkungen zu Datenpunkten in Abhängigkeit von der Einstellung TPE2 im LMS
 
@@ -477,7 +478,7 @@ Die Wiedergabezeitleiste zeigt den Fortschritt des aktuell abgespielten Liedes v
 | ---------------------- | ----------------- | ----------------------------------------------------------------------- |
 | Player-Widget          | Allgemeine Gruppe | Auswahl des Player-Widgets.                                             |
 | Hauptfarbe des Balkens | Allgemeine Gruppe | Die Hintergrundfarbe des Balkens für noch nicht gespielte Zeiten.       |
-| Spielzeit Farbe        | Allgemeine Gruppe | Die Farbe des Balkens für die Anzahl der gespielten Spiele.             |
+| Spielzeit Farbe        | Allgemeine Gruppe | Die Farbe des Balkens gibt die Anzahl der gespielten Spiele an.         |
 | Rahmenbreite           | Allgemeine Gruppe | Rahmenbreite/Randbreite in Pixeln um die Schaltfläche herum.            |
 | Rahmenanzeige          | Allgemeine Gruppe | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt.             |
 | Rahmenfarbe            | Allgemeine Gruppe | Farbe des Rahmens um den Balken.                                        |
@@ -759,6 +760,16 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
    ### **WORK IN PROGRESS**
 
 -->
+### 4.1.0 (2026-11-05)
+
+- The restoration of the status following an announcement has been optimized.
+- A delay for announcements has been added for slower LMS instances.
+
+### 4.0.0 (2026-11-03)
+
+- (@oweitman) Migrated to React 19 and `vis-2@2.20.x`
+  (vis-2 >= 2.20.0 is required now)
+
 ### 3.0.1 (2026-09-08)
 
 - fix little regressions
@@ -772,18 +783,7 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 
 - fix io-package.json
 
-### 2.0.1 (2026-09-05)
-
-- fix package-lock
-- fix tests
-
-### 2.0.0 (2026-09-05)
-
-- power/connected state fixed
-- players button font size fixed
-- bring back fade in/out for Announcement with additional LMS plugin
-
-Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/main/CHANGELOG_OLD.md).
+Older entries are in CHANGELOG_OLD.md.
 
 ## License
 
@@ -807,4 +807,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2019-2026 oweitman
+Copyright (c) 2019-2026 <oweitman@gmx.de>

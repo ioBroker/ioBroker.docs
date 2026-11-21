@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-energy/docs/en/distribution.md
 title: Verteilung
-hash: Yu59kz+ECYuTWWtl3MijtNH2M2Gmi7lVetrp3KY+aFs=
+hash: kK+NaP2kkTxXwDLmgwZZ6EUBLcmw5/9K6kXNZa3bmWI=
 ---
 # Verteilung
 
@@ -53,14 +53,14 @@ Nur Live-Werte, keine historischen Daten. Ein Datenpunkt pro Knoten, plus je ein
 
 Alles rund ums Zuhause, plus:
 
-| Feld                         | Bedeutung                                                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Stromleitung OID             | Die Energie wird aus dem Netz bezogen. Ein **negativer** Wert bedeutet, dass Energie in das Netz eingespeist wird.              |
-| Rückleitung OID              | Separater Datenpunkt für die Einspeisung, falls der Zähler die beiden Richtungen separat meldet.                                |
-| Energie zurückgeben Farbe    | Farbe des Eingangswertes innerhalb des Kreises                                                                                  |
-| Ausblenden, wenn kleiner als | Unterhalb dieses Wertes wird der Kreis ausgeblendet. Bei einem leeren Wert ist er immer sichtbar. Im Editor bleibt er sichtbar. |
-| Richtung umkehren            | Ändert die Richtung des sich bewegenden Punktes um                                                                              |
-| Bewegungsgeschwindigkeit     | Je größer die Zahl, desto langsamer bewegt sich der Punkt bei gleichem Wert.                                                    |
+| Feld                         | Bedeutung                                                                                                                                                                                                               |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stromleitung OID             | Die Energie wird aus dem Netz bezogen. Ein **negativer** Wert bedeutet, dass Energie in das Netz eingespeist wird.                                                                                                      |
+| Rückleitung OID              | Separater Datenpunkt für die Einspeisung, falls der Zähler die beiden Richtungen separat erfasst. Während die OID der Stromleitung 0 ist und diese nicht, verläuft der Punkt vom Haus zum Netz und der Kreis wird grün. |
+| Energie zurückgeben Farbe    | Farbe des Eingangswertes innerhalb des Kreises                                                                                                                                                                          |
+| Ausblenden, wenn kleiner als | Unterhalb dieses Wertes wird der Kreis ausgeblendet. Bei einem leeren Wert ist er immer sichtbar. Im Editor bleibt er sichtbar.                                                                                         |
+| Richtung umkehren            | Ändert die Richtung des sich bewegenden Punktes um                                                                                                                                                                      |
+| Bewegungsgeschwindigkeit     | Je größer die Zahl, desto langsamer bewegt sich der Punkt bei gleichem Wert.                                                                                                                                            |
 
 ### Knoten 1 … n
 
@@ -92,6 +92,6 @@ Standardmäßig fließt ein **positiver** Wert zum Haus hin und ein negativer We
 ## Fehlerbehebung
 
 - **Es bewegt sich nichts.** Der Punkt wird nur gezeichnet, solange der Wert ungleich 0 ist. Aktivieren Sie auch _„Keine Animation“_ .
-- **Ein Kreis fehlt.** _Er wird ausgeblendet, wenn der Wert kleiner als_ der aktuelle Wert ist. Im Editor bleiben ausgeblendete Kreise sichtbar, sodass sie weiterhin konfiguriert werden können.
+- **Ein Kreis fehlt.** _Ausblenden, wenn der Wert kleiner als_ der aktuelle Wert ist. Im Editor bleiben ausgeblendete Kreise sichtbar, sodass sie weiterhin konfiguriert werden können.
 - **Alle Werte sind 1000-fach zu groß.** _Multiplikator_ einstellen auf `0.001`, oder schalten Sie _„Werte unverändert anzeigen“_ aus, wenn der Datenpunkt tatsächlich in Wh liegt.
 - **Die Beschriftung eines Knotens wird abgeschnitten.** Verringern Sie _die Standard-Schriftgröße_ oder geben Sie dem Knoten mit _der Abstandsgröße_ mehr Platz.

@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/privacy.md
 title: Privacy Policy
-hash: 7+1kbLeGZxhPR2Si8FMA1xSoVl1vzg0Glw2yv3N6jxQ=
+hash: Ivh/Ba/TMRIe19mfXW6B5fXdkZ/A87gSsnhW/mCgdXg=
 ---
 # Privacy Policy
 
@@ -66,6 +66,10 @@ We do not use data obtained through Google Workspace APIs to develop, improve, o
 
 All data retrieved via Google Workspace APIs is handled strictly in accordance with Google's API policies and used solely to provide the intended services to our users.
 
-We do not store any data or access tokens from the ioBroker BackItUp Google Drive app. Access to Google Drive is only possible with the`ioBroker.backitup` Adapters and access tokens stored in YOUR ioBroker instance are possible.
+We do not store any data or access tokens from the ioBroker BackItUp Google Drive app. Access to Google Drive is only possible with the `ioBroker.backitup` Adapters and access tokens stored in YOUR ioBroker instance are possible.
 
-If you wish to revoke access, simply delete the access token in the settings of the`ioBroker.backitup` -instance and revoke third-party access in your [Google account.](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+If you wish to revoke access, simply delete the access token in the settings of the `ioBroker.backitup` -instance and revoke third-party access in your [Google account.](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+
+## ioBroker Screensaver: Google Photos
+
+The adapter `ioBroker.screensaver` Google Photos can display photos from Google Photos as picture frames and screensavers (Google Photos Ambient API). The [Google Photos privacy policy](/policy/google-photos) describes what data it uses for this, where and for how long it is stored, and how you can revoke access.

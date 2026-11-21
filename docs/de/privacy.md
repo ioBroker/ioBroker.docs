@@ -54,3 +54,6 @@ Alle über Google Workspace APIs abgerufenen Daten werden streng nach den API-Ri
 Wie speichern keine Daten oder Zugriffstoken von der ioBroker BackItUp Google Drive App. Der Zugriff auf Google Drive ist nur mit dem `ioBroker.backitup` Adapter und mit Zugriffstoken möglich, die in IHRER ioBroker-Instanz gespeichert sind.
 
 Falls Sie den Zugriff widerrufen möchten, löschen Sie einfach das Zugriffstoken in den Einstellungen des `ioBroker.backitup`-Instanz und widerrufen Sie den Zugriff von Drittanbietern in Ihrem [Google-Konto](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+
+## ioBroker Screensaver: Google Fotos
+Der Adapter `ioBroker.screensaver` kann Fotos aus Google Fotos als Bilderrahmen und Bildschirmschoner zeigen (Google Photos Ambient API). Welche Daten er dafür verwendet, wo und wie lange sie gespeichert werden und wie Sie den Zugriff widerrufen, beschreibt die eigene [Datenschutzerklärung für Google Fotos](/policy/google-photos).

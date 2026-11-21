@@ -10,14 +10,14 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-com
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.pvforecast/test-and-release.yml?branch=main&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
-BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
+BADGE-Stable: https://iobroker.live/badges/pvforecast-stable.svg
+BADGE-Installed: https://iobroker.live/badges/pvforecast-installed.svg
 chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvforecast/README.md
 title: ioBroker.pvforecast
-hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
+hash: JGHfVczTHfOaJctNJgRbRDDJ2FRhC+vUfalk7zjjVx4=
 ---
 ![логотип](../../../de/admin/pvforecast.png)
 
@@ -40,7 +40,7 @@ hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
 2. Широта -90° (юг) … 90° (север)
 3. Ссылка на страницу
 4. ключ API
-5. Схема расположения элементов по оси Y
+5. Схема расположения элементов по оси Y.
 6. Запланированный запрос данных (мин) - расписание, согласно которому данные должны извлекаться с сервера каждые x минут.
 
 ![pvforecast options](https://user-images.githubusercontent.com/76852173/155196476-8c8210d9-bdb2-456b-a0aa-1dd411efea5e.JPG)
@@ -83,11 +83,11 @@ hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
 
 | функция              | Бесплатно              | Свет          | Плюс                  |
 | -------------------- | ---------------------- | ------------- | --------------------- |
-| API-запросов в месяц | 250                    | 3.000         | 3.000                 |
+| API-запросов в месяц | 250                    | 3.000         | 4.500                 |
 | Обновления ежедневно | 1                      | 24 (ежечасно) | 144 (каждые 10 минут) |
 | Прогнозируемые дни   | 1-2 (сегодня + завтра) | 1-7           | 1-7                   |
 | солнечные панели     | до 4                   | до 4          | до 8                  |
-| Исторические данные  | нет                    | нет           | 30 дней               |
+| Архив прогноза       | нет                    | нет           | 7 дней                |
 
 **Интервал запроса** устанавливается адаптером автоматически в зависимости от выбранного уровня учетной записи и не требует ручной настройки:
 
@@ -140,8 +140,11 @@ hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
 ### специальные возможности pvnode
 
 - **15-минутное разрешение** : pvnode предоставляет прогнозные данные с 15-минутными интервалами (v1 и v2)
+- **Суточные суммы за дополнительные дни** : Если прогнозируется более 2 дней с неблагоприятными погодными условиями (легкий/положительный дождь), рассчитываются дополнительные суммы. `energy.day2` …`energy.day6` (Энергия за 2–6 дней) на систему и менее `summary.energy` Создано. Точки данных за дни, выходящие за пределы установленного прогнозного периода, автоматически удаляются.
+- **Почасовые значения за дополнительные дни** : Если активирована функция отображения почасовых данных, будут отображаться и каналы за те же дни. `energy.hoursDay2` …`energy.hoursDay6` и `power.hoursDay2` …`power.hoursDay6` за растение и менее `summary` создан (аналогично `hoursToday` /`hoursTomorrow`).
 - **Преобразование азимута** : адаптер автоматически преобразует значение азимута (адаптер: 0 = Юг) в формат pvnode (180 = Юг).
 - **Интервал опроса** : устанавливается автоматически в зависимости от уровня учетной записи — ручная настройка не требуется.
+- **Перезапуск адаптера** : Если сохраненные данные прогноза актуальны на момент запуска (новее, чем интервал запроса), новый запрос не выполняется. Следующий запрос выполняется, как только данные устаревают. Запрос выполняется немедленно, если изменилась конфигурация или была добавлена новая система.
 - **Прогнозы для отдельных районов (v2)** : Если учетная запись pvnode предоставляет строковые данные, каждая настроенная система получает свой собственный прогноз. Значения Clearsky, температура и код погоды берутся из общесистемных данных.
 - **Сводные данные** : JSON-файл со сводными данными содержит значения Clearsky, а также коды температуры и погоды.
 - Поля "Увлажнение утром" и "Увлажнение вечером" не используются для pvnode.
@@ -155,9 +158,13 @@ hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 7.0.0 (2026-11-19)
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
+- (@patricknitsch) Fix pvnode v2 Plus tier only fetching every 60 minutes instead of every 10 minutes
+- (@patricknitsch) pvnode: Add daily energy states for additional forecast days (`energy.day2` ... `energy.day6`) for Light/Plus tier
+- (@patricknitsch) pvnode: Add hourly states for additional forecast days (`energy.hoursDay2` ... `energy.hoursDay6`, `power.hoursDay2` ... `power.hoursDay6`) if hourly states are enabled
+- (@patricknitsch) pvnode: Skip the request on adapter start if the stored forecast is still current (saves requests of the monthly quota)
 
 ### 6.2.0 (2026-07-06)
 - (@patricknitsch) pvnode API v2 support: plant configuration via Site ID in the pvnode portal — create a site at https://pvnode.com/sites/new
@@ -183,18 +190,9 @@ hash: JLPulOj96B61926doxIOI9+t/qKuV5llX7+9ri30PPY=
 * (@Scrounger) solcast user agent bug fix
 * (@klein0r) Updated dependencies
 
-### 5.0.0 (2025-04-23)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Minimum peak power is 0.1 kWp
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2025 Patrick-Walther

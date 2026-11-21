@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
+hash: lCaDZJwB+9mUhMR6b2ZBuS/7TKRIWwTIGNIB9R5XeH8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -17,43 +17,67 @@ hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
 
 # ioBroker.solarviewdatareader
 
-## Адаптер solarviewdatareader для ioBroker
+## ioBroker SolarView Data Reader
 
-Адаптер считывает данные с регистратора данных Solarview. Дополнительную информацию о Solarview можно найти здесь: <https://www.solarview.info/solarlogger.aspx>
+Этот адаптер считывает данные измерений с регистратора данных SolarView через его TCP-интерфейс. Для получения информации о SolarView и совместимом оборудовании посетите [веб-сайт SolarView](https://www.solarview.info/solarlogger.aspx) .
+
+Адаптер использует незашифрованное TCP-соединение. SSL/TLS и проверка сертификатов не поддерживаются.
+
+## Требования
+
+- Node.js 22 или более поздняя версия
+- ioBroker js-controller 6.0.11 или новее
+- ioBroker Admin 7.6.20 или более поздняя версия
 
 ## Конфигурация
 
-### IP-адрес, порт
+### Связь
 
-Для получения данных с регистратора данных необходимо ввести IP-адрес и порт вашего TCP-сервера SolarView. Стандартный порт — 15000. См. документацию SolarView по адресу <https://www.solarview.info/solarlogger.aspx> .
+Введите IP-адрес или имя хоста регистратора данных SolarView и его TCP-порт. Порт по умолчанию: `15000`.
 
-### преобразователь D0
+### Интервал опроса и временное окно
 
-Если к регистратору данных Solarview подключен преобразователь D0, вы можете включить эту опцию. По всем вопросам обращайтесь к документации Solarview.
+Установите частоту запроса данных адаптером, от 10 до 3600 секунд. Временной интервал управляет опросом данных фотоэлектрических панелей и инвертора, включая данные о питании D0, когда преобразователь D0 включен. Данные счетчика собственного потребления и данные о потреблении D0 продолжают опрашиваться за пределами этого временного интервала.
 
-### Сумма показаний счетчика собственного потребления и от 1 до 4
+Для временного интервала в целые сутки используйте `00:00` к `23:59`.
 
-Если у вас установлен счетчик S0, вы можете включить эту опцию. Вы можете подключить до 4 счетчиков собственного потребления, и сумма показаний всех счетчиков будет суммироваться. По всем вопросам обращайтесь к документации Solarview.
+### Устройства
 
-### Инвертор 1–4
+На вкладке **«Устройства и CCU»** включите только те устройства, которые настроены в SolarView:
 
-Каждый инвертор можно включить отдельно. По всем вопросам обращайтесь к документации Solarview.
+- **Конвертер D0** : создает `d0supply` и `d0consumption` данные.
+- **Счетчики собственного потребления** : активируйте общий счетчик и/или счетчики с 1 по 4.
+- **Инверторы** : активируйте инверторы с 1 по 4 по отдельности.
 
-### Интервал, начало интервала, конец интервала
+### Система Homematic CCU переменная
 
-Здесь вы можете настроить временной диапазон и интервал. Временной диапазон для 24 часов — с 00:00 до 23:59, а не с 00:00 до 00:00.
+Включите **параметр «Установить системную переменную CCU** для записи текущей мощности фотоэлектрической системы в системную переменную Homematic CCU». Введите, например, идентификатор состояния ioBroker. `hm-rega.0.12345`.
 
-### Установить системную переменную CCU, Системная переменная
+## Штаты
 
-Это особая функция для Homematic CCU. В CCU можно определить системную переменную. В этой системной переменной сохраняется фактическое значение PAC. Необходимо указать состояние ioBroker для этой системной переменной -> **например, "hm-rega.0.12345"**
+Адаптер создает `pvig` Канал для общих данных о фотоэлектрической системе. В зависимости от конфигурации, он также создает `pvi1` к `pvi4`, `d0supply`, `d0consumption`, и `scm0` к `scm4` каналы.
 
-### Созданные состояния
+Каналы для фотоэлектрических систем и инверторов обеспечивают:
 
-#### pvig, pvi1..4, d0supply, d0consumption
+| Состояние | Описание                                   | Единица |
+| --------- | ------------------------------------------ | ------- |
+| `current` | Текущая мощность фотоэлектрических панелей | В       |
+| `daily`   | Суточная урожайность                       | кВтч    |
+| `monthly` | Ежемесячная доходность                     | кВтч    |
+| `yearly`  | Годовая урожайность                        | кВтч    |
+| `total`   | Общий урожай                               | кВтч    |
 
-суточная = суточная выработка (кВт·ч) месячная = месячная выработка (кВт·ч) годовая = годовая выработка (кВт·ч) общая = общая выработка (кВт·ч) ток = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжение генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза 1 сети UL2, IL2 = напряжение сети, фаза 2 сети UL3, IL3 = напряжение сети, фаза 3 сети TKK = температурный инвертор
+Включенные инверторные каналы также обеспечивают постоянное напряжение и ток для каждого трекера точки максимальной мощности (MPP): `udc` /`idc`, `udcb` /`idcb`, `udcc` /`idcc`, и `udcd` /`idcd` (В/А). В зависимости от версии протокола SolarView, они также могут включать напряжение и ток сети на фазу. `ul1` /`il1` к `ul3` /`il3`, В/А) и температура инвертора (`tkk`, °C).
+
+Он `info` канал содержит информацию о состоянии соединения (`info.connection`) и метка времени последнего успешного обновления (`info.lastUpdate`).
 
 ## Changelog
+### 1.3.0 (2026-10-26)
+* (afuerhoff) legacy polling intervals are migrated from minutes to seconds
+* (afuerhoff) socket error handling and connection status reporting improved
+* (afuerhoff) configuration organized into tabs with improved validation and help texts
+* (afuerhoff) configuration translations updated
+
 ### 1.2.6 (2026-09-13)
 * (afuerhoff) dependencies updated
 * (afuerhoff) issues detected by repository checker fixed [#289], [#305]
@@ -73,11 +97,6 @@ hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
 * (afuerhoff) dependencies updated
 * (afuerhoff) repository checker issues fixed
 * (afuerhoff) typescript error fixed
-
-### 1.2.2 (2025-05-30)
-* (afuerhoff) dependencies updated
-* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
-* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
 
 ## License
 MIT License

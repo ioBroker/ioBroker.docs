@@ -1,14 +1,15 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.discovery/README.md":{"title":{"en":"ioBroker Discover Adapter"},"content":"en/adapterref/iobroker.discovery/README.md"},"en/adapterref/iobroker.discovery/DEVELOPMENT.md":{"title":{"en":"Extending discovery"},"content":"en/adapterref/iobroker.discovery/DEVELOPMENT.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: MSOYyc3crmQl2IED3cYVSeya5u3WoFvNpSoP5Lgyj7Q=
+hash: CSNs/AJbLv5ql9g/W6QdQW4TzEo0C7fgs/Ov6YOAgLw=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/discovery-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/discovery-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.discovery.svg)
 ![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
@@ -31,7 +32,9 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Awtrix 3 / Awtrix Light
 - Bambu Lab 3D-Drucker
 - Beckhoff PLC
+- Blackmagic ATEM-Switcher
 - BleBox
+- Blustream Präsentationsumschalter, HDBaseT/HDMI-Matrizen und Videowandprozessoren (blustream-mfp)
 - Bosch Smart Home
 - Bose Soundtouch
 - Broadlink
@@ -76,12 +79,12 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Heos
 - Home Assistant
 - Homematic CCU (hm-rpc, hm-rega)
+- openccu-lite (hm-rpc im openccu-lite-Modus, eine Instanz pro Schnittstelle; in den Einstellungen koppeln)
 - Homepilot
 - HomeWizard Energie
 - Hoymiles HMS Wechselrichter (Hoymiles)
 - HP-lio
 - Huawei SUN2000 (sun2000, sun2000-modbus)
-- Farbton erweitert
 - Hyperion.NG
 - iiyama ProLite-Displays
 - InfluxDB
@@ -92,7 +95,6 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - KNX (derzeit deaktiviert)
 - Kodi
 - LaMetric
-- Landroid
 - LGTV
 - Lightify
 - Loxone
@@ -106,15 +108,17 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Mi Home Smarthome
 - Miele
 - Miele Cloud-Service
+- Miele\@Haushaltsgeräte, lokal (miele-lokal)
 - Mikrotik
 - MiLight-Brücke (v6)
+- Möhlenhoff Alpha 2 Fußbodenheizungs-Basisstation (alpha2)
 - MPD
 - Musiccast
 - myDlink
 - Mysensors USB/Seriell (9600, 38400, 57600, 115200)
 - myvbus
 - nanoleaf Lichtpaneele / Leinwand
-- Netzwerkzeuge
+- Netzwerkwerkzeuge
 - NSPanel Lovelace-Benutzeroberfläche
 - Nuki erweitert
 - Nuki2
@@ -139,6 +143,7 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Siegenia
 - Sigenergy
 - SIKU / Oxxify Intelligente Belüftung (RV V2 UDP-Protokoll, nur Werks-PIN)
+- Sky Q / Sky+HD Set-Top-Boxen (Sky-Fernbedienung)
 - SMA SEMP-Gateway (Sunny Home Manager)
 - Sma-em
 - Smappee
@@ -168,7 +173,6 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - WLED
 - Yamaha
 - Yeelight
-- Z-Wave USB (Getestet mit Aeon Labs)
 - Zigbee-Koordinatoren (Serie)
 - Zigbee2MQTT
 
@@ -218,7 +222,7 @@ Der Dialog ist neu. Eine Installation, die eingerichtet wurde, bevor er existier
 
 ## Geplanter Scan
 
-Standardmäßig sucht der Adapter nur, wenn er im Admin-Dialog dazu aufgefordert wird. In den Instanzeinstellungen kann er jedoch so konfiguriert werden, dass er selbstständig sucht: Aktivieren Sie dazu **die Option „Scan nach Zeitintervall ausführen“** , legen Sie das Intervall fest und wählen Sie die zu verwendenden Methoden aus. Wenn Sie keine Methode auswählen, werden alle Methoden verwendet. Fünf Minuten sind das kürzeste zulässige Intervall. Der erste geplante Scan startet zwei Minuten nach dem Start des Adapters, sodass ein Host während des Bootvorgangs nicht gescannt wird.
+Standardmäßig sucht der Adapter nur, wenn er im Admin-Dialog dazu aufgefordert wird. In den Instanzeinstellungen kann er stattdessen selbstständig suchen: Aktivieren Sie **„Scan nach Zeitintervall ausführen“** , legen Sie das Intervall fest und wählen Sie die zu verwendenden Methoden aus. Wenn Sie keine Methode auswählen, werden alle Methoden verwendet. Fünf Minuten ist das kürzeste zulässige Intervall. Der erste geplante Scan startet zwei Minuten nach dem Start des Adapters, sodass ein Host während des Bootvorgangs nicht gescannt wird.
 
 Ein Scan, der über den Entdeckungsdialog gestartet wird, gewinnt immer – wenn gerade ein Scan läuft, wenn der Timer auslöst, wird dieser Durchgang übersprungen und der nächste erfolgt im regulären Intervall.
 
@@ -235,7 +239,11 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `disco
 | `suggested` | Die Adapter, die dieses Gerät erkannten                           |
 | `lastSeen`  | Zeitpunkt des Scans, der es gefunden hat                          |
 
-`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wiedergefunden werden, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
+`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
+
+## Entwicklung
+
+Ihr Gerät wurde nicht gefunden? Wie Sie die Erkennung für einen Adapter hinzufügen, ist in [DEVELOPMENT.md](/#/docs/adapterref/iobroker.discovery/DEVELOPMENT.md) beschrieben.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -243,39 +251,31 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `disco
 -->
 
 ## Changelog
+### 5.4.1 (2026-11-19)
+* (@GermanBluefox) The build checks that every adapter discovery can propose exists in the latest repository, and a weekly workflow opens an issue when one leaves it (#508). The detections for hue-extended, landroid and zwave are removed: none of these adapters exists any more
+* (@GermanBluefox) A scan runs the detection for an adapter only when the adapter is in the active repository. With several active repositories their adapters now add up (before, every detection ran), a change of the active repository applies from the next scan on, and "Propose only adapters that are installed here" also holds while the repository has not been downloaded yet
+
+### 5.4.0 (2026-11-19)
+* (hobbyquaker) Detect openccu-lite from its open version answer and propose hm-rpc instances in openccu-lite mode instead of the classic ones - it has no ReGa and does not forward `init`, so neither hm-rega nor an init-based hm-rpc instance is proposed for it, even when its classic RPC ports are switched on. One instance is proposed per interface the system names in its version answer (on older systems: the interfaces its classic ports show, else HmIP-RF and BidCos-RF); the instance is then paired in its settings
+* (SmarthomeElektroniker) Detect Miele@home appliances from their `_mieleathome._tcp` mDNS announcement and propose one miele-local instance for the household, with the appliance addresses in its device list
+* (AlanSRU) Detect Blustream presentation switchers, matrices and video-wall processors from their `STATUS` header on telnet port 23 and propose the blustream-mfp adapter with the matching device model
+* (djlex83) Detect the Möhlenhoff Alpha 2 floor heating base station from the `<TYPE>EZRCTRL…</TYPE>` of its `/data/static.xml` and propose the alpha2 adapter
+
+### 5.3.0 (2026-11-09)
+* (AlanSRU) Detect Sky Q and Sky+HD boxes from the greeting on their remote-control port 49160 and propose the sky-remote adapter
+* (AlanSRU) Detect Blackmagic ATEM switchers from their `_switcher_ctrl._udp` mDNS announcement and propose the blackmagic-atem adapter
+* (@GermanBluefox) The WLED detection no longer logs an error for every device with a single mDNS PTR record, finds a WLED that announces only its own service, and proposes one instance for all WLEDs, which is how the adapter works
+* (@GermanBluefox) The ping on Windows no longer reads `process.env`, which does not go with compact mode
+* (@GermanBluefox) `npm run test:integration` now runs every test file on Linux and macOS too - the shell had been expanding the pattern to `test/adapters` only
+
+### 5.2.0 (2026-10-08)
+* (nograx) Detect Zendure SolarFlow, Hyper and AIO devices with the local zenSDK API via mDNS and propose the zendure-solarflow adapter
+* (@GermanBluefox) The Zendure proposal sets `connectionMode: local` - in the default cloud mode the instance stops at the missing cloud key and never looks for devices
+
 ### 5.1.2 (2026-10-02)
 * (ChrMaass) Detect SIKU / Oxxify Smart fans with a read-only UDP broadcast and propose one siku instance for all fans
-* (bluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
-* (bluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
-
-### 5.1.1 (2026-08-31)
-* (bluefox) The ping scan says so when this host may not send ICMP and sweeps the range over TCP instead (#247)
-* (bluefox) The scan can now run on a timer, with a selectable set of methods - mdns, ping, udp and upnp by default
-* (bluefox) Every finished scan writes the devices it found below `discovery.0.devices`
-* (bluefox) The instance has settings again: two tabs with a start button, the live scan state and the device list
-* (bluefox) The device tab is a real table now: sortable, filterable, and it fills itself from `system.discovery`
-* (bluefox) The device table shows the icon of every proposed adapter that is installed on this host
-* (bluefox) A scheduled scan raises a notification when it proposes something that was not proposed before
-* (bluefox) The texts of the settings dialog moved into `admin/i18n`, complete in all eleven languages
-* (bluefox) `adminUI.config` is repaired at start-up, js-controller does not update that field on an upgrade
-* (bluefox) The adapter was refactored to TypeScript: sources moved to `src/`, the build output to `build/`
-* (bluefox) Minimum node.js version is 22.19.0 now
-
-### 5.0.1 (2026-07-03)
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
-* (Eistee82) Fix Hoymiles HMS discovery: correct a require path and align native config with hoymiles 0.3.4 device-array schema
-* (iobroker-bot) Adapter requires node.js >= 20 now.
-* (UncleSamSwiss) Remove obsolete squeezebox adapter
-* (GermanBluefox) Packages were updated
-* (GermanBluefox) Added victron-cerbo
-
-### 5.0.0 (2024-07-21)
-* (bluefox) Packages updated
-* (bluefox) Minimum node.js version is 18.x
-* (bluefox) Updated licenses for knx and jarvis
-
-### 4.5.0 (2024-04-21)
-* (pr0crstntr) Added Air-Q
+* (@GermanBluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
+* (@GermanBluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
 
 ## License
 

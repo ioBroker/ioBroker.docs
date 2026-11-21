@@ -4,7 +4,7 @@ lastChanged: 11.06.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: siww27htsL6XA3izb4kDc0sNQYBU5T7Yt1Wq863MBjs=
+hash: CvmTE6/RuSOtIzQ9fg+YBFlAMcw72qEEyXcm+fQwFi8=
 ---
 # Installing ioBroker on Windows
 
@@ -114,12 +114,61 @@ Expert mode offers the following additional features:
 
 ## Troubleshooting
 
-**Problem:** The installation cannot be performed because port 9001 is occupied by a process named "System".
+**Problem:**
 
-**Possible solution:** The Intel® Graphics Command Center is known to block port 9001. Check if there is a Windows service named "Graphics Command Center" or similar on your PC. If so, stop and disable this service. Afterwards, the installation of ioBroker should be possible.
+The installation cannot be performed because port 9001 is occupied by a process named "System".
 
-**Problem:** Git was not installed during the ioBroker installation. The log file contains a corresponding error message:`Fehler beim Durchsuchen der Quelle: winget
+**Possible solution:**
+
+The Intel® Graphics Command Center is known to block port 9001. Check if there is a Windows service named "Graphics Command Center" or similar on your PC. If so, stop and disable this service. Afterwards, the installation of ioBroker should be possible.
+
+---
+
+**Problem:**
+
+Git was not installed during the ioBroker installation. The log file contains a corresponding error message:`Fehler beim Durchsuchen der Quelle: winget
 Unerwarteter Fehler beim Ausführen des Befehls:
 0x8a15000f : Data required by the source is missing`
 
-**Possible solution:** In the ioBroker Command window (from the start menu), enter the following command, then restart the installer and select "Repair".`powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`
+**Possible solution:**
+
+In the ioBroker Command window (from the start menu), enter the following command, then restart the installer and select "Repair". `powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`
+
+---
+
+**Problem:**
+
+The installation of ioBroker or the update of the JS controller aborts with the following error message:
+
+```text
+npm error code EALLOWSCRIPTS
+npm error --allow-scripts is not allowed in project-scoped installs.
+```
+
+**Possible solution:**
+
+With certain npm versions, the configuration `allow-scripts=true` This error will occur if it is passed as an environment variable to another npm process.
+
+Open a Windows command prompt (CMD) as administrator, under the same user account used to run the ioBroker installer.
+
+First, check the npm configuration:
+
+```cmd
+npm config get allow-scripts
+```
+
+Becomes `true` Once returned, the setting can be removed with the following command:
+
+```cmd
+npm config delete allow-scripts
+```
+
+Then restart the installation or controller update.
+
+**Note:** This command typically changes the current Windows user's npm configuration permanently and can therefore affect other npm projects. A downgrade of Node.js or npm is usually not required to resolve this error.
+
+Further information:
+
+- [Known npm bug](https://github.com/npm/cli/issues/9968)
+
+---

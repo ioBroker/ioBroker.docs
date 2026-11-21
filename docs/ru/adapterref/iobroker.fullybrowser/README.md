@@ -1,20 +1,20 @@
 ---
 BADGE-NPM: https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.fullybrowser.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.fullybrowser.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fullybrowser.svg
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/arteck/ioBroker.fullybrowser
 BADGE-GitHub issues: https://img.shields.io/github/issues/arteck/ioBroker.fullybrowser
 BADGE-License: https://img.shields.io/badge/License-MIT-blue.svg
-BADGE-Number of Installations: http://iobroker.live/badges/fullybrowser-installed.svg
+BADGE-Number of Installations: https://iobroker.live/badges/fullybrowser-installed.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.fullybrowser.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/fullybrowser-stable.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
 title: без названия
-hash: FYintamstHgPIG/rUvhp+YHu0bDQpomowQlWMG9AEWQ=
+hash: uyKZDBXT0d2dCGBTsHMHwptRSm7yoVVMDMQ9d2+4SQs=
 ---
-![Логотип](../../../en/admin/fully-mqtt_500.png)
+![Логотип](../../../en/admin/fully.png)
 
 ## Об этом адаптере
 
@@ -52,7 +52,7 @@ hash: FYintamstHgPIG/rUvhp+YHu0bDQpomowQlWMG9AEWQ=
 
 ### Устройства с полнофункциональным браузером
 
-Добавьте устройства, использующие Fully Browser, то есть планшеты, на которых запущен Fully Browser, следующим образом:
+Добавьте устройства, работающие с Fully Browser, то есть планшеты, на которых запущен Fully Browser, следующим образом:
 
 1. **Название устройства** : любое имя, которое также используется в составе объектов/состояний, например... `Tablet Flur` становится `fully-mqtt.0.Tablet-Flur`.
 2. **Протокол** : уход `http` как есть. Если `https` следует использовать: см. примечания в разделе [«Удаленное администрирование»](https://www.fully-kiosk.com/en/#remoteadmin) .

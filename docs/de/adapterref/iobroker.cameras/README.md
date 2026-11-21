@@ -3,18 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: D+n/C0+B4cTtfqHFJwr6rp4gQjTM5oLsebWwawXIyC0=
+hash: jvBtlo2bdlgVR7fIMRicJO31kTJag7vzcYudmmwbYIQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.cameras.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.cameras.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cameras.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
+![Travis-CI](https://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
 # IoBroker.cameras
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
 ## IP-Kamera-Adapter für ioBroker
 Sie können Ihre Web-/IP-Kameras in vis und andere Visualisierungen integrieren.
 Wenn Sie eine Kamera mit dem Namen `cam1` konfigurieren, ist sie auf dem Webserver unter `http(s)://iobroker-IP:8082/cameras.0/cam1` verfügbar.
@@ -39,6 +41,27 @@ sendTo('cameras.0', 'image', {
 ```
 
 Das Ergebnis liegt immer im Format `jpg` vor.
+
+### Nachrichten für Skripte und KI-Agenten
+`sendTo('cameras.0', 'help', {}, result => ...)` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren sowie die Liste aller Befehle, jeweils mit `write: true`, wenn er eine Wirkung hat, die über die Rückgabe von Informationen hinausgeht.
+
+### Vis-2 Widgets
+Der Adapter stellt zwei Widgets für vis-2 bereit: **Polling-Kamera** lädt in einem festgelegten Intervall ein neues Bild (Snapshot), **RTSP-Kamera** zeigt den Livestream an. Wählen Sie die Kamera im Widget anhand ihrer Instanz und ihres Namens aus, z. B. `0/cam1`. Ein Klick auf das Bild öffnet es in einem Dialog, optional mit einer zweiten Kamera höherer Auflösung.
+
+![vis-2 Widgets](../../../en/adapterref/iobroker.cameras/img/vis2-widget-cameras.jpg)
+
+### Webkomponenten
+Für Aura, Admin und alle anderen Hosts von [ioBroker-Webkomponenten](https://github.com/ioBroker/web-components) stellt der Adapter beide Bilder ebenfalls als Webkomponenten bereit (`common.webComponents`, Dateien in `admin/webcomponents/`).
+Diese tragen die Namen der Widgets aus ioBroker.devices, sodass vis-2 und devices ihr eigenes Widget anzeigen, sofern es denselben Namen hat.
+
+| Tag | Name | Shows |
+|------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `iob-cameras-rtsp` | RTSP-Kamera | Das Kamerabild wird erneut angefordert, sobald es eintrifft: das neueste Bild, solange der Adapter das Kamerabild streamt, ansonsten jedes Mal eine neue Momentaufnahme |
+| `iob-cameras-snapshot` | Schnappschusskamera | ein neues Bild im angegebenen Intervall |
+
+Einstellungen für beides: Kamera (ihr Status, z. B. `cameras.0.cam1.running`), ein Name, der über dem Bild angezeigt wird, die Breite, auf die der Adapter das Bild skaliert (standardmäßig 640, 0 für die Kameragröße; im Dialog wird mindestens 1280 benötigt) und die Drehung. Die Schnappschusskamera verfügt außerdem über das Abfrageintervall, die Option „Cache umgehen“, eine weitere Kamera für den Dialog (z. B. dieselbe in höherer Auflösung) und das Abfrageintervall im Dialog. Ein Klick auf das Bild öffnet es vergrößert in einem Dialog des Hosts.
+
+Beide erhalten das Bild mit der `image` Nachricht über die Verbindung des Hosts, sodass sie sowohl auf Admin- als auch auf Webseiten funktionieren und Bilder nur dann anfordern, wenn sie sichtbar sind.
 
 ### Das Bild an einen Messenger senden
 `result.data` ist das JPEG als Base64-String und kann daher nicht direkt an einen Messenger übergeben werden. Konvertieren Sie es zuerst in `Buffer` oder eine Datei. In einem Skript des JavaScript-Adapters (auch über den Block „JavaScript-Funktion“ von Blockly verwendbar):
@@ -118,7 +141,7 @@ automatisch; falls keine Verbindung angezeigt wird, aktivieren Sie RTSP für die
 
 - Eine Kamera **ohne RTSP** (viele Akku-Kameras) ist mit *Live-Übertragung über Station* gekennzeichnet: Für ein Bild drückt der Adapter
 
-`start_stream` von `eusec`, das das Kamerabild über die Station in seinen eigenen go2rtc streamt und von dort aus einen Schnappschuss erstellt. Das erste Bild benötigt einige Sekunden, und eine batteriebetriebene Kamera wird jedes Mal aktiviert. `eusec` beendet den Stream nach seiner *maximalen Livestream-Dauer*; Bilder innerhalb dieser Zeit aktivieren die Kamera nicht erneut. Eine solche Kamera wird nur auf Anfrage aktiviert - im Gegensatz zu allen anderen Typen empfängt sie beim Start des Adapters kein Bild, was ihren Akku bei jedem Neustart entladen würde. Der RTSP-Server des go2rtc in `eusec` darf keine Anmeldung erfordern - sein Passwort ist eine geschützte Einstellung von `eusec`, die von anderen Adaptern nicht gelesen werden kann.
+`start_stream` von `eusec`, das das Kamerabild über die Station in seinen eigenen go2rtc streamt und von dort aus einen Schnappschuss erstellt. Das erste Bild benötigt einige Sekunden, und eine batteriebetriebene Kamera wird jedes Mal aktiviert. `eusec` beendet den Stream nach seiner *maximalen Livestream-Dauer*; Bilder innerhalb dieser Zeit aktivieren die Kamera nicht erneut. Eine solche Kamera wird nur auf Anfrage aktiviert - im Gegensatz zu allen anderen Typen empfängt sie beim Start des Adapters kein Bild, was ihren Akku bei jedem Neustart belasten würde. Der RTSP-Server des go2rtc in `eusec` darf keine Anmeldung erfordern - sein Passwort ist eine geschützte Einstellung von `eusec`, die andere Adapter nicht lesen können.
 
 Ohne `eusec` kann eine Kamera mit RTSP über ihre IP-Adresse eingegeben werden.
 
@@ -211,58 +234,31 @@ Falls die Binärdatei nicht gefunden werden kann oder nicht startet, greift der 
 
 ### **IN BEARBEITUNG**
 * (@hdering) Hinzugefügt: Die README-Datei zeigt, wie man das Bild der `image`-Nachricht an Telegram oder einen anderen Messenger sendet (#78)
+* (@GermanBluefox) Vom Repository-Prüfer gemeldete Probleme behoben (#332)
 
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: the message `image` answers the text of an error (e.g. a timeout of the camera) instead of an empty `error` object
+
+### 3.5.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.4.0 (2026-11-08)
+* (@GermanBluefox) Added web components `iob-cameras-rtsp` and `iob-cameras-snapshot` for Aura and other hosts (`common.webComponents`)
+
+### 3.3.1 (2026-11-05)
+* (@GermanBluefox) ioBroker.web can stop the web extension and start it again with new settings instead of restarting itself (`supportsHotReload`, with a version of web that supports it). When it is stopped, the web extension now also closes the live streams and WebRTC connections of the browsers and removes its web socket routes
+
+### 3.3.0 (2026-10-16)
+* (@GermanBluefox) Migrated widgets to React 19 - vis-2 >= 2.20.0 is required, if installed
+
 ### 3.2.2 (2026-10-03)
 * (@hdering) Fixed: after a browser tab with a live stream was closed, "Cannot send to UI: ... is not registered" was logged for every frame and the stream kept running (#201)
 * (@GermanBluefox) Fixed: the live picture of a camera in ioBroker.devices froze after a minute - the widget did not renew its subscription
-
-### 3.2.1 (2026-10-03)
-* (@hdering) Changed: a camera is added by choosing the manufacturer first, then only the fitting connection is offered; the stored configuration keeps its format
-* (@hdering) Changed: the model list is chosen by stream path, sorted by how many models use it; the model is optional. HTTP paths that deliver a stream instead of an image are hidden, they never worked
-* (@hdering) Changed: an RTSP camera is configured with one URL field, also for `rtsps://`; a pasted login goes to its own fields
-* (@hdering) Deprecated: the type "Reolink E1" - it keeps working and can be converted to the Reolink model list in its dialog
-* (@hdering) Fixed: the RTSP dialog showed UDP while the adapter used TCP, and saved UDP as soon as another field was changed
-* (@hdering) Fixed: the URL preview of an RTSP camera was only updated after saving
-* (@hdering) Fixed: changes in the camera dialog were applied to the stored settings instead of the edited ones, so an earlier change could get lost
-* (@hdering) Added: MJPEG streams over HTTP - the first frame is taken; this makes the MJPEG paths of the model lists usable. A video stream over HTTP fails at once with a hint instead of a timeout
-* (@hdering) Added: a grey snapshot of an H.265 stream is recognized and taken again from a key frame; "Key frames only" in the expert settings of the RTSP type sets it permanently
-* (@hdering) Added: the Eufy dialog lists the cameras of the `eusec` adapter; cameras without RTSP of their own are streamed through the station by `eusec` (#205)
-* (@hdering) Fixed: switching the Eufy dialog between `eusec` and IP address was not saved
-* (@GermanBluefox) Fixed: opening or closing the full screen dialog of an RTSP camera asks for the stream in the size it is shown in right away; until now the big view showed the small picture enlarged for up to 14 seconds
-* (@GermanBluefox) Fixed: the dialog of the RTSP camera widget for ioBroker.devices never asked for a bigger picture at all
-
-### 3.2.0 (2026-10-01)
-* (@hdering) Added: UniFi Protect cameras, with the stream token from the Protect API or entered by hand (#133)
-* (@hdering) Added: RTSPS for UniFi Protect, also through go2rtc
-* (@GermanBluefox) Fixed: the stderr of a failed `ffmpeg` call was passed on unmasked, so a camera password could end up in the log
-* (@hdering) Fixed: the web URL of a camera in the admin was always shown with `http://`, also for a web instance with https; the MJPEG stream URL is shown when go2rtc is enabled
-* (@GermanBluefox) Fixed: a request for the MJPEG stream of a camera was left hanging when go2rtc was switched on but not reachable
-* (@hdering) Fixed: all camera URLs of the web extension answered 404 when the native WebRTC binary was missing (#321)
-* (@GermanBluefox) Removed the unfinished `rtsp2WebRTC` experiment and the `@roamhq/wrtc` dependency with it - WebRTC runs through go2rtc
-
-### 3.1.0 (2026-09-29)
-* (@GermanBluefox) Fixed: after a single failed request a camera stayed broken until the adapter was restarted
-* (@GermanBluefox) Fixed: after a live stream had ended, every snapshot kept showing its last frame
-* (@GermanBluefox) Fixed: an RTSP camera with "original width/height" never delivered a picture, because the scale filter was passed to `ffmpeg` without `-vf`
-* (@GermanBluefox) Fixed: the first picture of a live stream appeared only after a delay of 10 seconds
-* (@GermanBluefox) Fixed: closing the view of one camera also unsubscribed the other cameras of the same browser
-* (@GermanBluefox) Fixed: a camera that failed to start could throw when a GUI client unsubscribed from it
-* (@GermanBluefox) Fixed: two cameras with the same IP address overwrote each other's snapshot
-* (@GermanBluefox) Fixed: a password containing `!` appeared in the log in clear text
-* (@GermanBluefox) Pictures are cached per requested size, so the web adapter and a widget no longer evict each other
-* (@GermanBluefox) A browser that leaves the page no longer produces warnings in the log
-* (@GermanBluefox) The universal camera type has a port field now - the port from the model table is only a suggestion
-* (@GermanBluefox) Fixed: the model table of the universal type offered the port of somebody's port forwarding as the default for 226 URLs
-* (@GermanBluefox) Fixed: `[WIDTH]`, `[HEIGHT]` and `[AUTH]` in the URL of a universal camera were never replaced, and a placeholder was only replaced once per URL
-* (@GermanBluefox) Added the `VIVOTEK` H9161
-* (@GermanBluefox) Updated packages
-
-### 3.0.2 (2026-08-17)
-* (@GermanBluefox) The web extension can now request snapshots via messages instead of the private HTTP server, which is used automatically when the cameras adapter runs on a different host than the web instance
-* (@GermanBluefox) Fixed: a failed snapshot request answered with an empty `{}` instead of the error message
 
 ## License
 MIT License

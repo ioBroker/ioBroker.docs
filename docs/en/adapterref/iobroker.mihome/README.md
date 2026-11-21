@@ -165,6 +165,10 @@ The following list does not claim to be complete:
 -->
 
 ## Changelog
+### 2.0.2 (2026-11-21)
+* (@GermanBluefox) Raised the minimal admin version to 7.6.17
+* (@GermanBluefox) Added Ukrainian translations
+
 ### 2.0.1 (2026-10-08)
 * (@GermanBluefox) Updated packages
 
@@ -181,9 +185,6 @@ The following list does not claim to be complete:
 
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent a crash case (Sentry IOBROKER-MIHOME-A)
-
-### 1.3.6 (2020-09-25)
-* (VLGorskij) Added new device QBKG24LM
 
 ## License
 The MIT License (MIT)

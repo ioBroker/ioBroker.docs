@@ -1,161 +1,107 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ocpp.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ocpp.svg
+BADGE-Number of Installations: https://iobroker.live/badges/ocpp-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/ocpp-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/ocpp/svg-badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.ocpp.png?downloads=true
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ocpp/README.md
 title: ioBroker.ocpp
-hash: vkDEeqRJisZchPYru77LUZmh4Z+e6lKc7f/yF5iSk6Q=
+hash: NnF+Qh5v3eELziD7PONBBjJpIgUVlptG2G1oQfdO6HI=
 ---
-![Логотип](../../../en/adapterref/iobroker.ocpp/admin/ocpp.png)
+![Логотип](../../../en/admin/ocpp.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.ocpp.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ocpp.svg)
 ![Количество установок](https://iobroker.live/badges/ocpp-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ocpp-stable.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ocpp/svg-badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ocpp.png?downloads=true)
-![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg)
 
-# ioBroker.ocpp
-
+# IoBroker.ocpp
 ## Отказ от ответственности
-
 Разработчики данного модуля никоим образом не поддерживают Open Charge Alliance и не связаны с ней, а также с какими-либо ее дочерними компаниями, логотипами или товарными знаками.
 
 ## OCPP-адаптер для ioBroker
+Адаптер для подключения и управления настенными зарядными устройствами и зарядными станциями для электромобилей, совместимыми с протоколом OCPP 1.6-J, через локальный WebSocket-сервер.
 
-Адаптер для подключения настенной коробки, поддерживающей протокол OCPP 1.6.
+## Документация
+- 🇺🇸 [Документация](/#/adapters/ocpp)
+- 🇩🇪 [Документация](https://github.com/iobroker-community-adapters/ioBroker.ocpp/blob/main/docs/de/README.md)
+
+## Конфигурация
+- **Порт сервера:** TCP-порт, на котором прослушивает сервер OCPP WebSocket (по умолчанию: `9220`). Настройте свой Wallbox для подключения к `ws://<iobroker-ip>:9220/<ChargePointId>`.
+- **Удалить начальную косую черту (`/`) из идентификаторов зарядных станций (`stripLeadingSlash`):** Включите эту опцию для новых установок или совместимости с Node-RED, чтобы объекты устройств создавались как `ocpp.0.EVB-P123456` вместо `ocpp.0./EVB-P123456` (или `ocpp.0.http://192_168_178_80:9220/EVB-P123456` для зарядных устройств, отправляющих абсолютный URL-адрес во время рукопожатия WebSocket). Оставьте отключенной, чтобы сохранить существующие идентификаторы объектов.
+- **Аутентификация:** Во время установления соединения WebSocket требуется необязательная базовая HTTP-аутентификация (имя пользователя и пароль).
+
+## Интеллектуальная зарядка и зарядка избыточной солнечной энергии
+- **Требования и совместимость с настенным адаптером:**
+- Для динамического ограничения зарядки с помощью `chargeLimit` требуется, чтобы настенное зарядное устройство поддерживало дополнительный профиль функции OCPP 1.6 **SmartCharging** (поддерживается большинством современных настенных зарядных устройств, таких как EVBox, ABL, Alfen, Easee, Heidelberg, Mennekes, Webasto и др.).
+- При подключении адаптер проверяет `SupportedFeatureProfiles` настенной зарядной станции. Если `SmartCharging` не поддерживается прошивкой настенной зарядной станции, состояния `chargeLimit` автоматически опускаются во избежание путаницы. (Для таких настенных зарядных станций ограничения заряда часто можно настроить с помощью аппаратных/производительских ключей в `configuration.<key>`, например, `evb_MaximumStationCurrent` на EVBox).
+- **Динамическое управление во время активной зарядки:**
+- Изменение параметра `chargeLimit` во время активной зарядки транспортного средства отправляет запрос OCPP `SetChargingProfile` с параметром `chargingProfilePurpose: 'TxProfile'`, нацеленный непосредственно на активный `transactionId`.
+- Блок питания модулирует коэффициент заполнения ШИМ на выводе управляющего пилотного сигнала типа 2 (CP) в реальном времени (например, 10% для 6 А, ~26,7% для 16 А) без размыкания контакторов или прерывания сеанса.
+- В соответствии со стандартом IEC 61851, бортовое зарядное устройство автомобиля (OBC) регулирует силу зарядного тока в течение 1-5 секунд.
+- **Сброс лимитов (`null`):**
+- Установка `chargeLimit` в значение `null` (или `0`) отправляет команду `ClearChargingProfile` на зарядную станцию для снятия всех активных ограничений.
+- **Альтернативный вариант конфигурации от поставщика (`configuration.evb_MaximumStationCurrent` в EVBox):**
+- Хотя `chargeLimit` является универсальным стандартом OCPP для всех производителей, интеллектуальные настенные приставки часто предоставляют ключи конфигурации, специфичные для конкретного производителя, такие как `configuration.evb_MaximumStationCurrent` (EVBox Elvi/BusinessLine).
+- **Почему этот ключ часто предпочитают использовать на станциях EVBox:**
+1. **Энергонезависимое сохранение данных:** Значения записываются во внутреннюю энергонезависимую память станции (EEPROM/Flash). Даже после отключения электроэнергии, перезагрузки настенного блока или перезапуска сервера станция безопасно сохраняет заданный максимальный предел тока.
+2. **Более высокое разрешение (деци-амперы):** Многие настенные зарядные устройства обрабатывают это значение в деци-амперах (дА): например, `65` (6,5 А), `72` (7,2 А) или `80` (8,0 А). Это позволяет осуществлять сверхплавное отслеживание избытка солнечной энергии с шагом ~100-200 Вт, а не с шагом 1 А (~690 Вт в трехфазном режиме).
+3. **Бесшовная динамическая регулировка:** При нажатии этой клавиши система немедленно реагирует сообщением «Принято»; станция обновляет свой ШИМ-сигнал в течение 1-3 секунд в режиме реального времени, не требуя перезагрузки и не прерывая активную зарядку.
+- **Рекомендуемая единица измерения (`chargeLimitType`):**
+Настоятельно рекомендуется оставлять параметр `chargeLimitType` в значении `A` (амперы).
+
+> **Примечание о минимальном токе согласно IEC 61851:** В соответствии со стандартами зарядки электромобилей (IEC 61851), для стандартной зарядки переменным током требуется минимальный ток **6 А**.
+> > - Минимум для 1 фазы: ~1380 Вт (230 В x 6 А) > - Минимум для 3 фаз: ~4140 Вт (3 x 230 В x 6 А) > > Если `chargeLimitType` установлено на `W` со значениями ниже этих пределов (например, 1000 Вт), результирующий ток падает ниже 6 А, что может привести к тому, что настенные зарядные устройства отклонят профиль или прервут зарядку.
+
+## Благодарности
+Создание этого адаптера было бы невозможно без замечательной работы @foxriver76 (https://github.com/foxriver76), который разрабатывал предыдущие версии этого адаптера.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (meistermopper) add Weblate translation status badge
+
+### 1.0.0 (2026-11-09)
+* (meistermopper) fix repochecker findings: nogit, info.connection role, and unused deps (#117)
+* (meistermopper) align workflow concurrency and timer wrappers with repochecker (#121)
+* (meistermopper) fix TxProfile schedule kind and add ClearChargingProfile on null chargeLimit
+
+### 1.0.0-alpha.4 (2026-11-09)
+* (meistermopper) migrate to ESLint 9 and @iobroker/eslint-config (#33)
+* (meistermopper) replace legacy `@ampeco/ocpp-eliftech` with native TypeScript OCPP 1.6J server
+* (meistermopper) fix SmartCharging removal when `GetConfigurationMaxKeys` truncates response (#65)
+* (meistermopper) use `TxProfile` for `RemoteStartTransaction` and track `transactionId` (#24, #65)
+* (meistermopper) prevent zombie sockets on reconnect (#20) and serialize outgoing OCPP commands
+* (meistermopper) support `DiagnosticsStatusNotification` and `FirmwareStatusNotification` (#32)
+* (meistermopper) add `stripLeadingSlash` option and responsive `jsonConfig` with i18n (#30, #60)
+
+### 1.0.0-alpha.3 (2026-11-08)
+- (mcm1957) Adapter has been migrated to iobroker-communities organisation
+- (copilot) Adapter requires js-controller >= 7.2.5 now
+- (copilot) Adapter requires admin >= 8.3.5 now
+- (copilot) Adapter requires Node.js >= 22.19.0 now
+- (mcm1957) Dependencies have been updated
+
 ### 0.12.5 (2023-02-09)
 * (foxriver76) revert changes of 0.12.4
 
 ### 0.12.3 (2023-02-07)
 * (foxriver76) allow deactivating `numberPhases` by setting `null
 
-### 0.12.2 (2023-01-19)
-* (foxriver76) ensure main connector is always created even if no status received there
-
-### 0.12.1 (2023-01-19)
-* (foxriver76) we now also detect feature profiles if clients add unallowed whitespaces
-
-### 0.12.0 (2023-01-18)
-* (foxriver76) the `idTag` for remote transactions is now `ioBroker` persistent over all transactions
-* (foxriver76) implemented the management of authentication list
-* (foxriver76) only create states if supported by profile (closes #22)
-* (foxriver76) increased stability on first connection
-
-### 0.11.1 (2023-01-17)
-* (foxriver76) we now correctly detect data type and role of configuration attributes
-
-### 0.11.0 (2023-01-17)
-* (foxriver76) `idTag` is now read correctly from `startTransaction` message (closes #21)
-* (foxriver76) implemented possibility to trigger `hard` and `soft` reset
-
-### 0.10.0 (2023-01-16)
-* (foxriver76) implemented state to control number of phases used for charging
-
-### 0.9.1 (2023-01-13)
-* (foxriver76) we now avoid not implemented logging if `chargeLimit` is set to null (deactivated)
-
-### 0.9.0 (2023-01-13)
-* (foxriver76) we removed states from main connector which are not allowed there
-* (foxriver76) we now synchronize configuration into adapter
-* (foxriver76) we added ack flag to `availability` state
-* (foxriver76) we added ack flag for `charge limit` states
-* (foxriver76) we optimized error logging
-* (foxriver76) we now allow changing charger configuration via adapter
-* (foxriver76) we improved reconnect handling
-
-__Please delete all states of connector 0 once__
-
-### 0.8.2 (2022-12-13)
-* (foxriver76) only log the `errorCode` if it is different from `NoError`
-
-### 0.8.1 (2022-11-21)
-* (foxriver76) make `transactionId` matching `connectorId` again
-
-### 0.8.0 (2022-10-10)
-* (foxriver76) we now support wallboxes with multiple connectors (closes #16)
-* (foxriver76) we added a new state `lastTransactionConsumption`
-* (foxriver76) implemented a `transactionId` handling
-__The structure of the datapoints has changed to support wallboxes with multiple connectors. Please delete states once and adjust your scripts!__
-
-### 0.7.0 (2022-09-21)
-* (foxriver76) we have introduced a state to sepcify if chargeLimit is in watts or ampere
-
-### 0.6.0 (2022-08-14)
-* (foxriver76) we now handle `DataTransfer` messages
-
-### 0.5.1 (2022-07-17)
-* (foxriver76) we have optimized some log messages
-
-### 0.5.0 (2022-07-17)
-* (foxriver76) added possibility to define the `idTag` of the transaction (closes #13)
-
-### 0.4.0 (2022-03-21)
-* (foxriver76) implemented authentication
-
-### 0.3.3 (2022-02-14)
-* (foxriver76) fixed default value of `info.connection`
-
-### 0.3.2 (2022-01-26)
-* (foxriver76) set 'TxDefaultProfile' instead of 'TxProfile' if charging starts, else it may block overriding the limit during transaction
-
-### 0.3.1 (2022-01-26)
-* (foxriver76) set charging profiles on stack level 0, because some chargers do not support higher levels
-
-### 0.3.0 (2022-01-18)
-* (foxriver76) if wallbox offers multiple meter values they will now alle be represented
-* (foxriver76) admin is no longer needed on the same host (multihost)
-
-### 0.2.0 (2022-01-09)
-* (foxriver76) close server on unload for compact mode
-* (foxriver76) fixed the message type
-* (foxriver76) limit state is now in Ampere and should work now
-
-### 0.1.1 (2022-01-09)
-* (foxriver76) we are requesting config of new clients too
-* (foxriver76) we fixed a bug with limitState not respected on `startTransaction`
-* (foxriver76) make sure we use no outdated connection
-
-### 0.1.0 (2022-01-08)
-* (foxriver76) small optimizations
-* (foxriver76) updated dependencies
-
-### 0.0.10 (2022-01-08)
-* (foxriver76) fixed error on sending commands if device name containts dots
-* (foxriver76) we also log repsonse errors from now on
-
-### 0.0.9 (2022-01-08)
-* (foxriver76) switch to updated OCPP fork
-* (foxriver76) minor optimizations
-
-### 0.0.8 (2021-11-15)
-* (foxriver76) we now replace dots in device names by underscores
-
-### 0.0.7 (2021-10-30)
-* (foxriver76) added possibility to limit the charging process to given Wh if supported by ChargePoint
-
-### 0.0.6 (2021-10-28)
-* (foxriver76) we fixed name of availability state
-* (foxriver76) we fixed unnecessary comma in `info.connection` state
-
-### 0.0.5 (2021-10-28)
-* (foxriver76) we added the meterValue state
-* (foxriver76) we added state to control availability
-
-### 0.0.4 (2021-10-27)
-* (foxriver76) we can now enable/disable a charger
-
-### 0.0.3 (2021-10-27)
-* (foxriver76) initial release
-
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

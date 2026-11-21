@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blink/README.md
 title: ioBroker.blink
-hash: Lwtzl+yrYNLsyJ7PaUMAUQ0MLqHFEFkP1mEw5SqpKsk=
+hash: slWzmj+P5JC4XoLE4vejCOEazcsLyIOOugEwJp05rNI=
 ---
 ![Logo](../../../en/adapterref/iobroker.blink/admin/blink.png)
 
@@ -41,13 +41,16 @@ Dieser Adapter steht in keiner Verbindung zu Blink oder Amazon, wird nicht von d
 
 - Verbindet sich mit der Blink Cloud
 - Fragt den Kamera- und Synchronisierungsmodulstatus ab
-- Unterstützt manuelle Snapshots
-- Speichert Live-Momentaufnahmen
+- Unterstützt manuelle Schnappschüsse mit aktueller JPEG-Verifizierung
+- Speichert Live-Snapshots im ioBroker-Speicher für VIS.
+- Speichert die bestätigten Zeitstempel der Momentaufnahmen
+- Extrahiert Bewegungsaufnahmen aus heruntergeladenen MP4-Aufnahmen mithilfe von ffmpeg.
+- Unterstützt optionale Bewegungsfotos in Telegram-Benachrichtigungen
 - Lädt die neueste verfügbare Cloud-Videodatei herunter
 - Ermöglicht das Aktivieren oder Deaktivieren der Bewegungserkennung
 - Unterstützt Warnmeldungen und Benachrichtigungen zum Akkustand
 - Unterstützt Smart-Detection-Zustände für klassifizierte Bewegungsereignisse (funktioniert nur bei kostenpflichtigen Cloud-Diensten).
-- Unterstützt in der Cloud gespeicherte Videos und lokal auf der SD-Karte gespeicherte Videos (SyncModule 2 und XR) über einen lokalen Server auf Port 8085 - JavaScript erforderlich, siehe unten!
+- Unterstützt Cloud-Aufnahmen und lokal gespeicherte Clips vom Sync Module 2 (USB) und Sync Module XR (microSD), einschließlich optimierter Manifestabfrage.
 - Das Skript erfordert die Installation von ffmpeg und viele Ressourcen, wenn Sie viele Kameras haben, und ist daher nur bedingt für Raspberry Pis geeignet (mind. 4 GB – mehr ist besser).
 - Erste Version mit Live-Ansicht und JavaScript für jede Kamera – das benötigte JavaScript wird automatisch installiert – außer bei der älteren XT2, da diese einen anderen Videostream verwendet.
 - Experimentelle native LiveView-Sitzung (kein JavaScript-Helfer / ffmpeg erforderlich) über `commands.start_live` /`commands.stop_live` Siehe „Real LiveView-Sitzung“ unten
@@ -138,8 +141,9 @@ Dient dazu, wiederholte Benachrichtigungen zu vermeiden.
 | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `live.file`          | Zeichenkette    | Absoluter Pfad des letzten Snapshots auf der Festplatte.                                                                                                            |
 | `live.image_base64`  | Zeichenkette    | Snapshot als Base64-Zeichenkette (zum direkten Einbetten in VIS ohne Dateizugriff).                                                                                 |
+| `live.image_url`     | Zeichenkette    | Cache-gecappte URL des im ioBroker-Speicher für VIS gespeicherten Live-JPEGs.                                                                                       |
 | `live.mime_type`     | Zeichenkette    | MIME-Typ des Snapshots (z. B. `image/jpeg`).                                                                                                                        |
-| `live.timestamp`     | Zeichenkette    | Momentaufnahme-Zeitstempel (ISO).                                                                                                                                   |
+| `live.timestamp`     | Zeichenkette    | Bestätigter Aufnahmezeitpunkt des aktuellen Blink-Thumbnails, sofern verfügbar; andernfalls leer.                                                                   |
 | `live.stream_active` | boolescher Wert | Der MJPEG-Livestream (Web-Grid-Helper) wird aktuell abgefragt.                                                                                                      |
 | `live.stream_url`    | Zeichenkette    | URL des aktiven MJPEG-Livestreams (Web-Grid-Helper, TTL begrenzt).                                                                                                  |
 | `live.mode`          | Zeichenkette    | Modus der experimentellen nativen LiveView-Sitzung (z. B. `idle`, Name des aktiven Modus).                                                                          |
@@ -155,14 +159,16 @@ Dient dazu, wiederholte Benachrichtigungen zu vermeiden.
 
 Das neueste Video der Kamera. Die Cloud wird automatisch bevorzugt; bei Bedarf wird auf den lokalen Speicher (USB-Stick des Sync-Moduls 2) zurückgegriffen.
 
-| Datenpunkt        | Typ             | Beschreibung                                                                                       |
-| ----------------- | --------------- | -------------------------------------------------------------------------------------------------- |
-| `video.file`      | Zeichenkette    | Absoluter Pfad der MP4-Datei (`<CamID>_latest.mp4`).                                              |
-| `video.timestamp` | Zeichenkette    | Zeitstempel des Videoinhalts (ISO).                                                                |
-| `video.id`        | Zeichenkette    | Eindeutige Clip-ID aus der Blink-API.                                                              |
-| `video.size`      | Nummer          | Dateigröße in Bytes.                                                                               |
-| `video.ready`     | boolescher Wert | Die Datei wurde erfolgreich heruntergeladen und ist abspielbar.                                    |
-| `video.lastError` | Zeichenkette    | Fehler beim letzten Download. `""` = ok, andernfalls eine Meldung wie z. B. `no video available` Die |
+| Datenpunkt                 | Typ             | Beschreibung                                                                                       |
+| -------------------------- | --------------- | -------------------------------------------------------------------------------------------------- |
+| `video.file`               | Zeichenkette    | Absoluter Pfad der MP4-Datei (`<CamID>_latest.mp4`).                                              |
+| `video.timestamp`          | Zeichenkette    | Zeitstempel des Videoinhalts (ISO).                                                                |
+| `video.id`                 | Zeichenkette    | Eindeutige Clip-ID aus der Blink-API.                                                              |
+| `video.size`               | Nummer          | Dateigröße in Bytes.                                                                               |
+| `video.ready`              | boolescher Wert | Die Datei wurde erfolgreich heruntergeladen und ist abspielbar.                                    |
+| `video.lastError`          | Zeichenkette    | Fehler beim letzten Download. `""` = ok, andernfalls eine Meldung wie z. B. `no video available` Die |
+| `video.snapshot_url`       | Zeichenkette    | VIS-URL eines aus der heruntergeladenen Bewegungsaufzeichnung extrahierten JPEG-Frames.            |
+| `video.snapshot_timestamp` | Zeichenkette    | Zeitpunkt der Erzeugung des Motion-JPEGs (ISO).                                                    |
 
 ### `video.history.0` …`video.history.9` – Ringgalerie
 
@@ -210,7 +216,7 @@ Jedes Synchronisierungsmodul erhält seinen eigenen Kanal. `blink.0.sync.<NetID>
 | `status.armed`       | boolescher Wert | Netzwerk aktiviert (aktiviert die Bewegungserkennung auf allen Kameras). |
 | `status.last_update` | Zeichenkette    | Zeitstempel der letzten Aktualisierung (ISO).                            |
 
-### `commands`- Auslösen
+### `commands` - Auslösen
 
 | Datenpunkt       | Typ             | Aktion                                                                                                      |
 | ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -281,6 +287,28 @@ Für die Abfragefelder 0–9 **der Verlaufsgalerie** einzeln:
 
 `source = "cloud"` Das bedeutet, dass der Clip direkt aus der Blink-Cloud stammt (schnell, kein Upload per Stick). `source = "local_storage"` Das bedeutet, dass der Clip vom USB-Stick des Sync Module 2 über die Cloud hochgeladen wurde.
 
+### Snapshots in VIS und Telegram (v0.0.40)
+
+Live-Snapshots werden als JPEG-Dateien im ioBroker-Speicher abgelegt. `blink.0.cameras.<CamID>.live.image_url` in einem VIS-Bild-Widget. Die URL enthält einen Cache-Busting-Abfrageparameter.
+
+Ein Snapshot wird erst dann als neu akzeptiert, wenn sich die Thumbnail-URL und der JPEG-Inhalt geändert haben. `live.timestamp` Enthält, sofern verfügbar, die bestätigte Aufnahmezeit, andernfalls bleibt dieses Feld leer.
+
+Bei heruntergeladenen Bewegungsaufnahmen extrahiert der Adapter ein JPEG-Bild mithilfe von `ffmpeg` und veröffentlicht es durch `blink.0.cameras.<CamID>.video.snapshot_url` Die
+
+`video.snapshot_timestamp` Es wird aufgezeichnet, wann das JPEG erstellt wurde, nicht unbedingt, wann das ursprüngliche Video aufgenommen wurde.
+
+Bewegungsbenachrichtigungen können optional das JPEG als Telegram-Foto enthalten. Diese Option wird in den Adaptereinstellungen konfiguriert. Falls die Frame-Extraktion fehlschlägt, bleiben die Benachrichtigungen unabhängig vom Foto.
+
+### Lokale Speicherabfrage (v0.0.40)
+
+Bei Sync Module 2 USB-Sticks und Sync Module XR microSD-Karten werden die Manifestdaten innerhalb desselben Abfragezyklus kameraübergreifend wiederverwendet.
+
+HTTP-409-Antworten, die darauf hinweisen, dass ein Manifest-Befehl noch ausgeführt wird, werden im Fünf-Sekunden-Takt abgefragt, mit einem Timeout von 60 Sekunden. HTTP-409-Antworten („System ist ausgelastet“) werden separat mit einer Wartezeit behandelt.
+
+Der Zugriff auf Cloud-Videos bleibt als Ausweichlösung weiterhin möglich.
+
+Wiederholte Meldungen über einen belegten Live-Snapshot sind auf eine INFO-Meldung pro Kamera innerhalb von zehn Minuten beschränkt. Nachfolgende Meldungen werden auf DEBUG-Ebene protokolliert, bis ein erfolgreicher Snapshot das Limit zurücksetzt.
+
 ## Anmerkungen
 
 - Batteriebetriebene Warnmeldungen werden über die `battery.*` Staaten.
@@ -343,6 +371,14 @@ Older entries are available in CHANGELOG_OLD.md.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.40 (2026-11-01)
+* Improved fresh snapshot verification and capture timestamps.
+* Added live snapshot URLs for VIS through ioBroker storage.
+* Added motion snapshots from MP4 recordings and optional Telegram photos.
+* Reduced duplicate USB/microSD manifest requests.
+* Improved HTTP 409 polling, cooldown handling and snapshot busy logging.
+* Added regression tests for snapshots, manifest caching and HTTP 409 handling.
+
 ### 0.0.39 (2026-08-08)
 * Automatically clears the cached Blink session once after HTTP 401/code 101 and retries the connection.
 * Allows the clear session command even when the adapter is not connected.

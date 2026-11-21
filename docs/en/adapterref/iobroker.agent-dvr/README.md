@@ -23,14 +23,20 @@ Connects ioBroker to [AgentDVR](https://www.ispyconnect.com): auto-discovers all
 
 ## Highlights
 
-### Web components for AURA, vis-2 and devices
-The recordings gallery, the live tile and the live overview are also available as web components (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ recommended), vis-2 (2.20.7+) and the devices adapter (4.3.0+) list them in their widget palette — no HTML binding needed. They draw natively in the browser instead of showing the HTML data points, so a refresh never closes an open player.
+### Widgets (web components) for AURA, vis-2, devices and other visualisations
+The recordings gallery, the live tile and the live overview are also available as web components (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ recommended), vis-2 (2.20.7+), the devices adapter (4.3.0+) and every other visualisation that supports web components list them in their widget palette — no HTML binding needed. They draw natively in the browser instead of showing the HTML data points, so a refresh never closes an open player.
 - **Agent DVR recordings** — the recordings gallery of a camera, with search and tag filter, built-in player or external player URL
 - **Agent DVR live camera** — the live tile of one camera; the snapshot refreshes in the browser, a click opens the live stream
 - **Agent DVR live overview** — the live tiles of all cameras of an instance
 - **Source**: either *Widget from the adapter settings* (all settings of the Widget tab of the instance) or *Own settings here* — every widget setting of the instance (mode, count, thumbnail size, tags, sort, search, default tag, compact layout, player, aspect ratio, refresh interval, colors, border radius) per widget
 - optionally takes the colors of the visualization's theme
 - needs no credentials: the images and videos use the same AgentDVR links as the HTML widgets; data comes from `widget_config` and `<cam>.widget_data`
+
+### Notifications (camera offline, person/animal/vehicle detected, new recording)
+- A separate **Notifications** tab: every kind of notification can be switched on on its own — camera offline, camera online again, Agent DVR server offline/online, person, animal, vehicle or other detection, new recording — per camera switchable with a checkbox list
+- Notifications go to the ioBroker notification system (bell in the admin); the **notification-manager** adapter forwards them, e.g. to Telegram or e-mail — no messenger settings in this adapter
+- **Camera offline** is reported when a camera that is switched on in Agent DVR has not been connected for the set time (default 10 minutes). Without a connection there is no picture and no motion detection; short outages like a camera reboot are not reported
+- New data points per camera: `status.offlineSince` and `status.offlineAlarm` for your own scripts and visualisations
 
 ### Recordings in the ioBroker file storage and as Telegram video
 - **Provide the last recordings in the ioBroker file storage** (off by default): every new recording of a camera is downloaded from AgentDVR and kept as `rec1` … `rec3` per camera — with file path, `iobfile://` URI and http URL in `<cam>.recordings.*`, just like the alert photos
@@ -236,6 +242,23 @@ The go2rtc stream names are fetched automatically from the go2rtc server when th
 | Modal background | Video modal background |
 | Border radius (px) | Rounded corner radius for cards | `4` |
 
+### Tab: Notifications
+
+Every point is optional and off by default. Notifications are sent to the ioBroker notification system; install the **notification-manager** adapter and choose there for *Agent DVR* where each kind goes (Telegram, e-mail, …).
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| Camera offline | A camera switched on in Agent DVR has not been connected for the set time | `false` |
+| Camera online again | Only after an offline notification, with the duration of the outage | `false` |
+| Agent DVR server offline / online again | The Agent DVR server does not answer for the set time | `false` |
+| Offline after (minutes) | Outage duration that is reported (1–1440) | `10` |
+| Person / Animal / Vehicle detected | Detection tags of Agent DVR (`people`, `dog_cat`, `vehicle`, …) | `false` |
+| Other detections | All other tags, e.g. from your own AI models (plain motion `detected`, manual `trigger` and `timelapse` are no detection and are not reported) | `false` |
+| New recording | Agent DVR made a new recording | `false` |
+| Cameras | List of all cameras with a checkbox; unchecked cameras send no notifications. New cameras are checked automatically; the setting survives renaming a camera | all checked |
+
+Detections and new recordings need *Event data points* or the widget (tab Features).
+
 ### Tab: Advanced
 
 | Setting | Description | Default |
@@ -350,8 +373,12 @@ This adapter stores your AgentDVR admin credentials and exposes `system.control.
 | Data point | Type | R/W | Description |
 |-----------|------|-----|-------------|
 | `<cam>.name` | string | R | Camera name |
-| `<cam>.data.online` | boolean | R | Camera is online |
+| `<cam>.data.online` | boolean | R | Camera is switched on in Agent DVR |
 | `<cam>.data.connected` | boolean | R | Stream is connected |
+| `<cam>.status.online` | boolean | R | Camera is switched on in Agent DVR (says nothing about reachability) |
+| `<cam>.status.connected` | boolean | R | Camera is reachable: Agent DVR receives its picture (role `indicator.reachable`) |
+| `<cam>.status.offlineSince` | number | R | Time since when the camera is not connected (empty when connected) |
+| `<cam>.status.offlineAlarm` | boolean | R | Not connected for longer than the set time (tab Notifications) |
 | `<cam>.data.recording` | boolean | R | Currently recording |
 | `<cam>.data.detected` | boolean | R | Motion/object detected |
 | `<cam>.data.detectorActive` | boolean | R | Motion detector enabled |
@@ -623,6 +650,16 @@ http://<iobroker>:<webport>/agent-dvr.0/photos/<cam>/grab1.jpg
 e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (also `grab2.jpg`, `grab3.jpg`). Use it in an image widget and refresh it on changes of `alertPhotos.ts1`. The same applies when you push the link to a TV or another app: send it on `alertPhotos.ts1`, not on `events.webhook` — otherwise the app loads the previous photo. For a live image use `urls.snapshot` or `urls.photo` with a refresh interval.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.10.0 (2026-11-16)
+* (ipod86) feat: Notifications tab – camera offline/online again, server offline, person/animal/vehicle/other detection, new recording via the ioBroker notification system (notification-manager), each optional
+* (ipod86) feat: choose per camera which ones send notifications (checkbox list, survives renaming in Agent DVR)
+* (ipod86) feat: `status.offlineSince` and `status.offlineAlarm` per camera
+* (ipod86) fix: `status.connected` now has the role `indicator.reachable` (camera reachable), `status.online` means "switched on in Agent DVR"
+
 ### 0.9.1 (2026-11-13)
 * (ipod86) fix: recordings were stored while AgentDVR was still writing them (video cut off) — the adapter now waits until the recording is finished
 * (ipod86) fix: `sendRecording` passes width, height and duration to Telegram — larger videos were shown in a wrong aspect ratio in the chat; `sendRecording`/`getRecording` also wait until a recording is finished
@@ -637,16 +674,10 @@ e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (also
 
 ### 0.8.1 (2026-11-12)
 * (ipod86) fix: live overview web component fits its tiles to the widget size (no scrolling, no empty space); option "Fit to the widget size"
-* (ipod86) chore: description and keywords mention the widgets for vis-2 and AURA
+* (ipod86) chore: description and keywords mention the widgets for vis-2, AURA and other visualisations
 
 ### 0.8.0 (2026-11-12)
-* (ipod86) feat: web components for AURA (0.106.0+), vis-2 (2.20.7+) and devices (4.3.0+) – recordings gallery, live tile and live overview, with the adapter's widget settings or own ones
-
-### 0.7.0 (2026-10-29)
-* (ipod86) feat: `alertPhotos.url1–3` with a fixed http(s) link to each photo, for TV/kiosk apps that only accept web links; web instance selectable, links follow changes of the web instances
-* (ipod86) feat: `<cam>.events.webhookParams` with all parameters of the latest webhook call as JSON
-
-<!-- markdownlint-disable-next-line MD024 -->
+* (ipod86) feat: widgets (web components) for AURA (0.106.0+), vis-2 (2.20.7+), devices (4.3.0+) and other visualisations – recordings gallery, live tile and live overview, with the adapter's widget settings or own ones
 
 ## License
 MIT License

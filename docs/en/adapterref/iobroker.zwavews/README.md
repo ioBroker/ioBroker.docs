@@ -39,8 +39,9 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 <img width="1887" height="479" alt="grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
 ## Changelog
+### 1.2.0 (2026-11-15)
 * (arteck) fix https://github.com/arteck/ioBroker.zwavews/issues/123
-* (arteck) fix eventData 
+* (arteck) fix eventData
 
 ### 1.1.0 (2026-08-20)
 * (arteck) fix reconnect ws
@@ -57,10 +58,6 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 
 ### 1.0.2 (2026-07-15)
 * (arteck) fix notification messages (check you scripts)
-
-### 1.0.1 (2026-07-15)
-* (arteck) fix bulb set color
-* (arteck) add delete null states button into adapter settings
 
 ## License
 

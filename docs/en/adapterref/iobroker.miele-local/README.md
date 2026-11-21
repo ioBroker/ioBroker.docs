@@ -88,9 +88,18 @@ option "State names in German" is off - that has not changed, scripts compare ag
 The device manager cards do not use them: since 0.5.1 a card shows the raw value together with a
 value table in the **system language** of ioBroker (all eleven admin languages). Status,
 programme type, drying step and phase are complete in every language. Programme names come from
-the community translations of Home Assistant; where a language has none there (Ukrainian
-entirely, Polish almost entirely, Russian and Dutch in part) the card shows the English name -
-nothing is guessed. An unknown raw value appears as its number.
+the community translations of Home Assistant; for Polish, the washing machine and tumble dryer
+programmes come from Miele's Polish operating instructions (`lib/werte_eigen.js`, only names that
+appear there word for word). Where neither source has a name (Ukrainian entirely, Polish for the
+other appliances and for programmes missing from the instructions, Russian and Dutch in part) the
+card shows the English name - nothing is guessed. An unknown raw value appears as its number.
+
+**Text states in another language (optional).** *Polling & values → Language of the text states*
+writes `statusText`, `programText`, `programPhaseText`, `programTypeText` and `dryingStepText` - and
+the value lists of the raw states - in any of the eleven admin languages instead of German or
+English. Where a language has no translation the English text is written. Programme names come
+from Home Assistant and, for Polish washing machines and tumble dryers, from Miele's Polish
+operating instructions, as on the cards. The default leaves everything as it was.
 
 With "State names in German" switched off, state names and descriptions stay plain English text
 on purpose: a multilingual name would bring the German name back in a German admin and make the
@@ -114,9 +123,21 @@ their buttons with them, VIS can do the same.
 
 `eco.energy` (kWh), `eco.energyWh` (Wh), `eco.water` (l) where the appliance provides them, plus
 `eco.source` naming which source a value came from. Read over DOP2; so far washing machines
-deliver it. **The value the appliance reports is its own expectation, not a measurement.** For a
-real figure, enter a metering plug's counter state on the **Polling & values** tab — the adapter
-then records what each programme actually drew.
+deliver it. **The energy is not a measurement:** a washing machine reports the heating energy it
+*plans* for the main wash — planned heating time × the rated heater power at 230 V (WCR860: 2020 W).
+It is set once when heating starts and never updated; it contains neither motor, pumps and
+electronics nor the heating of other phases, and cold or short programmes report 0. Measured at a
+WCR860 it hits the real heating of normal warm programmes within a few per cent, but not the total
+consumption. For a real figure, enter a metering plug's counter state on the **Polling & values**
+tab — the adapter then records what each programme actually drew.
+
+The adapter also queries the device context `2/1585` (and `2/391`), independently of the
+washing-machine leaf `2/6195`. Its values appear under `detail.ecoFeedback` (only if the appliance
+actually keeps them): energy and water of the last programme (6.3/6.4), lifetime counters (6.5/6.6)
+and TwinDos/AutoDos containers (6.7). The "last programme" values do **not** replace `eco.*` — during
+a run they still show the previous programme. Appliances without `2/6195` (e.g. a dishwasher) get
+their consumption per programme from the **difference of the lifetime counters** between start and
+end; then `eco.*` carries that value and `eco.source` says `Appliance (lifetime counters 2/1585)`.
 
 ### `history` and `stats` — what has run
 
@@ -281,7 +302,10 @@ divisor, and how closely.
 
 **Leaf scan.** DOP2 addresses data as `unit/attribute`, and only a handful of those addresses are
 documented anywhere. The scan works through the address space gently enough not to overwhelm the
-module; `collection.scanJson` collects what answered. `collection.trendLeaf` records a
+module; `collection.scanJson` collects what answered — including serial number, MAC, IP and Wi-Fi
+name. **For sharing, use `collection.scanJsonAnonym`**: the same data with those masked. Addresses
+whose answer the adapter cannot decode yet are kept as answered with the error text and the raw
+bytes, so the scan always completes. `collection.trendLeaf` records a
 single leaf closely while a programme runs — the field whose value grows with consumption is the
 one you are looking for.
 
@@ -334,6 +358,17 @@ engineering work of the projects `MieleRESTServer` (akappner),
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2026-11-19)
+- (SmarthomeElektroniker) DOP2 parser reads type 33 (list of structures, AStruct). Until now a leaf containing it (e.g. `2/1585`, `2/17`, `2/131`) failed completely with "Unknown DOP2 field type 33".
+- (SmarthomeElektroniker) The device context `2/1585` (and `2/391` as fallback) is queried independently of the washing-machine leaf `2/6195`. Values of the appliance's own EcoFeedback (fields 6.3–6.6, 6.29, 6.31) honour the unit type (121/46 = Wh, 45 = kWh, 44 = l) and are only created if the appliance keeps them; TwinDos/AutoDos containers (6.7) appear as JSON. Appliances without `2/6195` (dishwasher) get energy and water per programme from the difference of the lifetime counters 6.5/6.6. The "last programme" values no longer replace `eco.*` while a programme runs.
+- (SmarthomeElektroniker) Leaf scan: answers that cannot be decoded count as answered (status 200, error text and raw bytes kept separately), so the scan always completes. New `collection.scanJsonAnonym` without serial number, module number, MAC, IP and Wi-Fi name, for sharing.
+- (SmarthomeElektroniker) Leaf scan is now slow and gentle: each appliance has its own independent pace, at most one request every 25 s per appliance and never two at once to the same appliance - a hanging appliance no longer holds up the others; the scan gives way while the regular polling of that appliance is running (during a programme at most one per minute per appliance, where a 500 never counts), back-off of 5 → 30 min after connection errors. Rejections (404/500) only become final after two answers at least 6 h apart while the module is proven awake; 500s from old scans are asked again. `14/1565` is masked in `scanJsonAnonym`.
+- (SmarthomeElektroniker) `/State.ExtendedState` is logged (debug) and kept as raw hex in `collection.extendedState`, for diagnostics only.
+- (SmarthomeElektroniker) Names according to the measurements of 13.11.2026 (object IDs unchanged): `eco.energy`/`eco.energyWh` "Heating energy (setpoint at 230 V)", `detail.process.heatingEnergy`/`heatingTime` "(setpoint)", field 16 `energyConsumed` "Drive energy" in Wh (final value kept after the programme), field 4 "Elapsed time".
+- (SmarthomeElektroniker) Debug log: one line per appliance for 2/6195, 2/1585, 2/391 and ExtendedState, without the full serial number.
+- (SmarthomeElektroniker) Debug log: no more "final phase" / "final reading attempt" lines for appliances that have rejected the eco leaf and both context leaves - nothing was queried there anyway.
+- (KPIotr89) New option **Language of the text states** (Polling & values): `statusText`, `programText`, `programPhaseText`, `programTypeText`, `dryingStepText` and the value lists of the raw states in any of the eleven admin languages. Default unchanged (German or English, following "State names in German"); missing translations fall back to English. Polish programme names for washing machines and tumble dryers, word for word from Miele's Polish operating instructions, also on the device manager cards. Thanks to @KPIotr89 for the contribution (PR #23)
+
 ### 0.5.2 (2026-11-12)
 - (SmarthomeElektroniker) Fix: a card could show "not connected" and still offer the On button (or the light). After a stop or restart of the adapter the `control.can*` states kept their last value, and appliances not found at start kept them as well. Now the adapter clears them on stop and for every appliance not found at start; an appliance that is not reachable or reports status 255 ("not connected") gets no button at all
 - (SmarthomeElektroniker) The light button now also follows two read-only states, `control.canLightOn` and `control.canLightOff` (exactly one is true while the appliance is reachable). The card looks as before

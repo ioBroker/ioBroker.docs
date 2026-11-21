@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: /sMZ6r1PpHPZM5DDTB130x9G7RpUUhnXF2Y/hqy9jhI=
+hash: 9K2LVyeyp4uz0ZVNLAlW2Tf5Yv2coJlhcp3DQdp4uqc=
 ---
 # ioBroker.rpi2
 
@@ -18,8 +18,8 @@ hash: /sMZ6r1PpHPZM5DDTB130x9G7RpUUhnXF2Y/hqy9jhI=
 ![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.rpi2/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Бета](https://img.shields.io/npm/v/iobroker.rpi2.svg?color=red&label=beta)
-![Стабильный](http://iobroker.live/badges/rpi2-stable.svg)
-![Установлено](http://iobroker.live/badges/rpi2-installed.svg)
+![Стабильный](https://iobroker.live/badges/rpi2-stable.svg)
+![Установлено](https://iobroker.live/badges/rpi2-installed.svg)
 
 ## Версии
 
@@ -31,9 +31,9 @@ hash: /sMZ6r1PpHPZM5DDTB130x9G7RpUUhnXF2Y/hqy9jhI=
 
 **Для управления GPIO-портами ioBroker требуются специальные права доступа.** В большинстве дистрибутивов Linux это можно сделать, добавив пользователя ioBroker в список разрешений. `gpio` группа.
 
-Для работы GPIO необходимо установить... `libgpiod` в версии `2.x` **Перед** установкой адаптера (см. ниже)!
+Вам необходимо установить `libgpiod-dev` **Перед** установкой адаптера убедитесь, что он установлен в версии **2.2 или новее** (см. ниже), иначе установка будет прервана. В Debian 13 / Trixie используется версия 2.2.1. В Debian 12 / Bookworm доступны только более старые версии (1.6 или 2.1 из других источников), которых **недостаточно** . Проверить установленную версию можно с помощью команды: `dpkg -s libgpiod-dev | grep Version`.
 
-> \[!ВНИМАНИЕ] Версия 3.xx этого адаптера поддерживает и требует Debian 13 / Trixie (ядро Linux 5.10 или новее). Не обновляйте, если вы используете более старую операционную систему.
+> \[!ВНИМАНИЕ] Версия 3.xx и новее этого адаптера поддерживает и требует Debian 13 / Trixie (ядро Linux 5.10 или новее). Не обновляйте, если вы используете более старую операционную систему.
 
 ## Установка
 
@@ -45,18 +45,32 @@ hash: /sMZ6r1PpHPZM5DDTB130x9G7RpUUhnXF2Y/hqy9jhI=
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential python
+sudo apt install -y build-essential
 sudo apt install -y libgpiod-dev
 sudo apt install -y pkg-config
 ```
 
-(третий необходим только в том случае, если вы хотите работать с GPIO) (последний необходим только в том случае, если вы хотите использовать датчики DHTxx/AM23xx)
+`libgpiod-dev` (версия 2.2 или новее) всегда необходима, установка проверяет её наличие (с помощью `pkg-config` (если установлено).
 
-### температура NVME
+### Температура диска
 
-Начиная с версии адаптера 2.3.2, вы можете считывать температуру NVMe-накопителя. Для этого необходимо установить... `nvme-cli` пакет в вашей системе. Это можно сделать с помощью следующей команды: `sudo apt-get install nvme-cli` Вам также потребуется добавить эту команду в файл sudoers для ioBroker. `/etc/sudoers.d/iobroker` Откройте его с помощью редактора, например, nano: `sudo nano /etc/sudoers.d/iobroker` и добавьте в конец следующую строку:
+Вы можете считывать показания температуры NVMe и SATA/USB-накопителей (`temperature.disk_temp` (включите _параметр «Температура»_ в настройках экземпляра). Адаптер сообщает о первом диске, у которого есть температура, проверяя его. `/dev/nvme0` к `/dev/nvme9` сначала, затем `/dev/sda` к `/dev/sdz` Для этого необходимо установить `smartmontools` упаковать и разрешить `iobroker` пользователь для запуска `smartctl` от имени root:
 
-`iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0`
+```bash
+sudo apt install smartmontools
+sudo visudo -f /etc/sudoers.d/iobroker-disktemp
+```
+
+Не добавляйте это правило в файл sudoers. `/etc/sudoers.d/iobroker` оно сбрасывается `iob fix` Добавьте эти строки в новый файл:
+
+```
+Cmnd_Alias SMARTCTL = /usr/sbin/smartctl -A /dev/sd[a-z], \
+                      /usr/sbin/smartctl -A /dev/nvme[0-9]
+Defaults!SMARTCTL !syslog, !pam_session
+iobroker ALL=(root) NOPASSWD: SMARTCTL
+```
+
+Данное правило разрешает только считывание значений этих дисков, но не изменение каких-либо настроек дисков. `!syslog` и `!pam_session` Не записывайте обычные показания в системный журнал. Некоторые USB-SATA адаптеры не передают данные SMART. Для проверки выполните команду: `sudo -u iobroker sudo -n smartctl -A /dev/sda` и искать `Temperature_Celsius` или `Temperature:` в выходных данных.
 
 ## GPIO
 
@@ -99,6 +113,11 @@ sudo apt install -y pkg-config
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
+### Входные данные
+
+- Переключатель **Pull Up** / **Pull Down** расположен на внутреннем подтягивающем резисторе входа. При _включении Pull Up_ вход находится в низком активном состоянии: подключите переключатель между GPIO и GND, и состояние будет... `true` пока переключатель замкнут. При использовании _режима Pull Down_ подключите переключатель к напряжению 3,3 В; состояние будет следующим. `true` пока он закрыт. Без любого из этих вариантов подтягивающий резистор остается в исходном состоянии — либо в режиме по умолчанию Raspberry Pi (подтягивающий резистор для GPIO 0-8, отключающий резистор для всех остальных), либо в том, что вы установите. `config.txt` например `gpio=17=pu`.
+- **Отладка/Опрос (мс)** : изменение регистрируется только после того, как входной сигнал стабилизируется в течение этого времени, например, 20-50 мс для переключателей и кнопок. Это делает ядро; если ваша система не поддерживает это, адаптер делает это самостоятельно и регистрирует сообщение.
+
 ## Датчики DHTxx/AM23xx
 
 Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT21 (AM2301), DHT22 и AM2302.
@@ -107,11 +126,13 @@ sudo apt install -y pkg-config
 
 В таблице GPIO выберите `DHT11` для датчиков DHT11 и `DHT22/AM23xx` Для всех остальных датчиков введите интервал опроса в миллисекундах в столбец _«Отключение/Опрос»_ . Считывание показаний датчиков не может происходить чаще, чем каждые 2000 мс (DHT11: 1000 мс); при отсутствии значения адаптер опрашивает датчик каждые 30000 мс.
 
+Для каждого датчика адаптер создает `gpio.N.temperature`, `gpio.N.humidity` и `gpio.N.dewpoint` Точка росы рассчитывается по формуле Магнуса на основе температуры и влажности. Точность определения зависит от датчика: около ±1 °C с датчиком DHT22, значительно меньше с датчиком DHT11.
+
 Адаптер считывает данные с датчика одним из двух способов и при запуске регистрирует, какой из них используется для каждого датчика.
 
-### Драйвер ядра Linux (рекомендуется, работает на всех Raspberry Pi, включая Pi 5)
+### Рекомендуемый драйвер ядра Linux
 
-В Linux есть собственный драйвер для этих датчиков (он поддерживает как DHT11, DHT21, DHT22, так и AM2302). Для включения драйвера для каждого датчика добавьте соответствующую строку в файл конфигурации. `/boot/firmware/config.txt` (`/boot/config.txt` (на более старых системах) и перезагрузите систему:
+В Linux есть собственный драйвер для этих датчиков (он поддерживает DHT11, DHT22 и AM2302, и должен поддерживать и DHT21). Включите его для каждого датчика, добавив строку в файл конфигурации. `/boot/firmware/config.txt` (`/boot/config.txt` (на более старых системах) и перезагрузите систему:
 
 ```
 dtoverlay=dht11,gpiopin=17
@@ -119,19 +140,11 @@ dtoverlay=dht11,gpiopin=17
 
 `gpiopin` Это номер GPIO (BCM), тот же, что и в таблице GPIO адаптера. Вы можете проверить его работоспособность с помощью... `cat /sys/bus/iio/devices/iio:device*/in_temp_input` (Значение указано в 1/1000 °C). Адаптер автоматически определяет драйвер и использует его, никаких дополнительных настроек не требуется.
 
+Наложение является частью Raspberry Pi OS с 2015 года (Raspbian Jessie) и работает на всех Raspberry Pi, включая Pi 5, Pi 500 и Compute Module 5. Ядра, выпущенные до ноября 2024 года, часто не могли декодировать данные с более новых датчиков DHT11, отображающих данные с десятичными знаками («Не знаю, как декодировать данные» в `dmesg`); В операционной системе Raspberry Pi OS 13 (Trixie), которая требуется для этого адаптера, это исправление уже есть.
+
 ### node-dht-sensor
 
-Без драйвера ядра адаптер использует node-dht-sensor. На Raspberry Pi 1–4 он работает как есть.
-
-На **Raspberry Pi 5** (а также Pi 500 и Compute Module 5) стандартная сборка node-dht-sensor не работает, поскольку она обращается к регистрам GPIO, которых нет у Pi 5. Либо используйте указанный выше драйвер ядра, либо пересоберите node-dht-sensor с поддержкой libgpiod:
-
-```bash
-sudo apt-get install -y build-essential libgpiod-dev pkg-config
-cd /opt/iobroker
-sudo -u iobroker -H npm rebuild node-dht-sensor --use_libgpiod=true
-```
-
-Затем перезагрузите адаптер. `pkg-config` Это необходимо: без этого сборка предполагает устаревшую libgpiod 1 и завершается с ошибкой в современных системах. При каждой переустановке или пересборке node-dht-sensor (например, после обновления Node.js) он снова получает сборку по умолчанию — адаптер затем регистрирует ошибку при запуске, и пересборку приходится повторять. У драйвера ядра такой проблемы нет.
+Без драйвера ядра адаптер переключается на node-dht-sensor. Это работает только на Raspberry Pi 1–4. На Raspberry Pi 5 (а также Pi 500 и Compute Module 5) это невозможно, поскольку он обращается к регистрам GPIO, которых нет у Pi 5 — в этом случае следует использовать драйвер ядра. В отличие от node-dht-sensor, драйвер ядра продолжает работать и после обновления Node.js и переустановки адаптера.
 
 ## Changelog
 
@@ -139,21 +152,34 @@ sudo -u iobroker -H npm rebuild node-dht-sensor --use_libgpiod=true
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2026-11-11)
+- (Garfonso/Claude) **BREAKING**: *Pull Up* and *Pull Down* switch on the internal pull resistors of inputs (#31). Before, *Pull Up* only inverted the value; it still does. If you used *Pull Up* just to invert an input that is switched to 3.3 V, the input now stays high: untick *Pull Up* and tick *Invert* instead. Also check inputs with *Pull Up* and an external pull-down resistor.
+- (Garfonso/Claude) **BREAKING**: Inputs are debounced by the kernel. A change is reported once the input has been stable for the debounce time, instead of right away followed by a pause. Changes therefore arrive later by that time, and pulses shorter than the debounce time (e.g. from S0 or reed contact meters) are ignored - lower the debounce time below the shortest pulse. In return a short glitch no longer leaves the state wrong.
+- (Grothesk242) **BREAKING**: `temperature.nvme_temp` is replaced by `temperature.disk_temp`. It is read with smartmontools from the first NVMe or SATA/USB drive that reports a temperature. The old state is deleted. Install `smartmontools` and replace the old `nvme` sudo rule by the new one from the README.
+- (Garfonso/Claude) **NEW**: DHT sensors also report the dew point (`gpio.N.dewpoint`), calculated from temperature and humidity.
+- (Garfonso/Claude) **ENHANCED**: An input that cannot be set up no longer disables all other GPIOs; the reason is logged.
+- (Garfonso/Claude) A missing drive, WLAN or sudo rule is no longer logged as an error, and no longer shows a disk temperature of 0.
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (Garfonso/Claude) Removed `python` from the OS dependencies, there is no such package on current Debian.
+- (Garfonso/Claude) DHT sensors: the README and the log messages recommend the Linux kernel driver, the instructions for rebuilding node-dht-sensor are removed. An already rebuilt node-dht-sensor keeps working.
+- (Garfonso/Claude) The check for libgpiod 2.2 moved from the adapter's preinstall script into `@garfonso/opengpio`.
+- (Garfonso/Claude) Removed the unused `ci` dependency, updated dependencies and added missing translations in the admin page.
+
 ### 4.0.0 (2026-10-07)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 - (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
-- (Garfonso/Claude): Improve GPIO handling.
-- (Garfonso/Claude): **FIXED**: GPIO outputs no longer switch off and on again during adapter start (#431).
-- (Garfonso/Claude): Use the `@garfonso/opengpio` npm package instead of a git branch of the fork.
-- (Garfonso/Claude): **FIXED**: The fan parser unit test matched the old single-hwmon path and failed since the fan reading fix.
-- (Garfonso/Claude): **FIXED**: DHT sensors ignored the configured poll interval (with no interval they were read continuously, so every read failed) and every sensor's timer read all sensors.
-- (Garfonso/Claude): **NEW**: DHT sensors are read through the Linux dht11 kernel driver if it is enabled (`dtoverlay=dht11,gpiopin=<n>`). This makes them work on a Raspberry Pi 5 without rebuilding node-dht-sensor (#406).
-- (Garfonso/Claude): **ENHANCED**: DHT sensor problems are logged with their cause and how to fix them; the startup log shows how each sensor is read.
-- (Garfonso/Claude): **FIXED**: Raspberry Pi 500 and Compute Module 5 are recognised as Raspberry Pi 5 boards and use the same GPIO chip.
-- (Garfonso/Claude): **FIXED**: The humidity object of a DHT sensor was named "temperature".
-- (Garfonso/Claude): **BREAKING**: GPIO and DHT sensor handling changed in several places (see above). This mostly fixes problems, but please check your GPIO setup after updating.
+- (Garfonso/Claude) Improve GPIO handling.
+- (Garfonso/Claude) **FIXED**: GPIO outputs no longer switch off and on again during adapter start (#431).
+- (Garfonso/Claude) Use the `@garfonso/opengpio` npm package instead of a git branch of the fork.
+- (Garfonso/Claude) **FIXED**: The fan parser unit test matched the old single-hwmon path and failed since the fan reading fix.
+- (Garfonso/Claude) **FIXED**: DHT sensors ignored the configured poll interval (with no interval they were read continuously, so every read failed) and every sensor's timer read all sensors.
+- (Garfonso/Claude) **NEW**: DHT sensors are read through the Linux dht11 kernel driver if it is enabled (`dtoverlay=dht11,gpiopin=<n>`). This makes them work on a Raspberry Pi 5 without rebuilding node-dht-sensor (#406).
+- (Garfonso/Claude) **ENHANCED**: DHT sensor problems are logged with their cause and how to fix them; the startup log shows how each sensor is read.
+- (Garfonso/Claude) **FIXED**: Raspberry Pi 500 and Compute Module 5 are recognised as Raspberry Pi 5 boards and use the same GPIO chip.
+- (Garfonso/Claude) **FIXED**: The humidity object of a DHT sensor was named "temperature".
+- (Garfonso/Claude) **BREAKING**: GPIO and DHT sensor handling changed in several places (see above). This mostly fixes problems, but please check your GPIO setup after updating.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -165,13 +191,6 @@ sudo -u iobroker -H npm rebuild node-dht-sensor --use_libgpiod=true
 ### 3.0.0 (2025-11-28)
 * (@klein0r) NodeJS 20.x (or newer) is required
 * (@klein0r) Updated opengpio to v2 (works on Debian trixie)
-
-### 2.4.0 (2025-03-06)
-* (Garfonso) read the current state of GPIO outputs during adapter startup.
-* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
-* (Garfonso) add an option to invert true/false mapping to 1/0.
-* (Garfonso) Allow multiple instances of this adapter per host.
-* (Garfonso) tried to improve initialization of GPIO inputs.
 
 ## License
 MIT License

@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
+hash: xVOkh97m+CsrMwxUeqaRiInQzGfB552iSh403h5e1CA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
-![Количество установок](http://iobroker.live/badges/xterm-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
+![Количество установок](https://iobroker.live/badges/xterm-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.xterm.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.xterm.svg)
@@ -27,15 +27,27 @@ hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
 
 Если аутентификация включена, войти в систему сможет только пользователь ioBroker с правами "admin".
 
+В версиях административной панели ниже 8.2.0 вкладка в административной панели работает через порт административной панели. `/proxy/xterm.0/` Таким образом, порт xterm не обязательно должен быть доступен из браузера. Если вы вошли в систему как администратор, терминал откроется без повторного входа в систему (опция «Принять вход от имени администратора»).
+
 ## Использование
 
-Адаптер запускает cmd.exe (Windows) или bash (Linux) через настоящий псевдотерминал (node-pty). В Linux bash работает под управлением `iobroker` пользователь — вы можете переключиться на другого пользователя с более высокими привилегиями через `su USER`.
+Адаптер запускает cmd.exe (Windows) или bash (Linux) через настоящий псевдотерминал (node-pty). В Linux bash работает под управлением `iobroker` пользователь — вы можете переключиться на другого пользователя с большими привилегиями через `su USER`.
 
 ### Постоянные терминалы
 
 Оболочки работают в сетевом адаптере, а не в браузере. Если соединение обрывается или страница перезагружается, терминалы продолжают работу и восстанавливаются вместе со своим содержимым — длительно выполняющиеся команды не прерываются.
 
 Терминал считается завершенным, если он явно закрыт или если браузер не возвращается в течение заданного **времени ожидания сессии** (по умолчанию 5 минут); `0` (немедленно завершает работу оболочки при отключении браузера).
+
+### HTTP/2
+
+При включенном HTTPS веб-сервер использует HTTP/2: браузер загружает страницу и все ее файлы по одному соединению с множеством параллельных запросов. Клиенты, не поддерживающие HTTP/2, автоматически переключаются на HTTP/1.1, и терминальное соединение продолжает работать — браузеры открывают веб-сокеты по отдельному соединению HTTP/1.1. Без HTTPS эта опция не работает, поскольку браузеры используют HTTP/2 только через TLS.
+
+Если у клиента возникнут проблемы с этим, измените параметр на **«Использовать HTTP/2»** (`http2`) отключено для сохранения поддержки HTTP/1.1.
+
+### Использованный порт
+
+Адаптер открывает один TCP-порт (по умолчанию 8099) для веб-интерфейса и терминального соединения. В js-controller 8 или более поздних версиях порт, на котором он действительно прослушивает запросы, сообщается хосту и отображается в обзоре используемых ресурсов, поэтому другой экземпляр не будет настроен на тот же порт.
 
 ## Клавиатурные сочетания
 
@@ -52,6 +64,15 @@ hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) The tab in admin runs through the port of admin, the login of admin is accepted
+
+### 4.0.2 (2026-10-14)
+* (@GermanBluefox) Admin 7.6.20+ is required. Compact mode no longer can exit the whole host process. The tests run on Windows and macOS too
+* (@GermanBluefox) Added HTTP/2 (with HTTP/1.1 fallback) for HTTPS, can be switched off with the option "Use HTTP/2"
+* (@GermanBluefox) The used port is reported to js-controller 8+
+* (@GermanBluefox) macOS: the shells could not start, because the `spawn-helper` of node-pty was not executable
+
 ### 4.0.1 (2026-08-07)
 * (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 * (@GermanBluefox) Dropped support of Node.js 20
@@ -79,12 +100,6 @@ hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
 * (bluefox) xterm library updated
 * (bluefox) Move Lets encrypt settings to acme adapter
 * (bluefox) Minimal supported node.js version is 16
-
-### 1.1.0 (2022-10-08)
-* (Apollon77) Updated the xterm library
-* (Apollon77) Prepared for future js-controller versions
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.xterm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

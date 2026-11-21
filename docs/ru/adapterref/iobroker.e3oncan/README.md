@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
+hash: zIKCZQA7YJbatsICen+OFouecuLVqFGtCiaqBfhlBUM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,6 +26,7 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 ## Оглавление
 
 - [Обзор](#overview)
+- [Что нового в версии 1.3.0](#whats-new-in-v130)
 - [Что нового в версии 1.2.0](#whats-new-in-v120)
 - [Быстрый старт](#quick-start)
 - [Руководство по настройке](#configuration-guide)
@@ -63,6 +64,15 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 Доступные режимы зависят от топологии вашего устройства. Подробности см. [в разделе «Топология устройства»](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34) . Примеры использования адаптера можно найти в [разделе «Клинические примеры»](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) .
 
 > Важные части этого адаптера основаны на проекте [open3e](https://github.com/open3e) . Реализация на Python, использующая только протокол MQTT и предназначенная для сбора данных, доступна на [сайте E3onCAN](https://github.com/MyHomeMyData/E3onCAN) .
+
+---
+
+## Что нового в версии 1.3.0
+
+- **Строка состояния сканирования:** сканирование устройств и точек данных выполняется в фоновом режиме. Строка состояния под кнопками сканирования показывает ход выполнения и конечный результат: зеленый цвет — при успешном выполнении, красный — при неудаче. Сканирование устройств автоматически сохраняет список устройств; перезагрузите страницу (F5), чтобы увидеть его. Это также исправляет проблему с пустым списком устройств после сканирования шлюза с помощью административной панели версии 7.8.25 или новее.
+- **Настройки шлюза:** Поле «MQTT-брокер» теперь называется _«MQTT-брокер, используемый шлюзом»_ и по умолчанию имеет значение... `mqtt://localhost`.
+- **Данные и перечисления** обновлены в соответствии с текущим состоянием open3e; тексты `OpStates` были исправлены.
+- **Вкладка «Точки данных»** : сохранение больше не очищает описания расписаний в конфигурации.
 
 ---
 
@@ -122,7 +132,9 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 Вместо локального CAN-адаптера, считывание данных с шины может осуществляться через шлюз [open3e-esp32](https://github.com/boonkerz/open3e-esp32) . Установите **тип подключения** на _«шлюз open3e-esp32»_ для данной шины и заполните следующие поля:
 
 - **REST-адрес шлюза** , например `http://open3e-esp32.local`
-- **URL-адрес MQTT-брокера шлюза** , например `mqtt://broker.local` а также **базовую тему MQTT** . Базовая тема должна совпадать с темой шлюза. `mqtt.baseTopic` настройка (по умолчанию) `open3e`).
+- **MQTT-брокер, используемый шлюзом** , например... `mqtt://localhost` и **базовую тему MQTT** . Введите тот же брокер, который указан в настройках шлюза, часто это адаптер MQTT от ioBroker. Базовая тема должна совпадать с темой самого шлюза. `mqtt.baseTopic` настройка (по умолчанию) `open3e`).
+
+  > **Примечание:** `localhost` Это работает только с точки зрения адаптера, если брокер работает на хосте ioBroker. В настройках шлюза вместо этого введите сетевой адрес этого хоста. `localhost` В этом случае шлюз будет искать брокера на самом себе.
 - **Имя пользователя и пароль MQTT** , если они требуются брокеру.
 
 При каждом запуске адаптер сообщает шлюзу, какие CAN-идентификаторы следует передавать в необработанном виде. Список формируется на основе данных с счетчиков электроэнергии и идентификаторов сбора данных ваших устройств, поэтому его не нужно настраивать на шлюзе.
@@ -139,9 +151,9 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 
 Перейдите на вкладку **«Список устройств UDS»** и нажмите кнопку **«Сканировать»** .
 
-- Сканирование занимает несколько секунд. Вы можете отслеживать ход выполнения в журнале адаптера (откройте вторую вкладку браузера).
-- Будут перечислены все устройства E3, обнаруженные на шине. Вы можете переименовывать устройства во втором столбце — эти имена используются в качестве идентификаторов в дереве объектов ioBroker.
-- После завершения нажмите **кнопку СОХРАНИТЬ** . Экземпляр перезапустится.
+- Сканирование выполняется в фоновом режиме и занимает от нескольких секунд (локальная шина CAN) до примерно двух минут (шлюз). Ход выполнения и результат отображаются в строке **состояния сканирования** под кнопкой.
+- После завершения сканирования адаптер сохраняет список устройств в конфигурацию, и экземпляр перезапускается. Перезагрузите страницу (F5), чтобы увидеть список в диалоговом окне открытой конфигурации. Если ничего не изменилось, ничего не сохраняется. Окончательный результат в статусе сканирования отображается зеленым цветом, или красным, если сканирование не удалось или устройство не было найдено.
+- Отобразился список всех устройств E3, найденных на шине. Во втором столбце вы можете переименовать устройства — эти имена используются в качестве идентификаторов в дереве объектов ioBroker. После переименования нажмите **кнопку СОХРАНИТЬ** .
 
 > В процессе сканирования устройства адаптер также считывает конфигурацию формата данных устройства (точка данных 382), включая единицы измерения температуры (°C или °F) и форматы даты/времени. Эти данные сохраняются и используются при последующих сканированиях точек данных.
 
@@ -156,7 +168,7 @@ hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 
 Перейдите на вкладку **«Список точек данных»** , нажмите **«Начать сканирование…»** и подтвердите нажатием кнопки **«ОК»** .
 
-> **Наберитесь терпения** – сканирование может занять до 5 минут. Ход выполнения отображается в журнале адаптера.
+> **Наберитесь терпения** – сканирование может занять до 5 минут. Оно выполняется в фоновом режиме; ход выполнения и результат отображаются в строке **состояния сканирования** под кнопкой.
 
 Что делает сканирование:
 
@@ -407,7 +419,16 @@ Collect предоставляет данные в реальном времен
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-11-17)
+* (MyHomeMyData) Device scan and data point scan run in the background; progress and result are shown in a new scan status line below the scan buttons (states info.scanStatus and info.scanStatusHtml), the result in green on success and in red on failure. Fixes an empty device list after a device scan with admin 7.8.25 or newer, which drops answers after 30 s (ioBroker.admin#3737)
+* (MyHomeMyData) The device scan saves the list of devices to the configuration itself, and restarts the instance
+* (MyHomeMyData) Only one scan can run at a time
+* (MyHomeMyData) Gateway: the MQTT broker field is now labelled "MQTT broker used by the gateway" and defaults to mqtt://localhost; the old default suggested a broker on the gateway itself
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20261101 (common) and 20261022 (variant)
+* (MyHomeMyData) Update of enumerations to version 20261116; the values of OpStates were corrected (open3e#145)
+* (MyHomeMyData) Datapoints tab: saving no longer clears the descriptions of the schedules in the configuration
+
+### 1.2.0 (2026-10-15)
 * (MyHomeMyData) Added open3e-esp32 gateway as optional connection type per CAN bus (REST for UDS, MQTT for passively received frames)
 * (MyHomeMyData) Gateway: device and data point scan run on the gateway's scan engine, with progress in the log
 * (MyHomeMyData) Gateway: energy meters and Collect devices are detected as on a local bus
@@ -425,18 +446,6 @@ Collect предоставляет данные в реальном времен
 ### 1.1.1 (2026-07-06)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
 * (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
-
-### 1.1.0 (2026-07-05)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260701 (common) and 20260630 (variant)
-* (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
-* (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
-* (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
-
-### 1.0.3 (2026-06-02)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#changelog-of-data-point-definitions)
-* (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
-* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
-* (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
 ### Older versions
 

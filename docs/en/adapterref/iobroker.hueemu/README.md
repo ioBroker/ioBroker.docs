@@ -46,25 +46,49 @@ listens on port 8080 unless you choose another one.
 
 ### 2. Host / IP address
 
-Leave **Host / IP** on `0.0.0.0` ("listen on all interfaces"). The adapter then works
-out the routable address of your ioBroker host and announces that one to clients.
+Leave **Host / IP** on `0.0.0.0` ("[IPv4] 0.0.0.0 - Listen on all IPs"). The bridge then
+listens in every network of your ioBroker host and tells each client the host's address in
+that client's network — it never picks one address by itself.
 
-Set a concrete address only if your host sits on **several networks** and the client
-can reach it on just one of them.
+Set a concrete address only if the bridge should serve **one network only**: it then
+listens and answers there alone. The list is ioBroker's own and shows every IPv4 address of
+the host, also 127.0.0.1 — chosen, only the ioBroker host itself reaches the bridge.
 
 ### 3. Port
 
 `8080` is the default and works with a Harmony hub.
 
-**Alexa needs port 80, and current Echo devices also try HTTPS on 443.** For Alexa set
-**Port** to `80` and **HTTPS Port** to `443`; the bridge answers HTTPS with its own
-self-signed certificate. A port below 1024 needs the right to bind it — the ioBroker
-installer grants that to Node.js on Linux; if the log says the port cannot be bound,
-that right is missing.
+**Alexa needs port 80, and newer Echo devices also try HTTPS on 443.** For Alexa set
+**Port** to `80`; for a newer Echo also switch **Use HTTPS** on and set **HTTPS Port**
+to `443`. A port below 1024 needs the right to bind it — the ioBroker installer grants
+that to Node.js on Linux; if the log says the port cannot be bound, that right is
+missing.
+
+**HTTPS** is an option for that one case, and it is your matter:
+
+- HTTPS is only for newer Echos, which also try port 443 — so the HTTPS port must be
+  `443`.
+- The Harmony uses HTTP only, as do the network announcement and older Echos: switching
+  HTTPS on gains the Harmony nothing, and HTTP always keeps running.
+- HTTPS protects nothing here: the Echo does not check the certificate, and HTTP stays
+  open beside it.
+
+With **Use HTTPS** on, the bridge takes the certificate chosen in the certificate
+fields from ioBroker (system settings → Certificates; ioBroker's own pair if you choose none,
+Let's Encrypt collections of the acme adapter as an option). A certificate ioBroker
+does not hold, or HTTPS without an HTTPS port, stops the instance with a notification
+until you fix the settings. If an earlier version served HTTPS, the update switches
+**Use HTTPS** on once by itself.
 
 **Trust X-Forwarded-\* headers** stays off unless the adapter sits behind a reverse
 proxy you trust that strips client-supplied forwarding headers. It only changes which
 client address the debug log shows.
+
+**Deleting datapoints** — when the adapter no longer provides a datapoint (a light deleted
+on its card, an object of an earlier version), it deletes it. **Delete datapoints with
+recording** (on) decides whether that also goes for a datapoint you record (history, sql,
+influxdb); off, it stays and the log counts it. **Delete the recorded data too** (off, shown
+with the first option) has each recording instance delete its data first.
 
 ### 4. Publish your lights
 
@@ -79,12 +103,16 @@ afterwards, so nothing disappears silently.
 **By hand** — click **Add light**, give it a name, pick a light type and point each
 field at an ioBroker state with the object browser.
 
-| Light type            | What the client sees                   |
-| --------------------- | -------------------------------------- |
-| **On/Off**            | on and off (shown as a dimmable light) |
-| **Dimmable**          | on/off and brightness                  |
-| **Color Temperature** | on/off, brightness, warm–cool white    |
-| **Color**             | on/off, brightness, full color         |
+| Light type              | What the client sees                       |
+| ----------------------- | ------------------------------------------ |
+| **On/Off**              | on and off (shown as a dimmable light)     |
+| **Dimmable**            | on/off and brightness                      |
+| **Color Temperature**   | on/off, brightness, warm–cool white        |
+| **Color**               | on/off, brightness, full color             |
+| **Color without white** | on/off, brightness, color, no white slider |
+
+A lamp with color but no white temperature, a light strip for example, is set to
+**Color without white** by hand; the search offers every color lamp as **Color**.
 
 Every light keeps its number for good: deleting or reordering lights changes nothing
 for the others, so Alexa's routines keep pointing at the lamps they were set up with.
@@ -182,19 +210,19 @@ granted.
 
 ## Ports the adapter uses
 
-| Port | Protocol | What for                       | Configurable                    |
-| ---- | -------- | ------------------------------ | ------------------------------- |
-| 8080 | TCP      | the Hue API itself (Alexa: 80) | yes — clients learn it via SSDP |
-| 1900 | UDP      | discovery, so clients find you | no — fixed by the UPnP standard |
-| —    | TCP      | optional HTTPS (Alexa: 443)    | yes, off unless you set a port  |
+| Port | Protocol | What for                       | Configurable                        |
+| ---- | -------- | ------------------------------ | ----------------------------------- |
+| 8080 | TCP      | the Hue API itself (Alexa: 80) | yes — clients learn it via SSDP     |
+| 1900 | UDP      | discovery, so clients find you | no — fixed by the UPnP standard     |
+| —    | TCP      | optional HTTPS (Alexa: 443)    | yes, off unless **Use HTTPS** is on |
 
 ## Troubleshooting
 
 **The client does not find the bridge.** Check that UDP port 1900 is not blocked
 between client and ioBroker host, and that both are on the same network segment — a
-guest network or a separate VLAN will not work without extra routing. On a host with
-several network cards, set **Host / IP** to the concrete LAN address instead of
-`0.0.0.0`. For Alexa, see port 80 and HTTPS 443 above.
+guest network or a separate VLAN will not work without extra routing: the bridge answers
+only clients in a network the ioBroker host itself is part of. For Alexa, see port 80 and
+HTTPS 443 above.
 
 **Pairing fails.** `startPairing` must be `true` **before** you start the search in the
 client, and the window is only 50 seconds. A client that pairs by asking for a key
@@ -233,8 +261,9 @@ Error reporting via Sentry is active by default; what it sends and how to switch
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-11-20)
 
+- New: Two new options decide whether a vanished datapoint you record is deleted and whether its recorded data goes too.
 - Changed: The bridge now answers only clients in its own networks, with a chosen address only those in that network.
 - Changed: Saving the settings can no longer reset the bridge identity.
 - Changed: A damaged identity file stops the start with an error.
@@ -253,9 +282,13 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 - Fixed: Opening the device manager right after the instance started no longer fails.
 - Fixed: A new instance shows "Unknown" as the reason until its first start instead of an empty text.
 - Fixed: A bridge that cannot start, for example on a taken port, now ends with an error and js-controller restarts it.
+- New: A wrong setting, for example an invalid port, stops the instance with a notification in the admin — it starts again when you save the settings.
+- Changed: Listening on all addresses, the bridge now works in every network of the host.
 - Fixed: A message the adapter does not know (sendTo from a script) now gets an error answer instead of none.
+- New: Light type "Color without white".
 - Improved: A chosen address the host does not have no longer stops the bridge — it listens on every address and warns once.
 - Improved: The settings always open on the first tab, Configuration.
+- Changed: HTTPS is switched on with the new option "Use HTTPS" and takes a certificate ioBroker holds instead of its own; an HTTPS port set before keeps HTTPS on.
 
 ### 1.19.0 (2026-09-25) — stable
 
@@ -296,10 +329,6 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 - Fixed: A light whose configured datapoint does not exist is reported as unreachable instead of pretending to work.
 - Fixed: Edit and delete in the devices tab always act on the light you clicked, even when the list changed in the meantime.
 - Improved: The first start after this update completes the scales of lights added earlier — if it finds anything to complete, the instance restarts once.
-
-### 1.16.0 (2026-09-03)
-
-- Fixed: If an action in the devices tab fails, you now get a message saying what went wrong instead of a dialog that never finishes.
 
 ## License
 

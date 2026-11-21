@@ -19,8 +19,8 @@ through the InfluxDB compatibility layer, such as `Living_Room_Temperature_value
 Buffers and writes datapoint changes to VictoriaMetrics, and answers `getHistory()` requests
 (so vis chart widgets can query this adapter directly) – see [Read path](#read-path) below for
 details and known limitations. For visualization outside of vis (e.g. Grafana), query
-VictoriaMetrics directly via PromQL instead. This adapter is not yet listed in the official
-ioBroker repository.
+VictoriaMetrics directly via PromQL instead. The adapter is available in the ioBroker *latest*
+(beta) repository.
 
 Documentation in other languages: [Deutsch](https://github.com/seaspotter/ioBroker.victoriametrics/blob/main/docs/de/victoriametrics.md)
 
@@ -28,7 +28,7 @@ Documentation in other languages: [Deutsch](https://github.com/seaspotter/ioBrok
 
 - A running VictoriaMetrics instance (single-node), reachable via HTTP(S) – see
   [Installing VictoriaMetrics](#installing-victoriametrics) below
-- ioBroker js-controller >= 6.0.11, Admin >= 7.7.2
+- ioBroker js-controller >= 6.0.11, Admin >= 7.7.2, Node.js >= 22.19.0
 
 ## Installing VictoriaMetrics
 
@@ -227,6 +227,10 @@ adapter then only transfers the finished bucket values instead of every raw poin
 equivalent), and whenever pushdown fails, it transparently falls back to the raw-data path
 (`/api/v1/export` + JS-side aggregation).
 
+**Custom intervals:** the `intervalBorders` option of `@iobroker/aggregate` (e.g. calendar days that are 23 or
+25 hours long at daylight-saving changes) is supported. The read range is taken from the borders and the
+raw-data path is used, since pushdown works with a fixed step only.
+
 **`id: '*'`:** returns the latest raw values across all datapoints *currently enabled in
 Admin* (not orphaned metrics from datapoints disabled in the meantime), each with an `id`
 field. Aggregation is not supported for this case (doesn't make sense across different
@@ -367,8 +371,9 @@ VictoriaMetrics' retention is a **server-side start flag** (`-retentionPeriod`) 
 process itself, not changeable at runtime via HTTP API (unlike e.g. InfluxDB, where the
 adapter can actively set a value via `ALTER RETENTION POLICY`). This adapter therefore only
 displays the currently configured retention read-only – to change it, VM must be restarted
-with a different `-retentionPeriod` value (with Docker: change the `--retentionPeriod=...`
-parameter in `docker run`/`docker-compose.yml` and recreate the container).
+with a different `-retentionPeriod` value (own Docker: change the `--retentionPeriod=...`
+parameter in `docker run`/`docker-compose.yml` and recreate the container; with the
+[Docker option of the adapter](#docker-managed-by-the-adapter): change the field **Retention period**).
 
 The current retention is visible in three places (all read-only, read once from the
 `/flags` endpoint on adapter start):
@@ -399,12 +404,31 @@ The current retention is visible in three places (all read-only, read once from 
 | `npm run build` | Compiles the TypeScript sources in `src/` to `build/` (required before starting the adapter) |
 | `npm run lint` | ESLint |
 | `npm run check` | Type check (`tsc --noEmit`) |
-| `npm run test:js` | Unit tests |
-| `npm run test:package` | Checks `package.json`/`io-package.json` |
+| `npm test` | Unit tests (`npm run test:js`) and package checks (`npm run test:package`) |
+| `npm run test:integration` | Starts the built adapter in a test js-controller against a mock VictoriaMetrics |
 | `npm run dev-server` | Starts [`dev-server`](https://github.com/ioBroker/dev-server) for a local test run incl. Admin UI |
 | `npm run release` | Cuts a release (version bump, changelog/news sync, git tag) via [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script) |
 
+### Code structure
+
+| File | Purpose |
+|------|---------|
+| `src/main.ts` | Adapter class: lifecycle, subscriptions, buffering, flush, message dispatch |
+| `src/lib/filters.ts` | Per-datapoint value filters (thresholds, rounding, minimum change, changes only, block time) |
+| `src/lib/vmClient.ts` | HTTP client for the VictoriaMetrics API |
+| `src/lib/history.ts` | `getHistory`, including PromQL pushdown |
+| `src/lib/dataManagement.ts` | `storeState`, `deleteAll`, `features` |
+| `src/lib/buffer.ts` | Write buffer and import payload |
+| `src/lib/metricName.ts` | Metric name and label derivation |
+| `src/lib/config.ts` | Constants and timer validation |
+
 ## Changelog
+### 0.7.0 (2026-11-16)
+* (SeaSpotter) Code review and cleanup: removed unused code, merged duplicated logic (value filters in `lib/filters.ts`, HTTP error handling, datapoint lookups, timer validation), shortened and translated code comments; no functional changes except the two items below
+* (SeaSpotter) `getHistory`: supports the `intervalBorders` option of `@iobroker/aggregate`; an aggregate name like `constructor` no longer selects a non-existent PromQL pushdown
+* (SeaSpotter) Added unit tests for filters, buffer, HTTP client and `getHistory`, and an integration test that writes a state change to a mock VictoriaMetrics
+* (SeaSpotter) Dependency updates (axios 1.21.1, `@iobroker/aggregate` 1.1.0, `@iobroker/testing` 6.3.2, TypeScript 6.0, others); README and German manual updated
+
 ### 0.6.1 (2026-11-08)
 * (SeaSpotter) Raised the minimum Node.js version to 22.19.0, as required by `@iobroker/plugin-docker` (flagged by the repository checker, W0069)
 
@@ -418,10 +442,6 @@ The current retention is visible in three places (all read-only, read once from 
 ### 0.4.5 (2026-10-02)
 * (SeaSpotter) Translated one remaining German error string in `getHistory`'s invalid-id response (`lib/history.js`) that the review's log/sendTo/errors.push sweep had missed - it's returned to the caller via `sendTo`, same category as the `dataManagement.js` fix in 0.4.4
 * (SeaSpotter) Added full i18n names for the `info` channel and the `adminTab` (flagged by the official repo review's object-structure check)
-
-### 0.4.4 (2026-09-11)
-* (SeaSpotter) Addressed maintainer review findings: translated all remaining German log/error messages to English, fixed the `cache` object's German-only name to a full i18n object, replaced the German `"zeitreihe"` keyword with `"timeseries"`, added code-level validation for `writeInterval`/`requestTimeout` against Node.js' timer maximum
-* (SeaSpotter) CI: added Node.js 26.x to the test matrix; upgraded `@iobroker/testing` to 6.2.1
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

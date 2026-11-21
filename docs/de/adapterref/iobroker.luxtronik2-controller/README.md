@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-Controller
-hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
+hash: EXOn+abDu6qZeUvXfrKFaFa8Y37i5Fmn+G5FjvwHOXs=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
@@ -17,33 +17,62 @@ hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
 
 ## luxtronik2-Controller-Adapter für ioBroker
 
-Dieser ioBroker-Adapter ermöglicht die lokale Steuerung und Überwachung von Wärmepumpen mit [Luxtronik 2.x-Reglern](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (z. B. Alpha Innotec, Novelan). Der Adapter ist vollständig in TypeScript geschrieben.
+**100% lokale Überwachung, Steuerung und Optimierung** für Wärmepumpen mit [Luxtronik 2.x / 3.x Reglern](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (Alpha Innotec, Novelan, Buderus, Siemens usw.) - komplett **cloudfrei** .
+
+Die Kommunikation erfolgt direkt über **natives TCP (Port 8889)** und optional in Kombination mit **Modbus TCP (Hybridmodus),** um Parameter direkt in den flüchtigen RAM zu schreiben, ohne den EEPROM-Flash-Speicher zu belasten. Das System umfasst eine integrierte **PV-Überschussautomatisierung** , **die Berechnung von COP/JAZ** in Echtzeit, eine intelligente Zyklusoptimierung und eine intelligente Pumpensteuerung (HUP & ZIP).
+
+**Handbuch:** [Englisch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md) · [Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
+
+> **💡 Kein LAN-Kabel in der Nähe Ihrer Wärmepumpe? Kein Problem!** Wenn Ihr Luxtronik 2.0-Regler nur einen freien USB-Anschluss anstelle einer Netzwerkdose besitzt, können Sie ihn ganz einfach per WLAN verbinden. Nutzen Sie dafür das clevere Projekt **„USB 2.0 powered WiFi/Ethernet Bridge“** von _obermolch_ . Die Bridge wird direkt über den USB-Anschluss des Reglers mit Strom versorgt und stellt die Verbindung drahtlos her – ganz ohne zusätzliche Netzteile. Die vollständige Anleitung und die Diskussion in der Community finden Sie hier: [ioBroker Forum: USB 2.0 powered WiFi/Ethernet Bridge für Luxtronik 2.0](https://forum.iobroker.net/topic/85773/usb-2-0-powered-wifi-ethernet-bridge-f%C3%BCr-luxtronik-2-0) .
+
+**Wenn Ihnen dieses Projekt gefällt und Sie seine Entwicklung unterstützen möchten, können Sie hier gerne eine Spende hinterlassen: <https://paypal.me/TJahnke>**
+
+### Merkmale
+
+#### 🔌 Kommunikations- und Betriebsmodi
+
+- **3 flexible Betriebsmodi:** Nahtloses Umschalten zwischen sicherem **Nur-Lese-Modus** (nur Überwachung, alle Hardware-Schreibvorgänge blockiert), **nativem Schreibmodus** (Port) `8889`) und **Modbus-Hybridmodus** .
+- **Native TCP- und WebSocket-Kommunikation:** Direkte lokale Verbindung über klassisches TCP (`8888` /`8889`) oder WebSockets (`8214`) mit umfassender Kompatibilität über die Firmware-Versionen V1.x, V2.x und V3.x hinweg (dynamische Skalierungsfaktoren und adaptive Schreibwarteschlangen-Timing).
+- **Hybrid-Modbus-TCP-Unterstützung (0 % Flash-Speicherverschleiß):** Schreibt flüchtige Parameter (Zieltemperaturen, Heizkurven, Betriebsarten) und Spulen direkt über Modbus TCP (Port) in den Controller-RAM. `502`) ohne den EEPROM-Flashspeicher zu verschleißen, während weiterhin vollständige Telemetriedaten über den nativen Port ausgelesen werden. Aktive Modbus-Zustände werden automatisch mit einem Tag versehen. `(Modbus)` im Objektbaum.
+
+#### ☀️ PV-Automatisierung & Effizienz
+
+- **PV-Überschussmanagement (PV-fähig):** Vollständig integrierte Automatisierung des Solarüberschusses, die Ihre laufende Netzeinspeisung nutzt, um die Sollwerte für Heizung und/oder Warmwasser zu erhöhen (verschleißfrei über Modbus TCP):
+  - **Dynamische Sequenzpriorität:** Überwacht kontinuierlich die aktuellen Temperaturen und leitet überschüssiges Wasser zwischen Warmwasser und Heizung um, sobald das priorisierte Ziel die Sättigung erreicht.
+  - **Hysterese & Intelligente Timer:** Anpassbare Start-/Stoppverzögerungen und eine dedizierte Stoppschwelle (Schmitt-Trigger-Logik) verhindern selbstaufhebende Rückkopplungsschleifen beim Hochfahren der Wärmepumpe.
+  - **Batteriepriorisierung:** Optional wird die Ladeleistung der Heimbatterie in die Überschussberechnung einbezogen, um die Wärmepumpe als Wärmespeicher zu priorisieren.
+  - **Hardware-Zyklusschutz:** Wartet, bis aktive Heiz- oder Warmwasserzyklen auf natürliche Weise beendet sind, bevor die Sollwerte bei sinkendem Solarertrag zurückgesetzt werden, um den Kompressor zu schützen.
+- **COP & JAZ (Effizienzrechner):** Live-Effizienzverfolgung ( _Heute_ , _Letzte 7 Tage_ , _Aktueller Monat_ , _Aktuelles Jahr_ ), automatische Aufteilung in _Heizung_ , _Warmwasser_ und _Gesamt_ . Unterstützt interne Luxtronik-Zähler oder hochpräzise externe Zähler (z. B. Shelly 3EM, M-Bus-Wärmemengenzähler) mit persistenter Speicherung (`hidden.cop_buckets`) und Schutz vor Flattern und Herunterfallen.
+
+#### 🛡️ Hardwareschutz & Intelligente Optimierung
+
+- **Hardware- und EEPROM-Flash-Schutz:**
+  - **Read-Before-Write-Cache:** Fängt redundante Schreibbefehle ab und blockiert sie, wenn der Controller den Zielwert bereits enthält.
+  - **Flash-Schreibzähler:** Verfolgt transparent täglich (`write_cycles_today`) und kumulativ (`write_cycles_total`) EEPROM-Schreibvorgänge.
+  - **Standardeinstellungen im Leerlauf & Interaktive Wärmekurve:** Stellt im Standby-Modus automatisch sichere Basiseinstellungen wieder her und bietet eine interaktive SVG-Wärmekurven-Vorschau in der Admin-Benutzeroberfläche.
+  - **Firmware `.90` Crash Shield:** Erkennt automatisch fehlerhafte Hersteller-Firmwares (`V1.90` /`V2.90`) und blockiert Netzwerkschreibvorgänge, um Hardwareabstürze zu verhindern.
+- **Kompressorschutz (Zyklusoptimierung):** Kopplung von Heizungs- und Warmwasserzyklen, um unnötige Kompressorstopps und -starts zu vermeiden.
+- **Dynamische HUP-Regelung (Auto-PWM-Erkennung):** Die 0–10-V-Steuerspannung der Heizungsumwälzpumpe (HUP) wird automatisch anhand der Vor- und Rücklauftemperaturdifferenz angepasst. PWM-gesteuerte Pumpen werden automatisch erkannt und umgangen.
+- **Intelligente 3-Wege-Umwälzpumpensteuerung (ZIP):**
+  - Wählen Sie zwischen **internem Luxtronik-Controller** , **externem Aktor** (z. B. Shelly mit 0 % Flash-Verschleiß) oder **Modbus TCP (Spule 7)** .
+  - Die Zirkulation kann bedarfsgesteuert über ioBroker-Bewegungssensoren/Tasten (mit Anti-Zyklus-Abkühlung) oder synchron während der Warmwassererzeugung ausgelöst werden.
+  - Beinhaltet Live-Virtual-Status (`Virtual_ZIP_Status` und ein Echtzeit-Countdown der verbleibenden Laufzeit in Sekunden (`Virtual_ZIP_Remaining_Time`).
+
+#### 📊 Überwachung, Diagnose & Anpassung
+
+- **Integrierte Aktionen (Makros):** Vordefinierte Auslöser für Zwangsheizung (`Zwangsheizen`), Warmwasserzirkulation (`Zwangswarmwasser`), Zirkulation (`Activate_Zip`), manuelle Leerlauf-Resets (`Setze_Vorgabewerte`), und vollständige Rohdaten-Dumps (`Dump_Raw_To_Log`).
+- **Intelligenter Objektverwaltungs- und Sichtbarkeitsfilter:** Fragt Hardware-Sichtbarkeitsflags ab (Befehl `3005`) beim Start, um nicht unterstützte Komponenten (Kühlung, Solar, Belüftung, nicht installierte Mischkreisläufe) auszublenden und entfernt beim Neustart abgewählte Datenpunkte und leere Ordner sauber.
+- **Benutzerdefinierte Datenpunkte:** Fügen Sie flexibel benutzerdefinierte Telemetriewerte hinzu (Index). `3004`) und beschreibbare Parameter (Index `3003` über die Admin-Benutzeroberfläche, einschließlich benutzerdefinierter Skalierungsfaktoren, Einheiten und automatischer Unix-Zeitstempelformatierung.
+- **Erweiterte Statusmeldungen & Berechnungen:** Live-Berechnung der Temperaturverteilung, der thermischen/elektrischen Energiesummen und der übersetzten Systemzustände im Klartext (Deutsch & Englisch).
+- **Intelligente Benachrichtigungen und Firmware-Prüfungen:** Sendet Fehlerprotokolle, Verbindungswarnungen und kritische Abschaltungen (z. B. Probleme mit der Datenflussrate) an **Telegram** und das **ioBroker Notification Center** (mit 60-minütiger Anti-Spam-Sperre und Live-Test-Schaltfläche). Unterstützt außerdem geplante (Cron) und manuelle Firmware-Update-Prüfungen inklusive Abruf des Änderungsprotokolls.
+- **Automatisierte DTA-Sicherung:** Ein-Klick-Links und Cron-geplante Downloads interner Daten `.dta` Diagnoseprotokolle direkt von der Wärmepumpe an `0_userdata.0/luxtronik_backups` zur Analyse in Tools wie _OpenDTA_ .
 
 ## Danksagungen & Geschichte
 
 Dieses Projekt baut auf den Vorarbeiten bestehender Open-Source-Projekte auf. Besonderer Dank gilt:
 
-[Bouni](https://github.com/bouni/luxtronik-2) , dessen Pionierarbeit und Codeentwicklungen die wesentliche Grundlage für die Kommunikation mit Luxtronik-Steuerungen bilden.
-
-[Coolchip:](https://github.com/coolchip/luxtronik2) Für das grundlegende Reverse Engineering des Luxtronik-Netzwerkprotokolls.
-
-[UncleSamSwiss:](https://github.com/UncleSamSwiss/ioBroker.luxtronik2) Für den originalen ioBroker-Adapter.
-
-Neuerungen dieser Version: Der luxtronik2-Controller integriert nativ die TCP-Kommunikation (Port 8888/8889) und benötigt keine externen Bibliotheken. Zusätzlich wurden Steuerungsmakros, eine Logik zum Schutz des Kompressors und eine automatisierte Datenpunktverwaltung implementiert.
-
-### Merkmale
-
-- **Native TCP-Kommunikation:** Direkte Verbindung zur Wärmepumpe ohne zusätzlichen Aufwand.
-- **Kompressorschutz (Zyklusoptimierung):** Intelligente Zusammenführung von Heizungs- und Warmwasserzyklen zur deutlichen Reduzierung der Kompressorstarts.
-- **Dynamische HUP-Steuerung:** Automatische Spannungsanpassung der Heizungsumwälzpumpe (HUP) auf Basis der Vor- und Rücklauftemperaturdifferenz für maximale Effizienz.
-- **Integrierte Aktionen (Makros):** Vordefinierte Steuerungslogik für Zwangsheizung, Warmwasseranforderungen und die Umwälzpumpe (ZIP) – einschließlich eines automatischen Rückfalls auf sichere Standardwerte.
-- **Bedarfsgesteuerte Zirkulation (ZIP):** Steuern Sie Ihre Zirkulationspumpe über vorhandene ioBroker-Bewegungssensoren oder direkt über externe Aktoren (z. B. Shelly) – ganz ohne Hardwareänderungen an der Wärmepumpe.
-- **Benutzerdefinierte Datenpunkte:** Messwerte (Index 3004) und Parameter (Index 3003) lassen sich flexibel über die Adapterkonfiguration hinzufügen. Unix-Zeitstempel werden automatisch in lesbare Formate umgewandelt.
-- **Erweiterte Statusmeldungen und Berechnungen:** Live-Berechnung der Temperaturverteilung, der thermischen Energie und detaillierte Textausgaben der aktuellen Systemzustände (einschließlich Offsets, Frostschutz und Kühlstatus).
-- **Intelligentes Benachrichtigungssystem:** Fehlercodes und kritische Abschaltungen (z. B. Probleme mit der Durchflussrate) werden direkt an Telegram oder das ioBroker-Benachrichtigungssystem gesendet – inklusive Schutz vor Cooldown-Spam.
-- **Automatisierte DTA-Datensicherung:** Geplante Downloads von DTA-Diagnoseprotokollen direkt von der Wärmepumpe in Ihren ioBroker-Speicher zur einfachen Analyse (z. B. in OpenDTA).
-- **Automatische Objektverwaltung:** Abgewählte oder gelöschte Datenpunkte sowie leere Ordnerstrukturen werden beim Neustart des Adapters automatisch und sauber aus ioBroker entfernt.
-- **Breite Kompatibilität:** Vollständige Unterstützung für ältere (V2.x) und neuere (V3.x) Firmware-Generationen (z. B. Alpha Innotec, Novelan) unter Verwendung dynamischer Skalierungsfaktoren.
+- **[Bouni](https://github.com/bouni/luxtronik-2) :** Dessen Pionierarbeit und Codeentwicklungen die wesentliche Grundlage für die Kommunikation mit Luxtronik-Steuerungen bilden.
+- **[BenPru](https://github.com/BenPru/luxtronik) & rhammen:** Ein besonderer Dank gilt BenPru und rhammen für ihre kontinuierliche Weiterentwicklung der Zugriffs- und Steuerungsmöglichkeiten des Luxtronik-Controllers. Ohne ihren Einsatz, ihre Bemühungen und ihre Ideen hätte dieser Adapter nicht den heutigen Entwicklungsstand erreicht. _(Wenn Ihnen ihre Arbeit gefällt, spendieren Sie ihnen doch einen Kaffee! ☕) [BenPru](https://github.com/sponsors/BenPru) [rhammen](https://github.com/sponsors/rhammen)_
 
 ## ⚠️ Warnung
 
@@ -68,67 +97,34 @@ Die Integration ermöglicht die Überwachung und Steuerung von Wärmepumpen mit 
 
 _Dieses Projekt steht in keiner Verbindung zu Alpha Innotec, Novelan, ait-deutschland GmbH oder anderen Unternehmen. Es handelt sich um ein privates Projekt, das in der Freizeit gepflegt wird. Die Nutzung erfolgt auf eigene Gefahr._
 
-## Fehler melden & Mitwirken
+## Installation
 
-Fehlerberichte, Kompatibilitätshinweise für bestimmte Firmware-Versionen oder Funktionsanfragen können über den Issue-Tracker im [GitHub-Repository](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues) eingereicht werden.
+> **Hinweis für Raspberry Pi / ARM-Benutzer:** Möglicherweise werden im Installationsprotokoll rote Fehlermeldungen im Zusammenhang mit … angezeigt. `node-gyp`, `serialport`, oder `usocket` Dies sind optionale Abhängigkeiten und können vollständig ignoriert werden. Die netzwerkbasierte Steuerung (TCP) des Luxtronik funktioniert weiterhin problemlos.
 
-## Information
-
-[Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
-
-[Info Englisch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
-
-<img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
-<img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
-<img src="documentation/Bilder/Datenpunkte.png" alt="Datenpunkte" width="100%">
-<img src="documentation/Bilder/Benachrichtigung.png" alt="Benachrichtigung" width="100%">
-<img src="documentation/Bilder/EigeneWerte.png" alt="EigeneWerte" width="100%">
-<img src="documentation/Bilder/Fehlermeldung.png" alt="Fehlermeldung" width="100%">
-<img src="documentation/Bilder/Bewegungssensoren.png" alt="Bewegungssensoren" width="100%">
+//### **IN BEARBEITUNG**
 
 ## Changelog
+### 1.0.3 (2026-11-18)
 
-// ### **WORK IN PROGRESS**
-### 0.13.1 (2026-10-02)
+- Fixed daily COP reset in `copManager.ts` so Heating and Hot Water values reset to `0` after midnight until an active cycle starts
 
-- **Fix (Circulation/ZIP):** Fixed a bug where the `Virtual_ZIP_Status` datapoint would remain stuck on `true` when using external relays (e.g., Shelly), even though the hardware relay was correctly turned off. The state reset logic has been decoupled and is now guaranteed to execute, ensuring the ioBroker interface stays perfectly synchronized with the actual hardware state.
+### 1.0.2 (2026-11-17)
 
-### 0.13.0 (2026-10-02)
+- Fixed `node:` protocol imports (`node:fs`, `node:path`) and repository checker lint issues
+- Completed and synchronized i18n translations across all supported languages
+- Fixed `jsonConfig` label keys in `generateConfig.ts` to prevent inline language object overrides during build
 
-- **Bugfixes:**
-    - **Critical DHW Target Fix:** Fixed an issue where the hot water target temperature was incorrectly written to parameter 2 instead of 105. This resolves unexpected temperature jumps (e.g., to 65°C) and socket timeouts on various heat pump models.
-    - **Write Queue Timeout:** Added a maximum wait timeout to the write queue lock for legacy V1.x firmware to prevent potential infinite loops during read-write collisions.
-    - **Backup Manager Multi-Instance Fix:** The automated DTA backup cron job is now safely scoped to the specific adapter instance, preventing conflicts when running multiple heat pumps on the same ioBroker host.
-- **Under the Hood / Refactoring:**
-    - **Centralized Typings:** Completely refactored the TypeScript architecture by introducing a centralized `LuxtronikAdapter` interface (`types.ts`). Replaced all fragmented, local interfaces across sub-modules to ensure strict, project-wide type safety and better maintainability.
+### 1.0.1 (2026-11-16)
 
-### 0.12.1 (2026-09-30)
+- **Update of i10n files**
 
-- **Bugfixes:**
-    - **Fixed Null-Values on Startup:** Virtual states for the circulation pump logic (`Actions.Activate_Zip` and `03_Outputs.Virtual_ZIP_Status`) are now explicitly initialized to `false` during adapter startup. This prevents undefined `null` values in the object tree, ensuring immediate compatibility with visualizations and logic scripts (like Blockly) right from the first second.
+### 1.0.0 (2026-11-16)
 
-### 0.12.0 (2026-09-30)
+**STABLE**
 
-- **⚠️ BREAKING CHANGE:**
-    - The datapoint to manually trigger the circulation pump macro (`Activate_Zip`) has been moved from the `Settings` folder to the `Actions` folder for better UX. If you use this state in your scripts or visualizations, please update the datapoint path!
+### 0.25.2 (2026-11-16)
 
-- **Features & Improvements:**
-    - **Virtual Circulation Pump (ZIP) Status:** Added a new read-only indicator datapoint (`Virtual_ZIP_Status`) in the `03_Outputs` folder. This datapoint mirrors the true state of the adapter's intelligent circulation pump macro in real-time. This is highly beneficial for users controlling the ZIP via external smart relays (e.g., Shelly) to avoid controller flash-wear, as it provides an accurate status even when the heat pump's internal display is bypassed.
-
-### 0.11.2 (2026-09-30)
-
-- **Features & Improvements:**
-    - **Smart Parameter Filtering:** Added full support for the Luxtronik visibility registry (Network Command 3005). The adapter now automatically hides parameters in the ioBroker object tree that are physically not supported by your specific heat pump model (e.g., hiding defrost valves on brine-to-water pumps). This dramatically declutters the system.
-    - Added an "Expert Mode" toggle in the adapter configuration to optionally disable the visibility filter and force-show all parameters.
-    - Extended the "Dump Raw to Log" feature to include the visibility matrix (Command 3005).
-    - **Legacy Write-Mode (V1.x):** Added a new connection setting for older heat pumps (Firmware V1.x). This "Fire-and-Forget" mode prevents `Timeout writing TCP parameter` errors on controllers that do not send network acknowledgments after receiving a write command.
-    - **Dynamic Hardware Protection:** The adapter now automatically detects your firmware version and adjusts network write delays dynamically (500ms for V1.x vs. 100ms for modern firmwares) to ensure maximum responsiveness without sacrificing stability.
-    - **Safe Payload Rounding:** Enforced strict integer rounding (`Math.round`) for all numeric write payloads to prevent memory faults and crashes on older Luxtronik controllers.
-    - **Visibility Filter UX:** Added a warning to the visibility filter configuration (Command 3005) to clarify that this feature requires Firmware V3.x and should be disabled on older systems to avoid startup timeouts.
-
-- **Bugfixes:**
-    - **Fixed Heat Pump Crashes / Reboots:** Implemented a global mutex lock between the polling cycle (`updateData`) and the write queue. This guarantees that read and write operations never overlap, preventing fatal network socket collisions that caused V1.x controllers to freeze and reboot.
-    - **Fixed Object Cleanup:** Changed the mass deletion of orphaned objects and empty folders during adapter startup from parallel to sequential execution. This prevents the ioBroker database from being overloaded and silently dropping delete commands.
+- **Fix i18n**
 
 ## License
 

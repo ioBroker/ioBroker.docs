@@ -3,8 +3,8 @@ chapters: {"pages":{"en/adapterref/iobroker.mihome-vacuum/README.md":{"title":{"
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
-title: ioBroker miHome-Vakuumadapter
-hash: J3mNBwdK4KcBoe8NFUK/Nie5IIKXDXpguD/mB4VuZWo=
+title: ioBroker miHome-Staubsauger-Adapter
+hash: oHBg9YLDqO9sxbuhpeTN0u+RqaGZkc3fkA6R5XuGaPE=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -17,7 +17,7 @@ hash: J3mNBwdK4KcBoe8NFUK/Nie5IIKXDXpguD/mB4VuZWo=
 
 # ioBroker miHome-Staubsauger-Adapter
 
-> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
+> \[!WICHTIG] Dieser Adapter kann nicht von GitHub installiert werden.
 
 [Deutsche Dokumentation](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
@@ -97,7 +97,7 @@ Xiaomi Cloud ist für die normale lokale Steuerung optional. Es dient der komfor
 5. Öffnen Sie den angezeigten Link und bestätigen Sie die Xiaomi-Anmeldung im Browser.
 6. Kehren Sie zu ioBroker zurück, nachdem sich der Cloud-Status auf **„Authentifiziert“** geändert hat.
 7. Klicken Sie auf **„Geräte abrufen“** und wählen Sie den Staubsauger aus der Geräteliste aus.
-8. Überprüfen Sie das automatisch ausgefüllte Token, die IP-Adresse, das Modell und den Manager.
+8. Überprüfen Sie das automatisch ausgefüllte Token, die IP-Adresse und das Modell; lassen Sie den Manager auf **Auto** eingestellt.
 9. Speichern Sie die Konfiguration und überprüfen Sie, ob `info.connection` wird `true` Die
 
 ![Verbindung und Anmeldung bei Xiaomi Cloud](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
@@ -115,7 +115,7 @@ Die lokale Steuerung ist nicht von einer aktiven Xiaomi Cloud-Sitzung abhängig.
 - **Token:** Lokales hexadezimales Gerätetoken
 - **IP-Adresse:** Aktuelle lokale Adresse des Roboters
 - **Modell:** Modellkennung wie z. B. `roborock.vacuum.s5`
-- **Manager:** wird normalerweise automatisch erkannt; Roborock, Viomi oder Dreame sollten nur bei Bedarf manuell ausgewählt werden
+- **Manager:** **Automatisch** einstellen; der Manager wird anhand des Modells erkannt. Roborock, Viomi, Dreame oder Xiaomi MIoT nur dann manuell auswählen, wenn das Modell nicht erkannt wird. Roborock-Geräte unterstützen MIoT nicht und können nicht mit dem Dreame- oder Xiaomi MIoT-Manager gesteuert werden; der Adapter verwendet dann den Roborock-Manager und protokolliert eine Warnung.
 - **Vakuumanschluss:** normalerweise `54321`
 - **Eigener Port:** Lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise `53421`
 
@@ -135,7 +135,7 @@ Diese Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise 
 
 Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Geräteerkennung und die lokalen Einstellungen, die für die direkte Kommunikation mit dem Staubsauger verwendet werden.
 
-- Ein erfolgreicher Cloud-Login wird als geschützte, verschlüsselte Sitzung gespeichert.
+- Eine erfolgreiche Cloud-Anmeldung wird als geschützte, verschlüsselte Sitzung gespeichert.
 - **Die Geräteabfrage** ist erst nach der Authentifizierung möglich.
 - Durch die Auswahl eines erkannten Staubsaugers werden fehlende lokale Einstellungen ergänzt und gegebenenfalls ein veraltetes Token ersetzt.
 - Der Anmeldelink wird nach erfolgreicher Anmeldung oder nach Ablauf der Gültigkeitsdauer gelöscht.
@@ -175,7 +175,7 @@ Die Kartenunterstützung hängt vom Vakuummodell und der gewählten Quelle ab.
 | `cleanmap.mapStatus` | Aktueller Status der Kartenverarbeitung               |
 | `cleanmap.loadMap`   | Fordert eine Kartenaktualisierung an                  |
 
-Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der Xiaomi Cloud als auch ein gültiger Cloud-Login aktiviert sein** . Lokale Roboterbefehle funktionieren weiterhin, wenn die Cloud-Sitzung nicht verfügbar ist.
+Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der Xiaomi Cloud als auch ein gültiger Cloud-Login aktiviert sein** . Lokale Roboterbefehle funktionieren weiterhin, wenn keine Cloud-Sitzung verfügbar ist.
 
 ### Timer
 
@@ -184,11 +184,11 @@ Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der X
 Adapter-Timer können ausgewählte Raumkanäle an einem gewählten Wochentag und zu einer gewählten Uhrzeit starten.
 
 1. Laden oder erstellen Sie zuerst die Raumkanäle.
-2. Öffnen Sie **den Timer** und klicken Sie auf **Hinzufügen** .
+2. Öffne **den Timer** und klicke auf **Hinzufügen** .
 3. Wählen Sie Wochentag, Stunde, Minute, Räume und/oder Raumkanäle.
 4. Aktivieren Sie den Timer und klicken Sie auf **„Timer speichern“** .
 
-Adapter-Timer werden in ioBroker gespeichert und können daher auch über VIS angezeigt oder gesteuert werden. Sie sind unabhängig von den in der Xiaomi-App konfigurierten Timern.
+Adaptertimer werden in ioBroker gespeichert und können daher auch über VIS angezeigt oder gesteuert werden. Sie sind unabhängig von den in der Xiaomi-App konfigurierten Timern.
 
 ## Funktionen
 
@@ -286,6 +286,10 @@ Jedes Steuerelement wird nur dann angezeigt, wenn der Adapter den entsprechenden
 
 ![VIS 2 Vakuum-Widget](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%202%20VacuumControlWidget.png)
 
+Das gleiche Widget in dunkler Vis-2-Ansicht, Übersicht mit Karte, Akkuanzeige, gereinigter Fläche und Zeit, Saugkraft und Schnellsteuerung:
+
+![Vis-2 Staubsauger-Widget, dunkles Design](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/vis2-vacuum-control-dark.png)
+
 ### Räume, Saugstärken und Layout
 
 Bei **der automatischen Raumerkennung** (Standardeinstellung) zeigt das VIS 2-Widget alle vom Adapter erstellten Räume an (siehe unten). `rooms.*` einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
@@ -330,7 +334,7 @@ Der Kartenrenderer verwendet die optionale native `canvas` Paket. Falls unter Li
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Installieren Sie keine alte Version manuell. `canvas` Version 2.x in das Adapterverzeichnis einfügen.
+Installieren Sie keine alte Version manuell. `canvas` Version 2.x in das Adapterverzeichnis.
 
 ### Mehrere Roboter
 
@@ -349,9 +353,18 @@ Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adap
     ### **WORK IN PROGRESS**
     * ()
 -->
-### **WORK IN PROGRESS**
+### 6.2.1 (2026-10-29)
+
+* (bluefox) Fixed the release checks that stopped the publication of 6.2.0; this version contains all changes of 6.2.0
+
+### 6.2.0 (2026-10-29)
 
 * (xXBJXx) Documented how new models are supported and rewrote the GitHub issue templates as English forms
+* (bluefox) Roborock devices are no longer controlled by a manually selected Dreame/Xiaomi MIoT manager; the adapter warns and uses the Roborock manager instead (#1250)
+* (bluefox) The Dreame/Xiaomi MIoT manager reports devices that answer `unknown_method` instead of logging the command as successful (#1250)
+* (bluefox) Clarified the manager selection in the instance settings (#1250)
+* (bluefox) Admin and widget dependencies moved into `src-admin` and `src-widgets`; replaced `chai` with `node:assert` and `qs` with `URLSearchParams`
+* (bluefox) Node.js 22.19 or newer is required
 
 ### 6.1.0 (2026-09-08)
 
@@ -408,17 +421,6 @@ Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adap
 * (xXBJXx) Prevent delayed status callbacks from losing their manager context and terminating the adapter
 * (xXBJXx) Validate cloud sessions, cloud responses, room objects and optional configuration values before use
 * (xXBJXx) Redact device tokens, cloud sessions, cookies, login URLs and complete API payloads from normal logs
-
-### 5.3.0 (2025-07-24)
-
-* (dirkhe) update dependecies
-* (dirkhe) replace request with axios
-* (dirkhe) fix login issues by replacing and moving code to XiaomiCloudConnector
-
-### 5.2.0 (2025-01-22)
-
-* (dirkhe) add IP Adress to info
-* (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
 ## License
 

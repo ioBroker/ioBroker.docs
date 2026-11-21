@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-jsontemplate/README.md":{"title":{"en":"JSONTemplate - Adapter to visualize JSON data and other data in Vis/Vis2"},"content":"en/adapterref/iobroker.vis-jsontemplate/README.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-tasklist.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-tasklist.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md":{"title":{"en":"Creating Templates with AI"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md":{"title":{"en":"Templates mit KI erstellen"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-jsontemplate/README.md":{"title":{"en":"JSONTemplate - Adapter to visualize JSON data and other data in Vis/Vis2"},"content":"en/adapterref/iobroker.vis-jsontemplate/README.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-tasklist.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-tasklist.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-configurable-gauge.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-configurable-gauge.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md":{"title":{"en":"Creating Templates with AI"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md":{"title":{"en":"Templates mit KI erstellen"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: 79JU88C6RRqGDVfAdSbiTeA8E554Sr49Aui3WU/88A0=
+hash: hq+wZ1QWyNk8xeBGuwpqWaDMh9jZeQX2nQzUCN2ZxHI=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 
@@ -168,6 +168,7 @@ In den obigen Beispielen wurde nur die reine Ausgabe betrachtet. Die Vorlage kan
 - [Aufgabenliste für Anwendungsfälle](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-tasklist.md)
 - [Anwendungsfall: öffentlicher Verkehr](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md)
 - [Anwendungsfall: einfaches Messgerät](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md)
+- [Anwendungsfall: Konfigurierbares segmentiertes Messgerät](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-configurable-gauge.md)
 - [Anwendungsfall: GitHub-Issues und Pull Requests](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md)
 - [Anwendungsfall FRITZ!Box Anrufliste](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md)
 
@@ -374,6 +375,18 @@ Iteriere über die Attribute eines Objekts
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-11-12)
+
+- fix optional vis-2 dependency
+
+### 5.0.0 (2026-10-28)
+
+- (oweitman) Migrated to React 19 and MUI 9 (vis-2 >= 2.20.0 is required now
+
+### 4.6.3 (2026-10-28)
+
+- last valid version for vis-2 with react 18 (vis-2 version <=2.15.4)
+
 ### 4.6.1 (2026-07-31)
 
 - Improved error output.
@@ -385,35 +398,6 @@ Iteriere über die Attribute eines Objekts
 #### Changes 2026-07-30
 
 - add optional variable names to extra datapoints
-
-### 4.5.0 (2026-07-29)
-
-- some changes. see readme/below
-
-#### Changes 2026-07-29
-
-- repair widget rendering
-- add search and fullscreen to ejs-edit for vis-2 widget
-- improve ki documentation for regex expressions
-- improve vis-2 ejs edit theme for dark mode
-
-### 4.4.5 (2026-07-22)
-
-- fix packages for vis-2
-
-### 4.4.4 (2026-07-22)
-
-- some changes. see readme/below
-
-#### Changes 2026-07.22
-
-- change documentation that in the template the widgetid is available and not widgetID
-- add documentation for the usecase simple gauge
-- add documentation for a responsive FRITZ!Box call list
-- Due to an inconsistency between the vis1 and vis2 widgets,
-  both `widgetid` and `widgetID` are now passed to the template.
-
-[Older changelogs can be found there](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

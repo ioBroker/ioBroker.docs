@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
+hash: kBIdleb9NToJMugTRpoQnqIWO6I/BH96dqEFDN01R8M=
 ---
 ![Logo](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/plex-installed.svg)
-![Stabile Version](http://iobroker.live/badges/plex-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.plex.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/plex-installed.svg)
+![Stabile Version](https://iobroker.live/badges/plex-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.plex.svg)
 ![Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.plex.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)
@@ -45,6 +45,10 @@ Integration des Plex Media Servers in ioBroker (mit oder ohne Plex Pass). Außer
 - Abrufen `settings`
 - Alle Daten von steuerbaren Clients abrufen
 - Weboberfläche, die die letzten Ereignisse von Plex anzeigt:![Plex-Weboberfläche](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
+- Dashboard-Kacheln (Webkomponenten) für Aura, vis-2, ioBroker.devices und andere Hosts, jeweils mit der Instanz als Einstellung:
+  - `iob-plex-now-playing` - Was wird gerade von welchem Spieler abgespielt: Cover, Titel, Benutzername, Fortschritt und Wiedergabe/Pause, Überspringen und Stopp für steuerbare Spieler. Einstellungen: Nur ein Spieler, Karten oder kompakte Liste, pausierte Streams anzeigen, Cover, Steuerung
+  - `iob-plex-activity` Die neuesten Ereignisse sind nach Tagen gruppiert; ein Klick zeigt die Details. Einstellungen: Anzahl der Ereignisse, nur Wiedergabeereignisse, Cover
+  - `iob-plex-stats` - Beliebteste Nutzer und Bibliotheken nach Wiedergabezeit für 24 Stunden, 7 Tage, 30 Tage oder insgesamt (nur mit Tautulli). Einstellungen: Zeitraum, Nutzer und/oder Bibliotheken, Einträge pro Liste
 
 ## 2. Installationsanleitung
 
@@ -145,10 +149,17 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ die folgenden Ka
 Dieser Adapter wäre ohne die großartige Arbeit von @Zefau ( <https://github.com/Zefau> ), der ihn bis 2021 entwickelt und gepflegt hat, nicht möglich gewesen.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (GermanBluefox) Added dashboard tiles for Aura and other dashboards: now playing with controls, recent activity and Tautulli watch statistics
+
 ### 3.0.0 (2026-08-16)
 - (bluefox) Breaking: Admin 8 or newer is now required — the configuration UI no longer runs under Admin 7.
 - (bluefox) Dependencies have been updated.

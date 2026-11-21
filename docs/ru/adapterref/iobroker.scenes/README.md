@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: адаптер сцен ioBroker
-hash: W+Jc+R/8QT/FJXCVFhTA+mTndHRZvVFGRJT1uWPAwGk=
+hash: k3/P+FkPdljPf5ebiZYtZ6rSz00yPV7EhgYy9Th0yLU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
-![Количество установок](http://iobroker.live/badges/scenes-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.scenes.svg)
+![Количество установок](https://iobroker.live/badges/scenes-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.scenes.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.scenes.svg)
@@ -88,9 +88,9 @@ _Адаптер scenes_ может создавать сцены и выполн
 
 Это бесполезно, но в качестве примера подходит.
 
-Если вы вручную включите один светильник, значение будет следующим: `scene.allLightInBath` перейдет в **неопределенное положение** .
+Если вы вручную включите один светильник, значение `scene.allLightInBath` перейдет в **неопределенное положение** .
 
-Задержки могут использоваться и в **группе** , но состояния с задержкой не участвуют в расчетах текущего значения **группы** .
+Задержки также могут использоваться в **группе** , но состояния с задержкой не участвуют в расчетах текущего значения **группы** .
 
 ## Виртуальные группы
 
@@ -105,6 +105,12 @@ _Адаптер scenes_ может создавать сцены и выполн
 - `min` - минимальное значение всех состояний в группе.
 - `max` - максимальное значение всех состояний в группе.
 - `avg` - среднее значение всех штатов в группе.
+
+## Участники из различных категорий (помещения и мероприятия)
+
+Вместо отдельных состояний вы можете добавить все устройства комнаты и/или функции как один элемент сцены. Список устройств рассчитывается в начале работы адаптера, поэтому новые устройства в этой комнате или функции добавляются автоматически.
+
+С помощью «Фильтра по имени (регулярное выражение)» можно выбрать только некоторые устройства из категории. Фильтр представляет собой регистронезависимое регулярное выражение, которое проверяется по идентификатору и именам (на всех языках) устройств. Например, фильтр `left` Из комнаты «Кухня» берут только лампочки. `CL left 01`... `CL left 05` и фильтр `^CL (left|right) 0[1-3]$` Только первые три лампочки обеих лампочек.
 
 ## Сохраните фактические состояния как сцену.
 
@@ -152,16 +158,64 @@ sendTo(
 );
 ```
 
+## Остановить съемку движущегося объекта
+
+Если сцена содержит элементы с задержкой или интервалом воспроизведения, она выполняется в течение некоторого времени. Чтобы остановить её, напишите `stop` в состояние сцены (например, из визуализации или скрипта):
+
+```js
+setState('scene.0.SCENE_ID', 'stop');
+```
+
+или отправьте сообщение адаптеру:
+
+```js
+sendTo(
+    'scenes.0', 
+    'stop', 
+    'scene.0.SCENE_ID', 
+    result => result.error ? console.error(result.error) : console.log(result.result) // optional
+);
+```
+
+Все отложенные команды этой сцены, которые еще не выполнены, будут отменены. Уже записанные значения остаются неизменными, и сцена сохраняет свои значения. Виртуальные группы не останавливаются при записи. `stop` Они, как обычно, передают эту ценность своим членам.
+
+## Сообщения для скриптов и агентов искусственного интеллекта.
+
+Сообщение `help` Возвращает описание адаптера, его сообщений и способов активации сцен, написанное для агентов ИИ (например, pi-agent) и авторов скриптов. Ответ `{help, commands}` также перечисляет все команды, каждая из которых содержит `write: true` Если это что-то изменит:
+
+```js
+sendTo('scenes.0', 'help', {}, result => console.log(result.help));
+```
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.4.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages and of the scene states for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 5.3.0 (2026-11-09)
+* (@GermanBluefox) Added the web component `iob-scenes-scene` - the devices widget "Scene Button" for Aura and other hosts (`common.webComponents`); the name and the description of the devices widget are translated into all languages now
+* (copilot) Adapter requires node.js >= 22.19.0 now
+
+### 5.2.0 (2026-10-24)
+* (reloxx13) Recognize uppercase and mixed-case boolean scene commands, so nested scenes receive FALSE correctly (#475)
+* (@GermanBluefox) The state of a scene, that controls other scenes with "TRUE"/"FALSE", is now detected correctly and is not "uncertain" anymore (#475)
+* (@GermanBluefox) Scenes as members of another scene now get the TRUE/FALSE selector, so the desired values are stored as booleans (#475)
+* (@GermanBluefox) A scene, whose members match TRUE and FALSE at the same time, does not jump from FALSE to TRUE anymore (#267)
+* (@GermanBluefox) The search in the scene list is now case-insensitive (#364)
+* (@GermanBluefox) Updated "@iobroker/testing" to 6.3.1 and removed the direct "mocha" dependency
+* (@GermanBluefox) A running scene can be stopped by writing "stop" into the scene state or with the message "stop". All delayed commands of the scene are cancelled (#42)
+* (@GermanBluefox) Added the name filter (regular expression) for members from categories, e.g., to take only some lamps of a room (#457)
+
 ### 5.1.0 (2026-09-03)
 * (@GermanBluefox) Added the option "Only on change" for the triggers, so a state that is written again with the same value does not activate the scene anymore. It is enabled by default and can be switched off for every trigger
 * (@GermanBluefox) The trigger value is now selected from a list if the trigger state is boolean or has "common.states"
@@ -171,19 +225,6 @@ sendTo(
 * (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 * (@SimonFischer04) Corrected the virtual group aggregation for the "any" mode
 * (@SimonFischer04) Added "sum" as a virtual group function
-
-### 5.0.1 (2026-08-06)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Added widget for "devices" adapter
-* (@GermanBluefox) GUI migrated to React 19 + MUI 9
-
-### 4.0.4 (2025-10-20)
-* (@GermanBluefox) Corrected the selection of multiple IDs in the scene editor
-
-### 4.0.3 (2025-07-20)
-* (agross) Canceled the cron tasks on the instance stop
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.scenes/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

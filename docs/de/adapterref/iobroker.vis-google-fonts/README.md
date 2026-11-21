@@ -3,61 +3,71 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-google-fonts/README.md
 title: ioBroker.vis-google-fonts
-hash: FYs/5Rb8c3qcFZ1h+9NcvTpYvFAe6iewO19VpOiRrSk=
+hash: JKlsy84Gzvy/DTetiYnnMMgbOMTt2wK6pXs8R7Nebvk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-google-fonts/admin/vis-google-fonts.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/vis-google-fonts-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/vis-google-fonts-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-google-fonts.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-google-fonts.png?downloads=true)
 
-#ioBroker.vis-google-fonts
-Zusätzliche Schriftarten für ioBroker.vis
+# ioBroker.vis-google-fonts
 
-## Verwendungszweck
-Installieren Sie Schriftarten und verwenden Sie das Feld **CSS->font-family**.
-![Wie benutzt man](../../../en/adapterref/iobroker.vis-google-fonts/img/usage.png)
+Zusätzliche Schriftarten für ioBroker.vis und ioBroker.vis-2
 
-Schriftarten: ![Schriftarten](../../../en/adapterref/iobroker.vis-google-fonts/img/fonts.png)
+## Verwendung
 
-Erweitern Sie iobroker.vis mit Google Fonts: https://www.google.com/fonts
+Installieren Sie Schriftarten und verwenden Sie das Feld **CSS->font-family** .![Anleitung zur Verwendung](../../../en/adapterref/iobroker.vis-google-fonts/img/usage.png)
 
-Folgende Schriftarten werden eingebunden:
+Schriftarten:![Schriftarten](../../../en/adapterref/iobroker.vis-google-fonts/img/fonts.png)
 
-- Alegreya - von Juan Pablo del Peral (juan@huertatipografica.com.ar)
-- Anton - von Vernon Adams (vern@newtypography.co.uk)
-- Arimo - von Apache 2.0
-- BadScript - von Cyreal (www.cyreal.org)
-- Bangers - von Vernon Adams (vern@newtypography.co.uk)
-- Candal - von Vernon Adams (vern@newtypography.co.uk)
-- Comfortaa - von Johan Aakerlund (aajohan@gmail.com)
-- DancingScript - von Pablo Impallari (www.impallari.com|impallari@gmail.com) und Igino Marini. (www.ikern.com|mail@iginomarini.com)
-- IndieFlower - von Kimberly Geswein (kimberlygeswein.com)
-- Jura - von Daniel Johnson (<il.basso.buffo@gmail.com>)
-- Hummer - von Pablo Impallari (www.impallari.com|impallari@gmail.com) und Alexei Vanyashin (www.cyreal.org|a@cyreal.org)
-- MarckScript - von Denis Masharov <denis.masharov@gmail.com> & Marck Fogel
-- Neucha - von Jovanny Lemonad (http://www.jovanny.ru)
+Erweitern Sie iobroker.vis mit Google Fonts: <https://www.google.com/fonts>
+
+Folgende Schriftarten werden verwendet:
+
+- Alegreya – von Juan Pablo del Peral ( <juan@huertatipografica.com.ar> )
+- Anton – von Vernon Adams ( <vern@newtypography.co.uk> )
+- Arimo - aus Apache 2.0
+- BadScript – von Cyreal ( [www.cyreal.org](http://www.cyreal.org) )
+- Knaller - von Vernon Adams ( <vern@newtypography.co.uk> )
+- Candal - von Vernon Adams ( <vern@newtypography.co.uk> )
+- Comfortaa - von Johan Aakerlund ( <aajohan@gmail.com> )
+- DancingScript – von Pablo Impallari ( [www.impallari.com|impallari@gmail.com](http://www.impallari.com|impallari@gmail.com) ) und Igino Marini. ( [www.ikern.com|mail@iginomarini.com](http://www.ikern.com|mail@iginomarini.com) )
+- IndieFlower – von Kimberly Geswein (kimberlygeswein.com)
+- Jura - von Daniel Johnson ( <il.basso.buffo@gmail.com> )
+- Hummer – von Pablo Impallari ( [www.impallari.com|impallari@gmail.com](http://www.impallari.com|impallari@gmail.com) ) und Alexei Vanyashin ( [www.cyreal.org|a@cyreal.org](http://www.cyreal.org|a@cyreal.org) )
+- MarckScript – von Denis Masharov <denis.masharov@gmail.com> & Marck Fogel
+- Neucha – von Jovanny Lemonad ( <http://www.jovanny.ru> )
 - OpenSans-Condensed - Apache 2.0
-- Pacifico - von Vernon Adams (vern@newtypography.co.uk)
-- Spielen - von Jonas Hecksher, Playtypes, e-types AS (e-types.com)
-- PoiretOne - von Denis Masharov (denis.masharov@gmail.com)
-- PressStart2P - von Cody "CodeMan38" Boisclair (cody@zone38.net)
+- Pacifico – von Vernon Adams ( <vern@newtypography.co.uk> )
+- Play – von Jonas Hecksher, Playtypes, e-types AS (e-types.com)
+- PoiretOne – von Denis Masharov ( <denis.masharov@gmail.com> )
+- PressStart2P – von Cody „CodeMan38“ Boisclair ( <cody@zone38.net> )
 - RobotoCondensed - Apache 2.0
-- RubikMonoOne - von Hubert und Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com)
-- RubikOne-Regular - von Hubert und Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com)
-- RuslanDisplay - von Denis Masharov <denis.masharov@gmail.com>
-- RussoOne-Regular - von Jovanny Lemonad (jovanny.ru)
-- ShadowsIntoLight - von Kimberly Geswein (kimberlygeswein.com)
-- SigmarOne - von Vernon Adams (vern@newtypography.co.uk)
-- StalinistOne - von Alexey Maslov, Jovanny Lemonad (lemonad@jovanny.ru)
-- Ubuntu - UBUNTU SCHRIFTARTLIZENZ Version 1.0
+- RubikMonoOne – von Hubert und Fischer, Philipp Hubert ( <philipp@hubertfischer.com> ), Sebastian Fischer ( <sebastian@hubertfischer.com> )
+- RubikOne-Regular – von Hubert und Fischer, Philipp Hubert ( <philipp@hubertfischer.com> ), Sebastian Fischer ( <sebastian@hubertfischer.com> )
+- RuslanDisplay – von Denis Masharov <denis.masharov@gmail.com>
+- RussoOne-Regular – von Jovanny Lemonad (jovanny.ru)
+- ShadowsIntoLight – von Kimberly Geswein (kimberlygeswein.com)
+- SigmarOne – von Vernon Adams ( <vern@newtypography.co.uk> )
+- StalinistOne – von Alexey Maslov, Jovanny Lemonad ( [limonad@jovanny.ru](mailto:lemonad@jovanny.ru) )
+- Ubuntu – UBUNTU-SCHRIFTARTLIZENZ Version 1.0
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### __ARBEITEN IN PROGRESS__ -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (bluefox) Added vis-2 to restartAdapters and fixed the restart of vis instances after the fonts are updated (#47)
+
+### 1.0.4 (2022-10-08)
+* (Apollon77) prepare for future js-controller versions
+
 ### 1.0.3 (2021-11-11)
 * (bluefox) Support of compact mode added
 
@@ -119,7 +129,7 @@ Folgende Schriftarten werden eingebunden:
  
  Copyright (c) 2012, Cody "CodeMan38" Boisclair (cody@zone38.net), with Reserved Font Name "Press Start 2P"
  
- Copyright (c) 2013, 2014, Hubert and Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com)
+ Copyright (c) 2013-2026, 2014, Hubert and Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com)
  
  Copyright (c) 2013, 2014, Hubert and Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com)
  

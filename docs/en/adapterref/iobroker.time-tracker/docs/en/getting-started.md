@@ -79,7 +79,7 @@ at once — the PWA shows a screen of its own for it. After that:
    releases the working time of today on their tile (`1:23`, without a punch `0:00`). The card is visible to everybody
    even **before** the PIN is entered, so the administration decides that per employee — the default is **off**.
 2. **Administration → Terminals**: create a terminal (PIN required on), **copy the device token** and open the displayed
-   address `…/terminal?token=…` on the tablet — that was the kiosk step of T4. Without **PIN required** the device
+   address `…/terminal/<token>/` on the tablet — that was the kiosk step of T4. Without **PIN required** the device
    punches without a PIN: scanning a badge or selecting the name is enough. A wrong PIN is still refused.
 3. **Administration → Settings**: set `report_font_path` to a Unicode `.ttf`/`.otf` if statements are to be printed in
    **ru**, **uk** or **zh-cn** (otherwise the export refuses with `report_font_missing`).

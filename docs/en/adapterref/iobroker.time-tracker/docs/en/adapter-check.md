@@ -21,7 +21,7 @@ the rule it applies:
 | (tsconfig)         | `@tsconfig/nodeNN` matches the minimum Node version                                                         |
 | (generate-adapter) | `.create-adapter.json` → `nodeVersion` matches `engines.node`                                               |
 | W5052/W5053        | every `"type": "password"` in `admin/jsonConfig.json` is in `protectedNative` **and** `encryptedNative`     |
-| E5049/E5050        | no `process.env`/`process.exit` in the source code as long as `common.compact` is not `true`                |
+| E5049/E5050        | no `process.env`/`process.exit` in the source code (the adapter may share a process in compact mode)       |
 | W8918              | no ioBroker workflow action without a version tag (`@main`/`@master`)                                       |
 | W6021              | `## License` is the **last** section of `README.md`                                                         |
 | E510               | `common.news` of the newest version contains all 11 languages                                               |
@@ -56,8 +56,7 @@ metadata still comes from GitHub. For higher GitHub rate limits a token can be p
 
 ## Deliberate deviations
 
-- `common.compact: false` — the adapter binds its own HTTP port and keeps an SQLite file (`WAL`) open for its whole
-  run time; it therefore runs as a process of its own on purpose. The local check reports that as a **note**, the
-  official checker as a warning (`W5049`).
+- `common.compact: true` since 20.11.2026 (before `false`, see decision D2): the compact group of the instance decides
+  whether the adapter shares a process; group `0` keeps it in a process of its own.
 - No `process.env`/`process.exit` in the source code: the configuration comes exclusively from `adapter.config`, and the
-  adapter lifecycle ends the process. That meets the requirement the checker otherwise makes of the compact mode.
+  adapter lifecycle ends the process. In a shared process an exit would end the other adapters as well.

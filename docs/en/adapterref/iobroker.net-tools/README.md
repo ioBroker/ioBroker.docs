@@ -113,6 +113,12 @@ The command `'wol'` works as well. Returns `true` if the packets were sent.
 
 `ports` is optional, without it the port list from the adapter settings is used. Returns `{ host, ports: [open ports], error? }`.
 
+#### Description of all messages
+
+`sendToAsync('net-tools.x', 'help', {})`
+
+Returns `{ help, commands }`: a description of all messages and of the states, written for AI agents (e.g. ioBroker.pi-agent) and script authors. `commands` lists every message with `write: true` if it changes something.
+
 #### Blockly
 
 The adapter provides Blockly blocks in the "SendTo" category of the JavaScript adapter:
@@ -126,6 +132,9 @@ The adapter provides Blockly blocks in the "SendTo" category of the JavaScript a
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
 ### 1.3.0 (2026-10-11)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 - (copilot) Adapter requires node.js >= 22 now

@@ -19,6 +19,9 @@ BADGE-Installed: https://iobroker.live/badges/node-red-installed.svg
 # ioBroker.node-red
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added an upgrade message for users coming from 6.x (#687)
+
 ### 7.1.0 (2026-10-19)
 * (@GermanBluefox) The tab in admin runs through the port of admin
 * (@GermanBluefox) The port Node-RED really listens on is reported to the registry of used resources of js-controller 8

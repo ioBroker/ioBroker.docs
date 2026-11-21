@@ -1,14 +1,19 @@
 ---
+BADGE-Number of Installations: https://iobroker.live/badges/mihome-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mihome.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.mihome/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/mihome/svg-badge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mihome.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome/README.md
 title: mihome Gateway
-hash: VQpv9I7wuuzK9GjB3Iss7RQqQwkZm/KkqUN7e3oNqD4=
+hash: 52peR1+s+j45o8kOiSfUU2PSIqxo2S+vuaqQsjCYFGA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome/admin/mihome.png)
 
-![Количество установок](http://iobroker.live/badges/mihome-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mihome.svg)
+![Количество установок](https://iobroker.live/badges/mihome-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.mihome.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.mihome/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mihome/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome.svg)
@@ -164,15 +169,22 @@ hash: VQpv9I7wuuzK9GjB3Iss7RQqQwkZm/KkqUN7e3oNqD4=
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 2.0.2 (2026-11-21)
+* (@GermanBluefox) Raised the minimal admin version to 7.6.17
+* (@GermanBluefox) Added Ukrainian translations
+
+### 2.0.1 (2026-10-08)
+* (@GermanBluefox) Updated packages
+
 ### 2.0.0 (2026-09-10)
-* (bluefox) The adapter was refactored to TypeScript and the configuration was migrated to JsonConfig
-* (bluefox) __Breaking:__ Node.js >= 22, js-controller >= 6.0.11 and admin >= 7 are required now
-* (bluefox) The reports of the curtain are no longer written into a `state` object that does not exist
-* (bluefox) Fixed the `open`, `close` and `stop` states of the curtain: the reported status was never evaluated
+* (@GermanBluefox) The adapter was refactored to TypeScript and the configuration was migrated to JsonConfig
+* (@GermanBluefox) __Breaking:__ Node.js >= 22, js-controller >= 6.0.11 and admin >= 7 are required now
+* (@GermanBluefox) The reports of the curtain are no longer written into a `state` object that does not exist
+* (@GermanBluefox) Fixed the `open`, `close` and `stop` states of the curtain: the reported status was never evaluated
 
 ### 1.4.0 (2022-03-10)
 * (drtsb) Added two new aqara devices and some missing icons
@@ -181,14 +193,6 @@ hash: VQpv9I7wuuzK9GjB3Iss7RQqQwkZm/KkqUN7e3oNqD4=
 
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent a crash case (Sentry IOBROKER-MIHOME-A)
-
-### 1.3.6 (2020-09-25)
-* (VLGorskij) Added new device QBKG24LM
-
-### 1.3.5 (2020-09-17)
-* (Apollon77) Fix crash cases (Sentry IOBROKER-MIHOME-1..4)
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.mihome/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -3,19 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zoneminder/README.md
 title: ioBroker.zoneminder
-hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
+hash: EZ9OpCSj3fBV7owGrzTbL7W2uPTkTPJwxHvR6/JzBi0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zoneminder/admin/zoneminder.png)
 
-![Количество установок](http://iobroker.live/badges/zoneminder-installed.svg)
-![Стабильная версия](http://iobroker.live/badges/zoneminder-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.zoneminder.svg)
+![Количество установок](https://iobroker.live/badges/zoneminder-installed.svg)
+![Стабильная версия](https://iobroker.live/badges/zoneminder-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.zoneminder.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zoneminder.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.zoneminder.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)
 
 # ioBroker.zoneminder
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 ## Адаптер Zoneminder для ioBroker
 
@@ -23,11 +24,11 @@ hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
 
 ## Начиная
 
-Введите адрес вашего хоста, например, ' <http://zoneminder/zm> '. Имя пользователя и пароль остаются неизменными: 'admin'. Если у вас нет аутентификации, не меняйте имя пользователя или пароль.
+Введите адрес вашего хоста, например, ' <http://zoneminder/zm> '. Имя пользователя и пароль остаются неизменными: 'admin'. Если у вас нет аутентификации, не меняйте имя пользователя и пароль.
 
 Интервал работы устройства предназначен для проверки новых камер и некоторой базовой информации. Значение указывается в секундах. Интервал мониторинга предназначен для проверки оповещений, значение также указывается в секундах.
 
-Для получения информации об оповещениях установите zmEventNotification в ZoneMinder и включите его в настройках ioBroker.
+Для получения уведомлений об оповещениях установите zmEventNotification в ZoneMinder и включите его в настройках ioBroker.
 
 ### Настройки Zoneminder
 
@@ -40,23 +41,29 @@ hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-10-20)
+- (mcm1957) IMPORTANT: password must be reentered once to to added encryption
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (bluefox) Adapter required node.js >= 22 now
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) `request` / `request-promise` were replaced by `axios`
+- (bluefox) Fixed crashes (unreachable host, no enabled monitor), multiplying login timers and websocket connections, polling that stopped after one error
 * (mcm1957) Dependencies have been updated
 
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
-* (MeisterTR) add ZmEvents
-* (MeisterTR) Select moniorfunction and disable/enable monitor
+* (MeisterTR) added ZmEvents
+* (MeisterTR) Selected monitor function and disabled/enabled monitor
+
 ### 0.2.1
-* (MeisterTR) add info states
-* (MeisterTR) add camera-link with auth-key
-* (MeisterTR) cange video link
+* (MeisterTR) added info states
+* (MeisterTR) added camera-link with auth-key
+* (MeisterTR) changed video link
+
 ### 0.1.0
 * (MeisterTR) First running version
+
 ### 0.0.1
 * (MeisterTR) initial release
 

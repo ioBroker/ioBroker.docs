@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sayit/README.md
 title: ioBroker Sayit-Adapter
-hash: BP8TzXMcwx9s4XbFXcpeZG7WZoH/KN2HPkIEXRkdYiw=
+hash: A6qaHOVK/4pRMXRx+uRimgtJ8twX99PPlctxbYNK8Vk=
 ---
 ![Logo](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/sayit-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sayit.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/sayit-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.sayit.svg)
 ![Test und Freigabe](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sayit.svg)
@@ -23,7 +23,7 @@ Der SayIt-Adapter kann Text in Sprache umwandeln und auf bestimmten Geräten wie
 
 Tatsächlich werden folgende Ausgaben unterstützt:
 
-- _Browser_ – der Browser spielt den Text innerhalb des geöffneten Bereichs ab. `iobroker.vis` Seite. Sie wird von nahezu allen Desktop-Browsern und einigen mobilen Browsern unterstützt.
+- _Browser_ – der Browser spielt den Text innerhalb des geöffneten Bereichs ab. `iobroker.vis` Seite. Sie wird von nahezu allen Desktop-Browsern und einigen mobilen Browsern unterstützt. Wenn „Vis-Instanzen“ auf _Aura-Dashboards_ eingestellt ist, wird der Text stattdessen in den geöffneten [Aura-](https://github.com/hdering/ioBroker.aura) Dashboards angezeigt. „Browserinstanz“ akzeptiert dann eine durch Kommas getrennte Liste von Aura-Client-IDs. `FFFFFFFF` für jedes Dashboard.
 
 - _[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)_ – Der Text wird an das Android-Gerät mit installiertem Home24-MediaPlayer gesendet und dort wiedergegeben. Hierfür wird die in Android integrierte Text-to-Speech-Funktion verwendet. Der Port kann nicht geändert werden und muss auf 50000 eingestellt sein.
 
@@ -37,7 +37,25 @@ Tatsächlich werden folgende Ausgaben unterstützt:
 
 - _HEOS_ – Textwiedergabe auf HEOS-Geräten. Stellen Sie sicher, dass der Webadapter aktiviert ist. Er ist erforderlich, damit HEOS die generierten MP3-Dateien abspielen kann.
 
+- _Squeezebox_ – Wiedergabe von Text auf einem Player des Logitech Media Servers (Lyrion) mit dem [Squeezebox-RPC](https://github.com/oweitman/ioBroker.squeezeboxrpc) -Adapter (Version 2.0.0 oder neuer). Der Text wird in den Zustand geschrieben. `Announce` Der Player wird daher angehalten und anschließend fortgesetzt. Die Lautstärke der Ansage wird im SqueezeboxRPC-Adapter konfiguriert. Stellen Sie sicher, dass der Web-Adapter aktiviert ist, damit der Medienserver die generierten MP3-Dateien lesen kann.
+
+- _WiiM / LinkPlay_ – Textwiedergabe auf einer WiiM, einem Arylic oder einem anderen LinkPlay-basierten Streamer mit dem [WiiM-](https://github.com/KaiIOB/ioBroker.wiim) Adapter. Auf Arylic-Geräten mit Firmware 4.6.415145 oder neuer und anderen LinkPlay-Geräten wird der Link zur Datei im Status gespeichert. `playPromptUrl` Der Streamer unterstützt diese Funktion nicht. Die Datei wird als Benachrichtigung abgespielt: Die aktuelle Wiedergabe wird unterbrochen und anschließend fortgesetzt. `playPromptUrl` Der Link wird also in den Zustand geschrieben. `play_URL` Die aktuelle Wiedergabe wird nach der Ansage angehalten und nicht fortgesetzt. Die Ansage wird mit der aktuellen Lautstärke des Streamers wiedergegeben. Stellen Sie sicher, dass der Webadapter aktiviert ist, damit der Streamer die generierten MP3-Dateien lesen kann.
+
+- _Assistentensatelliten_ – Text wird über die Sprachsatelliten des [Assistentenadapters](https://github.com/ioBroker/ioBroker.assistant) wiedergegeben. Wählen Sie die Instanz aus (z. B. `assistant.0`) den Text auf allen Satelliten (Zustand) abzuspielen `tts.text`) oder ein Satellit (Staat `satellites.<id>.tts` Der Text wird mit der in sayit ausgewählten Stimme vorgelesen. Der Assistant-Adapter spielt lediglich die generierte MP3-Datei ab und benötigt daher [ffmpeg](https://ffmpeg.org/) auf dem Hostsystem. Stellen Sie sicher, dass der Web-Adapter aktiviert ist, damit der Assistant-Adapter die generierten MP3-Dateien lesen kann.
+
+- _Alexa_ – Text auf einem Echo-Gerät (oder einer Gruppe) mit dem [Alexa2-](https://github.com/Apollon77/ioBroker.alexa2) Adapter vorlesen. Alexa spricht den Text mit ihrer **eigenen Stimme** , daher werden die Stimme (Engine) von sayit, der Cache und der Ansageton nicht verwendet und Audiodateien (MP3, WAV) können nicht abgespielt werden. Der Text wird im Zustand gespeichert. `Commands.speak` oder `Commands.announcement` (Mit dem Alexa-Signalton, nur wenn Benachrichtigungen für das Gerät aktiviert und „Nicht stören“ deaktiviert sind). Längere Texte werden in Blöcke von 250 Zeichen unterteilt, die Lautstärke wird vor dem Text eingestellt und anschließend vom Alexa2-Adapter wiederhergestellt. Da Alexa über die Cloud spricht, kann sayit die Textdauer nur schätzen, bevor der nächste Text gesendet wird.
+
+- _Fully Kiosk Browser_ – Textwiedergabe auf einem Android-Tablet mit [Fully Kiosk Browser](https://www.fully-kiosk.com) und dem [Fullybrowser-](https://github.com/arteck/ioBroker.fullybrowser) Adapter (Version 3.0.5 oder neuer). Der REST-Befehl `playSound` wird über den Staat gesendet `Commands.setRAW` des Geräts und die Lautstärke wird über `Commands.setAudioVolume` Stellen Sie sicher, dass der Webadapter aktiviert ist, damit das Tablet die generierten MP3-Dateien lesen kann.
+
+- _Bose SoundTouch_ – Wiedergabe von Text auf einem Bose SoundTouch-Lautsprecher des [Bose SoundTouch-](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch) Adapters (eine Instanz pro Lautsprecher). Sayit sendet den Link zur Datei direkt an die Benachrichtigungsschnittstelle. `/speaker` Der Lautsprecher sendet eine Ansage über Port 8090, sodass die aktuelle Wiedergabe pausiert und anschließend fortgesetzt wird. Diese Funktion wird nur von einigen Modellen unterstützt (z. B. SoundTouch 10, 20 und 30 Series III), andere Modelle weisen die Ansage zurück (siehe Protokoll). Der Lautsprecher prüft den App-Schlüssel in der Bose Cloud, die am 6. Mai 2026 abgeschaltet wurde. Ohne einen Ersatz für die Bose Cloud (z. B. den Dienst des [Bose SoundTouch Toolkits](https://gesellix.github.io/Bose-SoundTouch/) , der jeden gültigen Schlüssel akzeptiert) kann der Lautsprecher die Ansage ablehnen. Stellen Sie sicher, dass der Web-Adapter aktiviert ist, damit der Lautsprecher die generierten MP3-Dateien lesen kann.
+
+- _Kodi_ – Textwiedergabe auf Kodi mit dem [Kodi-](https://github.com/iobroker-community-adapters/ioBroker.kodi) Adapter (eine Instanz pro Kodi). Der Link zur Datei wird im Status gespeichert. `open` Der Kodi-Adapter löscht die Musik-Playlist von Kodi und wechselt in den Vollbildmodus. Die aktuelle Wiedergabe wird daher gestoppt und nach dem Text **nicht fortgesetzt** . Die Datei wird mit der tatsächlichen Lautstärke von Kodi wiedergegeben. Stellen Sie sicher, dass der Web-Adapter aktiviert ist, damit Kodi die generierten MP3-Dateien lesen kann.
+
+- _Asterisk (Telefonanruf)_ – Rufen Sie eine Telefonnummer mit dem [Asterisk-](https://github.com/schmupu/ioBroker.asterisk) Adapter an und spielen Sie den Text während des Anrufs ab. sayit sendet den Pfad der generierten MP3-Datei mit dem Befehl `dial` Sayit wird an den Asterisk-Adapter weitergeleitet, der das Signal in GSM umwandelt und an den Asterisk-Server sendet. Sayit und der Asterisk-Adapter **müssen daher auf demselben Host laufen** . Jeder Text wird als separater Anruf verarbeitet, daher wird kein Ansageton abgespielt. Telefonnummer, Anrufer-ID und die Anzahl der Wiederholungen werden in der Konfiguration festgelegt; Telefonnummer und Anrufer-ID können auch direkt angegeben werden. `say` Nachricht (`asteriskTelnr`, `asteriskCallerId`).
+
 - _Chromecast_ – Text auf einem Chromecast-Gerät abspielen.
+
+- _Google Home_ – Text wird auf einem Google Home-Gerät oder einem anderen Cast-Gerät, das direkt von Google gesteuert wird, wiedergegeben. Die aktuelle Wiedergabe (z. B. Musik von Spotify) wird angehalten und nach dem Text **nicht fortgesetzt** . Verwenden Sie den Ausgabetyp _Chromecast_ mit dem Chromecast-Adapter, wenn die Wiedergabe fortgesetzt werden soll.
 
 - _MPD_ – Wiedergabe von Text über den Musikplayer-Daemon. Verwenden Sie für den Webadapter ausschließlich **http** , nicht https.
 
@@ -62,6 +80,14 @@ Offline:
 - PicoTTS (nur Linux): Englisch, Deutsch, Italienisch, Spanisch, Französisch; Für PicoTTS müssen die folgenden Pakete installiert werden: `libttspico-utils` und lahm. Installationsbefehl: `sudo apt-get install libttspico-utils lame`
 
 - Coqui TTS: Englisch, Deutsch, Spanisch, Französisch, Niederländisch, Japanisch, Chinesisch; Anweisungen zur Verwendung finden Sie in der [offiziellen Dokumentation.](https://tts.readthedocs.io/en/latest/index.html)
+
+- Piper: Schnelle lokale Sprachausgabe in vielen Sprachen, z. B. die deutschen Stimmen von [Thorsten-Voice](https://www.thorsten-voice.de) . [Piper](https://github.com/OHF-Voice/piper1-gpl) läuft als HTTP-Server im lokalen Netzwerk (auf dem ioBroker-Host oder einem beliebigen anderen), sodass ein Server von mehreren Anwendungen genutzt werden kann. Es werden weder Internetverbindung noch weitere Tools auf dem ioBroker-Host benötigt. Installation des Servers (siehe [HTTP-API](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_HTTP.md) ):
+  ```
+  python3 -m pip install piper-tts[http]
+  python3 -m piper.download_voices de_DE-thorsten-high
+  python3 -m piper.http_server -m de_DE-thorsten-high --host 0.0.0.0 --port 5000
+  ```
+  Geben Sie die Adresse des Servers ein, z. B. `http://192.168.1.10:5000` In der Konfiguration. Die auf dem Server installierten Stimmen werden im Konfigurationsdialog angeboten.
 
 ### Test der Textgenerierung
 
@@ -100,16 +126,18 @@ Wenn der Dateiname irgendwo in der Mitte stehen muss, können Sie _%s_ verwenden
 
 `myCustomPlayer --option "%s" > /dev/null`
 
-Es wird dazu führen `myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null` davon.
+Es wird dazu führen `myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null` daraus.
 
 ## Verwendung
 
 Der SayIt-Adapter kann nicht eigenständig verwendet werden. Er muss über einen JavaScript-Adapter oder über „vis“ mit einem spezifischen Widget gesteuert werden. Nach der Erstellung der Adapterinstanz finden Sie die folgenden Objekte:
 
-- `sayit.N.tts.text`: Der auszusprechende Satz.
+- `sayit.N.tts.text`: Zu sprechender Satz.
 - `sayit.N.tts.volume` Lautstärke, die beim Abspielen des Satzes verwendet wird.
 - `sayit.N.tts.playing` Gibt „true“ zurück, wenn gerade ein Text abgespielt wird, andernfalls „false“. Wird nur für die Wiedergabemodi „Windows“ und „System“ unterstützt.
 - `sayit.N.tts.cachetext` Dieser Satz wird zwischengespeichert und kann dann offline verwendet werden. Sie können beispielsweise manuell „Kein Internet“ eingeben. Wenn ein Ping an google.com negativ ausfällt, schreiben Sie „Kein Internet“ in „tts.text“, und der Satz wird vorgelesen. Der Cache muss natürlich aktiviert sein.
+
+Die zwischengespeicherten Dateien werden im Cache-Verzeichnis gespeichert. Ein relativer Pfad ist relativ zu `iobroker-data/sayit` Ein absoluter Pfad wird unverändert verwendet. Der Standardwert für neue Instanzen ist `cache`, d.h. `iobroker-data/sayit/cache` Ältere Instanzen behalten `../../cache/`, d.h. `<ioBroker installation>/cache` Die
 
 Zustand `tts.text` Unterstützt eine erweiterte Syntax, sodass Sprache/Engine und Lautstärke zusammen mit dem Text definiert werden können. Dies wird verwendet, um mehrsprachige Text-zu-Sprache-Engines zu aktivieren. Beispiel: Wenn der Adapter über eine Engine verfügt `Google-english` Mit der Formulierung ist dies möglich. `de:Sag es` um die Verwendung der Google-Deutsch-Sprachausgabe zu erzwingen.
 
@@ -135,6 +163,10 @@ sendTo('sayit.0', 'say', {
 });
 ```
 
+### Nachrichten für Skripte und KI-Agenten
+
+`sendTo('sayit.0', 'help', {})` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten (z. B. `say` mit allen seinen Parametern) für KI-Agenten (z. B. pi-agent) und Skriptautoren sowie die Liste aller Befehle mit `write` (`true` (wenn der Befehl eine Wirkung hat, z. B. etwas abspielt).
+
 ### Prioritäten
 
 Um den Text trotz der in der Warteschlange befindlichen Texte sofort auszusprechen, haben Sie zwei Möglichkeiten:
@@ -157,7 +189,7 @@ Folgende Werte für Motoren sind möglich:
 - **es** - Spanisch
 - **fr** - Français
 - **nl** - Niederländisch
-- **zh-CN** - 简体中文
+- **zh-CN** – 简体中文
 - **pt** - Português
 
 #### FreeTTS
@@ -165,6 +197,12 @@ Folgende Werte für Motoren sind möglich:
 - **freeTTS** – Stimme, Geschwindigkeit und Tonhöhe werden aus der Instanzkonfiguration übernommen.
 
 Die Sprache ist Teil der Stimme, daher existiert nur ein Engine-Name. Die Stimme, z. B. `de-DE-KatjaNeural` Im Konfigurationsdialog wird diese Option ausgewählt, woraufhin die Liste aller verfügbaren Stimmen vom Dienst vorgelesen wird. Eine Anfrage ist auf 10.000 Zeichen begrenzt; längere Texte werden daher aufgeteilt und nacheinander vorgelesen.
+
+#### Pfeifer
+
+- **Piper** – Server, Stimme, Lautsprecher und Geschwindigkeit werden aus der Instanzkonfiguration übernommen.
+
+Wie bei FreeTTS ist die Sprache Teil der Stimme, z. B. `de_DE-thorsten-high` Wird keine Stimme ausgewählt, wird die Standardstimme des Servers verwendet.
 
 #### Yandex
 
@@ -311,40 +349,31 @@ Die Sprache ist Teil der Stimme, daher existiert nur ein Engine-Name. Die Stimme
 -->
 
 ## Changelog
-### 5.3.1 (2026-08-13)
-* (@GermanBluefox) Added the button "Test text generation" to the "Engine" tab, so the selected engine can be tested with an own text
-* (@GermanBluefox) Test generations do not overwrite the cached files anymore
-* (@GermanBluefox) Adapter requires node.js >= 22 and js-controller >= 6.0.11 now
-* (@GermanBluefox) Older changelog entries were moved to CHANGELOG_OLD.md
-* (@GermanBluefox) Updated the dependabot and auto-merge configuration
+### 5.7.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
-### 5.3.0 (2026-08-13)
-* (@GermanBluefox) Added freetts.org as a new TTS engine with more than 400 voices. An API key is required
-* (@GermanBluefox) The engine is selected in two steps now: first the provider and then the voice
-* (@GermanBluefox) The words of the Blockly block are translated into all 11 languages now
-* (@GermanBluefox) Blockly block migrated to TypeScript and the generated code is unchanged
+### 5.6.1 (2026-11-18)
+- (@GermanBluefox) Fixed: WiiM streamers use the state play_URL, as they do not support playPromptUrl (#537)
 
-### 5.2.4 (2026-08-07)
-* (@GermanBluefox) Corrected the upload of the announcement mp3 files and the location of the cache directory
-* (@GermanBluefox) Corrected the splitting of long texts for the Google engine
-* (@GermanBluefox) Corrected the detection of sonos devices in the configuration dialog
-* (@GermanBluefox) Cached files will be deleted again if the engine was changed
-* (@GermanBluefox) The queue does not block anymore if an error occurs by processing of a task
-* (@GermanBluefox) Texts with semicolons will not be interpreted as "language;volume;text" anymore
-* (@GermanBluefox) The local engines (PicoTTS, CoquiTTS) and the windows player are called without shell now
-* (@GermanBluefox) Corrected the default settings of a new instance
+### 5.6.0 (2026-11-04)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) Fixed: the announcement sound was overwritten by the following text, so external players (e.g. Squeezebox) said the text twice (#527)
+- (@GermanBluefox) Added the output type "WiiM / LinkPlay" for the streamers of the wiim adapter
+- (@GermanBluefox) Added the output type "Assistant satellites" for the voice satellites of the assistant adapter
+- (@GermanBluefox) Added the output type "Alexa" for the Echo devices of the alexa2 adapter
+- (@GermanBluefox) Added the output type "Bose SoundTouch" with the notification interface of the speaker, which resumes the playback
+- (@GermanBluefox) Added the output type "Kodi" for the kodi adapter
+- (@GermanBluefox) Added the output type "Asterisk (phone call)": the text is played in a phone call of the asterisk adapter
+- (@GermanBluefox) The configuration shows a hint for the output types, which do not restore the playback (Google Home, Kodi)
 
-### 5.1.0 (2025-09-17)
-* (bluefox) Adapter was rewritten with TypeScript
-* (bluefox) Updated Polly voices list
-* (bluefox) Added an option to send sonos device as a parameter in sendTo command
+### 5.5.0 (2026-10-27)
+* (@hdering) Added the Aura dashboards as a target of the output type "Browser" (#518)
+* (@GermanBluefox) Added the output type "Fully Kiosk Browser" for the tablets of the fullybrowser adapter
 
-### 5.0.0 (2024-07-16)
-* (mcm1957) Adapter requires admin v7 or newer now
-* (mcm1957) Adapter requires jas-controller 5 or newer now
-* (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sayit/blob/master/CHANGELOG_OLD.md)
+### 5.4.0 (2026-10-23)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
+* (@GermanBluefox) Added Piper as a new local TTS engine, e.g. with the voices of Thorsten-Voice (#398)
 
 ## License
 

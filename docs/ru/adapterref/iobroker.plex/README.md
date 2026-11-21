@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
+hash: kBIdleb9NToJMugTRpoQnqIWO6I/BH96dqEFDN01R8M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
-![Количество установок](http://iobroker.live/badges/plex-installed.svg)
-![Стабильная версия](http://iobroker.live/badges/plex-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.plex.svg)
+![Количество установок](https://iobroker.live/badges/plex-installed.svg)
+![Стабильная версия](https://iobroker.live/badges/plex-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.plex.svg)
 ![Изменения с момента последнего релиза](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.plex.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)
@@ -45,6 +45,10 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 - Забрать `settings`
 - Получить все данные от управляемых клиентов.
 - Веб-интерфейс, отображающий последние события из Plex:![Веб-интерфейс Plex](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
+- Панели мониторинга (веб-компоненты) для Aura, vis-2, ioBroker.devices и других хостов, каждая с указанием экземпляра в качестве параметра:
+  - `iob-plex-now-playing` - Что воспроизводится на каком плеере: обложка, название, пользователь, прогресс, воспроизведение/пауза, пропуск и остановка для плееров, которыми можно управлять. Настройки: только один плеер, карточки или компактный список, показывать приостановленные потоки, обложка, управление.
+  - `iob-plex-activity` — Последние события, сгруппированные по дням; одним щелчком мыши отображаются подробности. Настройки: количество событий, только события воспроизведения, обложки.
+  - `iob-plex-stats` - Список пользователей и библиотек с наибольшим временем просмотра за 24 часа, 7 дней, 30 дней или за все время (только с Tautulli). Настройки: период, пользователи и/или библиотеки, количество записей в списке.
 
 ## 2. Инструкции по настройке
 
@@ -145,10 +149,17 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 Этот адаптер не был бы возможен без замечательной работы @Zefau ( <https://github.com/Zefau> ), который создал и поддерживал его до 2021 года.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (GermanBluefox) Added dashboard tiles for Aura and other dashboards: now playing with controls, recent activity and Tautulli watch statistics
+
 ### 3.0.0 (2026-08-16)
 - (bluefox) Breaking: Admin 8 or newer is now required — the configuration UI no longer runs under Admin 7.
 - (bluefox) Dependencies have been updated.

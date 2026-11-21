@@ -3,9 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pv-notifications/README.md
 title: ioBroker PV-Benachrichtigungsadapter
-hash: Zxkd51aXJw5pHEzv6vjGzcD00gJ64rryrb523LHNg2Y=
+hash: 3Wn+pMudfeoecRYQXxj03l3YlqvlaykGx7Yxn4pAyYQ=
 ---
 # ioBroker PV-Benachrichtigungsadapter
+
+![Stabil](https://iobroker.live/badges/pv-notifications-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.pv-notifications.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.pv-notifications.svg)
+![Lizenz](https://img.shields.io/github/license/sadam6752-tech/ioBroker.pv-notifications.svg)
+![NPM](https://nodei.co/npm/iobroker.pv-notifications.png?downloads=true)
+![Test und Freigabe](https://github.com/sadam6752-tech/ioBroker.pv-notifications/actions/workflows/test-and-release.yml/badge.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/pv-notifications-installed.svg)
 
 ![Logo](../../../en/adapterref/iobroker.pv-notifications/admin/pv-notifications.png)
 
@@ -22,18 +30,20 @@ Sendet Telegram-Benachrichtigungen zum Status der PV-Batterie (voll, leer, Zwisc
 - 📅 **Wöchentliche Statistiken** zu konfigurierbaren Wochentagen
 - 📆 **Monatliche Statistiken** (optional) an einem konfigurierbaren Tag
 - 🌤️ **Wettervorhersageintegration** (erfordert OpenWeatherMap-Adapter)
+- 🔆 **PV-Vorhersage für morgen** (optional) von pvforecast oder open-meteo-weather
 - ⚡ **Empfehlungen** für hohe Produktion / hohen Verbrauch
-- 📊 **Statistikdaten** vom Sourceanalytix-Adapter
+- 📊 **Statistikdaten** vom SourceAnalytix-Adapter
 
 ## Abhängigkeiten
 
 Für die volle Funktionalität werden folgende Adapter benötigt:
 
-| Adapter                               | Beschreibung                                       | Erforderlich |
-| ------------------------------------- | -------------------------------------------------- | ------------ |
-| **Telegramm**                         | Sendet Benachrichtigungen                          | ✅ Ja         |
-| **sourceanalytix**                    | Statistikdaten (Verbrauch, Einspeisung, Netzstrom) | ✅ Ja         |
-| **daswetter** oder **openweathermap** | Wettervorhersage für Empfehlungen                  | ❌ Optional   |
+| Adapter                                    | Beschreibung                                       | Erforderlich |
+| ------------------------------------------ | -------------------------------------------------- | ------------ |
+| **Telegramm**                              | Sendet Benachrichtigungen                          | ✅ Ja         |
+| **sourceanalytix**                         | Statistikdaten (Verbrauch, Einspeisung, Netzstrom) | ✅ Ja         |
+| **daswetter** oder **openweathermap**      | Wettervorhersage für Empfehlungen                  | ❌ Optional   |
+| **pvforecast** oder **open-meteo-weather** | Erwartete PV-Produktion für morgen                 | ❌ Optional   |
 
 ## Konfiguration
 
@@ -53,7 +63,7 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 | Batterie-SOC              | SOC-Wert in %                        | `modbus.0.holdingRegisters.40083_Batterie_SOC` |
 | PV-Strom                  | Aktuelle Leistung in W               | `javascript.0.Solar.Sungrow.Leistung`          |
 | Gesamtproduktion          | Produktion heute in kWh              | `javascript.0.Solar.Sungrow.Gesamtproduktion`  |
-| Zuleitung                 | Einspeisebetrag heute in kWh         | `sourceanalytix.0...Einspeisung...`            |
+| Zufuhr                    | Einspeisebetrag heute in kWh         | `sourceanalytix.0...Einspeisung...`            |
 | Verbrauch                 | Heutiger Verbrauch in kWh            | `sourceanalytix.0...Hausverbrauch...`          |
 | Netzstrom                 | Netzstrom heute in kWh               | `sourceanalytix.0...Netzbezug...`              |
 | Produktion diesen Monat   | Monatliche Produktion (kWh)          | `sourceanalytix.0...Produktion.currentMonth`   |
@@ -76,6 +86,17 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 
 **Hinweis:** Die Felder `Weather Today` Und `Weather Tomorrow` Kann alternativ verwendet werden, wenn der Wetteradapter verschiedene Formate unterstützt. Für optimale Kompatibilität empfehlen wir die Verwendung von `Weather Text` Felder.
 
+### PV-Prognose (optional)
+
+Die für morgen erwartete PV-Produktion wird den Tagesstatistiken, den Meldungen zum Batteriestand (voll/leer) und der Testmeldung hinzugefügt (`🔆 PV forecast tomorrow: 18.3 kWh`).
+
+| Einstellung            | Beschreibung                                                                                       | Beispiel (pvforecast)                  | Beispiel (open-meteo-weather)                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------- |
+| PV-Prognose für morgen | Erwartete Energie für morgen                                                                       | `pvforecast.0.summary.energy.tomorrow` | `open-meteo-weather.0.pv-forecast.<location>.daily-forecast.day1.Peak_day` |
+| Einheit der Prognose   | `Automatic` (Standardeinstellung) verwendet die Einheit des Datenpunkts; `kWh` oder `Wh` Erzwinge es | Automatisch (kWh)                      | Automatik (Wh)                                                             |
+
+**Hinweis:** Wenn die pvforecast-Option für Watt/Wattstunden aktiviert ist, gibt pvforecast Wh aus, obwohl der Datenpunkt weiterhin kWh anzeigt. Auswählen `Wh` als Einheit in diesem Fall.
+
 ### Batterie
 
 | Einstellung                        | Beschreibung              | Standard |
@@ -97,7 +118,7 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 | Nachtmodus aktivieren                   | Kontrollkästchen für den Nachtmodus     | `true`        |
 | Nachtmodus starten                      | Startzeit (Format: HH:MM)               | `23:00`       |
 | Nachtmodus beendet                      | Endzeit (Format: HH:MM)                 | `06:00`       |
-| Nachtmodus bei 0 % Akkustand ignorieren | Immer bei 0 % benachrichtigen           | `true`        |
+| Nachtmodus bei 0 % Akkustand ignorieren | Bei 0 % immer benachrichtigen           | `true`        |
 | Leiser Modus aktivieren                 | Kontrollkästchen für den Leisemodus     | `false`       |
 | Leiser Modus starten                    | Startzeit (Format: HH:MM)               | `12:00`       |
 | Ende des Ruhemodus                      | Endzeit (Format: HH:MM)                 | `15:00`       |
@@ -200,7 +221,7 @@ Der Adapter erzeugt unter folgenden Bedingungen die folgenden Zustände: `pv-not
 | `statistics.lastWeekProduction`  | Nummer | Produktion letzte Woche (kWh)                         |
 | `statistics.lastWeekConsumption` | Nummer | Verbrauch letzte Woche (kWh)                          |
 | `statistics.lastWeekFeedIn`      | Nummer | Einspeisemenge der letzten Woche (kWh)                |
-| `statistics.lastWeekGridPower`   | Nummer | Netzstrom der letzten Woche (kWh)                     |
+| `statistics.lastWeekGridPower`   | Nummer | Netzstrom letzte Woche (kWh)                          |
 | `statistics.lastWeekFullCycles`  | Nummer | Letzte Woche wurden vollständige Zyklen durchgeführt. |
 | `statistics.lastWeekEmptyCycles` | Nummer | Letzte Woche waren die Zyklen leer.                   |
 
@@ -337,6 +358,47 @@ Alex1808 via LLM: Qwen
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (CHANGE) `@iobroker/testing` 6.3.2 (repository checker W0037)
+
+### 1.2.35 (2026-10-21)
+* (FIX) The footer of the test message ("Test Notification") is now translated like the rest of the message
+
+### 1.2.34 (2026-10-21)
+* (ADD) Optional data point for the expected PV production of tomorrow (e.g. pvforecast or open-meteo-weather), shown in the daily statistics, the battery full/empty messages and the test message; unit taken from the data point (Wh/kWh/MWh) or set explicitly
+* (FIX) Settings: the sunset object and the two weather checkboxes are now disabled correctly (`disabled` expressions use `data.<field>`)
+
+### 1.2.33 (2026-10-08)
+* (FIX) Telegram messages were sent to **all** users of the bot instead of only the configured users (`user` instead of the ignored `users` parameter)
+* (FIX) Bold text was shown with literal asterisks - messages are now sent with HTML formatting (values from other adapters are escaped)
+* (CHANGE) Full/empty thresholds and intermediate steps are detected when reached or crossed (e.g. SOC jumps from 39 to 41, decimal SOC values, battery stopping at 99 % with a 98 % threshold); a jump over several steps sends one message
+* (FIX) Statistics were not saved when the adapter was stopped (unload handler was not registered)
+* (FIX) Last week/month values were overwritten with 0 on the first adapter start of a day
+* (FIX) Daily statistics reset now happens at midnight; before it only ran if the daily stats time was a multiple of 5 minutes
+* (FIX) Min/max SOC of the day are written immediately
+* (FIX) Weekly/monthly auto-save runs once in the window 23:55-23:59, so a delayed timer tick no longer skips it; monthly cycles roll over even when monthly statistics are disabled
+* (FIX) Sunset object may also contain a timestamp or ISO date; missing time settings no longer crash the scheduler
+* (FIX) 0 °C was not shown; numeric weather values no longer break the weather block
+* (FIX) Errors while processing state changes no longer stop the adapter; test button cannot get stuck
+
+### 1.2.32 (2026-10-08)
+* (FIX) Daily, weekly and monthly statistics (cycles, min/max SOC) are no longer reset on every adapter restart
+* (FIX) Monthly statistics reported the daily cycle counters; there are now real monthly counters (`statistics.fullCyclesMonth`, `statistics.emptyCyclesMonth`)
+* (FIX) Weekly/monthly auto-save no longer fails with an unhandled error when the weekly/monthly data points are empty
+* (FIX) SOC delivered as a string (e.g. "100") now triggers the full/empty/intermediate notifications
+* (FIX) Test message: tomorrow's weather no longer breaks when only text or only temperature is configured
+* (FIX) Weekly/monthly own consumption can no longer be negative
+* (ADD) Unit tests (`npm run test:js`), README badges, `.gitattributes` (LF line endings)
+
+### 1.2.31 (2026-09-21)
+* (ADD) CI: Node.js 26 in the test matrix and a new deploy job using npm Trusted Publishing (OIDC) with provenance
+* (FIX) Added the missing changelog entry for 1.2.30
+* (FIX) Completed the short 1.2.29 news translations (es, it, nl, pl, pt, uk)
+* (FIX) Dependencies: @iobroker/testing 6.2.x, @alcalzone/release-script-plugin-license 5.2.2
+
+### 1.2.30
+* (ADD) Optional data point for the current house consumption in W - battery full/empty messages now use this live value instead of the daily kWh total (fixes #74); fallback: PV power minus feed-in
+
 ### 1.2.29
 * (FIX) Corrupted UTF-8 separator lines in the monthly stats message (showed as question marks in Telegram)
 * (FIX) Corrupted Russian translations for "Current charge level" and "Own consumption"
@@ -379,7 +441,7 @@ Alex1808 via LLM: Qwen
 ### 1.2.18 (2026-03-16)
 * (FIX) Missing await in onBatterySOCChange, null-check in buildTestMessage, safe intermediateSteps parsing, remove dead code
 
-> For older changelog entries see [CHANGELOG_OLD.md](https://github.com/sadam6752-tech/ioBroker.pv-notifications/blob/main/CHANGELOG_OLD.md)
+> For older changelog entries see CHANGELOG_OLD.md
 
 ## License
 

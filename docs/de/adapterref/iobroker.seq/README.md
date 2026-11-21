@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: LxFVjAQEAdn40wowoJhw7ayYk1LpN8tbgG0EgRNPtco=
+hash: PxhapoTidY3J2W9Y23wrURuG6eNmqwkHKOxYVzgIpjA=
 ---
 ![Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
@@ -18,18 +18,22 @@ hash: LxFVjAQEAdn40wowoJhw7ayYk1LpN8tbgG0EgRNPtco=
 
 ## Seq-Adapter für ioBroker
 
-Dieser Adapter ermöglicht es Ihnen, Ihr ioBroker-Log in das System von [Seq](https://datalust.co/seq) zu übertragen.\
-&#x20;Es ist außerdem möglich, einen Filter auf die Protokollierungsstufen und auch auf die Adapter anzuwenden.
+Dieser Adapter ermöglicht es Ihnen, Ihre ioBroker-Protokolle in das [Seq](https://datalust.co/seq) -System zu übertragen. Es ist möglich, nach Protokollierungsstufe und nach exakten Quell-IDs zu filtern.
 
 ## Konfiguration
 
 1. Erstellen Sie eine neue Instanz des Adapters.
 2. Geben Sie die URL/IP-Adresse und den Port der [Seq-](https://datalust.co/seq) Instanz ein.
 3. Geben Sie an, welche Protokollereignisse an [Seq](https://datalust.co/seq) gesendet werden sollen.
-4. Einstellungen speichern
+4. Optional können Sie im **Quellfilter** durch Kommas getrennte Quell-IDs eingeben (zum Beispiel, `mqtt.0, javascript.0` Lassen Sie dieses Feld leer, um Protokolle von allen Quellen zu senden.
+5. Einstellungen speichern
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.4 (2026-11-15)
+* (arteck) Dependencies have been updated
+
+### 1.0.3 (2026-10-17)
+* (arteck) Dependencies have been updated
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.2 (2026-04-06)
@@ -40,8 +44,6 @@ Dieser Adapter ermöglicht es Ihnen, Ihr ioBroker-Log in das System von [Seq](ht
 
 ### 1.0.0 (2026-04-05)
 * (arteck) new admin
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.seq/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

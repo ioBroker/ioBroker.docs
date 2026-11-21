@@ -167,6 +167,17 @@ with object path patterns (see above).
 -->
 
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 2.2.1 (2026-11-18)
+* (GermanBluefox) Avoid unhandled promise rejections (DB closed) during shutdown (#184)
+
+### 2.2.0 (2026-11-15)
+- (@GermanBluefox) State changes received during a resync or after a reconnect are no longer overwritten by the older snapshot
+- (@GermanBluefox) An invalid access token stops the connection attempts instead of retrying every 3 seconds
+- (@GermanBluefox) Requests pending when the connection is lost now fail with "connection lost" instead of never being answered
+
 ### 2.1.2 (2026-10-13)
 - (@GermanBluefox) Fixed the build: 2.1.1 was not published to npm
 
@@ -180,13 +191,6 @@ with object path patterns (see above).
 * (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
 * (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
 * (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
-
-### 2.0.4 (2026-05-05)
-* (@GermanBluefox) Tried to keep the custom settings of the objects when updating them with new data from HASS
-
-### 2.0.3 (2026-04-02)
-* (@GermanBluefox) Adapter was updated and migrated to TypeScript
-* (@Titanium177) Added roles for states and added debouncing for reading states from hass
 
 ## License
 

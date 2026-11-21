@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.govee-smart/README.md
 title: Гови Смарт
-hash: KGRj9NlMCyHx/JxXcHb3fqx2sz+ENRO3dPwTHdjajaY=
+hash: eZm9TFGTywvo/0Qv3McCWXb4JbyEIMZB233XaiSGrtM=
 ---
 # Гови Смарт
 
@@ -43,9 +43,9 @@ hash: KGRj9NlMCyHx/JxXcHb3fqx2sz+ENRO3dPwTHdjajaY=
 
 Откройте вкладку **«Эксперт»** адаптера, нажмите **«Диагностика»** , выберите устройство и нажмите кнопку: адаптер создаст отчет, и ваш браузер сохранит его в файл. Прикрепите этот файл к задаче на GitHub — в форме поддержки устройства запрашивается именно этот файл.
 
-Список устройств содержит информацию обо всех устройствах, доступных или недоступных — отчет необходим именно тогда, когда что-то работает некорректно. Информация о каждом устройстве. `diag.lastExport` В записях точки данных указывается время последнего составления отчета.
+Список устройств отображает все устройства, доступные или нет — отчет нужен именно тогда, когда что-то работает некорректно. Отчет не содержит никаких данных.
 
-Отчет **псевдонимизирован** : IP-адреса, адреса электронной почты и имена устройств заменены стабильными маркерами, идентификаторы устройств сокращены, а учетные данные вообще не отображаются. Одно и то же реальное значение всегда соответствует одному и тому же маркеру внутри одного файла, поэтому отчет остается понятным, даже не содержа никакой информации о вашем доме. Все это объясняется в заголовке файла.
+Отчет **псевдонимизирован** : IP-адреса, адреса электронной почты, имена устройств, ваши собственные имена снимков и идентификаторы оборудования, а также данные, полученные с помощью DIY-проектов, заменены стабильными маркерами, а учетные данные вообще не отображаются. Одно и то же реальное значение всегда соответствует одному и тому же маркеру внутри одного файла, поэтому отчет остается понятным, даже не содержа никакой информации о вашем доме.
 
 Отчет позволяет добавить устройство или обнаружить ошибку без необходимости доступа к вашему оборудованию. Если в нем недостаточно информации для этого, вина лежит на отчете, а не на вас — пожалуйста, укажите это в сообщении об ошибке.
 
@@ -74,6 +74,50 @@ hash: KGRj9NlMCyHx/JxXcHb3fqx2sz+ENRO3dPwTHdjajaY=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Fixed: the diagnostics report contains the object tree again
+- Fixed: older lights such as the H6110 switch again when controlled over the Govee account
+- Fixed: the colour temperature no longer keeps its old value while the light shows a colour, and the colour no longer shows Govee's placeholder in colour-temperature mode
+- New: a colour temperature set in the Govee app as a white colour also shows as colour temperature
+- Fixed: local snapshots and the segment wizard restore a colour as a colour and a colour temperature as a colour temperature
+- Fixed: a device renamed in the Govee app also shows its new name after a restart
+- Fixed: a device's IP address is no longer emptied when the adapter starts before it finds the device on the network again
+- Fixed: after a rate-limit answer from Govee, no further call goes to that server until the wait Govee asks for has passed
+- Improved: the adapter settings page loads about 8 MB less and opens faster
+- Fixed: a light whose scene list Govee refused with too many requests at the start gets its scenes in the same run
+- Fixed: the refresh button of a light is confirmed only when Govee sent its scene list
+- Changed: catalog corrections now apply without the experimental switch
+- New: an untested device says so in the log and asks for a diagnostics report
+- Changed: the colour and brightness of each segment carry the segment's number in their name
+- New: each Govee app group shows in info.online whether all its members are reachable
+- Fixed: the brightness of a light and of its segments uses the range Govee reports for that light, for example 1 to 100
+- Changed: scene, snapshot, music and mode lists are now text datapoints
+- Changed: each device shows its test status in info.tier; the separate diag folder is gone
+- Changed: a verification code stays in the settings after use; the adapter no longer clears the field and restarts itself
+- Changed: Govee's Cloud limits are kept as sliding windows per endpoint and device, and every limit counts on across a restart
+- Changed: needs js-controller 7.2.5 and Admin 8.3.5
+
+### 3.2.1 (2026-10-15)
+
+- Fixed: the H1771 table lamp no longer offers a DreamView switch that Govee refuses for this model
+
+### 3.2.0 (2026-10-15)
+
+- New: lights without a local connection switch through your Govee account, faster than through the Cloud
+- Changed: a command shows as confirmed only when it really reached the device
+- Changed: a group command shows as confirmed only when every light of the group took it
+- New: a diagnostics report for each device in the Expert tab, with your personal data replaced by placeholders
+- Changed: the datapoint diag.lastExport is removed from every device
+- Improved: a device that does not answer no longer holds up the others
+- Fixed: a device reached only through the Cloud shows offline while the Cloud is not connected
+- Fixed: a heater's target temperature is shown and set in °C, also on models that work in °F
+- Fixed: the refresh button of a light is confirmed only when Govee answered
+- Changed: an untested model asks for a diagnostics report and never claims that it works
+- New: seven models added as untested: Smart Gateway 1s (H5044, R5044), Wi-Fi Gateway (H5151), Smart Light (H610E, H610F), Outdoor String Lights 2 (H7030), Smart Fan (H7108)
+- Improved: an outage of a Govee service is shown as a status instead of a stream of warnings
+- Fixed: the network address chosen in the settings now applies to every connection to Govee
 
 ### 3.1.1 (2026-10-01)
 
@@ -116,19 +160,6 @@ hash: KGRj9NlMCyHx/JxXcHb3fqx2sz+ENRO3dPwTHdjajaY=
 ### 3.0.1 (2026-09-27)
 
 - Improved: the note the Admin shows before an update to 3.x is short now: the warning, one example old → new and a link to the details
-
-### 3.0.0 (2026-09-26)
-
-- Changed: every device gets a new object ID once — model and last four characters with a hyphen, e.g. `devices.h61be-525f`; scripts and visualizations need the new IDs
-- Changed: the move carries values, recording settings, rooms, functions and aliases along, and recorded history continues in its old series
-- Fixed: two devices of one model whose IDs end alike now get a tree each and each receives its own commands — until now they shared one
-- New: the H1741 battery table lamp reports its charge level in `sensor.battery`; Govee reports a fully charged battery as about 80 percent
-- Fixed: fans and heaters with a numeric level (H7102, H7130) store it as a number, and the H7121 no longer puts a warning in the log at every refresh
-
-### 2.41.0 (2026-09-26)
-
-- Changed: Discovery follows the selected network interface only — the additional scan addresses setting is gone, and the broadcast goes to the network of the chosen card
-- Fixed: `info.cloudConnected` turns false while the Govee Cloud stays unreachable and true again with its next answer — until now only a rejected API key cleared it
 
 ## License
 

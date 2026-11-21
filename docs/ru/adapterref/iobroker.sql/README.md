@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
+hash: HTpr9DeUgRL4L8POtLRQ2jZzatIKmJevUFO+E1zypyg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
-![Количество установок](http://iobroker.live/badges/sql-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sql.svg)
+![Количество установок](https://iobroker.live/badges/sql-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.sql.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sql.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.sql.png?downloads=true)
@@ -31,13 +31,14 @@ hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
 - **Порт** : Порт сервера SQL Server (оставьте поле пустым, если не уверены).
 - **Имя базы данных** : Имя базы данных. Брокер io по умолчанию
 - **Пользователь** : Имя пользователя для SQL. Должен существовать в базе данных.
-- **Пароль** : Пароль для SQL.
+- **Пароль** : Пароль для SQL. Он хранится в зашифрованном виде в ioBroker.
 - **Подтверждение пароля** : Просто повторите пароль здесь.
 - **Шифрование** : Некоторые базы данных поддерживают шифрование.
 - **Округлите действительное число до** : количества цифр после запятой.
 - **Разрешить параллельные запросы** : разрешить одновременные SQL-запросы к базе данных.
 - **Вкладка «Статистика»** : отображает все идентификаторы в базе данных с указанием типа хранения, статуса (зарегистрировано / отключено / состояние удалено), количества значений, предполагаемого размера и охватываемого временного диапазона. Кнопка **«Очистка»** сначала показывает, что будет удалено, и удаляет это только после подтверждения. Состояния, которые все еще существуют, но в которых просто отключено логирование, исключаются, если вы не установите флажок, поскольку их история все еще доступна и может потребоваться.
 - **Не создавать базу данных** : Активируйте эту опцию, если база данных уже создана (например, администратором), а у пользователя ioBroker недостаточно прав для ее создания.
+- **Снижение отказоустойчивости коммитов PostgreSQL** : только для PostgreSQL, по умолчанию отключено. Запускает собственные соединения адаптера с `synchronous_commit=off` Таким образом, операция фиксации больше не ожидает, пока журнал предварительной записи будет записан на диск. Это значительно снижает операции ввода-вывода и износ диска, например, на SD-картах и потребительских SSD-накопителях. Если сервер PostgreSQL выйдет из строя, значения, хранящиеся в последние несколько сотен миллисекунд, могут быть потеряны; в отличие от `fsync=off` Данная настройка не может привести к повреждению базы данных. Другие клиенты того же сервера не затронуты.
 
 ## Настройки по умолчанию
 
@@ -66,18 +67,17 @@ hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
 
 Это "файловая" база данных, и она не может обрабатывать слишком много событий. Если у вас большой объем данных, используйте настоящую базу данных, например, PostgreSQL и подобные ей.
 
-Базу данных SQLite устанавливать отдельно не нужно. Это всего лишь файл на диске, но для его установки вам потребуются инструменты сборки в вашей системе. Для Linux просто напишите:
+Базу данных SQLite устанавливать отдельно не нужно. Это всего лишь файл на диске, но для его установки вам потребуются инструменты сборки в вашей системе. Для Linux достаточно написать:
 
 ```bash
 sudo apt-get install build-essential
 ```
 
-Для Windows установите Node.js с опцией "Автоматически установить необходимые инструменты...", а затем переустановите адаптер, например:
+Для Windows установите Node.js с опцией "Автоматически установить необходимые инструменты...", а затем пересоберите собственный модуль SQLite, например:
 
 ```bash
-cd /opt/iobroker
 iobroker stop sql
-npm install iobroker.sql --production
+iobroker rebuild sqlite3
 iobroker start sql
 ```
 
@@ -104,6 +104,20 @@ FLUSH PRIVILEGES;
 Обратите внимание на метод аутентификации. Новый алгоритм шифрования в MySQL 8.0 пока не поддерживается. `node.js` и вам необходимо выбрать устаревший метод аутентификации.
 
 ![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
+
+#### Эмодзи и регистр букв в существующей базе данных
+
+В таблицах, создаваемых адаптером, теперь хранятся все символы (включая эмодзи), а идентификаторы, отличающиеся только регистром, разделены на две категории. `alias.0.Licht` и `alias.0.licht` Уже существующие таблицы не изменяются автоматически, поскольку преобразование большой таблицы занимает время и блокирует этот процесс.
+
+Если вам это нужно для существующей базы данных: остановите экземпляр SQL, создайте резервную копию базы данных и выполните эти три команды, например, в phpMyAdmin (замените `iobroker` (с указанием названия вашей базы данных):
+
+```sql
+ALTER TABLE `iobroker`.datapoints MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.sources MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.ts_string MODIFY val TEXT CHARACTER SET utf8mb4;
+```
+
+Затем перезапустите экземпляр. Без этого всё будет работать как прежде; не смогут сохраняться только значения с эмодзи.
 
 ## Структура баз данных
 
@@ -185,17 +199,17 @@ _Примечание:_ MS-SQL использует тип данных BIT, а 
 
 Структура:
 
-| Поле          | Тип                  | Описание                                                                                                   |
-| ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| идентификатор | ЦЕЛОЕ                | Идентификатор штата из таблицы "Точки данных".                                                             |
-| тс            | BigInt / Целое число | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)". |
-| вал           | НАСТОЯЩИЙ            | Ценить                                                                                                     |
+| Поле          | Тип                 | Описание                                                                                                   |
+| ------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| идентификатор | ЦЕЛОЕ               | Идентификатор штата из таблицы "Точки данных".                                                             |
+| тс            | БОЛЬШОЕ ЦЕЛОЕ ЧИСЛО | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)". |
+| вал           | НАСТОЯЩИЙ           | Ценить                                                                                                     |
 
 В этой таблице хранятся значения, когда счетчик был заменен, и значение не увеличилось, но не достигло нуля или стало меньше.
 
 ### Строки
 
-Значения для состояний с типом `string`.
+Значения для штатов с типом `string`.
 
 | ДБ         | Имя в запросе           |
 | ---------- | ----------------------- |
@@ -206,14 +220,14 @@ _Примечание:_ MS-SQL использует тип данных BIT, а 
 
 Структура:
 
-| Поле          | Тип         | Описание                                                                                                                 |
-| ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
-| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                           |
-| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".               |
-| вал           | ТЕКСТ       | Ценить                                                                                                                   |
-| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                     |
-| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                          |
-| q             | ЦЕЛОЕ       | Качество как число. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| Поле          | Тип         | Описание                                                                                                                |
+| ------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
+| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                          |
+| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".              |
+| вал           | ТЕКСТ       | Ценить                                                                                                                  |
+| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                    |
+| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                         |
+| q             | ЦЕЛОЕ       | Качество в цифрах. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 _Примечание:_ MS-SQL использует тип данных BIT, а другие — BOOLEAN. SQLite использует тип данных INTEGER для всех типов данных, а все остальные — BIGINT.
 
@@ -230,16 +244,20 @@ _Примечание:_ MS-SQL использует тип данных BIT, а 
 
 Структура:
 
-| Поле          | Тип         | Описание                                                                                                                |
-| ------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                          |
-| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".              |
-| вал           | БИТ/БУЛЕВОЕ | Ценить                                                                                                                  |
-| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                    |
-| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                         |
-| q             | ЦЕЛОЕ       | Качество в цифрах. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| Поле          | Тип         | Описание                                                                                                                 |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
+| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                           |
+| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".               |
+| вал           | БИТ/БУЛЕВОЕ | Ценить                                                                                                                   |
+| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                     |
+| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                          |
+| q             | ЦЕЛОЕ       | Качество как число. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 _Примечание:_ MS-SQL использует тип данных BIT, а другие — BOOLEAN. SQLite использует тип данных INTEGER для всех типов данных, а все остальные — BIGINT.
+
+## Сообщения для скриптов и агентов искусственного интеллекта.
+
+`sendTo('sql.0', 'help', {})` ответы `{help, commands}`: описание всех сообщений и таблиц для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов, а также список всех команд с `write: true` для тех, кто что-то меняет.
 
 ## Доступ к значениям из JavaScript-адаптера
 
@@ -293,11 +311,11 @@ sendTo('sql.0', 'getHistory', {
 - **q** - следует ли включать поле _q_ в ответ
 - **addId** - если поле _id_ должно быть включено в ответ
 - **limit** - не возвращать больше записей, чем limit
-- **округление** - округление результата до количества знаков после запятой.
-- **ignoreNull** - если должны быть включены нулевые значения (false), заменяется последним ненулевым значением (true) или заменяется на 0 (0).
+- **round** - округляет результат до количества знаков после запятой. По умолчанию: "Округлить вещественное число до" точки данных, а затем до экземпляра. Сохраненные значения не изменяются.
+- **ignoreNull** - если необходимо включить нулевые значения (false), заменить их последним ненулевым значением (true) или заменить на 0 (0).
 - **removeBorderValues** — По умолчанию возвращаются дополнительные значения границ для оптимизации построения диаграмм. Установите значение true для этого параметра, если это не требуется (например, для обработки данных скриптом).
 - **returnNewestEntries** — возвращаемые данные всегда сортируются по временной метке в порядке возрастания. При использовании агрегатной функции "none" и указании параметров "count" или "limit" обычно возвращаются самые старые записи (если начальные данные не указаны). Установите этот параметр в значение true, чтобы получать самые новые записи.
-- **aggregate** - метод агрегирования (По умолчанию: `average`):
+- **aggregate** - метод агрегирования (по умолчанию: `average`):
   - _minmax_ — используется специальный алгоритм. Весь временной диапазон разбивается на небольшие интервалы, и для каждого интервала находятся максимальное, минимальное, начальное и конечное значения.
   - _max_ - Разделите весь временной диапазон на небольшие интервалы и для каждого интервала найдите максимальное значение, затем используйте его для этого интервала (значения null будут игнорироваться).
   - _min_ - То же самое, что и max, но принимает минимальное значение.
@@ -335,7 +353,7 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Если счетчик будет заменен, это также будет учтено при расчетах.
+Если счетчик будет заменен, это также будет учтено при расчете.
 
 ## Пользовательские запросы
 
@@ -381,9 +399,26 @@ _Примечание:_
 | MS-SQL | `SELECT * FROM iobroker.dbo.datapoints ...` |
 | MySQL  | `SELECT * FROM iobroker.datapoints ...`     |
 
-## браузер данных
+## Просмотр и экспорт данных
 
 В настройках экземпляра есть вкладка **«Просмотр данных»** : слева — все точки данных, имеющие данные в базе данных, справа — сохраненные значения выбранной точки. Значения можно просматривать постранично, редактировать, удалять и вставлять новые. Для работы этой вкладки необходим запущенный экземпляр.
+
+Кнопка «Экспорт» на панели инструментов записывает все значения выбранной точки данных за выбранный временной диапазон в файл, начиная с самых старых:
+
+- **CSV-файл** со столбцами `ts` (миллисекунды с 1970 года, UTC), `time` (местное время), `val`, `ack`, `q` и `from` Можно выбрать разделитель столбцов и десятичных знаков; предварительный выбор (`;` и `,` для большинства языков `,` и `.` (для английского и китайского языков) — это то, что Excel обычно ожидает от языка администратора.
+- **JSON** в виде массива `{ts, val, ack, q, from}` - формат[`storeState`](#storestate) принимает значения, поэтому их можно записать обратно, например, в другую точку данных:
+
+```javascript
+const fs = require('fs');
+const values = JSON.parse(fs.readFileSync('/opt/export/hm-rpc.0.ABC123.1.TEMPERATURE.json', 'utf8'));
+sendTo('sql.0', 'storeState', { id: 'javascript.0.temperatureCopy', state: values }, result =>
+    console.log(JSON.stringify(result)),
+);
+```
+
+В отличие от `getRawEntries` Оба формата содержат `ack` и значения логической точки данных в качестве `true` /`false` в каждой базе данных, так что `storeState` снова создает логическую точку данных.
+
+Экспорт считывает диапазон значений во временных окнах, каждое из которых содержит несколько тысяч значений, каждое из которых представляет собой запрос диапазона. `(id, ts)` индекс. Таким образом, даже для точки данных, содержащей миллионы значений, базе данных никогда не приходится пропускать миллионы строк. `OFFSET` Экспорт очень большого файла по-прежнему занимает некоторое время и требует памяти браузера для его хранения.
 
 Данный компонент представляет собой JSON-конфигурацию. `custom` компонент. Его исходные коды находятся в `src-admin` встроенный пакет в `admin/custom` привержен:
 
@@ -416,9 +451,10 @@ sendTo(
         id: 'system.adapter.admin.0.memRss',
         start: Date.now() - 3600000, // optional, inclusive
         end: Date.now(),             // optional, inclusive
-        limit: 100,                  // optional, default 100, maximum 2000
+        limit: 100,                  // optional, default 100, maximum 5000
         offset: 0,                   // optional, default 0
         sort: 'desc',                // optional, 'desc' (newest first, default) or 'asc'
+        noTotal: false,              // optional, true skips counting the entries: `total` is then missing
     },
     result => {
         if (result.error) {
@@ -435,7 +471,9 @@ sendTo(
 
 В ответе также содержится `id`, `index` (ID в `datapoints` стол), `type` (`Number`, `String` или `Boolean`), `table` (`ts_number`, `ts_string` или `ts_bool`) и использованный `limit`, `offset` и `sort`.
 
-Возвращаемые значения отображаются в том виде, в котором они получены из базы данных, и **не** подвергаются преобразованию: `ack` а логические значения являются `0` /`1` в большинстве баз данных, и `val` В случае строкового объекта данные представляют собой сохраненную строку. `from` является `null` если источник не был сохранен.
+Возвращаемые значения отображаются в том виде, в котором они получены из базы данных, и **не** подвергаются преобразованию: `ack` а логические значения являются `0` /`1` в большинстве баз данных, и `val` В случае строкового объекта данные представляют собой сохраненную строку. `from` является `null` Если источник не был сохранен. Только если `ts` Это всегда число, хотя PostgreSQL и MS SQL передают его в виде строки.
+
+Подсчет записей представляет собой сканирование всего диапазона. Вызывающая сторона, которая считывает длинный диапазон в последовательных окнах (`start` /`end` (включая одно окно) требует подсчета только один раз и может пройти проверку. `noTotal: true` по всем остальным запросам.
 
 Нравиться `update`, `delete` и `storeState` Это работает и для точек данных, для которых отключено логирование, при условии, что у них еще есть записи в базе данных. Если точка данных неизвестна, ответ содержит `error`.
 
@@ -636,37 +674,40 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### 4.2.0 (2026-10-03)
-* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
-* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
-* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
-* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
-* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
-* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
-* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
-* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
-* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
-* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
-* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
-* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
-* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: getHistory checks the range of `percentile` (0-100) and `quantile` (0-1) only for these aggregates (misplaced parentheses in the check)
 
-### 4.1.6 (2026-10-01)
-* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
-* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
-* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
-* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
-* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
+### 4.6.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
 
-### 4.1.5 (2026-08-28)
-* (@GermanBluefox) Updated packages
+### 4.5.1 (2026-11-17)
+* (@Schimi1983) "Clean up" no longer deletes the history of datapoints that are logged under an alias name, and stops with an error instead of deleting everything when the object database cannot be read (#587)
+* (@Schimi1983) MySQL/MariaDB: new tables use `utf8mb4`, so values, IDs and sources with emojis are stored instead of failing, and the names compare case-sensitively (`utf8mb4_bin`), also in a database created by a hoster. Existing tables are not changed; the README explains how to convert them (#588)
 
-### 4.1.4 (2026-08-27)
-* (@GermanBluefox) Connection errors no longer start with the useless class name `AggregateError`: the log now shows only the real reason, e.g. `connect ECONNREFUSED 127.0.0.1:3306; connect ECONNREFUSED ::1:3306`
+### 4.5.0 (2026-11-10)
+* (@Schimi1983) The database password is stored encrypted (`encryptedNative`). A password saved with an older version is encrypted once on the first start, the instance then restarts by itself. Note: after going back to 4.4.1 or older, enter the password in the instance settings again (#587)
+* (@DutchmanNL) PostgreSQL: new opt-in setting "Relax PostgreSQL commit durability" runs the adapter's connections with `synchronous_commit=off`, so commits no longer wait for the disk flush. This strongly reduces disk I/O and wear. A crash of the PostgreSQL server can lose the values of the last few hundred milliseconds; the database cannot be corrupted (#516)
 
-### 4.1.3 (2026-08-27)
-* (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
-* (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
+### 4.4.1 (2026-11-08)
+* (@GermanBluefox) `getDpOverview` with an empty `datapoints` table answers again and returns its connection. Before, the request never got an answer and the connection stayed borrowed, which with SQLite (one connection) blocked every further request (#587)
+* (@GermanBluefox) "Round real to" of a datapoint now applies to `getHistory`. Before, the field was shown but had no effect, only the setting of the instance counted. As with the instance setting, the values are rounded when read, the stored values stay as they are (#587)
+* (@GermanBluefox) phpMyAdmin container: new instances listen on `127.0.0.1` by default instead of on all network interfaces. Existing instances keep their setting; to reach phpMyAdmin from another machine, choose the IP in the instance settings (#587)
+* (@Schimi1983) PostgreSQL: text values, datapoint IDs and sources are written as escape string literals (`E'...'`), so a backslash can no longer end a value early when `standard_conforming_strings` is off for the database or the user (#587)
+
+### 4.4.0 (2026-11-05)
+* (@Schimi1983) Booleans are stored the same in all databases: `on`/`yes`/`true`/`1` as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL. Before, PostgreSQL failed the whole batch on such a text or a number, SQLite and MS SQL stored `off` as true. `storeState` says "values are kept, do not send them again" also when its values were written together with others of the same datapoint (#587)
+* (@Schimi1983) Messages are checked before they reach the database: `update`, `delete`, `deleteRange`, `deleteAll`, `storeState`, `getHistory` and `getCounter` refuse an entry without an ID, with a timestamp that is not a point in time, or with a value that does not fit the stored type, and report it in the answer instead of writing it into the SQL. Before, a `deleteRange` with an unparsable `start` deleted the whole history of the datapoint, a `delete` without an ID the history of the first datapoint of the table, a `start` given as a numeric string became `NaN`, and a value with a quote or a quote in a datapoint ID broke the statement (PostgreSQL, SQLite, MSSQL: quotes are now stored as they are instead of being removed, `Infinity` is stored as NULL). `storeState` with a value that is not a number for a numeric datapoint is answered again instead of waiting forever; a list of entries is answered after the last entry was written, with the errors of the entries that failed; a message with an unexpected shape no longer stops the adapter; "Maximum concurrent connections" of 0 no longer blocks every write (#587)
+* (@Schimi1983) MySQL: if the server's `sql_mode` contains `NO_BACKSLASH_ESCAPES`, the adapter removes it for its own connections and says so in the log - with that mode, values with `'` or `\` cannot be stored safely. The server's setting and other clients are not changed. Booleans: `on`/`yes`/`true`/`1` are stored as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL instead of true; a number is true unless it is 0 (#587)
+* (@Schimi1983) Stopping with many datapoints no longer loses values: the buffers of all datapoints are written at once instead of 50 per second, which did not finish within the 10 s stop timeout beyond about 450 datapoints. SQLite: buffered values of more than 100 datapoints no longer hit the task limit ("Cannot queue new requests"), a datapoint has one queued insert that takes further values (#587)
+* (@Schimi1983) MySQL: values, datapoint IDs and sources are passed as bound parameters instead of being inlined. Text values keep their single quotes (`it's` was stored as `its`), a value ending with a backslash no longer makes the whole batch fail, and the `delete`/`update`/`storeState` messages cannot inject SQL any more. `NaN`/`Infinity` are stored as NULL instead of failing the batch (#587)
+* (copilot) Adapter requires node.js >= 22.19.0 now
+* (@GermanBluefox) Fixed: values stored without `from` were missing in `getHistory` with `from: true`, e.g. in the history data of admin
+* (@Schimi1983) A failed write is no longer silently dropped: the error is passed on, so `storeState` reports it instead of `success: true`. If the database was not reachable, the values are kept and written with the next write of the datapoint (at most 2000 per datapoint, the oldest are dropped first, with a warning). Pooled connections that were idle for more than 60 s are closed and replaced, so a server-side `wait_timeout` no longer resets them; the warning "SQL connection lost" every few minutes on hosted databases is gone (#587)
+* (@GermanBluefox) The values kept while the database is not reachable are also limited to 200000 for all datapoints together (about 70 MB), so a long outage with many datapoints can no longer exhaust the memory. The warning about them is one line per minute for all datapoints instead of one per datapoint, and the error of `storeState` says when the values were kept, so they are not sent twice (#587)
+* (@GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range. `getRawEntries` returns up to 5000 entries per call and accepts `noTotal` to skip the count
+* (@GermanBluefox) Data browser: PostgreSQL and MS SQL showed the time of a value as a bare number, because `getRawEntries` returned `ts` as string there
+* (@GermanBluefox) MySQL/MariaDB and MS SQL: datapoints whose IDs differ only in case (e.g. `alias.0.Licht` and `alias.0.licht`) or by trailing spaces no longer write into one series with the type of the first one. The second one gets its own row from now on; values that were already mixed stay where they are (#588)
+* (@GermanBluefox) MS SQL: `@azure/msal-node`, a dependency of the driver, was updated to 7.2.0 because of CVE-2026-109461 (GHSA-xcx6-jx8p-x3h5). It concerns the Azure authorization code flow, which the adapter does not use
 
 ## License
 

@@ -432,7 +432,7 @@ HLS for low-latency live video instead of the default snapshot refresh.
 
 The adapter ships two built-in **VIS-2 widgets** (React / Module-Federation, built from `src-widgets/`) that can be dropped onto any VIS-2 view without importing a JSON file.
 
-**Requirements:** VIS-2 adapter ≥ 2.13 installed and running.
+**Requirements:** VIS-2 adapter ≥ 2.20.2 installed and running.
 
 ---
 
@@ -963,6 +963,16 @@ HA stays the **reference implementation** — features land there first; the Pyt
 
 ## Changelog
 
+### 1.11.2 (2026-11-18)
+- Added: the vis-2 camera widget shows a hint under the play button when the go2rtc live view cannot start (e.g. https page with an http go2rtc URL, unknown stream name).
+
+### 1.11.1 (2026-11-18)
+- Added: `ifInstalledDependencies` requires vis-2 >= 2.20.2, so an adapter update cannot break an older vis-2.
+
+### 1.11.0 (2026-11-18)
+- Updated: vis-2 widgets rebuilt for React 19 and MUI 9 (vis-2 >= 2.20.2 needed), see ioBroker/ioBroker.vis-2#689.
+- Updated: security updates for transitive dependencies (follow-redirects, node-forge).
+
 ### 1.10.4 (2026-10-23)
 - Updated: mqtt and the widget build dependencies; security updates for follow-redirects and ip-address.
 
@@ -1421,4 +1431,4 @@ Older releases (0.0.1 – 0.3.3) are archived in CHANGELOG_OLD.md.
 
 MIT License — see [LICENSE](./LICENSE).
 
-Copyright (c) 2026 mosandlt
+Copyright (c) 2026 mosandlt <Info@mosandl.eu>

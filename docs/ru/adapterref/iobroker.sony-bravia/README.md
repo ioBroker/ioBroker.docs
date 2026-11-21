@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sony-bravia/README.md
 title: ioBroker.sony-bravia
-hash: nuDySxzMrHTaSHzmo76EnLKIgDigOKzFvdHQNzw6B18=
+hash: EyVorUppqh7cNyrkkBwbU+z16gikN1iWA5TkpG4e9lk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sony-bravia/admin/sony-bravia.png)
 
-![Количество установок](http://iobroker.live/badges/sony-bravia-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sony-bravia.svg)
+![Количество установок](https://iobroker.live/badges/sony-bravia-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.sony-bravia.svg)
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.sony-bravia/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sony-bravia/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sony-bravia.svg)
 
 # ioBroker.sony-bravia
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -29,18 +31,39 @@ hash: nuDySxzMrHTaSHzmo76EnLKIgDigOKzFvdHQNzw6B18=
 - На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Удаленное устройство/Рендерер > Введите предварительно заданный ключ > 0000 (или любое другое значение, которое вы хотите присвоить ключу PSK).
 - На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Удаленное устройство/Рендерер > Простое управление по IP > Вкл.
 
+## Канал `tv` (для визуализации)
+
+Помимо существующих объектов, адаптер создает канал. `sony-bravia.0.tv` Это зависит от типа устройства. `tv` с помощью детектора типа ioBroker, чтобы визуализации (например, виджеты vis-2 material) и адаптер устройств распознавали телевизор и могли им управлять:
+
+| Состояние                      | Роль                            | Значение                                                                                                        |
+| ------------------------------ | ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `tv.power`                     | `switch.power`                  | Включите/выключите телевизор (для включения требуется режим «Дистанционный запуск» / «Сетевой режим ожидания»). |
+| `tv.key`                       | `media.key`                     | Отправить ключ: `UP`, `DOWN`, `LEFT`, `RIGHT`, `SELECT`, `BACK`, `HOME`, `NUMBER_1`, ...                        |
+| `tv.volume`                    | `level.volume`                  | Громкость динамиков, 0-100 %                                                                                    |
+| `tv.muted`                     | `media.mute`                    | Немой                                                                                                           |
+| `tv.volumeUp`, `tv.volumeDown` | `button.volume.up` /`.down`     | кнопки регулировки громкости                                                                                    |
+| `tv.input`                     | `media.input`                   | Вход: `TV`, `SAT`, `HDMI1`... `HDMI4`, `AV`, `COMPONENT`, `SCART` (те, что есть в телевизоре)                    |
+| `tv.app`                       | `media.app`                     | Запустите приложение: `YOUTUBE`, `NETFLIX`, `PRIME_VIDEO`... (те, что установлены на телевизоре)                |
+| `tv.unreach`                   | `indicator.maintenance.unreach` | Телевизор не отвечает                                                                                           |
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (bluefox) Removed usage of process.env (ping on Windows)
+
+### 1.2.0 (2026-10-29)
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) Replaced the deprecated `request` library with `axios`
+- (bluefox) Fixed the buttons PicOff, PictureOff, Teletext and WirelessSubwoofer (IRCC codes with `+` or `/`)
+- (bluefox) Apps and channels with non-latin titles no longer abort the creation of the remaining objects
+- (bluefox) The IP field offers the TVs found in the network
+- (bluefox) Added the channel `tv` for the device type `tv` of the type-detector, so visualizations can control the TV
+- (bluefox) Added a remote control to the instance settings (tab "Remote control", requires admin 8)
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.1.0 (2024-04-28)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -54,11 +77,6 @@ hash: nuDySxzMrHTaSHzmo76EnLKIgDigOKzFvdHQNzw6B18=
 
 ### 1.0.7 (2022-04-24)
 * (Apollon77) Fix tier definition
-
-### 1.0.6 (2022-04-23)
-* (ThomasBra) Audio volume/mute control
-* (ThomasBra) value lists for AV Contents
-* (Apollon77) Add Sentry error reporting
 
 ## License
 The MIT License (MIT)

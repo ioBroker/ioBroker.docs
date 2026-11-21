@@ -10,6 +10,9 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/sony-bravia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sony-bravia.svg)](https://www.npmjs.com/package/iobroker.sony-bravia)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## A Sony Bravia Android Smart-TV adapter for ioBroker
@@ -45,6 +48,9 @@ and can control it:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) Removed usage of process.env (ping on Windows)
+
 ### 1.2.0 (2026-10-29)
 - (bluefox) The adapter was refactored to TypeScript and JsonConfig
 - (bluefox) Replaced the deprecated `request` library with `axios`
@@ -53,11 +59,8 @@ and can control it:
 - (bluefox) The IP field offers the TVs found in the network
 - (bluefox) Added the channel `tv` for the device type `tv` of the type-detector, so visualizations can control the TV
 - (bluefox) Added a remote control to the instance settings (tab "Remote control", requires admin 8)
-- (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.1.0 (2024-04-28)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now

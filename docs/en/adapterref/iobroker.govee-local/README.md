@@ -24,6 +24,11 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- migrate the admin settings page from jsonConfig to React, keeping all existing settings
+- fix the "Discovered Devices" list in the settings, which did not show any devices
+- hide the search interval when the discovery mode is not "Scan in interval"
+
 ### 0.5.2 (2026-11-05)
 - update dependencies: `node-forge` (1.4.3) and `follow-redirects` (1.16.2) to fix security vulnerabilities
 - update dependencies: `@iobroker/testing` (6.3.0)

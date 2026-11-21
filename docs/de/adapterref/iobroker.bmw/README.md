@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: bDZ/XMl4dbHVdEUVPUrbZFgmlEIcHxuk2u2Xm550tCs=
+hash: uc8/ZDSKvcDBas1kQfL7/JlJX+tkarFmbZSHwLt62QM=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -89,6 +89,38 @@ Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 2. Wählen Sie Ihre **Fahrzeugmarke** (BMW, Mini, Toyota Supra)
 3. **Aktualisierungsintervall** festlegen (mindestens 10 Minuten aufgrund des API-Kontingents)
 4. Konfigurieren Sie bei Bedarf **die Liste der zu ignorierenden Fahrgestellnummern.**
+
+### 3a. Optionale Live-Telemetrie von ABRP (A Better Route Planner).
+
+Der Adapter kann Telemetriedaten der BMW-Hochvoltbatterie ohne OBD-Dongle an ABRP weiterleiten. Diese Funktion ist standardmäßig deaktiviert und erzeugt keine zusätzlichen BMW-API-Aufrufe. Sie verwendet ausschließlich aktuelle Daten, die der Adapter bereits über BMW MQTT-Streaming oder die konfigurierte Telematikaktualisierung empfängt. Die primäre SoC-Datenquelle ist `vehicle.drivetrain.batteryManagement.header`; `vehicle.powertrain.electric.battery.stateOfCharge.displayed` wird als Kompatibilitäts-Fallback verwendet.
+
+Sie benötigen zwei ABRP-Zugangsdaten:
+
+1. Erstellen Sie einen kostenlosen **Telemetry-API-Schlüssel** unter <https://abetterrouteplanner.com/home/app/api-keys/telemetry> .
+2. In ABRP speichern/wählen Sie Ihr Fahrzeug aus, öffnen Sie die Live-Dateneinstellungen, verknüpfen Sie den **generischen** Anbieter und kopieren Sie das fahrzeugspezifische Token.
+3. Aktivieren Sie ABRP in den BMW-Adaptereinstellungen und geben Sie den Telemetrie-API-Schlüssel ein.
+4. Fügen Sie pro Fahrzeug eine Zeile mit der BMW-Fahrzeugidentifikationsnummer (VIN) und dem entsprechenden ABRP-Generic-Token hinzu.
+5. Speichern/starten Sie die Instanz neu und warten Sie auf ein aktuelles BMW SoC-Update.
+
+Es werden nur diese Werte übertragen:
+
+- `soc`: Aktueller Ladezustand der Hochvoltbatterie in Prozent
+- `utc`: Originaler BMW-Messzeitstempel
+- `is_charging`: `1` während des aktiven Ladevorgangs, ansonsten `0`
+- `is_dcfc`: `1` für Gleichstromladung und `0` Für Wechselstrom, wird nur während des Ladevorgangs gesendet.
+- `est_battery_range` Verbleibende elektrische Reichweite in Kilometern
+
+Der Adapter sendet weder die Fahrzeugidentifikationsnummer (VIN), den Standort, die Geschwindigkeit, die Route noch den Fahrverlauf an ABRP. API-Schlüssel und generische Token werden als geschützte, verschlüsselte Einstellungen gespeichert und niemals in Adapterstatus oder Protokolle geschrieben.
+
+Die ABRP-Konfiguration erfordert ioBroker Admin 8.2.0 oder neuer, damit die Fahrzeugtoken in der Konfigurationstabelle korrekt verschlüsselt und entschlüsselt werden. Installationen, die von der älteren Doppelverschlüsselungskonfiguration betroffen sind, werden zur Laufzeit wiederhergestellt. Geben Sie nach dem Update jedes generische Token erneut ein und speichern Sie es, um die gespeicherten Einstellungen zu migrieren.
+
+Der ABRP-Telemetrie-API-Schlüssel wird in den v1-APIs übertragen. `Authorization: APIKEY ...` Im Header werden lediglich das fahrzeugspezifische generische Token und die Telemetrie-JSON-Daten als URL-codierte Anfrageparameter gesendet; der API-Schlüssel ist nicht in der Anfrage-URL enthalten.
+
+ABRP erlaubt maximal zwei Telemetrieanfragen pro Sekunde und API-Schlüssel. Der Adapter wendet einen gemeinsamen Limiter auf alle konfigurierten Fahrzeuge, Wiederholungsversuche und manuelle Sendevorgänge an. Wenn BMW MQTT einen Burst sendet, werden ältere, noch nicht gesendete Werte durch die neuesten SoC-Werte für die jeweilige Fahrgestellnummer ersetzt, anstatt unbegrenzt in der Warteschlange zu bleiben.
+
+Der Status ist unten verfügbar. `bmw.0.VIN.abrp.*` Diese Objekte werden aus der lokalen ABRP-Konfiguration vor der BMW-Fahrzeugerkennung erstellt und stehen daher auch dann zur Verfügung, wenn das BMW REST-Kontingent erschöpft ist. `lastAttempt` protokolliert eine ausgehende Anfrage, `lastSuccess` Und `lastSoc` werden erst aktualisiert, nachdem ABRP sie akzeptiert hat, und `lastError` Enthält den HTTP-Status sowie, falls verfügbar, die bereinigte Fehlermeldung von ABRP. Der Adapter protokolliert außerdem die erste akzeptierte Aktualisierung auf Informationsebene und abgelehnte Aktualisierungen auf Warnebene. `sendNow` Die Schaltfläche sendet lediglich einen zwischengespeicherten, noch aktuellen SoC erneut und löst niemals eine BMW API-Anfrage aus. Die Verfügbarkeit von „Live“ ist weiterhin davon abhängig, wann BMW CarData einen neuen SoC veröffentlicht; ein Fahrzeug im Ruhemodus wird möglicherweise nicht sofort aktualisiert.
+
+Nach jedem Start des Adapters wird der zuletzt gültige gespeicherte SoC-Wert einmalig als aktueller Initialisierungswert gesendet. Dadurch kann die ABRP-Verbindung getestet werden, während sich das Fahrzeug im geparkten Zustand oder im Ruhemodus befindet. Dieser einmalige Startwert verwendet die Sendezeit als `utc` Alle späteren Live-Updates verwenden den ursprünglichen BMW-Messzeitstempel und müssen die übliche Aktualitätsprüfung bestehen. Für den Seed wird kein zusätzlicher BMW-API-Aufruf durchgeführt.
 
 ### 4. Authentifizierungsprozess
 
@@ -220,9 +252,29 @@ Dieser Adapter ist verfügbar unter: <https://github.com/TA2k/ioBroker.bmw>
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.6 (2026-11-18)
 
-### **WORK IN PROGRESS**
+- (hombach) report MQTT as connected only after a successful subscription acknowledgement
+- (TA2k) add optional ABRP live telemetry using per-vehicle Generic tokens
+- (TA2k) send charging state, DC charging state, and estimated electric range alongside SoC
+- (TA2k) enforce the ABRP limit of two requests per second and API key across all vehicles and retries
+- (TA2k) encrypt and protect ABRP credentials and expose sanitized delivery status states
+- (TA2k) create ABRP diagnostics independently of BMW REST quota and log ABRP response errors without credentials
+- (TA2k) stop further BMW CarData REST calls temporarily after the server reports quota error `CU-429` and preserve that cooldown across adapter restarts
+- (TA2k) prevent BMW OAuth refresh tokens from appearing in debug logs
+- (hombach) updated iobroker/testing
+- (hombach) updated dependencies
 
+### 5.0.5 (2026-10-26)
+
+- (TA2k) container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
+- (TA2k) existing installations update to the new container automatically
+
+### 5.0.4 (2026-10-19)
+
+- (TA2k) fixed unnecessary container cleanup that used up the daily API request limit
+- (TA2k) fixed telematic data fetching (CU-400): the container now uses only the data keys BMW accepts
+- (TA2k) existing installations update to the new container automatically
 - (hombach) fixed repochecker error
 - (hombach) fixed translations
 - (hombach) updated dependencies
@@ -247,33 +299,7 @@ Dieser Adapter ist verfügbar unter: <https://github.com/TA2k/ioBroker.bmw>
 - (hombach) moved all jsonConfig.json inline translations to i18n files
 - (hombach) updated dependencies
 
-### 5.0.0 (2026-05-17)
-
-- (copilot) BREAKING: Adapter requires node.js >= 22 now
-- (hombach) fixed axios vulnerability
-- (hombach) removed node 20 tests
-- (hombach) added CHANGELOG_OLD.md
-- (hombach) updated dependencies
-
-### 4.3.5 (2026-04-11)
-
-- (hombach) fix repo checker warnings
-- (hombach) fix vulnerability
-- (hombach) update dependencies
-- (hombach) remove old admin files
-
-### 4.3.4 (2026-02-28)
-
-- enhance docu and logging
-- (hombach) fix vulnerability
-- (hombach) update dependencies
-
-### 4.3.3 (2026-01-02)
-
-- (hombach) year 2026 changes
-- (hombach) update dependencies
-
-### Old Changes see [CHANGELOG OLD](https://github.com/TA2k/ioBroker.bmw/blob/master/CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## License
 

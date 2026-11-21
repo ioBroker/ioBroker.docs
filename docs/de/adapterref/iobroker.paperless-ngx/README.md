@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.paperless-ngx/README.md
 title: ioBroker.paperless-ngx
-hash: xVGPbaWQnYogxZ9fGb7KYF8lxLOigORxys84f9cMmZo=
+hash: XP5PT7byFnsyGKjFHEHBrf3VXUnxck4JKS0tOVEGdx0=
 ---
 ![Logo](../../../en/adapterref/iobroker.paperless-ngx/admin/paperless-ngx.png)
 
@@ -27,6 +27,10 @@ Um sich bei der Instanz anzumelden, müssen Sie folgende Daten festlegen:![Alter
 
 Wählen Sie den Aktualisierungszyklus und die Art der gelesenen Daten: (ohne, einfach oder detailliert)![Alternativtext](../../../en/adapterref/iobroker.paperless-ngx/image-1.png)
 
+## Nachrichten für Skripte und KI-Agenten
+
+`sendTo('paperless-ngx.0', 'help', {}, answer => ...)` Gibt eine Beschreibung aller Nachrichten (Dokumentsuche, globale Suche, Aktualisierung, Info) für KI-Agenten (z. B. ioBroker.pi-agent) und Skripte zurück: `{ help, commands }`, Wo `commands` listet jede Nachricht auf `write: true` Wenn es etwas ändert.
+
 ## HAFTUNGSAUSSCHLUSS
 
 Dieses Projekt steht in keiner offiziellen Verbindung zu Paperless-ngx, d.h. Paperless-ngx betreut dieses Projekt nicht.
@@ -36,28 +40,23 @@ Dieses Projekt steht in keiner offiziellen Verbindung zu Paperless-ngx, d.h. Pap
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.5 (2026-11-20)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 1.0.4 (2026-10-25)
+- (BenAhrdt) Update `@iobroker/testing` to version 6.3.1.
+- (arteck) add dark mode
+
+### 1.0.3 (2026-09-20)
+- Add a Paperless-styled Admin tab with global and document search, tag filters, metadata browsing, refresh controls, and a direct Paperless link.
+- Encode search parameters safely, acknowledge requests when Paperless is unavailable, retry connections on the configured cycle, and remove duplicate object cleanup work.
+
 ### 1.0.2 (2026-08-05)
 - (BenAhrdt) Prevent adapter startup failure when no Paperless server is configured
 
 ### 1.0.1 (2026-08-05)
 - (copilot) Adapter requires node.js >= 22 now
 - (BenAhrdt) Add HTTPS and reverse proxy URL support while keeping existing HTTP configurations compatible
-
-### 1.0.0 (2026-04-03)
-* (BenAhrdt) change axios to fetch
-
-### 0.5.1 (2026-02-28)
-* (BenAhrdt) update dependencies
-
-### 0.5.0 (2025-10-19)
-* (BenAhrdt) update Authentication NPM
-* (BenAhrdt) update test to resolve conflicts
-* (BenAhrdt) update testing 5.1.1
-* (BenAhrdt) update dependencie core
-* (BenAhrdt) update dependencie to node >= 20
-* (BenAhrdt) update testing to 24.x
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ikettle2/README.md
 title: ioBroker.ikettle2
-hash: j2KCnjHrE+WnwVFCmw+o4QvSGmrU73BoLr1LIWABrro=
+hash: +hiz9s4kj7xNWnWuB7sPLudqIK/Qz927+t/yqpv6Ju8=
 ---
 ![Logo](../../../en/adapterref/iobroker.ikettle2/admin/ikettle2.png)
 
@@ -49,7 +49,9 @@ Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.
 
 **Wassertemperatur** - Die tatsächliche Temperatur des Wassers.
 
-**Wasserstand** – Aktueller Wasserstand im Wasserkocher. Hinweis: Die Genauigkeit ist nicht sehr hoch und kann völlig falsch sein. Überprüfen Sie daher den Wasserstand im Wasserkocher visuell.
+**Wasserstand** – Wassermenge im Wasserkocher in Litern. Der Gewichtssensor im Sockel verändert sich mit der Temperatur, daher wird der Wasserstand nur gemessen, wenn der Wasserkocher im Leerlauf ist und die Temperatur unter der in den Einstellungen festgelegten Temperatur (Standard 40 °C) liegt. Während des Aufheizens und wenn das Wasser heiß ist, wird der zuletzt gemessene Wert gespeichert. Siehe _„Wasserstandskalibrierung“_ weiter unten.
+
+**water\_level\_raw** – Rohwert des Gewichtssensors (Median der letzten Werte). Wird zur Kalibrierung des Wasserstands verwendet.
 
 **Aufwärmzeit** – Die Zeit, die der Wasserkocher das Wasser auf der eingestellten Temperatur hält, bevor er sich abschaltet. Hinweis: 0 = Nicht verwendet, Mindestzeit 5 Minuten, Höchstzeit 30 Minuten.
 
@@ -63,11 +65,34 @@ Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.
 
 Nehmen Sie den Wasserkocher von der Basisstation und stellen Sie die Objektkalibrierung auf „Wahr“. Nach dem Signalton der Basisstation können Sie den Wasserkocher wieder auf die Basisstation stellen und verwenden.
 
+### Wasserstandskalibrierung
+
+Der Adapter wandelt den Rohwert des Sensors mithilfe von Kalibrierungspunkten aus den Instanzeinstellungen in Liter um. Die Standardwerte (2090 = 0 l, 2185 = 1,8 l) stammen aus früheren Versionen und sind nicht für jeden Wasserkocher geeignet.
+
+Der Sensor arbeitet nicht linear: Bei einem getesteten Wasserkocher erhöhte der erste Liter den Rohwert um 64, die nächsten 0,8 l jedoch nur um 31 (leer: 2067, 1 l: 2131, 1,8 l: 2162). Daher kann optional ein dritter Messpunkt für den leeren Wasserkocher festgelegt werden; die Messpunkte sind durch Geraden verbunden.
+
+1. Stellen Sie den leeren Wasserkocher auf den Sockel, warten Sie etwa eine Minute und notieren Sie `kettle.water_level_raw` wie _ein leerer Wasserkocher_ .
+2. Füllen Sie eine bekannte Menge kaltes Wasser ein (z. B. 1 l) und notieren Sie den Wert als Punkt 1.
+3. Füllen Sie bis zu einer zweiten Menge (z. B. 1,8 l bis zur Maximalmarkierung) und notieren Sie den Wert als Punkt 2.
+
+Der Rohwert schwankt um einige Einheiten, daher sollte man ihn erst ablesen, nachdem der Wasserkocher eine Weile stillgestanden hat.
+
 ---
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (sadam6752-tech) Fix: messages are split at the terminator 0x7e, answers to commands are no longer mixed up with status messages
+- (sadam6752-tech) Fix: reconnect with a growing delay (5 s to 60 s) instead of reconnecting at once in a loop
+- (sadam6752-tech) Fix: `kettle.preset.get_preset` works now (it was not subscribed)
+- (sadam6752-tech) Fix: command states are confirmed only after the kettle accepted the command; invalid temperatures are not sent
+- (sadam6752-tech) Water level only measured while the kettle is idle and cold, calibration with two or three points (optional empty kettle) in the instance settings, new state `kettle.water_level_raw`
 - (copilot) Adapter requires node.js >= 22 now
+### 1.0.11 (2026-11-03)
+* chore(deps-dev): bump @types/node from 25.9.8 to 25.9.9
+
+### 1.0.10 (2026-10-03)
+* chore(deps-dev): bump @types/node from 25.9.5 to 25.9.8
+
 ### 1.0.9 (2026-09-03)
 * chore(deps-dev): bump @tsconfig/node22 from 22.0.5 to 22.0.6
 * chore(deps-dev): bump @alcalzone/release-script-plugin-license
@@ -116,8 +141,6 @@ Nehmen Sie den Wasserkocher von der Basisstation und stellen Sie die Objektkalib
 
 ### 1.0.0
 * (Jey Cee) initial release
-
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.ikettle2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

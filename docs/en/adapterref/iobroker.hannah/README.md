@@ -63,12 +63,65 @@ See the [Smart Home Integration guide](https://hannah-docs.leonie.network/manual
 |-------|-------------|
 | Residents Adapter Instance | Instance number of the Residents adapter for presence tracking |
 
+### Custom settings of a state
+
+If Hannah does not understand a device the way you want, you do not have to change the ioBroker objects. Every state has a "Custom settings" dialog in the objects tab of the admin (the wrench icon), with a section for this adapter instance. Tick **Enabled** (the toggle at the top of the section, it is provided by the admin), then set what you need. The settings only apply to the state itself, never to a channel or device. With the **Diagnostics** tab of the adapter you can check what Hannah makes of the setup afterwards.
+
+| Field | Key | What it does |
+|-------|-----|--------------|
+| Enabled | `enabled` | Switches the override on. Nothing below is read without it. The toggle comes from the admin, the adapter has no field of its own for it. |
+| Voice-matching name | `name` | The name Hannah uses for the device in voice commands and announcements, instead of the ioBroker name. The ioBroker object is not renamed. Any state of a device may carry it. If the states of one device carry different names, none is used and the Diagnostics tab says which states disagree. |
+| Device category | `type` | A hint for the kind of device. Not a command: what the device is follows from its slots, the hint decides in doubtful cases (a switch that is a light, a level that is a blind position). |
+| Canonical state key | `canonicalKey` | What this state means, in the older vocabulary. With Hannah Core 0.94.0 or newer use **Slot** instead. |
+| Slot | `slot` | The slot of the device this state fills. It beats Hannah's guess from role, unit and name. If several states of a device name the same slot, none is used. A slot that does not exist is ignored. Needs Hannah Core 0.94.0 or newer. |
+| Inverted blind | `shutterInverted` | For blinds whose percentage means 0 % = open and 100 % = closed (some Homematic and KNX actuators). |
+| Minimum trust level | `neededTrust` | Only users with at least this trust level (0–10) may switch this state via Hannah. Reading is never restricted. Needs a Hannah Core that supports it. |
+
+**Device category** (`type`): `light`, `socket`, `climate`, `blind`, `window`, `door`, `thermostat`, `temperature_sensor`, `humidity_sensor`, `illuminance_sensor`, `air_quality_sensor`. You can also type your own value.
+
+**Canonical state key** (`canonicalKey`): `on`, `level`, `color`, `colorTemp`, `current`, `expected`, `illuminance`, `open`, `iaq`, `co2_equiv`, `voc_equiv`, `power`. You can also type your own value.
+
+**Slots** (`slot`):
+
+| Slot | Meaning |
+|------|---------|
+| `on` | switched on or off |
+| `brightness` | brightness, 0–100 % |
+| `color` | colour (RGB) |
+| `color_temperature` | colour temperature in Kelvin |
+| `position` | position of a blind, 100 % = open |
+| `tilt` | tilt of the slats of a blind |
+| `stop` | stop command of a blind |
+| `target_temperature` | setpoint of a thermostat or air conditioner, in °C |
+| `temperature` | measured temperature, in °C |
+| `humidity` | relative humidity |
+| `illuminance` | ambient brightness |
+| `pressure` | air pressure |
+| `co2` | CO₂ value |
+| `iaq` | air quality index |
+| `voc` | VOC value |
+| `power` | power, in W |
+| `energy` | energy, in kWh |
+| `voltage` | voltage, in V |
+| `current` | current, in A |
+| `open` | contact open or closed (window, door) |
+| `motion` | motion detected |
+| `valve` | position of a valve |
+| `mode` | mode of an air conditioner |
+| `fan_speed` | fan speed of an air conditioner |
+
+See the [Smart Home Integration guide](https://hannah-docs.leonie.network/manual/smart-home-integration/) for examples.
+
 ## Adapter states
 
 | State | Type | Description |
 |-------|------|-------------|
 | `hannah.<instance>.info.connection` | boolean | `true` while connected to Hannah Core |
 | `hannah.<instance>.textCommand` | string | Write a text query here (ack=false) to send it to Hannah |
+
+## Messages for scripts and AI agents
+
+`sendTo('hannah.0', 'help', {})` answers `{ help, commands }`: a description of all messages (`announce`, `ask`, `sendDirect`, `sendNotification` ...) and of the states for AI agents (e.g. pi-agent) and script authors, and the list of all commands with `write` (`true` if the command has an effect, e.g. speaks or changes a satellite).
 
 ## Hannah Core configuration
 
@@ -79,6 +132,33 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.10.0 (2026-11-21)
+- Added: the WiFi password fields of the flash dialog, the NVS dialog and the Satellite Defaults tab have a show/hide button, and they warn when the password starts or ends with a space or another whitespace character, a typical leftover of copy and paste from a router page. The value is not changed and writing is not blocked, a WiFi password may contain spaces. Before, a stray space was invisible and the satellite just never joined the WiFi.
+- Added: a "Reflash" button on every satellite in the Satellite Manager, next to "Configure" and "NVS". It writes the firmware from the Firmware Source URL onto the satellite over the USB cable (WebSerial) and leaves the settings alone: WiFi, MQTT, OTA and asset settings, the name and the room stay as they are, there is no new pairing seed and the satellite stays registered as it was. Use it when OTA cannot help, for example a satellite that crashes before an update arrives. Before, only "Flash new satellite" could put firmware on a satellite, and it needed all settings again.
+
+### 1.9.1 (2026-11-20)
+- Fixed (with a `hannah.v2` Core): the colour of a lamp composed from hue and saturation (1.9.0) did not work on real lamps, for example Matter lamps: hue and saturation stayed generic slots and Hannah answered that the lamp cannot be recoloured. Hue, saturation and colour temperature are numbers, they were taken for colours.
+- Added: the "Firmware Source URL" (tab Firmware) and the "OTA URL" (Satellite Defaults and the flash dialog) now say what belongs into them. The first is the full link to the installation package, the second only the address of the update server, the satellite appends the rest itself. Before, nothing told the two apart, and the address of the server alone in the first field made the download fail with "Downloaded file is not a valid ZIP archive".
+- Fixed: flashing or downloading the image of a satellite in the Satellite Manager stopped with "crypto.randomUUID is not a function" when the ioBroker admin is opened over plain HTTP (not HTTPS or localhost). The pairing seed is created in every case now. Flashing directly from the browser (WebSerial) still needs HTTPS or localhost, the download of the image for esptool.py does not.
+- Fixed: if the firmware download for the Satellite Manager returns something that is no ZIP archive, the error now says what came back (HTTP status, content type, size and the start of a text answer) and what it usually means, for example that the URL points at the version information (JSON) instead of the file, or that a web page of a proxy or firewall answered. Before, it only said "Downloaded file is not a valid ZIP archive".
+- Fixed: flashing a satellite or writing its settings directly from the browser in the Satellite Manager said "WebSerial is not supported by this browser (Chrome/Edge required)" when the ioBroker admin is opened over plain HTTP, although the browser is fine: Chrome and Edge only offer WebSerial over HTTPS or on localhost. The message now says that, and that "Download image" together with the web flasher of Espressif works without it.
+
+### 1.9.0 (2026-11-19)
+- (@GermanBluefox) Added: the message "help", a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+- Added (with a `hannah.v2` Core): a device is reported as unreachable when a state with the role `indicator.reachable` in the same device is `false`, and as reachable again when it turns `true`. Before, every device counted as reachable. A device without such a state stays reachable. The state is no slot of the device any more (it was a generic slot before). Only the role counts, `indicator.unreach` is not used.
+- Added (with a `hannah.v2` Core): a lamp that has a hue and a saturation state (roles `level.color.hue` and `level.color.saturation`) but no RGB state now gets a colour slot, so Hannah can colour it. The colour is composed from the two states at full brightness (the brightness stays the lamp's own slot), and the requested colour is written back as hue and saturation. The scale comes from the range of the states (0-360 and 0-100 if they name none). A real RGB state still comes first. The two states are no separate slots of the lamp any more. A lamp with only xy states is not covered yet.
+
+### 1.8.1 (2026-11-15)
+- Fixed: the custom settings dialog of a state showed two checkboxes for the same switch, "Enabled" from the admin and "Override for Hannah" below it. Only the one from the admin is left.
+- Changed: the help text of the "Slot" field names the Hannah Core version it needs (0.94.0) instead of the name of the API.
+
+### 1.8.0 (2026-11-15)
+- Fixed (with a `hannah.v2` Core): a read-only number with the plain role `value` in a light function, such as the `rssi` (dBm) of a Shelly, is no longer taken for the brightness of a light when the whole device is in the room and function. It stays a generic value, and the diagnostics say that its unit does not fit a brightness. A brightness in percent or without a unit is not affected.
+- Fixed: a notification forwarded from ioBroker to Hannah now starts with the title of its category (for example "Firmware-Update verfügbar: Power Strip 4 Gen4"). Before, only the messages were forwarded, and a message that is only a date or a device name left Hannah without any hint what it was about. A message that already contains the title is not doubled.
+- Fixed: the same notification from ioBroker is announced by Hannah only once a day, no matter how often the sending adapter repeats it (for example a firmware notice every 15 minutes). Alerts are never held back. After a restart of this adapter a notification is announced once more.
+- Fixed (with a `hannah.v2` Core): the `name` override in the custom settings of a state now counts wherever it sits on the device. Before, it only worked on the state the adapter read first, and for combined channels the name of the device object won. If the states of one device carry different names, none is used and the Diagnostics tab says which states disagree.
+- Added (with a `hannah.v2` Core): a `slot` override in the custom settings of a state (new field "Slot"). It says which slot of the device the state fills, for example `on`, `brightness` or `target_temperature`, and beats Hannah's own guess from role, unit and name. If several states of a device name the same slot, none is used, and a slot that does not exist is ignored. The Diagnostics tab reports both.
+
 ### 1.7.1 (2026-11-06)
 - Changed: the adapter names the host it runs on to Hannah Core with every call, so a Hannah Core that lists its components (such as the version overview) shows the adapter by host instead of a random ID. It is the name the log collector shows for the adapter: `HANNAH_LOG_INSTANCE`, else the host name, `container` for a container without its own host name. This needs `@m1kad0/hannah-grpc-lib` 0.12 and `@m1kad0/hannah-proto` 5.6, both come along. Nothing changes for a Hannah Core that does not use it
 

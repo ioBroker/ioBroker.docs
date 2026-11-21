@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi-network/README.md
 title: ioBroker.unifi-network
-hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
+hash: bm6V3SyL09+erkK6OpwVpHZAmZdJ/5pZsbmCF0BI8ng=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi-network/admin/unifi-network.png)
 
@@ -13,6 +13,7 @@ hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/unifi-network-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.unifi-network.png?downloads=true)
 ![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg)
+![Покрытие](https://img.shields.io/badge/coverage-96%25-brightgreen)
 
 # ioBroker.unifi-network
 
@@ -48,14 +49,88 @@ hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
 
 ![информация об изображении](../../../en/adapterref/iobroker.unifi-network/doc/config_local_user.png)
 
+## Сообщения для скриптов и агентов искусственного интеллекта.
+
+`sendTo('unifi-network.0', 'help', {})` ответы `{ help, commands }`: описание всех сообщений (`clientList`, `deviceList`, `wlanList`, `lanList`, `firewallGroupList`...) и состояний для управления сетью, написанных для агентов ИИ (например, ioBroker.pi-agent) и авторов скриптов. `commands` перечисляет все сообщения с `write: true` Если это что-то изменит.
+
+## Разработка
+
+Тестирование проводилось с использованием реального контроллера и записанных тестовых стендов:
+
+1. Создайте git-ignored `.env` в корне проекта:
+
+   ```env
+   UNIFI_HOST=192.168.1.1
+   UNIFI_USER=your-local-user
+   UNIFI_PASSWORD=your-password
+   # optional
+   UNIFI_PORT=443
+   UNIFI_SITE=default
+   ```
+
+   - `UNIFI_HOST`, `UNIFI_USER`, `UNIFI_PASSWORD`: необходимый
+   - `UNIFI_PORT`: Порт HTTPS, по умолчанию `443`
+   - `UNIFI_SITE`: название сайта, по умолчанию `default`
+
+2. Запишите ответы API (только для чтения, один файл на каждую конечную точку):
+
+   ```bash
+   npm run record:api
+   ```
+
+   - `-- --dry-run`: показывает только, какие файлы будут записаны или удалены
+   - `-- --no-anonymize`: хранит исходные данные без анонимизации
+
+3. Запись событий в реальном времени (интерактивный режим):
+
+   ```bash
+   npm run record:events
+   ```
+
+   - `-- --only=<ids>`: только перечисленные сценарии, разделенные запятыми (идентификаторы в `tools/eventScenarios.ts`)
+   - `-- --missing`: сохраняются только сценарии без фикстуры;
+   - `-- --destructive` Также возможны сценарии удаления данных на контроллере.
+   - `-- --dry-run`: показывает только, какие файлы будут записаны.
+   - `-- --no-anonymize`: хранит исходные данные без анонимизации
+
+4. Запись неизвестных событий (интерактивная, `q` (Нажатие Enter сохраняет, Ctrl+C прерывает сохранение):
+
+   ```bash
+   npm run record:events:unknown
+   ```
+
+   - `-- --dry-run`: показывает только, какие файлы будут записаны.
+   - `-- --no-anonymize`: хранит исходные данные без анонимизации
+
+5. Запустите тесты:
+
+   ```bash
+   npm run test:ts        # offline, uses recorded fixtures
+   npm run test:live      # against the controller
+   npm run test:all       # all of the above
+   npm run test:coverage  # runs test:all with coverage report (src/) in coverage/index.html
+   ```
+
+Оборудование хранится в `test/fixtures/local/` и игнорируются Git, поскольку содержат данные контроллера. Для реальных тестов требуются учетные данные контроллера, содержащиеся в игнорируемых Git файлах. `.env` файл. Отчет о покрытии кода составляется в `coverage/` (git-ignored).
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-11-20)
 
-### **WORK IN PROGRESS**
+- (Scrounger) bug fixes found by adapter checker
+- (Scrounger) bug fixes
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 1.6.0 (2026-11-17)
+
+- (Scrounger) enable / disable ports added #150
+- (Scrounger) momment replaced with day.js
+- (Scrounger) dependencies updated #116
+- (Scrounger) revert bug fix for expired token #124
 - (Scrounger) channel / device name undefined bug fix #116
 - (Scrounger) vpn client handling optimized
 - (Scrounger) event messages improved #122 #115
@@ -94,21 +169,6 @@ hash: K0yyQgCkjgvZosbOxzd5r9leu47BkOSV9lKtPgVGp7g=
 - (Scrounger) dependencies updated
 - (Scrounger) event messages improved #46
 - (Scrounger) bug fixes
-
-### 1.3.0 (2025-11-24)
-
-- (Scrounger) event messages improved #46
-- (Scrounger) option to change tx power mode of access point channels
-- (Scrounger) dependencies updated
-- (Scrounger) code optimized
-- (Scrounger) logging optimized
-
-### 1.2.2 (2025-11-14)
-
-- (Scrounger) delete device event added
-- (Scrounger) event messages improved #43
-
-[Older changelogs can be found there](https://github.com/Scrounger/ioBroker.unifi-network/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

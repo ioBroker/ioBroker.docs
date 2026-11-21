@@ -78,11 +78,11 @@ Falls der Längen und Breitengrad schon im System hinterlegt ist, trägt das Sys
 
 | Funktion | Free | Light | Plus |
 |----------|------|-------|------|
-| API-Anfragen/Monat | 250 | 3.000 | 3.000 |
+| API-Anfragen/Monat | 250 | 3.000 | 4.500 |
 | Updates pro Tag | 1 | 24 (stündlich) | 144 (alle 10 min) |
 | Prognosetage | 1-2 (heute + morgen) | 1-7 | 1-7 |
 | Solarflächen | bis 4 | bis 4 | bis 8 |
-| Historische Daten | nein | nein | 30 Tage |
+| Archivierte Prognose | nein | nein | 7 Tage |
 
 Das **Abfrageintervall** wird vom Adapter automatisch anhand der gewählten Kontostufe gesetzt und muss nicht manuell konfiguriert werden:
 
@@ -135,8 +135,11 @@ Format: `key1=value1&key2=value2`
 ### pvnode Besonderheiten
 
 - **15-Minuten-Auflösung**: pvnode liefert Prognosedaten in 15-Minuten-Intervallen (v1 und v2)
+- **Tagessummen für weitere Tage**: Bei mehr als 2 Prognosetagen (Light/Plus) werden zusätzlich `energy.day2` … `energy.day6` (Energie in 2 … 6 Tagen) je Anlage und unter `summary.energy` angelegt. Datenpunkte für Tage außerhalb der eingestellten Prognosetage werden automatisch entfernt.
+- **Stundenwerte für weitere Tage**: Sind die stündlichen Datenpunkte aktiviert, werden für dieselben Tage zusätzlich die Kanäle `energy.hoursDay2` … `energy.hoursDay6` und `power.hoursDay2` … `power.hoursDay6` je Anlage und unter `summary` angelegt (analog zu `hoursToday`/`hoursTomorrow`).
 - **Azimuth-Konvertierung**: Der Adapter konvertiert automatisch den Azimuth-Wert (Adapter: 0=Süd) in das pvnode-Format (180=Süd)
 - **Abfrageintervall**: Wird automatisch anhand der Kontostufe gesetzt — keine manuelle Konfiguration notwendig
+- **Neustart des Adapters**: Sind die gespeicherten Prognosedaten beim Start noch aktuell (jünger als das Abfrageintervall), wird keine neue Anfrage gestellt. Die nächste Anfrage erfolgt, sobald die Daten veraltet sind. Bei geänderter Konfiguration oder neu hinzugefügter Anlage wird sofort abgefragt.
 - **Pro-Flächen-Prognosen (v2)**: Wenn der pvnode-Account String-Daten liefert, erhält jede konfigurierte Anlage ihre eigene Prognose. Clearsky-Werte, Temperatur und Wettercode stammen aus den Site-weiten Daten.
 - **Summary-Daten**: Das Summary-JSON enthält Clearsky-Werte sowie Temperatur und Wettercode
 - Die Felder „Dämpfung morgens" und „Dämpfung abends" werden für pvnode nicht verwendet
@@ -151,10 +154,13 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 7.0.0 (2026-11-19)
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
+- (@patricknitsch) Fix pvnode v2 Plus tier only fetching every 60 minutes instead of every 10 minutes
+- (@patricknitsch) pvnode: Add daily energy states for additional forecast days (`energy.day2` ... `energy.day6`) for Light/Plus tier
+- (@patricknitsch) pvnode: Add hourly states for additional forecast days (`energy.hoursDay2` ... `energy.hoursDay6`, `power.hoursDay2` ... `power.hoursDay6`) if hourly states are enabled
+- (@patricknitsch) pvnode: Skip the request on adapter start if the stored forecast is still current (saves requests of the monthly quota)
 
 ### 6.2.0 (2026-07-06)
 - (@patricknitsch) pvnode API v2 support: plant configuration via Site ID in the pvnode portal — create a site at https://pvnode.com/sites/new
@@ -179,12 +185,6 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@Scrounger) solcast user agent bug fix
 * (@klein0r) Updated dependencies
-
-### 5.0.0 (2025-04-23)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Minimum peak power is 0.1 kWp
 
 ## License
 

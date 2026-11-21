@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/docs/en/template.md
 title: 2FA
-hash: b5BoTw8cpTiVyzVB3zgdAT4WRxm5WZhS2M9O4hdBvKU=
+hash: +Om25CoQiS80RLu9YkcRaanvtzIJLcBmJDJmawEZibk=
 ---
 # 2FA
 
@@ -18,7 +18,7 @@ hash: b5BoTw8cpTiVyzVB3zgdAT4WRxm5WZhS2M9O4hdBvKU=
 
 ![Картина](../../../../../en/adapterref/iobroker.synology/docs/en/img/2FA_step_4.jpg)
 
-Запишите секретный ключ, он должен быть указан в настройках адаптера. Завершите настройку двухфакторной аутентификации.
+Запишите секретный ключ, он должен быть указан в настройках адаптера. Введите этот секретный ключ в формате Base32, а не шестизначный код, который постоянно меняется. Убедитесь, что часы NAS и хоста ioBroker синхронизированы (например, с NTP), поскольку коды TOTP зависят от точного времени. Завершите настройку двухфакторной аутентификации.
 
 ![Картина](../../../../../en/adapterref/iobroker.synology/docs/en/img/2FA_step_5.jpg)
 

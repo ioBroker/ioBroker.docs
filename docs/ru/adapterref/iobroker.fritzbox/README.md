@@ -2,16 +2,18 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fritzbox/README.md
-title: без названия
-hash: sTLHyszNo8SED2yUiA35pUzkGRybzgrzT3TDwDf6E2g=
+title: ioBroker.fritzbox
+hash: u8Y8Whe5kjsOu071YyFdrEmiUMGiT1J45iNrj6kO2Dg=
 ---
-![Логотип](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)ioBroker fritzbox Adapter
+![Логотип](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)
 
-![Количество установок](http://iobroker.live/badges/fritzbox-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fritzbox.svg)
+![Количество установок](https://iobroker.live/badges/fritzbox-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fritzbox.svg)
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/fritzbox/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fritzbox.svg)
+
+# ioBroker.fritzbox
 
 > \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
@@ -156,7 +158,7 @@ Fritz!Box (написание названия производителя AVM) �
 
 **В: Существует Fritzbox и адаптер TR-064, который также обеспечивает доступ к монитору звонков Facebook. В чем разница между ними, нужно ли устанавливать оба адаптера?**
 
-А: Адаптер Fritzbox поставляется с самого начала и предоставляет доступ только к той информации о маршрутизаторе, которая касается звонков.
+А: Адаптер Fritzbox изначально предоставлял доступ только к той информации о маршрутизаторе, которая касалась звонков.
 
 TR-064 можно считать дальнейшим развитием технологии, поскольку этот адаптер предоставляет гораздо более полную информацию, например, об устройствах, зарегистрированных в FB.
 
@@ -326,18 +328,18 @@ TR-064 можно считать дальнейшим развитием тех�
 }
 ```
 
-<!--
-## todo
-* Doku der Datenpunkte
-* Import des xml Telefonbuch der Fritzbox
-* Feinere Konfiguration der Anruferliste (Tabellen)
--->
-
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2026-10-22)
+- (GermanBluefox) Fixed repochecker issues (state roles, responsive config, README) (#327)
+- (GermanBluefox) Fixed repochecker issues (type of JSON states, role of calls.missedCount, copyright) (#335)
+
 ### 1.0.0 (2026-09-09)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) **ENHANCED**: Translated README documentation from German to English
@@ -367,18 +369,12 @@ TR-064 можно считать дальнейшим развитием тех�
 * (Apollon77) Store tam files in an instance-specific location
 * (Apollon77) Fix crash cases reported by Sentry
 
-### 0.4.0 (2022-03-25)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Khaos66/Apollon77) General updates and fixes
-* (Khaos66) TAM (Telephone Answering Maschine) support added
-* (Apollon77) Add Sentry for crash reporting
-
 ## License
 
 The MIT License (MIT)
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2015-2022, ruhr70
+Copyright (c) 2015-2022 ruhr70 <ruhr@digheim.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

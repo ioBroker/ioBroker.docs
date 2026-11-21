@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: 4hg+m44ju2oD61QGzLndKP9MwjzDth1rl/hP3ZxLmTA=
+hash: DoShKKRwJvedWUyYd6TvxzWHFUsIC3hgNjV6DIdXoE4=
 ---
-![Версия NPM](http://img.shields.io/npm/v/iobroker.esphome.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.esphome.svg)
-![Количество установок (последние)](http://iobroker.live/badges/esphome-installed.svg)
-![Количество установок (стабильных)](http://iobroker.live/badges/esphome-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/esphome-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/esphome-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/DrozmotiX/iobroker.esphome.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg)
 ![Известные уязвимости](https://snyk.io/test/github/DrozmotiX/ioBroker.esphome/badge.svg)
@@ -111,7 +111,7 @@ hash: 4hg+m44ju2oD61QGzLndKP9MwjzDth1rl/hP3ZxLmTA=
 **Чтобы устройство, настроенное на панели управления, работало с адаптером:**
 
 1. Прошейте устройство конфигурацией из панели управления (убедитесь, что API ESPHome включен в YAML-файле).
-2. Добавьте устройство вручную в настройках адаптера (вкладка «Устройство»). Введите IP-адрес/имя хоста и ключ шифрования (рекомендуется) или пароль (устаревший способ).
+2. Добавьте устройство вручную в настройках адаптера (вкладка «Устройство»). Введите IP-адрес/имя хоста и ключ шифрования (рекомендуется) или пароль (устаревшая версия, только для версий ESPHome до 2026.1).
 3. Затем адаптер подключится к устройству через собственный API ESPHome.
 
 **Примечание:** В будущем может быть реализована более тесная интеграция между панелью управления и адаптером (см. проблему #228), но в настоящее время они работают независимо друг от друга.
@@ -211,7 +211,7 @@ iobroker url iobroker.esphome
 
 ### Использование HTTPS
 
-Одна из причин использования HTTPS — возможность прямой прошивки устройств, подключенных к компьютеру, поскольку esphome не позволяет этого делать с HTTP (вероятно, это ограничение браузера в отношении WebSerial).
+Одна из причин использования HTTPS — возможность прямой прошивки устройств, подключенных к вашему компьютеру, поскольку esphome не позволяет этого делать с HTTP (вероятно, это ограничение браузера в отношении WebSerial).
 
 ![flashFromThisComputer.png](../../../en/adapterref/iobroker.esphome/admin/img/flashFromThisComputer.png)
 
@@ -235,6 +235,8 @@ iobroker url iobroker.esphome
 
 > \[!ВАЖНО] ioBroker ESPHome позволяет интегрировать устройства с помощью ключа шифрования (рекомендуется) или пароля API (устаревший способ). Необходимо указать соответствующие параметры аутентификации, см. [документацию ESPHome.](https://esphome.io/components/api.html?highlight=api) Пожалуйста, настраивайте только ключ шифрования (предпочтительно) или пароль API (устаревший способ).
 
+> \[!WARNING] **Критическое изменение в ESPHome 2026.1:** ESPHome удалил аутентификацию по паролю API, начиная с версии ESPHome 2026.1, поддерживается только шифрование. См. [список изменений ESPHome 2026.1](https://esphome.io/changelog/2026.1.0/#api-password-authentication-removed) . Устройства, которые по-прежнему используют `api: password:` Перед обновлением до ESPHome 2026.1 или более поздней версии (или при его выполнении) необходимо обновить программное обеспечение, чтобы использовать ключ шифрования (как в YAML-файле устройства, так и в настройках адаптера). Конфигурация API-пароля в этом адаптере работает только для устройств, работающих под управлением версий ESPHome до 2026.1.
+
 #### Пример записи в конфигурации ключа шифрования
 
 ```
@@ -243,7 +245,7 @@ api:
     key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 ```
 
-#### Пример записи в конфигурации API
+#### Пример записи конфигурации API (устаревшая версия, только для версий ESPHome до 2026.1)
 
 ```
 api:
@@ -269,6 +271,7 @@ api:
 - Добавить/изменить устройства
   - Отправит IP-адрес и учетные данные на серверную часть и попытается установить соединение.
   - Если предоставлен ключ шифрования, пароль API игнорируется, пожалуйста, убедитесь в правильности конфигурации YAML!
+  - API-Password поддерживается только устройствами, работающими под управлением версий ESPHome до 2026.1; для более новых версий требуется ключ шифрования.
 
 - Удалить устройство
   - Отправлю сообщение на серверную часть для удаления этого устройства.
@@ -283,7 +286,7 @@ api:
 &#x20;При внесении любых изменений в конфигурацию YAML перезагрузка ESP приведет к разрыву соединения и установлению нового.\
 &#x20;В ходе этого процесса состояния, которые больше не являются частью конфигурации YAML, будут автоматически удалены.
 
-![Устройства в порядке](../../../en/adapterref/iobroker.esphome/admin/img/deviceTree.png)
+![Устройства OK](../../../en/adapterref/iobroker.esphome/admin/img/deviceTree.png)
 
 ### Управление файлами YAML
 
@@ -291,7 +294,7 @@ api:
 
 #### Функции
 
-- **Загрузка YAML-файлов** : Вставьте содержимое вашей конфигурации YAML непосредственно в административный интерфейс и загрузите его в каталог ESPHome.
+- **Загрузка YAML-файлов** : Вставьте содержимое вашей YAML-конфигурации непосредственно в административный интерфейс и загрузите его в каталог ESPHome.
 - **Просмотр списка файлов** : Отображение всех файлов YAML, хранящихся в каталоге ESPHome, с указанием размера файла и даты изменения.
 - **Загрузка файлов** : Получите содержимое любого YAML-файла для редактирования или резервного копирования.
 - **Удаление файлов** : Удаление YAML-файлов, которые больше не нужны.
@@ -338,7 +341,8 @@ wifi:
 
 # Enable ESPHome API
 api:
-    password: 'MyPassword'
+  encryption:
+    key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 # Activate i2c bus
 i2c:
   sda: 21
@@ -424,6 +428,23 @@ switch:
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
+### __WORK IN PROGRESS__
+
+- (@DutchmanNL) **FIXED**: A command to a device that is offline is no longer acknowledged. The state stays at `ack: false` and a warning is logged, so other adapters that wait for the acknowledgement see that the command did not reach the device (#541)
+
+### 1.0.1 (2026-11-09)
+
+- (@DutchmanNL) **BREAKING**: ESPHome 2026.1 removed API password authentication, devices updated to ESPHome 2026.1 or later must use an encryption key. The API password option is kept for devices running older ESPHome versions, see README (#410)
+- (@DutchmanNL) **ENHANCED**: The online state `info._online` of each device has the role `indicator.reachable` (was `state`), so other adapters and visualisations can see whether an ESPHome device is reachable. Existing installations get the new role at the next adapter start
+- (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only
+- (@SimonFischer04) **ENHANCED**: Dependency autopy switched to @simonfischer04/autopy (npm) instead of a GitHub build so dev dependencies do not get installed on user systems #495
+
+### 1.0.0 (2026-09-26) - Public Stable Release
+
+- (@arteck) **FIXED**: A device that drops while its entities are still being announced no longer throws "Not connected", the state subscription is left to the reconnect
+- (@arteck) **FIXED**: A connection loss logs one "Connection destroyed" warning per device instead of one per entity
+- (@DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.2.2 and @iobroker/adapter-core to 3.4.3
+- (@DutchmanNL) **ENHANCED**: Tests now cover Node.js 22, 24 and 26 and the websocket library ws was updated to 8.21.3
 
 ### 1.0.0-beta.2 (2026-07-30)
 
@@ -444,30 +465,6 @@ switch:
 - (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
 - (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
 - (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
-
-### 1.0.0-beta.0 - Stable version release candidate
-
-- (@copilot) **NEW**: Promoted ioBroker.esphome to stable **v1.0.0**
-- (@copilot) **NEW**: Brings ESPHome devices into ioBroker with live state updates and direct control
-- (@copilot) **NEW**: Supports a wide range of device types including lights, switches, sensors, fans, covers, locks, and text entities
-- (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
-- (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
-- (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
-
-### 0.7.0 (2026-05-17)
-
-- (@SimonFischer04) **FIXED** copilot hallucinations
-- (@SimonFischer04) **NEW** 'Always last available' for pillow version
-- (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-
-### 0.7.0-beta.4 (2026-02-21)
-
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-- (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
-- (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
-
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.esphome/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

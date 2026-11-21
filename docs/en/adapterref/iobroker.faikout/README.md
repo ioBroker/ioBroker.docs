@@ -45,6 +45,12 @@ Objects are grouped per device:
   econo, powerful, comfort, streamer, sensor, LED, quiet, humidify. `selectedMode` is the operating mode
   without "off": while the unit runs it equals `mode`, while it is off it keeps the mode set last (taken
   from the module's native status). Writing it sends the mode and switches the unit on.
+- `mode`, `fan`, `swing` and `preset` are text, as the module speaks them. Each has a numeric twin
+  (`modeNum`, `fanNum`, `swingNum`, `presetNum`) with `common.states` such as
+  `{0: "off", 1: "heat_cool", 2: "cool", 3: "heat", 4: "dry", 5: "fan_only"}` for Lovelace and other
+  tools that expect numbers. Both are writable and mean the same: a command on either sends exactly one
+  command to the module (as text); both are set with `ack=true` when the module confirms. The numbers
+  are fixed; new values of a future firmware are appended.
 - `<device>.status.*` — readings: temperatures, humidity, energy, power, compressor and fan speed
 - `<device>.info.*` — device diagnostics: IP, WiFi signal, uptime, firmware
 
@@ -111,6 +117,25 @@ reporting 100 % — seen on units that still have Daikin's own WiFi adapter fitt
 pass on the percentage; the modes of Daikin's app (off / automatic / fixed) are not part of what is
 known about the S21 interface. Econo is only taken over while the unit is running.
 
+### Lovelace, type detector and other tools that expect numbers
+
+The module speaks text (`mode` = `"cool"`), and the text states stay the main form for scripts, vis and
+the device cards. Lovelace, however, converts the keys of `common.states` to numbers when it writes a
+climate entity; with text keys this gives `NaN` and the command is lost. Use the numeric twins in
+`<device>.control.*` for such tools:
+
+| State       | Role                        | Values                                                                        |
+| ----------- | --------------------------- | ----------------------------------------------------------------------------- |
+| `modeNum`   | `level.mode.airconditioner` | 0 off, 1 heat_cool, 2 cool, 3 heat, 4 dry, 5 fan_only                         |
+| `fanNum`    | `level.mode.fan`            | 0 auto, 1 night, 2 low, 3 lowMedium, 4 medium, 5 mediumHigh, 6 high           |
+| `swingNum`  | `level.mode.swing`          | 0 off, 1 on, 2 vertical, 3 horizontal, 4 both, 5 comfort, 6 horizontalComfort |
+| `presetNum` | `level.mode`                | 0 home, 1 eco, 2 boost                                                        |
+
+The roles let the type detector find them as part of an air conditioner. Writing `2`, `"2"` or the label
+`"cool"` to `modeNum` sends one command `cool` to the module; `modeNum` and `mode` are both set with
+`ack=true` when the module confirms. A value outside the list is discarded with a warning in the log.
+The twins are created with the first report of a module after the update.
+
 ## Visualisation (vis templates)
 
 The folder [`vis-templates/`](https://github.com/SmarthomeElektroniker/ioBroker.faikout/blob/main/vis-templates/) contains ready-made **vis 1** views for two units: overview,
@@ -124,6 +149,28 @@ one detail page per unit with controls, energy history and a phone view. They us
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-11-19)
+- `control.swing` / `swingNum`: new value `H+C` (`horizontalComfort`, number 6) for comfort mode with
+  horizontal swing. Comfort is a mode of the vertical louvres; the swing selector (e.g. in Lovelace) can now
+  combine it with horizontal swing. Needs Faikout firmware with `H+C` support; older firmware reports `C`
+  during comfort and treats a written `H+C` as `off`.
+- Renamed modules (issue #6): after changing the hostname of a module, the adapter kept the old name in memory
+  until the next restart and, once its objects were deleted, logged `State "...consumption..." has no existing
+  object` every hour. The module is now recognised by its hardware ID (`info.id`): the old name is no longer
+  updated, its consumption counters (today, month, JSON series) continue under the new name, and its objects
+  stay untouched until you delete them (SmarthomeElektroniker)
+- Deleted objects are noticed while the adapter runs: a deleted device is dropped, a deleted state or branch is
+  created again before the next write; states are no longer written to objects that do not exist
+  (SmarthomeElektroniker)
+- Dev dependency `@iobroker/testing` 6.3.2 (SmarthomeElektroniker)
+
+### 0.2.0 (2026-11-13)
+- Numeric twins of the text control states: `control.modeNum`, `fanNum`, `swingNum` and `presetNum` with
+  `common.states` (`{0: "off", 1: "heat_cool", ...}`) and the roles `level.mode.airconditioner`,
+  `level.mode.fan`, `level.mode.swing` and `level.mode`, for Lovelace and the type detector (forum thread
+  85668). Both forms are writable; a command on either sends exactly one command to the module, both are set
+  with `ack=true` when the module confirms. Text states, vis widgets and device cards are unchanged.
+
 ### 0.1.0 (2026-11-12)
 - Device manager support (`@iobroker/dm-utils`): one card per air conditioner in the admin tab "Devices"
   with the running operation (mode, current action, room/target/outside temperature, fan speed, humidity,
@@ -153,23 +200,6 @@ one detail page per unit with controls, energy history and a phone view. They us
 - VIS widgets: the accent colour follows the mode again (heating orange, cooling blue, off grey) – jQuery 1.11 in vis 1
   cannot set CSS custom properties with `.css()`, so it always stayed blue.
 - New: vis templates (`vis-templates/`) – overview, detail page per unit, energy and phone view.
-
-### 0.0.17
-- Fixed units of `status.comp` and `status.fanfreq`: the module sends Hz by default and rpm only with `ha.comprpm`/`ha.fanrpm`.
-  The adapter now takes the unit from the module's Home Assistant discovery (a fractional fan value is always Hz),
-  sets it on the state and remembers it per device. The VIS widgets show the unit of the state.
-- All fields the module can report are described: new `status.action` (with `no.hvacaction` off), `status.loopback`,
-  `status.bletemp`/`blehum`/`blebat`, `info.dma`, `info.restart`, `info.ipv6`, `info.secureboot`, `info.nvsecryption`.
-  `dma` and `restart` were created as unknown fields under `status.*` up to 0.0.16 and are moved to `info.*` on start.
-- New tab "Module settings" in the instance configuration: which settings the faikout module needs for the complete set of
-  data points (all eleven languages). Same table in the README.
-- Warning in the log when a module is connected without `ha.enable`.
-
-### 0.0.16
-- Release notes in `io-package.json` trimmed to seven entries and translated into all languages (repository checker E1032/E1144).
-
-### 0.0.15
-- The MQTT broker's shutdown timeout uses the adapter's `setTimeout` (repository checker E5005).
 
 ## Trademark and relationship to the hardware project
 

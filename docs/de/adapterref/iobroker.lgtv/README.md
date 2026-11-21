@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: 9nxDWaotXqYsWDpHdueEL5u8WV57cd32C5e0YbP9GD0=
+hash: m/ZeZ/reVD11bctxbViTN11ZcQx3qZoIxVMM3SY5w6k=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -25,8 +25,8 @@ Fernsteuerung eines LG WebOS SmartTV (Modelle ab 2013) von [ioBroker](https://ww
 
 ## Verwendung:
 Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
-Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein.
-Beim ersten Verbindungsaufbau erscheint eine Kopplungsaufforderung auf Ihrem Fernsehbildschirm. Erlauben Sie die Verbindung.
+Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein. Während die Instanz läuft, werden im IP-Feld die im Netzwerk gefundenen Fernseher zur Auswahl angezeigt.
+Beim ersten Verbindungsaufbau erhalten Sie auf Ihrem Fernsehbildschirm eine Aufforderung zur Kopplung. Erlauben Sie die Verbindung.
 
 ### Umfrage
 Manche Fernseher trennen die Verbindung zum WebSocket, wenn sie ausgeschaltet werden, und melden dies nicht korrekt an den Adapter. In diesem Fall ist eine zusätzliche Abfrage erforderlich. Das Abfrageintervall kann in den Einstellungen festgelegt werden. Ist kein Wert angegeben, versucht der Adapter, dies automatisch zu erkennen: Nach einem Neustart des Adapters ist die Abfrage (alle 60 Sekunden) aktiv, bis das erste korrekte Ausschalten des Fernsehers erkannt wird.
@@ -34,7 +34,7 @@ Manche Fernseher trennen die Verbindung zum WebSocket, wenn sie ausgeschaltet we
 ## Einige Beispiele:
 `setState('lgtv.0.states.popup', 'Some text!');`
 
-Auf dem Fernseher erscheint ein Popup mit dem Text „Etwas Text!“.
+Auf dem Fernseher wird ein Popup mit dem Text „Etwas Text!“ angezeigt.
 Sie können im Text HTML-Zeilenumbrüche (br) verwenden.
 
 `setState('lgtv.0.states.turnOff', true);`
@@ -163,7 +163,7 @@ hält den aktuellen Kanal
 
 `volume`
 
-speichert den aktuellen Lautstärkepegel und kann die Lautstärke ändern
+Diese Einstellung speichert die aktuelle Lautstärke und ermöglicht deren Änderung. Standardmäßig erfolgt eine Erhöhung um 5 oder mehr in 2er-Schritten alle 500 ms, um die Lautsprecher zu schonen. Deaktivieren Sie die Option „Rampenförmige Lautstärkeerhöhung“ in den Instanzeinstellungen, um alle Stufen gleichzeitig festzulegen.
 
 `on`
 
@@ -178,20 +178,57 @@ der vom Fernseher gemeldete Leistungszustand, zugeordnet zu `on`, `screen_off`, 
 ## Fernbedienungs-Widget für `ioBroker.devices`
 Der Adapter enthält ein **TV-Steuerungs-Widget** für den `devices`-Adapter. Fügen Sie es über *Widget hinzufügen → TV-Steuerung* hinzu, wählen Sie die LGTV-Instanz aus, und das Widget steuert direkt die `remote.*`-Zustände dieser Instanz. Die Statuszeile zeigt die aktuelle Lautstärke, den Stummschaltungsstatus und die laufende App an; der Punkt in der Ecke repräsentiert `states.on`.
 
-Der Netzschalter folgt `remote.power`: Er sendet die POWER-Taste, wenn der Fernseher eingeschaltet ist, und ein Wake-on-LAN-Paket, wenn er ausgeschaltet ist.
+Der Netzschalter folgt `remote.power`: Er sendet das POWER-Tastensignal, wenn der Fernseher eingeschaltet ist, und ein Wake-on-LAN-Paket, wenn er ausgeschaltet ist.
 
 | Kompakt (1x1) | Breit (2x0,5) | Vollfernbedienung (2x1 / 2x2) |
 |--------------------------------------------|--------------------------------------|---------------------------------------------|
 | ![Kompaktes Layout](docs/widget-compact.png) | ![Breites Layout](docs/widget-wide.png) | ![Vollständiges Remote-Layout](docs/widget-wide.png)](../../../en/adapterref/iobroker.lgtv/docs/widget-full.png) |
 
-Die Kanaltasten, Medientasten, Farbtasten und der Ziffernblock können jeweils in den Widget-Einstellungen deaktiviert werden.
+Die Kanaltasten, Medientasten, Farbtasten und der Ziffernblock lassen sich in den Widget-Einstellungen deaktivieren. Unterhalb der Tasten verfügt die Fernbedienung über Tasten für die Apps des Kanals `tv` (siehe unten) und, falls in den Widget-Einstellungen aktiviert, für dessen Eingänge.
 
 ## Fernsteuerung im Adminbereich
 Die Instanzeinstellungen haben zwei Registerkarten. **Einstellungen** enthält die Konfiguration; **Fernbedienung** ist eine vollständige Fernbedienung für den Fernseher, sodass dieser direkt vom Administrator aus ohne Skript oder eine `devices`-Ansicht bedient werden kann.
 
 Es schreibt dieselben `remote.*`-Zustände wie das obige Widget und zeigt den Betriebszustand des Fernsehers, die laufende App, den aktuellen Eingang und die Lautstärke an, die sich auch verschieben lassen. Die Tasten reagieren sofort - es handelt sich um Zustandsänderungen, nicht um Einstellungen, daher hat die Schaltfläche „Speichern“ im Dialogfeld nichts damit zu tun.
 
+Daneben lassen sich die Apps und Eingänge des Kanals `tv` (siehe unten) mit einem Klick starten. Nach dem Klicken auf die Fernbedienung kann diese auch über die Tastatur bedient werden: Pfeiltasten, Eingabetaste, Rücktaste (zurück), Esc (Beenden), Pos1, `+` / `-` (Lautstärke), `M` (Stummschaltung), Leertaste (Wiedergabe) und `0`-`9`.
+
 Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten deaktiviert und die Registerkarte zeigt dies an.
+
+## Webkomponente für Aura und andere Hosts
+Die Fernbedienung ist auch als Webkomponente `<iob-lgtv-remote>` (`common.webComponents`) verfügbar, sodass sie auf jedem Host, der ioBroker-Webkomponenten - Aura, vis-2, `devices` und die zugehörige Administrationsoberfläche - anzeigt, platziert werden kann. Sie trägt denselben Namen wie das oben genannte Widget („TV steuern“), sodass `devices` weiterhin ein eigenes Widget anbietet.
+
+Es schreibt die gleichen `remote.*`-Zustände und zeigt die gleiche Kopfzeile an: den Namen, die Lautstärke, den Stumm-Status, die laufende Anwendung und den Punkt von `states.on`. Wie viel von der Fernbedienung angezeigt wird, hängt von der Größe ihrer Verpackung ab:
+
+| Box | Schlüssel |
+|-------------------------------------------|-----------------------------------------------------------------|
+| ab 340 px Höhe und 180 px Breite | die gesamte Fernbedienung, mit den Zeilen, in denen die Einstellungen eingeschaltet sind |
+| eine flache Leiste (bis zu 110 Pixel hoch) | Ein/Aus, Lautstärke leiser, Stummschaltung, Lautstärke lauter, Pos1 |
+| Sonstiges | Ein/Aus, Lautstärke lauter/leiser, Home, OK, Stumm |
+
+In den beiden kleinen Layouts öffnet die Taste `⋯` neben dem Namen die gesamte Fernbedienung in einem Dialog.
+
+Die gesamte Fernbedienung, sowohl in einem großen Feld als auch im Dialogfeld, enthält außerdem das Statusfeld des Fernbedienungs-Tabs in der Administration: Anzeige des TV-Betriebs, Energiestatus, aktuell ausgeführte App, Eingangsquelle, Lautstärke (mit Schieberegler) und Stummschaltungsstatus. In einem breiten Feld neben den Tasten, in einem hohen Feld darüber; wo keines von beiden Platz findet, bleibt die Statuszeile unter dem Namen sichtbar.
+
+Einstellungen, wie im obigen Widget: die LGTV-Instanz, der Status (Zeile oder Panel), die Kanaltasten, die Medientasten, die Farbtasten, der Ziffernblock und ein eigener Name.
+
+## Kanal `tv` (Typendetektor)
+Zusätzlich zu den vorhandenen Objekten erstellt der Adapter den Kanal `lgtv.0.tv`, der vom ioBroker-Typdetektor (>= 6.2.0) als Gerätetyp `tv` erkannt wird. Visualisierungen und der Geräteadapter können damit den Fernseher steuern.
+
+| Bundesland | Rolle | Beschreibung |
+|------------------|---------------------------------|----------------------------------------------------------------------|
+| `tv.power` | `switch.power` | ein (Wake-on-LAN) / aus |
+| `tv.volume` | `level.volume` | Lautstärke 0-100, wie `states.volume` |
+| `tv.muted` | `media.mute` | stumm |
+| `tv.volumeUp` | `button.volume.up` | Lautstärke erhöhen |
+| `tv.volumeDown` | `button.volume.down` | Lautstärke verringern |
+| `tv.input` | `media.input` | `TV`, `HDMI1`... `HDMI4`, `AV`, `COMPONENT`, `SCART` |
+| `tv.app` | `media.app` | Starte eine App: `YOUTUBE`, `NETFLIX`, `PRIME_VIDEO`, `DISNEY_PLUS`, ... |
+| `tv.unreach` | `indicator.maintenance.unreach` | Der Adapter hat keine Verbindung zum Fernseher |
+| `tv.unreach` | `indicator.maintenance.unreach` | Der Adapter hat keine Verbindung zum Fernseher |
+
+`tv.input` und `tv.app` beginnen mit TV, HDMI 1-4 und YouTube, Netflix, Prime Video und Browser. Sobald der Fernseher angeschlossen ist, bietet der Adapter die Eingänge und installierten Apps des Fernsehers an, die der Typ-Erkenner kennt.
+Beide Anzeigen passen sich dem Fernseher an: Sie zeigen den aktuell aktiven Eingang oder die aktive App an und sind ansonsten leer.
 
 ## Changelog
 
@@ -199,7 +236,22 @@ Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten d
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.2.1 (2026-11-09)
+- (GermanBluefox) The keys of the web component `<iob-lgtv-remote>` no longer turn into blue emoji on Windows
+
+### 3.2.0 (2026-11-09)
+- (GermanBluefox) The TV remote is also available as a web component for Aura and other visualizations, in large boxes with power state, input and a volume slider; the name of the devices widget is translated
+
+### 3.1.0 (2026-10-29)
+- (GermanBluefox) The IP field of the settings offers the TVs found in the network
+- (GermanBluefox) Added the channel `tv`, so visualizations and the devices adapter can control the TV
+- (GermanBluefox) The remote control in the settings has buttons for apps and inputs and can be operated with the keyboard
+- (GermanBluefox) The remote control widget of the devices adapter has buttons for apps and inputs
+- (AlanSRU) Added an option to set the volume immediately instead of raising it step by step
 - (mcm57) Fixed invalid state roles and read/write flags in object definitions
 
 ### 3.0.5 (2026-09-10)
@@ -218,27 +270,6 @@ Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten d
 - (GermanBluefox) The WebOS 26 pairing fallback now also asks for the pointer permissions, so the remote buttons, pointer moves, scrolling and clicks work after a fresh pairing
 - (GermanBluefox) Older TVs get the signed pairing manifest again; the unsigned manifest is only used after the TV rejected the signed one (ported from lgtv2 2.0.1)
 - (GermanBluefox) Adopted the upstream `lgtv2` test suite for the vendored transport
-
-### 3.0.2 (2026-09-05)
-- (GermanBluefox) The `lgtv2` library was ported to TypeScript and is now built into the adapter, so the ESM-only npm package is no longer required
-
-### 3.0.1 (2026-09-04)
-- (GermanBluefox) Removed a prepare script
-
-### 3.0.0 (2026-09-04)
-- (Voodoo2man) Add WebOS 26 compatibility.
-- (Voodoo2man) Use the configured MAC address as a fallback for Wake-on-LAN.
-- (GermanBluefox) A malformed MAC address or a Wake-on-LAN socket error does not terminate the adapter anymore
-- (GermanBluefox) The MAC address is validated in the admin configuration
-- (GermanBluefox) Added the missing default value for the `wolwithip` setting
-- (GermanBluefox) `remote.power` switches the TV off again instead of only sending Wake-on-LAN
-- (GermanBluefox) Migrated the connection options from the deprecated `wsconfig` block to the lgtv2 v2 option names
-- (GermanBluefox) Removed the process wide TLS bypass, the certificate check is now relaxed per connection only
-- (GermanBluefox) Removed the unused `websocket` dependency
-- (GermanBluefox) The adapter was refactored to TypeScript. The sources moved to `src/`, the published code is the compiled `build/`
-- (GermanBluefox) The admin translations moved from `admin/i18n/<lang>/translations.json` to the flat `admin/i18n/<lang>.json`
-- (GermanBluefox) The unit tests use `node:assert` instead of `chai`
-- (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
 
 ## License
 

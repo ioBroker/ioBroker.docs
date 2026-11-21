@@ -92,6 +92,17 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.0.8 (2026-11-20)
+- Require `elero-usb-transmitter-client` >= 1.3.0 (1.2.0 loaded outdated code without response timeout, which could block all commands; the new client validates responses and reconnects the stick automatically)
+- Do not crash when checking channels or opening the stick fails on startup
+- Node.js >= 22.12 is required now
+- Fix `io-package.json` schema (`licenseInformation`, remove invalid `messagebox`)
+- Update dependencies
+
 ### 1.0.7 (2026-07-25)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 
@@ -101,7 +112,6 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Retry control commands and reconnect the stick on failure; update `info.connection`
 - Adjust burst polling after commands (10s interval, 6 runs)
 - Update dependencies
->>>>>>> origin/main
 
 ### 1.0.5 (2025-12-31)
 
@@ -112,14 +122,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 -   Adjusted release configuration
 -   Implemented fast polling after command execution
 
-### 1.0.3 (2025-12-30)
-
-- Release script configuration improved (added missing plugins)
-- Bug fix: Status update handling (async + validation)
-- Improvement: Connection retry logic implemented
-- Improvement: All tests converted to TypeScript
-
-Older changelogs can be found there## License
+## License
 
 MIT License
 

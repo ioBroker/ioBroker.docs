@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-gps/README_DE.md
 title: ioBroker.tractive-gps
-hash: uRR3zyQhEWf5v1b3dzQXPfvWJiZJScwCOrP+PGIHI40=
+hash: vdg9JssR8ObtSa+BhI65RR55ljSbegMdhVqOMjB/jTM=
 ---
 ![Logo](../../../en/adapterref/iobroker.tractive-gps/admin/tractive-gps.png)
 
@@ -45,7 +45,7 @@ Der Adapter verwendet eine inoffizielle Tractive-Service-Schnittstelle. Ein funk
 - Node.js 22.13 oder neuer
 - js-controller 7.2.2 oder neuer
 - Admin 7.8.23 oder neuer
-- VIS 1 oder VIS 2 ab Version 2.12.8 für eines der mitgelieferten Widgets; Die Versionsanforderung gilt nur für VIS 2
+- VIS 1 oder VIS 2 ab Version 2.15.2 für eines der mitgelieferten Widgets; Die Versionsanforderung gilt nur für VIS 2
 - Tractive-Konto mit mindestens einem zugeordneten Tracker
 
 ## Funktionen
@@ -56,7 +56,7 @@ Der Adapter verwendet eine inoffizielle Tractive-Service-Schnittstelle. Ein funk
 - Stellt Batteriestand, Ladezustand,verwendete Positionsquelle (`KNOWN_WIFI` /`GPS`), Zuhause-/Unterwegs-Status, Online-Status und Energiesparzustand bereit.
 - Liefert Modell, Firmware, Hardwareversion, Fähigkeiten, Geschlecht, Geburtstag, Größe, Gewicht und weitere verfügbare Informationen.
 - Unterstützt Live-Tracking, LED und Signalton, sofern der Tracker die jeweilige Funktion meldet.
-- Speichert alle abgerufenen Konto-, Abonnement-, Freigabe-, Tier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Datenbaum sowie als vollständigen JSON-Schnappschuss.
+- Stellt ausgewählte nützliche Daten in einem strukturierten lokalen Datenbaum bereit und speichert alle abgerufenen Konto-, Abonnement-, Freigabe-, Tier-, Tracker-, Positions- und Hardwaredaten als JSON-Schnappschuss, ohne Anmeldepasswort und Zugriffstoken.
 - Enthält responsive Karten für VIS 1 und VIS 2 mit Tierbild, interaktiver Karte, Bereichsanzeige, Tracker-Status und Befehlssteuerung.
 - Unterstützt ein von Tractive bereitgestelltes Bild oder ein eigenes, in ioBroker hochgeladenes Bild.
 - Erkennt fehlende oder veraltete Tracker-Daten, ohne dass Objekte automatisch gelöscht werden.
@@ -147,7 +147,16 @@ Der gewünschte Datenpunkt wird angezeigt `true` Oder `false` gesetzt. Er wird b
 
 ## VIS-Widgets
 
-Der Adapter enthält einen klassischen `PetTrackerCard` für VIS 1 sowie eine native React-`PetTrackerCard` für VIS 2. Für jedes Tier bzw. jeden Tracker wird ein eigenes Widget eingefügt und in den Widget-Einstellungen mit den gewünschten Datenpunkten verknüpft.
+Der Adapter enthält einen klassischen `PetTrackerCard` für VIS 1 sowie eine native `PetTrackerCard` für VIS 2 ab Version 2.15.2. Das klassische VIS-1-Widget bleibt neben dem aktualisierten VIS-2-Widget verfügbar.
+
+### Tierkarte einrichten
+
+1. Den VIS-Editor öffnen und eine `PetTrackerCard` aus dem Widget-Set Tractive GPS einfügen.
+2. Die Tierdatenpunkte unter `pets.<pet-id>` und die passenden Tracker-Datenpunkte unter `trackers.<tracker-id>` zuordnen. `info.trackerId` Beim Tier enthält die Kennung des jeweiligen Trackers.
+3. Bild, Kartenoptionen und Befehlsdatenpunkte wie unten beschrieben auswählen.
+4. Die Ansicht speichern und zum Bedienen des Befehlsschalters den Laufzeitmodus öffnen.
+
+Für jedes Tier bzw. jeden Tracker eine eigene Karte verwenden. Die responsive Karte gliedert die Informationen in Position, Tracker und Tierdaten. Die VIS-2-Karte übernimmt das ausgewählte helle oder dunkle Theme und dessen Akzentfarbe.
 
 Die Karte kann Folgendes anzeigen:
 
@@ -163,6 +172,8 @@ Die Karte kann Folgendes anzeigen:
 Für das Tractive-Bild wird `pets.<pet-id>.media.localProfilePictureUrl` als Bilddatenpunkt ausgewählt. Er enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Wird kein Bild geliefert oder kann es nicht geladen werden, lässt sich im Widget-Bereich **Darstellung** ein eigenes Bild auswählen oder hochladen.
 
 Die Karte kann den vollständigen Genauigkeits- oder Bereichskreis automatisch eingeben. Minimaler und maximaler Zoom, Bedienung, Bereichsquelle und ein manueller Radius sind in den Widget-Einstellungen konfigurierbar. Zur Anzeige der Karte werden Kartenkacheln von OpenStreetMap geladen.
+
+Die Entfernung bezeichnet die Luftlinie zum konfigurierten ioBroker-Standort, nicht die am Tag zurückgelegte Strecke. Die Zuhause-/Unterwegs-Anzeige wird aus der Positionsquelle abgeleitet: `KNOWN_WIFI` bedeutet einen bekannten WLAN-Standort, `GPS` wird als unterwegs dargestellt. Es handelt sich nicht um eine separat geprüfte Zuhause-Geozone.
 
 Für die Befehlsschalter werden die entsprechenden Datenpunkte unter `trackers.<tracker-id>.commands.*` Im Widget-Bereich **Befehle** zugeordnet. Während der Bearbeitung der VIS-Ansicht sind die Befehle gesperrt; Im Laufzeitmodus lassen sie sich bedienen.
 
@@ -186,6 +197,7 @@ Für die Befehlsschalter werden die entsprechenden Datenpunkte unter `trackers.<
 - **Keine sichtbare Adresse:** Rückwärts-Geokodierung in der Adapterkonfiguration aktivieren.
 - **Ein Befehl fehlt:** Der Tracker meldet die notwendige Fähigkeit dafür nicht.
 - **Tierbild fehlt:** `localProfilePictureUrl` im Widget zuordnen oder ein eigenes Bild auswählen.
+- **VIS-2-Widget fehlt oder bleibt nach einem Update leer:** Prüfen Sie, ob VIS 2 mindestens Version 2.15.2 hat. VIS 2 neu starten und den Browser ohne Cache neu laden. Bestehende Widget-Einstellungen müssen für dieses Widget-Update nicht neu angelegt werden.
 
 ## Entwicklerdokumentation
 
@@ -203,6 +215,17 @@ Copyright © 2023–2026 ioBroker Community Developers <iobroker-community-adapt
 MIT-Lizenz. Siehe [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/LICENSE) .
 
 ## Changelog
+
+### 4.0.0 (2026-10-12)
+
+- (xXBJXx) BREAKING: Das native VIS-2-Widget benötigt jetzt VIS 2 >=2.15.2 für React 19/MUI 9; reine Adapter- und klassische VIS-1-Installationen bleiben unterstützt.
+- (xXBJXx) Tiermarker und Genauigkeitskreis bleiben beim Ändern der Zoomgrenzen oder Kartenbedienung korrekt sichtbar.
+- (xXBJXx) Die im Lockfile festgelegte Moment-Abhängigkeit auf 2.31.0 aktualisiert, um die Locale-Pfadmanipulationslücke zu beheben, und Regressionstests ergänzt (GHSA-4p3w-j4w9-5jqw).
+- (xXBJXx) Test-Abhängigkeiten aktualisiert und doppelte Testpakete entfernt; der bewusst verwendete Dev-Server-Fork bleibt erhalten (#387; ersetzt #379).
+- (xXBJXx) Admin- und Widget-Abhängigkeiten abgestimmt und überlappende Updates ersetzt (#324, #346, #347, #349, #350, #351, #352, #361, #363, #365, #367, #369, #372, #373, #374, #376, #380, #382, #385, #386).
+- (xXBJXx) VIS 2 für reine Adapter- und VIS-1-Installationen optional gehalten und die ukrainische Übersetzung für Sekunden korrigiert (#355).
+- (xXBJXx) Das VIS-2-Widget für React 19 und MUI 9 neu gebaut, die Module-Federation-Laufzeit aktualisiert und den React-Leaflet-Wrapper durch eine direkte Leaflet-Integration ersetzt ([ioBroker/ioBroker.vis-2#689](https://github.com/ioBroker/ioBroker.vis-2/issues/689)).
+- (xXBJXx) Theme-Kompatibilität in VIS 2 korrigiert und die Widget-Einrichtung dokumentiert; das klassische VIS-1-Widget bleibt verfügbar.
 
 ### 3.1.0 (2026-08-25)
 
@@ -272,4 +295,4 @@ MIT-Lizenz. Siehe [LICENSE](https://github.com/iobroker-community-adapters/ioBro
 - (Scrounger) Übermäßig viele Warnungen reduziert.
 - (Scrounger) Entfernungsberechnung zwischen ioBroker und Tracker ergänzt.
 
-Frühere Änderungen sind in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md) dokumentiert.
+Frühere Änderungen sind in CHANGELOG_OLD.md dokumentiert.

@@ -268,6 +268,15 @@ on({ id: 'sonos.0.root.192_168_1_50.alarm_next' }, obj => {
 `next_start` and `alarm_next` are calculated in the time zone of the ioBroker host, which has to be
 the one of the SONOS household.
 
+## For AI agents
+`sendTo('sonos.0', 'help', {})` answers `{ help: '...', commands: [{ command, write }] }`: a text for an AI agent
+(e.g. ioBroker.pi-agent, or the MCP server with `send_to`) that describes the speakers and their states, groups,
+favorites and playlists, browsing the music library and the music services with `media_browse` and `media_play`,
+announcements, the alarms and the messages, and how to act (rooms instead of channels, changes only on request,
+check the result). `commands` lists the messages, `write: true` for the ones that change something (`send`).
+An unknown message answers `{ error, commands }` with the list of all messages; before it answered with the message
+itself.
+
 ## Using it with the sayIt adapter
 To use the [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) with this SONOS adapter, ensure that the [web adapter](https://github.com/ioBroker/ioBroker.web) is instantiated and running too. The web adapter is required to allow the SONOS adapter to read the generated MP3 file from the sayit adapter.
 
@@ -459,9 +468,10 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 4.7.0 (2026-11-19)
 * (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+* (@GermanBluefox) Fixed the adapter stopping with "XmlError: Attribute value expected" when a speaker reports `<Cloud queue error>` (a queue of a streaming service started from the SONOS app that cannot be resumed): the value is kept as text and the rest of the event is processed. Reported to the library as [svrooij/node-sonos-ts#235](https://github.com/svrooij/node-sonos-ts/issues/235)
+* (@GermanBluefox) Added the message `help`: describes the states, groups, media browsing, announcements, alarms and messages for an AI agent (e.g. ioBroker.pi-agent); an unknown message answers with an error and the list of messages instead of the message itself; declared with `common.supportedMessages.help`
 
 ### 4.6.0 (2026-11-09)
 * (@GermanBluefox) Added the web components `<iob-sonos-player>` and `<iob-sonos-rooms>` (`common.webComponents`): the SONOS player and SONOS rooms widgets for Aura and every other host of `@iobroker/web-components`
@@ -482,18 +492,6 @@ adapter to get a working state back.
 * (@GermanBluefox) A track without a cover of its own shows the cover of what was started - the station logo or the art Alexa sends along with Amazon Music and Sonos Radio. Only real images are cached as cover: an audio file or a stream answered for the cover URL shows the default cover instead of a broken one, and an aborted download no longer stays in the cache (#64)
 * (@GermanBluefox) A speaker that leaves a group no longer keeps the playback of the group (`state_simple` stayed `true`, the title of the group was shown): after the topology change its own state is read again (#121)
 * (@GermanBluefox) vis-2 player: the tabs of the source selection always fit into the widget - without room for the labels they show the icons only - and the mute button moved into the volume row instead of wrapping into a line of its own
-
-### 4.3.0 (2026-11-02)
-- (copilot) Adapter requires node.js >= 22.19.0 now
-* (@GermanBluefox) The event port of the new backend (`@svrooij/sonos`) is set in the instance settings instead of the environment variable `SONOS_LISTENER_PORT`
-* (@GermanBluefox) Fixed the column widths of the settings on large screens and the German text for fade-in
-* (@GermanBluefox) The objects of the speakers are created without the deprecated `createChannel`/`createState`, so js-controller no longer logs them as deprecated (#238)
-* (@GermanBluefox) Fixed `current_elapsed_s`: a time like `1:02:03` jumped to second 3 instead of 1 h 2 min 3 s
-* (@GermanBluefox) An adapter stopped while it was still starting no longer starts the SONOS library and its timers afterwards (warning "setInterval called, but adapter is shutting down")
-* (@GermanBluefox) Added the alarms: every alarm of the SONOS app is under `alarms` and can be switched, changed and deleted, `alarms.create` creates new ones, and `alarm_next` of every speaker tells when its next alarm rings (#65, #325)
-* (@GermanBluefox) Added the battery of Move and Roam: `battery_level` and `battery_charging` (#116, #211)
-* (@GermanBluefox) Added `led` for the status LED - also of a Boost - `button_lock` and `sleep_timer` (#253, #66)
-* (@GermanBluefox) Added `autoplay`: set it to `false` to only load a favorite or playlist with `favorites_set`/`playlist_set` without starting playback (#173)
 
 Older changes can be found in CHANGELOG_OLD.md
 

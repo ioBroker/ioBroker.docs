@@ -46,7 +46,7 @@ onvif.0.IP_PORT.events Events of the camera like e.g. motion detection. Sometime
 
 onvif.0.IP_PORT.general General information about the cameras
 
-onvif.0.IP_PORT.infos Information about the camera is only updated at adapter start or at remote.refresh
+onvif.0.IP_PORT.infos Information about the camera is only updated at adapter start or at remote.Refresh
 
 Video and Snapshot URL:
 
@@ -54,7 +54,7 @@ onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.ur
 
 onvif.0.IP_PORT.remote Control of the camera
 
-onvif.0.IP_PORT.remote.refresh Updating the info data
+onvif.0.IP_PORT.remote.Refresh Updating the info data
 
 onvif.0.IP_PORT.remote.gotoHomePosition Set PTZ camera to home position
 
@@ -79,6 +79,14 @@ sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
   }
 });
 ```
+
+The image is a Buffer, which arrives in a script as `{ type: 'Buffer', data: [...] }` (`Buffer.from(result.data)`).
+The message "getSnapshot" with `{ id: '192_168_178_100_80' }` answers `{ img: { rawImage } }` with the same Buffer; with
+`{ id: '192_168_178_100_80', base64: true }` it answers `{ img: { base64 } }`, the JPEG as a base64 string.
+
+The message "help" (`sendTo('onvif.0', 'help', {}, result => ...)`) answers `{ help, commands }`: a description of all
+messages and states for AI agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands, each with
+`write: true` if it has an effect beyond returning information.
 
 ## Motion message to Telegram
 
@@ -310,6 +318,9 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 - (rug1024) Fixed HTTP 500 for concurrent snapshot requests to the same camera
 - (GermanBluefox) Added ignore list for camera IPs (#391)
 - (GermanBluefox) Fixed warning about missing connection object (#391)
+- (GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+- (GermanBluefox) Fixed: writing `remote.refresh` (as the README called it) now reads the infos again like `remote.Refresh`
+- (GermanBluefox) Added the option `base64: true` to the message "getSnapshot": the picture comes as a base64 string instead of a serialized Buffer
 
 ### 1.1.9 (2026-09-13)
 

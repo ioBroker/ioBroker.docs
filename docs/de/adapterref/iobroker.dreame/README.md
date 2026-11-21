@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.dreame/README.md":{"title":{"en":"ioBroker.dreame"},"content":"en/adapterref/iobroker.dreame/README.md"},"en/adapterref/iobroker.dreame/docs/SF25.md":{"title":{"en":"Dreame SF25 WiFi (experimental)"},"content":"en/adapterref/iobroker.dreame/docs/SF25.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dreame/README.md
 title: ioBroker.dreame
-hash: WQnj1Po/jTd/5qLkGqFrK0JmaBNlu1VuOnPuN8+/uxA=
+hash: GxScgR+zaGOtWyTOLwV0BNUBEgHTN2G/tiQni5UjYLk=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.dreame.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dreame.svg)
@@ -28,6 +29,8 @@ Adapter für Dreame und MOVA Saugroboter und Mähroboter.
 
 **Getestet mit:** L10, L20, X40, A2 1200 (Rasenmäher), MOVA 600, MOVA 1000
 
+**Experimentell:** Dreame SF25 WLAN-Lebensmittelabfallzerkleinerer (`dreame.fwd.u2527` Status und grundlegende Funktionen wurden an einem physischen SF25 getestet, einschließlich eines Verarbeitungslaufs, eines vollständigen Selbstreinigungszyklus und eines Neustarts/einer Wiederverbindung des Adapters. Temperaturskalierung, Gesamtenergieverbrauch im Zyklus, Wiederherstellung nach Netzwerkunterbrechungen und gemischte SF25-/Roboter-Konten müssen noch validiert werden. Siehe [SF25-Testergebnisse und die verbleibende Validierung](/#/docs/adapterref/iobroker.dreame/docs/SF25.md) . Der Dreame-Admin-Tab enthält ein SF25-Dashboard mit Live-Anzeigen und Steuerelementen.
+
 ---
 
 ## Installation
@@ -36,7 +39,7 @@ Adapter für Dreame und MOVA Saugroboter und Mähroboter.
 
 1. Stellen Sie sicher, dass das Repository „Neueste Version“ unter Admin → Einstellungen → Repositories aktiviert ist.
 2. Gehen Sie zum Reiter „Adapter“ und suchen Sie nach „dreame“.
-3. Klicken Sie auf Installieren
+3. Klicken Sie auf „Installieren“.
 
 Der Adapter ist aktuell im **neuesten** Repository verfügbar. Die Aufnahme in das stabile Repository wurde beantragt (siehe Status unter <https://github.com/ioBroker/ioBroker.repositories/pull/6200> ).
 
@@ -63,7 +66,7 @@ npm link
 
 | Einstellung              | Beschreibung                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cloud-Dienst             | Wählen Sie je nach App **Dreame** oder **MOVA** aus.                                                                                                                                                          |
+| Cloud-Dienst             | Wählen Sie je nach Ihrer App **Dreame** oder **MOVA** aus.                                                                                                                                                    |
 | E-Mail-App               | Ihre Dreame/MOVA-App-Anmelde-E-Mail                                                                                                                                                                           |
 | App-Passwort             | Ihr Dreame/MOVA-App-Passwort                                                                                                                                                                                  |
 | Karte abrufen            | Lädt die Karte beim Start des Adapters und _anschließend alle paar_ Minuten aus der Cloud; verwaltet außerdem Raumnamen und gespeicherte Kartenbilder. Erforderlich für das untenstehende Karten-Widget.      |
@@ -79,28 +82,28 @@ Der Adapter erstellt Zustände für Saugroboter verzögert – nur die von Ihrem
 
 ### Vakuumstatus
 
-| Zustand                  | Beschreibung                                                                                                                                  |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Zustand                  | Roboterstatus (1=Reinigung, 2=Standby, 3=Pause, 5=Rückkehr, 6=Laden, 7=Wischen, 8=Trocknen, 9=Waschen, ...)                                   |
-| Fehler                   | Fehlercode                                                                                                                                    |
-| Batteriestand            | Akkuprozentsatz                                                                                                                               |
-| Ladestatus               | 1=Wird geladen, 2=Wird nicht geladen, 3=Abgeschlossen, 5=Zurück zum Ladevorgang                                                               |
-| Status                   | Reinigungsstatus (0=Leerlauf, 1=Pausiert, 2=Reinigung, 3=Zurück zum Startpunkt, 6=Wird geladen, 18=Segment, 19=Zone, 20=Punkt, 21=Kartierung) |
-| Reinigungszeit           | Aktuelle Reinigungszeit (min)                                                                                                                 |
-| gereinigter Bereich      | Aktuell gereinigte Fläche (m²)                                                                                                                |
-| Reinigungsfortschritt    | Reinigungsfortschritt (%)                                                                                                                     |
-| Trocknungsfortschritt    | Trocknungsfortschritt (%)                                                                                                                     |
-| Aufgabenstatus           | Aufgabe (0=Abgeschlossen, 1=Automatisch, 2=Zone, 3=Segment, 4=Punkt, 5=Kartierung)                                                            |
-| Aufgabentyp              | Aufgabentyp                                                                                                                                   |
-| Seriennummer             | Seriennummer                                                                                                                                  |
-| Fehler                   | Fehlerdetails                                                                                                                                 |
-| Warnstatus               | Warnstatus                                                                                                                                    |
-| Wassertank               | 0 = Nicht installiert, 1 = Installiert, 10 = Mop installiert                                                                                  |
-| Selbstwaschbasis-Status  | Status der Selbstwaschbasis                                                                                                                   |
-| Wischmopp-Station        | Wischmopp in der Station                                                                                                                      |
-| Wischmopppad installiert | Moppbezug installiert                                                                                                                         |
-| Entwässerungsstatus      | Entwässerungsstatus                                                                                                                           |
-| Gerätefähigkeit          | Gerätefunktionskennzeichen                                                                                                                    |
+| Zustand                  | Beschreibung                                                                                                                                    |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zustand                  | Roboterstatus (1=Reinigung, 2=Standby, 3=Pause, 5=Rückkehr, 6=Laden, 7=Wischen, 8=Trocknen, 9=Waschen, ...)                                     |
+| Fehler                   | Fehlercode                                                                                                                                      |
+| Batteriestand            | Akkuprozentsatz                                                                                                                                 |
+| Ladestatus               | 1=Wird geladen, 2=Wird nicht geladen, 3=Abgeschlossen, 5=Zurück zum Ladevorgang                                                                 |
+| Status                   | Reinigungsstatus (0=Leerlauf, 1=Angehalten, 2=Reinigung, 3=Zurück zum Startpunkt, 6=Wird geladen, 18=Segment, 19=Zone, 20=Punkt, 21=Kartierung) |
+| Reinigungszeit           | Aktuelle Reinigungszeit (min)                                                                                                                   |
+| gereinigter Bereich      | Aktuell gereinigte Fläche (m²)                                                                                                                  |
+| Reinigungsfortschritt    | Reinigungsfortschritt (%)                                                                                                                       |
+| Trocknungsfortschritt    | Trocknungsfortschritt (%)                                                                                                                       |
+| Aufgabenstatus           | Aufgabe (0=Abgeschlossen, 1=Automatisch, 2=Zone, 3=Segment, 4=Punkt, 5=Kartierung)                                                              |
+| Aufgabentyp              | Aufgabentyp                                                                                                                                     |
+| Seriennummer             | Seriennummer                                                                                                                                    |
+| Fehler                   | Fehlerdetails                                                                                                                                   |
+| Warnstatus               | Warnstatus                                                                                                                                      |
+| Wassertank               | 0 = Nicht installiert, 1 = Installiert, 10 = Mop installiert                                                                                    |
+| Selbstwaschbasis-Status  | Status der Selbstwaschbasis                                                                                                                     |
+| Wischmopp-Station        | Wischmopp in der Station                                                                                                                        |
+| Wischmopppad installiert | Moppbezug installiert                                                                                                                           |
+| Entwässerungsstatus      | Entwässerungsstatus                                                                                                                             |
+| Gerätefähigkeit          | Gerätefunktionskennzeichen                                                                                                                      |
 
 #### Verbrauchsmaterial
 
@@ -215,7 +218,7 @@ Diese schreiben direkt in die AutoSwitch-Einstellungen des Geräts (Eigenschaft 
 | smarte Trocknung                    | Intelligente Trocknungsfunktion einstellen: 0 = aus, 1 = ein                        |
 | Selbstreinigungsfrequenz einstellen | 0 = Pro Zimmer, 1 = Standard, 2 = Hoch                                              |
 | Set-intensive-Teppich               | Intensivteppich einstellen: 0=aus, 1=ein                                            |
-| Spaltreinigung                      | Spaltreinigungsverlängerung einstellen: 0 = aus, 1 = ein                            |
+| Spaltreinigung                      | Spaltreinigungserweiterung einstellen: 0 = aus, 1 = ein                             |
 | Wischen unter Möbeln                | Wischen unter Möbeln einstellen: 0 = aus, 1 = ein                                   |
 | benutzerdefiniertes Wischen         | Benutzerdefinierten Wischmodus einstellen: 0 = aus, 1 = ein                         |
 
@@ -278,7 +281,7 @@ Wenn eine Karte zum ersten Mal erkannt wird, `map.maps.<id>.mapName` wird mit de
 
 **b) Aktive Karte festlegen**
 
-Schreiben Sie die Karten-ID (z. B. `1`) Zu `remote.custom-room-cleaning.active-map` Nur die Räume, die zu dieser Karte gehören, werden beim Start an den Roboter gesendet. Die in Schritt (a) erstellte Karte hilft Ihnen dabei, die IDs den einzelnen Etagen zuzuordnen.
+Schreiben Sie die Karten-ID (z. B. `1`) Zu `remote.custom-room-cleaning.active-map` Nur die Räume, die zu dieser Karte gehören, werden beim Starten an den Roboter gesendet. Die in Schritt (a) erstellte Karte hilft Ihnen dabei, die IDs den einzelnen Etagen zuzuordnen.
 
 **c) Zimmer auswählen**
 
@@ -442,7 +445,7 @@ Der Adapter unterstützt Dreame-Mähroboter mit dedizierten Zuständen und Karte
 | dnd-Einstellungen              | Nicht stören-Einstellungen (DND): `[enabled, start_min, end_min]`                                                                |
 | Batteriekonfiguration          | Batteriekonfiguration (BAT): `[return%, max%, charge_en, ?, start, end]`                                                         |
 | Volumen                        | Lautstärke (VOL): 0-100                                                                                                         |
-| Kindersicherungskonfiguration  | Kindersicherung (CLS): 0 = aus, 1 = ein                                                                                         |
+| Kindersicherungs-Konfiguration | Kindersicherung (CLS): 0 = aus, 1 = ein                                                                                         |
 | ai-obstacle-cfg                | KI-Hindernisvermeidung (AOP): 0 = aus, 1 = ein                                                                                  |
 | Diebstahlsicherung             | Diebstahlsicherung (STUN): 0 = aus, 1 = ein                                                                                     |
 | Scheinwerfer                   | Scheinwerfereinstellungen (LIT): `[enabled, start, end, l1, l2, l3, l4]`                                                         |
@@ -474,13 +477,13 @@ Diese Zustände werden aus binären MQTT-Nachrichten befüllt und verzögert ers
 
 **Aus dem Roboterpositionspaket (SIID 1-5):**
 
-| Zustand                 | Beschreibung                                                                           |
-| ----------------------- | -------------------------------------------------------------------------------------- |
-| Roboterposition         | Aktuelle Roboterposition (JSON): `{"x":..., "y":..., "angle":...}`                      |
-| Mähfortschritt          | Aktueller Aufgabenfortschritt (%)                                                      |
-| gemähte Fläche          | Im Rahmen der aktuellen Aufgabe fertiggestellte Fläche (m²)                            |
-| Gesamtmähfläche-Aufgabe | Geplante Gesamtfläche für die aktuelle Aufgabe (m²)                                    |
-| Mähaufgabe              | Vollständige Aufgabendaten im JSON-Format: `{regionId, taskId, percent, total, finish}` |
+| Zustand                  | Beschreibung                                                                           |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| Roboterposition          | Aktuelle Roboterposition (JSON): `{"x":..., "y":..., "angle":...}`                      |
+| Mähfortschritt           | Aktueller Aufgabenfortschritt (%)                                                      |
+| gemähte Fläche           | Im Rahmen der aktuellen Aufgabe fertiggestellte Fläche (m²)                            |
+| Gesamt-Mähfläche-Aufgabe | Geplante Gesamtfläche für die aktuelle Aufgabe (m²)                                    |
+| Mähaufgabe               | Vollständige Aufgabendaten im JSON-Format: `{regionId, taskId, percent, total, finish}` |
 
 **Aus dem Gerätetelemetriepaket (SIID 1-1):**
 
@@ -613,13 +616,13 @@ Verknüpfungen werden aus den Eigenschaften 4-48 (Base64-kodierte Namen) extrahi
 
 Der Reinigungsverlauf wird über die Cloud-API abgerufen (letzte 20 Mähvorgänge).
 
-| Zustand                          | Beschreibung                                          |
-| -------------------------------- | ----------------------------------------------------- |
-| Datum des letzten Mähens         | Datum der letzten Mähsitzung                          |
-| letzte Mähdauer                  | Dauer der letzten Sitzung (Minuten)                   |
-| Bereich des letzten Mähens       | In der letzten Sitzung gemähte Fläche (m²)            |
-| letzter Mähvorgang abgeschlossen | Ob die letzte Sitzung erfolgreich abgeschlossen wurde |
-| history-json                     | JSON-Array der letzten 20 Sitzungen                   |
+| Zustand                            | Beschreibung                                          |
+| ---------------------------------- | ----------------------------------------------------- |
+| Datum des letzten Mähens           | Datum der letzten Mähsitzung                          |
+| letzte Mähdauer                    | Dauer der letzten Sitzung (Minuten)                   |
+| Bereich für den letzten Mähvorgang | In der letzten Sitzung gemähte Fläche (m²)            |
+| letzter Mähvorgang abgeschlossen   | Ob die letzte Sitzung erfolgreich abgeschlossen wurde |
+| history-json                       | JSON-Array der letzten 20 Sitzungen                   |
 
 ### Mäherkarte
 

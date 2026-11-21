@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: jdhiIl/mtRCBKLYLztCtaZ29lMUVU6JE5CgHe31GWU0=
+hash: 4f1voYFYUvoitf8IW2r8Wv5d7h9u9C3FeMmnXw/5JQU=
 ---
 ![Logo](../../../en/adapterref/iobroker.devices/admin/devices.svg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/devices-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.devices.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/devices-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.devices.svg)
 ![Test und Freigabe](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
@@ -130,6 +130,12 @@ Gerät löschen: Klicken Sie auf das Papierkorbsymbol, um ein virtuelles Gerät 
 
 Geräte organisieren: Verwenden Sie Kategorien, um Geräte zu gruppieren (z. B. „Beleuchtung“, „Heizung“), um die Verwaltung in Visualisierungen zu vereinfachen.
 
+### Webkomponenten anderer Adapter
+
+Adapter können Webkomponenten einbinden (`common.webComponents`, sehen[`@iobroker/web-components`](https://github.com/ioBroker/web-components) Im Bearbeitungsmodus listet „Widget hinzufügen“ sie zusammen mit den Widgets ihres Adapters auf, und eine Komponente wird wie jedes andere Widget zu einer Kachel.
+
+Der Einstellungsdialog einer solchen Kachel zeigt die Größe und Farbe der Kachel sowie die von JSON-Config gerenderten Komponenteneinstellungen an. Eine Einstellung vom Typ `selectSendTo` oder `autocompleteSendTo` bezieht seine Optionen vom Adapter über `sendTo`, wie in JSON-Config. Ohne `instance` In den Einstellungen fragt das Gerät nach der ersten Instanz des Adapters, der die Komponente bereitstellt (`<adapter>.0`), nicht `devices.0` Das Gleiche gilt für die Formulare, die eine Komponente als Dialog öffnet.
+
 ## Gerätetypen
 
 Dieser Adapter wurde mithilfe von `type-detector` Alle möglichen Geräte finden Sie [hier](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
@@ -143,66 +149,37 @@ Dieser Adapter wurde mithilfe von `type-detector` Alle möglichen Geräte finden
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 4.2.0 (2026-08-28)
-* (@GermanBluefox) The devices of this adapter are now reachable in the ioBroker Device Manager: each one appears as a card with its name, icon, battery and reachability. Readings are shown on the card itself, and only states that can actually be operated become controls (switch, slider, select), so a read-only device has no control button at all. A control writes to the command state but reads from its feedback partner where the device has one, so a switch shows what the device reports rather than what it was last told. The instance already advertised Device Manager support, but answered none of its requests
-* (@GermanBluefox) Added the "Clean Light" theme: white cards on a light grey page with coloured icons, where a tile stays white when its device is on and only the label and the toggle turn blue
-* (@GermanBluefox) Added the "Tech Blue" theme: near-black tiles set apart by a lit blue outline, with monochrome blue icons and toggles
-* (@krobipd) Fixed "Create new folder" only showing a white screen since 4.0.0 (#679)
-* (@krobipd) Fixed the room column filter emptying the device list: it showed the function filter's value and wrote the picked room into the function filter (#680)
-* (@krobipd) Fixed an added state being deleted when it was edited without renaming it (#360)
-* (@krobipd) Moving, renaming or copying a device no longer deletes the original when the copy failed halfway through (#151, #513)
-* (@GermanBluefox) A failed copy is only cleaned up when its target path was free beforehand, so renaming a device onto an existing name cannot delete that device's objects
-* (@krobipd) Manually added states are now deleted together with their device, instead of staying behind as ghost objects after a move, rename or delete (#684)
-* (@krobipd) Cancel in the device editor now really cancels: deleting a state and picking a device icon are applied on Save instead of the moment they are clicked
-* (@krobipd) The read/write function preview shows boolean results and reports an invalid formula, instead of staying empty in both cases (#683)
-* (@krobipd) A string-typed alias no longer inherits `min`/`max`/`step` from its source, which made js-controller warn about an invalid object on every check (#682)
-* (@GermanBluefox) An alias or linked state now takes its type from the source wherever the device type allows more than one, so a thermostat or air conditioner that spells its modes out instead of numbering them is no longer written back as a number (#614). Needs the matching `@iobroker/type-detector` release
-* (@krobipd) A linkeddevices state now inherits the real range of its source instead of a hard 0...100, so a linked thermostat no longer shows 0...100 instead of e.g. 5...35
-* (@krobipd) `TreeView.getDerivedStateFromProps` returns its derived state instead of mutating the state it was handed, which React 19 does not guarantee to keep
+### 4.4.0 (2026-11-13)
+* (@GermanBluefox) Web components: the settings types `selectSendTo` and `autocompleteSendTo` (`@iobroker/web-components` 0.8.0) ask the adapter that brings the component (`<adapter>.0`) when the setting names no `instance`, and not devices itself; also in the forms a component opens as a dialog
+* (@GermanBluefox) Fixed: a setting of type `selectSendTo` no longer spins forever when the instance does not answer - it shows a text field, so the value stays editable (`@iobroker/json-config` 10.1.22)
 
-### 4.1.1 (2026-08-17)
-* (@GermanBluefox) Fixed states being written without `common.read` and `common.write`, which every state object must carry: the "add state" dialog left both out for the deprecated `file` type, and dropped them from any state it edited that did not have them yet (#535, #533, #463)
-* (@GermanBluefox) States written by earlier versions have the two attributes added once when the device list is loaded. What is missing is taken from the device type and from the aliased source, so a state the device really can write does not turn read-only
+### 4.3.2 (2026-11-10)
+* (@GermanBluefox) Nested folders under alias.0 keep their place, name and color in the GUI; only folders on the top level are merged with a room of the same name (issue #739)
+* (@GermanBluefox) New widget "Note (Markdown)" for free text like comments or instructions
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Animated icons of `@iobroker/gui-components`: the folder buttons "expand/collapse all" show on hover what they will do, the button "clear filter" has the funnel with the cross, the rows of an opened folder slide out, the widget groups open and close animated, and the notices "not active", "no permission" and "could not be loaded" have their own symbol
+* (@GermanBluefox) The switch to hide the config button in the runtime is back in the settings of the root category; users without the edit right still do not see the button
+* (@GermanBluefox) If the devices cannot be loaded, for example because the user may not call `sendTo`, the page says so instead of loading forever
+* (@GermanBluefox) The list of devices only holds what the logged-in user may read according to the ACLs of the objects (js-controller 7.2.5 or newer). A changed ACL counts at once
 
-### 4.1.0 (2026-08-16)
-* (@Apollon77) Added support for new device types
-* (@GermanBluefox) Datapoints added to an alias device by hand now reach the widget GUI, so a tank can show the litres it has left next to its fill level
-* (@GermanBluefox) The tank tile shows that second reading where it used to print its fill level a second time
-* (@GermanBluefox) Fixed the settings button of a 2x0.5 tank tile sitting in the middle of the tile instead of in its top-right corner
+### 4.3.1 (2026-11-07)
+* (@GermanBluefox) Color light 2×2: the saved colors are shown on the tile and applied with a tap
+* (@GermanBluefox) Saving a device no longer resets the names of its states; only the states that were changed are written (issue #725)
 
-### 4.0.2 (2026-08-10)
-* (@SimonFischer04) Added WindowTilt support in the widgets GUI (#609)
-* (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history (#610)
-* (@GermanBluefox) Reworked the "Blue dark" theme into a deep navy look and gave the category icons a coloured round badge
-* (@GermanBluefox) Added role icons for UV index, knots, rpm, operating hours and W/kW/Wh
-* (@GermanBluefox) The device list now shows the icon configured for a widget, and falls back to the role icon instead of the generic type icon
-* (@GermanBluefox) Info devices are no longer hidden by default; the "i" button in the toolbar now shows whether the filter is active
-* (@GermanBluefox) Fixed widgets vanishing from the GUI when they were assigned to a category that no longer exists
-* (@GermanBluefox) Fixed categories being dropped as empty although widgets had been moved into them
-* (@GermanBluefox) Fixed the "record history" switch: it now follows the alias to the recorded source and is highlighted while recording
-* (@GermanBluefox) Fixed clipped values in the wind widget
-* (@GermanBluefox) Fixed emoji icons sitting off-centre in the category badges and header
-* (@GermanBluefox) Fixed an alias assignment being dropped silently when saving a device whose state was not cached yet
-* (@GermanBluefox) Implemented user-specific views
-* (@Apollon77) Added widgets for button, buttonSensor, camera and vacuumCleaner, which were shown as "Widget type not supported" before
-* (@Apollon77) Added mute and the separate volume feedback state (`VOLUME_ACTUAL`) to the media player widget
-* (@Apollon77) Added the missing tilt controls to the blind widgets: tilt now works for button blinds too, has a stop button, and uses the min/max of the state instead of assuming percent
-* (@Apollon77) Added an active icon for windowTilt
-* (@Apollon77) The light widget now shows the real state from `ON_ACTUAL` instead of echoing the commanded value
-* (@Apollon77) Fixed image widgets: the configured defaults were ignored until the settings dialog was opened once, and the refresh button was answered from the cache
-* (@Apollon77) Fixed newer device types (windowTilt, camera, percentage, fillLevel, …) landing in the "other" group when auto-grouping is switched on
-* (@Apollon77) Fixed the type of created alias states: `defaultType` is now honoured, so the ERROR state is no longer created as boolean
-* (@Apollon77) Fixed the air conditioner editor showing the swing state twice and writing it twice on save
-* (@Apollon77) Fixed the enum assignment of created devices: it ran once per state and not at all for devices with only optional states
-* (@Apollon77) Fixed the build and the CI (unresolvable react-input-color dependency, out-of-sync lock files, node versions)
+### 4.3.0 (2026-11-05)
+* (@GermanBluefox) Web components of other adapters (`common.webComponents`, see `@iobroker/web-components`) can be added as tiles: the palette lists them, the settings dialog shows their settings next to the size of the tile, and their dialogs open as dialogs of devices. The list and the settings come from the manifests of the components; the module of a component is loaded when its first tile is shown
+* (@GermanBluefox) Plugins may bring background services (`common.deviceWidgets.services`): the app renders them once next to the category, with the widgets of the adapter in all categories the user may control, whichever category is shown - e.g. so that a phone stays registered and rings in every category
+* (@GermanBluefox) The dimmer widget is easier to operate in every size: the 1×1 tile fills up like a glass, a tap switches and dragging up or down dims; the wide tiles and the new 2×2 size have a large slider with quick selection, or a bar to tap or drag with ± buttons instead of the small round knob. Only the power button switches these tiles, and a drag sends only the value it is released at
+* (@GermanBluefox) Color lights with a dimmer are operated like the dimmer: the 1×1 tile fills with the light color, a tap switches, dragging up or down dims and a long press opens the color dialog; the larger tiles (now also 2×2) have the slider or the bar and a button for the color dialog. Their quick selection can show the saved states instead of brightness values, with "+" to save the current state
+* (@GermanBluefox) Dimmer 2×0.5: the slider knob and the status icons no longer touch the power button
+* (@GermanBluefox) A plugin or web component tile that cannot be loaded can be deleted directly in the edit mode
+* (@GermanBluefox) Delete, reload, folder and play/pause buttons use the animated icons of `@iobroker/gui-components`
+* (@GermanBluefox) The "Add widget" dialog is much larger and shows the widgets in sets - the built-in ones by theme, everything an adapter brings (plugin widgets and web components) together - with a search and a filter by set
+* (@GermanBluefox) If an adapter brings a plugin and a web component of the same name, like the "Flow diagram" of flow, "Add widget" offers only the plugin; tiles of the web component keep working
+* (@GermanBluefox) Web components get the colors, the font and the corners of the theme of devices (`@iobroker/web-components` 0.5.0), not only light or dark
 
-### 4.0.0 (2026-08-03)
-* (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history
-* (@GermanBluefox) Fixed the history options (chart, trend, min/max) not being offered in the widget settings
-* (@GermanBluefox) Recreate all missing instance monitoring objects, not only alive/connected
-* (@GermanBluefox) Migrated to react 19 and MUI 9
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.devices/blob/master/CHANGELOG_OLD.md)
+### 4.2.7 (2026-10-25)
+* (@GermanBluefox) Added widget for the device type `tv` with a remote control dialog
 
 ## License
 MIT License

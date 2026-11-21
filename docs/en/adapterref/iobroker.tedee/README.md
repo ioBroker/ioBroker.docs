@@ -130,6 +130,8 @@ Fields for `createPin` / `updatePin`:
 
 `updatePin` keeps all fields that are not given, including the PIN code.
 
+`help` (no parameters, also without PIN management) answers `{ help, commands }`: a description of all commands and data points for AI agents (e.g. pi-agent) and script authors; `commands` lists every command with `write: true` if it changes something.
+
 #### Examples (JavaScript adapter)
 
 ```js
@@ -219,6 +221,20 @@ The bridge sends every change to ioBroker (port 29170). Check:
 
 Other systems using the bridge (e.g. Home Assistant) keep working, the adapter only removes its own registrations.
 
+**"Bridge not reachable" in the log**
+
+Usually the router has given the bridge a new IP address, and the adapter still uses the old one.
+
+- Look up the current IP address of the bridge in your router's device list and enter it in the instance settings.
+- So it does not happen again: give the bridge a fixed IP address in your router (FRITZ!Box: Home Network → Network → edit the bridge → "Always assign this network device the same IPv4 address").
+- The bridge must be powered and in the WiFi, and the local API must be enabled in the Tedee app.
+
+The adapter keeps trying. As soon as the bridge answers again, it registers the webhook again and reloads the data by itself.
+
+**"The bridge rejects the API token" in the log**
+
+Copy the token again from the Tedee app (bridge → Settings → API) into the instance settings ("Bridge token"). A single rejected request right after a restart of the bridge (e.g. firmware update) is normal and is not reported.
+
 **"Bridge is busy" in the log**
 
 The bridge handles one request at a time. This message is harmless, the next update follows automatically.
@@ -307,6 +323,17 @@ Webhooks: the adapter starts a small web server (port 29170 or the next free por
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+- (Schimi1983) Fix: lock and unlock are repeated when the busy bridge resets the connection (Bridge API 1.20)
+- (Schimi1983) Firmware version and other bridge data are updated after a restart of the bridge (e.g. firmware update) and every hour
+- (Schimi1983) A rejected API token right after a restart of the bridge is no longer reported; a wrong token gets a clear message
+### 1.0.3 (2026-11-14)
+
+- (Schimi1983) Clear message if the bridge cannot be reached (e.g. new IP address), instead of many warnings; the adapter registers the webhook again and reloads the data by itself when the bridge is back
+
 ### 1.0.2 (2026-11-08)
 
 - (Schimi1983) Fix: requests to the bridge are sent one after another (the bridge rejects parallel connections), lock commands are served first

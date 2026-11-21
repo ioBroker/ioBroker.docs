@@ -40,13 +40,16 @@ If you like my work, please feel free to provide a personal donation
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
-* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Maintenance: admin translations use the short i18n format (`admin/i18n/{lang}.json`), updated @iobroker/testing to 6.3.2, added contact email to the README copyright line ([#397](https://github.com/DrozmotiX/ioBroker.discovergy/issues/397))
+
+### 0.8.0 (2026-11-14)
+* (DutchmanNL) **BREAKING**: The adapter now requires Node.js 22 and Admin 7.8.23 or newer
+* (tipp88) **FIXED**: Meters reporting `storageNumber`, `storageNumbers` or `gatewayStatus` no longer log "State type : … unknown", the values are stored ([#344](https://github.com/DrozmotiX/ioBroker.discovergy/issues/344), [#345](https://github.com/DrozmotiX/ioBroker.discovergy/pull/345), [#396](https://github.com/DrozmotiX/ioBroker.discovergy/issues/396), [#410](https://github.com/DrozmotiX/ioBroker.discovergy/issues/410))
+* (DutchmanNL) Maintenance: modernise CI and release tooling, update dependencies, resolve repository checker findings
 * (DutchmanNL) **FIXED**: Removed non-existent version 0.6.1 from changelog to comply with ioBroker repository checker requirements (E2004)
 * (DutchmanNL) **ENHANCED**: Cleaned up common.news entries in io-package.json to maintain only published versions
-* (tipp88) **FIXED**: Meters reporting `storageNumber`, `storageNumbers` or `gatewayStatus` no longer log "State type : … unknown", the values are stored ([#344](https://github.com/DrozmotiX/ioBroker.discovergy/issues/344), [#345](https://github.com/DrozmotiX/ioBroker.discovergy/pull/345))
 * (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#385](https://github.com/DrozmotiX/ioBroker.discovergy/issues/385))
-* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
-* (DutchmanNL) The adapter now requires Admin 7.8.23 or newer
+* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.1
 
 ### 0.7.0 (2026-02-15)
 * (DutchmanNL) release fixes and improvements in 0.7.0, resolved #316 #313
@@ -68,7 +71,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2025-2026 DutchmanNL
+Copyright (c) 2025-2026 DutchmanNL <rdrozda@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,19 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zoneminder/README.md
 title: ioBroker.zoneminder
-hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
+hash: EZ9OpCSj3fBV7owGrzTbL7W2uPTkTPJwxHvR6/JzBi0=
 ---
 ![Logo](../../../en/adapterref/iobroker.zoneminder/admin/zoneminder.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/zoneminder-installed.svg)
-![Stabile Version](http://iobroker.live/badges/zoneminder-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.zoneminder.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/zoneminder-installed.svg)
+![Stabile Version](https://iobroker.live/badges/zoneminder-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.zoneminder.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zoneminder.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.zoneminder.svg)
 ![NPM](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)
 
 # ioBroker.zoneminder
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 ## ZoneMinder-Adapter für ioBroker
 
@@ -40,23 +41,29 @@ Damit der Kamera-URL-Link mit Benutzername und Passwort funktioniert, müssen Si
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-10-20)
+- (mcm1957) IMPORTANT: password must be reentered once to to added encryption
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (bluefox) Adapter required node.js >= 22 now
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) `request` / `request-promise` were replaced by `axios`
+- (bluefox) Fixed crashes (unreachable host, no enabled monitor), multiplying login timers and websocket connections, polling that stopped after one error
 * (mcm1957) Dependencies have been updated
 
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
-* (MeisterTR) add ZmEvents
-* (MeisterTR) Select moniorfunction and disable/enable monitor
+* (MeisterTR) added ZmEvents
+* (MeisterTR) Selected monitor function and disabled/enabled monitor
+
 ### 0.2.1
-* (MeisterTR) add info states
-* (MeisterTR) add camera-link with auth-key
-* (MeisterTR) cange video link
+* (MeisterTR) added info states
+* (MeisterTR) added camera-link with auth-key
+* (MeisterTR) changed video link
+
 ### 0.1.0
 * (MeisterTR) First running version
+
 ### 0.0.1
 * (MeisterTR) initial release
 

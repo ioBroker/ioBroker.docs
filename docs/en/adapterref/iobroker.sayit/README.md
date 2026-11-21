@@ -34,7 +34,7 @@ Actually, the following outputs are supported:
 
 - *Squeezebox* - play text on a player of the Logitech Media Server (Lyrion) with the [squeezeboxrpc](https://github.com/oweitman/ioBroker.squeezeboxrpc) adapter (version 2.0.0 or newer). The text is written into the state `Announce` of the player, so the current playback is stopped and restored afterward. The volume of the announcement is configured in the squeezeboxrpc adapter. Be sure the Web Adapter is enabled, so the Media Server can read the generated mp3 files.
 
-- *WiiM / LinkPlay* - play text on a WiiM, Arylic or other LinkPlay based streamer with the [wiim](https://github.com/KaiIOB/ioBroker.wiim) adapter. The link to the file is written into the state `playPromptUrl` of the streamer, so the file is played as a notification: the current playback is lowered and resumed afterward. The announcement is played with the actual volume of the streamer. Arylic devices need firmware 4.6.415145 or newer. Be sure the Web Adapter is enabled, so the streamer can read the generated mp3 files.
+- *WiiM / LinkPlay* - play text on a WiiM, Arylic or other LinkPlay based streamer with the [wiim](https://github.com/KaiIOB/ioBroker.wiim) adapter. On Arylic devices with firmware 4.6.415145 or newer and other LinkPlay devices the link to the file is written into the state `playPromptUrl` of the streamer, so the file is played as a notification: the current playback is lowered and resumed afterward. WiiM devices do not support `playPromptUrl`, so the link is written into the state `play_URL`: the current playback is stopped and not restored after the announcement. The announcement is played with the actual volume of the streamer. Be sure the Web Adapter is enabled, so the streamer can read the generated mp3 files.
 
 - *Assistant satellites* - play text on the voice satellites of the [assistant](https://github.com/ioBroker/ioBroker.assistant) adapter. Select the instance (e.g. `assistant.0`) to play the text on all satellites (state `tts.text`) or one satellite (state `satellites.<id>.tts`). The text is spoken with the voice selected in sayit, the assistant adapter only plays the generated mp3 file, so it needs [ffmpeg](https://ffmpeg.org/) on its host. Be sure the Web Adapter is enabled, so the assistant adapter can read the generated mp3 files.
 
@@ -166,6 +166,11 @@ sendTo('sayit.0', 'say', {
     volume: 20, // optional, if not defined, the device from configuration will be used
 });
 ```
+
+### Messages for scripts and AI agents
+`sendTo('sayit.0', 'help', {})` answers `{ help, commands }`: a description of all messages (e.g. `say` with all its
+parameters) for AI agents (e.g. pi-agent) and script authors, and the list of all commands with `write` (`true` if the
+command has an effect, e.g. plays something).
 
 ### Priorities
 To immediately pronounce the text despite the queued texts, you have two possibilities:
@@ -339,6 +344,12 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.7.0 (2026-11-19)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 5.6.1 (2026-11-18)
+- (@GermanBluefox) Fixed: WiiM streamers use the state play_URL, as they do not support playPromptUrl (#537)
+
 ### 5.6.0 (2026-11-04)
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (@GermanBluefox) Fixed: the announcement sound was overwritten by the following text, so external players (e.g. Squeezebox) said the text twice (#527)
@@ -358,21 +369,6 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
 * (@GermanBluefox) Added Piper as a new local TTS engine, e.g. with the voices of Thorsten-Voice (#398)
-
-### 5.3.3 (2026-10-23)
-* (@GermanBluefox) Fixed: a cache hit played the last generated text instead of the cached file (#497)
-* (@GermanBluefox) The cache directory is now resolved relative to `iobroker-data/sayit` and could be absolute. It can be changed in the configuration dialog. New instances store the cache in `iobroker-data/sayit/cache` (#442)
-* (@GermanBluefox) By changing of the engine, only cached files are deleted from the cache directory and not all files
-* (@GermanBluefox) Fixed: the heos players were not listed in the configuration dialog (#416)
-* (@GermanBluefox) Fixed: IPv6 addresses of the web server are written in square brackets in the link for the devices. Only IPv4 addresses are offered in the configuration dialog (#399)
-* (@GermanBluefox) Fixed: the cache was not used for the texts sent by the "say" command, e.g. from Blockly or scripts
-* (@GermanBluefox) Fixed: texts with SSML tags were never found in the cache, if the engine does not support SSML
-* (@GermanBluefox) Corrected the roles of the states `tts.text`, `tts.cachetext` and `tts.playing`
-* (@GermanBluefox) Used the timers of the adapter and added the missing size attributes in the configuration dialog
-
-### 5.3.2 (2026-10-13)
-* (@GermanBluefox) Removed the "install" script and `process.exit()` for compact mode
-* (@GermanBluefox) Passwords and API keys are now protected from reading by non-admin users
 
 ## License
 

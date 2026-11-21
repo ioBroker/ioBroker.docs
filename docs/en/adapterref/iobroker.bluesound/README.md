@@ -102,6 +102,16 @@ The contents of the current playlist is available in the object _'info.playlist'
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Fix issues detected by repository checker
+- (dependabot) Bump node-forge to 1.4.3
+- (Uwe Nagel) Update package-lock.json via npm ci
+- (dependabot) Bump follow-redirects to 1.16.1
+- (Uwe Nagel) Update package-lock.json via npm i
+- (github-actions) Update from template: X0000-setupAutomergeDependabot
+- (dependabot) Bump @type/node to 22.20.5
+- (dependabot) Bump brace-expansion
+- (dependabot) Bump moment to 2.31.0
+- (dependabot) Bump @grpc/grpc-js to 1.14.5
 - (Uwe Nagel) Update @iobroker/testing to 6.3.0
 - (Uwe Nagel) Bump @tsconfig/node22 from 22.0.5 to 22.0.6
 - (Uwe Nagel) Bump @types/node from 22.20.0 to 22.20.1

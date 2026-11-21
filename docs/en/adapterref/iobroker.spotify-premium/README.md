@@ -56,6 +56,43 @@ Spotify apps in Development Mode can only read playlists owned by the authorized
 ### States
 All states are described in admin.
 
+### Messages (sendTo)
+Scripts, other adapters (e.g. ioBroker.assistant) and AI agents can search and play with messages. Every message
+answers; an error answers `{error, reason}`.
+
+| Message        | Data                                                                                | Answer                                                                          |
+|----------------|-------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| `search`       | `{query?, track?, artist?, album?, year?, genre?, type?, limit?, offset?}` or a text | `{items: [{type, uri, id, name, artists, album, ...}]}`                         |
+| `play`         | `{uri?, offset?, positionMs?, device?}` or a URI                                     | `{ok: true, device: {id, name}}`                                                |
+| `getDevices`   | -                                                                                   | `{devices: [{id, name, type, isActive, isRestricted, volume, supportsVolume}]}` |
+| `getPlaylists` | `{search?}`                                                                         | `{playlists: [{uri, id, name, ownerId, tracksTotal, image}]}`                   |
+| `help`         | -                                                                                   | `{help, commands}`: the states and messages described for an AI agent           |
+
+`help` is for AI agents (e.g. ioBroker.pi-agent) and script authors: it describes the states and the messages,
+`commands` lists every message the instance answers, `write: true` for the ones that change something.
+
+- `search`: `query` is free text, `track`, `artist`, `album`, `year` and `genre` narrow the search. `type` is `track`
+  (default), `album`, `artist`, `playlist`, `show`, `episode` or `audiobook`, several comma separated. Spotify gives at
+  most 10 results per request since February 2026 (`limit` 1-10, default 5), the best match first.
+- `play`: `uri` is a Spotify URI or an `open.spotify.com` link. A track or an episode plays alone, an album, an artist, a
+  playlist or a show as a whole; an array of track URIs plays these in a row. `offset` is the number of the track in it
+  (0 = first) or the URI of a track in it. `device` is the name or the id of a Spotify Connect device; without it the
+  active device plays. Without `uri` the playback resumes. If a device that did not play for a while refuses the
+  command, the playback is transferred to it first. `reason` of an error: `NO_ACTIVE_DEVICE`, `DEVICE_NOT_FOUND`,
+  `DEVICE_NOT_CONTROLLABLE`, `PREMIUM_REQUIRED`, `NOT_AUTHORIZED`, `RATE_LIMITED`, `BAD_REQUEST`, ...
+- `getDevices` asks Spotify now (and updates the states). A device is known only while it is online: a phone or a
+  computer while the Spotify app is open, a speaker while it is on.
+
+```js
+sendTo('spotify-premium.0', 'search', { track: 'Bohemian Rhapsody', artist: 'Queen', limit: 3 }, result => {
+    if (result.items?.length) {
+        sendTo('spotify-premium.0', 'play', { uri: result.items[0].uri, device: 'Kitchen' }, answer => {
+            log(answer.error ? `${answer.reason}: ${answer.error}` : `plays on ${answer.device.name}`);
+        });
+    }
+});
+```
+
 ### VIS usage examples
 The adapter provides only 5 own VIS widgets (widget set `spotify-premium`): **Play/Pause**, **Previous**, **Next**, **Repeat** and **Shuffle**.
 All other examples below are built with the standard widgets of the `jqui` and `basic` widget sets (e.g. `tplJquiSelectList`, `tplJquiButtonState`, `tplValueStringImg`) and the states of this adapter.
@@ -106,14 +143,27 @@ Click for the widget source.
 <pre><code>[{"tpl":"tplJquiSelectList","data":{"oid":"spotify-premium.0.playlists.playlistList","g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","values":"{spotify-premium.0.playlists.playlistListIds}","texts":"{spotify-premium.0.playlists.playlistListString}","height":"100","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"571px","top":"509px"},"widgetSet":"jqui"}]</code></pre>
 </details>
 
-## Changelog
-
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+## Changelog
+
+### 3.3.1 (2026-11-20)
+- (GermanBluefox) Code formatting fixed: 3.3.0 failed the lint check and was not published, this version has the same changes
+
+### 3.3.0 (2026-11-20)
+- (GermanBluefox) Added the messages `search` (Spotify catalog, at most 10 results since February 2026), `play` (a URI on a device given by name or id, with an answer and the reason of a failure), `getDevices` and `getPlaylists`, e.g. for ioBroker.assistant; `help` describes them, an unknown message answers with an error and the list of messages
+- (GermanBluefox) Fixed: a player command that Spotify refuses with a reason (e.g. pause while paused, `PREMIUM_REQUIRED`) set the instance to disconnected; an HTTP error of Spotify is no longer logged as "network request error"
+- (GermanBluefox) Fixed: `player.state` = false pauses and `player.shuffleBool` = false turns shuffle off (false was ignored)
+- (GermanBluefox) Fixed: writing `player.playlist.owner` no longer restarts the current playlist (and no longer stops the adapter with an unhandled error when no playlist plays); the next write of `player.playlist.id` uses it
+- (GermanBluefox) Fixed: the descriptions of `trackListIdMap` and `trackListIds` were swapped
+- (GermanBluefox) Fixed: writing `player.playlist.trackNo` or `player.playlist.trackList` while no playlist plays (or starting a playlist without ID) stopped the adapter with an unhandled error "no playlist no"; now a warning is logged and nothing happens
+
+### 3.2.0 (2026-11-19)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (GermanBluefox) Added the message "help": a description of the states for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
 ### 3.1.0 (2026-10-26)
 * (GermanBluefox) Use /playlists/{id}/items instead of the removed /tracks endpoint (Spotify API change Feb 2026); 403 on single playlists no longer sets the instance to error (#630)
 * (GermanBluefox) Handle expired/revoked refresh tokens (`invalid_grant`, Spotify limits refresh tokens to 6 months since July 2026): the token is discarded, polling stops and the user is asked to authorize again instead of retrying the refresh (#588)
@@ -124,19 +174,6 @@ Click for the widget source.
 ### 3.0.1 (2026-06-21)
 - (mcm1957) Linter issues fixed blocking release process
 - (mcm1957) Dependencies have been updated
-
-### 3.0.0 (2026-05-17)
-- (copilot) Adapter requires node.js >= 22 now
-- (@GermanBluefox) Updated packages
-
-### 2.0.3 (2026-04-06)
-- (mcm1957) Adapter requires admin >= 7.8.9 now
-- (mcm1957) adapter requires js-controller >= 6.0.11 now
-- (mcm1957) Dependencies have been updated
-
-### 2.0.1 (2026-03-31)
-- (@GermanBluefox) Rewrite adapter to TypeScript
-- (@GermanBluefox) An Authorization process was changed and user must authenticate anew
 
 ## License
 The MIT License (MIT)

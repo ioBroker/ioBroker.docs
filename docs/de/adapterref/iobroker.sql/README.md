@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
+hash: HTpr9DeUgRL4L8POtLRQ2jZzatIKmJevUFO+E1zypyg=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/sql-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sql.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/sql-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.sql.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)
 ![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
@@ -31,13 +31,14 @@ Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite. Sie können Por
 - **Port** : Port des SQL-Servers (bei Unsicherheit leer lassen)
 - **Datenbankname** : Datenbankname. Standardmäßig iobroker
 - **Benutzer** : Benutzername für SQL. Muss in der Datenbank vorhanden sein.
-- **Passwort** : Passwort für SQL.
+- **Passwort** : Das Passwort für SQL. Es wird verschlüsselt in ioBroker gespeichert.
 - **Passwortbestätigung** : Bitte wiederholen Sie hier Ihr Passwort.
 - **Verschlüsseln** : Einige Datenbanken unterstützen Verschlüsselung.
 - **Runde die Zahl auf** : Anzahl der Ziffern nach dem Komma.
 - **Parallele Anfragen zulassen** : Gleichzeitige SQL-Anfragen an die Datenbank zulassen.
-- **Der Reiter „Statistiken** “ listet alle IDs in der Datenbank mit Speichertyp, Status (angemeldet/abgemeldet/gelöscht), Anzahl der Werte, geschätzter Größe und dem abgedeckten Zeitraum auf. Die Schaltfläche **„Bereinigen“** zeigt zunächst die zu löschenden Einträge an und entfernt sie erst nach Bestätigung. Status, bei denen die Protokollierung deaktiviert ist, werden standardmäßig ausgeschlossen, sofern Sie das entsprechende Kontrollkästchen nicht aktivieren, da deren Verlauf weiterhin abrufbar und möglicherweise relevant ist.
+- **Der Reiter „Statistiken“** listet alle IDs in der Datenbank mit Speichertyp, Status (angemeldet/abgemeldet/gelöscht), Anzahl der Werte, geschätzter Größe und dem abgedeckten Zeitraum auf. Die Schaltfläche **„Bereinigen“** zeigt zunächst die zu löschenden Einträge an und entfernt sie erst nach Bestätigung. Status, bei denen die Protokollierung deaktiviert ist, werden standardmäßig ausgeschlossen, sofern Sie das entsprechende Kontrollkästchen nicht aktivieren, da deren Verlauf weiterhin abrufbar und möglicherweise relevant ist.
 - **Datenbank nicht erstellen** : Aktivieren Sie diese Option, wenn bereits eine Datenbank erstellt wurde (z. B. vom Administrator) und der ioBroker-Benutzer nicht über ausreichende Rechte zum Erstellen einer Datenbank verfügt.
+- **PostgreSQL-Commit-Durability reduzieren** : Nur für PostgreSQL, standardmäßig deaktiviert. Verwendet die eigenen Verbindungen des Adapters mit `synchronous_commit=off` Ein Commit wartet daher nicht mehr, bis das Write-Ahead-Log auf die Festplatte geschrieben wurde. Dies reduziert die Festplattenzugriffe und den Verschleiß, z. B. auf SD-Karten und SSDs, erheblich. Stürzt der PostgreSQL-Server ab, können die in den letzten paar hundert Millisekunden gespeicherten Werte verloren gehen; im Gegensatz zu `fsync=off` Diese Einstellung kann die Datenbank nicht beschädigen. Andere Clients desselben Servers sind nicht betroffen.
 
 ## Standardeinstellungen
 
@@ -72,12 +73,11 @@ Die SQLite-Datenbank muss nicht separat installiert werden. Sie ist lediglich ei
 sudo apt-get install build-essential
 ```
 
-Installieren Sie unter Windows Node.js mit der Option „Automatisch die notwendigen Tools installieren…“ und installieren Sie anschließend den Adapter neu, z. B.:
+Installieren Sie unter Windows Node.js mit der Option „Automatisch die notwendigen Tools installieren…“ und erstellen Sie anschließend das native SQLite-Modul neu, z. B.:
 
 ```bash
-cd /opt/iobroker
 iobroker stop sql
-npm install iobroker.sql --production
+iobroker rebuild sqlite3
 iobroker start sql
 ```
 
@@ -104,6 +104,20 @@ Unter Windows kann es einfach über den Installer installiert werden: <https://d
 Beachten Sie die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht unterstützt. `node.js` und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
 
 ![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
+
+#### Emojis und Groß-/Kleinschreibung in einer bestehenden Datenbank
+
+Die vom Adapter erstellten Tabellen speichern nun jedes Zeichen (auch Emojis) und halten IDs getrennt, die sich nur in Groß-/Kleinschreibung unterscheiden (`alias.0.Licht` Und `alias.0.licht` Bereits vorhandene Tabellen werden nicht automatisch geändert, da die Konvertierung einer großen Tabelle einige Zeit in Anspruch nimmt und diese blockiert.
+
+Wenn Sie dies für eine bestehende Datenbank wünschen: Stoppen Sie die SQL-Instanz, erstellen Sie eine Sicherungskopie der Datenbank und führen Sie diese drei Befehle aus, z. B. in phpMyAdmin (ersetzen Sie `iobroker` (mit dem Namen Ihrer Datenbank):
+
+```sql
+ALTER TABLE `iobroker`.datapoints MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.sources MODIFY name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE `iobroker`.ts_string MODIFY val TEXT CHARACTER SET utf8mb4;
+```
+
+Starten Sie die Instanz anschließend neu. Andernfalls funktioniert alles wie zuvor; lediglich Werte mit Emojis können nicht gespeichert werden.
 
 ## Struktur der Datenbanken
 
@@ -241,7 +255,11 @@ Struktur:
 
 _Hinweis:_ MS-SQL verwendet BIT, andere SQL-Server verwenden BOOLEAN. SQLite verwendet für ts INTEGER und für alle anderen Datentypen BIGINT.
 
-## Werte über den JavaScript-Adapter abrufen
+## Nachrichten für Skripte und KI-Agenten
+
+`sendTo('sql.0', 'help', {})` Antworten `{help, commands}`: eine Beschreibung aller Nachrichten und der Tabellen für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren sowie die Liste aller Befehle mit `write: true` Für diejenigen, die etwas verändern.
+
+## Werte vom JavaScript-Adapter abrufen
 
 Auf die sortierten Werte kann über den JavaScript-Adapter zugegriffen werden.
 
@@ -293,7 +311,7 @@ Mögliche Optionen:
 - **q** - falls das Feld _q_ in die Antwort aufgenommen werden soll
 - **addId** – falls _das ID-_ Feld in die Antwort aufgenommen werden soll
 - **Limit** – Es werden nicht mehr Einträge zurückgegeben als das Limit.
-- **runden** - Ergebnis auf die gewünschte Anzahl von Nachkommastellen runden
+- **Runden** – Runden Sie das Ergebnis auf die gewünschte Anzahl Nachkommastellen. Standard: „Reelle Zahl runden auf“ des Datenpunkts, dann der Instanz. Die gespeicherten Werte bleiben unverändert.
 - **ignoreNull** - Gibt an, ob Nullwerte eingeschlossen (false), durch den letzten nicht-nullen Wert ersetzt (true) oder durch 0 (0) ersetzt werden sollen.
 - **removeBorderValues** – Standardmäßig werden zusätzliche Rahmenwerte zurückgegeben, um die Diagrammdarstellung zu optimieren. Setzen Sie diese Option auf „true“, wenn dies nicht gewünscht ist (z. B. bei der Skriptdatenverarbeitung).
 - **returnNewestEntries** – Die zurückgegebenen Daten sind immer aufsteigend nach Zeitstempel sortiert. Bei Verwendung von „none“ für die Aggregation und gleichzeitiger Angabe von „count“ oder „limit“ werden normalerweise die ältesten Einträge zurückgegeben (sofern keine Startdaten angegeben sind). Setzen Sie diese Option auf „true“, um stattdessen die neuesten Einträge zu erhalten.
@@ -302,7 +320,7 @@ Mögliche Optionen:
   - _max_ - Teile den gesamten Zeitbereich in kleine Intervalle auf und ermittle für jedes Intervall den Maximalwert, der dann für dieses Intervall verwendet wird (Nullwerte werden ignoriert).
   - _min_ - Gleiches gilt wie max, jedoch mit dem Minimalwert.
   - _Durchschnitt_ - Dasselbe wie Maximum, nur dass der Durchschnittswert verwendet wird.
-  - _total_ - Gleiches gilt für max, aber Berechnung des Gesamtwerts.
+  - _total_ - Gleiches gilt für max, aber es wird der Gesamtwert berechnet.
   - _count_ - Gleiches wie max, aber Anzahl der Werte wird berechnet (Nullwerte werden mitgezählt).
   - _Perzentil_ - Berechne das n-te Perzentil (n ist gegeben in `options.percentile` (oder standardmäßig 50, falls nicht angegeben).
   - _Quantil_ - Berechne das n-Quantil (n ist gegeben in `options.quantile` (oder standardmäßig 0,5, falls nicht angegeben).
@@ -381,9 +399,26 @@ Beispiel, wenn Ihre Datenbank den Namen „iobroker“ trägt:
 | MS-SQL | `SELECT * FROM iobroker.dbo.datapoints ...` |
 | MySQL  | `SELECT * FROM iobroker.datapoints ...`     |
 
-## Datenbrowser
+## Datenbrowser und Export
 
 Die Instanzeinstellungen enthalten den Tab **„Datenbrowser“** : Links werden alle Datenpunkte angezeigt, die Daten in der Datenbank enthalten, rechts die gespeicherten Werte des ausgewählten Datenpunkts. Die Werte können durchgeblättert, bearbeitet, gelöscht und durch neue ergänzt werden. Für diesen Tab ist eine laufende Instanz erforderlich.
+
+Die Export-Schaltfläche in der Symbolleiste schreibt alle Werte des ausgewählten Datenpunkts im ausgewählten Zeitbereich in eine Datei, beginnend mit dem ältesten:
+
+- **CSV-Datei** mit den Spalten `ts` (Millisekunden seit 1970, UTC), `time` (Ortszeit), `val`, `ack`, `q` Und `from` Spalten- und Dezimaltrennzeichen können ausgewählt werden; die Vorauswahl (`;` Und `,` für die meisten Sprachen `,` Und `.` (für Englisch und Chinesisch) ist das, was Excel normalerweise als Sprache des Administrators erwartet.
+- **JSON** als ein Array von `{ts, val, ack, q, from}` - das Format[`storeState`](#storestate) akzeptiert, sodass die Werte zurückgeschrieben werden können, z. B. in einen anderen Datenpunkt:
+
+```javascript
+const fs = require('fs');
+const values = JSON.parse(fs.readFileSync('/opt/export/hm-rpc.0.ABC123.1.TEMPERATURE.json', 'utf8'));
+sendTo('sql.0', 'storeState', { id: 'javascript.0.temperatureCopy', state: values }, result =>
+    console.log(JSON.stringify(result)),
+);
+```
+
+Im Gegensatz zu `getRawEntries`, beide Formate enthalten `ack` und die Werte eines booleschen Datenpunkts als `true` /`false` in jeder Datenbank, so dass `storeState` Erzeugt erneut einen booleschen Datenpunkt.
+
+Der Export liest den Bereich in Zeitfenstern von jeweils einigen Tausend Werten, wobei jeder Wert eine Bereichsabfrage auf dem `(id, ts)` Index. Selbst bei einem Datenpunkt mit Millionen von Werten muss die Datenbank also nie Millionen von Zeilen überspringen. `OFFSET` Auch ein sehr großer Export dauert eine Weile und benötigt den gesamten Speicherplatz des Browsers für die Datei.
 
 Die Komponente ist eine JSON-Konfiguration `custom` Komponente. Ihre Quellen befinden sich in `src-admin`, das integrierte Paket in `admin/custom` ist verpflichtet:
 
@@ -416,9 +451,10 @@ sendTo(
         id: 'system.adapter.admin.0.memRss',
         start: Date.now() - 3600000, // optional, inclusive
         end: Date.now(),             // optional, inclusive
-        limit: 100,                  // optional, default 100, maximum 2000
+        limit: 100,                  // optional, default 100, maximum 5000
         offset: 0,                   // optional, default 0
         sort: 'desc',                // optional, 'desc' (newest first, default) or 'asc'
+        noTotal: false,              // optional, true skips counting the entries: `total` is then missing
     },
     result => {
         if (result.error) {
@@ -435,7 +471,9 @@ sendTo(
 
 Die Antwort enthält außerdem `id`, `index` (die ID in der `datapoints` Tisch), `type` (`Number`, `String` oder `Boolean`), `table` (`ts_number`, `ts_string` oder `ts_bool` und die verwendeten `limit`, `offset` Und `sort` Die
 
-Die Werte werden **unverändert** aus der Datenbank zurückgegeben: `ack` und boolesche Werte sind `0` /`1` in den meisten Datenbanken, und `val` Ein String-Datenpunkt ist die gespeicherte Zeichenkette. `from` Ist `null` falls keine Quelle gespeichert wurde.
+Die Werte werden **unverändert** aus der Datenbank zurückgegeben: `ack` und boolesche Werte sind `0` /`1` in den meisten Datenbanken, und `val` Ein String-Datenpunkt ist die gespeicherte Zeichenkette. `from` Ist `null` Wenn keine Quelle gespeichert wurde. Nur `ts` ist immer eine Zahl, obwohl PostgreSQL und MS SQL sie als Zeichenkette liefern.
+
+Das Zählen der Einträge entspricht einem Scan des gesamten Bereichs. Ein Aufrufer, der einen langen Bereich in aufeinanderfolgenden Fenstern liest (`start` /`end` (einschließlich eines Fensters) benötigt die Zählung nur einmal und kann übergeben werden `noTotal: true` für alle anderen Anfragen.
 
 Wie `update`, `delete` Und `storeState` Dies funktioniert auch für Datenpunkte, deren Protokollierung deaktiviert ist, solange noch Einträge in der Datenbank vorhanden sind. Wenn der Datenpunkt unbekannt ist, enthält die Antwort einen `error` Die
 
@@ -636,37 +674,40 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### 4.2.0 (2026-10-03)
-* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
-* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
-* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
-* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
-* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
-* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
-* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
-* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
-* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
-* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
-* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
-* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
-* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Fixed: getHistory checks the range of `percentile` (0-100) and `quantile` (0-1) only for these aggregates (misplaced parentheses in the check)
 
-### 4.1.6 (2026-10-01)
-* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
-* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
-* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
-* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
-* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
+### 4.6.0 (2026-11-19)
+* (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
 
-### 4.1.5 (2026-08-28)
-* (@GermanBluefox) Updated packages
+### 4.5.1 (2026-11-17)
+* (@Schimi1983) "Clean up" no longer deletes the history of datapoints that are logged under an alias name, and stops with an error instead of deleting everything when the object database cannot be read (#587)
+* (@Schimi1983) MySQL/MariaDB: new tables use `utf8mb4`, so values, IDs and sources with emojis are stored instead of failing, and the names compare case-sensitively (`utf8mb4_bin`), also in a database created by a hoster. Existing tables are not changed; the README explains how to convert them (#588)
 
-### 4.1.4 (2026-08-27)
-* (@GermanBluefox) Connection errors no longer start with the useless class name `AggregateError`: the log now shows only the real reason, e.g. `connect ECONNREFUSED 127.0.0.1:3306; connect ECONNREFUSED ::1:3306`
+### 4.5.0 (2026-11-10)
+* (@Schimi1983) The database password is stored encrypted (`encryptedNative`). A password saved with an older version is encrypted once on the first start, the instance then restarts by itself. Note: after going back to 4.4.1 or older, enter the password in the instance settings again (#587)
+* (@DutchmanNL) PostgreSQL: new opt-in setting "Relax PostgreSQL commit durability" runs the adapter's connections with `synchronous_commit=off`, so commits no longer wait for the disk flush. This strongly reduces disk I/O and wear. A crash of the PostgreSQL server can lose the values of the last few hundred milliseconds; the database cannot be corrupted (#516)
 
-### 4.1.3 (2026-08-27)
-* (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
-* (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
+### 4.4.1 (2026-11-08)
+* (@GermanBluefox) `getDpOverview` with an empty `datapoints` table answers again and returns its connection. Before, the request never got an answer and the connection stayed borrowed, which with SQLite (one connection) blocked every further request (#587)
+* (@GermanBluefox) "Round real to" of a datapoint now applies to `getHistory`. Before, the field was shown but had no effect, only the setting of the instance counted. As with the instance setting, the values are rounded when read, the stored values stay as they are (#587)
+* (@GermanBluefox) phpMyAdmin container: new instances listen on `127.0.0.1` by default instead of on all network interfaces. Existing instances keep their setting; to reach phpMyAdmin from another machine, choose the IP in the instance settings (#587)
+* (@Schimi1983) PostgreSQL: text values, datapoint IDs and sources are written as escape string literals (`E'...'`), so a backslash can no longer end a value early when `standard_conforming_strings` is off for the database or the user (#587)
+
+### 4.4.0 (2026-11-05)
+* (@Schimi1983) Booleans are stored the same in all databases: `on`/`yes`/`true`/`1` as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL. Before, PostgreSQL failed the whole batch on such a text or a number, SQLite and MS SQL stored `off` as true. `storeState` says "values are kept, do not send them again" also when its values were written together with others of the same datapoint (#587)
+* (@Schimi1983) Messages are checked before they reach the database: `update`, `delete`, `deleteRange`, `deleteAll`, `storeState`, `getHistory` and `getCounter` refuse an entry without an ID, with a timestamp that is not a point in time, or with a value that does not fit the stored type, and report it in the answer instead of writing it into the SQL. Before, a `deleteRange` with an unparsable `start` deleted the whole history of the datapoint, a `delete` without an ID the history of the first datapoint of the table, a `start` given as a numeric string became `NaN`, and a value with a quote or a quote in a datapoint ID broke the statement (PostgreSQL, SQLite, MSSQL: quotes are now stored as they are instead of being removed, `Infinity` is stored as NULL). `storeState` with a value that is not a number for a numeric datapoint is answered again instead of waiting forever; a list of entries is answered after the last entry was written, with the errors of the entries that failed; a message with an unexpected shape no longer stops the adapter; "Maximum concurrent connections" of 0 no longer blocks every write (#587)
+* (@Schimi1983) MySQL: if the server's `sql_mode` contains `NO_BACKSLASH_ESCAPES`, the adapter removes it for its own connections and says so in the log - with that mode, values with `'` or `\` cannot be stored safely. The server's setting and other clients are not changed. Booleans: `on`/`yes`/`true`/`1` are stored as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL instead of true; a number is true unless it is 0 (#587)
+* (@Schimi1983) Stopping with many datapoints no longer loses values: the buffers of all datapoints are written at once instead of 50 per second, which did not finish within the 10 s stop timeout beyond about 450 datapoints. SQLite: buffered values of more than 100 datapoints no longer hit the task limit ("Cannot queue new requests"), a datapoint has one queued insert that takes further values (#587)
+* (@Schimi1983) MySQL: values, datapoint IDs and sources are passed as bound parameters instead of being inlined. Text values keep their single quotes (`it's` was stored as `its`), a value ending with a backslash no longer makes the whole batch fail, and the `delete`/`update`/`storeState` messages cannot inject SQL any more. `NaN`/`Infinity` are stored as NULL instead of failing the batch (#587)
+* (copilot) Adapter requires node.js >= 22.19.0 now
+* (@GermanBluefox) Fixed: values stored without `from` were missing in `getHistory` with `from: true`, e.g. in the history data of admin
+* (@Schimi1983) A failed write is no longer silently dropped: the error is passed on, so `storeState` reports it instead of `success: true`. If the database was not reachable, the values are kept and written with the next write of the datapoint (at most 2000 per datapoint, the oldest are dropped first, with a warning). Pooled connections that were idle for more than 60 s are closed and replaced, so a server-side `wait_timeout` no longer resets them; the warning "SQL connection lost" every few minutes on hosted databases is gone (#587)
+* (@GermanBluefox) The values kept while the database is not reachable are also limited to 200000 for all datapoints together (about 70 MB), so a long outage with many datapoints can no longer exhaust the memory. The warning about them is one line per minute for all datapoints instead of one per datapoint, and the error of `storeState` says when the values were kept, so they are not sent twice (#587)
+* (@GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range. `getRawEntries` returns up to 5000 entries per call and accepts `noTotal` to skip the count
+* (@GermanBluefox) Data browser: PostgreSQL and MS SQL showed the time of a value as a bare number, because `getRawEntries` returned `ts` as string there
+* (@GermanBluefox) MySQL/MariaDB and MS SQL: datapoints whose IDs differ only in case (e.g. `alias.0.Licht` and `alias.0.licht`) or by trailing spaces no longer write into one series with the type of the first one. The second one gets its own row from now on; values that were already mixed stay where they are (#588)
+* (@GermanBluefox) MS SQL: `@azure/msal-node`, a dependency of the driver, was updated to 7.2.0 because of CVE-2026-109461 (GHSA-xcx6-jx8p-x3h5). It concerns the Azure authorization code flow, which the adapter does not use
 
 ## License
 

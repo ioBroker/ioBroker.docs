@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-automatic-feeder/README.md
 title: ioBroker.vis-2-widgets-automatic-feeder
-hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
+hash: 6SC76fUgoTqZMxSsBuuKqWd3gRzgLpXAw1r4FVK2zL4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/admin/vis-2-widgets-automatic-feeder.svg)
 
@@ -57,7 +57,7 @@ Dieses Dokument ist ein vollständiges Handbuch. Falls Sie diese Widgets noch ni
 ## 1. Was sind Vis-2-Widgets?
 **vis-2** ist das moderne Visualisierungstool von ioBroker (der Nachfolger des klassischen *vis 1*). Sie erstellen Dashboards („Ansichten“), indem Sie **Widgets** - Schaltflächen, Anzeigen, Karten - auf eine Arbeitsfläche ziehen und diese mit den Zuständen Ihres Geräts verbinden.
 
-Normalerweise verknüpft man ein Widget manuell mit einem Zustand: Man sucht eine Objekt-ID (etwa `automatic-feeder.0.switches.sw-0.status.feedingActive`) und gibt sie in ein Bindungsfeld ein. Das funktioniert gut für einen einzelnen Wert, aber eine gute Feeder-Karte benötigt ein Dutzend solcher Widgets, die zusammenarbeiten.
+Normalerweise verknüpft man ein Widget manuell mit einem Zustand: Man sucht eine Objekt-ID (etwa `automatic-feeder.0.switches.sw-0.status.feedingActive`) und gibt sie in ein Bindungsfeld ein. Das funktioniert für einen einzelnen Wert, aber eine gute Feeder-Karte benötigt ein Dutzend solcher Widgets, die zusammenarbeiten.
 
 Ein **Widget-Set** wie dieses löst das Problem: Es handelt sich um ein Add-on mit **speziell entwickelten Widgets** für einen Adapter. Jedes Widget kennt bereits die benötigten Zustände. Sie müssen lediglich den **zu verwendenden Feeder** angeben - alles andere ist bereits vorkonfiguriert. Anstatt also ein Dutzend manueller Bindungen vorzunehmen, genügen **zwei Klicks** (Instanz auswählen + Schalter) und Sie erhalten eine fertige Karte.
 
@@ -102,7 +102,7 @@ Widgets sind darauf angewiesen.
 
 `status.feedingDurationSec` Datenpunkt).
 
-Sie müssen niemals eine Objekt-ID manuell eingeben: Die Widgets lesen und schreiben nur die eigenen `status.*` und `settings.*` Datenpunkte des ausgewählten Schalters, die aus der von Ihnen ausgewählten Instanz und dem Schalter ermittelt werden.
+Sie müssen niemals eine Objekt-ID manuell eingeben: Die Widgets lesen und schreiben nur die eigenen `status.*`- und `settings.*`-Datenpunkte des ausgewählten Schalters, die aus der von Ihnen ausgewählten Instanz und dem Schalter ermittelt werden.
 
 ---
 
@@ -161,7 +161,7 @@ Daneben erscheint ein Countdown** (z. B. `5 s`), der bis zum Ende der aktuellen 
 
 - Die **nächste Fütterung**: ein langer Countdown (*in ca. 27 Minuten*, oder 1 Stunde 05 Minuten nach der vollen Stunde), die genaue Uhrzeit und die
 
-Modus (*dynamisches Intervall*, wenn dynamische Fütterung aktiviert ist, ansonsten *Zeitplan*).
+Modus (*dynamisches Intervall*, wenn die dynamische Fütterung aktiviert ist, ansonsten *Zeitplan*).
 
 - Die **letzte Fütterung** mit einem ✓ (Erfolg, grün) oder ✗ (Fehler, rot) Markierung und dem **Ergebnis** des Adapters.
 - Das **astronomische Fenster** (Sonnenaufgang - Sonnenuntergang), das für die Tag/Nacht-Logik verwendet wird.
@@ -293,7 +293,7 @@ Der Ring ist exakt, wenn der Adapter `status.feedingDurationSec` (**v1.6.0+**) b
 
 ![Leerlauf- und Pausenzustände von AnimatedFeeder](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/img/animatedfeeder-states.png)
 
-**Tippen zum Füttern:** Tippen Sie einmal auf das Widget, um es zu aktivieren (*Bestätigen: N s ?*). Tippen Sie erneut, um eine einmalige Fütterung der konfigurierten Dauer auszulösen (über `feedFor`). Während einer Pause oder einer laufenden Fütterung wird das Tippen ignoriert. Die gesamte Funktion kann mit **Tippen zum Füttern aktivieren** deaktiviert werden. (Die Animation des fallenden Pellets wird automatisch reduziert, wenn das Betriebssystem weniger Bewegung anfordert.)
+**Tippen zum Füttern:** Tippen Sie einmal auf das Widget, um es zu aktivieren (*Bestätigen: N s ?*). Tippen Sie erneut, um eine einmalige Fütterung der konfigurierten Dauer auszulösen (über `feedFor`). Tippen wird ignoriert, solange eine Pause aktiv ist oder eine Fütterung bereits läuft. Die gesamte Funktion kann mit **Tippen zum Füttern aktivieren** deaktiviert werden. (Die Animation des fallenden Pellets wird automatisch reduziert, wenn das Betriebssystem weniger Bewegung anfordert.)
 
 **Optionen** - der AnimatedFeeder verfügt über drei Attributgruppen:
 
@@ -382,7 +382,7 @@ Die optionalen Darstellungseinstellungen befinden sich in der Gruppe **Darstellu
 ---
 
 ## 8. Welche Datenpunkte jedes Widget verwendet
-Aus Gründen der vollständigen Transparenz: Die Widgets abonnieren den Schaltkanal `automatic-feeder.<instance>.switches.<switch>.…` und verwenden ausschließlich diese relativen Datenpunkte:
+Aus Gründen der vollständigen Transparenz - die Widgets abonnieren den Schaltkanal `automatic-feeder.<instance>.switches.<switch>.…` und verwenden ausschließlich diese relativen Datenpunkte:
 
 | Widget | Liest | Schreibt |
 |--------|-------|--------|
@@ -400,7 +400,7 @@ Die genaue Bedeutung der einzelnen Datenpunkte finden Sie im Abschnitt [ioBroker
 ---
 
 ## 9. Entwicklung
-Die Widgets sind in **TypeScript + React 18** (mit MUI für die Attribut-Editoren) geschrieben und zusammen mit **Vite** und **Module Federation** in einem einzigen `customWidgets.js` gebündelt, das vis-2 zur Laufzeit lädt. Der Quellcode befindet sich in [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
+Die Widgets sind in **TypeScript + React 19** (mit MUI für die Attribut-Editoren) geschrieben und zusammen mit **Vite** und **Module Federation** in einem einzigen `customWidgets.js` gebündelt, das vis-2 zur Laufzeit lädt. Der Quellcode befindet sich in [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | Datei | Widget / Rolle |
 |------|---------------|
@@ -459,6 +459,26 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.2 (2026-10-26)
+* (ssbingo) Fix: the module-federation manifest (`mf-manifest.json`, `mf-stats.json`) is now shipped next to `customWidgets.js`. vis-2 2.20.x requests it when loading the widget sets and got a 404, because the build step only copied `customWidgets.js`, the assets and the images
+* (ssbingo) Maintenance: the Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#48, #49)
+
+### 0.5.1 (2026-10-12)
+* (ssbingo) Maintenance: dependency updates — `@module-federation/vite` 1.23.2 (#46), `@types/react` 19.3 (#45). No widget changes
+
+### 0.5.0 (2026-10-12)
+* (ssbingo) **Breaking:** the widget set is rebuilt for **React 19 / MUI 9**, the stack vis-2 uses from its next release on. A React 18 build fails to load there (its bundled JSX runtime reads React 18 internals) and is skipped by the vis-2 editor. Requires a **vis-2 version based on React 19** — older vis-2 versions should stay on widget 0.4.x
+* (ssbingo) `@iobroker/adapter-react-v5` removed from the widget build; its successor `@iobroker/gui-components` provides the types. `@iobroker/types-vis-2` updated to 2.20.1 (#43), `@iobroker/testing` to 6.3.0 (#42)
+
+### 0.4.7 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
+
+### 0.4.6 (2026-09-10)
+* (ssbingo) The temperature band's biological meaning is now shown **directly under each individual temperature** instead of as one chip at the bottom of the card: **Environment** renders a separate band under both *water shallow* and *water deep* (each keyed off its own reading), **DynamicFeeding** renders it under the average-temperature tile. Still toggled per widget by the **Show temperature band** option
+
+### 0.4.5 (2026-09-10)
+* (ssbingo) **DynamicFeeding** and **Environment** now colour the water temperature by the koi-biology scale from the pondpump research (growth optimum 23–26 °C green, the cold 8–13 °C Aeromonas window amber, both extremes red) instead of a flat accent colour, and show the band's biological meaning as a small chip below the temperature. A new **Show temperature band** option (Appearance group, on by default) toggles the chip per widget
+
 ### 0.4.4 (2026-09-06)
 * (ssbingo) Maintenance: dependency and build-tooling updates (`@iobroker/adapter-react-v5` 8.3.3, `@iobroker/types-vis-2` 2.15.4, `@module-federation/vite` 1.21.1). No widget changes
 
@@ -472,31 +492,7 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 * (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
 * (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
 
-### 0.4.0 (2026-09-01)
-* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
-* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
-* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
-
-### 0.3.2 (2026-09-01)
-* (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
-
-### 0.3.1 (2026-09-01)
-* (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
-
-### 0.3.0 (2026-09-01)
-* (ssbingo) New widget **FeedingAmount**: shows the adapter's feeding-amount model for a switch — recommended daily ration, the feeding percentage for the current water temperature, estimated total weight and, in control mode, the per-feeding portion and motor run-times. It uses the adapter's `status.feedTargetPortionGrams` / `status.feedingsPerDayToday` for an exact per-feeding amount (**automatic-feeder v1.16.0+**)
-* (ssbingo) The FeedingAmount widget is **editable**: an *Edit* toggle lets you change the fish counts, the temperature percentages, the Phase-A/B switches and the dispense rate; the changes are written to the adapter's writable `switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the amount-model settings mirror)
-
-### 0.2.1 (2026-07-07)
-* (ssbingo) Fixed **AnimatedFeeder** showing nothing in Firefox: the built-in feeder image now uses a base64 data URI (Firefox rejects the non-standard `;utf8,` form that Chrome tolerated) and the canvas 2D context is initialised from the `<canvas>` ref callback, so it binds reliably regardless of mount order. A failed or zero-size custom image can no longer blank the whole widget
-
-### 0.2.0 (2026-07-07)
-* (ssbingo) New sixth widget **AnimatedFeeder**: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual / time-based / winter); tap it to trigger a one-off feeding. The exact countdown ring uses the adapter's new `status.feedingDurationSec` (**automatic-feeder v1.6.0+**)
-* (ssbingo) New stylized adapter and widget-set icon (feeder on a light grey tile)
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

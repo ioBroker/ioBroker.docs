@@ -18,7 +18,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imap/README.md
 title: ioBroker.imap
-hash: U069k89eSLgDF19iBTv70qg1Qa+LBdp6c5LRNLFn98Y=
+hash: wiwU1znzQc4xAEhspaoHLJ1J1iMb/YQawHfhkUhro0Y=
 ---
 ![логотип](../../../de/admin/imap.png)
 
@@ -73,23 +73,17 @@ hash: U069k89eSLgDF19iBTv70qg1Qa+LBdp6c5LRNLFn98Y=
 ```
 
 - `Aktiv`: Включить IMAP-соединение
-
 - `Host` например, imap.gmail.com
-
 - `Posteingang` Стандартный почтовый ящик (INBOX) - Ящик для мониторинга - Возможные варианты выбора см. в imap.0.xxx.remote.change\_folder. Пример: INBOX.subfolder (точка в качестве разделителя)
-
 - `Port` Стандарт 993
-
 - `Nutzername` Имя пользователя - Экземпляр должен быть активирован!!!
-
-- `Passwort` Пароль — экземпляр должен быть активирован!!! — [Вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) — [Аутентификация Outlook OAuth2](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)![imap\_create\_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
-
+- `Passwort` Пароль — экземпляр должен быть активирован!!! — [Вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) — [Аутентификация Outlook OAuth2](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
 - `max.` Максимальное количество точек данных email\_01...email\_02... (1-99)
-
 - `max. HTML` Максимальное количество писем в формате HTML. Должно быть больше максимального количества точек данных (1-99).
-
+- `Intervall (in Sekunden)` Это интервал, с которым отправляются команды NOOP, и интервал, с которым проверяется параметр "idleInterval" (в секундах).
+- `IdleInterval (in Sekunden)` Это интервал, с которым команда IDLE (для серверов, поддерживающих IDLE) отправляется повторно (в секундах).
+- `Auf „true“ setzen, um die Verwendung von NOOP zu erzwingen.` Установите значение «true», чтобы принудительно использовать протокол NOOP keepalive на серверах, которые также поддерживают IDLE.
 - `TLS` Использовать TLS-соединение — по умолчанию установлено значение true.
-
 - `Flaggen` Флаг для IMAP-запроса. Возможные флаги:
 
 ```
@@ -115,14 +109,11 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 - `tls-Option` По умолчанию установлено значение {"rejectUnauthorized": false}
 - `Auto-TLS` Возможные варианты: `always`, `required` и `never` Стандарт никогда не соблюдается. **Для получения дополнительной информации, пожалуйста, прочтите [здесь](https://www.npmjs.com/package/node-imap) .**
-
-![imap\_create\_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
-
 - `Att.` Для заполнения поля HTML необходимо также загрузить вложения. Это потребляет много оперативной памяти! Поэтому используйте настройки по умолчанию. `false`
 - `Mailparser-Option` Опция анализа почты (только на вкладке TAB) `MAILPARSER-OPTIONEN` создавать)
 - `Token`: [Сначала создайте токены здесь.](#instanz-konfiguration-tab-oauth2-erstellen)
 
-![imap\_create\_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
+![imap\_create\_1.png](img/imap_create_1.png)![imap\_create\_2.png](img/imap_create_2.png)![imap\_create\_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
 
 - `max. MEMRSS-Limit:` С момента запуска действия.
 - `Neu starten:` Если достигается лимит MEMRSS, адаптер перезапускается. Однако проверка этого процесса выполняется только каждые 24 часа.
@@ -148,7 +139,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_create\_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_symbol.png)
 
-### Создать вкладку конфигурации экземпляра oauth2
+### Вкладка «Создать экземпляр» > «OAuth2»
 
 [Краткое содержание](#zusammenfassung)
 
@@ -201,7 +192,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.last\_activity\_json      | Какой вид активности можно представить в виде JSON-массива — [пример.](#json-imap0xxxlast_activity_json) |
 | imap.0.xxx.last\_activity\_timestamp | Отметка времени последней активности                                                                     |
 | imap.0.xxx.online                    | статус IMAP-соединения                                                                                   |
-| imap.0.xxx.quality                   | Качество всех данных в формате JSON. Обновление каждые 24 часа — [пример.](#json-imap0xxxquality)        |
+| imap.0.xxx.quality                   | Качество всех данных в формате JSON. Обновление каждые 24 часа - [пример.](#json-imap0xxxquality)        |
 | imap.0.xxx.status                    | Информация о соединении IMAP в формате JSON — [пример.](#json-imap0xxxstatus)                            |
 | imap.0.xxx.total                     | Количество писем в активном почтовом ящике                                                               |
 | imap.0.xxx.total\_unread             | Количество непрочитанных писем в активном почтовом ящике                                                 |
@@ -222,7 +213,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.email.email\_01.receive      | Дата получения                                                                                |
 | imap.0.xxx.email.email\_01.seq          | Порядковый номер                                                                              |
 | imap.0.xxx.email.email\_01.size         | Размер электронного письма в байтах                                                           |
-| imap.0.xxx.email.email\_01.subject      | Тема письма                                                                                   |
+| imap.0.xxx.email.email\_01.subject      | Тема электронного письма                                                                      |
 | imap.0.xxx.email.email\_01.texthtml     | Содержимое в формате HTML                                                                     |
 | imap.0.xxx.email.email\_01.to           | Приёмник в виде массива                                                                       |
 | imap.0.xxx.email.email\_01.uid          | Уникальный UID                                                                                |
@@ -273,7 +264,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.mailbox\_folder\_delete       | Удалить папку почтового ящика вместе с ее содержимым.                                                                                                                            |
 | imap.0.xxx.remote.reload\_emails                | Перезагрузите электронные письма.                                                                                                                                                |
 | imap.0.xxx.remote.search\_start                 | Примените изменения к параметрам change\_folder, criteria и show\_mails.                                                                                                         |
-| imap.0.xxx.remote.show\_mails                   | Настройки экземпляра: Количество загружаемых писем (максимум HTML). Это значение сбрасывается только после перезапуска. Разумеется, это значение должно быть выше максимального. |
+| imap.0.xxx.remote.show\_mails                   | Настройки экземпляра: Количество загружаемых писем (максимум HTML). Это значение сбрасывается только после перезапуска. Разумеется, оно должно быть выше максимального значения. |
 | imap.0.xxx.remote.vis\_command                  | Команда из VIS для перемещения электронных писем из выделенных областей. Используется только в VIS.                                                                              |
 
 ![imap\_overview\_remote.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote.png)
@@ -372,7 +363,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.mails\_today\_color         | Цвет фона строки для четных идентификаторов, текущий день - по умолчанию #ffffff                                                               |
 | imap.0.xxx.remote.html.mails\_today\_color\_odd    | Цвет фона строки для нечетных ID, текущий день - по умолчанию #ffffff                                                                          |
 | imap.0.xxx.remote.html.p\_tag\_text\_align         | Выравнивание текста в верхнем и нижнем колонтитулах — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический. |
-| imap.0.xxx.remote.html.short\_content              | Ограничение по количеству символов в тексте - Стандарт 35                                                                                      |
+| imap.0.xxx.remote.html.short\_content              | Ограничение по количеству символов в тексте - стандартное: 35.                                                                                 |
 | imap.0.xxx.remote.html.short\_subject              | Ограничение на количество символов в строке темы — по умолчанию 35.                                                                            |
 | imap.0.xxx.remote.html.table\_tag\_border\_color   | Цвет границы таблицы - Стандартный #424242                                                                                                     |
 
@@ -629,10 +620,19 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ```
 
 ## Changelog
+### 0.5.0 (2026-11-07)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Adapter requires node.js >= 22.19.0 now
+- (Lucky-ESA) JS-Controller 7.2.5 required
+- (Lucky-ESA) Added keepalive settings
+- (Lucky-ESA) Changed to accordion view
+- (ipod86) Fixed accounts being skipped with "No password entered" (JS-Controller >= 7.2.4)
+- (ipod86) Fixed doubly encrypted passwords from 0.4.0
+
+### 0.4.1 (2026-10-08)
 
 - (Lucky-ESA) Admin 7.6.20 required
+- (Lucky-ESA) Fixed password encryption error with JS Controller (>=v.7.2.4) and admin (<v.8.1.1)
 
 ### 0.4.0 (2026-05-30)
 
@@ -654,20 +654,6 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 - (Lucky-ESA) New design for settings page added
 - (Lucky-ESA) Crash if uid is empty for new emails
-
-### 0.2.1 (2024-09-16)
-
-- (Lucky-ESA) Update dependencies
-- (Lucky-ESA) Changed Log info to debug
-- (Lucky-ESA) Fixed blockly setFlag crash
-
-### 0.2.0 (2024-06-15)
-
-- (Lucky-ESA) Updated Blockly definitions
-- (Lucky-ESA) JS-Controller >= 5.0.19 required
-- (Lucky-ESA) Admin >=6.13.16 required
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

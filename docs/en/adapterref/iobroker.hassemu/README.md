@@ -60,10 +60,11 @@ Install the adapter and start instance 0. In the instance settings you normally 
 nothing to begin with: mDNS is on, authentication is off, and the adapter binds to all
 interfaces.
 
-If your ioBroker host has several network cards, set **Bind to Interface** to the one your
-displays are on. The adapter announces itself under that address, so announcing an address
-the display cannot reach is the most common reason discovery "works" but the display then
-fails to connect.
+If your ioBroker host sits in several networks, that needs no setting: on all interfaces the
+adapter announces itself in every network with that network's address, and each display is
+given the address of its own network — in the announcement, in the sign-in and in the
+dashboard addresses. Set **Bind to Interface** only when hassemu should serve one network
+alone; it then listens, announces and answers there only.
 
 ### 2. Add the server on the display
 
@@ -140,7 +141,6 @@ never on a page you did not choose for them.
 hassemu.0.
 ├── info.
 │   ├── connection      the adapter is running
-│   ├── serverUuid      the identity the displays remember the server by
 │   └── refreshUrls     button: search for dashboards again
 ├── global.
 │   ├── enabled         master switch (see above)
@@ -155,13 +155,16 @@ hassemu.0.
         └── remove      button: forget this display
 ```
 
-**serverUuid** is worth knowing about: the displays recognise the server by it. It is
-created once and kept, so restarting the adapter does not look like a different server to
-the display. If it changed, every display would want to be set up again.
+**The server's identity** is not in the tree: the displays recognise the server by an ID that
+is created once and kept in a file in the instance's data folder, together with each display's
+cookie and tokens. Restarting the adapter does not change it, so a restart does not look like a
+different server to the display. If it changed, every display would want to be set up again.
 
-**remove** deletes the entry, and with it the display's identity. The next time that display
-connects it is a new one and starts at `---`. Use it for displays you have got rid of; the
-adapter also clears entries by itself once they have not been seen for 30 days.
+**remove** deletes the entry, and with it the display's identity. A connection the display has
+open ends at once; the next time that display connects it is a new one and starts at `---`. Use
+it for displays you have got rid of. At start the adapter also removes every display that was
+last seen more than 30 days before the most recently seen one — measured against that display,
+not the clock, so after a long standstill of the whole installation none is removed.
 
 **resolvedUrl** is the answer to "where did this display actually end up". It is read-only and
 follows every change: pick a dashboard and it holds that address, switch the display to Global URL
@@ -271,6 +274,9 @@ history continues in its old series, and the display stays recognised, so nothin
 again. The log names every move. Scripts and visualisations that use the old IDs must be updated.
 Do not go back to 1.x afterwards.
 
+The datapoint `info.serverUuid` is gone: the server's identity moves into the instance's data
+folder at the same start, so the displays keep recognising the server.
+
 A display that connects for the first time gets the model its Home Assistant app reports followed
 by four characters hassemu picks itself, for example `clients.pixel-tablet-02b7`; when the display
 reports no model, the ID starts with `display`. An ID never changes once it is given.
@@ -335,20 +341,22 @@ the address entered by hand, it lacks _local network access_ — allow it in the
 - New: optional HTTPS with a certificate from ioBroker
 - New: hassemu reports Home Assistant 2026.8.0 — the apps keep their loading screen until the dashboard is there, and the iPhone app shows it edge to edge
 - Changed: only displays in the host's own networks get an answer, and a chosen address is the only one hassemu listens, announces and connects on
+- Changed: on a host with several networks, every display finds and reaches hassemu at the address of its own network
 - Changed: the server ID and each display's cookie and tokens live in a file in the instance data folder; the datapoint `info.serverUuid` is gone
 - Changed: the redirect mode datapoints are of type text
 - New: every display carries a display pictogram in the object tree
 - Changed: a new instance is created disabled
-- Changed: the master switch, the dashboard refresh and the remove button log their result on debug
-- Improved: a start no longer rewrites hassemu's own objects that are current, updates a display's object with one write instead of three, and reads all its values with one request
+- New: two settings decide whether a datapoint you record is deleted when hassemu no longer needs it, and whether its recorded data goes too
+- Improved: a start puts less load on the ioBroker database
 - Fixed: an update from 1.0 or 1.1 removes the empty hostname and visUrl datapoints a display kept until now
 - Fixed: the dashboard list takes the page of the devices adapter and other admin tiles it used to drop
 - Changed: the dashboard list follows the admin start page — its link cards come in, a tile hidden there drops out; a display keeps a target that drops out
 - Fixed: aura served by a web instance is listed at that address; an aura that only listens on its own machine is no longer listed
 - Fixed: an address of this machine only (127.x, ::1, localhost) is no longer listed; a display keeps such a target it already chose
 - Fixed: the password of a rejected address with credentials no longer appears in the log
-- Fixed: the sign-in pages show their text in the system language
+- Fixed: the sign-in pages show their text in the language set in ioBroker
 - Fixed: an update from 1.0 or 1.1 with several displays keeps the room and function assignments of every display
+- Fixed: removing a display ends its running app connection at once, not only at its next message
 - Fixed: known security advisories in bundled libraries are closed
 
 ### 1.46.1 (2026-09-25) — stable

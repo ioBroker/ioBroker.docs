@@ -10,14 +10,14 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.lametric/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.lametric.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
-BADGE-Installed: http://iobroker.live/badges/lametric-installed.svg
+BADGE-Stable: https://iobroker.live/badges/lametric-stable.svg
+BADGE-Installed: https://iobroker.live/badges/lametric-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
+hash: xvXMhpi55hTsq64HHlGe6h1l9F50zaSoo6QiySPKKlc=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -33,10 +33,10 @@ hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
 ## Требования
 
 - Node.js 20 (или более поздняя версия)
-- js-controller 6.0.0 (или более поздняя версия)
-- Административный адаптер 7.6.20 (или более поздняя версия)
-- _LaMetric Time_ с прошивкой версии _3.2.7_ (или более поздней)
-  - Для более старых моделей (выпущенных до 2022 года) требуется прошивка версии _2.3.9_ (или более поздняя).
+- js-controller 6.0.11 (или более поздняя версия)
+- Административный адаптер 7.8.23 (или более поздняя версия)
+- _LaMetric Time_ с прошивкой версии _3.2.8_ (или более поздней)
+  - Для более старых моделей (выпущенных до 2022 года) требуется прошивка версии _2.3.11_ (или более поздняя).
 
 [Журнал изменений](https://firmware.lametric.com) [прошивки Время 2](https://firmware.lametric.com/?product=time2)
 
@@ -70,6 +70,11 @@ hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.11 (3.2.8)
+
 ### 6.0.1 (2026-08-04)
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.7)
@@ -94,8 +99,6 @@ hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
 
 * (@klein0r) Allow icons with placeholders in config (improved validation)
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

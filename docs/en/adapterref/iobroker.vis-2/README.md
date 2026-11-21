@@ -229,6 +229,11 @@ Pass the object as a JSON string: `setState()` of the JavaScript adapter takes a
 
 If you write the JSON as a string, ensure that it is parseable, e.g. `{"instance": "*", "command": "refresh", "data": ""}`, note the `"`. 
 
+An AI agent (e.g. pi-agent, or the MCP server with `send_to`) learns all this from vis-2 itself: the message `help`
+(`sendTo('vis-2.0', 'help', {}, answer => …)`) answers `{help, commands}` - this interface with the data of every
+command, the projects with their views and dialogs, and the browsers that reported their view since the start of the
+instance with their IDs.
+
 ## Default view
 You can define for every view the desired resolution (Menu=>Tools=>Resolution).
 This is only the visual border in edit mode to show you the screen size on some specific device. In the real-time mode, it will not be visible and all widgets outside the border will be visible.  
@@ -390,6 +395,28 @@ IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machi
 -->
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) Editor: the dialog "Import project" got a clearer drop zone - an icon, the allowed file type, the selected file as a card with its real size (base64 size before) and a long file name wrapped instead of running over the border. While the server unpacks the project, which can take a while, a spinner shows it in the dialog and in the button "Import"
+* (@GermanBluefox) Editor: palette and attributes can be pinned as columns beside the view. Since 2.20.3 they float over the view with a fixed width as soon as its resolution does not fit between them - with a view as wide as the screen always, so the attributes had to be opened over the view for every widget. The pin in the head of both panels keeps them as columns, and the view scrolls between them; a window narrower than 1200 pixels still lets them float
+* (@GermanBluefox) servConn._socket.emit forwards sendTo again and throws on unknown commands (#749)
+* (@GermanBluefox) vis-2 answers the message `help` (`common.supportedMessages.help`): an AI agent such as pi-agent learns how to steer the browsers through `control.command` (the data of every command), the projects with their views and dialogs, and the IDs of the browsers that reported their view (to be written into `instance` exactly as listed)
+* (@GermanBluefox) Fully Kiosk Browser and other Android WebViews no longer darken the views on their own in the dark mode. Since 2.20 the page declared no color scheme any more, so the WebView darkened it itself and the vis-1 widgets (hqwidgets, jqui-mfd) came out with swapped light and dark colors, while Chrome showed them right. The page declares `color-scheme: only light` now, which looks the same in every other browser; iframes stay transparent. The workaround `:root { color-scheme: only light !important; }` in the project CSS is no longer needed
+* (@GermanBluefox) Standard widgets: a colour from the colour picker of the editor (`rgb(20, 123, 248)`) works for the faint fill of jump marks, buttons, lists, media players, locks and vacuum cleaners. The opacity was appended as two hex digits, which made `rgb(...)` invalid, and the buttons came out grey
+* (@GermanBluefox) Standard widgets: a text that only begins with a number is shown as text - `07:24` was shown as 7, `17.11.2026, 09:46` as 17,11. A number with a unit behind it (`21,4 °C`, `45%`) is still a number
+* (@GermanBluefox) Chart: the value axes are as wide as their labels, so the top label with the unit keeps its first digits (`5,0 km/h` instead of `35,0 km/h`)
+* (@GermanBluefox) Window widget: the lines of the drawing stay fine at every size, like those of the blind beside it, instead of growing several pixels thick on a large card
+* (@GermanBluefox) Editor: "Show all views" no longer crashes the editor with "Maximum update depth exceeded". It listed the views that were open already a second time and saved that in the project, so the editor crashed again on every load; such a project is repaired when it is loaded
+* (@GermanBluefox) "Limit screen size": a page that is higher or wider than the window starts at the top left and can be scrolled; only a page that fits is centred. Before, what stuck out above and on the left could not be reached - a page of 1280 px in a window of 738 px lost its first 271 px
+
+### 2.20.11 (2026-11-17)
+* (@GermanBluefox) Safari 27 (macOS, iOS, iPadOS) and the ioBroker app no longer load the whole page again after every change of the view when vis-2 is opened over plain HTTP: the view changes without a navigation now. Links to a view (`<a href="#view">`) in HTML widgets and link buttons to `#view` do the same (#743)
+
+### 2.20.10 (2026-11-17)
+* (@GermanBluefox) Grid layout: a section can have its own background for the light and for the dark theme. While such a theme is active, it wins over the background of the section and over the colour of the panel, e.g. to set a section apart from its widgets in both themes
+* (@GermanBluefox) The widgets whose ID contains "_" are shown again: since 2.20.2 the runtime took every such widget for a copy of a widget of another view ("multi-views") and dropped it, which left the views of generated projects empty and took out every widget whose ID contained a space. Saving in the editor dropped them too. A copy is now known by a mark, not by its ID, and the editor names the widget it comes from correctly even when its ID contains "_" (#744)
+* (@GermanBluefox) The widgets of the vis-1 widget sets (e.g. hqwidgets, materialdesign, trashschedule) are rendered again after a view change in the editor: a new engine takes over `vis.binds` with the sets already registered instead of starting with empty binds (#741)
+* (@GermanBluefox) Removed the unnecessary vertical scrollbar in runtime (4px overflow caused by inline-block body) (#734)
+* (@GermanBluefox) Runtime: the widget sets without widgets, which bring only styles or fonts (e.g. google-fonts of vis-google-fonts), are loaded again, so the chosen font is shown in the runtime and not only in the editor (#735)
+* (@GermanBluefox) The button of the AI assistant is in the tabs bar of the editor. As a floating button it covered controls in the attributes, e.g. the signal images (#739)
 * (@GermanBluefox) Web components: the setting types `selectSendTo` and `autocompleteSendTo` (`@iobroker/web-components` 0.8) - the options of a select or the suggestions of a text field are asked from an instance of the adapter. Without an instance to ask or without an answer the field stays a text field and says why
 * (@GermanBluefox) Fixed ticks in gauge widget and missing tooltip translation (#732)
 * (@GermanBluefox) Navigation: the header of the menu can show an icon or an image - a logo - in front of its text. It belongs to the project and is the same on every page with a menu, wherever it is set: in the attributes of any view or in the project settings
@@ -448,39 +475,6 @@ IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machi
 * (@GermanBluefox) If an adapter brings a vis-2 widget and a web component of the same name, like the "Flow diagram" of flow, the palette offers only the vis-2 widget; widgets of the component already placed stay
 * (@GermanBluefox) Web components get the colors, the font and the corners of the theme of vis-2 (`@iobroker/web-components` 0.5.0), not only light or dark
 * (@typhosj) vis-2 takes over a widget adapter that is installed or deleted while it runs again: the widgets of a deleted adapter disappear from the editor, and a new one shows up, without a restart of vis-2. Since 2.11.0 vis-2 noticed both only at its next start (#726)
-
-### 2.20.6 (2026-11-02)
-* (@Bernd9000) Fixed: the attributes of the signal images 3 to 5 (object ID, condition, value, image, size, style, text style, classes, blinking, horizontal, vertical, hide by edit) have their names translated in the editor. Only the signals 0 to 2 had translations, so the others showed the raw key, e.g. `signals-oid-3`, once six signals became possible
-* (@typhosj) Added: a button in the header of the palette hides the vis-1 widgets, which are drawn by can.js and kept for old projects - so a palette without old projects lists only vis-2 widgets. The browser remembers the choice; widgets already placed stay as they are (#504)
-* (@typhosj) A view with a background class like "Carbon fibre" shows it in the colors of the class. The view and the page got the background color of the theme on top, white in a light theme, so the gaps of the pattern were white - on iOS devices, which mostly run in light mode, and everywhere else in light mode too (#511)
-* (@typhosj) Added: the jQui "Write value" has the option "Only icon" - the button shows its icon alone, in the size of the widget. Without it an empty text fell back to the value the button writes, so an icon always had a text next to it (#440)
-* (@typhosj) Added: the jQui "States control" (and "Select from list", "Radio list") has the option "Values from the object" - the list takes its values and texts from `common.states` of the object when the page is shown, so it follows a list that changes in the object without "Generate" in the editor. Icons, colors and tooltips set for a value stay with that value (#482)
-* (@typhosj) The jQui "Binary state" of type "html", and of type "button" with the jQuery style, puts its content to the left or the right when the widget has a `text-align` of left or right. It always stood in the middle, so such widgets one below the other could not be lined up (#512)
-* (@typhosj) The select of the jQui "States control" and "Select from list" shows the value in the font of the widget - family, size, weight, style and spacing from "CSS Font & Text". Before, only the items of the opened list took it, the closed field kept the small font of the theme (#284)
-* (@typhosj) A vis-1 widget is rendered again in the runtime when a binding in one of its attributes changes, like in vis-1. A widget that reads an attribute only once kept the first value of the binding, e.g. the color of the metro slider `{v:javascript.0.temp;v > 20 ? 'green' : 'red'}` (#301)
-* (@typhosj) A binding in the CSS of a view, e.g. `{a:javascript.0.alarm;a ? 'red' : 'green'}` as its background color, is evaluated and follows its states, in the runtime and in the editor. Before, the text of the binding went into the style as it was, the browser dropped it, and the view had no background (#19)
-* (@GermanBluefox) Added: the AI assistant uses the AI settings of the system that are set up once in admin (System settings → AI) - for new instances and for instances without own keys
-* (@GermanBluefox) Added: OpenRouter, if it is chosen in the system-wide AI settings of admin (`@iobroker/ai-core` 0.0.6)
-* (@GermanBluefox) Added: the code editors for HTML, CSS, JavaScript and JSON can format the code with prettier (button in the editor or Shift+Alt+F)
-* (@GermanBluefox) The editor shows its toolbar, the tabs and the view again when the palette and the attributes are both hidden. The work area was drawn twice then - alone and once more below it - so every widget was there twice and the editor was scrolled until its toolbar was out of sight
-* (@GermanBluefox) A page whose menu hides itself after a selection is no longer covered by the narrow menu. The menu remembers being narrow across all pages, and such a page gives itself the whole width, so the narrow menu that another page left behind lay on its left edge for good and hid the first column of widgets
-* (@GermanBluefox) Widgets that the AI assistant puts on a page with the absolute layout stay where it places them. Widgets that are relative by default, like the gauges, flowed one after the other and ignored their position
-* (@GermanBluefox) The background of a view covers its widgets in the editor, also those that lie beyond its screen size or, in a view without a screen size, below the editor area. The background stopped at the screen size or at the editor area, so a widget further down - common in views brought over from vis-1 - stood on the background of the editor
-
-### 2.20.5 (2026-10-25)
-* (@typhosj) vis-2 can be installed from the Admin again: the license dialog stayed empty and could not be accepted, because the Admin loads `licenseInformation.link` as the text of that dialog and the browser may not read the pricing page. The link points at `LICENSE-INFORMATION.txt` now, a plain text with the source code license and the license editions (#707)
-* (@GermanBluefox) Typing into an attribute of a widget no longer loses keys or jumps with the cursor when the typing pauses for a moment: the saved text came back into the field after the next key was already typed. A value typed just before selecting another widget is no longer shown in the field of that widget, if both had the same value before (#546, #508)
-* (@GermanBluefox) The runtime can reload after the device slept, e.g. a tablet whose screen was off: "Reload if sleep longer than (seconds)" in the project settings. Before, it worked off every missed change and was slow for many seconds. The README described this setting and a "Reconnect interval", which vis-2 did not have (#339)
-* (@GermanBluefox) A shortcut on the home screen of a phone or a tablet opens the project and the view it was made of. Its address ended before the `?`, so it opened `/vis-2/` with the default project (#102)
-* (@GermanBluefox) The control interface (`control.command`) works on phones and tablets whose clock is some seconds off the one of the server. vis-2 ignored every command that looked older than 5 seconds by the clock of the browser. Now only the command the state had when the runtime started is ignored. The JavaScript example of the README passes the command as a JSON string, as an object it never arrived (#487, #481, #611)
-* (@GermanBluefox) The datapoint `vis-2.0.datapoints.<project>` that counts the states of a project replaces the spaces and the dots in the name of the project by `_`. Before, it replaced the letter "s" instead of the spaces, so "test" became `te_t` (#474)
-* (@GermanBluefox) A formula in a binding takes a value with double quotes, e.g. JSON from iCal or MQTT like `{"connected":true}`, as the object or the text it is. The script broke on the quotes and the binding showed 0 (#45)
-* (@GermanBluefox) An adapter can bring several vis-2 widget sets: the `visSet` of a widget may be the key or the `name` of its collection in `common.visWidgets`, not only the adapter. Before, the runtime loaded only a set named like its adapter, and the widgets of any other set showed up as unknown (#691)
-* (@GermanBluefox) The runtime can go back to a view by itself when nobody has used it for a while: "Back to a view without input" in the project settings, with the view and the seconds. Every key press, click or touch starts the time anew (#13)
-* (@GermanBluefox) The jQui widgets "Write value" and "Increment with Icon" write a number into a number state and a boolean into a boolean one. Before, the value of the attribute was always written as text (#439)
-* (@GermanBluefox) vis-1 scripts and HTML widgets can call `servConn` again, e.g. `servConn.setState()` or `servConn.getStates()` (#55)
-* (@GermanBluefox) vis-2 loads on hosts whose name contains "iobroker.in", like `iobroker.internal`. It took them for the cloud and tried to load its configuration from there (#484)
-* (@GermanBluefox) Dependabot pull requests are merged by a workflow that runs on `pull_request` instead of `pull_request_target`, which GitHub restricts from November 2, 2026 (#692)
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

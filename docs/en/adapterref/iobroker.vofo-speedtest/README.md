@@ -22,7 +22,8 @@
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml)
 [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
 
-## vofo-speedtest adapter for ioBroker
+> [!IMPORTANT]
+> This adapter cannot be installed from github## vofo-speedtest adapter for ioBroker
 
 Speedtest of Vodafone.de
 
@@ -63,8 +64,7 @@ This adapter would not have been possible without the great work of Peter Baumer
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.1.0 (2026-11-16)
 - (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 
 ### 3.0.1 (2026-11-08)
@@ -94,9 +94,6 @@ This adapter would not have been possible without the great work of Peter Baumer
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
 * (mcm1957) Metrialize admin UI has been removed as jsonConfig is available
 * (mcm1957) Dependencies have been updated
-
-### 1.0.1 (2023-09-13)
-* (bluefox) Updated packages and refactored code
 
 ## Disclaimer
 Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks

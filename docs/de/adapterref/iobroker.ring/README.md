@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: HdeeKhTfsWd2/aJGPUbqHQFr2jJjk/jLHFWxjKzYOYY=
+hash: 9N2EX/rdtJwVgAiUwUp+KQFEd3gwtab70uGuYxFX7wI=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/ring-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.ring.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/ring-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.ring.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ring.svg)
 ![NPM](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
@@ -23,6 +23,8 @@ Nach der Installation des Adapters müssen Sie Ihr Token eingeben. Ring erforder
 ```shell
 npx -p ring-client-api ring-auth-cli
 ```
+
+> \[!IMPORTANT] Die aktuelle Version von ring-auth-cli scheint Node.js 24 zu benötigen. Bitte aktualisieren Sie auf Node.js 24.
 
 Sie können spezielle Variablen für den Pfad und den Dateinamen Ihres Livestreams und Snapshots verwenden. Diese Variablen werden durch einen Zähler, einen Zeitstempel, eine Ring-ID oder eine Ringart ersetzt.
 
@@ -60,7 +62,7 @@ Damit dieser Adapter korrekt auf Ereignisse reagieren kann, muss Ring die Push-B
 
 Sie können die SIP-Informationen für eine SIP-Videokonferenz mit Ihrem SIP-Client verwenden. Der Adapter stellt nicht alle Rufgeräte bereit, da die verwendete API nicht alle Rufgeräte umfasst.
 
-Sie können beispielsweise den Blink SIP-Client unter <http://icanblink.com/> verwenden. Um Video zu aktivieren, gehen Sie in die Blink-Einstellungen und wechseln Sie unter „Konten“ zum Tab „Medien“. Deaktivieren Sie dort unter „RTP-Optionen“ die Option „Audio und Video verschlüsseln“. Achtung: Die SIP-Informationen laufen nach wenigen Sekunden ab! Ich hoffe, bald auch Videostreaming anbieten zu können. Leider bietet [ring.com](https://ring.com) keine offizielle API für diese Funktion. Wenn Sie die Taste drücken…`livestream request` Über diese Schaltfläche erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung. Wenn Sie die [Ring.com-](https://ring.com) Cloud nutzen, finden Sie unter „Verlauf“ einen HTTP-Link zu Ihrer letzten Videoaufzeichnung (Bewegungserkennung/Türklingel).
+Sie können beispielsweise den Blink SIP-Client unter <http://icanblink.com/> verwenden. Um Video zu aktivieren, gehen Sie in die Blink-Einstellungen und wechseln Sie unter „Konten“ zum Tab „Medien“. Deaktivieren Sie dort unter „RTP-Optionen“ die Option „Audio und Video verschlüsseln“. Achtung: Die SIP-Informationen laufen nach wenigen Sekunden ab! Ich hoffe, bald auch Videostreaming anbieten zu können. Leider bietet [ring.com](https://ring.com) keine offizielle API für diese Funktion. Wenn Sie die Taste drücken, …`livestream request` Über diese Schaltfläche erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung. Wenn Sie die [Ring.com-](https://ring.com) Cloud nutzen, finden Sie unter „Verlauf“ einen HTTP-Link zu Ihrer letzten Videoaufzeichnung (Bewegungserkennung/Türklingel).
 
 ## Installation
 
@@ -69,11 +71,22 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 > \[!NOTE] Dieser Adapter unterstützt keine Installation von GitHub.
 
 ## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) `ring-client-api` is required as `^15.0.0-beta.0` now instead of exactly `15.0.0-beta.0`, so the stable 15.x is used as soon as it is released
+- (bluefox) Dependencies have been updated (suncalc 2.1; in the admin tab React 19.3, MUI 9.5, gui-components 10.4)
+
+### 7.1.0 (2026-11-21)
+- (Speedbreaker12) Live events (motion, doorbell, intercom ding) work again: since the end of October 2026 `@eneris/push-receiver` 4.3.0 could not decrypt Ring's push notifications. `ring-client-api` was updated to 15.0.0-beta.0, which brings `@eneris/push-receiver` 4.4.0
+- (bluefox) Ring devices `cocoa_doorbell_v4w` (Wired Doorbell 2K Plus), `cocoa_doorbell_v5` and `cocoa_spotlight` are recognized as `cocoa`, `intercom_handset_video` (Intercom Video) as `intercom`. **Note:** these devices were created below `unknown_<id>` before and move to `cocoa_<id>` / `intercom_<id>` now - adjust your scripts and delete the old `unknown_<id>` branch
+- (bluefox) `Events.motion` and, for doorbells, `Events.doorbell` are created on start now; before they only appeared with the first push event
+- (bluefox) The adapter no longer crashes on start when the image library `sharp` cannot be loaded on the system; HD snapshots are just not sharpened then
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (ToxSox) Ring Wired Video Doorbell (2026 model, device type `doorbell_tahoe`) is now recognized as doorbell
+
 ### 7.0.2 (2026-09-20)
 - (mcm1957) dependencies have been corrected
 
@@ -111,11 +124,6 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 * (theimo1221) #768 Add df_doorbell_clownfish
 * (theimo1221) #738 Add stickup_cam_medusa
 * (theimo1221) #685 Add cocoa_doorbell_v3
-
-### 6.2.4 (2024-10-31)
-
-* (simatec) Settings for responsive Design
-* (theimo1221) Update some developer packages
 
 ## License
 

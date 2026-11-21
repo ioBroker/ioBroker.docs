@@ -9,7 +9,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.unifi-network.png?downloads=true)](https://nodei.co/npm/iobroker.unifi-network/)
 
-**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg) ![Coverage](https://img.shields.io/badge/coverage-96%25-brightgreen)
 
 ## unifi-network adapter for ioBroker
 
@@ -43,14 +43,88 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 
 ![image info](./doc/config_local_user.png)
 
+## Messages for scripts and AI agents
+
+`sendTo('unifi-network.0', 'help', {})` answers `{ help, commands }`: a description of all messages (`clientList`, `deviceList`, `wlanList`, `lanList`, `firewallGroupList`, ...) and of the states to control the network, written for AI agents (e.g. ioBroker.pi-agent) and script authors. `commands` lists every message with `write: true` if it changes something.
+
+## Development
+
+Tests against a real controller and recorded fixtures:
+
+1. Create a git-ignored `.env` in the project root:
+
+    ```env
+    UNIFI_HOST=192.168.1.1
+    UNIFI_USER=your-local-user
+    UNIFI_PASSWORD=your-password
+    # optional
+    UNIFI_PORT=443
+    UNIFI_SITE=default
+    ```
+
+    - `UNIFI_HOST`, `UNIFI_USER`, `UNIFI_PASSWORD`: required
+    - `UNIFI_PORT`: HTTPS port, default `443`
+    - `UNIFI_SITE`: site name, default `default`
+
+2. Record the API responses (read-only, one file per endpoint):
+
+    ```bash
+    npm run record:api
+    ```
+
+    - `-- --dry-run`: only shows which files would be written or deleted
+    - `-- --no-anonymize`: stores the raw data without anonymization
+
+3. Record the real-time events (interactive):
+
+    ```bash
+    npm run record:events
+    ```
+
+    - `-- --only=<ids>`: only the listed scenarios, comma-separated (ids in `tools/eventScenarios.ts`)
+    - `-- --missing`: only scenarios without a fixture, existing files are kept
+    - `-- --destructive`: also scenarios that delete data on the controller
+    - `-- --dry-run`: only shows which files would be written
+    - `-- --no-anonymize`: stores the raw data without anonymization
+
+4. Record unknown events (interactive, `q` + Enter saves, Ctrl+C aborts):
+
+    ```bash
+    npm run record:events:unknown
+    ```
+
+    - `-- --dry-run`: only shows which files would be written
+    - `-- --no-anonymize`: stores the raw data without anonymization
+
+5. Run the tests:
+
+    ```bash
+    npm run test:ts        # offline, uses recorded fixtures
+    npm run test:live      # against the controller
+    npm run test:all       # all of the above
+    npm run test:coverage  # runs test:all with coverage report (src/) in coverage/index.html
+    ```
+
+Fixtures are stored in `test/fixtures/local/` and are git-ignored, as they contain controller data. The live tests need the controller credentials in the git-ignored `.env` file. The coverage report is written to `coverage/` (git-ignored).
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-11-20)
 
-### **WORK IN PROGRESS**
+- (Scrounger) bug fixes found by adapter checker
+- (Scrounger) bug fixes
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
+### 1.6.0 (2026-11-17)
+
+- (Scrounger) enable / disable ports added #150
+- (Scrounger) momment replaced with day.js
+- (Scrounger) dependencies updated #116
+- (Scrounger) revert bug fix for expired token #124
 - (Scrounger) channel / device name undefined bug fix #116
 - (Scrounger) vpn client handling optimized
 - (Scrounger) event messages improved #122 #115
@@ -89,19 +163,6 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 - (Scrounger) dependencies updated
 - (Scrounger) event messages improved #46
 - (Scrounger) bug fixes
-
-### 1.3.0 (2025-11-24)
-
-- (Scrounger) event messages improved #46
-- (Scrounger) option to change tx power mode of access point channels
-- (Scrounger) dependencies updated
-- (Scrounger) code optimized
-- (Scrounger) logging optimized
-
-### 1.2.2 (2025-11-14)
-
-- (Scrounger) delete device event added
-- (Scrounger) event messages improved #43
 
 ## License
 

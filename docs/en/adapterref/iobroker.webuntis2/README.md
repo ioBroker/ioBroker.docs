@@ -24,8 +24,9 @@ visualizations, notifications, and automations.
 - Homework for reliably identified students, with due dates, completion status, and attachments
 - Student absences and excuse status, including unknown status values
 - Messages of the day, including subject, text, and attachment indicators
-- Timetables, holidays, inbox messages, messages of the day, homework, absences, and exams refresh every five minutes
-- Current and next lesson values refresh every minute
+- Timetables, holidays, inbox messages, messages of the day, homework, absences, and exams refresh every five minutes by default; the interval is
+  configurable in Admin.
+- Current and next lesson values refresh every minute by default; the interval is configurable in Admin.
 
 ## Installation and setup
 
@@ -52,6 +53,26 @@ this complete query-and-result workflow on their own; reproducing it there
 would require a custom component or equivalent custom UI code. React keeps
 these setup interactions together while the adapter remains responsible for
 WebUntis requests and validation.
+
+The Admin configuration also provides `timetableRefreshIntervalMinutes` for the
+full timetable and data refresh, and `currentNextRefreshIntervalMinutes` for
+current/next lesson states. Both accept whole minutes; the full refresh is
+limited to 5–8,640 minutes (6 days), and current/next updates have a 1-minute
+minimum. Their defaults are 5 and 1 minute respectively. Missing legacy
+settings and invalid or out-of-range values safely fall back to the defaults.
+If no successful timetable snapshot exists, full refreshes retry after five
+minutes regardless of the configured interval. If a timetable refresh fails
+after partially writing groups, the adapter promptly attempts to restore
+`today` and Current/Next from the retained successful snapshot without another
+WebUntis request. Automatic current/next updates
+follow their own configured interval even when full refreshes are more frequent;
+startup and `info.refresh` update them immediately and restart their timer.
+Current/next calculations select the actual date from the cached weekly timetable.
+At each local date boundary, the adapter also refreshes the `today` date, lessons,
+and summary from that cache and recalculates Current/Next immediately, even when
+the configured interval is longer than a day; this requires no additional
+WebUntis request. The six-day maximum keeps that date within the loaded rolling
+week between full refreshes.
 
 ## Data in ioBroker
 
@@ -110,8 +131,9 @@ Messages of the day are available under `newsOfDay.today`. The `date` and
 `count` states identify the date and number of messages. The `json` state at
 `newsOfDay.today.json` contains the complete message list as a JSON array. Each
 message also has a numbered channel (`01`, `02`, ...) with `id`, `subject`,
-`text`, and `hasAttachments` states. The list is refreshed every five minutes and through
-`info.refresh`. A failed request preserves the last successful data, while a
+`text`, and `hasAttachments` states. The list follows the configured full-refresh
+interval (five minutes by default) and is also refreshed through `info.refresh`.
+A failed request preserves the last successful data, while a
 successful empty response sets the count to zero and removes obsolete message
 channels.
 
@@ -212,6 +234,14 @@ and include only relevant, non-sensitive log messages when asking for help.
 [![Donate](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Voodoo2man) Added configurable refresh intervals with a six-day full-refresh
+  maximum and five-minute retries without a successful snapshot; kept Current/Next,
+  today's timetable views, and next-update reporting aligned with the cached week.
+- (Voodoo2man) Updated the testing tooling to @iobroker/testing 6.3.2.
+
 ### 0.3.0 (2026-11-02)
 
 - (Voodoo2man) Added messages of the day

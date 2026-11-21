@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: PdgJuA1rbQT/6gDsSZqEb9IAJfghkjV+0xazhMVT9Vc=
+hash: hDgVf0dy8O2WwEHn5shCLKGgI476drYXfPcjFI0EO34=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -44,9 +44,6 @@ Schnelle Web-App für Visualisierung.
 Läuft in jedem Browser. Einfache Einrichtung, vollständig anpassbar und responsiv.
 
 Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
-
-## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @o0Shojo0o (https://github.com/o0Shojo0o), der frühere Versionen dieses Adapters entwickelt hat, nicht möglich gewesen.
 
 ## So melden Sie Probleme und Funktionswünsche
 Idealerweise verwenden Sie hierfür GitHub-Issues. Die beste Methode hierfür ist, den Adapter in den Debug-Log-Modus zu versetzen (Instanzen → Expertenmodus → Spaltenprotokollierungsstufe). Laden Sie anschließend die Logdatei von der Festplatte über das ioBroker-Unterverzeichnis „log“ herunter, **nicht** über die Administrationsoberfläche, da dort Zeilen abgeschnitten werden.
@@ -345,7 +342,7 @@ Die Syntax lautet dann:
 <meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" />
 ```
 
-- Wenn die Variable `instance` gesetzt ist, wird der Teil nach dem `|` als widgetState-Name verwendet und `{instance}` durch den Wert von `instance` ersetzt.
+- Wenn die Variable `instance` gesetzt ist, wird der Teil nach dem `|` als widgetState-Name verwendet und `{instance}` wird durch den Wert von `instance` ersetzt.
 - Wenn die Variable `instance` nicht gesetzt ist, wird der Teil vor dem `|` als `wigdetState`-Name verwendet.
 Der entsprechende Datenpunkt wird nur dann erstellt, wenn die Widget-Website einem Gerät als URL oder BACKGROUND_URL hinzugefügt wird.
 Das gleiche Konzept kann für die URL/den HTML-Status verwendet werden, der zur Anzeige einer Website im Dialog eines Geräts dient.
@@ -777,7 +774,7 @@ Standardmäßig wird nur der Dateiname (mit Dateiendung) ersetzt. Wenn `data-abs
 - `hideInfoBIfInactive` (INFO_B ausblenden, wenn das Gerät inaktiv ist):
 - Mögliche Werte: `true`|`false`
 - Standardwert: `false`
-- `hideIndicatorIfInactive` (Anzeigesymbole (FEHLER, UNREACH, BATTERIE) ausblenden, wenn das Gerät inaktiv ist):
+- `hideIndicatorIfInactive` (Anzeigesymbole (FEHLER, UNREICHWEITE, AKKU) ausblenden, wenn das Gerät inaktiv ist):
 - Mögliche Werte: `true`|`false`
 - Standardwert: `false`
 - `hideStateIfInactive` (Status ausblenden, wenn das Gerät inaktiv ist):
@@ -1718,10 +1715,10 @@ Die Bedingungen bestehen aus folgenden Teilen:
 - Typ: Wählen Sie aus, was der Liste hinzugefügt oder daraus entfernt werden soll. Mögliche Typen:
 - **Alle** - selbsterklärend
 - **Aufzählung** - Filtern nach Aufzählung. Sie können Aufzählungen wie „Räume“, „Funktionen“ oder „Fenster Obergeschoss“ im ioBroker-Admin-Adapter definieren.
-**Aufzählung mit untergeordneten Elementen** - Aufzählungen enthalten oft nur das Gerät ohne seine Datenpunkte. Daher verwenden Sie meist die Aufzählung mit untergeordneten Elementen, die die Datenpunkte automatisch miteinbezieht.
+- **Aufzählung mit untergeordneten Elementen** - Aufzählungen enthalten oft nur das Gerät ohne seine Datenpunkte. Daher verwenden Sie meist die Aufzählung mit untergeordneten Elementen, die die Datenpunkte automatisch miteinbezieht.
 - **ID** - Filtern nach der ID von Datenpunkten, z. B. Entfernen von IDs, die nicht mit '.color' oder '.saturation' enden
 - **Objekttyp** - Filtern nach Objekttyp, der Gerät, Kanal, Status oder Aufzählung sein kann.
-- **Typ** - Filtern Sie nach dem `common.type` des Datenpunkts, z. B. Zeichenkette, Zahl, Boolescher Wert
+- **Typ** - Filtern Sie nach dem `common.type` des Datenpunkts, z. B. String, Zahl, Boolescher Wert
 - **Rolle** - Filtern Sie nach der `common.role` des Datenpunkts. Dies ist einer der wichtigsten Filter, da jeder Datenpunkt eine `common.role` haben sollte, die seine Bedeutung beschreibt, z. B. Schalter, `indicator.unreach` oder level.color.rgb. ioBroker bietet eine Vielzahl von gemeinsamen Rollen. Sehen Sie sich einfach Ihre Datenpunkte an; der Admin-Adapter stellt eine Liste aller Rollen bereit.
 - Vergleichsoperatoren: Einige Datentypen können mit einem Wert verglichen werden. Der Operator steht für den durchgeführten Vergleich, z. B. „ist größer als“, „ist kleiner als“ oder, bei Zeichenketten, „beginnt mit“ oder „enthält“:
 - Sie unterscheiden nicht zwischen Groß- und Kleinschreibung (also ist 'Text' dasselbe wie 'text').
@@ -1890,7 +1887,7 @@ Allerdings ist nicht jeder Datentyp für jede Rolle geeignet. So ist beispielswe
 ### <img src="img/icons/light_on.png" width="32"> Licht:
 Jede Lampe kann einen oder beide der folgenden Zustände aufweisen:
 
-- **ZUSTAND**: _boolean_ - Anzeige und Festlegung des Ein-/Aus-Zustands
+- **ZUSTAND**: _boolean_ - Ein-/Aus-Zustand anzeigen und festlegen
 - **LEVEL**: _Zahl_ - Helligkeit anzeigen und einstellen
 
 Optional können Sie die folgenden Zustände definieren:
@@ -2106,7 +2103,7 @@ Für das Gerät „Datum und Uhrzeit“ können diese beiden Einstellungen auch 
 | | | `Pms` | Periode in Millisekunden | X | --- | --- |
 | Flags | Fehlende Teile an den Anfang setzen | `tb` | Z. B. Datum auf 1970-01-01 setzen, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
 | | Fehlende Teile auf den aktuellen Zeitpunkt setzen | `tn` | Z. B. Datum auf den aktuellen Zeitpunkt setzen, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
-| | Alte fehlende Teile beibehalten | `to` | Z. B. Datum wie zuvor belassen, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
+| | Alte fehlende Teile beibehalten | `to` | Z. B. Datum wie zuvor beibehalten, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
 | Freitext | Freitext in Klammern setzen | `[]` | `[this is an example, all tokens are ignored]` | X | X | --- |
 | Freitext | Freitext in Klammern setzen | `[]` | `[Dies ist ein Beispiel, alle Token werden ignoriert]` | X | X | --- |
 
@@ -2194,14 +2191,19 @@ Wenn Fehler auftreten, wird die Nummer der Zeile angezeigt, die den Fehler verur
 
 ---
 
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von @o0Shojo0o (https://github.com/o0Shojo0o), der frühere Versionen dieses Adapters entwickelt hat, nicht möglich gewesen.
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
+
 ## Changelog
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
 ### **WORK IN PROGRESS**
 - (@GermanBluefox) Refactoring
+- (@GermanBluefox) Repository checker issues have been fixed (#566)
+- (@GermanBluefox) node.js 26 has been added to the test matrix (#566)
 
 ### 3.1.0 (2026-09-20)
 

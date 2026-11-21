@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.victron-cerbo/README.md
 title: ioBroker Victron Cerbo
-hash: p/8rV+FNqEoII/pnmIeMSvy40EmvA9VsiSwJeWdV6kM=
+hash: 4GamJ7PCeP6dCYznEVNNOIiLTjNxS1145UhK0McuAC8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.svg)
 
-![Количество установок](http://iobroker.live/badges/victron-cerbo-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
+![Количество установок](https://iobroker.live/badges/victron-cerbo-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.victron-cerbo/workflows/Test%20and%20Release/badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.victron-cerbo.svg)
 
@@ -27,25 +27,40 @@ Victron Cerbo GX — это современный центр мониторин
 - **Пользователь/Пароль** : учетные данные для аутентификации MQTT
 - **Таймаут клиента** : время ожидания в секундах для подключений MQTT-клиента.
 
+## Веб-интерфейс Сербо
+
+Веб-интерфейс Cerbo (GUI v2, `http://<cerbo>/gui-v2/` Доступ к нему можно получить через ioBroker, после авторизации в ioBroker, а также по протоколу HTTPS или через удаленный доступ к ioBroker:
+
+- **Вкладка в админке** : Адаптер запускает небольшой веб-сервер (по умолчанию). `127.0.0.1:8098`), и администратор (>= 8.2.1) передает вкладку `Victron Cerbo GX` на него под `/proxy/victron-cerbo.0/` Открыть его могут только администраторы. `127.0.0.1` Достаточно, если административная панель запущена на том же хосте, в противном случае выберите адрес, к которому может получить доступ хост административной панели.
+- **ioBroker.web** : Выберите веб-экземпляр в настройках, и Cerbo станет доступен по адресу `http://<iobroker>:8082/victron-cerbo.0/`, без собственного порта.
+
+GUI v2 подключается к веб-сокету MQTT в корневом каталоге хоста (`/websocket-mqtt`); адаптер переписывает этот адрес на странице таким образом, чтобы соединение проходило по тому же пути.
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.0.2 (2026-11-05)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) ioBroker.web can stop the web extension and start it again with new settings instead of restarting itself (`supportsHotReload`, with a version of web that supports it). When it is stopped, the web extension now also closes the connections of GUI v2 to the Cerbo
 
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-10-15)
+* (@GermanBluefox) Fixed: the keepalive no longer makes the Cerbo publish all values again
+* (@GermanBluefox) Unchanged values are not written again
+
+### 1.0.0 (2026-10-14)
 * (iobroker-bot) Adapter requires node.js >= 22 now.
-* (copilot) Adapter requires node.js >= 22 now
+* (@GermanBluefox) Added: the web interface of the Cerbo (GUI v2) as a tab in admin (`adminTab.proxy`) and as a web extension of ioBroker.web
+* (@GermanBluefox) The port of the own web server for the admin tab is reported to js-controller 8 (`declareUsedResources`, `registerUsedResource`)
+* (@GermanBluefox) Added the missing translations, the tests run on Windows and macOS too
 
 ### 0.2.1 (2026-04-12)
 * (@GermanBluefox) Implemented the tests
 
 ### 0.1.0 (2026-04-11)
 * (@GermanBluefox) Corrected some states
-
-### 0.0.1
-* Initial release
 
 ## License
 

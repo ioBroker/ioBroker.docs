@@ -240,6 +240,9 @@ Reolink Video Doorbell PoE (D340P)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Gaspode69) Keep white LED states in sync during API refresh
+
 ### 1.4.3 (2026-10-27)
 * (@GermanBluefox) Doorbell support: ring detection via ONVIF events (`sensor.visitor.state`), quick reply and auto reply (enable via "Doorbell camera" in config; requires ONVIF enabled on the camera)
 * (oelison) Adapter requires node.js >= 22 now

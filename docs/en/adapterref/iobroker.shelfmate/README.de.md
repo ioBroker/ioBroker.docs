@@ -27,6 +27,9 @@ Die Bedienung erfolgt über eine Web-App, die du auf dem Smartphone öffnen und 
 - Produkte per Barcode oder manuell hinzufügen, beim manuellen Anlegen mit Namensvorschlägen und passender Kategorie
 - Warennummern (PLU) von Obst und Gemüse und Data-Matrix-Etiketten von Waagen werden erkannt; eine eigene Liste in `plu.data` benennt Händler-Nummern
 - Eigene Produktdatenbank (Datenpunkt, Datei oder Netzwerk-Adresse; JSON oder CSV mit freien Feldnamen), die zuerst gefragt wird; Produkte mit eigenen Barcodes behalten ihren Barcode
+- Bücher (ISBN), Zeitschriften (ISSN) und Noten (ISMN) werden erkannt und bei Open Library, der Deutschen Nationalbibliothek und Google Books gesucht
+- Medikamente über die PZN (Strichcode oder Data Matrix) und gewöhnliche Barcodes, die sonst niemand kennt, werden bei Shop Apotheke oder vitality-fit benannt; das Verfallsdatum im Data-Matrix-Code wird als MHD mitgebucht
+- Die Reihenfolge, in der die Produktquellen gefragt werden, ist in den Adapter-Einstellungen änderbar (Standard: Lebensmittel, Drogerie, Tierbedarf, Haushalt, Medikamente, Bücher)
 - Produktdaten automatisch über Open Food Facts laden (Name, Marke, Packungsgröße, Nutri-Score und Kategorien)
 - Produktdaten jederzeit bearbeiten und aktualisieren
 - Eigene EAN-13-Barcodes für Produkte ohne Barcode erstellen

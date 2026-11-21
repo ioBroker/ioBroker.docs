@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: q4T9LDM8xwHBmjuw7owV8NMwiMpDK13TeOrC3Dwg+lE=
+hash: 4cX3PUxGOTPuwfYiyRFwd8Mpw1qG7qVnzsS6BV9DJDA=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -12,6 +12,7 @@ hash: q4T9LDM8xwHBmjuw7owV8NMwiMpDK13TeOrC3Dwg+lE=
 ![GitHub-Probleme](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/harvia-fenix-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/harvia-fenix-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 ![Test und Freigabe](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -71,7 +72,7 @@ _Hinweis: Es wird ein separates Konto für ioBroker in der Harvia 2 App empfohle
 2. Navigiere zum Reiter **Instanzen** und klicke auf das Einstellungs-Symbol deiner `harvia-fenix.0` -Instanz.
 3. Geben Sie die **E-Mail-Adresse** und das **Passwort** Ihres MyHarvia-Kontos ein.
 4. Wenn Sie das Feld **Geräte-ID** leer lassen, sucht der Adapter beim Start automatisch nach Geräten, die mit Ihrem Konto verknüpft sind. Er verwendet das zuerst gefundene Gerät als aktive Einheit.
-5. Passen Sie bei Bedarf optionale Parameter an: **Abfrageintervall** (Sekunden), **Mindest-/Maximal-Zieltemperatur** (°C) und **Maximale Heizdauer** (Minuten).
+5. Passen Sie bei Bedarf optionale Parameter an: **Mindest-/Maximal-Zieltemperatur** (°C) und **Maximale Heizdauer** (Minuten).
 6. Klicken Sie auf **Speichern & Schließen** .
 
 ---
@@ -149,6 +150,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `heatOn`                        | boolescher Wert | `switch.power`        | Lesen/Schreiben | Hauptschalter, um den Saunaofen EIN (`true`) oder AUS (`false`) zu schalten.                                                                                    |
 | `heaterPower`                   | Nummer          | `value.power`         | Nur Lesen       | _Hinweis:_ Dieses Objekt wird von der API bereitgestellt, liefert aber derzeit oft `0 kW` (nicht ausgefüllt). Es ist vermutlich für zukünftige Updates reserviert. |
 | `lightOn`                       | boolescher Wert | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                                    |
+| `fanOn`                         | boolescher Wert | `switch`              | Lesen/Schreiben | Schalter für den Saunalüfter bzw. die Zweitbeleuchtung.                                                                                                           |
 | `maxDuration`                   | Nummer          | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                                      |
 | `panelTemp`                     | Nummer          | `value.temperature`   | Nur Lesen       | Temperaturmesswert direkt an der physischen Steuereinheit / Panel.                                                                                                |
 | `targetTemp`                    | Nummer          | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z. B. `90 °C`).                                                                                                      |
@@ -189,7 +191,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 ### 2. Benachrichtigungen (Push-Trigger)
 
-Der Adapter stellt zwei Indikator-Datenpunkte zur Verfügung, die speziell für das Auslösen von Push-Benachrichtigungen (z. B. per Telegram, Pushover oder Alexa) konzipiert wurden:
+Der Adapter stellt zwei Indikator-Datenpunkte zur Verfügung, die speziell für das Auslösen von Push-Benachrichtigungen (z. B. via Telegram, Pushover oder Alexa) konzipiert wurden:
 
 ```javascript
 // Trigger für die 10-Minuten-Vorwarnung
@@ -216,7 +218,7 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 ### 3. Saunaprofil & Programmwahl (`profiles` &`activeProfile`)
 
 - **Verfügbares Profil (`profiles`):**\
-  &#x20;Harvia Fenix unterstützt vordefinierte und benutzerdefinierte Saunaprogramme (z. B. _Mild_ , _Cozy_ , _Hot_ ), die in der **MyHarvia 2 App** konfiguriert werden können. Der Adapter spiegelt diese Liste als strukturiertes JSON wider `profiles` (inklusive Zieltemperatur und Dauer).
+  &#x20;Harvia Fenix unterstützt vordefinierte und benutzerdefinierte Saunaprogramme (z. B. _Mild_ , _Gemütlich_ , _Heiß_ ), die in der **MyHarvia 2 App** konfiguriert werden können. Der Adapter spiegelt diese Liste als strukturiertes JSON wider `profiles` (inklusive Zieltemperatur und Dauer).
 - **Profil aktivieren (`activeProfile`):**\
   &#x20;Dieser Datenpunkt ist **schreibbar** und verwendet einen 0-basierten Index:
   - `0` = **mild**
@@ -262,6 +264,21 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 
 ### **IN BEARBEITUNG**
 
+- (meistermopper) node-forge Override auf ^1.4.3 aktualisiert (Dependabot)
+- (meistermopper) Weblate-Badge in README ergänzt und deutsche i18n synchronisiert
+- (meistermopper) @iobroker/testing auf 6.3.2 aktualisiert (W0037)
+
+### 1.2.1 (2026-11-05)
+
+- (meistermopper) Obsoletes Abfrageintervall (pollInterval) aus Instanz-Konfiguration entfernt
+- (meistermopper) Abhaengigkeits-Overrides zur Behebung von Dependabot-Warnungen aktualisiert
+
+### 1.2.0 (2026-10-19)
+
+- (meistermopper) Datenpunkt fanOn und FAN-Befehl für Saunagänger / Zweitbeleuchtung erstellt
+- (meistermopper) patch-ps-tree-Skript für dev-server Windows-11-Kompatibilität hinzugefügt
+- (meistermopper) Abhaengigkeiten und Overrides fuer Sicherheitshinweise aktualisiert
+
 ### 1.1.2 (2026-10-02)
 
 - (meistermopper) Endlosschleifen-Risiko in Auth-Retry-Logik behoben
@@ -279,23 +296,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 - (meistermopper) Sicherheits-Erkennung, Alarm-Indikatoren und Ereignisverlauf hinzugefügt
 - (meistermopper) Endpunkt activeProfile auf PATCH /devices/profile korrigiert
 - (meistermopper) Saunaprofile (profiles, activeProfile) in Dokumentation erläutert
-
-### 1.0.0 (2026-09-17)
-
-- (meistermopper) AWS AppSync WebSocket Real-Time Push-Client hinzugefügt
-- (meistermopper) Token-Aktualisierung über /auth/refresh mit restartToken
-
-### 0.6.0 (2026-09-16)
-
-- (meistermopper) Datenpunkte readyAt, readyAtMessage und timeToTargetFormatted ergänzt
-- (meistermopper) Harvia-Heizkurvenberechnung mit 13 Intervallen implementiert
-- (meistermopper) Saunaprofile (profiles, activeProfile) und Standby-Prognose ergänzt
-- (meistermopper) Logo-Anzeigegröße in den README-Dateien auf 200px verdoppelt
-- (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
-- (meistermopper) Automatische Generierung von Release Notes für GitHub eingerichtet
-- (meistermopper) check:repo Skript hinzugefügt und in test:local integriert
-- (meistermopper) E-Mail in Lizenz-Copyrightzeilen wie gespeichert (S4050, S4051)
-- (meistermopper) Lizenzabschnitt in README gemäß Repochecker-Regel W6034 korrigiert
 
 ---
 

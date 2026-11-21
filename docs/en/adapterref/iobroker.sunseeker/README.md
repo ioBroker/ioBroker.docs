@@ -749,6 +749,10 @@ If any settings are missing, please open an issue or ask in the forum.
 | xxx.mower_raw.path                   | Current path (required for the live map)                        |
 | xxx.mower_raw.sid                    | App SID for the live map                                        |
 | xxx.mower_raw.soc_temp               | Battery temperature                                             |
+| xxx.mower_raw.status                 | Mower status                                                    |
+| xxx.mower_raw.fault                  | Mower Error                                                     |
+| xxx.mower_raw.faultHelpDetails       | Fault Details                                                   |
+| xxx.mower_raw.faultHelp              | Load fault details                                              |
 
 ![mower_raw_1.png](img/mower_raw_1.png)
 ![mower_raw_2.png](img/mower_raw_2.png)
@@ -996,6 +1000,7 @@ If any settings are missing, please open an issue or ask in the forum.
 - (Lucky-ESA) Adaptation for the S5-Gen-2 mower
 - (Lucky-ESA) Mirroring of App version 1.9.0 regarding new mqtt url, AppId register, Topic and clientId
 - (Lucky-ESA) Added Power-off Sleep setting
+- (Lucky-ESA) Added fault states
 
 ### 0.0.5 (2026-10-24)
 

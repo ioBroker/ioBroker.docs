@@ -3,86 +3,185 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: hZUXm2AmjFrGOWkQkV7Cg4G/3COrCF3MWDaCREAdkXI=
+hash: ohFwfLftqLWdBaZcoyeWiFGb/DqV2snCxGgu+Vbb4C4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
-![Количество установок](http://iobroker.live/badges/weatherunderground-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![Количество установок](https://iobroker.live/badges/weatherunderground-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.weatherunderground.svg)
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
 # ioBroker.weatherunderground
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
-Адаптер ioBroker для загрузки 24-часового прогноза погоды для вашего местоположения с [сайта Weather Underground](http://www.wunderground.com/) . Адаптер загружает все данные прогноза на 15 минут (по умолчанию) в течение дня и часа.
+## Sentry
 
-## Примечания
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Вы можете использовать этот адаптер, указав официальный API-ключ "владельца PWS", или оставить поле "API-ключ" пустым, чтобы использовать ключи, извлеченные со страницы WU.
+## Функциональность
 
-## Наборы иконок
+Текущие измерения метеостанции, прогнозы погоды на 36 часов и шесть прогнозов на сутки от [Weather Underground](https://www.wunderground.com/) , а также, по желанию, региональные данные о погоде и качестве воздуха от Weather Company.
 
-При использовании "устаревшего API" доступны несколько различных наборов значков (см. ниже). Для использования с новым API названия изображений изменились (см. <https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit> ) и теперь основаны на номерах... их можно загрузить, например, по адресу <https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ> и использовать в качестве пользовательского набора (см. ниже).
+По умолчанию данные извлекаются один раз в час. Измените расписание экземпляра, чтобы настроить частоту.
 
-В настройках адаптера измените значение параметра "Custom Icon-Base-URL" на один из доступных наборов значков на Weatherunderground: (источник: <https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets> )
+## Требования
 
-| Набор иконок | URL                                          | Пример                                                                              |
-| ------------ | -------------------------------------------- | ----------------------------------------------------------------------------------- |
-| 1            | <https://www.wunderground.com/static/i/c/a/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) |
-| 2            | <https://www.wunderground.com/static/i/c/b/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/b/partlycloudy.gif) |
-| 3            | <https://www.wunderground.com/static/i/c/c/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/c/partlycloudy.gif) |
-| 4            | <https://www.wunderground.com/static/i/c/d/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/d/partlycloudy.gif) |
-| 5            | <https://www.wunderground.com/static/i/c/e/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/e/partlycloudy.gif) |
-| 6            | <https://www.wunderground.com/static/i/c/f/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/f/partlycloudy.gif) |
-| 7            | <https://www.wunderground.com/static/i/c/g/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/g/partlycloudy.gif) |
-| 8            | <https://www.wunderground.com/static/i/c/h/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/h/partlycloudy.gif) |
-| 9            | <https://www.wunderground.com/static/i/c/i/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/i/partlycloudy.gif) |
-| 10           | <https://www.wunderground.com/static/i/c/j/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/j/partlycloudy.gif) |
-| 11           | <https://www.wunderground.com/static/i/c/k/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
+Для текущей версии для разработчиков требуется Node.js **22+** , js-controller **6.0.11+** и Admin **8.2.0+** .
 
-Или вы можете использовать свои собственные «пользовательские» значки; для этого необходимо предоставить следующие GIF-файлы в каталоге Base-URL:
+## Конфигурация
 
-| Иконка дня         | Иконка для ночи        |
-| ------------------ | ---------------------- |
-| chanceflurries.gif | nt\_chanceflurries.gif |
-| chancerain.gif     | nt\_chancerain.gif     |
-| chancesleet.gif    | nt\_chancesleet.gif    |
-| chancesleet.gif    | nt\_chancesleet.gif    |
-| chancesnow\.gif    | nt\_chancesnow\.gif    |
-| chancetstorms.gif  | nt\_chancetstorms.gif  |
-| chancetstorms.gif  | nt\_chancetstorms.gif  |
-| clear.gif          | nt\_clear.gif          |
-| cloudy.gif         | nt\_cloudy.gif         |
-| flurries.gif       | nt\_flurries.gif       |
-| fog.gif            | nt\_fog.gif            |
-| hazy.gif           | nt\_hazy.gif           |
-| mostlycloudy.gif   | nt\_mostlycloudy.gif   |
-| mostlysunny.gif    | nt\_mostlysunny.gif    |
-| partlycloudy.gif   | nt\_partlycloudy.gif   |
-| partlysunny.gif    | nt\_partlysunny.gif    |
-| sleet.gif          | nt\_sleet.gif          |
-| дождь.gif          | nt\_rain.gif           |
-| sleet.gif          | nt\_sleet.gif          |
-| partlycloudy.gif   | nt\_partlycloudy.gif   |
-| sunny.gif          | nt\_sunny.gif          |
-| tstorms.gif        | nt\_tstorms.gif        |
-| cloudy.gif         | nt\_cloudy.gif         |
+PWS расшифровывается как **Personal Weather Station (персональная метеостанция)** , это частная метеостанция. Измерения станции описывают наблюдаемую погоду; прогнозы описывают ожидаемую погоду.
+
+### коммутаторы данных
+
+| Ключ                   | По умолчанию | Данные и идентификаторы штатов                                                                                                                                                                                                                                                                                   |
+| ---------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `current`              | `true`       | На станции проводились измерения температуры, влажности, ветра, давления, осадков, УФ-излучения, солнечной радиации и осуществлялся контроль качества. `forecast.current.*`.                                                                                                                                     |
+| `regionalCurrent`      | `false`      | **Дополнительные данные о погоде и качестве воздуха** от Weather Company: описание погоды, значок, видимость и качество воздуха в окрестностях. Требуется `current: true`, действительные координаты станции и ключ веб-сайта. Используется `forecast.current.*` и в сумме составляет три запроса за один запуск. |
+| `forecast_hourly`      | `true`       | До 36 почасовых заявок в рамках `forecastHourly.0h` –`forecastHourly.35h` плюс сводные данные.                                                                                                                                                                                                                    |
+| `forecast_periods`     | `true`       | Шесть календарных дат ниже `forecast.0d` –`forecast.5d` Начиная с сегодняшнего дня.                                                                                                                                                                                                                               |
+| `forecast_periods_txt` | `true`       | До 12 последовательных периодов смены дня и ночи для текста и значков. `forecastPeriod.0p` –`forecastPeriod.11p` Делится ежедневным ответом с `forecast_periods`.                                                                                                                                                 |
+
+### Расположение и отображение
+
+| Ключ                   | Значение                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `country`              | Двухбуквенный код страны для поиска местоположения; значение по умолчанию. `DE`.                                                                                                                                                                                                         |
+| `language`             | Язык текстовых сообщений о погоде: `DL` Немецкий, `EN` Английский, `RU` Русский или `NL` Голландский язык. Не зависит от языка административного интерфейса.                                                                                                                                 |
+| `location`             | Название местоположения, код аэропорта или координаты. Пустое поле для начального местоположения заполняется координатами системы ioBroker, если таковые имеются.                                                                                                                        |
+| `station`              | Необязательный идентификатор предпочтительной станции. Если поле пустое, поставщик выбирает станцию для данного местоположения. Поле отображается, когда `current` включено.                                                                                                              |
+| `nonMetric`            | `false` для метрических значений; `true` для имперских единиц измерения, таких как °F и мили. При инициализации пустого местоположения диалоговое окно также отображает единицу измерения системной температуры. Концентрации загрязняющих веществ в воздухе всегда указываются в мкг/м³. |
+| `iconSet`              | Скрытая настройка совместимости. A–K используют одни и те же SVG-иконки версии 4, если не указан пользовательский URL-адрес.                                                                                                                                                             |
+| `custom_icon_base_url` | Необязательный базовый URL-адрес для файлов числовых значков. Непустой URL-адрес позволяет использовать пользовательские значки; оставьте поле пустым для стандартных значков.                                                                                                           |
+| `custom_icon_format`   | Пользовательское расширение: GIF, PNG, SVG или JPG; по умолчанию используется GIF, если оно отсутствует.                                                                                                                                                                                 |
+
+Скрытые настройки сохраняют свои значения. Диалоговое окно объединяет пункты «Страна/Язык» и «Местоположение/Станция».
+
+### API-ключи
+
+`apiKey` Это необязательный ключ владельца PWS, зашифрованный при хранении и защищенный от обычного доступа внешних адаптеров. Существующие ключи переносятся автоматически; см. раздел [«Обновление ключей API»](#api-key-upgrades) .
+
+Адаптер также считывает ключ, используемый на сайте Weather Underground:
+
+- При проведении наблюдений на станции используется ключ владельца, когда станция и `current` настроены; в противном случае используется ключ веб-сайта.
+- В ежедневных прогнозах используются координаты станции с ключом владельца, если он доступен, или с ключом веб-сайта в противном случае. Без координат станции используется извлеченный URL/ключ веб-сайта.
+- Почасовые прогнозы и региональные продукты используют ключ веб-сайта, даже если настроен ключ владельца.
+
+Доступность ключей и продуктов контролируется поставщиком.
+
+Без указанного идентификатора станции адаптер использует идентификаторы станции и местоположения с веб-сайта для указанного местоположения для формирования URL-адресов продуктов. Если необходимые URL-адреса продуктов недоступны, он пропускает запросы данных и регистрирует одну ошибку за каждый запланированный запуск. Проверьте указанное местоположение или выберите идентификатор станции PWS.
+
+## Источники данных и запросы
+
+Прямые конечные точки продукта используют `https://api.weather.com`:
+
+| Конечная точка                 | Запрос был сделан, когда                                                                   | Предоставляет                                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `/v2/pws/observations/current` | Каждый цикл приобретений, включая случаи, когда `current` выключено                         | Для составления прогнозов необходимы данные наблюдений и координаты станции. `current` контролирует публикацию результатов измерений. |
+| `/v3/wx/forecast/daily/5day`   | `forecast_periods` или `forecast_periods_txt` включено                                      | Шесть календарных дат и соответствующие им периоды дня и ночи.                                                                       |
+| `/v3/wx/forecast/hourly/2day`  | `forecast_hourly` включено                                                                 | Данные почасовые; адаптер публикует первые 36 записей.                                                                               |
+| `/v3/wx/observations/current`  | `current` и `regionalCurrent` включены, имеют действительные координаты и ключ к веб-сайту. | Региональное описание погоды, значок и видимость.                                                                                    |
+| `/v3/location/point`           | Те же региональные требования                                                              | А `placeId` координаты станции, используемые в запросе на анализ качества воздуха.                                                    |
+| `/v3/wx/globalAirQuality`      | Разрешение местоположения вернуло действительный результат. `placeId`                       | Индекс качества воздуха EPA, рекомендации и подробная информация о шести загрязняющих веществах.                                     |
+
+Если прямой путь к станции/координатам недоступен, адаптер использует URL-адреса поставщика, полученные со страницы Weather Underground. Региональные продукты используют координаты из ответа станции и могут представлять другой источник и время наблюдения, отличающиеся от измерений станции.
+
+### Сокращение количества запросов
+
+- Держать `regionalCurrent` Отключить, чтобы избежать всех трех региональных запросов.
+- Повернуть `forecast_hourly` Отключить, чтобы избежать почасовой оплаты.
+- Поверните **оба** `forecast_periods` и `forecast_periods_txt` Отключено, чтобы избежать ежедневного общего запроса.
+- Поворот `current` Функция off останавливает обновление состояния станции и предотвращает региональные запросы, но запрос станции для получения прогнозируемых координат всё равно выполняется.
+
+Успешный прямой запуск с включенными прогнозами использует три запроса данных: станционные, ежедневные и почасовые. Региональные данные добавляют еще три запроса; ошибка определения местоположения препятствует последующему запросу данных о качестве воздуха. Обнаружение веб-сайта/ключа, повторные попытки и восстановление могут привести к дополнительным HTTP-запросам.
+
+## Ссылка на штат
+
+| Штаты                                                                      | Значение                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `forecast.current.*`                                                       | Текущие наблюдения, несмотря на исторические обстоятельства. `forecast` Префикс. Температура, влажность, ветер и осадки поступают со станции. `qualityControl` это его основной код контроля качества.                                           |
+| `forecast.current.weather`, `.iconURL`, `.visibility`                      | Дополнительно можно указать региональное описание погоды, URL-адрес значка с числовым кодом и видимость.                                                                                                                                       |
+| `forecast.current.airQualityIndex`                                         | Дополнительный числовой индекс EPA, не имеющий физических единиц измерения. Категория, основной загрязнитель, источник и общие/информационные рекомендации для чувствительных групп населения указываются отдельно.                            |
+| `forecast.current.airQuality.CO`, `.NO2`, `.O3`, `.PM10`, `.PM2_5`, `.SO2` | Каждый загрязняющий вещество имеет `amount` в мкг/м³, это EPA. `index` и `category` Это региональные данные, а не результаты измерений на станциях.                                                                                               |
+| `forecastHourly.0h` –`forecastHourly.35h`                                  | Почасовые значения, включая `windGust`, `dewPoint`, `windChill`, `stateShort` и `precipitationType` (например `rain` или `snow`). `0h` означает **«Следующий почасовой прогноз»** , первая запись в API; проверьте `.time` для его временной метки. |
+| `forecast.0d` –`forecast.5d`                                               | Ежедневные значения, включая полное описание. `.state` краткое описание `.stateShort`, `sunrise`, `sunset`, `moonrise`, `moonset` и `moonPhase` Время суток (солнечная/лунная фаза) сохраняет смещение UTC, установленное поставщиком услуг.      |
+
+Ежедневные короткие тексты, повествования и значки используют то же дневное время или оставшийся период ночи. Далее следуют описания. `language` Региональные описания не заменяют измерения на станциях, а прогнозы не заменяют текущие наблюдения. Существующие идентификаторы и пользовательские названия объектов сохраняются.
+
+### Отсутствуют данные и отключены некоторые параметры.
+
+- Отсутствует или `null` УФ-излучение и солнечное излучение станции производят `0`.
+- Отсутствующие или некорректные региональные значения приводят к `null` Региональные поля также свободны для `null` при обработке данных станционных наблюдений с помощью `regionalCurrent` Отключено. Дополнительные региональные сбои не приводят к отмене измерений или прогнозов станции.
+- Без обрабатываемых данных наблюдений на станции существующие значения могут оставаться неизменными.
+- Отключенные переключатели сохраняют свои объекты и ранее сохраненные значения; они не удаляют исторические данные. Региональная очистка осуществляется в соответствии с вышеуказанным правилом.
+
+## Иконки
+
+Текущий API возвращает числовые коды. Сохраненные встроенные настройки A–K используют одни и те же значки SVG версии 4, например, [32.svg](https://www.wunderground.com/static/i/c/v4/32.svg) . Избыточный селектор скрыт. Введите пользовательский базовый URL-адрес, чтобы использовать собственные значки, или снимите его, чтобы использовать стандартные значки.
+
+Пользовательские поля URL и формата всегда доступны для редактирования, независимо от сохраненных данных. `iconSet` значение. Существующие непустые пользовательские URL-адреса имеют приоритет над настройками A–K. Например, базовый URL-адрес. `https://example.com/weather-icons/` и код разрешения формата PNG `32` к `https://example.com/weather-icons/32.png` Хост должен предоставить файлы для каждого кода, возвращаемого поставщиком; предварительные коды `0`, `12`, `26` и `32` Это лишь примеры.
+
+Устаревшие именованные значки, такие как `clear.gif` и `nt_clear.gif` Не соответствуют числовым кодам. Адаптер не преобразует коды в эти имена файлов; старые каталоги A–K непригодны в качестве пользовательских базовых файлов для текущего API.
+
+## Обновление API-ключей
+
+В более ранних версиях ключ хранился в открытом виде. `apikey` Теперь адаптер использует зашифрованный/защищенный протокол. `apiKey` При первом запуске или сохранении настроек старое значение переносится и `apikey` Очищено; запросы погоды ожидают завершения миграции при запуске. Существующий непустой `apiKey` Значения сохраняются. Если оба поля содержат разные непустые ключи, ни один из них не удаляется автоматически; сбои миграции останавливают запросы и записывают в журнал сообщение без значений ключей.
+
+До первого запуска/сохранения устаревшее поле сохраняет свое старое поведение хранения и доступа к данным в открытом текстовом виде. Отключенные экземпляры переносятся только при запуске или сохранении. После обновления адаптера следует повторно открыть настройки, а не сохранять старое диалоговое окно.
+
+Перед обновлением сделайте резервную копию ioBroker. Чтобы вернуться к версии, которая поддерживает только чтение, выполните откат. `apikey` Также необходимо восстановить соответствующую резервную копию конфигурации. Ключи, зашифрованные вручную из модифицированных/невыпущенных версий, требуют наличия исходных метаданных шифрования и не могут быть надежно идентифицированы после перезаписи этих метаданных.
+
+## Сборка для разработки
+
+Для сборки исходного кода требуется Node.js **версии 22.12+** в пределах поддерживаемого диапазона сред выполнения; Vite имеет более высокий минимальный уровень, чем среда выполнения адаптера. CI проверяет/собирает на Node.js версии 24 и тестирует на 22/24/26.
+
+```sh
+npm ci
+npm run build
+npm test
+npm pack
+```
+
+Административные ресурсы находятся в `admin/src/` Сгенерировано `admin/custom/` Файлы игнорируются Git и не должны быть добавлены в репозиторий. Сборка выполняется до тестирования, упаковки или загрузки; обычные `npm pack` Автоматическая сборка не выполняется. Опубликованный npm-пакет содержит ресурсы пользовательского интерфейса, и `prepublishOnly` Пересобирает их для публикации. Для установки из исходного кода/Git установите собранный архив через ioBroker; для несобранной копии пользовательский интерфейс конфигурации не генерируется.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (reloxx13) Remove the disabled legacy API, dashboard key extraction and obsolete parser
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (reloxx13) Fix location-based website URL discovery and avoid cascading errors when required URLs are unavailable (#509)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.1 (2026-10-26)
+- (reloxx13) Use the controller-managed startup delay instead of a custom wait function
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+### 4.0.0 (2026-10-26)
+- (reloxx13) Use adapter-managed timers and termination while preserving cancellation during shutdown
+- (mcm1957) Adapter requires Node.js >= 22, Admin >= 8.2.0 and js-controller >= 6.0.11 now
+- (reloxx13) Read the website API key from the current Weather Underground page configuration (#509)
+- (reloxx13) Request daily forecasts using station coordinates and the website key when no owner key is configured (#509)
+- (reloxx13) Add opt-in regional weather descriptions, icons, visibility and detailed EPA air quality without replacing station measurements (#220, #388)
+- (reloxx13) Add hourly gust, dew point, wind chill, weather text and precipitation type; daily sun/moon events and PWS quality status
+- (reloxx13) Add short daily descriptions while preserving full narratives and consistent day/night selection (#388)
+- (reloxx13) Match maximum-wind direction to the highest wind speed and preserve its numeric type
+- (reloxx13) Show zero UV index and solar radiation when station fields are missing or null
+- (reloxx13) Fix numeric icon URLs and previews; select custom icons by URL and correct existing icon URL object types without replacing user metadata (#216)
+- (reloxx13) Rename the first hourly forecast to "Next hourly forecast" while preserving its 0h ID and custom names
+- (reloxx13) Correct weather state roles without changing IDs, types, units or user metadata (#328)
+- (reloxx13) End failed initialization reliably and cancel startup delays and provider requests during shutdown (#224)
+- (reloxx13) Automatically migrate API keys to encrypted and protected storage
+- (reloxx13) Replace the legacy settings dialog with JSON Config; clarify translated labels, help texts and field grouping
+- (reloxx13) Document configuration switches, data sources, endpoints, request savings, API keys and source builds; correct the default refresh interval to once per hour (#501)
+- (reloxx13) Fix hourly forecast requests, station coordinates and metric/non-metric provider paths (#497)
+- (reloxx13) Skip the unused PWS dashboard request (#498)
+- (reloxx13) Populate hourly weather codes, including zero (#499)
+- (reloxx13) Use calendar-day minimum and maximum forecast temperatures (#500)
+- (reloxx13) Limit the npm package to runtime and configuration assets and enable shared ESLint checks in CI
 
 ### 3.7.0 (2024-04-13)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -99,169 +198,11 @@ hash: hZUXm2AmjFrGOWkQkV7Cg4G/3COrCF3MWDaCREAdkXI=
 * (mcm1957) Date format has been fixed to avoid incorrect display with newer admin versions (#191)
 * (mcm1957) Forecast urls have been adapted to weatherunderground website changes (#158)
 
-### 3.4.3 (2023-08-15)
-* (Aplollon77) Translations have been updated (#159)
-* (mcm1957) The testenvironment has been updated to use node 16/18/20
-* (bluefox) Dependencies have been updated
-
-### 3.4.2 (2022-04-26)
-* (Apollon77) Added special logging when no current observation data are available because Station most likely offline to reduce confusion
-
-### 3.4.1 (2022-03-13)
-* (bluefox) Use axios for communication
-* (bluefox) make sure date states are filled correctly
-
-### 3.4.0 (2022-03-10)
-* (Apollon77) If no official API-Key is used: Move schedule if default is used to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
-* (Apollon77) Further optimizations and additional logging
-
-### 3.3.1 (2021-06-28)
-* (Apollon77) Optimize for js-controller 3.3
-
-### 3.3.0 (2021-01-22)
-* (Apollon77) Optimize for js-controller 3.2
-* (Apollon77) js-controller 2.0 is now required at least
-
-### 3.2.5 (2020-12-27)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
-
-### 3.2.3 (2020-12-26)
-* (Apollon77) make sure adapter do not crash when no data could be read
-* (Apollon77) Add Sentry error reporting
-
-### 3.2.2 (2020-12-02)
-* (Apollon77) icons sometimes did not have a correct extension
-* (Apollon77) Correct some cases with different types of locations when reading data
-
-### 3.2.1
-* (raintonr) Corrected 'Imperial' terminology.
-
-### 3.2.0 (2019-12-28)
-* (StrathCole) fix forecast expiry time
-* (StrathCole) add visibility index to objects on hourly forecast
-
-### 3.1.6 (2019-10-16)
-* (Bjoern3003) adjust to WU changes, now v3 API for hourly data
-* (Apollon77) run once after installation/update
-
-### 3.1.3
-* (Apollon77) text correction
-
-### 3.1.2 (2019-07-27)
-* (Apollon77) use new parameters to get decimal precision values
-
-### 3.1.1 (2019-07-14)
-* (Apollon77) add windDirection as string calculated based on degrees
-
-### 3.1.0 (2019-07-12)
-* (Apollon77) remove option for legacy API because disabled by WU
-
-### 3.0.14 (2019-07-11)
-* (Apollon77) optimize checking of pws station id
-
-### 3.0.13 (2019-07-10)
-* (Apollon77) Fix error in image url handling
-
-### 3.0.11/12 (2019-07-09)
-* (Apollon77) Re-Fetch PWS station key on Error 401
-
-### 3.0.10 (2019-05-27)
-* (Apollon77) Adopt logic to WU changes
-
-### 3.0.8 (2019-03-23)
-* (Apollon77) Add additional guidance when location is not found by WU
-
-### 3.0.7 (2019-03-22)
-* (Apollon77) implement to extract used "legacy" API keys out of WU website to allow restore of functionality for now
-* (Apollon77) Also extract API keys for newer API version from website to be usable together with real "PWS owner keys" in future
-* (Apollon77) optionally get data using the New APIs (as well as the officially available PWS-Owner APIs as also additional ones to restore functionality)
-* (Apollon77) Admin 2 support removed and adapted the Admin 3 texts as needed for now
-
-### 2.0.4 (2018-08-19)
-* (René) some typos
-* (bluefox) Write only numbers and not strings
-
-### 2.0.3 (2018-07-30)
-* (bluefox) Warning! Breaking changes! States are renamed.
-* (bluefox) Refactoring of states and roles
-
-### 1.1.2 (2017-11-24)
-* (Apollon77) Add option to specify image format for custom image urls
-
-### 1.1.1 (2017-11-08)
-* (Apollon77) Optimize API usage by getting all data with one call instead of two
-* (Apollon77) Add support for multiple API-Keys
-
-### 1.1.0 (2017-10-30)
-* (Apollon77) Add option to overwrite Icon Base URL
-
-### 1.0.8 (2017-07-12)
-* (DeepCoreSystem) add 2 current observation values, fixes of some datapoint caps.
-
-### 1.0.7 (2017-06-19)
-* (Dutchman) add Dutch language suppport
-
-### 1.0.6 (2017-05-16)
-* (Rene) bug fixing
-	+ all 4 sets are enabled as default
-	+ change of checkbox enables saves button
-
-### 1.0.5 (2017-05-14)
-* (Rene) hourly forecast extend to 36h
-
-### 1.0.4 (2017-04-09)
-* (Rene) parse much more data
-   + today's 24 h
-   + next 4 days / nights as text
-   + next 4 days
-   + current values
-   each can be enabled or disabled
-
-### 1.0.3 (2016-11-01)
-* (bluefox) Catch parse errors
-
-### 1.0.2 (2016-10-29)
-* (Apollon77) make sure precip values are always integers
-
-### 1.0.1 (2016-07-21)
-* (jens-maus) conversion from feet to meter for observation_location
-
-### 1.0.0 (2016-07-12)
-* (Apollon77) add daily rain level forecast
-
-### 0.2.0 (2016-07-01)
-* (Apollon77) Add Error handling and station-usage for forcasts
-
-### 0.1.1 (2016-06-07)
-* (ploebb) Fix forecast api URL
-
-### 0.1.0 (2016-05-07)
-* (bluefox) convert text to floats
-* (bluefox) support languages
-
-### 0.0.5
-corrected humidity value within current weather info (slice + unit)
-
-### 0.0.4
-checking for spaces in location
-added current conditions
-
-### 0.0.3
-bugfix in summed pop-value.
-
-### 0.0.2
-config dialog fixed
-
-### 0.0.1
-initial release with all basics to load WU-forecast data
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.weatherunderground/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

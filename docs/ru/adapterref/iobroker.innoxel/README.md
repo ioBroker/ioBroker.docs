@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: mLULeSx3pAfMNFIwZaRvoplxHZvuDiCiARtXCwPD/aM=
+hash: TTh9Zec5+cQVk8qXQTJ6sbK9S5RhVP6w9k8El75XGtM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -13,9 +13,7 @@ hash: mLULeSx3pAfMNFIwZaRvoplxHZvuDiCiARtXCwPD/aM=
 ![лицензия](https://img.shields.io/npm/l/iobroker.innoxel)
 ![Количество установок](https://iobroker.live/badges/innoxel-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/innoxel-stable.svg)
-![Статус зависимости](https://img.shields.io/david/matthsc/iobroker.innoxel.svg)
 ![Тестирование и выпуск](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)
 
 # ioBroker.innoxel
 
@@ -24,12 +22,10 @@ hash: mLULeSx3pAfMNFIwZaRvoplxHZvuDiCiARtXCwPD/aM=
 ## Требования
 
 - NodeJS >= 22.x
-- ioBroker >= 6.0.11, с административным узлом >= 6.x
+- js-controller >= 6.0.11, with admin >= 7.6.20
 - Система «умный дом» Innoxel Master 3
 
 ## Установка
-
-Пока адаптер не станет частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker и установив адаптер из npm. Не устанавливайте его напрямую из Github, это приведет к ошибке при запуске адаптера ("не удается найти стартовый файл").
 
 Адаптер можно установить непосредственно из стабильных/бета-версий репозиториев. После установки создайте новый экземпляр и настройте параметры:
 
@@ -38,6 +34,7 @@ hash: mLULeSx3pAfMNFIwZaRvoplxHZvuDiCiARtXCwPD/aM=
   - порт
   - имя пользователя
   - пароль
+  - После запуска экземпляра вы можете проверить учетные данные, используя кнопку «Проверить соединение».
 - Интервалы опроса для разных областей
   - изменения состояния (например, выключатели, диммеры)
   - микроклимат в помещении / термостаты
@@ -82,13 +79,13 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 });
 ```
 
-- <code> moduleId</code> это идентификационный номер/адрес «дегустатора».
-- <code> channelId</code> — это индекс кнопки на «Дегустаторе».
-- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызвана после выполнения действия.
+- `moduleId` это идентификационный номер/адрес «дегустатора».
+- `channelId` — это индекс кнопки на «Дегустаторе».
+- `callback` (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
 
 ### setDimValue
 
-Имитация нажатия кнопки на дегустационном устройстве.
+Настройте яркость канала регулировки яркости.
 
 ```ts
 sendTo(
@@ -105,11 +102,11 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 });
 ```
 
-- <code> moduleId</code> это идентификатор/адрес модуля диммера.
-- <code> channelId</code> это канал диммера на модуле
-- <code> dimValue</code> Значение в процентах (от 0 до 100)
-- <code> dimSpeed</code> (необязательно) — скорость затемнения (0-15)
-- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
+- `moduleId` это идентификатор/адрес модуля диммера.
+- `channelId` это канал диммера на модуле.
+- `dimValue` Значение в процентах (от 0 до 100)
+- `dimSpeed` (необязательно) — скорость затемнения (0-15)
+- `callback` (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
 
 ### установить температуру
 
@@ -124,16 +121,16 @@ sendTo(
 );
 
 // i.e. to set setTemperatureHeating to 20° on room climate module 0
-sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
-sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
-  // do something after the button press has been executed
+sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20");
+sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20", () => {
+  // do something after the temperature has been set
 });
 ```
 
-- <code> moduleId</code> это модуль климат-контроля помещения с идентификатором/адресом.
-- <code> temperatureType</code> — это тип устанавливаемой температуры (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
-- <code> температура</code> Температуру можно установить с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа.
-- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
+- `moduleId` это идентификатор/адрес модуля климат-контроля помещения.
+- `temperatureType` — это тип температуры, который нужно установить (`absenceSetbackTemperatureCooling`, `absenceSetbackTemperatureHeating`, `nightSetbackTemperatureCooling`, `nightSetbackTemperatureHeating`, `setTemperatureCooling`, `setTemperatureHeating`)
+- `temperature` Температуру можно установить с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа.
+- `callback` (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
 
 ## Changelog
 
@@ -141,6 +138,13 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0-beta.0 (2026-11-18)
+- (matthsc) call callbacks in onMessage
+- (matthsc) add connection test button to admin
+- (matthsc) make transient connection errors more resilient
+- (matthsc) fix precipitation state, add rain state
+- (matthsc & dependabot & iobroker bot) dependency updates and cleanups
+
 ### 2.0.0 (2026-05-16)
 - (matthsc) implement adapter checker feedback and create-adapter migrations
 - (copilot) Adapter requires node.js >= 22 now
@@ -156,8 +160,6 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 - (matthsc) switch admin to json config
 - (matthsc) prepare for future controller versions (fix deprecation warnings)
 - (matthsc & dependabot) dependency updates
-
-[Older changelogs can be found there](https://github.com/matthsc/ioBroker.innoxel/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

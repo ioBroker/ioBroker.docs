@@ -107,6 +107,15 @@ Delay between two read requests in milliseconds. Default 0.
 ### Write interval
 Delay between two write requests in milliseconds. Default 0.
 
+### Read retries, write retries, retry interval
+Only for a master. A block read or a write that fails with a timeout or a lost connection is sent again up to this
+number of times (0 = never, at most 3) before it fails. Each retry is logged at the info level as `[retry/k/N] ...`,
+the warning comes only after the last attempt. A Modbus exception or an invalid response is not repeated.
+
+With "Keep the connection on a timeout" a retry is sent on the open connection, otherwise the connection is
+re-established first. The polling cycle waits during the retries, so keep the number low if several devices share
+one RS485 bus. The retry interval is the delay before each retry in milliseconds (default 100).
+
 ### Update unchanged states
 Normally, if the value has not changed, it will not be written into ioBroker.
 This flag allows updating the value's timestamp by every cycle.
@@ -356,9 +365,15 @@ There are some programs in folder `test` to test the TCP communication:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.5.0 (2026-11-19)
+* (@LoPromise, @GermanBluefox) Settings for retries of reads and writes after a timeout or a lost connection
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.12.0: pending requests are rejected at once when the connection closes; read and write retries
+* (@GermanBluefox) Template library: files marked as optional in the template (e.g. registers of a newer firmware) are not preselected
+
+### 9.4.0 (2026-11-13)
 * (@GermanBluefox) Template library: a template with only one register file shows it checked and disabled
-* (@GermanBluefox) Device detection: each read waits at most 2 seconds, and a device that does not answer a read no longer closes the connection (needs `@iobroker/modbus` 7.11)
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.11.0
+* (@GermanBluefox) Device detection: each read waits at most 2 seconds, and a device that does not answer a read no longer closes the connection
 
 ### 9.3.2 (2026-11-13)
 * (@ipod86) Added the electrical measurement roles from the state roles list (`value.voltage`, `value.current`, `value.frequency`, `value.power.*`, `value.energy.*`) to the role select box
@@ -377,16 +392,6 @@ There are some programs in folder `test` to test the TCP communication:
 * (@GermanBluefox) Admin: a file can be dropped on the editor of the import/export dialog
 * (@GermanBluefox) Admin: import of TSV/CSV/JSON accepts an empty "Sanitize Action" and uses "Keep Last Valid" (issue #835)
 * (@GermanBluefox) Admin: the template library converts the scale factor references in formulas (`sf['40083']`) together with the addresses. Before, a template with scale factors did not work if its addresses were converted (alias template, or "Show aliases" in the instance)
-
-### 9.2.3 (2026-11-08)
-* (@MMeinhardt1) Updated `@iobroker/modbus` to 7.9.0: the new instance parameter `padAddressInId` pads the address in state IDs with zeros to 5 digits, so they sort numerically (issue #317). It is off by default and not yet available in the admin UI
-* (@GermanBluefox) Updated dependencies
-
-### 9.2.2 (2026-10-23)
-* (@GermanBluefox) A response is taken only for the request it belongs to (issue #829): over TCP, SSL and UDP a response with another transaction ID is dropped, over RTU one from another unit. Before, a stale or duplicated answer - e.g. in the first poll cycle on a fresh connection - shifted every following response by one request, so the registers of another block were stored
-* (@GermanBluefox) New option "Ignore transaction ID of responses" for devices that do not echo the transaction ID
-* (@GermanBluefox) If a device returns fewer registers than requested, the whole block is discarded with a warning instead of storing the registers that fit
-* (@GermanBluefox) The debug check of the scale factor read block works with aliases
 
 ## License
 The MIT License (MIT)

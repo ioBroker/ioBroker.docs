@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
+hash: HRZddRNzlGL6SdOE8ObYgbG7p8YmPCmxvmTVi3sM9C0=
 ---
 # ioBroker Sigenergy Adapter
 
@@ -35,8 +35,8 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 - 🔍 **PID** (детектирование изоляции фотоэлектрических панелей) — опционально
 - 🌡️ **Предварительный подогрев ESS** — расписание по времени суток, 30 настраиваемых временных окон (M1-HYA/HYB)
 - 📈 **Расширенные регистры** — интеллектуальные нагрузки 1–24, суммарная энергия, параметры сетевого кода
-- ☀️ **SigenMicro** — Поддержка микроинверторов (автоматическое сканирование)
 - 📊 **Расчетные значения** — Полученные статистические данные обновляются в каждом цикле опроса
+- ☁️ **SigenMicro через облако** — Дополнительно: актуальные значения микроинверторов SigenMicro из облака Sigenergy
 - 🖥️ **Виджеты VIS** — Панели мониторинга потока энергии, состояния батареи и статистики.
 
 ---
@@ -78,17 +78,16 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 
 Начиная с версии 2.4.0, каждый экземпляр адаптера обрабатывает ровно **один** тип системы Sigenergy (строгое правило «либо/или»). Выберите тип на вкладке «Компоненты» — или используйте **функцию «Автоматическое определение с устройства»** , чтобы считать его с оборудования. Наборы регистров управляются в соответствии с примечаниями к модели официального протокола Modbus V2.9:
 
-| Возможности                              | СигенСтор      | Sigen Hybrid   | Sigen PV M1-HYB | Только для фотоэлектрических систем (PV Max) | SigenMicro-only |
-| ---------------------------------------- | -------------- | -------------- | --------------- | -------------------------------------------- | --------------- |
-| ESS / регистры батарей                   | всегда         | необязательный | необязательный  | —                                            | —               |
-| зарядное устройство постоянного тока     | ✓              | ✓              | —               | —                                            | —               |
-| Код сетки (40051-40068)                  | ✓              | ✓              | —               | —                                            | —               |
-| Предварительный нагрев ESS (50000-50183) | —              | —              | ✓               | —                                            | —               |
-| Коэффициент мощности PCC (40157/40158)   | —              | —              | ✓               | —                                            | —               |
-| Регистры растений (подчиненный 247)      | ✓              | ✓              | ✓               | ✓                                            | —               |
-| Микроинверторы SigenMicro                | необязательный | необязательный | необязательный  | необязательный                               | ✓               |
+| Возможности                              | СигенСтор | Sigen Hybrid   | Sigen PV M1-HYB | Только для фотоэлектрических систем (PV Max) |
+| ---------------------------------------- | --------- | -------------- | --------------- | -------------------------------------------- |
+| ESS / регистры батарей                   | всегда    | необязательный | необязательный  | —                                            |
+| зарядное устройство постоянного тока     | ✓         | ✓              | —               | —                                            |
+| Код сетки (40051-40068)                  | ✓         | ✓              | —               | —                                            |
+| Предварительный нагрев ESS (50000-50183) | —         | —              | ✓               | —                                            |
+| Коэффициент мощности PCC (40157/40158)   | —         | —              | ✓               | —                                            |
+| Регистры растений (подчиненный 247)      | ✓         | ✓              | ✓               | ✓                                            |
 
-Одна точка подключения Modbus (IP/шина) = один экземпляр. SigenStor с дополнительными микроинверторами SigenMicro относится к **одному** экземпляру — микроинверторы являются аддитивным компонентом, а не отдельным типом. Существующие конфигурации до версии 2.4.0 переносятся автоматически (полученный тип регистрируется при запуске — пожалуйста, еще раз проверьте вкладку «Компоненты»).
+Одна точка подключения Modbus (IP/шина) = один экземпляр. Существующие конфигурации, созданные до версии 2.4.0, переносятся автоматически (полученный тип регистрируется при запуске — пожалуйста, еще раз проверьте вкладку «Компоненты»).
 
 ## Конфигурация
 
@@ -111,7 +110,8 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 - PSS (Power Station Switch)
 - PID (обнаружение изоляции фотоэлектрических элементов)
 - Предварительный нагрев ESS (только для M1-HYA/HYB)
-- SigenMicro (микроинверторы)
+
+> **SigenMicro:** Микроинверторы SigenMicro не являются частью протокола Sigenergy Modbus (V2.9) — они взаимодействуют с облаком Sigenergy только по беспроводной сети (WLAN), поэтому для чтения не требуется адрес Modbus или регистр. Их текущие значения можно дополнительно считывать из облака Sigenergy, см. [вкладку SigenMicro (Облако)](#sigenmicro-cloud-tab) .
 
 ### Вкладка «Статистика»
 
@@ -123,6 +123,26 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 - Время работы батареи
 - Коэффициент самопотребления
 - Ставка автаркии
+
+### Вкладка SigenMicro (Облако)
+
+Необязательно. Считывает текущие значения микроинверторов SigenMicro из облака Sigenergy с помощью вашей учетной записи mySigen. Все микроинверторы в учетной записи обнаруживаются автоматически. Опрос облака выполняется независимо от соединения Modbus.
+
+| Параметр                                                               | Описание                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Считывайте данные с микроинверторов SigenMicro через облако Sigenergy. | Включает опрос облака                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Облачный интерфейс                                                     | **Официальный OpenAPI Sigen** (по умолчанию) — документирован компанией Sigenergy, только для чтения. Sigenergy ограничивает передачу данных с устройства в режиме реального времени примерно одним разом в 5 минут.<br> **Интерфейс приложения mySigen** — это интерфейс приложения mySigen, который позволяет быстрее обновлять приложение, но он **не задокументирован официально** : Sigenergy может изменить или заблокировать его в любое время без предварительного уведомления. |
+| Облачная область                                                       | Сервер вашего аккаунта mySigen (Европа =`api-eu.sigencloud.com`)                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| учетная запись mySigen / пароль                                        | Ваши данные для входа в mySigen. Они отправляются только в облако Sigenergy; пароль хранится в зашифрованном виде.                                                                                                                                                                                                                                                                                                                                                                      |
+| Интервал опроса облака                                                 | Минимальное время для OpenAPI — 300 секунд, для интерфейса приложения — 30 секунд. Изменение облачного интерфейса устанавливает значение по умолчанию (300 секунд для OpenAPI, 60 секунд для интерфейса приложения).                                                                                                                                                                                                                                                                    |
+| Тестовый вход в систему                                                | Для проверки необходимо выполнить однократный вход в облако Sigenergy с введенными настройками (данные устройства не считываются). **Обязательно:** пока облако включено, настройки можно сохранить только после успешного тестирования, и тестирование необходимо повторить после изменения учетной записи, пароля, интерфейса или региона. Для проведения теста экземпляр должен быть запущен.                                                                                        |
+
+Примечания:
+
+- Адаптер только читает. Учетная запись разработчика и подключение к системе не требуются (вход в учетную запись OpenAPI предоставляет доступ на чтение только к системам вашей собственной учетной записи).
+- Адаптер опрашивает облако только с настройками, для которых была проверена авторизация. Если настройки были изменены без проверки (например, непосредственно в объекте экземпляра), он регистрирует предупреждение, и опрос облака отключается.
+- Неверные учетные данные останавливают опрос облака до тех пор, пока настройки не будут сохранены. Sigenergy блокирует учетную запись mySigen на 3 минуты после 5 неудачных попыток входа в течение 60 минут, поэтому адаптер никогда не пытается повторно ввести отклоненный пароль самостоятельно.
+- Ночью микроинверторы отключаются; `online` тогда `false` и значения пусты.
 
 ---
 
@@ -152,13 +172,35 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 
 ### Статистика (`statistics.*`)
 
-| Состояние                         | Описание                                    | Единица |
-| --------------------------------- | ------------------------------------------- | ------- |
-| `statistics.batteryTimeToFull`    | Минуты до полной зарядки батареи            | мин     |
-| `statistics.batteryTimeRemaining` | Осталось минут работы батареи               | мин     |
-| `statistics.selfConsumptionRate`  | Коэффициент самопотребления                 | %       |
-| `statistics.autarkyRate`          | Ставка автаркии                             | %       |
-| `statistics.housePower`           | Расчетное потребление электроэнергии в доме | кВт     |
+| Состояние                         | Описание                                 | Единица |
+| --------------------------------- | ---------------------------------------- | ------- |
+| `statistics.batteryTimeToFull`    | Минуты до полной зарядки батареи         | мин     |
+| `statistics.batteryTimeRemaining` | Осталось минут работы батареи            | мин     |
+| `statistics.selfConsumptionRate`  | Коэффициент самопотребления              | %       |
+| `statistics.autarkyRate`          | Ставка автаркии                          | %       |
+| `statistics.housePower`           | Расчет потребления электроэнергии в доме | кВт     |
+
+### SigenMicro (`sigenmicro.*`)
+
+Только при включенной [вкладке SigenMicro (Cloud)](#sigenmicro-cloud-tab) . Одно устройство на микроинвертор, названное по его серийному номеру:
+
+| Состояние                                                         | Единица     | Описание                                                        |
+| ----------------------------------------------------------------- | ----------- | --------------------------------------------------------------- |
+| `sigenmicro.totalPower`                                           | кВт         | Питание переменного тока всех устройств SigenMicro вместе       |
+| `sigenmicro.<serial>.online`                                      | —           | Микроинвертор отображает значения в реальном времени.           |
+| `sigenmicro.<serial>.activePower`                                 | кВт         | активная мощность переменного тока                              |
+| `sigenmicro.<serial>.reactivePower`                               | квар        | Реактивная мощность                                             |
+| `sigenmicro.<serial>.pvPower`                                     | кВт         | Фотоэлектрическая (постоянный ток) мощность                     |
+| `sigenmicro.<serial>.pv1.*` /`pv2.*`                              | В / А / кВт | Напряжение, ток и мощность каждого фотоэлектрического входа     |
+| `sigenmicro.<serial>.gridVoltage` /`gridCurrent` /`gridFrequency` | В / А / Гц  | Сторона сетки                                                   |
+| `sigenmicro.<serial>.powerFactor`                                 | —           | коэффициент мощности                                            |
+| `sigenmicro.<serial>.temperature`                                 | °С          | Внутренняя температура                                          |
+| `sigenmicro.<serial>.insulationResistance`                        | МОм         | Сопротивление изоляции заземлению                               |
+| `sigenmicro.<serial>.dailyYield` /`totalYield`                    | кВтч        | Выручка от продаж сегодня / общая (общая: только через OpenAPI) |
+| `sigenmicro.<serial>.ratedPower`, `serialNumber`, `firmware`      |             | Данные устройства                                               |
+| `sigenmicro.<serial>.lastUpdate`                                  |             | Время последнего обновления облачных сервисов                   |
+
+`info.cloudConnection` показывает, был ли успешным последний цикл внедрения облачных технологий.
 
 ---
 
@@ -287,6 +329,37 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 - 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.5.1 (2026-11-17)
+- (ssbingo) feat: SigenMicro (Cloud) tab — changing the cloud interface sets the matching polling interval (300 s OpenAPI, 60 s app interface), so a fast app interval is not kept by mistake
+- (ssbingo) feat: SigenMicro (Cloud) tab — new button "Test login" that logs in once with the entered settings. It is required: with the cloud enabled the settings can only be saved after a successful test, and the adapter starts the cloud polling only with tested settings. **Note for 3.5.0 users:** press "Test login" once and save, otherwise the cloud polling stays off after the update
+- (ssbingo) fix: admin translations added for four help texts of the extended register tab (V2.6–V2.9 groups, PSS, PID, ESS preheating) that were shown in English in every language
+
+### 3.5.0 (2026-11-17)
+- (ssbingo) feat: SigenMicro micro-inverters via the Sigenergy cloud (optional, new tab "SigenMicro (Cloud)"). Uses the official Sigen OpenAPI with the mySigen account (read-only, no onboard, about every 5 minutes) or, optionally, the unofficial mySigen app interface (faster). The micro-inverters of the account are found automatically; new states `sigenmicro.<serial>.*` (power, PV inputs, grid values, temperature, yield), `sigenmicro.totalPower` and `info.cloudConnection`. The password is stored encrypted (`encryptedNative`/`protectedNative`)
+- (ssbingo) fix: admin translations completed — 11 section headers (pt, nl, fr, it, es, pl, uk, zh-cn) and the "9600 (default)" baud-rate label were still in English
+
+### 3.4.0 (2026-11-16)
+- (ssbingo) **breaking:** SigenMicro support removed. SigenMicro micro-inverters communicate via WLAN/cloud only and are not part of the Sigenergy Modbus protocol (V2.9: no device class, no slave address, no registers), so the scan could never find them and the previous register map had no source. Removed: the SigenMicro scan, the SigenMicro admin tab, the `SigenMicro only` device type, the config keys `hasSigenMicro`/`sigenMicroScanFrom`/`sigenMicroScanTo`/`sigenMicroDevices` and the states `info.scanProgress`/`info.scanStatus`. Existing `sigenmicro.*` objects are deleted on startup; an instance still set to `SigenMicro only` logs an error and stays idle. Micro yield is at most included as a total in `plant.pvPower` or `plant.statistics.thirdPartyInverterPower`
+- (ssbingo) chore: Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#84, via template PR #85); dependencies updated via #81, #82, #83, #87, #89, #91
+- (ssbingo) chore: lockfile refreshed (`zod`) and scoped `overrides` for `glob`/`minimatch` added — `npm audit` back to 0
+
+### 3.3.4 (2026-09-27)
+- (ssbingo) chore: development dependencies updated via #79 and #80 — `@iobroker/testing` 6.2.1 → 6.2.2, `@types/node` 22.20.2 → 22.20.4. Tooling only, the adapter code is unchanged
+- (ssbingo) chore: `common.news` kept at the seven entries the ioBroker repository builder retains (**[W1032]**); the full history stays in this changelog
+
+### 3.3.3 (2026-09-12)
+- (ssbingo) fix: `io-package.json` names `ssbingo <s.sternitzke@online.de>` as maintainer instead of the placeholder "ioBroker Community", which carried no contact address — reported as **[E4048]** by the ioBroker repository checker. The entry now matches `author` in `package.json`
+- (ssbingo) fix: `common.news` trimmed to the seven most recent versions (**[W1032]**); the ioBroker repository builder truncates there anyway. The full history stays in this changelog
+
+### 3.3.2 (2026-09-12)
+- (ioBroker-Bot) chore: the CI test matrix now also covers Node.js 26 (22/24/26 on ubuntu, windows and macOS) — all three run green, so the adapter is ready for the October 2026 LTS
+- (ssbingo) chore: `@iobroker/testing` updated from 5.3.0 to 6.2.1
+- (ssbingo) chore: raised the `deepl-node` override to 1.28.0 and `adm-zip` to 0.6.1. 1.28.0 no longer depends on `js-yaml` and accepts the patched `adm-zip`, which clears the two advisories the updated tooling pulled in — `npm audit` is back to 0. Development tooling only; `npm audit --omit=dev` was 0 throughout
 
 ### 3.3.1 (2026-09-07)
 - (ssbingo) fix: registers the device marks as not valid are no longer turned into plausible looking measurements. The protocol signals this by setting all bits ("Range:[0, 0xFFFFFFFE]. With value 0xFFFFFFFF, register is not valid.") and a device answers that way for a register that does not currently apply or that its firmware does not implement. The raw sentinel was scaled by the register gain, so it arrived as a reading that looks real: observed on a SigenStor EC 10.0 TP **with** a DC charger installed, `dcCharger.runningState` = 65535 (Appendix 14 only defines 0x00-0x0A), `dcCharger.dischargingCurrent` = 6553.5 A, `dcCharger.currentDischargingCapacity` = 42949672.95 kWh and `dcCharger.currentDischargingDuration` = 4294967295 s, while the neighbouring DC charger registers (rated power, PV generation, totals) returned real values. The same pattern appears outside the DC charger, e.g. `plant.currentCtrlCmdValue` = 655.35 %, `plant.mergedAlarm7` = 65535, `inverter.essMaxBatteryCellVoltage` = 65.535 V and the ESS/PCS/grid limit registers as 4294967.295 kW. Such registers now report no value instead
@@ -432,10 +505,7 @@ hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 ### 2.0.0 (2026-06-09)
 - (ssbingo) feat: Modbus Protocol V2.9 — new plant/inverter/DC charger registers, remove deprecated registers, extend enums
 
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

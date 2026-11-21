@@ -199,7 +199,7 @@ The adapter creates a vehicle channel for each discovered vehicle with the follo
 - `status`: battery, range, odometer, charging power, speed, plug state, charging state, lock state, climate state, charge limit, tire pressures, GPS, 12V battery, central locking, doors/trunk open states, consumption, engine/maintenance states, and timestamps
 - `control`: command payload, service ID, send button, typed buttons (lock, climate, charge, windows, sunshade, lights), writable charge limit, climate temp/duration, charge/travel plan inputs, last command, and last result
 - `trips`: API trip count, last trip distance/start/end/duration/average speed/consumption, recent trip list (logbook, last 5 without coordinates), fetch status (`trips.fetchJson`: ok/total/payload keys — empty when the server sends nothing, e.g. on shared accounts, see above), plus the adapter-side logbook below
-- `energy`: last session, running month totals, standby drain, day/week aggregates, charge session history (`sessionsList`), per-session price override inputs (`nextSessionPrice`/`nextSessionName`, auto-reset after settle)
+- `energy`: last session, running month totals, standby drain, day/week aggregates, charge session history (`sessionsList`), per-session price override inputs (`nextSessionPrice`/`nextSessionName`, auto-reset after settle), metered-energy input (`nextSessionKwh`), retroactive correction inputs (`editSessionKwh`/`editSessionPrice`/`editSessionCost`/`editSessionTariff`), month cost split by tariff (`monthByTariff`)
 - `smartCharge`: cheapest-window decision state
 - `zones`: current named geo zone (`currentZone`) and last change time; `isHome` reflects the configured home zone
 - `batteryLog`: monthly odometer/range/SoC snapshots
@@ -223,7 +223,7 @@ All display values are plain states — no VIS widgets are shipped (the adapter 
 
 - **Today/week at a glance:** `energy.todayKwh`/`todayCost`/`todayLossKwh`, `energy.weekKwh`/`weekCost`, `trips.ownTodayKm`/`ownTodayCount`, `trips.ownWeekKm`. Single numbers, ideal for info widgets or ECharts bars.
 - **Month:** `energy.monthKwh`/`monthCost`/`monthLossKwh`, `trips.ownMonthKm`/`ownMonthCount`/`ownMonthUsedKwh`/`ownMonthCost`, `trips.ownMonthConsumptionKwh100km`, `trips.ownMonthCostPer100km`.
-- **Tables:** `trips.ownList` and `energy.sessionsList` are JSON arrays (last 20) for table widgets (e.g. vis-inventwo table, Jarvis, or ECharts dataset). Trip entries carry start/end, distance, duration, energy, consumption and cost; sessions carry kWh, cost, tariff and price.
+- **Tables:** `trips.ownList` and `energy.sessionsList` are JSON arrays (last 20) for table widgets (e.g. vis-inventwo table, Jarvis, or ECharts dataset). Trip entries carry start/end, distance, duration, energy, consumption and cost; sessions carry kWh, cost, tariff and price. `energy.monthByTariff` gives the current month per provider as JSON object.
 - **History:** log `status.batteryLevel`, `all.chargePower`, `status.isCharging`, `status.pluggedIn` (already history-enabled on typical installs) for charge curves; `status.batterySoh` appears once the API delivers a plausible value (0 = unsupported, shown as empty).
 - **CSV export:** the APK page (“6. Download logbook CSV”) downloads `zeekr-trips.csv` + `zeekr-sessions.csv` for spreadsheets — same content as the JSON lists, semicolon-separated.
 
@@ -244,7 +244,15 @@ Tariffs in the `tariffsJson` config decide the price per session by **location a
 
 Entries without location match everywhere; entries without `from`/`to` match any time. Without a match the default price applies. Set `batteryCapacityKwh` (default 100) and `chargingEfficiencyPct` (default 88) for correct loss math.
 
-For one-off roaming prices, write `energy.nextSessionPrice` (€/kWh) and optionally `energy.nextSessionName` before/during the charge (VIS, script or Admin): the next settle uses the override instead of geo tariff/default and resets both states afterwards. The used price is stored per session in `lastSession`/`sessionsList`.
+For one-off roaming prices, write `energy.nextSessionPrice` (€/kWh) and optionally `energy.nextSessionName` before/during the charge (VIS, script or Admin): the next settle uses the override instead of geo tariff/default and resets all three override states (`nextSessionPrice`, `nextSessionName`, `nextSessionKwh`) afterwards. The used price is stored per session in `lastSession`/`sessionsList`.
+
+Measured beats estimated: if you read the metered kWh off a public charger display (or the invoice later), write it to `energy.nextSessionKwh` — the settle uses it as charger energy instead of the reconstructed value (losses are recomputed from the stored battery gain when available). Without it the adapter integrates charge power over polls, or falls back to SoC gain ÷ efficiency.
+
+Corrections after the fact (the normal case on the road — ioBroker isn't available at the charger, and public chargers often bill later via app invoice): write the invoice values to `energy.editSessionKwh` / `energy.editSessionPrice` / `energy.editSessionCost` (invoice total wins and derives the unit price) / `energy.editSessionTariff` — the adapter applies them to the last session and recalculates history, day and (current-)month totals, then resets the edit states. Sessions from closed months update history only.
+
+`energy.monthByTariff` breaks the current month down per tariff/provider (`{"EnBW": {"kWh": …, "cost": …}}`) — the roaming overview without spreadsheet.
+
+Robustness rules: a session settles only after two consecutive idle polls (grace against single stale polls splitting one charge into fragments) and only while plugged in — SoC jumps without a cable never become sessions. Fragments less than 15 minutes apart merge back into one session record (totals stay exact). Month totals reset automatically when the calendar month flips.
 
 `isHome` reflects the configured home zone. With `smartChargeEnabled` and a departure time, the adapter starts/pauses charging via `RCS` so the car charges in the cheapest matching window before departure (`smartCharge.state` shows `charge`/`wait`/`idle`).
 
@@ -366,6 +374,22 @@ Unofficial community project. Not affiliated with Zeekr or Geely.
 - [wysie](https://github.com/wysie) for the [Zeekr key extractor](https://github.com/wysie/zeekr_key_extractor)
 
 ## Changelog
+
+### 0.1.83
+
+- Month totals also heal when day history already holds charges but month states read 0 (update path from versions with per-poll resets)
+
+### 0.1.82
+
+- Fix: charge sessions merge only with forward time gaps (no merging of out-of-order records)
+
+### 0.1.81
+
+- Month totals backfill from day history on updates (consistent month/session/day figures); aggregate states refresh in the same poll instead of the next one
+
+### 0.1.80
+
+- Charge statistics hardened: session/month states are created once and never rewritten per poll (no more resets to 0, user price overrides survive); sessions settle only after two idle polls and only while plugged in (no phantom sessions from SoC noise); fragments under 15 min merge into one session; month totals reset on calendar rollover
 
 ### 0.1.79
 

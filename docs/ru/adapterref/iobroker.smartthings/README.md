@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: wJZRoVU4WUt58hQdpwss4fwBwaCUpLYH7t4QlUytQ0Q=
+hash: MceHkl9YGBMfYtXEaFXteax10k/nkpRnD6jR9Bn/rm8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -28,6 +28,12 @@ hash: wJZRoVU4WUt58hQdpwss4fwBwaCUpLYH7t4QlUytQ0Q=
 ## Контроль
 
 Для параметра smartthings.0.id.capabilities либо установите значение true, либо задайте предопределенное значение.
+
+## Компактный режим
+
+Включите **компактный режим** в настройках адаптера, чтобы пропускать пустые значения состояния. `null`, `undefined` (пустые строки, пустые объекты и пустые массивы). Значения, такие как `0` и `false` сохраняются.
+
+Если ранее осмысленное значение становится пустым, оно записывается один раз, чтобы очистить существующее состояние ioBroker, а не сделать его устаревшим. Компактный режим влияет на недавно обработанные полезные нагрузки; он не удаляет автоматически объекты, созданные до включения этой опции.
 
 ## Обсуждение и вопросы:
 

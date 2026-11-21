@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.teslafi/README.md
 title: ioBroker.teslafi
-hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
+hash: zZ8jXiqQ2D7rCBec/vRim2x0l9kXwfKBRQYlqPEnnHw=
 ---
 ![Logo](../../../en/adapterref/iobroker.teslafi/admin/teslafi.png)
 
@@ -62,6 +62,45 @@ Die Konfiguration des Adapters ist unkompliziert:
 
 1. Geben Sie Ihren TeslaFi-API-Schlüssel im Konfigurationsbildschirm des Adapters ein.
 2. Legen Sie das gewünschte Abfrageintervall fest, um anzupassen, wie häufig die Daten aktualisiert werden.
+3. Aktivieren Sie optional **die Option „TeslaFi-Codierung für Datenanfragen verwenden“ (encoding=1)** , falls Ihr Fahrzeugname Sonderzeichen enthält. Dadurch werden zusätzliche Funktionen hinzugefügt. `encoding=1` Die Option betrifft ausschließlich Datenanfragen; Fahrzeugbefehle bleiben unverändert. Sie ist standardmäßig deaktiviert, auch für bestehende Installationen. Antworten werden weiterhin ohne zusätzliche Dekodierung als JSON interpretiert. Ob der Parameter ein bestimmtes Namensproblem behebt, muss mit TeslaFi überprüft werden, sowohl mit deaktivierter als auch mit aktivierter Option.
+
+## Geofencing (Anwesenheit / Betreten / Verlassen)
+
+Der Adapter kann den von TeslaFi markierten Standort aktivieren (`vehicle-state.location`) in zuverlässige Anwesenheitsereignisse umgewandelt – beispielsweise, um das Garagentor nur dann zu öffnen, wenn das Auto tatsächlich nach Hause kommt. Die Zuordnung erfolgt anhand des exakten Standortnamens (wie in TeslaFi getaggt), sodass keine GPS-Entfernungsberechnung erforderlich ist.
+
+Konfigurieren Sie Ihre Geofences im Tab **„Geofence“** . Jede Zeile enthält:
+
+| Spalte                                       | Bedeutung                                                                                                                                                              |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name des TeslaFi-Standorts**               | Genauer Tag-Name von TeslaFi (z. B. `Home`)                                                                                                                            |
+| **Min. entfernt (Minuten)**                  | Das Auto muss mindestens so lange weg gewesen sein, bevor ein `enter` Das Ereignis kann ausgelöst werden (blockiert kurzzeitige Neupositionierung)                      |
+| **Bewegung erforderlich**                    | Nur Feuer `enter` wenn sich das Auto tatsächlich bewegt hat, während es weg war                                                                                         |
+| **Bewegungsgeschwindigkeitsschwelle (km/h)** | Geschwindigkeit, die als Bewegung zählt                                                                                                                                |
+| **Debounce (Umfragen)**                      | Anzahl aufeinanderfolgender Wahlen, die eine Änderung vor dem Erreichen eines bestimmten Alters bestehen bleiben muss `enter` /`leave` Brände (Schutz vor GPS-Flimmern) |
+
+Für jeden konfigurierten Standort erstellt der Adapter Folgendes:
+
+- `geofence.current` – der aktuell markierte Ort
+- `geofence.<Location>.present` – Anwesenheit bestätigt (boolesch)
+- `geofence.<Location>.enter` – Impulse `true` für eine einzelne Umfrage zu einer gefilterten Ankunft
+- `geofence.<Location>.leave` – Impulse `true` für eine einzelne Umfrage zum Thema Abreise
+- `geofence.<Location>.awaySince` – Zeitstempel (ms) seit Abfahrt des Wagens; `0` während der Anwesenheit
+
+`<Location>` wird der Name des TeslaFi-Standorts durch Zeichen ersetzt, die in ioBroker-Objekt-IDs nicht zulässig sind. `_` Zum Beispiel ein Ort mit dem Tag `My Home` Ergebnisse in den Staaten `geofence.My_Home.*` Die
+
+NEIN `enter` Das Ereignis wird beim Start des Adapters ausgelöst, GPS-Schwankungen im geparkten Zustand hingegen nicht.
+
+### Beispiel: Öffnen Sie die Garage bei der Heimkehr
+
+Löse eine JavaScript/Blockly-Regel bei steigender Flanke aus `teslafi.0.geofence.Home.enter`:
+
+```javascript
+on({ id: "teslafi.0.geofence.Home.enter", val: true, ack: true }, () => {
+	setState("zigbee.0.garage_door.open", true);
+});
+```
+
+Mit `minAwayMinutes: 10`, `requireMotion: true` Und `debouncePolls: 2` Dies wird genau einmal ausgelöst, wenn das Auto nach einer tatsächlichen Fahrt nach Hause zurückkehrt, wobei kurze Positionsänderungen in der Nähe des Hauses, GPS-Schwankungen und Neustarts des Adapters ignoriert werden.
 
 ## Kompatibilität
 
@@ -81,6 +120,22 @@ Der TeslaFi-Adapter wird aktiv weiterentwickelt, und auf Wunsch der Nutzer könn
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.1 (2026-11-11)
+
+- (HombachC) added optional TeslaFi encoding for data requests (#45)
+- (hombach) updated ioBroker/testing
+- (hombach) updated dependencies
+- (hombach) updated axios
+
+### 3.1.0 (2026-10-11)
+
+- (hombach) added geofence presence/enter/leave with away- and motion-gates (#325)
+- (hombach) fixed speed unit: `vehicle-state.speed` is now labeled mph and a new `vehicle-state.speed_km` (km/h) was added
+- (hombach) geofence: harden against invalid config values, non-numeric speed and colliding/duplicate location names
+- (hombach) speed unit label is now also corrected on existing installations
+- (hombach) switch to iobroker testing 6.x
+- (hombach) updated dependencies
+
 ### 3.0.4 (2026-08-10)
 
 - (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
@@ -94,19 +149,6 @@ Der TeslaFi-Adapter wird aktiv weiterentwickelt, und auf Wunsch der Nutzer könn
 ### 3.0.2 (2026-06-19)
 
 - (hombach) fixed warnings by adapter checker
-
-### 3.0.1 (2026-06-05)
-
-- (hombach) upgraded TypeScript to 6.x
-- (hombach) fixed warnings by adapter checker
-- (hombach) updated dependencies
-
-### 3.0.0 (2026-05-05)
-
-- (copilot) BREAKING: adapter requires node.js >= 22 now
-- (hombach) update dependencies
-
-[Older changelogs can be found there](https://github.com/Hombach/ioBroker.teslafi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

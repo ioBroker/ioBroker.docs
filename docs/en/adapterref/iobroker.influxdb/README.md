@@ -308,13 +308,16 @@ SELECT mean("value") FROM "system.adapter.admin.0.memRss" WHERE $timeFilter GROU
 
 Most of these values can be pre-defined in the instance settings and are then pre-filled or used for the datapoint.
 
+## Messages for scripts and AI agents
+`sendTo('influxdb.0', 'help', {})` answers `{help, commands}`: a description of all messages and of the measurement layout for AI agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands with `write: true` for the ones that change something.
+
 ## Access values from Javascript adapter
 The sorted values can be accessed from Javascript adapter.
 
-* Get 50 last stored events for all IDs
+* Get the 50 last stored values of "system.adapter.admin.0.memRss" (InfluxDB keeps one measurement per state, so `id: '*'` for all IDs is not supported and answers an error)
 ```javascript
 sendTo('influxdb.0', 'getHistory', {
-    id: '*',
+    id: 'system.adapter.admin.0.memRss',
     options: {
         end:       Date.now(),
         count:     50,
@@ -503,7 +506,7 @@ Additionally, you can add attribute `rules: true` in a message to activate all r
 In case of errors, an array with all single error messages is returned and also a successCount to see how many entries were stored successfully.
 
 ## delete state
-If you want to delete entry from the Database, you can use the build in system function `delete`:
+If you want to delete entry from the Database, you can use the build in system function `delete`. It deletes the values with exactly the given `ts`:
 
 ```javascript
 sendTo('influxdb.0', 'delete', [
@@ -511,6 +514,8 @@ sendTo('influxdb.0', 'delete', [
     {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}}
 ], result => console.log('deleted'));
 ```
+
+A single entry can be sent without the list (`{id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}}` or `{id: 'mbus.0.counter.xxx', ts: 1589458809352}`), several values of one data point as `{id: 'mbus.0.counter.xxx', ts: [1589458809352, 1589458809353]}`.
 
 To delete ALL history data for some data point execute:
 
@@ -530,9 +535,15 @@ sendTo('influxdb.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ``` 
 
-Time could be ms since epoch or ans string, that could be converted by javascript Date object.
+A single range can be sent without the list: `{id: 'mbus.0.counter.xxx', start: 1589458809352, end: 1589458809353}`. `start` is required, `end` is optional and defaults to now.
+
+Time could be ms since epoch or a string, that could be converted by javascript Date object. `0` is a valid time.
 
 Values will be deleted including defined limits. `ts >= start AND ts <= end`
+
+Every entry needs a valid `ts` (one value) or a valid `start` (a range; `end` alone is not accepted). If one entry has neither, the adapter answers with `{success: false, error}` naming it and deletes nothing, not even the valid entries of the same message. To delete all values of a data point, use `deleteAll`.
+
+InfluxDB 3 can only delete whole data points: there `delete` and `deleteRange` answer with an error, only `deleteAll` works.
 
 ## change state
 If you want to change entry's value, quality or acknowledge flag in the database, you can use the build in system function `update`:
@@ -729,7 +740,16 @@ sendTo('influxdb.0', 'cleanupOrphaned', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.3.0 (2026-11-04)
+### **WORK IN PROGRESS**
+* (GermanBluefox) Fixed: `getHistory` with `id: '*'` (or without ID) answers an error instead of an empty result. InfluxDB keeps one measurement per state and cannot read all states at once; the example in this README that used `'*'` reads one state now
+* (GermanBluefox) Fixed: `getHistory` with an aggregate (e.g. average) and without `start` answers instead of failing with "Invalid time value" (the step was NaN). Like the sql and history adapters, it takes the newest `count` values and builds the intervals from them. An unparsable `start` or `end` is refused with "is not a valid date", a time stamp as text ("1700000000000") is accepted
+
+### 5.4.0 (2026-11-19)
+* (GermanBluefox) Fixed: `delete` / `deleteRange` without a valid `ts` or range no longer deletes all values of the state. A single `{id, state: {start, end}}`, a state without `ts` or with `ts: 0` deleted everything (InfluxDB 1.x since 2000, 2.x since 1970, 3.x the whole table), an unparsable `start` everything up to `end`. Such a message is refused now with an error and nothing is deleted; `{id, state: {start, end}}` and `{id, start, end}` delete the range, `ts: 0` the value at 0
+* (GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 5.3.1 (2026-11-17)
+* (GermanBluefox) Fixed: timed relog leaked timers and wrote the skipped value multiple times when a state was set twice in quick succession (#595)
 * (GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range
 - (copilot) Adapter requires node.js >= 22.19.0 now
 * (GermanBluefox) InfluxDB 2.x: the `query` command with several Flux queries separated by `;` works again. Since 5.0 the queries were sent as one broken statement and InfluxDB answered with "invalid statement: ,". When one of several queries fails, the error names the failing query (#580)
@@ -744,9 +764,6 @@ sendTo('influxdb.0', 'cleanupOrphaned', {
 
 ### 5.2.0 (2026-10-24)
 * (GermanBluefox) The cleanup dialog of the statistics tab has checkboxes, so only the selected datapoints are deleted (#565)
-
-### 5.1.8 (2026-10-23)
-* (@GermanBluefox) The timed relog (`changesRelogInterval`) starts right after the adapter start or a change of the datapoint settings, not only with the first update of the state
 
 ## License
 

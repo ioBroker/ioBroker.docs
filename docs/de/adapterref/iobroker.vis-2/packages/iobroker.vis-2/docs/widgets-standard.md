@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md":{"title":{"en":"ioBroker web components in vis-2 (preview)"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md
 title: Standard-Widgets
-hash: QhcJMUICDsS+p+lvKL/Z6m4Z/G7SDHfYrKH0VbNtJoI=
+hash: 6QVcGMPLXN0xOLFLkBx1WVKHfd8UFq2nE4cz5z3XPdU=
 ---
 # Standard-Widgets
 
@@ -13,9 +13,9 @@ Zwei Widget-Sets werden mit vis-2 für die Geräte eines Hauses geliefert:
 | Satz         | Wozu dient es?                                                                                                                |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | **relativ**  | Karten für eine Seite mit Abschnitten – jedes Widget füllt ganze Zellen eines Rasters und passt sich der Bildschirmbreite an. |
-| **Absolute** | Markierungen für einen Grundriss – jedes Widget ist eine Münze oder eine Kapsel an der Stelle, an die es gezogen wurde.       |
+| **Absolute** | Markierungen für einen Grundriss – jedes Element ist eine Münze oder eine Kapsel an der Stelle, an die es gezogen wurde.      |
 
-Es handelt sich in beiden Fällen um dieselben siebenundzwanzig Geräte. Ein Gerät wird im Quelltext einmal beschrieben (`src-vis/src/Vis/Widgets/Standard/devices/`) und erscheint zweimal, also ist ein Thermostat derselbe Thermostat auf einem Tablet im Flur und auf dem Grundriss des Erdgeschosses: dieselben Zustände, dieselben Attribute, dieselben Wörter, zwei Formen.
+Es handelt sich in beiden Fällen um dieselben neunundzwanzig Geräte. Ein Gerät wird im Quellcode einmal beschrieben (`src-vis/src/Vis/Widgets/Standard/devices/`) und erscheint zweimal, also ist ein Thermostat derselbe Thermostat auf einem Tablet im Flur und auf dem Grundriss des Erdgeschosses: dieselben Zustände, dieselben Attribute, dieselben Wörter, zwei Formen.
 
 Die folgenden Bilder zeigen die Laufzeitumgebung im dunklen Design. Die Systemsprache des ioBrokers, aus dem sie stammen, ist Deutsch, daher sprechen die Widgets Deutsch; jedes Wort wird in elf Sprachen übersetzt und entspricht der Installationssprache.
 
@@ -27,8 +27,10 @@ Die folgenden Bilder zeigen die Laufzeitumgebung im dunklen Design. Die Systemsp
 - [Messwert](#measured-value)
 - [Eingang](#input)
 - [Füllstand](#fill-level)
+- [Energiefluss](#energy-flow)
 - [Sensor](#sensor)
 - [Fenster oder Tür](#window-or-door)
+- [Statusanzahl](#status-count)
 - [Wetter](#weather)
 - [Alarmanlage](#alarm-system)
 - [Blind](#blind)
@@ -62,12 +64,19 @@ Der Pegel wird als Höhe und nicht als Zahl abgelesen, daher stehen die Markieru
 
 Neben seinen eigenen Zuständen enthält jedes Widget beider Mengen folgende Informationen:
 
-| Attribut      | Nimmt            | Was es tut                                                                                               |
-| ------------- | ---------------- | -------------------------------------------------------------------------------------------------------- |
-| `layout`      | wählen           | Layout —`default` Name oben, Wert unten, `compact` Eine Reihe, `card` Farbige Kachel (Standard) `default`) |
-| `widgetTitle` | Text             | Name                                                                                                     |
-| `icon`        | Symbol           | Symbol                                                                                                   |
-| `noCard`      | Kontrollkästchen | Ohne Rahmen                                                                                              |
+| Attribut      | Nimmt            | Was es tut                                                                                                                                                 |
+| ------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `layout`      | wählen           | Layout —`default` Name oben, Wert unten, `compact` Eine Reihe, `card` Farbige Kachel (Standard) `default`)                                                   |
+| `widgetTitle` | Text             | Name                                                                                                                                                       |
+| `icon`        | Symbol           | Symbol                                                                                                                                                     |
+| `iconSize`    | Text             | Größe des Symbols: Eine Zahl in Pixeln, `60%` einen Anteil – der kürzeren Seite der Karte, des Markers, für das Foto einer Person des Zimmers, das Foto hat |
+| `noCard`      | Kontrollkästchen | Ohne Rahmen                                                                                                                                                |
+| `header`      | wählen           | Kopfzeile —`full` Symbol und Name, `name` Nur der Name, `icon` Nur das Symbol, `none` Nichts (Standardeinstellung) `full` (Nur relative Werte)                 |
+| `valueSize`   | Nummer           | Größe des Wertes in Pixeln; leerer Wert entspricht der Größe der Menge (nur relativ zur Menge).                                                            |
+
+Was die Kopfzeile auslässt, schafft Platz für den Inhalt: Ohne den Namen rückt das Symbol vor den Wert und die Zeile nach oben, sodass eine Kachel eine Zeile hoch weiterhin Symbol, Wert und Schalter anzeigt; ohne Name und Symbol beginnt der Inhalt am oberen Rand. Über einer Zeichnung – beispielsweise einer Jalousie oder einem Drehknopf – behält das Symbol eine eigene Zeile. Der Name kann weiterhin festgelegt werden: Er wird sowohl im Diagramm der Karte als auch im Editor verwendet. `name` Lediglich das Symbol wird weggelassen, bei einer Karte, deren Bild bereits alles sagt, was sie darstellt.
+
+Ist ein Name zu lang für eine Zeile, wird eine zweite Zeile hinzugefügt und danach abgeschnitten; der vollständige Name steht im Tooltip.
 
 Die Werte von `layout` Die Mengen unterscheiden sich, weil die Formen unterschiedlich sind:
 
@@ -292,6 +301,26 @@ Eine Zisterne, ein Öltank, ein Pelletlager, eine Batterie: eine Messlatte mit e
 
 Der Assistent wählt dieses Widget für die Gerätetypen aus `fillLevel` Die
 
+## Energiefluss
+
+`tplRelEnergyFlow` ( _relativ_ setzen) ·`tplAbsEnergyFlow` ( _absolut_ festlegen) · Standardkachel 6 Spalten × 4 Zeilen
+
+Woher der Strom des Hauses kommt und wohin er fließt: von den Solarmodulen über das Stromnetz und die Batterie bis hin zum Haus selbst. Die Verbindungen zwischen diesen Elementen werden durch bewegliche Punkte visualisiert – je mehr Strom, desto schneller. Drei Zustände genügen: die von den Solarmodulen erzeugte Energie, die vom Stromzähler eingespeiste Energie und die in der Batterie gespeicherte Energie. Die Energieflüsse zwischen den Elementen werden wie bei Wechselrichter-Apps berechnet (Sonnenenergie zuerst ins Haus, dann in die Batterie, Rest ins Netz). Auch der Stromverbrauch des Hauses wird so berechnet, sofern kein anderer Zustand angegeben ist. Der farbige Ring des Hauses zeigt die jeweiligen Energiequellen an.
+
+Ein Kreis, dessen Zustand nicht angegeben ist, wird mit seinen Linien weggelassen. Ein Zustand in kW wird als kW gelesen – die Einheit des Objekts ist entscheidend – und ein Zähler oder eine Batterie, die in umgekehrter Richtung zählt, wird entsprechend markiert.
+
+| Attribut          | Nimmt            | Was es tut                                                                      |
+| ----------------- | ---------------- | ------------------------------------------------------------------------------- |
+| `oidSolar`        | Zustand          | Solarenergie                                                                    |
+| `oidGrid`         | Zustand          | Netzstrom – positiver Pluspol wird gekauft, negativer Minuspol wird eingespeist |
+| `gridInverted`    | Kontrollkästchen | Zählt in die andere Richtung                                                    |
+| `oidBattery`      | Zustand          | Batteriestrom – Pluspol wird abgeklemmt, Minuspol wird geladen                  |
+| `batteryInverted` | Kontrollkästchen | Zählt in die andere Richtung                                                    |
+| `oidBatterySoc`   | Zustand          | Akkuladung (%)                                                                  |
+| `oidHome`         | Zustand          | Haushaltsverbrauch; leerer Haushalt funktioniert.                               |
+
+`compact`, `card` und der Marker des Sets _zeigt_ an, was das Haus verwendet; der Marker öffnet die Karte mit einem Klick.
+
 ## Sensor
 
 `tplRelSensor` ( _relativ_ setzen) ·`tplAbsSensor` ( _absolut_ festlegen) · Standardkachel 6 Spalten × 2 Zeilen
@@ -300,18 +329,21 @@ Der Assistent wählt dieses Widget für die Gerätetypen aus `fillLevel` Die
 
 Ein Zustand, der immer nur eines von zwei Dingen sein kann: ein Fenster, eine Tür, Bewegung, Rauch, Wasser. Sagt man ihm, was er beobachtet, findet er sein Symbol und seine Worte; kennzeichnet man ihn als Alarm, leuchtet er rot auf, wenn er auslöst.
 
-| Attribut   | Nimmt            | Was es tut                                                                                                                                                                           |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `oid`      | Zustand          | Objekt-ID                                                                                                                                                                            |
-| `kind`     | wählen           | Was es überwacht —`contact` Kontakt, `window` Fenster, `door` Tür, `motion` Bewegung, `smoke` Rauch oder Feuer, `water` Wasser, `light` Licht, `generic` Alles andere (Standard) `contact`) |
-| `alarm`    | Kontrollkästchen | Als Alarm behandeln                                                                                                                                                                  |
-| `inverted` | Kontrollkästchen | Umgekehrt                                                                                                                                                                            |
-| `textOn`   | Text             | Das Wort ist zwar wahr                                                                                                                                                               |
-| `textOff`  | Text             | Wort während falsch                                                                                                                                                                  |
-| `iconOn`   | Symbol           | Symbol, wenn aktiv                                                                                                                                                                   |
-| `iconOff`  | Symbol           | Symbol im inaktiven Zustand                                                                                                                                                          |
-| `colorOn`  | Farbe            | Farbe bei Aktivität                                                                                                                                                                  |
-| `colorOff` | Farbe            | Farbe im inaktiven Zustand                                                                                                                                                           |
+| Attribut    | Nimmt            | Was es tut                                                                                                                                                                                                         |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `oid`       | Zustand          | Objekt-ID                                                                                                                                                                                                          |
+| `kind`      | wählen           | Was es überwacht —`contact` Kontakt, `window` Fenster, `door` Tür, `motion` Bewegung, `smoke` Rauch oder Feuer, `water` Wasser, `light` Licht, `person` Person (Anwesenheit), `generic` Alles andere (Standard) `contact`) |
+| `iconPhoto` | Bild             | Foto (nur mit `kind` =`person`)                                                                                                                                                                                    |
+| `alarm`     | Kontrollkästchen | Als Alarm behandeln                                                                                                                                                                                                |
+| `inverted`  | Kontrollkästchen | Umgekehrt                                                                                                                                                                                                          |
+| `textOn`    | Text             | Das Wort ist zwar wahr                                                                                                                                                                                             |
+| `textOff`   | Text             | Wort während falsch                                                                                                                                                                                                |
+| `iconOn`    | Symbol           | Symbol, wenn aktiv                                                                                                                                                                                                 |
+| `iconOff`   | Symbol           | Symbol im inaktiven Zustand                                                                                                                                                                                        |
+| `colorOn`   | Farbe            | Farbe bei Aktivität                                                                                                                                                                                                |
+| `colorOff`  | Farbe            | Farbe im inaktiven Zustand                                                                                                                                                                                         |
+
+Mit `kind` =`person` Der Sensor ist die Anwesenheitserkennung: das Foto der Person in einem großen Kreis, in Farbe, wenn sie zu Hause ist, und in Graustufen, wenn sie abwesend ist. Ohne Foto wird das eigene Symbol des Widgets angezeigt (`iconOn` /`iconOff`) steht im Kreis, und außerhalb davon die Initialen des Namens. Eine schmale Karte zeigt den Kreis zwischen dem Namen und dem Wert; eine Karte, die mindestens anderthalbmal so breit wie hoch ist, zeigt ihn daneben, über ihre gesamte Höhe. `compact` Und `card`, die keinen Körper haben, zeigen ihn anstelle des Symbols an, und ein Kennzeichen des _absoluten_ Satzes ist das Gesicht selbst. `iconSize` verkleinert den Kreis: in Pixeln bis zur Größe des Raumes, wobei % den Anteil dieses Raumes angibt.
 
 Der Assistent wählt dieses Widget für die Gerätetypen aus `window`, `windowTilt`, `door`, `motion`, `fireAlarm`, `floodAlarm`, `coAlarm`, `contact`, `buttonSensor` Die
 
@@ -332,6 +364,29 @@ Ein Fenster oder eine Tür, die als Einheit gezeichnet ist: geschlossen, gekippt
 | `inverted`  | Kontrollkästchen | Umgekehrt                                                          |
 
 Der Assistent wählt dieses Widget für die Gerätetypen aus `window`, `windowTilt`, `door` Die
+
+## Statusanzahl
+
+`tplRelCount` ( _relativ_ setzen) ·`tplAbsCount` ( _absolut_ festlegen) · Standardkachel 6 Spalten × 3 Zeilen
+
+Wie viele Zustände einer Gruppe sind aktiv und welche: _3 Fenster geöffnet_ , _2 Lichter an_ , _1 Batterie schwach_ ? Der Satz enthält die Anzahl, ein weiterer Satz für „keiner“, eine Farbe, wenn einige aktiv sind, und die Namen der aktiven Zustände als kleine Symbole darunter. Ein Zustand zählt als aktiv, wenn er `true`, eine andere Zahl als 0 oder ein anderer Text als `false`, `off` oder `closed` - also ein Fenstergriff mit 0, 1 und 2 Zählwerten, der sich gleichermaßen neigt und öffnet.
+
+| Attribut     | Nimmt            | Was es tut                                                                                                |
+| ------------ | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| `states`     | Nummer           | Staaten (Standard) `3`)                                                                                   |
+| `countText`  | Text             | Text —`%s` steht für die Zahl: `%s windows open`                                                          |
+| `zeroText`   | Text             | Text für "keinen Text", wie `All windows closed`; leer zeigt 0 an                                         |
+| `countColor` | Farbe            | Farbe, während einige eingeschaltet sind (Standardgelb)                                                   |
+| `alarm`      | Kontrollkästchen | Als Alarm behandeln – rot, solange einige eingeschaltet sind; `card` Layout und Markierung sind ausgefüllt |
+| `showList`   | Kontrollkästchen | Namen anzeigen (Standard) `true`)                                                                         |
+
+**Gezählte Zustände** – diese Felder existieren einmal pro Zeile und sind nummeriert: `oidCount1`, `oidCount2`, …
+
+| Attribut        | Nimmt            | Was es tut                                      |
+| --------------- | ---------------- | ----------------------------------------------- |
+| `oidCount`      | Zustand          | Objekt-ID; der Name wird vom Objekt übernommen. |
+| `countName`     | Text             | Name                                            |
+| `countInverted` | Kontrollkästchen | Umgekehrt                                       |
 
 ## Wetter
 
@@ -378,16 +433,19 @@ Der Assistent wählt dieses Widget für die Gerätetypen aus `weatherCurrent`, `
 
 Scharfgeschaltet, unscharfgeschaltet oder Alarm ausgelöst – das sind die drei Zustände, nicht mehr und nicht weniger. Was die Scharfschaltung bedeutet (alle sind draußen oder jemand schläft oben), ist systemabhängig: Wo es in der Beschreibung steht, werden diese als Schaltflächen auf der Karte angezeigt; wo nicht, werden die mitgelieferten Schaltflächen verwendet. Wie beim Schloss fragt es standardmäßig nach beiden Eingabemethoden, und eine PIN kann festgelegt werden. Ein Haus per Tablet im Flur zu entschärfen, ist genau die Aktion, die einen kosten sollte.
 
-| Attribut     | Nimmt            | Was es tut            |
-| ------------ | ---------------- | --------------------- |
-| `oid`        | Zustand          | Bewaffnet             |
-| `oidAlarm`   | Zustand          | Abschalten            |
-| `oidArmAway` | Zustand          | Arm — alle raus       |
-| `oidArmHome` | Zustand          | Arm — jemand zu Hause |
-| `oidDisarm`  | Zustand          | Entwaffnen            |
-| `oidDelay`   | Zustand          | Arm mit Verzögerung   |
-| `inverted`   | Kontrollkästchen | Umgekehrt             |
-| `zones`      | Nummer           | Zonen (Standard) `0`) |
+| Attribut      | Nimmt            | Was es tut                                |
+| ------------- | ---------------- | ----------------------------------------- |
+| `oid`         | Zustand          | Bewaffnet                                 |
+| `oidAlarm`    | Zustand          | Abschalten                                |
+| `oidArmAway`  | Zustand          | Arm — alle raus                           |
+| `oidArmHome`  | Zustand          | Arm — jemand zu Hause                     |
+| `oidDisarm`   | Zustand          | Entwaffnen                                |
+| `oidDelay`    | Zustand          | Arm mit Verzögerung                       |
+| `inverted`    | Kontrollkästchen | Umgekehrt                                 |
+| `zones`       | Nummer           | Zonen (Standard) `0`)                     |
+| `zoneOpen`    | Kontrollkästchen | Zonen sind Kontakte (offen / geschlossen) |
+| `zoneOnText`  | Text             | Text einer Zone, die sich auf             |
+| `zoneOffText` | Text             | Text einer Zone, die ausgeschaltet ist    |
 
 **Zonen** – diese Felder existieren einmal pro Zeile und sind nummeriert: `oidZone1`, `oidZone2`, …
 
@@ -395,6 +453,8 @@ Scharfgeschaltet, unscharfgeschaltet oder Alarm ausgelöst – das sind die drei
 | ---------- | ------- | ------------- |
 | `oidZone`  | Zustand | Zone          |
 | `zoneName` | Text    | Name der Zone |
+
+Eine Zone zeigt ihren Namen über die gesamte Breite ihrer Kachel an, gegebenenfalls in zwei Zeilen, und darunter ihre Funktion. Die Anzeige erfolgt in dieser Reihenfolge: `zoneOnText` /`zoneOffText`, das Wort, das das Zustandsobjekt für den Wert hat, und ansonsten ein und aus. Mit `zoneOpen` Eine Zone ist wie ein Fenster oder eine Tür: Es wird angezeigt, ob sie offen oder geschlossen ist, und eine offene Zone ist gelb statt grün.
 
 ## Blind
 
@@ -588,30 +648,39 @@ Mehrere Zustände auf einer Karte, jeweils in einer eigenen Zeile: Schalter, Sch
 
 Die Zeilen, die ein Status als JSON speichert: die nächsten Abfahrten, die offenen Alarme, die Geräte eines Gateways. Welche Spalten angezeigt werden, kann den Daten überlassen oder einzeln benannt werden, mit Überschrift, Breite, Ausrichtung und dem Text vor und hinter jeder Zelle.
 
-| Attribut         | Nimmt            | Was es tut                                      |
-| ---------------- | ---------------- | ----------------------------------------------- |
-| `oid`            | Zustand          | Staat mit den Zeilen                            |
-| `withHead`       | Kontrollkästchen | Überschriftenzeile (Standard) `true`)           |
-| `zebra`          | Kontrollkästchen | Jede zweite Zeile schattiert (Standard) `true`) |
-| `headColor`      | Farbe            | Farbe der Überschrift                           |
-| `headBackground` | Farbe            | Hintergrund der Überschrift                     |
-| `maxRows`        | Nummer           | Höchstens so viele Reihen                       |
-| `columns`        | Nummer           | Beschriebene Spalten (Standard) `3`)            |
+| Attribut         | Nimmt            | Was es tut                                                                                                                                |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `oid`            | Zustand          | Staat mit den Zeilen                                                                                                                      |
+| `withHead`       | Kontrollkästchen | Überschriftenzeile (Standard) `true`)                                                                                                     |
+| `zebra`          | Kontrollkästchen | Jede zweite Zeile schattiert (Standard) `true`)                                                                                           |
+| `headColor`      | Farbe            | Farbe der Überschrift                                                                                                                     |
+| `headBackground` | Farbe            | Hintergrund der Überschrift                                                                                                               |
+| `maxRows`        | Nummer           | Höchstens so viele Reihen                                                                                                                 |
+| `rowFilter`      | wählen           | Zeilen anzeigen —`""` Alle, `upcoming` Noch nicht vorbei. `today` Heute, `todayUpcoming` Rest des heutigen Tages (Standardeinstellung) `""`) |
+| `filterKey`      | Brauch           | Beginnen Sie mit den Daten.                                                                                                               |
+| `filterEndKey`   | Brauch           | Ende in den Daten                                                                                                                         |
+| `columns`        | Nummer           | Beschriebene Spalten (Standard) `3`)                                                                                                      |
 
 **Spalten** – diese Felder existieren einmal pro Zeile und sind nummeriert: `columnKey1`, `columnKey2`, …
 
-| Attribut           | Nimmt  | Was es tut                                                                     |
-| ------------------ | ------ | ------------------------------------------------------------------------------ |
-| `columnKey`        | Brauch | Geben Sie die Daten ein.                                                       |
-| `columnTitle`      | Text   | Überschrift                                                                    |
-| `columnAlign`      | wählen | Ausrichtung -`left` Links, `center` Zentriert, `right` Rechts (Standard) `left`) |
-| `columnWidth`      | Text   | Breite                                                                         |
-| `columnPrefix`     | Text   | vor dem Wert                                                                   |
-| `columnSuffix`     | Text   | Hinter dem Wert                                                                |
-| `columnWords`      | Text   | Ein Wort pro Wert                                                              |
-| `columnColor`      | Farbe  | Farbe                                                                          |
-| `columnBackground` | Farbe  | Hintergrund                                                                    |
-| `columnRules`      | Brauch | Farbe nach Wert                                                                |
+| Attribut           | Nimmt  | Was es tut                                                                                                                                                                                                                          |
+| ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `columnKey`        | Brauch | Geben Sie die Daten ein.                                                                                                                                                                                                            |
+| `columnTitle`      | Text   | Überschrift                                                                                                                                                                                                                         |
+| `columnAlign`      | wählen | Ausrichtung -`left` Links, `center` Zentriert, `right` Rechts (Standard) `left`)                                                                                                                                                      |
+| `columnWidth`      | Text   | Breite                                                                                                                                                                                                                              |
+| `columnPrefix`     | Text   | vor dem Wert                                                                                                                                                                                                                        |
+| `columnSuffix`     | Text   | Hinter dem Wert                                                                                                                                                                                                                     |
+| `columnFormat`     | wählen | Schreiben Sie als —`""` So wie es ist, `time` Zeit, `date` Datum, `dateShort` Tag und Monat, `datetime` Datum und Uhrzeit, `weekdayTime` Wochentag und Uhrzeit, `relative` Heute / morgen / Datum `custom` Eigenes Muster (Standard) `""`) |
+| `columnPattern`    | Text   | Muster (nur mit `columnFormat` =`custom`)                                                                                                                                                                                           |
+| `columnWords`      | Text   | Ein Wort pro Wert                                                                                                                                                                                                                   |
+| `columnColor`      | Farbe  | Farbe                                                                                                                                                                                                                               |
+| `columnBackground` | Farbe  | Hintergrund                                                                                                                                                                                                                         |
+| `columnRules`      | Brauch | Farbe nach Wert                                                                                                                                                                                                                     |
+
+Eine Spalte, die eine Zeitangabe enthält – als Text wie `2026-11-11T14:30:00` oder als Unix-Zeitangabe - kann als eine solche geschrieben werden: `columnFormat` bietet die üblichen Formulare an, `relative` sagt _heute 14:30 Uhr_ und _morgen 09:00 Uhr_ , und `custom` nimmt die Buchstaben einer Bindung (`YYYY`, `MM`, `DD`, `hh`, `mm`, `ss`) plus `WW` Und `W` für Wochentage, lange und kurze.
+
+`rowFilter` Es werden nur die Zeilen beibehalten, deren Zeitrahmen passt: was noch nicht beendet ist, was heute beginnt oder der Rest des Tages. Der Startzeitpunkt wird separat gesucht – zuerst eine Spalte mit einem Zeitformat, dann Namen wie …`start`, `time` oder `date` - Und `filterKey` /`filterEndKey` Benennen Sie die Stelle, an der die Vermutung falsch ist. Eine Zeile ohne Ende ist beendet, sobald sie beginnt; eine Zeile ohne Zeitangabe bleibt immer erhalten. Die Tabelle wird jede Minute aktualisiert, daher wird ein Termin nach seinem Ende aus der Liste entfernt.
 
 ## Diagramm
 
@@ -646,7 +715,7 @@ _Ziffern, mit dem Datum_
 
 _Hände_
 
-Das Einzige auf dem Armaturenbrett, das kein Gerät ist. Ein Tablet an der Wand dient fast den ganzen Tag als Uhr, und eines, dessen Datum man in der Ecke der Systemleiste ablesen muss, ist keine richtige Uhr. Ob mit Zeigern oder Ziffern, mit dem Datum darunter.
+Das einzige Element auf dem Armaturenbrett, das kein Gerät ist. Ein Tablet an der Wand dient den Großteil des Tages als Uhr, und eine, deren Datum man in der Ecke der Systemleiste ablesen muss, ist keine richtige Uhr. Ob mit Zeigern oder Ziffern, mit dem Datum darunter – die Karte selbst trägt kein Symbol. Ihr Zifferblatt zeigt an, was sie ist – es sei denn, eines ist unter „Einstellung“ festgelegt. `icon` Die
 
 | Attribut      | Nimmt            | Was es tut                                                               |
 | ------------- | ---------------- | ------------------------------------------------------------------------ |
@@ -714,7 +783,8 @@ Eine Webseite innerhalb eines Widgets: eine Kamera, eine Karte eines anderen Ada
 
 Ein Dashboard in einem Flur wird bei Tag und Nacht genutzt, und welches Design dafür verwendet werden soll, kann das Projekt nicht vorhersehen. Die Umschaltung ändert die Laufzeitumgebung selbst, sodass sich alle Karten, Markierungen und das Menü entsprechend anpassen. Die Auswahl wird im Browser gespeichert. Eine Ansicht, die immer im Dunkelmodus angezeigt werden soll, verwendet stattdessen ein bestimmtes Design, während eine Ansicht, die dem Rest des Geräts entsprechen soll, dem Browserdesign folgt.
 
-| Attribut    | Nimmt  | Was es tut                                                                                                                    |
-| ----------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `mode`      | wählen | Was es bewirkt —`toggle` Schalten, `fixed` Immer dieses Thema, `system` Folgen Sie dem Browser (Standardeinstellung). `toggle`) |
-| `themeName` | wählen | Thema —`light` Licht, `dark` Dunkel, `modernLight` Licht (neues Design), `modernDark` Dunkel (neues Design) (Standard) `dark`)   |
+| Attribut    | Nimmt            | Was es tut                                                                                                                    |
+| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `mode`      | wählen           | Was es bewirkt —`toggle` Schalten, `fixed` Immer dieses Thema, `system` Folgen Sie dem Browser (Standardeinstellung). `toggle`) |
+| `themeName` | wählen           | Thema —`light` Licht, `dark` Dunkel, `modernLight` Licht (neues Design), `modernDark` Dunkel (neues Design) (Standard) `dark`)   |
+| `hideText`  | Kontrollkästchen | Ohne die Bezeichnung Hell / Dunkel: nur das Symbol und der Schalter.                                                          |

@@ -77,7 +77,7 @@ at all — so the report is never delivered with empty boxes.
    **Administration → Settings** (default: punched break, otherwise the scale).
 4. Create a **terminal** — in the web app under **Administration → Terminals** (or by `POST /api/terminals`), leave
    PIN required switched on. Then open the kiosk view on the device: the administration shows the finished address
-   `http://<adapter host>:<port>/terminal?token=<device token>` for it (it shows the token **once**; the device
+   `http://<adapter host>:<port>/terminal/<device token>/` for it (it shows the token **once**; the device
    remembers it for the next start).
 5. Create the public holidays for the test year (setting _holiday country_), check the absence type _vacation_.
 

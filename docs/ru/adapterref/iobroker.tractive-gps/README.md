@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tractive-gps/README.md
 title: ioBroker.tractive-gps
-hash: bTTmA7oeSySy3XjvEFaVMS8Siwxzc1SWE8Nq/SKoQ0k=
+hash: O37JLij3jbKSsfnYq1P5RhILBkLgySzLOlHDgm7Gyxg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tractive-gps/admin/tractive-gps.png)
 
@@ -45,7 +45,7 @@ hash: bTTmA7oeSySy3XjvEFaVMS8Siwxzc1SWE8Nq/SKoQ0k=
 - Node.js 22.13 или более поздняя версия
 - js-controller 7.2.2 или новее
 - Администратор 7.8.23 или более поздняя версия
-- VIS 1 или VIS 2 версии 2.12.8 или новее, при использовании встроенного виджета.
+- VIS 1 или VIS 2 версии 2.20.x или новее, при использовании встроенного виджета.
 - Учетная запись Tractive, имеющая как минимум один связанный трекер.
 
 ## Функции
@@ -56,7 +56,7 @@ hash: bTTmA7oeSySy3XjvEFaVMS8Siwxzc1SWE8Nq/SKoQ0k=
 - Предоставляет информацию об уровне заряда батареи, состоянии зарядки и используемом источнике данных о положении батареи. `KNOWN_WIFI` /`GPS`), статус «дома/вне дома», состояние сети и режим энергосбережения.
 - Предоставляет информацию о модели, прошивке, версии оборудования, возможностях, поле, дате рождения, росте, весе и другие доступные данные.
 - Поддерживает отслеживание в реальном времени, управление светодиодами и звуковой сигналом, когда трекер сообщает о наличии соответствующей возможности.
-- Сохраняет все полученные данные об учетной записи, подписке, совместном использовании, питомце, трекере, местоположении и оборудовании в виде логического дерева локального состояния и в виде одного полного JSON-снимка.
+- Предоставляет выбранные полезные данные в структурированном дереве локального состояния и хранит все полученные данные об учетной записи, подписке, совместном использовании, питомце, трекере, местоположении и оборудовании в одном JSON-снимке, за исключением паролей для входа и токенов доступа.
 - Включает в себя интерактивные карточки для VIS 1 и VIS 2 с изображением питомца, интерактивной картой, отображением диапазона, статусом трекера и элементами управления.
 - Поддерживается использование изображения, предоставленного Tractive, или пользовательского изображения, загруженного в ioBroker.
 - Обнаруживает отсутствующие или устаревшие данные трекера без автоматического удаления существующих объектов.
@@ -147,7 +147,16 @@ tractive-gps.0
 
 ## Виджеты VIS
 
-В комплект адаптера входит классический `PetTrackerCard` для VIS 1 и нативного React `PetTrackerCard` Для VIS 2. Добавьте по одному виджету для каждого питомца или трекера и назначьте необходимые состояния в настройках виджета.
+В комплект адаптера входит классический `PetTrackerCard` для VIS 1 и нативного `PetTrackerCard` для VIS 2 (версия 2.15.2 или новее). Классический виджет VIS 1 остается доступным наряду с обновленным виджетом VIS 2.
+
+### Создайте карту
+
+1. Откройте редактор VIS и добавьте `PetTrackerCard` из набора виджетов Tractive GPS.
+2. Присвойте питомцу статус из `pets.<pet-id>` и соответствующие данные трекера получены из `trackers.<tracker-id>` Питомец `info.trackerId` определяет соответствующий трекер.
+3. Выберите изображение, параметры карты и состояния команд, как описано ниже.
+4. Сохраните представление и откройте режим выполнения, чтобы использовать параметры командной строки.
+
+Добавьте отдельную карточку для каждого питомца или трекера. Адаптивная карточка группирует информацию по разделам: местоположение, трекер и питомец. Карточка VIS 2 соответствует выбранной светлой или темной теме и ее акцентному цвету.
 
 На карте можно отобразить:
 
@@ -163,6 +172,8 @@ tractive-gps.0
 Для отображения изображения, относящегося к тяговому механизму, выберите... `pets.<pet-id>.media.localProfilePictureUrl` в качестве состояния изображения. Оно содержит URL-адрес копии, хранящейся в локальном файловом хранилище ioBroker. Если изображение не возвращается или его невозможно загрузить, выберите или загрузите собственное изображение в разделе **«Внешний вид** » виджета.
 
 Карта может автоматически подстраиваться под полный круг точности или дальности. В виджете можно настроить минимальный и максимальный масштаб, интерактивность, источник дальности и радиус вручную. При отображении карты загружаются фрагменты карты из OpenStreetMap.
+
+Расстояние — это расстояние по прямой до заданного местоположения ioBroker, а не расстояние, пройденное в течение дня. Показатель "дома/вне дома" определяется на основе данных о местоположении: `KNOWN_WIFI` означает известное местоположение сети Wi-Fi; `GPS` Отображается как "отсутствует". Это не отдельно подтвержденная домашняя геозона.
 
 Для использования командных переключателей назначьте соответствующие параметры. `trackers.<tracker-id>.commands.*` Состояния отображаются в разделе « **Команды»** виджета. Команды отключены во время редактирования представления VIS и активируются в режиме выполнения.
 
@@ -186,6 +197,7 @@ tractive-gps.0
 - **Адрес не отображается:** включите обратное геокодирование в конфигурации адаптера.
 - **Отсутствует команда:** Трекер не сообщил о требуемой возможности.
 - **Изображение питомца отсутствует:** Назначить `localProfilePictureUrl` к виджету или выберите собственное изображение.
+- **Виджет VIS 2 отсутствует или отображается пустым после обновления:** Убедитесь, что версия VIS 2 — 2.15.2 или новее. Перезапустите VIS 2 и перезагрузите браузер без кэша. Существующие настройки виджета не нужно создавать заново для этого обновления виджета.
 
 ## Документация для разработчиков
 
@@ -196,6 +208,21 @@ tractive-gps.0
 Первоначально создан [xXBJXx](https://github.com/xXBJXx) и поддерживается организацией ioBroker community adapters.
 
 ## Changelog
+### 4.0.1 (2026-11-05)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (mcm1957) The native VIS 2 widget requires VIS 2 >=2.20.x due to React 19/MUI 9 usage
+
+### 4.0.0 (2026-10-12)
+
+- (xXBJXx) BREAKING: the native VIS 2 widget now requires VIS 2 >=2.15.2 for React 19/MUI 9 support; backend-only and classic VIS 1 installations remain supported.
+- (xXBJXx) Kept the pet marker and accuracy circle visible when changing map zoom limits or interaction settings.
+- (xXBJXx) Updated the locked Moment dependency to 2.31.0 to fix the locale path-traversal vulnerability and added regression tests (GHSA-4p3w-j4w9-5jqw).
+- (xXBJXx) Updated the test dependencies and removed duplicate test packages while retaining the intentional development-server fork (#387; supersedes #379).
+- (xXBJXx) Aligned Admin and widget dependencies, superseding overlapping updates (#324, #346, #347, #349, #350, #351, #352, #361, #363, #365, #367, #369, #372, #373, #374, #376, #380, #382, #385, #386).
+- (xXBJXx) Kept VIS 2 optional for backend-only and VIS 1 installations and corrected the Ukrainian seconds translation (#355).
+- (xXBJXx) Rebuilt the VIS 2 widget for React 19 and MUI 9 compatibility, updated the module-federation runtime, and replaced the React-Leaflet wrapper with direct Leaflet integration ([ioBroker/ioBroker.vis-2#689](https://github.com/ioBroker/ioBroker.vis-2/issues/689)).
+- (xXBJXx) Fixed VIS 2 theme compatibility and updated the widget setup instructions; the classic VIS 1 widget remains available.
+
 ### 3.1.0 (2026-08-25)
 
 - (xXBJXx) Addressed repository-checker findings for dependencies, metadata, documentation, and adapter-managed timers (#319).
@@ -243,17 +270,7 @@ tractive-gps.0
 - (mcm1957) Corrected an error in the jsonConfig reauthorization command.
 - (mcm1957) Dependencies have been updated.
 
-### 2.0.1 (2024-08-20)
-
-- (bluefox) Fixed encryption of the access token.
-
-### 2.0.0 (2024-08-18)
-
-- (bluefox) BREAKING: credentials must be entered again.
-- (bluefox) Removed old code and rewrote the GUI.
-- (bluefox) Updated dependencies.
-
-Earlier changes are documented in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md).
+Earlier changes are documented in CHANGELOG_OLD.md.
 
 ## License
 

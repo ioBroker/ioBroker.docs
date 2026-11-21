@@ -66,8 +66,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.1 (2026-11-16)
 
 - (hombach) updated iobroker/testing
 - (hombach) updated dependencies
@@ -101,12 +100,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) remove placeholder desc "-" from states without a meaningful description
 - (hombach) remove unused Rtc field from GoodWeRunningData type
 - (hombach) updated dependencies
-
-### 0.2.3 (2026-07-18)
-
-- (hombach) replace deprecated role value.power.consumption with value.energy.consumed
-- (hombach) replace value.power.produced with value.energy.produced for accumulated kWh states
-- (hombach) replace invalid roles value.power.apparent and value.signal with valid alternatives
 
 ## License
 MIT License

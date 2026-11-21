@@ -1,28 +1,28 @@
 ---
 BADGE-NPM: https://nodei.co/npm/iobroker.xsense.png?downloads=true
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.xsense.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.xsense.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.xsense.svg
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/arteck/ioBroker.xsense
 BADGE-GitHub issues: https://img.shields.io/github/issues/arteck/ioBroker.xsense
 BADGE-License: https://img.shields.io/badge/License-MIT-blue.svg
-BADGE-Number of Installations: http://iobroker.live/badges/xsense-installed.svg
+BADGE-Number of Installations: https://iobroker.live/badges/xsense-installed.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.xsense.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/xsense-stable.svg
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: XhEtbsf+478vpaXQltahv6o8tIxfA4lUcpIiTi2ADqI=
+hash: 9jp2uTccVrS4Ge/9VdzExg/NM6gSkwpiPfspAsfC0vc=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
 ![НПМ](https://nodei.co/npm/iobroker.xsense.png?downloads=true)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.xsense.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.xsense.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.xsense.svg)
 ![Последний коммит на GitHub](https://img.shields.io/github/last-commit/arteck/ioBroker.xsense)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/arteck/ioBroker.xsense)
 ![Лицензия](https://img.shields.io/badge/License-MIT-blue.svg)
-![Количество установок](http://iobroker.live/badges/xsense-installed.svg)
+![Количество установок](https://iobroker.live/badges/xsense-installed.svg)
 ![бета](https://img.shields.io/npm/v/iobroker.xsense.svg?color=red&label=beta)
 ![Стабильный](https://iobroker.live/badges/xsense-stable.svg)
 
@@ -40,11 +40,31 @@ hash: XhEtbsf+478vpaXQltahv6o8tIxfA4lUcpIiTi2ADqI=
 &#x20;Адаптер взаимодействует с облачным сервером XSense и обеспечивает простой способ интеграции устройств XSense в существующие системы ioBroker.\
 &#x20;Для работы требуется мост XSense Bridge SBS50.
 
+### Поддержка режима тревоги SBS50
+
+Для базовых станций SBS50 адаптер теперь предоставляет те же основные данные о состоянии аварийных сигналов, которые используются в приложении X-Sense:
+
+- `safeMode` – текущий режим станции (`Disarmed`, `Home`, `Away`)
+- `requestedSafeMode` – последний запрошенный режим приложения
+- `force_arm_pending` – true, когда ожидается подтверждение, поскольку датчики открыты.
+- `force_arm_mode` – режим ожидания для подтверждения
+- `force_reason` – обязательно текст с указанием причины, если приложение его отправляет.
+
+Адаптер также создает команды на уровне станции для быстрого управления:
+
+- `disarm`
+- `arm_home`
+- `arm_away`
+
+Состояния этих кнопок отправляют данные, совместимые с приложением. `appMode` запрос к `2nd_appmode` тень. Подтверждено `safeMode` считывается из отдельного `2nd_safemode` теневое значение сохраняется в каждом цикле опроса; оно не изменяется оптимистично при отправке команды. `requestedSafeMode` Отображает последний отправленный запрос на изменение режима.
+
 ---
 
 ## ❗ ВНИМАНИЕ
 
-Адаптер **не** предназначен для использования в целях сигнализации — он в первую очередь предназначен для контроля состояния батареи устройства. Я не несу ответственности, если помещение сгорит.
+Адаптер **не** предназначен для использования в качестве тревожной кнопки — он в первую очередь предназначен для мониторинга состояния батареи устройства.
+
+Я не несу никакой ответственности, если это место сгорит.
 
 ---
 
@@ -107,23 +127,26 @@ hash: XhEtbsf+478vpaXQltahv6o8tIxfA4lUcpIiTi2ADqI=
 -->
 
 ## Changelog
-### 0.6.5 (2026-08-27)
-* (arteck) async fix
-* (arteck) fix battery info
-* (arteck) fix orphaned states without house folder from MQTT messages for stations not yet known (startup race and newly added devices)
+### 0.6.10 (2026-11-15)
+* (arteck) fixed forceReason
 
-### 0.6.4 (2026-06-22)
+### 0.6.9 (2026-11-07)
+* (arteck) fix for arm disarm
+
+### 0.6.8 (2026-10-25)
 * (arteck) Dependencies have been updated
+* (arteck) add SBS50-Alarmstatus
+* (arteck) more MQTT messages from devices
 
-### 0.6.3 (2026-05-20)
+### 0.6.7 (2026-10-20)
 * (arteck) Dependencies have been updated
+* (arteck) update new Devices
+* (arteck) add fire_drill_alarm for devices that support it
+* (arteck) add mute_alarm for devices that support it
 
-### 0.6.2 (2026-05-20)
-* (copilot) Adapter requires node.js >= 22 now
+### 0.6.6 (2026-09-30)
 * (arteck) Dependencies have been updated
-
-### 0.6.1 (2026-05-03)
-* (arteck) fix deviceManager
+* (arteck) fix internal mqtt with node 24
 
 ## License
 

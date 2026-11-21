@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: dCBW+EnPQ2rDEt8giJttFzIIBXHla/CH7ogGkdxiJ+o=
+hash: XHxOkGba8ZmVQ7H0ZNFdBYOUTdU4maACXKitF3f39do=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/email-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.email.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/email-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.email.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
@@ -91,6 +91,8 @@ sendTo('email', {
 
 Um E-Mails von einem anderen Adapter zu senden, verwenden Sie `adapter.sendTo` Funktion.
 
+`sendTo('email.0', 'help', {})` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten mit ihren Parametern für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren sowie die Liste aller Befehle mit `write` (ob der Befehl eine Wirkung hat, z. B. eine E-Mail versendet).
+
 ## Unterstützte Dienste
 
 - 1und1 / ionos
@@ -138,9 +140,25 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer** : `[https://g
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.0 (2026-11-19)
+* (@GermanBluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 3.1.2 (2026-11-16)
+* (@GermanBluefox) Fixed build of the rules block (missing Emotion dependencies for MUI 9) and CI lint
+
+### 3.1.1 (2026-11-15)
+* (mcm1957) Adapter requires node.js >= 22.19.0, admin >= 8.1.0 and js-controller >= 7.2.4 now
+* (mcm1957) Dependencies have been updated
+
+### 3.1.0 (2026-10-26)
 * (@GermanBluefox) Migrated the build script (`tasks.js` => `tasks.mts`) to TypeScript
 * (@GermanBluefox) Migrated blockly to TypeScript
+* (@GermanBluefox) Fixed Office365: emails sent from scripts or other adapters failed after the first email, because the access token was not refreshed (#653)
+* (@GermanBluefox) A selected service has now priority over the stored host and port
+* (@GermanBluefox) Fixed the translations of the settings dialog and added Ukrainian to the Blockly block
+* (@GermanBluefox) The password is stored encrypted now and is not readable by other adapters. An existing password is encrypted automatically on the first start (#715)
+* (@GermanBluefox) Renamed the option "Ignore SSL certificate errors" to "Check SSL certificate", because that is what it actually does
+* (@GermanBluefox) Removed the unused dependency `googleapis`
 
 ### 3.0.0 (2026-08-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -149,22 +167,6 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer** : `[https://g
 * (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
 * (@ipod86) Added configurable number of file attachments to the Blockly email block via plus/minus buttons
 * (@GermanBluefox) Migrated to admin 8
-
-### 2.0.5-alpha.0 (2025-10-06)
-* (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
-* (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
-* (mcm1957) Dependencies have been updated
-
-### 2.0.4 (2025-04-15)
-* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
-* (mcm1957) Dependencies have been updated
-
-### 2.0.3 (2025-03-24)
-* (@GermanBluefox) Added t-online.de to the list of supported services
-
-### 2.0.2 (2025-03-14)
-* (@GermanBluefox) Renamed `dist` folder to `build`
-* (@GermanBluefox) Fixing pass decoding
 
 ## License
 

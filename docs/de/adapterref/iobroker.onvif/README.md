@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: cV2vt/D5k5JwDXPAoxxfxzh4/f+o/7uKsV0QfnNTjD4=
+hash: VBJcdA3rn0CmbPhZ/FGMbXa6x5dVeq2SnDHgh+7HtMk=
 ---
 ![Logo](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -39,13 +39,17 @@ Damit eine Kamera wieder erkannt wird, muss sie einfach unter Objekte gelöscht 
 
 Falls die automatische Erkennung nicht funktioniert, können Kameras manuell gesucht werden. Dazu müssen ein IP-Bereich und die Ports manuell eingegeben und die Suche ausgeführt werden. Details zum Vorgang finden Sie im Protokoll.
 
+### Kameras ignorieren
+
+Kameras, deren IP-Adresse in der Einstellung „Kameras mit diesen IPs ignorieren“ (kommagetrennt) eingetragen ist, werden vom Adapter nicht kontaktiert. Dies gilt für die automatische Erkennung, die manuelle Suche und bereits unter „Objekte“ erstellte Kameras.
+
 ## Staaten
 
 onvif.0.IP\_PORT.events Ereignisse der Kamera, z. B. Bewegungserkennung. Manchmal muss das Ereignis ausgelöst werden, um es anzuzeigen.
 
 onvif.0.IP\_PORT.general Allgemeine Informationen zu den Kameras
 
-Die Informationen zur Kamera in onvif.0.IP\_PORT.infos werden nur beim Start des Adapters oder bei remote.refresh aktualisiert.
+Die Informationen zur Kamera in onvif.0.IP\_PORT.infos werden nur beim Start des Adapters oder bei remote.Refresh aktualisiert.
 
 Video- und Screenshot-URL:
 
@@ -53,7 +57,7 @@ onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl
 
 onvif.0.IP\_PORT.Fernsteuerung der Kamera
 
-onvif.0.IP\_PORT.remote.refresh Aktualisiere die Informationsdaten
+onvif.0.IP\_PORT.remote.Refresh Aktualisiere die Informationsdaten
 
 onvif.0.IP\_PORT.remote.gotoHomePosition PTZ-Kamera in die Ausgangsposition bringen
 
@@ -78,6 +82,10 @@ sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
   }
 });
 ```
+
+Das Bild ist ein Buffer, der in einem Skript als `{ type: 'Buffer', data: [...] }` (`Buffer.from(result.data)` Die Nachricht "getSnapshot" mit `{ id: '192_168_178_100_80' }` Antworten `{ img: { rawImage } }` mit demselben Puffer; mit `{ id: '192_168_178_100_80', base64: true }` Es beantwortet `{ img: { base64 } }`, das JPEG als Base64-Zeichenkette.
+
+Die Meldung "Hilfe" (`sendTo('onvif.0', 'help', {}, result => ...)`) Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten und Zustände für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren sowie die Liste aller Befehle, jeweils mit `write: true` wenn es über die reine Informationsrückgabe hinausgehende Auswirkungen hat.
 
 ## Bewegungsnachricht an Telegram
 
@@ -298,6 +306,21 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
+- (rug1024) Fixed HTTP 500 for concurrent snapshot requests to the same camera
+- (GermanBluefox) Added ignore list for camera IPs (#391)
+- (GermanBluefox) Fixed warning about missing connection object (#391)
+- (GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+- (GermanBluefox) Fixed: writing `remote.refresh` (as the README called it) now reads the infos again like `remote.Refresh`
+- (GermanBluefox) Added the option `base64: true` to the message "getSnapshot": the picture comes as a base64 string instead of a serialized Buffer
+
+### 1.1.9 (2026-09-13)
+
+- (TA2k) Reduced log noise: a missing snapshot url is now logged once per camera as info instead of a warning per profile
+- (TA2k) Updated onvif to 0.8.3 and dev dependencies
+
 ### 1.1.8 (2026-08-21)
 
 - (TA2k) Fixed reconnect loop: the watchdog now only rebuilds on non-retryable event errors, so cameras that periodically reset the event socket ("socket hang up") are left to the onvif library's own retry instead of reconnecting every 30s
@@ -328,8 +351,6 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 ### 1.1.3 (2024-03-15)
 
 - Allow non number PTZ presets
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.onvif/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

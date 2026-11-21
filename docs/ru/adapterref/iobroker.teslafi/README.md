@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.teslafi/README.md
 title: ioBroker.teslafi
-hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
+hash: zZ8jXiqQ2D7rCBec/vRim2x0l9kXwfKBRQYlqPEnnHw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.teslafi/admin/teslafi.png)
 
@@ -52,7 +52,7 @@ hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
 
 ## Типичные сценарии использования
 
-- **Автоматизация** : Запускайте действия умного дома на основе состояния вашего Tesla в режиме реального времени. Например, автоматически регулируйте климат-контроль дома, когда автомобиль прибудет.
+- **Автоматизация** : Запускайте действия умного дома на основе состояния вашего Tesla в режиме реального времени. Например, автоматически регулируйте климат-контроль в доме, когда автомобиль подъезжает.
 - **Управление энергопотреблением** : Оптимизируйте потребление энергии, планируя время зарядки автомобиля и отслеживая состояние батареи непосредственно через ioBroker.
 - **Уведомления и отчеты** : Настройте оповещения о конкретных состояниях автомобиля, таких как низкий уровень заряда батареи, завершенные сеансы зарядки или доступные обновления.
 
@@ -62,6 +62,45 @@ hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
 
 1. Введите свой API-ключ TeslaFi на экране конфигурации адаптера.
 2. Установите желаемый интервал опроса, чтобы настроить частоту обновления данных.
+3. При желании включите **параметр «Использовать кодировку TeslaFi для запросов данных (encoding=1)»** , если название вашего автомобиля содержит специальные символы. Это добавит `encoding=1` Только для запросов данных; команды для транспортных средств остаются без изменений. Эта опция отключена по умолчанию, в том числе и для существующих установок. Ответы по-прежнему обрабатываются как JSON без дополнительного декодирования. Необходимо проверить, решает ли параметр конкретную проблему с именем, в TeslaFi с включенной и выключенной этой опцией.
+
+## Геозонирование (присутствие / вход / выход)
+
+Адаптер может изменить местоположение, указанное в TeslaFi (`vehicle-state.location`) в надежные события присутствия — например, чтобы гаражные ворота открывались только тогда, когда машина действительно возвращается домой. Сопоставление осуществляется по точному названию местоположения (как указано в TeslaFi), поэтому вычисления расстояния по GPS не требуются.
+
+Настройте геозоны на вкладке **«Геозоны»** . Каждая строка содержит:
+
+| Столбец                                | Значение                                                                                                                                                            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Название местоположения TeslaFi**    | Точное название тега из TeslaFi (например) `Home`)                                                                                                                  |
+| **Мин. пути (минут)**                  | Машина, должно быть, отсутствовала как минимум столько времени, прежде чем... `enter` Событие может произойти (блокирует кратковременное изменение местоположения).  |
+| **Требуется движение**                 | Только огонь `enter` если машина действительно двигалась во время моего отсутствия                                                                                   |
+| **Пороговая скорость движения (км/ч)** | Скорость, которая считается движением                                                                                                                               |
+| **Отключение (опросы)**                | Количество последовательных опросов, в которых изменения должны сохраняться, прежде чем `enter` /`leave` предотвращает возгорание (защищает от мерцания GPS-сигнала) |
+
+Для каждого заданного местоположения адаптер создает:
+
+- `geofence.current` – текущее отмеченное местоположение
+- `geofence.<Location>.present` – подтвержденное присутствие (логическое значение)
+- `geofence.<Location>.enter` – импульсы `true` для одного опроса по отфильтрованному поступлению
+- `geofence.<Location>.leave` – импульсы `true` для одного опроса при отъезде
+- `geofence.<Location>.awaySince` – отметка времени (мс) с момента отъезда автомобиля; `0` присутствуя
+
+`<Location>` Название местоположения TeslaFi, в котором символы, недопустимые в идентификаторах объектов ioBroker, заменены на `_` Например, местоположение, помеченное тегом. `My Home` результаты в штатах `geofence.My_Home.*`.
+
+Нет `enter` Событие генерируется при запуске адаптера, а колебания GPS во время стоянки не приводят к возникновению событий.
+
+### Пример: открыть гараж на время встречи выпускников.
+
+Запустить правило JavaScript/Blockly по восходящему фронту `teslafi.0.geofence.Home.enter`:
+
+```javascript
+on({ id: "teslafi.0.geofence.Home.enter", val: true, ack: true }, () => {
+	setState("zigbee.0.garage_door.open", true);
+});
+```
+
+С `minAwayMinutes: 10`, `requireMotion: true` и `debouncePolls: 2` Этот сигнал срабатывает ровно один раз, когда машина возвращается домой после реальной поездки, игнорируя при этом кратковременные изменения местоположения возле дома, дрожание GPS-сигнала и перезагрузки адаптера.
 
 ## Совместимость
 
@@ -81,6 +120,22 @@ hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.1 (2026-11-11)
+
+- (HombachC) added optional TeslaFi encoding for data requests (#45)
+- (hombach) updated ioBroker/testing
+- (hombach) updated dependencies
+- (hombach) updated axios
+
+### 3.1.0 (2026-10-11)
+
+- (hombach) added geofence presence/enter/leave with away- and motion-gates (#325)
+- (hombach) fixed speed unit: `vehicle-state.speed` is now labeled mph and a new `vehicle-state.speed_km` (km/h) was added
+- (hombach) geofence: harden against invalid config values, non-numeric speed and colliding/duplicate location names
+- (hombach) speed unit label is now also corrected on existing installations
+- (hombach) switch to iobroker testing 6.x
+- (hombach) updated dependencies
+
 ### 3.0.4 (2026-08-10)
 
 - (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
@@ -94,19 +149,6 @@ hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
 ### 3.0.2 (2026-06-19)
 
 - (hombach) fixed warnings by adapter checker
-
-### 3.0.1 (2026-06-05)
-
-- (hombach) upgraded TypeScript to 6.x
-- (hombach) fixed warnings by adapter checker
-- (hombach) updated dependencies
-
-### 3.0.0 (2026-05-05)
-
-- (copilot) BREAKING: adapter requires node.js >= 22 now
-- (hombach) update dependencies
-
-[Older changelogs can be found there](https://github.com/Hombach/ioBroker.teslafi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -2,16 +2,18 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fritzbox/README.md
-title: kein Titel
-hash: sTLHyszNo8SED2yUiA35pUzkGRybzgrzT3TDwDf6E2g=
+title: ioBroker.fritzbox
+hash: u8Y8Whe5kjsOu071YyFdrEmiUMGiT1J45iNrj6kO2Dg=
 ---
-![Logo](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)ioBroker Fritzbox-Adapter
+![Logo](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/fritzbox-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.fritzbox.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/fritzbox-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.fritzbox.svg)
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/fritzbox/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fritzbox.svg)
+
+# ioBroker.fritzbox
 
 > \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
@@ -177,7 +179,7 @@ Unter **fritzbox.x** erzeugt der Adapter die folgenden Kanäle und Datenpunkte:
 - calls.missedDateReset – Datum, an dem calls.missedCount zuletzt auf 0 zurückgesetzt wurde
 - calls.ringActualNumber - aktuell eingehender Anruf - der letzte, falls mehrere vorhanden sind)
 - calls.ringActualNumbers - alle aktuell eingehenden Anrufe
-- Anrufe.RingLetzteNummer - letzter Anrufer
+- Anrufernummer - letzte Anrufernummer
 - calls.ringLastMissedNumber - zuletzt verpasster Anrufer
 - calls.callLastNumber - Wahlwiederholung, zuletzt gewählte Telefonnummer
 - Anrufe.Verbindungsnummer – zuletzt verbundener Anruf
@@ -201,7 +203,7 @@ Unter **fritzbox.x** erzeugt der Adapter die folgenden Kanäle und Datenpunkte:
 - history.allTableTxt - ...
 - history.allTableHTML - Liste als HTML-Tabelle aufrufen
 - history.allTableJSON - Aufrufliste als JSON
-- history.missedTableHTML – Liste verpasster Anrufe als HTML
+- history.missedTableHTML – Liste der verpassten Anrufe als HTML-Datei
 - history.missedTableJSON – Liste der verpassten Anrufe im JSON-Format
 
 ### `history.cdr` Kanal
@@ -226,7 +228,7 @@ Unter **fritzbox.x** erzeugt der Adapter die folgenden Kanäle und Datenpunkte:
 
 ### `wlan.` Kanal
 
-- wlan.enabled - wahr/falsch, Lese- und Schreibzugriff, WLAN-Status, nur verfügbar, wenn ein Passwort konfiguriert ist
+- wlan.enabled - true/false, Lese- und Schreibzugriff, WLAN-Status, nur verfügbar, wenn ein Passwort konfiguriert ist
 
 ### `phonebook.` Kanal
 
@@ -247,7 +249,7 @@ Beinhaltet es unter anderem:
 - Zähler für verpasste Anrufe mit Reset-Taste
 - Liste der verpassten Anrufe
 - Liste aller Anrufe mit Farbkennzeichnung (verbunden/nicht verbunden) und Richtung
-- Zähler für: aktuell eingehende Anrufe, ausgehende Anrufaufbauten, verbundene Anrufe, Gesamtanzahl Anrufe/Anrufversuche
+- Zähler für: aktuell eingehende Anrufe, ausgehende Anrufaufbauten, verbundene Anrufe, Gesamtanrufe/Anrufversuche
 - Ein Infofeld, das gelb wird, wenn die FRITZ!Box-Zeit zu stark von der ioBroker-Systemzeit abweicht.
 
 ![FRITZ!Box großes Widget](../../../en/adapterref/iobroker.fritzbox/doc/iobroker_fritzbox_widget_gross.png)
@@ -326,18 +328,18 @@ Beispiel-Widgets:
 }
 ```
 
-<!--
-## todo
-* Doku der Datenpunkte
-* Import des xml Telefonbuch der Fritzbox
-* Feinere Konfiguration der Anruferliste (Tabellen)
--->
-
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2026-10-22)
+- (GermanBluefox) Fixed repochecker issues (state roles, responsive config, README) (#327)
+- (GermanBluefox) Fixed repochecker issues (type of JSON states, role of calls.missedCount, copyright) (#335)
+
 ### 1.0.0 (2026-09-09)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) **ENHANCED**: Translated README documentation from German to English
@@ -367,18 +369,12 @@ Beispiel-Widgets:
 * (Apollon77) Store tam files in an instance-specific location
 * (Apollon77) Fix crash cases reported by Sentry
 
-### 0.4.0 (2022-03-25)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Khaos66/Apollon77) General updates and fixes
-* (Khaos66) TAM (Telephone Answering Maschine) support added
-* (Apollon77) Add Sentry for crash reporting
-
 ## License
 
 The MIT License (MIT)
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2015-2022, ruhr70
+Copyright (c) 2015-2022 ruhr70 <ruhr@digheim.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,112 +3,157 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: GunYmSSClr26GflnOmg+qff3lzB/rXjKEMDOxiPJS5M=
+hash: i5av3OgcPtJkIN198TSb9GhbUYW/6Hl0BfR81KYXQYY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
-![Количество установок](http://iobroker.live/badges/netatmo-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.netatmo.svg)
-![Тестирование и выпуск](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg)
-![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
+![Количество установок](https://iobroker.live/badges/netatmo-installed.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/netatmo-stable.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
+![Тестирование и выпуск](https://github.com/PArns/ioBroker.netatmo/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.netatmo
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Адаптер Netatmo для ioBroker
+## Адаптер Netatmo для ioBroker
 
-## **Важное примечание относительно событий в режиме реального времени (дверной звонок, приветствие, присутствие, датчики CO2/дыма).**
+Обеспечивает связь ioBroker с облаком Netatmo (API Netatmo Connect). Поддерживаемые продукты:
 
-Для получения событий в реальном времени от Netatmo вам потребуется учетная запись iot/Pro-Cloud с лицензией Assistent или Remote-License и установленный экземпляр iot, подключенный к этой учетной записи. Версия iot Instance должна быть 1.14.0 или выше.
+| Продукт                                                                                                                              | Данные                                                              | Требуется собственное приложение.                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Метеостанция (включая модули для наружного наблюдения, измерения дождя, ветра и дополнительные модули для внутреннего использования) | измерения, минимум/максимум, тренды, батарея, состояние радио/Wi-Fi | нет                                                                                      |
+| Тренер по здоровому образу жизни дома                                                                                                | качество воздуха, CO2, влажность, шум                               | нет                                                                                      |
+| Камеры (датчики приветствия, присутствия, интеллектуальные датчики дверей и окон)                                                    | статус, события, лица, мониторинг включен/выключен                  | Рекомендуется (прямая трансляция и полный контроль только через собственное приложение). |
+| рольставни iDiamant / Bubendorff                                                                                                     | положение, управление                                               | нет                                                                                      |
+| Умный видеодомофон                                                                                                                   | статус, звонок, вызовы, события                                     | да                                                                                       |
+| Умный дымовой извещатель                                                                                                             | статус, сигналы тревоги                                             | да                                                                                       |
+| Интеллектуальный детектор угарного газа                                                                                              | статус, сигналы тревоги                                             | да                                                                                       |
 
-Пожалуйста, выберите экземпляр IoT в настройках адаптера и перезапустите адаптер.
+Данный адаптер не поддерживает термостаты и клапаны (Netatmo Energy).
 
-В версиях адаптера Netatmo < 3.0 для передачи событий веб-хуков использовался сервис Heroku, но Heroku прекратил поддержку этого бесплатного сервиса. Поэтому все версии Netatmo < 3.0 больше не будут получать события в реальном времени с 28.11.2022! В связи с этим мы решили использовать проверенные и стабильные сервисы IoT/Pro-Cloud.
+## Требования
 
-## **Важное примечание относительно изменений в аутентификации, внесенных в октябре 2022 года.**
+- js-controller >= 6.0.0, admin >= 7.6.19
+- Для работы с устройствами необходима учетная запись Netatmo.
+- Для событий в реальном времени (камеры, дверной звонок, датчики дыма и угарного газа): [экземпляр IoT](https://github.com/ioBroker/ioBroker.iot) (>= 1.14.0), подключенный к учетной записи ioBroker Pro с лицензией Assistant или Remote. Без нее все данные обновляются только путем опроса.
+- Рекомендуется: собственное приложение Netatmo (идентификатор клиента и секретный ключ клиента), см. ниже.
 
-Согласно Netatmo, «старый» способ аутентификации с помощью имени пользователя и пароля, вводимых непосредственно в адаптер, будет отключен к октябрю 2022 года.
+## Конфигурация
 
-В версии 2.0 адаптера исправлено это изменение и скорректирована аутентификация. Все обновления, выполненные до октября 2022 года, должны обеспечить беспроблемное обновление до версии 2.0.0 при первом запуске автоматически — в противном случае потребуется новая аутентификация.
+### Вкладка "Устройства и вход в систему"
 
-## **Важное примечание для версии 2.0.0!**
+1. Выберите продукты Netatmo, которые вы хотите использовать.
+2. Необязательно, но рекомендуется: создайте собственное приложение на [dev.netatmo.com](https://dev.netatmo.com/apps/createanapp) и введите его идентификатор клиента и секретный ключ клиента. Собственное приложение необходимо для работы дверного звонка, датчика дыма и угарного газа, а также для полного набора функций камеры, и оно позволяет обновлять данные с интервалом менее 10 минут. Без него используется общее приложение ioBroker, квота API которого распределяется между всеми пользователями.
+3. Нажмите «Войти через Netatmo». Откроется новое окно с формой входа в Netatmo. После входа в систему и предоставления доступа адаптер сохранит токены и перезапустится.
 
-В версии 2.0 адаптера структура объектов полностью изменится! Вместо имен мы решили использовать уникальные идентификаторы, чтобы гарантировать отсутствие проблем, связанных с дублирующимися или изменяющимися именами.
+При каждом изменении выбранных товаров или идентификатора/секрета клиента необходимо повторно входить в систему, иначе данные могут быть потеряны. Если окно не открывается, проверьте блокировщик всплывающих окон в вашем браузере.
 
-## Установка и настройка
+### Вкладка "События в реальном времени"
 
-Для аутентификации необходимо использовать свою учетную запись NetAtmo через пользовательский интерфейс администратора адаптера.
+Отображается только при выборе опций: камеры видеонаблюдения, дверной звонок, датчик дыма или угарного газа.
 
-Сначала выберите все подходящие типы устройств, для которых вы хотите синхронизировать данные. При изменении типов устройств вам потребуется повторно пройти аутентификацию.
+- **Экземпляр IoT** : экземпляр, используемый для приема событий веб-перехватчика от Netatmo. Оставьте поле пустым, чтобы отключить события в реальном времени.
+- **Удалить события старше** (часов), **Интервал очистки** (минут), **Удалить неизвестных лиц, которые последний раз были замечены более** (часов, только камеры)
 
-Если вы хотите использовать выделенный идентификатор клиента/секретный ключ (см. ниже), вы также можете ввести их перед аутентификацией.
+### Вкладка «Дополнительно»
 
-Для запуска процесса аутентификации используйте кнопку «Аутентификация с Netatmo». Откроется новая вкладка с страницей входа в Netatmo. После входа в систему и подтверждения доступа к данным вы будете перенаправлены обратно на страницу администратора.
+- **Интервал обновления** (в минутах): не менее 10 минут для общего приложения, не менее 1 минуты для собственного приложения. Netatmo обновляет данные о погоде примерно каждые 10 минут, поэтому более короткие интервалы не обеспечивают увеличения объема данных о погоде. Камеры, дверной звонок и сигнализация опрашиваются с интервалом, вдвое превышающим этот.
+- **Высота** над уровнем моря (в метрах): используется для расчета точки росы.
 
-В случае успеха просто закройте окно и перезагрузите конфигурацию адаптера. В случае ошибки проверьте сообщение об ошибке и попробуйте снова.
-
-По умолчанию для выполнения запросов используется общий ключ API, что ограничивает интервал обновления до 10 минут!
-
-Чтобы увеличить интервал или получать обновления в режиме реального времени от Welcome & Presence, для датчиков угарного газа и дыма вам необходимо ввести собственный ID/секретный ключ в приложении NetAtmo. Для этого перейдите по следующему URL-адресу, войдите в свою учетную запись Netatmo и заполните необходимую форму по адресу <https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com%2Fapps%2Fcreateanapp> !
-
-Пожалуйста, убедитесь, что вы настроили ограничения, которые они учитывают: <https://dev.netatmo.com/guideline#rate-limits> (и имейте в виду, что эти ограничения действуют для ВСЕХ ПОЛЬЗОВАТЕЛЕЙ, даже если вы не используете собственный ID/секрет).
+Пожалуйста, соблюдайте [ограничения на количество запросов, установленные Netatmo](https://dev.netatmo.com/guideline#rate-limits) .
 
 ## Использование
 
-Адаптер должен запрашивать все типы устройств, которые вы включили в конфигурацию. Если вы это измените, вам потребуется заново выполнить аутентификацию с помощью Netatmo.
+Адаптер создает состояния для всех устройств выбранных продуктов. Устройства, поддерживающие события, дополнительно получают состояния событий, которые заполняются событиями в реальном времени (см. требования).
 
-Затем адаптер создает состояния с данными устройств и дополнительные состояния «событий» для устройств, которые это поддерживают. Для получения этих событий необходимо выбрать экземпляр IoT и добавить облачную учетную запись Pro (см. выше).
+Некоторые устройства (например, камеры) инициализируются последним событием соответствующего типа. Для других устройств (например, датчики дыма/угарного газа) состояния событий заполняются следующим событием.
 
-Некоторые устройства инициализируются последним событием соответствующего типа (если оно произошло в последний раз), например, камеры. Для других типов устройств (например, датчиков дыма/CO2) события не заполняются предварительно из прошлых данных, и эти состояния будут заполнены, как только будет получено следующее событие.
+### Дверной звонок
 
-### Особое примечание к рольставням iDiamant/Bubendorff
+- `ring` установлено на `true` когда кто-то звонит (`incoming_call` Он автоматически перезагружается через 60 секунд, сразу же после включения. `missed_call` /`accepted_call` и при запуске адаптера. Netatmo не обеспечивает надежную передачу. `accepted_call` когда на звонок отвечают в приложении.
+- `incoming_call`, `accepted_call` и `missed_call` Содержит время, идентификатор события и URL-адрес снимка последнего события этого типа.
+- Netatmo передает события веб-хука с задержкой от нескольких секунд до примерно 2 минут.
 
-API Netatmo не предоставляет данные об изменениях в работе рольставней в режиме реального времени. Это означает, что данные опрашиваются в заданном интервале опроса. По сути, это означает, что данные в режиме реального времени не будут точными, независимо от того, управляются рольставни напрямую или через приложение Netatmo.
+### рольставни iDiamant/Bubendorff
 
-При управлении устройствами через адаптер значения обновляются через 2 и 17 секунд после завершения управления, чтобы данные были более актуальными.
+### Состояние устройства
 
-В зависимости от устройства, целевое положение может быть установлено на любое число от 0% до 100% ИЛИ только на 0% или 100% (и -1 для остановки). Но для этих действий также можно использовать удобные кнопки «открыть», «закрыть» и «остановить».
+Для каждого устройства адаптер записывает значения состояния, предоставляемые Netatmo. Значения, которые тип устройства не предоставляет, не создаются.
 
-## отправить в службу поддержки
+| Состояние                                                                                         | Устройства                                                | Значение                                                                             |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `info.connection` (пример)                                                                        | все                                                       | `true` при условии доступности облака Netatmo и действительности авторизации.        |
+| `<device>.info.reachable`                                                                         | камеры, дверной звонок, датчик дыма/угарного газа, ставни | `false` если устройство находится в автономном режиме (например, нет Wi-Fi)          |
+| `<device>.info.error`                                                                             | камеры, дверной звонок, датчик дыма/угарного газа, ставни | Ошибка устройства Netatmo, например. `device_unreachable`, пусто, если все в порядке |
+| `<device>.info.wifi_strength`, `rf_strength`                                                      | в зависимости от устройства                               | Чем ниже уровень сигнала, тем лучше.                                                 |
+| `<device>.info.battery_state`, `battery_level`                                                    | батарейные устройства                                     | Состояние батареи и напряжение (мВ)                                                  |
+| `<device>.info.firmware`                                                                          | в зависимости от устройства                               | версия прошивки                                                                      |
+| `Reachable`, `Firmware` (модули метеостанции), `reachable` (Тренер по здоровому образу жизни дома) | метеостанция, автобус                                     | доступность и микропрограмма                                                         |
+
+Отключение устройства от сети регистрируется один раз как предупреждение, а затем возвращается в виде информации. Обновление также происходит на дверном звонке и камерах. `info.reachable` сразу из `connection` /`disconnection` События в реальном времени, если их отправляет Netatmo.
+
+API Netatmo не предоставляет данные о рольставнях в режиме реального времени, поэтому значения опрашиваются с заданным интервалом обновления. Они неточны в режиме реального времени, если рольставни управляются напрямую или через приложение Netatmo.
+
+При управлении жалюзи через адаптер значения обновляются через 2 и 17 секунд после команды.
+
+В зависимости от устройства, целевое положение может быть установлено на любое значение от 0 % до 100 %, или только на 0 % или 100 % (-1 = стоп, -2 = режим жалюзи для жалюзи с наклонными ламелями). Также можно использовать кнопки открытия, закрытия и остановки.
+
+## команды sendTo
 
 ### убранство
 
-Также можно использовать команду sendTo, чтобы установить статус «отсутствует» для всех пользователей (например, если система используется в качестве сигнализации).
+Помечает всех людей как находящихся вне дома (например, при использовании в качестве системы сигнализации):
 
-```
-sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
-```
-
-или
-
-```
-sendTo('netatmo.0', "setAway");
+```javascript
+sendTo('netatmo.0', 'setAway', { homeId: '1234567890abcdefg' });
 ```
 
-пометить всех людей как отсутствующих для всех камер
+или для всех домов:
 
-Также можно отметить одного или нескольких конкретных людей как отсутствующих.
-
-```
-sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
+```javascript
+sendTo('netatmo.0', 'setAway');
 ```
 
-Параметр homeId — это строка, указанная после имени вашей камеры на вкладке «Объекты» (необязательно, если установлено несколько камер), personsId — это идентификатор в папке «Известные лица».
+Только определённые лица:
+
+```javascript
+sendTo('netatmo.0', 'setAway', { homeId: '1234567890abcdefg', personsId: ['123123123123123'] });
+```
+
+`homeId` Это идентификатор, отображаемый в качестве папки верхнего уровня дома на вкладке «Объекты» (необязательно, если дом только один). `personsId` Идентификатор человека в папке "Известные люди".
 
 ### setHome
 
-По сути, та же функциональность, что описана выше для функции "setAway", также существует и для функции "setHome", позволяющей устанавливать статус "заняты" для отдельных лиц или целых домов.
+Те же параметры, что и `setAway`, определяет отдельных лиц или целые дома как «дом».
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+## Более старые версии
+
+- **3.0.0** : События в реальном времени принимаются через экземпляр IoT. Прежний сервис Heroku был отключен 28.11.2022.
+- **2.0.0** : Новая структура объектов, основанная на уникальных идентификаторах устройств вместо имен. Netatmo отключила вход в систему с использованием имени пользователя и пароля в октябре 2022 года, аутентификация осуществляется с помощью кнопки «Войти с Netatmo».
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.2.0 (2026-11-04)
+* (@Schimi1983) Fixed adapter crash when changing a state (e.g. camera monitoring) while the access token had expired
+* (@Schimi1983) Token refresh: an invalid refresh token is now reported (re-authentication required) instead of silently starting without data; no endless refresh loop; only one refresh at a time (Netatmo rotates refresh tokens)
+* (@Schimi1983) Access and refresh tokens and the client secret are no longer written to the log
+* (@Schimi1983) Update intervals are validated also with own client ID (empty value led to polling every millisecond)
+* (@Schimi1983) A failing event request no longer discards the home and device status of the update cycle
+* (@Schimi1983) Device status for all devices: reachable, error, signal strength, battery and firmware; offline/online is logged; new state info.connection
+* (@Schimi1983) Temporary Netatmo outages (5xx, timeouts, "Service temporarily unavailable") are logged as warning and only as error after 3 failed requests in a row; recovery is logged; no more duplicate log entries per error
+* (@Schimi1983) Realtime events keep working after re-authentication
+* (@Schimi1983) Doorbell: "ring" is reset automatically 60 seconds after the call (Netatmo does not reliably send accepted_call), immediately on accepted_call/missed_call, and on adapter start
+* (@Schimi1983) README reworked according to the ioBroker guidelines, older changelog entries moved to CHANGELOG_OLD.md
+* (@Schimi1983) Reworked configuration page: tabs, responsive layout, info boxes, units and input validation, translations for all languages; requires admin >= 7.6.19
+* (@Schimi1983) Help text for event retention corrected (hours instead of minutes); default update interval 10 minutes
+* (@Schimi1983) State roles corrected according to the ioBroker state roles (e.g. `date` instead of the non-existing `value.date`, `text` for texts instead of the generic `state`, `level`/`value.blind` for roller shutters); only roles changed, IDs, types and values stay the same
 * (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
 * (@Apollon77) Added product type NACamDoorTag
 * (@Apollon77) Allows value -2 for target position of Bubendorff roller shutters to put a Bubendorff shutter with jalousieable slats in jalousie mode
@@ -129,177 +174,26 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 * (Apollon77) Make sure device types that require custom credentials are not selectable in UI without entering them
 * (Apollon77) Fix a potential crash case
 
-### 2.1.0 (2022-09-23)
-* (Apollon77) Fix setAway
-* (Apollon77) Adjust setAway/setHome message responses to return all errors/responses when multiple calls where done for multiple homes or persons
-
-### 2.0.5 (2022-09-16)
-* (Apollon77) Catch communication errors better
-
-### 2.0.4 (2022-09-15)
-* (Apollon77) Fix crash case with Smoke detector events
-
-### 2.0.3 (2022-09-14)
-* (Apollon77) Fixes and Optimizations for Doorbell devices
-
-### 2.0.2 (2022-09-12)
-IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
-* BREAKING: Object structure changes completely and now uses unique IDs instead of names!
-* (Apollon77) Change the Authentication method as requested by Netatmo till October 2022
-* (Apollon77) Doorbell integration
-* (Apollon77) Converted to new APIs, values of several objects might be different
-* (Apollon77) Fix crash cases reported by Sentry
-* (Apollon77) Adjust setAway to the current API
-* (Apollon77) Added setHome function (Welcome only) to mark all or specific persons as home (requires your own API key!)
-* (Apollon77) setAway and setHome now also return the result of the call as callback tzo the message
-* (Apollon77) Allow to edit floodlight and monitoring-state
-
-### 1.7.1 (2022-03-30)
-* (Apollon77) Fix Event cleanup
-
-### 1.7.0 (2022-03-24)
-* IMPORTANT: js-controller 3.3.19 is needed at least!
-* (Apollon77) Activate events again (manually delete objects once if you get type errors)
-* (Apollon77) Adjust some roles and written data to prevent warnings in logs
-
-### 1.6.0 (2022-03-13)
-* (Apollon77) Important: In person names (Welcome) in state IDs forbidden characters are now replaces by _!!
-* (Apollon77) Fix another potential crash case reported by sentry
-
-### 1.5.1 (2022-03-09)
-* (Apollon77) Fix jsonconfig for Client secret
-
-### 1.5.0 (2022-03-08)
-* (kyuka-dom) Added support for netatmo carbon monoxide sensor.
-* (kyuka-dom) Added support for netatmo smoke alarm.
-* (foxriver76) prevent crashes if application limit reached
-* (Apollon77) Allow to specify own id/secret in all cases
-* (Apollon77/foxriver76) ensure that minimum polling interval of 10 minutes is respected if no individual ID/Secret is provided
-* (Apollon77) Several pother fixes and optimizations
-* (Apollon77) Add Sentry for crash reporting
-
-### 1.4.4 (2021-07-21)
-* (Apollon77) Fix typo that lead to a crash
-
-### 1.4.3 (2021-06-27)
-* (Apollon77) Fix typo to fix crash
-
-### 1.4.2 (2021-06-27)
-* (bluefox) Removed warnings about the type of states
-
-### 1.4.0 (2021-06-24)
-* (bluefox) Added the support of admin5 
-* (bluefox) Removed warnings about the type of states
-
-### 1.3.3
-* (PArns) removed person history
-
-### 1.3.2
-* (PArns) Updated libs & merged pending patches
-* (PArns) Changed update interval from 5 to 10 minutes (requested by Netatmo)
-
-### 1.3.1
-* (PArns) Fixed event cleanup crash
-
-### 1.3.0
-* (HMeyer) Added Netatmo Coach
-
-### 1.2.2
-* (PArns) Updated meta info
-
-### 1.2.0
-* (PArns) Fixed camera picture for events
-* (PArns) Added camera vignette for events
-* (PArns) Added camera video for events
-* (PArns) Added new sub event type (human, vehicle, animal, unknown)
-* (PArns) Added LastEventID within the LastEventData section
-
-### 1.1.7
-* (PArns) Added missing lib dependencies
-
-### 1.1.6
-* (PArns) Removed GIT requirement and included netatmo lib directly
-
-### 1.1.5
-* (PArns) Removed 502 error output if API has backend problems
-
-### 1.1.4
-* (PArns) Added support for unnamed modules
-
-### 1.1.1
-* (PArns) Simplified setAway
-
-### 1.1.0
-* (PArns) Added setAway function (Welcome only) to mark all or specific persons as away (requires your own API key!)
-
-### 1.0.1
-* (PArns) Fixed scope problems for presence & welcome (requires your own API key!)
-
-### 1.0.0
-* (PArns) Added live camera picture & stream for presence & welcome
-* (PArns) Fixed known & unknown face image url for presence & welcome
-
-### 0.6.2
-* (PArns) Added name of last seen known face
-
-### 0.6.1
-* (PArns) Changed realtime server to use new general realtime server
-* (PArns) Changed enums to channels to avoid enum creation
-* (PArns) Simplified detection for movement-, known- & unknown- face events
-
-### 0.6.0
-* (PArns) Rewritten realtime updates to not need a local server any longer! Realtime updates are now turned on by default if a Welcome or Present cam is available
-
-### 0.5.1
-* (PArns) Optimized realtime updates to avoid updates if only movement was detected
-
-### 0.5.0
-* (PArns) Added realtime events for Netatmo Welcome
-
-### 0.4.1
-* (PArns) Removed log warnings for Wind sensor
-
-### 0.4.0
-* (PArns) Added absolute humidity
-* (PArns) Added dewpoint
-
-### 0.3.1
-* (PArns) Reuse of preconfigured OAuth Client data
-* (PArns) Added backward compatibility with existing installations
-
-### 0.3.0
-* (wep4you) Initial implementation of Netatmo welcome camera
-
-### 0.2.2
-* (PArns) Fixed SumRain24MaxDate & SumRain24Max which won't update in some rare cases
-
-### 0.2.1
-* (PArns) Corrected DateTime values & object types
-
-### 0.2.0
-* (PArns) Added SumRain1Max/SumRain1MaxDate & SumRain24Max/SumRain24MaxDate to get overall rain max since adapter installation
-
-### 0.1.1
-* (PArns) Fixed TemperatureAbsoluteMin/TemperatureAbsoluteMax
-
-### 0.1.0
-* (PArns) Fixed CO2 calibrating status
-* (PArns) Added last update for devices
-* (PArns) Added TemperatureAbsoluteMin/TemperatureAbsoluteMax to get overall temperature min/max since adapter installation
-
-### 0.0.4
-* (PArns) Fixed typo/missing parameter in GustStrength
-
-### 0.0.3
-* (PArns) Added error handling to prevent exceptions for missing parameters
-
-### 0.0.2
-* (PArns) Fixed rain sensor
-
-### 0.0.1
-* (PArns) Initial release
-
 ## License
-MIT
 
-Copyright (c) 2016-2025 Patrick Arns <iobroker@patrick-arns.de>
+The MIT License (MIT)
+
+Copyright (c) 2016-2026 Patrick Arns <iobroker@patrick-arns.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

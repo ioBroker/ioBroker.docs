@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.de.md
 title: ioBroker.e3oncan
-hash: maF+9N8t2QYu0aK5nMYsMNMhy8YSe0EdKjqqgE7OdxY=
+hash: l3F5041unittCYh7R+JaIOUAmw+XdwRqQO2nj72l1K8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,6 +26,7 @@ hash: maF+9N8t2QYu0aK5nMYsMNMhy8YSe0EdKjqqgE7OdxY=
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
+- [Что нового в версии 1.3.0](#was-ist-neu-in-v130)
 - [Что нового в версии 1.2.0?](#was-ist-neu-in-v120)
 - [Schnellstart](#schnellstart)
 - [Konfigurationsanleitung](#konfigurationsanleitung)
@@ -39,7 +40,7 @@ hash: maF+9N8t2QYu0aK5nMYsMNMhy8YSe0EdKjqqgE7OdxY=
 - [Читать пункты данных](#datenpunkte-lesen)
 - [Datenpunkte schreiben](#datenpunkte-schreiben)
 - [Rohschnittstelle des Gateways](#rohschnittstelle-des-gateways)
-- [Datenpunkte und Metadaten](#datenpunkte-und-metadaten)
+- [Точки данных и метаданные](#datenpunkte-und-metadaten)
 - [Энергетические элементы](#energiezähler)
   - [E380 – Daten und Einheiten](#e380--daten-und-einheiten)
   - [E3100CB – Дата и время](#e3100cb--daten-und-einheiten)
@@ -63,6 +64,15 @@ Viessmann-Geräte der E3-Serie (One Base Ökosystem) tauschen über den CAN-Bus 
 Welche Modi verfügbar sind, hängt von der Geräteconfiguration ab. Подробнее читайте в [обсуждениях по теме топологии](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34) . Anwendungsbeispiele sind in der [Diskussion zu Anwendungsfällen](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) zu finden.
 
 > Wichtige Teile dieses Adapters basieren auf dem [open3e](https://github.com/open3e) -Projekt. Базовая реализация Python только для сбора с MQTT находится на панели [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) .
+
+---
+
+## Что нового в версии 1.3.0
+
+- **Статус сканирования:** Geräte- und Datenpunktscan laufen im Hintergrund. Eine Statuszeile unter den Scan-Schaltflächen zeigt den Fortschritt und das Endergebnis, grün bei Erfolg und rot bei einem Fehler. Der Gerätescan speichert die Geräteliste selbst; um sie zu sehen, die Seite neu laden (F5). Это также более подробная информация о проверке шлюза с помощью администратора 7.8.25 или новой работы.
+- **Конфигурация шлюза:** Настройка MQTT-Broker heißt jetzt _Vom Gateway genutzter MQTT-Broker_ , die Voreinstellung ist `mqtt://localhost`.
+- **Datenpunkte und Aufzählungen** auf den aktuellen Stand von open3e gebracht; текст текста `OpStates` wurden korrigiert.
+- **Tab Datenpunkte** : Beschreibungstexte der Abrufintervalle werden beim Speichern nicht mehr gelöscht.
 
 ---
 
@@ -124,7 +134,9 @@ Falls ein zweiter CAN-Bus vorhanden ist (z. B. inner Bus), может быть �
 Установленные локальные CAN-адаптеры могут быть подключены к шине [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway gelesen werden. Сведения о том, что автобус **Verbindungsart** auf _open3e-esp32-Gateway_ und tragen Sie ein:
 
 - **Gateway-REST-URL** , например. `http://open3e-esp32.local`
-- **URL-адрес брокера MQTT-шлюза** , например. `mqtt://broker.local` и **MQTT-Basis-Topic** . Das Basis-Topic muss mit der Einstellung `mqtt.baseTopic` des Gateways übereinstimmen (Стандартный `open3e`).
+- **Vom Gateway genutzter MQTT-Broker** , z. Б. `mqtt://localhost` и **MQTT-Basis-Topic** . Более плотный встроенный брокер, в разделе Einstellungen des Gateways, имеет MQTT-адаптер от ioBroker. Das Basis-Topic muss mit der Einstellung `mqtt.baseTopic` des Gateways übereinstimmen (Стандартный `open3e`).
+
+  > **Примечание:** `localhost` Функционирует среди адаптеров, когда брокер находится на сайте ioBroker-Rechner. В Einstellungen des Gateways нужно обязательно указать Netzwerkadresse dieses Rechners Stehen. Мит `localhost` какой шлюз у брокера будет таким же.
 - **MQTT-Benutzername und -Passwort** относится к брокеру, который является верлангтом.
 
 Когда вы начнете работу с адаптером шлюза с CAN-ID, они будут повреждены. Список действует как источник энергии и идентификаторы сбора данных для вашего устройства, поэтому он не может быть включен в конфигурацию шлюза.
@@ -141,9 +153,9 @@ Falls ein zweiter CAN-Bus vorhanden ist (z. B. inner Bus), может быть �
 
 Zum Tab **Liste der UDS-Geräte** wechseln und **Scan** Drücken.
 
-- Der Scan dauert einige Sekunden. Fortschritt находится на панели «Адаптер-Журнал» (открыта вкладка «Браузер-Вкладка»).
-- Все автобусы E3-Geräte werden aufgelistet. Die Geräte können in der zweiten Spalte umbenannt werden — эти имена указаны как Bezeichner im ioBroker-Objektbaum verwendet.
-- **SPEICHERN** Drücken, Wenn Fertig. Die Instanz wird neu gestartet.
+- Der Scan läuft im Hintergrund und dauert von einigen Sekunden (localer CAN-Bus) до этих двух минут (шлюза). Fortschritt und Ergebnis zeigt die Zeile **Scan-Status** unter der Schaltfläche.
+- Конец указания адаптера, который указан в списке настроек, и момент, когда он будет установлен, не будет установлен. Если вы хотите просмотреть список настроек в диалоговом окне «Конфигурации», перейдите на новый сайт (F5). Hat sich nichts geändert, wird nichts gespeichert. Das Endergebnis im Scan-Status erscheint grün, order rot, wenn der Scan fehlgeschlagen ist oder kein Gerät gefunden Hat.
+- Все автобусы E3-Geräte werden aufgelistet. Die Geräte können in der zweiten Spalte umbenannt werden — эти имена указаны как Bezeichner im ioBroker-Objektbaum verwendet. Nach dem Umbenennen **SPEICHERN** drücken.
 
 > В зависимости от конфигурации адаптера (Datenpunkt 382) можно найти различные значения температуры (°C или °F) и датум-/Zeitformaten. Diese werden Gespeichert und Beim Nachfolgenden Datenpunktscan verwendet.
 
@@ -158,7 +170,7 @@ Zum Tab **Liste der UDS-Geräte** wechseln und **Scan** Drücken.
 
 Откройте Tab **Liste der Datenpunkte** , **Scan starten…** drücken und mit **OK** bestätigen.
 
-> **Geduld** – der Scan kann bis zu 5 Minuten dauern. Der Fortschritt находится на панели управления Adaptor-Log.
+> **Geduld** – der Scan kann bis zu 5 Minuten dauern. Er läuft im Hintergrund; Fortschritt und Ergebnis zeigt die Zeile **Scan-Status** unter der Schaltfläche.
 
 Was der Scan tut:
 
@@ -178,7 +190,7 @@ Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in d
 
 > **Совет по адаптеру истории:** если объект не работает с историческими данными, адаптер истории (History, InfluxDB, SQL) **не** используется. Если вы хотите использовать Backend-ы адаптеров для просмотра диаграмм, то State-ID будет неожиданным. История-Подключение-Конфигурация (das „enabled“-Flag am Objekt) будет доступна для просмотра и должна быть активирована вручную.
 
-> **Предупреждение:** Den `info` -Kanal niemals löschen (z.B. `e3oncan.0.info`). Вы можете использовать Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
+> **Предупреждение:** Den `info` -Kanal niemals löschen (z.B. `e3oncan.0.info`). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
 
 **Анализ топологии автобусной сети**
 
@@ -190,7 +202,7 @@ Nach dem Scan können die gefundenen Datenpunkte über die **e3oncan Datenpunkte
 
 Die empfohlene Vorgehensweise zum Konfigurieren von Leseintervallen und geräteindividuellem Collect-Modus ist die **e3oncan Datenpunkte** -Seite (siehe [unten](#e3oncan-datenpunkte-seite) ).
 
-**Энергетические элементы**
+**Энергетические**
 
 Если вы используете Gerätescan E380 или E3100CB-Energiezähler, вы можете использовать эту карту для **e3oncan Datenpunkte** - Seite. Das Sammeln mit dem **Collect** -Schalter auf der Karte aktivieren. Im Feld **Verzögerung (s)** das Mindestintervall zwischen Wertaktualisierungen в ioBroker einstellen. Der Standardwert von 5 Sekunden ist empfohlen — Energiezähler übertragen mehr als 20 Werte pro Sekunde, und ein Wert von 0 würde ioBroker stark belasten.
 

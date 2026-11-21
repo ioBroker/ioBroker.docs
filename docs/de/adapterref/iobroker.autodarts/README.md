@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.autodarts/README.md
 title: ioBroker-Adapter für AUTODARTS
-hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
+hash: R9zbxsnz1nlG6J8F0QOmnWWRkNovqzE8/WFEYQWHCv8=
 ---
 ![Logo](../../../en/adapterref/iobroker.autodarts/admin/autodarts.svg)
 
@@ -69,6 +69,7 @@ Verbindet sich mit Autodarts und stellt ioBroker-Zustände für die Hausautomati
 - ** `system.software.*` ** Autodarts-Versionen (Board-Version, Desktop-Version), Betriebssystem- und Plattformdetails
 - ** `system.hardware.*` ** : CPU-Modell, Kernel-Architektur, Hostname
 - ** `system.cams.cam0/1/2` ** : Kamerakonfiguration (Breite, Höhe, fps) als JSON
+- ** `system.cams.calibrate` ** : Schaltfläche zum Starten der automatischen Kamerakalibrierung über die lokale Board Manager API (`POST /api/config/calibration/auto` Verwendet **Host-/IP-Adresse** und **Port** des Boards aus den Optionen (funktioniert im lokalen und Cloud-Modus, wenn `:3180` ist erreichbar).
 
 ### Hardwaresteuerung
 
@@ -111,11 +112,11 @@ Unter **OPTIONEN** konfigurieren Sie, wie der Adapter eine Verbindung zu Autodar
   - `local` — den Board-Client in Ihrem LAN abfragen (`IP:port` (Standardeinstellung für Autodarts vor Version 2)
   - `cloud` — Autodarts-Konto + Board-ID (erforderlich für die Wurferkennung von Autodarts v2)
 
-- **Board-Host/IP** (lokaler Modus)\
-  &#x20;IP-Adresse Ihres Autodarts-PCs (z. B. `192.168.178.50` oder `127.0.0.1`).
+- **Board-Host/IP**\
+  &#x20;IP-Adresse Ihres Autodarts-PCs (z. B. `192.168.178.50` oder `127.0.0.1` Wird für lokale Abfragen und für die Kamerakalibrierung verwendet (auch im Cloud-Modus).
 
-- **Port** (lokaler Modus)\
-  &#x20;TCP-Port des Board-Clients (normalerweise `3180`).
+- **Hafen**\
+  &#x20;TCP-Port der lokalen Board-API (normalerweise `3180`). Wird für den lokalen Modus und für `system.cams.calibrate` Die
 
 - **Cloud-E-Mail / Passwort / Board-ID** (Cloud-Modus)\
   &#x20;Ihre Autodarts-Anmeldedaten und die Board-ID von **„Meine Boards“** auf [play.autodarts.io](https://play.autodarts.io) .\
@@ -164,9 +165,12 @@ Unter **HILFE & FAQ** finden Sie allgemeine Informationen und Hilfestellungen zu
 - Dieser Adapter ist nur für die Verwendung mit Ihrer eigenen Dartscheibe konzipiert.
 
 ## Changelog
-<!--
-	### **WORK IN PROGRESS**
--->
+### 1.2.0 (2026-10-15)
+- (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
+
+### 1.1.1 (2026-10-03)
+- (skvarel) Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)
+
 ### 1.1.0 (2026-09-26)
 - (skvarel) Documented Autodarts v2 incompatibility for local throw detection
 - (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
@@ -177,16 +181,6 @@ Unter **HILFE & FAQ** finden Sie allgemeine Informationen und Hilfestellungen zu
 
 ### 1.0.11 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 1.0.10 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
-- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
-
-### 1.0.9 (2026-05-25)
-- (skvarel) Adapter requires node.js >= 22 now
-- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
-- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
 
 ## License
 MIT License

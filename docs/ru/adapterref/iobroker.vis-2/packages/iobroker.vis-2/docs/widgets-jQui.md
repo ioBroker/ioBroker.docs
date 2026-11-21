@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md":{"title":{"en":"ioBroker web components in vis-2 (preview)"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/web-components.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md
 title: Виджеты jQui - виджеты jQuery UI
-hash: T3DKA2oJcdVN8JPeWaN1AY1/B7V4QSqkqE3uXBvwEu4=
+hash: XSrGwGkB2R8ZLXf+fs0BxKUtEsxDwvNssLh1q1TFj+Q=
 ---
 # Виджеты jQui — виджеты jQuery UI
 
@@ -68,6 +68,10 @@ hash: T3DKA2oJcdVN8JPeWaN1AY1/B7V4QSqkqE3uXBvwEu4=
 - Переключатель (шаги) (tplJquiRadioSteps)
 - Выберите из списка (tplJquiSelectList)
 
+При использовании параметра "Значения из объекта" значения и тексты списка берутся из `common.states` Значение объекта виджета считывается при отображении страницы. Элемент, определенный в виджете с тем же значением, сохраняет свою иконку, цвета и всплывающую подсказку; элементы виджета, значения которых отсутствуют в объекте, не отображаются.
+
 ## Запишите значение (tplIconState). Оно содержит следующие производные виджеты:
 
 - Увеличение с помощью значка (tplIconInc)
+
+При выборе параметра "Только иконка" (групповой стиль, отображаемый при установке иконки или изображения) кнопка показывает только иконку; ее размер соответствует размеру виджета.

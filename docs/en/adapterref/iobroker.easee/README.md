@@ -12,6 +12,9 @@ chapters: {"pages":{"en/adapterref/iobroker.easee/README.md":{"title":{"en":"ioB
 
 [![NPM](https://nodei.co/npm/iobroker.easee.png?downloads=true)](https://nodei.co/npm/iobroker.easee/)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 ## easee adapter for ioBroker
 
 Adapter to connect [Easee Wallboxes](https://easee.com/).
@@ -48,7 +51,10 @@ modes. For setup, compatibility, and troubleshooting, see the
 
 ### Charger status and controls
 
-`<chargerId>.status.chargerOpMode` shows the current charging state:
+`<chargerId>.status.chargerOpMode` shows the current charging state. The Admin
+object browser marks chargers online or offline using
+`<chargerId>.status.isOnline` in Cloud mode or
+`<chargerId>.info.bluetoothConnection` in Bluetooth mode.
 
 | Value | State |
 | ---: | --- |
@@ -87,7 +93,12 @@ This adapter would not have been possible without the great work of @Newan (http
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2026-11-19)
+- (Voodoo2man) Added online/offline indicators for chargers in the Admin object browser.
+- (Voodoo2man) Improved cleanup of Bluetooth connections that complete while the adapter shuts down.
+
+### 4.0.1 (2026-11-15)
+- (Voodoo2man) Fixed repository-checker findings and improved automatic Bluetooth binding selection, timer cleanup, and bounded shutdown handling (up to 10 seconds).
 - (Voodoo2man) Limited the displayed charging power to two decimal places in the Device Manager card.
 
 ### 4.0.0 (2026-11-10)
@@ -103,14 +114,6 @@ This adapter would not have been possible without the great work of @Newan (http
 - (Voodoo2man) Corrected cable-lock status reporting and improved the reliability of charger status updates.
 - (Voodoo2man) Added a readable and adjustable permanent cable-lock setting, kept separate from the actual cable-lock status.
 - (Voodoo2man) Improved recovery of live charger updates after connection interruptions while retaining regular status updates when live updates are disabled.
-
-### 3.0.0 (2026-10-23)
-- (Voodoo2man) Raised the minimum Node.js version to 22.19.0.
-
-### 2.0.0 (2026-10-18)
-- (Voodoo2man) Improved charger status updates and recovery after connection interruptions, with contributions from @Michaelnorge, @Codibris, and @m1chel87 and earlier compatibility work by @NCIceWolf.
-- (Voodoo2man) Improved circuit-current controls and added configurable session updates across chargers.
-- (Voodoo2man) Added configurable charging costs, including VAT.
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

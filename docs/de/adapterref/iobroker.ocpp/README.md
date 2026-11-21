@@ -3,6 +3,7 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ocpp.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ocpp.svg
 BADGE-Number of Installations: https://iobroker.live/badges/ocpp-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/ocpp-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/ocpp/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ocpp.png?downloads=true
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg
 ---
@@ -14,6 +15,7 @@ BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ocpp.svg)](https://www.npmjs.com/package/iobroker.ocpp)
 ![Number of Installations](https://iobroker.live/badges/ocpp-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/ocpp-stable.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ocpp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.ocpp.png?downloads=true)](https://nodei.co/npm/iobroker.ocpp/)
 
@@ -70,6 +72,10 @@ Adapter zur lokalen Einbindung und Steuerung von OCPP 1.6-J kompatiblen Wallboxe
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (meistermopper) Weblate-Übersetzungs-Badge ergänzt
 
 ### 1.0.0 (2026-11-09)
 
@@ -132,6 +138,9 @@ SOFTWARE.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (meistermopper) add Weblate translation status badge
+
 ### 1.0.0 (2026-11-09)
 * (meistermopper) fix repochecker findings: nogit, info.connection role, and unused deps (#117)
 * (meistermopper) align workflow concurrency and timer wrappers with repochecker (#121)

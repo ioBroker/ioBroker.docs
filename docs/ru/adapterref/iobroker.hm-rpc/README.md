@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hm-rpc/README.md
 title: ioBroker HomeMatic RPC Adapter
-hash: qbx82r748fNIMD7JogRm5wOGF0bf3QP3TStxV/dPmpA=
+hash: FtBJG4v/IxxrffKOkGvDipmu9hcmLuOXE4HIqDdZM5E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hm-rpc/admin/homematic.png)
 
 ![Статус сборки](https://github.com/ioBroker/ioBroker.hm-rpc/workflows/Test%20and%20Release/badge.svg)
-![Количество установок](http://iobroker.live/badges/hm-rpc-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.hm-rpc.svg)
+![Количество установок](https://iobroker.live/badges/hm-rpc-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.hm-rpc.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hm-rpc.svg)
 ![НПМ](https://nodei.co/npm/iobroker.hm-rpc.png?downloads=true)
 
@@ -44,6 +44,7 @@ RPC расшифровывается как **Remote** **Procedure Call (** уд
 - `HMIP-rfd` для IP-устройств Homematic,
 - `hs485d` для проводных устройств,
 - `CUxD` для внешних компонентов, таких как EnOcean или FS20 (CUxD — это дополнительное программное обеспечение для CCU),
+- `CCU-Jack` для виртуальных устройств [CCU-Jack](https://github.com/mdzio/ccu-jack) (дополнения для CCU),
 - `Homegear` в качестве замены отделения интенсивной терапии.
 
 На этой диаграмме показана структура и интерфейсы связи:
@@ -76,14 +77,16 @@ IP-адрес CCU или хоста, на котором работает сер
 
 По умолчанию используются следующие порты:
 
-| Демон                  | Модуль связи                  | Стандартный порт         | порт HTTPS        |
-| ---------------------- | ----------------------------- | ------------------------ | ----------------- |
-| HomeMatic IP           | HMIP-rfd                      | 2010                     | 42010             |
-| рфд                    | радиоустройства               | 2001                     | 42001             |
-| Виртуальные устройства | виртуальные устройства        | 9292                     | 49292             |
-| hs485d                 | hs485d (проводные устройства) | 2000                     | 42000             |
-| CUxD                   | CUxD                          | 8701                     | не поддерживается |
-| Homegear               | Homegear                      | как настроено в Homegear | не поддерживается |
+| Демон                  | Модуль связи                  | Стандартный порт                        | порт HTTPS        |
+| ---------------------- | ----------------------------- | --------------------------------------- | ----------------- |
+| HomeMatic IP           | HMIP-rfd                      | 2010                                    | 42010             |
+| рфд                    | радиоустройства               | 2001                                    | 42001             |
+| Виртуальные устройства | виртуальные устройства        | 9292                                    | 49292             |
+| hs485d                 | hs485d (проводные устройства) | 2000                                    | 42000             |
+| CUxD                   | CUxD                          | 8701                                    | не поддерживается |
+| Homegear               | Homegear                      | как настроено в Homegear                | не поддерживается |
+| CCU-Джек               | CCU-Джек                      | 2121                                    | 2122              |
+| openccu-lite           | lite-rpc системы              | 80 (см. [openccu-lite](#openccu-lite) ) | 443               |
 
 Порты HTTPS работают только с протоколом XML-RPC.
 
@@ -97,13 +100,13 @@ IP-адрес хоста, на котором работает адаптер. C
 
 #### Демон
 
-CCU поддерживает различные типы устройств (радио, проводные, Homematic IP, CUxD). Для каждого типа необходимо создать отдельный экземпляр адаптера.
+CCU поддерживает различные типы устройств (радио, проводные, Homematic IP, CUxD, CCU-Jack). Для каждого типа необходимо создать отдельный экземпляр адаптера. Демон `openccu-lite` подключает интерфейс системы openccu-lite, см. [openccu-lite](#openccu-lite) .
 
 #### Протокол
 
 Для обмена данными доступны два протокола: XML-RPC и BIN-RPC. BIN-RPC быстрее, но некоторые устройства его не поддерживают или поддерживают некорректно. В этом случае выберите протокол XML-RPC.
 
-**Примечание:** CUxD работает только с BIN-RPC. Homematic IP и виртуальные устройства работают только с XML-RPC. Для этих демонов адаптер автоматически использует правильный протокол.
+**Примечание:** CUxD работает только с BIN-RPC. Homematic IP, виртуальные устройства и CCU-Jack работают только с XML-RPC. Для этих демонов адаптер автоматически использует правильный протокол.
 
 #### Синхронизация объектов (один раз)
 
@@ -135,6 +138,12 @@ CCU поддерживает различные типы устройств (р�
 
 При включении этой опции можно вручную удалить объекты устройства, которое вы ранее удалили из CCU, в дереве объектов.
 
+#### Подавлять промежуточные уровни движущихся каналов
+
+Диммер или жалюзи немедленно подтверждают команду, еще до завершения регулировки или изменения положения. Блок управления (CCU) передает это подтверждение в виде событий, указывая текущий уровень вместе с `WORKING = true` (Гомематический) или `PROCESS = NOT_STABLE` (Homematic IP). Заключительный уровень отображается через несколько секунд со следующим сообщением о состоянии (для диммеров BidCos после). `STATUSINFO_MINDELAY` +`STATUSINFO_RANDOM` (по умолчанию 2-3 с). Поэтому состояние скачкообразно, например. `0 → 100` (команда, `ack: false`) `→ 0.5` (Благодарность) `→ 100` (конечное значение).
+
+Если эта опция включена, то `LEVEL` /`LEVEL_2` канал, который имеет `WORKING` или `PROCESS` Данные сохраняются до тех пор, пока не поступит флаг того же сообщения о состоянии (блок управления каналом (CCU) отправляет его через несколько миллисекунд после уровня, ожидание составляет не более 300 мс). Уровень отбрасывается, если канал все еще движется, в противном случае он записывается. Таким образом, состояние сохраняет заданное значение до получения конечного уровня. `WORKING`, `PROCESS` и `DIRECTION` Они всегда записываются, поэтому само движение по-прежнему может быть обнаружено. Каналы без такого флага не затрагиваются.
+
 #### Используйте https
 
 Если эта опция включена, адаптер использует HTTPS вместо HTTP. Это работает только с протоколом XML-RPC.
@@ -142,6 +151,19 @@ CCU поддерживает различные типы устройств (р�
 #### Имя пользователя и пароль
 
 Если включена опция «Использовать HTTPS», введите здесь имя пользователя и пароль пользователя CCU. Введите эти учетные данные также, если API CCU требует аутентификации; адаптер отправляет их с помощью XML-RPC с HTTPS и без него. BIN-RPC не поддерживает аутентификацию.
+
+### openccu-lite
+
+[openccu-lite](https://github.com/openccu-lite/openccu-lite) — это прошивка CCU без ReGaHSS. Доступ к процессам интерфейса осуществляется через _lite-rpc_ : запросы проходят через веб-порт системы с токеном, а события поступают в виде потока, который открывает адаптер — нет сервера обратного вызова, нет адреса обратного вызова, нет `init` Таким образом, адаптер может работать за маршрутизатором или в контейнере Docker без переадресации портов.
+
+Выберите демон **openccu-lite** и введите адрес системы в поле "HomeMatic Address" (порт соответствует опции "Use https": 443 или 80). Затем:
+
+- **Интерфейс** : интерфейс системы, к которой подключается данный экземпляр (`HmIP-RF`, `BidCos-RF`, `BidCos-Wired`, `VirtualDevices` Как и в случае с CCU, один экземпляр подключает один интерфейс; после сопряжения экземпляра в списке отображаются интерфейсы, которые использует система.
+- **Сопряжение** : экземпляр должен быть запущен. Нажмите кнопку: под ней появится шестизначный код вместе со ссылкой на страницу состояния системы. Подтвердите запрос там (как один из администраторов системы, используя пароль или ключ доступа) — код на странице состояния должен совпадать. Токен и отпечаток сертификата системы затем сохраняются в конфигурации экземпляра; сохраните конфигурацию, и экземпляр перезапустится с ними. В диалоговом окне сообщается об отклоненном или истекшем запросе, неверном адресе и системе без сопряжения. Каждый экземпляр сопрягается со своим собственным токеном (система допускает несколько потоков событий на один токен).
+- Отпечаток **токена** и **отпечаток сертификата** заполняются путем сопоставления. API-токен, созданный в системе, также можно ввести вручную; отпечаток привязывает сертификат системы (оставьте это поле пустым, если сертификат является доверенным для Node.js или доступ к системе осуществляется по протоколу HTTP).
+- **Заимствование имен, помещений и функций из системы** (по умолчанию включено): устройства, каналы и состояния именуются так же, как и в системе (`<channel name>.<DATAPOINT>` (для штатов, как их называет hm-rega), а помещения и функции системы заполняют `enum.rooms` и `enum.functions` - в режиме реального времени, всякий раз, когда в системе изменяется имя или номер комнаты. Дерево комнат становится плоским: каждый узел становится собственным перечислением, названным по его пути (`eg/wohnzimmer` →`enum.rooms.eg_wohnzimmer`), и канал является членом только своей самой внутренней комнаты. Адаптер управляет только членами своего собственного экземпляра в перечислении, поэтому устройства других адаптеров остаются. Без этой опции объекты сохраняют адрес в качестве имени, как в случае с CCU.
+
+Устройства синхронизируются при каждом запуске экземпляра (система отправляет список устройств вместе с потоком), поэтому параметр "Синхронизировать объекты (один раз)" не требуется в openccu-lite. Параметр "Не удалять устройства" работает так же, как и с CCU. Значения, хранящиеся в системе, записываются в состояния при подключении экземпляра, поэтому состояния актуальны до первого события. Параметры "Адрес адаптера", "Порт адаптера", "Протокол", "Адрес обратного вызова адаптера", "Интервал проверки связи", "Интервал переподключения", "Имя пользователя" и "Пароль" не применяются и скрыты.
 
 ### Диспетчер устройств
 
@@ -174,7 +196,7 @@ CCU поддерживает различные типы устройств (р�
 | Служебный велосипед / Сигнализация для служебного велосипеда             | Время передачи данных устройств Homematic                     |
 | RSSI (Устройство / Партнер)                                              | Уровень сигнала между устройством и центральным блоком.       |
 | Низкий уровень летучей мыши / Сигнализация низкого уровня летучей мыши   | Низкий заряд батареи                                          |
-| Залипание кнопки "Недоступно" / сигнализация о недоступности             | Системное сообщение об ошибке связи (ошибка произошла ранее). |
+| Залипание кнопки "Недоступно" / Сигнализация о недоступности             | Системное сообщение об ошибке связи (ошибка произошла ранее). |
 | Сигнализация о недостижении                                              | Системное сообщение об ошибке связи (текущее состояние)       |
 
 ### Каналы с 1 по 6
@@ -197,7 +219,7 @@ CCU поддерживает различные типы устройств (р�
 
 **Примеры:**
 
-Запишите все значения из области MASTER устройства в лог:
+Запишите все значения из области MASTER устройства в журнал:
 
 ```javascript
 sendTo('hm-rpc.0', 'getParamset', {ID: 'OEQ1861203', paramType: 'MASTER'}, res => {
@@ -229,6 +251,20 @@ sendTo('hm-rpc.1', 'setValue', {ID: '000453D77B9EDF:1', paramType: 'SET_POINT_TE
 });
 ```
 
+Считывание текущего значения точки данных из интерфейсного процесса CCU (аналогично) `.State()` (в скрипте HomeMatic):
+
+```javascript
+sendTo('hm-rpc.1', 'getValue', {ID: '000453D77B9EDF:1', paramType: 'ACTUAL_TEMPERATURE'}, res => {
+    if (!res.error) {
+        log(`Temperature: ${res.result}`);
+    } else {
+        log(res.error);
+    }
+});
+```
+
+Процесс интерфейса возвращает кэшированное значение, он не запрашивает новое значение у устройства. Адаптер уже получает каждое изменение этого значения как событие, поэтому обычно состояние в ioBroker имеет одно и то же значение. Частота, с которой устройство сообщает значение (например, мощность исполнительного механизма переключателя с измерением мощности), задается в области MASTER его канала.
+
 Прочитайте `paramsetDescription` канала устройства:
 
 ```javascript
@@ -251,6 +287,18 @@ sendTo('hm-rpc.1', 'getDeviceDescription', {ID: '0000S8179E3DBE', paramType: 'FI
 
 ## Дополнительная информация
 
+### Состояние обновления прошивки
+
+Для устройств, описание которых содержит состояние обновления прошивки (IP-адрес Homematic), адаптер создает это состояние. `<device>.0.FIRMWARE_UPDATE_STATE` Обновление происходит всякий раз, когда CCU сообщает об изменении статуса обновления прошивки, а также при каждом запуске адаптера. Возможные значения: например, `UP_TO_DATE`, `NEW_FIRMWARE_AVAILABLE`, `DELIVER_FIRMWARE_IMAGE` (Прошивка переносится), `READY_FOR_UPDATE` (Передача завершена, можно начинать обновление) `DO_UPDATE_PENDING` (Обновление необходимо запустить на устройстве) и `PERFORMING_UPDATE`.
+
+```javascript
+on({id: /^hm-rpc\.1\..*\.0\.FIRMWARE_UPDATE_STATE$/, val: 'READY_FOR_UPDATE'}, obj => {
+    log(`Firmware of ${obj.id.split('.')[2]} is transferred`);
+});
+```
+
+### Пример программы для отображения состояний кнопки.
+
 Если вы используете выключатели или пульты дистанционного управления HomeMatic, блок управления CCU подтверждает состояние кнопок только в том случае, если на нем запущена «фиктивная» программа. Эта программа должна использовать состояние соответствующего выключателя или пульта дистанционного управления. Без такой программы ioBroker не получает состояния кнопок.
 
 Для нескольких кнопок можно использовать одну фиктивную программу. Добавьте все состояния кнопок в условие if и объедините их с оператором «или» или с оператором «и». Условие then программы может оставаться пустым. После этого состояние в ioBroker обновляется при каждом нажатии кнопки.
@@ -263,56 +311,35 @@ Sentry.io — это сервис для разработчиков. Он пре
 
 ## Разработка
 
-Для обновления всех образов устройств выполните следующую команду:
+Для обновления образов всех устройств выполните следующую команду:
 
 ```bash
 npm run update-images
 ```
 
 ## Changelog
+### 4.3.1 (2026-11-21)
+- (@hobbyquaker) openccu-lite: a device paired later no longer deletes the objects of the other devices of the instance; objects of devices removed on the system are cleaned up when the instance connects, without leaving broken objects behind ("obj.type has to exist")
+
+### 4.3.0 (2026-11-18)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@hobbyquaker) New daemon `openccu-lite`: connects an interface of an [openccu-lite](https://github.com/openccu-lite/openccu-lite) system through its lite-rpc (requests with a token, events as a stream - no callback server). The pairing runs from the instance settings: press "Pair", approve the six-digit code on the Status page of the system, the token and the certificate fingerprint are stored by themselves. The names of the devices, channels and states, the rooms and functions come from the system's metadata and follow its changes live
+- (@gcaruso73) New option "Suppress interim levels of moving channels": the LEVEL of the acknowledgement of a dimmer or blind (`WORKING = true` / `PROCESS = NOT_STABLE`) is not written, so the state no longer jumps to the start value of the ramp before the final value arrives
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 4.1.2 (2026-09-22)
-* (bluefox) Philips Hue and Osram Lightify lamps of the CCU lighting gateway: the color temperature `WHITE` is handled in kelvin (2000 - 6500 K), also if the CCU declares it as percent (#694)
-* (bluefox) `HUE` and `SATURATION` are sent together in one `putParamset`, HMIP devices like HmIP-RGBW rejected a single value with `MISSING_NON_OPTIONAL_PARAMETER` (#1108)
-* (bluefox) Values which the CCU delivers as text for a number are converted (the name of an ENUM to its index, e.g. `STATE_NOT_AVAILABLE` of a `VALVE_STATE`), invalid values become `null` instead of a wrong type (#1342, #1358)
-* (bluefox) Events of deleted devices do not warn about missing objects until the next start of the adapter anymore (#1419)
 
-### 4.1.1 (2026-09-22)
-* (bluefox) `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats show the mode names (auto, manual, party)
-* (bluefox) `SET_TEMPERATURE` of BidCos heating groups accepts 4.5 (OFF) and 30.5 (ON)
-* (bluefox) CUxD always uses BIN-RPC, Homematic IP and Virtual Devices always use XML-RPC
-* (bluefox) Username and password are sent with XML-RPC also without HTTPS
-* (bluefox) Better error message if the CCU answers with an HTML page instead of XML-RPC
-* (bluefox) Read-only datapoints do not get the writable roles `level.*` and `switch.*` anymore
-* (bluefox) HmIP shutters and blinds: the control channels get `level.blind`/`level.tilt`, the status channel `value.blind`/`value.tilt`; `LEVEL` and `VALVE_STATE` of HmIP thermostats got better roles
-* (bluefox) The option "Don't delete devices" also ignores devices that the CCU reports as deleted while the adapter is running (e.g. HmIP during firmware updates)
+### 4.2.4 (2026-10-22)
+* (@GermanBluefox) Do not re-register every 5 minutes if events with an outdated interface id keep arriving (#1542)
 
-### 4.1.0 (2026-09-22)
-* (krobipd) The device icons were invisible in the object browser: its ID cell sets `width: initial` on every element of an inlined SVG, which collapses the icon's `rect` to 0px. The size is now carried as an inline style as well.
-* (bluefox) Updated `binrpc` to 4.x and `homematic-xmlrpc` to 2.x (no dependency on a GitHub tarball anymore)
-* (bluefox) If the RPC server cannot listen (e.g. the configured IP address is not available), the error is logged and the adapter restarts after 30 seconds instead of crashing
-* (bluefox) On stop, the RPC server and client are closed properly, also for XML-RPC and if the CCU is not reachable
-* (bluefox) Updated packages
-* (bluefox) Fixed writing of the lines and icons of HM-Dis-EP-WM55: an invalid tone interval (`0xE-1`) was sent if no interval was set
-* (bluefox) The device manager does not crash anymore on devices without `native` and does not report the same control twice
-* (bluefox) Added icon for HmIP-RFUSB
-* (bluefox) PONG events and requests without method are logged only in debug mode
-* (bluefox) Replaced the deprecated `deleteDevice` and `deleteChannel` calls
-* (bluefox) Fixed issues reported by the repository checker (responsive design of the settings, lint and type check in CI)
+### 4.2.3 (2026-10-19)
+* (@GermanBluefox) After an unclean stop, the CCU kept sending the events with the old interface ID and they were discarded silently. The adapter now removes an old registration before it registers, and registers again with a warning if events with an old ID of this instance arrive (#1542)
 
-### 4.0.0 (2026-08-15)
-* (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
-* (krobipd) Generated the device icon set and the device type map from the OCCU device database
-* (krobipd) The device icon is re-applied on start to devices that were created before their type had an icon
-* (bluefox) Removed support of Node.js 20
-
-### 3.0.2 (2026-05-07)
-* (bluefox) Updated packages
-* (bluefox) Migrated to TypeScript 6
-* (bluefox) Corrected device manager
+### 4.2.2 (2026-10-13)
+* (@GermanBluefox) The virtual devices of CCU-Jack can be connected with the new daemon `CCU-Jack` (port 2121, HTTPS 2122, XML-RPC only) (#1003)
+* (@GermanBluefox) The state `updated` (new devices for hm-rega) is no longer marked as writable, as expected for the role `indicator`
+* (@GermanBluefox) Homebrew devices (AskSin++) of the add-ons from jp112sdl (JP-HB-Devices-addon) and TomMajor (HB-TM-Devices-AddOn) get the same icon as in the CCU WebUI (#903)
 
 ### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)

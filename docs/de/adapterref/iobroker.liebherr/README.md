@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.liebherr/README.md
 title: ioBroker.liebherr
-hash: hVfrVDRbDJNf0K7OaTeXq8cA5AeeFKy+3F+FKORd35Q=
+hash: LK1Bul6U52hTIMU8MJBXIMr0MF2RqKwluZGiWuFmQ9E=
 ---
 ![Logo](../../../en/adapterref/iobroker.liebherr/admin/liebherr.png)
 
@@ -50,10 +50,10 @@ Der Adapter bietet derzeit Folgendes:
 - Echtzeit-Steuerungsaktualisierungen über einen neu verbindenden SSE-Stream pro erkanntem Gerät
 - Aktuelle, Ziel-, Minimal- und Maximaltemperaturen für jede gemeldete Temperaturzone
 - Gemeldete Temperatureinheiten und Metadaten zu den Temperaturschritten
-- Validierte Schreibvorgänge für Zieltemperaturen, Nachtmodus, Partymodus, SuperCool und SuperFrost, wenn die entsprechende Funktion gemeldet wird
+- Validierte Schreibvorgänge für Zieltemperaturen, Nachtmodus, Partymodus, SuperCool, SuperFrost und IceMaker, wenn die entsprechende Funktion gemeldet wird.
 - Sichere Handhabung fehlerhafter, unbekannter und zukünftiger Steuerungstypen ohne Absturz des Adapters
 
-`TemperatureControl` Und `ToggleControl` sind derzeit zugeordnet. Die Bedienelemente für die Umschaltung sind im Geräte-Menü gruppiert. `controls` Kanal; jede gemeldete Zonenzuordnung wird in den nativen Metadaten des Objekts beibehalten. Echtzeit-Steuerungsaktualisierungen verwenden den offiziellen gerätespezifischen Server-Sent Events (SSE)-Endpunkt, während regelmäßige REST-Abfragen als Sicherheitssynchronisierung und zur Geräteerkennung aktiv bleiben.
+`TemperatureControl`, `ToggleControl`, Und `IceMakerControl` sind derzeit zugeordnet. Die Bedienelemente sind im Gerät gruppiert. `controls` Kanal; jede gemeldete Zonenzuordnung wird in den nativen Metadaten des Objekts beibehalten. IceMaker stellt dies bereit. `OFF` Und `ON`, plus `MAX_ICE` Nur wenn das Gerät diese Fähigkeit meldet. Echtzeit-Steuerungsaktualisierungen verwenden den offiziellen gerätespezifischen Server-Sent Events (SSE)-Endpunkt, während die regelmäßige REST-Abfrage als Sicherheitssynchronisierung und zur Geräteerkennung aktiv bleibt.
 
 ## Einen HomeAPI-API-Schlüssel abrufen
 
@@ -93,7 +93,8 @@ liebherr.0
         |   |-- imageUrl
         |   `-- available
         |-- controls
-        |   `-- <toggle control>
+        |   |-- <toggle control>
+        |   `-- icemaker (if reported)
         `-- zone_<zoneId>
             |-- zoneId
             |-- position
@@ -133,6 +134,14 @@ Bitte melden Sie reproduzierbare Probleme im [GitHub-Issue-Tracker](https://gith
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2026-11-05)
+
+* (Gaspode69) Added writable IceMaker control with capability-based Max Ice support
+
+### 0.0.5 (2026-10-21)
+
+* (Gaspode69) Reduced log noise from transient interruptions of established realtime streams
+
 ### 0.0.4 (2026-09-10)
 
 * (Gaspode69) Updated the Node.js 22 TypeScript configuration dependency; TypeScript 7 remains deferred until the development toolchain supports its compiler API

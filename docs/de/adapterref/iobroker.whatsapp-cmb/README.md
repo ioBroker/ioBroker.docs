@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: lYtxUhl+rQUeHLNemk+zcyVV1CgJ01ScINDOgBXnsGI=
+hash: p1uoOf8Ped3iQt9DWuJEsFehO449X+1sww2jj/JWI5I=
 ---
 ![Logo](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/whatsapp-cmb-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/whatsapp-cmb-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
@@ -29,7 +29,7 @@ _Die folgende Dokumentation wurde von [der CallMeBot](https://www.callmebot.com/
 
 Sie müssen den API-Schlüssel vom Bot erhalten, bevor Sie die API verwenden können:
 
-- Fügen Sie die Telefonnummer XXXX (die aktuelle Nummer finden Sie auf der CallMeBot-Seite) zu Ihren Telefonkontakten hinzu. (Sie können den Kontakt beliebig benennen.)
+- Fügen Sie die Telefonnummer XXXX (die aktuelle Nummer finden Sie auf der CallMeBot-Seite) zu Ihren Telefonkontakten hinzu. (Vergeben Sie einen beliebigen Namen.)
 - Sende diese Nachricht `I allow callmebot to send me messages` (auf Englisch) an den neu erstellten Kontakt (natürlich über WhatsApp).
 - Warten Sie, bis Sie die Nachricht erhalten. `API Activated for your phone number. Your APIKEY is 123123` vom Bot. Da sich dies noch in der Beta-Testphase befindet, kann die Aktivierung bis zu 2 Minuten dauern.
 - Die WhatsApp-Nachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API benötigt wird.
@@ -51,16 +51,29 @@ sendTo('whatsapp-cmb.0', 'send', {
 });
 ```
 
+`sendTo('whatsapp-cmb.0', 'help', {})` Antworten `{ help, commands }`: eine Beschreibung aller Nachrichten mit ihren Parametern für KI-Agenten (z. B. ioBroker.pi-agent) und Skriptautoren sowie die Liste aller Befehle mit `write` (ob der Befehl eine Wirkung hat, z. B. eine Nachricht sendet).
+
 ![Blockly](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
 Wenn Sie Emojis senden möchten, lesen Sie bitte <https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/>
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.0 (2026-11-19)
+- (bluefox) Added the message `help`: a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+
+### 1.0.0 (2026-10-13)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) Breaking: Node.js >= 22.19, js-controller >= 6.0.11 and admin >= 7.0.0 are required now
+- (bluefox) Replaced the deprecated `request` package with `axios`
+- (bluefox) The Blockly block was migrated to TypeScript and works again with the current Blockly editor
+- (bluefox) Blockly: an empty message no longer breaks the script, the log shows the phone number value
+
 ### 0.3.0 (2024-05-25)
 * Important: Node.js 18 and js-controller 5.0.19 is required at least
 * (Sneak-L8) Treats all response codes other than 200 as errors
@@ -71,23 +84,10 @@ Wenn Sie Emojis senden möchten, lesen Sie bitte <https://www.callmebot.com/unca
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 
-### 0.2.1 (2022-03-25)
-* (Apollon77) Add Emoticons support
-* (Apollon77) Add Sentry for crash reporting
-
-### 0.1.6 (2020-08-31)
-* (Apollon77) Fixed the error with the phone number
-
-### 0.1.3 (2020-08-29)
-* (bluefox) The documentation and translations were added.
-
-### 0.0.1 (2020-08-27)
-* (bluefox) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2020-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2026 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
