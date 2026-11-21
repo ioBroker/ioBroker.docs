@@ -1,0 +1,100 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.go-e-charger/README.md":{"title":{"en":"ioBroker.go-eCharger"},"content":"en/adapterref/iobroker.go-e-charger/README.md"},"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md":{"title":{"en":"Migrating from the go-e adapter (ioBroker.go-e) to go-e-charger"},"content":"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md"},"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md":{"title":{"en":"Umstieg vom go-e-Adapter (ioBroker.go-e) auf go-e-charger"},"content":"en/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md"}}}
+translatedFrom: en
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e-charger/docu/migration-from-go-e_de.md
+title: Используйте адаптер go-e (ioBroker.go-e) для зарядного устройства go-e-e-e.
+hash: jI9DpSxkqSrYi4REIUuDthfilpto58T+YDv8DoQM9Qg=
+---
+# Используйте адаптер go-e-adapter (ioBroker.go-e) для зарядного устройства go-e-e-e.
+
+[Английская версия](/#/docs/adapterref/iobroker.go-e-charger/docu/migration-from-go-e.md)
+
+Diese Anleitung hilft Nutzern des Adapters [ioBroker.go-e](https://github.com/MK-2001/ioBroker.go-e) (Instanz `go-e.0`) beim Umstieg на **ioBroker.go-e-charger** (Instanz `go-e-charger.0`). Адаптер, использующий локальный HTTP-API для зарядных устройств, позволяет использовать нестандартные объекты и конфигурации. Beim Umstieg müssen deshalb Skripte, Visualisierungen und History-Einstellungen auf die neuen Datenpunkte umgestellt werden.
+
+## Warum umsteigen?
+
+- **Mehrere Charger in einer Instant** , PV-Überschuss wird в Reihenfolge der Wallbox-Liste verteilt, опционально с Gesamtstrom-Budget (Absicherung).
+- **ChargeManager** : PV-Überschussladen mit Hausakku-Modi (деактивированный / Mindest-SoC / Akku-Priorität), SoC-Hysterese и Prüfung auf Veraltete SoC-Werte.
+- **Автоматическое 1-/3-Phasenumschaltung** (ab Gen 3) и `Settings.PhaseMode` (0 = автоматически, 1, 3) im laufenden Betrieb.
+- Зарядное устройство **Nur-Lese-Modus** pro, `info.chargeState` erklärt, warum ein Charger (nicht) lädt, Offline-Erkennung.
+- При использовании приложения go-e-App, тестировании или RFID-приложении, вы не сможете воспользоваться адаптером-Modi с его помощью.
+- Используйте HTTP-API v1 и v2, проверьте прошивку V033 до V60.6 и активируйте функцию.
+
+В некоторых функциях адаптера go-e-e-Adapter зарядное устройство (ночь) не работает – если [(ночь) не будет отключено](#noch-nicht-unterstützt) , будьте осторожны.
+
+## Zuordnung der Datenpunkte
+
+`X` Это номер Wallbox в зарядном устройстве go-e-charger (`Wallbox_0` für den ersten Eintrag der Wallbox-Liste). Werte, die in go-e-charger nur lesbar sind, werden über die `Settings` -Datenpunkte gesteuert.
+
+| го-е (`go-e.0.`)                                                | go-e-charger (`go-e-charger.0.`)                                                                                       | Hinweise                                                                                                |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `info.connection`                                                | `Wallbox_X.info.connection`                                                                                             |                                                                                                         |
+| `car`                                                            | `Wallbox_X.info.carState`                                                                                               | gleiche Werte (1 = bereit, 2 = lädt, 3 = warte auf Fahrzeug, 4 = фертиг); Текст в `info.carStateString`  |
+| `allow_charging` (schreibbar)                                    | `Wallbox_X.Power.ChargingAllowed` (логическое значение, nur lesbar)                                                     | Steuerung über `Settings.ChargeNOW` /`Settings.ChargeManager`                                            |
+| `ampere` (schreibbar)                                            | `Wallbox_X.Power.ChargeCurrent` (nur lesbar)                                                                            | Strom für ChargeNOW: `Settings.ChargeCurrent`                                                            |
+| `amperePV` (schreibbar)                                          | `Wallbox_X.Power.ChargeCurrentVolatile` (nur lesbar)                                                                    | Как получить доступ к ChargeManager                                                                     |
+| `solarLoadOnly`                                                  | `Wallbox_X.Settings.ChargeManager`                                                                                      | PV-Überschussladen ein/aus                                                                              |
+| `energy.power` (кВт)                                             | `Wallbox_X.Power.Charge` ( **В** )                                                                                      | andere Einheit                                                                                          |
+| `energy.phase1..3.voltage`                                       | `Wallbox_X.Power.VoltageL1..L3`                                                                                         |                                                                                                         |
+| `energy.phase1..3.ampere`                                        | `Wallbox_X.Power.MeasuredMaxPhaseCurrent`                                                                               | nur das Maximum der Drei Phasen ( [#922](https://github.com/hombach/ioBroker.go-e-charger/issues/922) ) |
+| `phases` (Роверт) `pha`), `energy.phaseN.pre/postContactorActive` | `Wallbox_X.Power.GridPhases`, `Wallbox_X.Power.EnabledPhases`                                                           | Anzahl Phasen statt Bit-Flags                                                                           |
+| `phaseSwitchModeEnabled`, `phaseSwitchMode`                      | Опция Wallbox «автоматическое 1-/3-фазное управление», `Wallbox_X.Settings.PhaseMode`, `Wallbox_X.Settings.Charge3Phase` | `PhaseMode`: 0 = автоматический, 1 = энфазный, 3 = дрейфазный                                          |
+| `energy.total`                                                   | `Wallbox_X.statistics.chargedEnergy` (кВт·ч)                                                                            | Summe aller Charger: `statisticsGlobal.chargedEnergy`                                                    |
+| `reboot_counter`, `reboot_timer`                                 | `Wallbox_X.statistics.rebootCounter`, `Wallbox_X.statistics.rebootTimer` (час)                                          |                                                                                                         |
+| `firmware_version`                                               | `Wallbox_X.info.firmwareVersion`                                                                                        | Поколение аппаратного обеспечения: `info.hardwareVersion`                                                |
+| `max_ampere` (`ama`), `cable_ampere_code` (`cbl`)               | `Wallbox_X.info.hardwareMaxChargeCurrent`                                                                               | комбинировать одинаковое оборудование Hardware-Grenze; Минимум: `info.hardwareMinChargeCurrent`          |
+| `access_state` (schreibbar)                                      | `Wallbox_X.info.accessControlState` (nur lesbar)                                                                        |                                                                                                         |
+| `unlocked_by`                                                    | `Wallbox_X.info.unlockedByRFIDNo`, `Wallbox_X.info.unlockedByRFIDName`                                                  |                                                                                                         |
+| `rfid.badges.N.id` /`.name` /`.consumption`                      | `Wallbox_X.statistics.RFIDN.cardId` /`.cardName` /`.chargedEnergy`                                                      | N = 1 … 10, Канал для ангелернте Картен                                                                 |
+| –                                                                | `Wallbox_X.info.chargeState`, `Wallbox_X.info.ipAddress`, `Wallbox_X.Power.GridFrequency`                               | neu в go-e-charger                                                                                      |
+| –                                                                | `Settings.Setpoint_HomeBatSoC`                                                                                          | Mindest-SoC des Hausakkus für Überschussladen                                                           |
+
+Hier nicht aufgeführte Datenpunkte des go-e-Adapters (Temperaturen, Fehlercode, Leistung pro Phase, Leistungsfaktor, WLAN, MQTT, Lastmanagement, Zeitplan, LED- und Taster-Einstellungen, …) всегда будет доступен – siehe unten.
+
+## Zuordnung der Einstellungen
+
+| go-e-Einstellung                                                                    | go-e-charger-Einstellung                                                                                                      | Hinweise                                                                                                                                                                          |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Имя сервера / IP-адрес (`serverName`)                                              | Wallbox-Список → IP-адрес (`ipAddress`), необязательное название зарядного устройства                                        | ein Eintrag pro Charger                                                                                                                                                           |
+| Aktualisierungsintervall \[s] (`serverInterval`)                                   | Abfragezyklus \[ms] (`cycleTime`)                                                                                            | Стандартное время 10 секунд, минимальное 3 секунды.                                                                                                                               |
+| `ampUpdateInterval`                                                                 | –                                                                                                                             | der Stromändert sich um höchstens 1 A pro Zyklus                                                                                                                                  |
+| Версия API (`apiVersion`), `selectedAttributes`                                     | –                                                                                                                             | v1 wird immer genutzt, v2 zusätzlich für Funktionen ab Gen 3; праздник Аусваль ан Вертен                                                                                          |
+| Макс. ампер (`maxAmp`)                                                             | Максималер Ладестром (`maxChargeCurrent`), профессиональный настенный ящик `maxAmp` /`minAmp`                                 | dazu optional Gesamtbudget `maxAmpTotal`                                                                                                                                           |
+| Солнечный объект (`solarPowerForeignObjectID`) + Negieren / nur Ack                | Objekt für PV-Leistung (`stateHomeSolarPower`)                                                                               | **muss die позитивный PV-Erzeugung sein** ; ein vorzeichenbehafteter Netzwert wird noch nicht unterstützt ( [#919](https://github.com/hombach/ioBroker.go-e-charger/issues/919) ) |
+| Hausverbrauch-Objekt (`houseConsumptionForeignObjectID`)                           | Objekt für Hausverbrauch (`stateHomePowerConsumption`) + «Verbrauch des Chargers ist enthalten» (`subtractSelfConsumption`) | положительный W                                                                                                                                                                   |
+| Хаусакку-Объект (`houseBatteryForeignObjectID` Аккулейстунг в западном направлении) | Objekt für Hausakku-SoC (`stateHomeBatSoc`, %) + Хаусакку-Модус (`batteryMode`)                                             | Другая концепция: SoC statt Akkuleistung                                                                                                                                          |
+| Puffer zur Solarleistung (`bufferToSolar`)                                         | Netzreserve (`chargeManagerReservePower`)                                                                                    |                                                                                                                                                                                   |
+| Mindestens mit 6 A laden (`loadWith6AAtLeast`)                                     | –                                                                                                                             | [#920](https://github.com/hombach/ioBroker.go-e-charger/issues/920)                                                                                                               |
+| Fahrzeug-SoC-Objekt (`carBatterySoCForeignObjectID`)                               | –                                                                                                                             |                                                                                                                                                                                   |
+| `phaseSwitchWatts`, `timeToWait`, `defaultPSM`                                      | Опция Wallbox «автоматическое 1-/3-фазное управление», `Settings.PhaseMode`                                                    | Фестиваль Schwellen und Verzögerung sind ( [#925](https://github.com/hombach/ioBroker.go-e-charger/issues/925) )                                                                  |
+| Berechnungsmethode «go-e Hardware» (`calcMethod`)                                  | –                                                                                                                             | go-e-charger rechnet immer в ioBroker                                                                                                                                             |
+| `writeTemperatureArray`                                                             | –                                                                                                                             | [#922](https://github.com/hombach/ioBroker.go-e-charger/issues/922)                                                                                                               |
+
+## Часто задаваемые вопросы
+
+**Хотите ли вы, чтобы HTTP-API был активирован в приложении go-e-App?** Для аппаратного обеспечения 3 и 4 поколения «HTTP API v1» активен (улучшенный). Для Phasenumschaltung, Netzfrequenz und den Hardware-Mindeststrom zusätzlich «HTTP API v2». Альтернативное зарядное устройство (Gen 2) использует API v1 без каких-либо дополнительных настроек.
+
+**Welchen Modus soll ich in der go-e-App wählen (Eco или Basic)?** go-e-charger steuert den Charger selbst (Ladefreigabe und flüchtiger Ladestrom). Функционирование в зарядном устройстве, запуск загруженного устройства, остановка или начало работы – PV-Überschuss (Eco-Modus mit der PV-Logik des Chargers), ускорение загрузки или таймер – когда используется ChargeManager. Bei Nutzung des ChargeManagers diese Charger-Funktionen ausgeschaltet lassen und den Basis-/Standard-Lademodus verwenden; über das Laden entscheiden dann ChargeNOW и ChargeManager.
+
+**Welches Vorzeichen brauchen PV- und Verbrauchswert?** Beide sind положительный Верте в Вт: PV-Erzeugung ≥ 0, Hausverbrauch ≥ 0. Верте в кВт müssen в W umgerechnet werden. Ein einzelner Netzbezugs-/Einspeisewert kann noch nicht direkt verwendet werden ( [#919](https://github.com/hombach/ioBroker.go-e-charger/issues/919) ); bis dahin einen Псевдоним или einen для сценария berechneten Datenpunkt mit den benötigten Werten anlegen. Если в конфигурации «Negieren» активна война, то объект для зарядного устройства go-e-ehr будет фальшивым.
+
+**Можно ли использовать параллельный адаптер?** Да, zum Lesen. Когда вы включите зарядное устройство в зарядное устройство и активируете **режим «Nur-Lese-Modus»** , выполните следующие действия. Beide Adaptor dürfen nicht gleichzeitig Densentlben Charger Steuern (PV-Steuerung des go-e-Adapters / Schreiben von `allow_charging` Одер `amperePV` и ChargeManager / ChargeNOW от go-e-charger) – sie würden sich gogenseitig überschreiben. Когда все прошло, die go-e-Instanz (или deren PV-Steuerung) остановилось, den Nur-Lese-Modus abschalten und `Settings.ChargeManager` активировать.
+
+**Verliere ich meine История?** History-Daten werden pro Objekt-ID Gespeichert. History für die neuen Datenpunkte aktivieren; vorhandene Daten bleiben unter den `go-e.0` -IDs gespeichert.
+
+**Было ли это с Flash/EEPROM зарядных устройств?** зарядное устройство go-e-charger schreibt den Ladestrom über den flüchtigen Wert `amx` (nur Firmware 033 nutzt `amp`) и verwirft Befehle, где Wert der Charger bereits mede.
+
+## (Noch) nicht unterstützt
+
+Некоторые функции адаптеров go-e не используются в зарядном устройстве go-e. Я думаю, что также есть проблемы – обратная связь и запросы на включение, а также:
+
+- Netzzähler-Eingang mit vorzeichenbehaftetem Bezugs-/Einspeisewert, Optionen Negieren und nur Ack – [#919](https://github.com/hombach/ioBroker.go-e-charger/issues/919)
+- Мин+PV-Modus (погружной ток 6 А плюс сверхвысокое напряжение) – [#920](https://github.com/hombach/ioBroker.go-e-charger/issues/920)
+- Energie der aktuellen Ladung und Energielimit в кВтч – [#921](https://github.com/hombach/ioBroker.go-e-charger/issues/921)
+- zusätzliche Datenpunkte (температура, код Фелера, Strom/Leistung pro Phase, Leistungsfaktor, WLAN, серийный номер, `modelStatus`, …) – [#922](https://github.com/hombach/ioBroker.go-e-charger/issues/922)
+- Таймер: X Minuten laden / zu einer Uhrzeit stoppen – [#923](https://github.com/hombach/ioBroker.go-e-charger/issues/923)
+- Скрипт-Шниттстелле в Ватте (`energy.max_watts`, `adjustAmpLevelInWatts`) – [#924](https://github.com/hombach/ioBroker.go-e-charger/issues/924)
+- einstellbare Schwellen, Puffer und Verzögerung der Phasenumschaltung – [№ 925](https://github.com/hombach/ioBroker.go-e-charger/issues/925)
+- Geräte-Einstellungen schreiben (Kabelverriegelung, Zugangskontrolle, LED, Taster-Stromstufen) – [№ 926](https://github.com/hombach/ioBroker.go-e-charger/issues/926)
+- Stopp bei Fahrzeug-SoC, PV-Berechnung im Charger (`ids`), MQTT-/Cloud-/Lastmanagement-Informationen und Strombörsen-Werte (aWATTar)

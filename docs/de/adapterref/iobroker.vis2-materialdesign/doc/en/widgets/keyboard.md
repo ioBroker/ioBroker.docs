@@ -1,0 +1,68 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis2-materialdesign/README.md":{"title":{"en":"ioBroker.vis2-materialdesign"},"content":"en/adapterref/iobroker.vis2-materialdesign/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/README.md":{"title":{"en":"Material Design Widgets – User guide"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md":{"title":{"en":"Widget catalog"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons.md":{"title":{"en":"Buttons"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/icon-buttons.md":{"title":{"en":"Icon Buttons"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/icon-buttons.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/checkbox.md":{"title":{"en":"Checkbox"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/checkbox.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/switch.md":{"title":{"en":"Switch"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/switch.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/input.md":{"title":{"en":"Input"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/input.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider.md":{"title":{"en":"Slider"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider-round.md":{"title":{"en":"Slider Round"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider-round.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/value.md":{"title":{"en":"Value"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/value.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-card.md":{"title":{"en":"HTML Card"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-card.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress.md":{"title":{"en":"Progress"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/list.md":{"title":{"en":"List"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/list.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/table.md":{"title":{"en":"Table"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/table.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md":{"title":{"en":"Charts"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/calendar.md":{"title":{"en":"Calendar"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/calendar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/top-app-bar.md":{"title":{"en":"Top App Bar"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/top-app-bar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/responsive-layout.md":{"title":{"en":"Responsive Layout"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/responsive-layout.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/dialog.md":{"title":{"en":"Dialog"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/dialog.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons-vertical.md":{"title":{"en":"Buttons Vertical"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons-vertical.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/keyboard.md":{"title":{"en":"On-screen Keyboard"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/keyboard.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/select.md":{"title":{"en":"Select and Autocomplete"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/select.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress-circular.md":{"title":{"en":"Progress Circular"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress-circular.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/material-design-icons-and-images.md":{"title":{"en":"Material Design Icons and Utilities"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/material-design-icons-and-images.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/iconlist.md":{"title":{"en":"IconList"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/iconlist.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/alerts.md":{"title":{"en":"Alerts"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/alerts.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md":{"title":{"en":"Advanced View in Widget"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-bar.md":{"title":{"en":"Bar chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-bar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-pie.md":{"title":{"en":"Pie chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-pie.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-json.md":{"title":{"en":"JSON chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-json.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md":{"title":{"en":"Line history chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md"}}}
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/keyboard.md
+title: Bildschirmtastatur
+hash: eHE7bEYmFAff6ZOItiTNIPYv8guBe0+pXeOplfWA/G0=
+---
+# Bildschirmtastatur
+
+[Benutzerhandbuch](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md) › [Widget-Katalog](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md) · [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/widgets/keyboard.md)
+
+Eine Tastatur innerhalb der Ansichtsseite für Tablets, bei der die Android-Tastatur die Hälfte des Bildschirms einnimmt. Sie dient den Textfeldern ihrer Ansicht, hält die Systemtastatur für diese Felder ausgeblendet und wird nur angezeigt, wenn eines der Felder den Fokus hat. Template-ID: `tplVis2-materialdesign-Keyboard` Die
+
+<img src="../../media/vis2_keyboard_runtime.png" alt="On-screen keyboard with word suggestions and arrow keys below a text field">
+
+Auf einem Zahlenfeld wird der Ziffernblock angezeigt:
+
+<img src="../../media/vis2_keyboard_runtime_numbers.png" alt="On-screen keyboard number pad below a number field">
+
+## Editor-Einstellungen
+
+Die Benutzeroberfläche des Editors folgt der Systemsprache von ioBroker, daher sind die Screenshots auf Deutsch.
+
+<img src="../../media/vis2_keyboard_editor_overview.png" width="340" alt="Keyboard general and placement options">
+
+**Gemeinsam**
+
+- **Ausgelieferte Widgets** – Widget-IDs (zum Beispiel) `w000012 w000013`); empty bedient jedes Textfeld der Ansicht, in der sich die Tastatur befindet. Kontrollkästchen, native Datums- und Zeitfelder, schreibgeschützte und deaktivierte Felder werden nie bedient.
+- **Layout** –`automatic` zeigt den Ziffernblock für Zahlenfelder und Felder, die Ziffern erfordern (wie die Datums- und 24-Stunden-Zeitfelder des Eingabe-Widgets), ansonsten die Buchstaben; `text` Und `numbers` Force One.
+- **Legende** –`automatic` folgt der vis Sprache: Deutsch bekommt QWERTZ mit ä, ö, ü und ß, alle anderen Sprachen QWERTY.
+- **Großbuchstabe am Anfang** – Shift ist in einem leeren Feld aktiviert und danach `. ` Die
+- **Eingabetaste** –`commit and close`, `next field` (schließt nach dem letzten) oder `commit only` Auch in einem mehrzeiligen Feld können Commits eingegeben werden, ohne dass ein Zeilenumbruch eingefügt wird. `next field` Die Reihenfolge richtet sich nach den Feldern auf der Seite (der Reihenfolge, in der die Widgets erstellt wurden), nicht nach ihrer Position auf dem Bildschirm. Enter sendet `keydown`, `keypress` Und `keyup` mit dem Tastencode 13, sodass Widgets anderer Adapter, die auf Enter warten (z. B. die Bring-Einkaufsliste), wie bei einer echten Taste reagieren.
+- **Pfeiltasten** – fügen die Tasten ← ↑ ↓ → hinzu (auf dem Ziffernblock eine fünfte Spalte). ← und → bewegen den Cursor; ↑ und ↓ navigieren durch die Liste eines Autocomplete-Widgets, in allen anderen Feldern springen sie zum Anfang bzw. Ende. Durch Gedrückthalten einer Taste wird der entsprechende Eintrag wiederholt.
+- **zeigen auf** –`touch or pen only` (Standardeinstellung) oder `every focus` Auf einem PC mit Maus und Tastatur bleibt die Tastatur standardmäßig geschlossen, und die Eingabefelder bleiben unverändert (Zahlenfelder behalten ihre Pfeile), bis ein Finger oder Stift den Bildschirm berührt. Durch Antippen eines Eingabefelds, das bereits durch einen Mausklick den Fokus hat, wird die Tastatur ebenfalls geöffnet.
+
+**Platzierung**
+
+- **Position** –`as placed in the editor` (das eigene Rechteck des Widgets), `bottom of the view`, `top of the view` (sowohl die gesamte Ansichtsbreite als auch die Widget-Höhe) oder `bottom of the screen` Die
+- **bei der Vorführung** –`cover the view`, `move the view up` (nur so weit wie nötig, um das Feld 8 Pixel über der Tastatur zu halten) oder `add room and scroll` (Der Scrollcontainer schafft Platz nach unten und scrollt das Feld in den sichtbaren Bereich; in einer Dialogansicht muss **scrollY** aktiviert sein, sonst wird der Platz abgeschnitten.) Die letzten beiden Optionen sind nur aktiv, wenn sich die Tastatur unterhalb des Feldes befindet und daher für die unteren Positionen vorgesehen; eine Tastatur am oberen Rand der Ansicht verdeckt die gesamte Ansicht, unabhängig von der gewählten Position.
+- **Animation** und **Animationsdauer** (0 bis 2000 ms) – wie die Tastatur erscheint; das Ausblenden erfolgt sofort.
+
+<img src="../../media/vis2_keyboard_editor_2.png" width="340" alt="Keyboard word suggestion and look options">
+
+**Wortvorschläge**
+
+- **Wortvorschläge anzeigen** – eine Leiste über den Tasten mit den gelernten Wörtern, noch bevor man etwas tippt; beim Beginn eines Wortes werden nur Wörter angezeigt, die damit beginnen. Durch Antippen wird das Wort vervollständigt und ein Leerzeichen hinzugefügt; durch langes Drücken wird das Wort aus der Liste entfernt (für gelernte Tippfehler).
+- **Anzahl der Vorschläge** – 1 bis 10.
+- **Reihenfolge der Vorschläge** –`frequent and recent` (Standardeinstellung): Die Zählbarkeit eines Wortes halbiert sich für jeweils 30 Tage, in denen es nicht verwendet wurde. Häufig verwendete Wörter stehen daher an erster Stelle, während Wörter, die vor langer Zeit häufig verwendet wurden, nach unten rücken. `most frequent` Bestellungen nur nach Stückzahl, `most recent` bis zur letzten Verwendung.
+- **Der Status für die Wörter** – ein String-Status, der die Liste als JSON speichert und von allen Geräten, die ihn verwenden, gemeinsam genutzt wird. Ist die Liste leer, bleibt sie nur in diesem Browser sichtbar. Wörter werden beim Verlassen eines Eingabefelds oder beim Drücken der Eingabetaste gelernt, niemals über Passwortfelder oder den Ziffernblock. Maximal 200 Wörter mit jeweils maximal 40 Zeichen. Jeder mit Administratorrechten kann die Wörter im Status einsehen.
+
+**Aussehen** – Hintergrund, Tastenfarben, Schriftgröße (8 bis 64), Tastenabstand (0 bis 32) und Eckenradius (0 bis 64). Die speziellen Tastenfarben färben ⇧, ⌫, ↵, ⌄, `?123` /`ABC` Die Pfeiltasten, die Leertaste und die Dezimaltaste sehen aus wie die Buchstabentasten. Die nicht festgelegten Farben entsprechen dem Material-3-Design.
+
+## Designstil
+
+Der **klassische** (links) und **der Material-3-** Stil (rechts) im Vergleich (siehe [Designstil)](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md#design-style) , jeweils mit einem ausgeschriebenen Wort und entsprechenden Vorschlägen. Die nicht festgelegten Farben orientieren sich am Stil und am dunklen Design.
+
+<img src="../../media/vis2_keyboard_styles.png" alt="On-screen keyboard in the Classic and the Material 3 style">
+
+Die gleichen Tastaturen mit aktiviertem Dunkelmodus:
+
+<img src="../../media/vis2_keyboard_styles_dark.png" alt="On-screen keyboard in the Classic and the Material 3 style, dark theme">
+
+## Anmerkungen
+
+- Felder in anderen Ansichten werden nicht angezeigt; platzieren Sie auch dort eine Tastatur. Verwenden Sie pro Ansicht eine Tastatur.
+- Eine innerhalb dieser Ansicht angezeigte Ansicht (Dialogansicht, Ansicht im Widget) gehört zu dieser. Wenn diese innere Ansicht über eine eigene Tastatur verfügt, dient diese Tastatur den inneren Feldern, während diese Ansicht sie nicht beeinflusst, sodass nur eine Tastatur geöffnet wird.
+- Zwei Geräte, die gleichzeitig denselben Zustand lernen, können einen Zähler verlieren.
