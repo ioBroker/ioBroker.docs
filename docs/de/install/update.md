@@ -1,6 +1,6 @@
 ---
 title:       "Updaten"
-lastChanged: "07.09.2026"
+lastChanged: "23.11.2026"
 ---
 
 # Updates durchführen
@@ -16,6 +16,15 @@ aktualisiert werden. Diese Reihenfolge hat sich bewährt:
 
 Dazu kommt das Betriebssystem selbst, das nach seinen eigenen Regeln versorgt
 wird (`sudo apt update && sudo apt full-upgrade`).
+
+?> **Unter Docker** (Abbild von buanet) kommen Node.js und Betriebssystem mit dem
+   Abbild. Statt `iobroker nodejs-update` bzw. `apt` wird ein neues Abbild
+   gezogen und der Container neu angelegt (`docker pull` und Container neu
+   erstellen bzw. `docker compose pull && docker compose up -d`). Die Daten
+   bleiben im Volume unter `/opt/iobroker` - vorher trotzdem sichern. Adapter
+   und js-controller werden wie gewohnt im Admin bzw. auf der Konsole im
+   Container aktualisiert. Siehe [Docker](/docs/install/docker.md) und die
+   [buanet-Dokumentation](https://docs.buanet.de/de/iobroker-docker-image/).
 
 ## Vor jedem Update: sichern
 
@@ -49,6 +58,31 @@ eigene Seite:
 **Nicht alles am selben Abend.** Wenn nach drei gleichzeitigen Updates etwas
 klemmt, ist die Ursache schwer zu finden. Ein Schritt, kurz beobachten, dann
 der nächste.
+
+## Wenn ein Adapter eine neuere Node.js-Version verlangt
+
+Manche Adapterversionen setzen eine neuere Node.js- oder js-controller-Version
+voraus. Das steht in der Änderungsliste des Adapters bzw. in seinem README unter
+den Anforderungen. Dann gibt es zwei Wege:
+
+* **Node.js bewusst vorziehen** - vorher sichern, dann wie unter
+  [Node.js & npm aktualisieren](/docs/install/updatenode.md) beschrieben.
+* **Vorerst bei der bisherigen Adapterversion bleiben** oder gezielt eine
+  ältere, passende Version installieren: im Admin im Expertenmodus über
+  *Eine bestimmte Version installieren*
+  (siehe [Adapter](/docs/tutorial/adapter.md)) oder auf der Konsole:
+
+```bash
+iobroker upgrade <adaptername>@<version>
+```
+
+Ab js-controller 6 lässt sich eine unpassende Version ausblenden, damit sie
+nicht ständig als Update angeboten wird, und später wieder einblenden:
+
+```bash
+iobroker version <adaptername> --ignore <version>
+iobroker version <adaptername> --recognize
+```
 
 ## Wo Updates angezeigt werden
 
