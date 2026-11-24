@@ -7,13 +7,17 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/
 
 Ein Adapter trägt seine Dokumentation an drei Stellen, jede für andere Leser:
 
-| Datei                  | Leser                                                            | Sprache               |
-|------------------------|------------------------------------------------------------------|-----------------------|
-| `README.md`            | alle, die den Adapter auf GitHub, npm oder iobroker.net finden   | nur Englisch          |
-| `doc/en/…`, `doc/de/…` | Anwender, die den Adapter installieren und einrichten (optional) | ein Ordner je Sprache |
-| `DEVELOPMENT.md`       | alle, die am Adapter selbst bauen oder mitentwickeln (optional)  | Englisch              |
+| Datei                   | Leser                                                             | Sprache               |
+|-------------------------|-------------------------------------------------------------------|-----------------------|
+| `README.md`             | alle, die den Adapter auf GitHub, npm oder iobroker.net finden    | nur Englisch          |
+| `doc/en/…`, `doc/de/…`  | Anwender, die den Adapter installieren und einrichten (optional)  | ein Ordner je Sprache |
+| `DEVELOPMENT.md`        | alle, die am Adapter selbst bauen oder mit entwickeln (optional)  | Englisch              |
+| `doc/en/DEVELOPMENT.md` | alle, die am Adapter selbst bauen oder mit entwickeln (optional)  | Englisch              |
+| `doc/de/DEVELOPMENT.md` | alle, die am Adapter selbst bauen oder mit entwickeln (optional)  | Deutch                |
 
 `common.docs` in der `io-package.json` teilt ioBroker mit, wo die Anwenderdokumentation liegt.
+
+Falls doc/xx/DEVELOPMENT existiert sollte /DEVELOPMENT.md nur links zu den vorhandenen Sprachen beinhalten.
 
 ## 1. README.md
 
