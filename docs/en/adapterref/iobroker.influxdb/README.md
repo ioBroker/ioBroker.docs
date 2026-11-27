@@ -311,6 +311,10 @@ Most of these values can be pre-defined in the instance settings and are then pr
 ## Messages for scripts and AI agents
 `sendTo('influxdb.0', 'help', {})` answers `{help, commands}`: a description of all messages and of the measurement layout for AI agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands with `write: true` for the ones that change something.
 
+`getHistory`, `aggregate` and `lastChange` are standard commands of the shared catalog of sendTo commands (family `history`, marked with `standard` in the answer of `help`), the same in history, sql, influxdb and recorder:
+- `aggregate {id, start, end?, fn, value?}` answers one number for a period, `{value, ts?, unit?, count}`. `fn`: `min`, `max`, `avg`, `sum`, `count` (with `value`: how often the state became it), `delta` (how much a counter rose, resets included), `first`, `last`, `integral` (value × hours, W gives Wh), `duration` (with `value`: seconds the state had it).
+- `lastChange {id, value?, before?}` answers when the state last changed (to `value`): `{ts, val}`.
+
 ## Access values from Javascript adapter
 The sorted values can be accessed from Javascript adapter.
 
@@ -741,6 +745,14 @@ sendTo('influxdb.0', 'cleanupOrphaned', {
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (GermanBluefox) Fixed: `getHistory` for a datapoint that is not enabled in this instance no longer enables writing of this datapoint until restart (#603)
+
+### 5.5.1 (2026-11-23)
+* (GermanBluefox) Fixed connection to InfluxDB 1.x when the password contains "%" (#601)
+* (GermanBluefox) Fixed: InfluxDB 1.x stopped with "Password error" when the password contains umlauts or other characters such as "ä", "ö", "ü" or "ß"
+
+### 5.5.0 (2026-11-23)
+* (GermanBluefox) Added the standard commands of the shared catalog: history.aggregate (one number for a period: min, max, avg, sum, count, delta, first, last, integral, duration) and history.lastChange; getHistory is marked as history.getHistory
 * (GermanBluefox) Fixed: `getHistory` with `id: '*'` (or without ID) answers an error instead of an empty result. InfluxDB keeps one measurement per state and cannot read all states at once; the example in this README that used `'*'` reads one state now
 * (GermanBluefox) Fixed: `getHistory` with an aggregate (e.g. average) and without `start` answers instead of failing with "Invalid time value" (the step was NaN). Like the sql and history adapters, it takes the newest `count` values and builds the intervals from them. An unparsable `start` or `end` is refused with "is not a valid date", a time stamp as text ("1700000000000") is accepted
 
@@ -758,12 +770,6 @@ sendTo('influxdb.0', 'cleanupOrphaned', {
 * (GermanBluefox) `getHistory` accepts `intervalBorders`: the client can send the borders of the intervals itself, e.g. the local days of a chart. InfluxDB groups by equally long windows, so after a switch of the daylight saving time every window ended an hour away from the midnight and a value written at 23:59:59 was shown on the next day. With borders the values are read raw and aggregated by the adapter (ioBroker/ioBroker.echarts#1311)
 * (GermanBluefox) `getHistory` with a start reads the whole range of raw values again: `count` limited them for "onchange" too, so a chart line ended after the oldest 2000 (InfluxDB 1.x) or 500 (InfluxDB 2.x) values and ran straight to the right edge. Like in the sql and history adapters, `count` limits the raw values only for "none" and for a request without start (ioBroker/ioBroker.echarts#1275)
 * (GermanBluefox) InfluxDB 2.x: deleting values (cleanup of the statistics tab, `delete`, `deleteRange`, `deleteAll`) waits up to 10 minutes. A delete walks every shard of the bucket and failed after the request timeout of 30 s with "Request timed out"
-
-### 5.2.2 (2026-10-27)
-* (GermanBluefox) The cleanup dialog of the statistics tab shows the oldest and the newest value of each datapoint and can preselect only datapoints whose last value is older than a given number of days, so measurements that scripts still write to stay untouched
-
-### 5.2.0 (2026-10-24)
-* (GermanBluefox) The cleanup dialog of the statistics tab has checkboxes, so only the selected datapoints are deleted (#565)
 
 ## License
 

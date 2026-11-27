@@ -144,7 +144,7 @@ anthbot-genie.<instance>.<serial>.*
 | `<serial>.info.model` | string | Mower model/category |
 | `<serial>.info.region` | string | Anthbot/AWS IoT region |
 | `<serial>.info.endpoint` | string | IoT endpoint used for shadow access |
-| `<serial>.info.online` | boolean | Online state reported by the mower |
+| `<serial>.info.online` | boolean | Online state reported by the mower, with shutdown treated as offline |
 | `<serial>.info.charging` | boolean | Whether the mower is currently charging |
 | `<serial>.info.lastServiceCommand` | string | Last reported service command |
 | `<serial>.info.lastPoll` | string | ISO timestamp of the last successful poll |
@@ -407,6 +407,9 @@ For automatic zones, the adapter resolves the selected zone IDs or names to the 
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+- Treat a reported shutdown as offline even if the cloud online flag remains set.
+- Read M-series network and online states and treat explicitly disconnected WLAN and cellular as offline.
 
 - Add separate read-only PNG map image states for the native map, RTK mowed-area mask, and downloaded historical mowing path.
 - Add an opt-in Admin checkbox for map downloads and rendering because map generation can use significant CPU.

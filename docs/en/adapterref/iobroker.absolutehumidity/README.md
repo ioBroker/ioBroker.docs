@@ -64,6 +64,9 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.11 (2026-11-22)
+* (BenAhrdt) Filter temperature and relative-humidity source states by `state`, numeric `common.type`, and unit prefixes. Temperature accepts an empty unit or prefixes `°`, `C`, and `F`; NFKC normalization includes `℃`/`℉`. Relative humidity accepts an empty unit or `%`, including fullwidth `％`. Manually entered IDs only require a numeric state. Fahrenheit sources with `°F...`, `℉...`, or `F...` are converted to Celsius before calculation; generated states and the Config Manager tile display Celsius.
+
 ### 0.1.10 (2026-11-03)
 * (BenAhrdt) Serialize per-device measurement updates to prevent duplicate output writes when source states change concurrently.
 
@@ -76,10 +79,6 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 ### 0.1.7 (2026-10-14)
 * (BenAhrdt) Clearly label the editable preview values as demonstration-only and explain that they are not saved.
 * (BenAhrdt) Use the selected Admin language for the interactive preview card labels.
-
-### 0.1.6 (2026-09-28)
-* Rename the visible Device Manager references to Config Manager in the adapter configuration and translations.
-* Add delayed device configuration backups with manual restore and startup recovery when no device configuration exists.
 
 ## Collaboration
 The adapter was developed in collaboration with Joerg Froehner

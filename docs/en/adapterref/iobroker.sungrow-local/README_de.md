@@ -21,6 +21,10 @@ Der Adapter ist ein unabhängiges Projekt und steht in keiner Verbindung zu Sung
   5000 ms Pause). Kürzere Werte markiert die Admin-Seite rot (nur Warnung).
 - **Ein Timeout betrifft nur seinen Block**; neu verbunden wird erst nach N Fehlern in Folge (Vorgabe 3) oder
   wenn das Gateway die Verbindung schließt.
+- **Null-Antworten sind Lesefehler** (ab 0.6.1): Antwortet das WiNet auf einen Block von mindestens 4
+  Input-Registern nur mit Nullen (beim Akku beobachtet: SoC 0 %, Spannung 0 V für eine Runde), behalten die
+  Datenpunkte ihren letzten Wert; erst die dritte Null-Antwort in Folge wird übernommen. Ebenso ein Wert außerhalb
+  von min … max der Zeile (bzw. 0 … 100 bei `%`). Einstellung `plausibilityConfirm` (`0`/`1` = aus).
 - **Schreiben mit Vorrang** vor der nächsten Leseanfrage, danach sofortige Rücklesung; `ack=true` erst mit dem
   bestätigten Wert. Optionaler Nur-Lese-Modus.
 - **Diagnose je Gruppe** unter `info.groups.<gruppe>.*` mit Herzschlag `lastRound` – alte Zeitstempel an

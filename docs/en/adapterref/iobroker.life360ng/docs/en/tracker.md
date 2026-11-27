@@ -56,6 +56,22 @@ Under **General → Default view (days)** you can configure how many days are sh
 
 Every time the map is opened, the start date is set to today minus (N−1) days based on the configured value. Manually adjusting the datepicker changes the view for the current session only.
 
+#### Controlling the date range from ioBroker
+
+Writable states update the map URL so Vis/scripts can set the visible day range:
+
+| State | Description |
+|---|---|
+| `tracker.<person>.dateFrom` | From date (`YYYY-MM-DD`) → appended as `?from=` |
+| `tracker.<person>.dateTo` | To date (`YYYY-MM-DD`) → appended as `?to=` |
+| `tracker.circle.dateFrom` / `dateTo` | Same for the circle map |
+
+When these states change, `url` and `urlLocal` are rebuilt. Bind your Vis iframe to `urlLocal` so it picks up the new range. Empty values clear the query params and the map falls back to the default view range.
+
+Example: at the start of a hike, set `dateFrom` (and optionally `dateTo`) to today's date — the iframe then shows today's route.
+
+> Filtering is day-granular (not hourly). For “last 5 hours”, set `dateFrom` to today via script; a true hour-level filter is not available yet.
+
 ---
 
 ### 4. Hamburger Menu (☰)

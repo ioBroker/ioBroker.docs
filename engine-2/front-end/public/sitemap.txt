@@ -217,12 +217,14 @@ https://www.iobroker.com/adapters/advansol-optimizer
 https://www.iobroker.com/adapters/agent-dvr
 https://www.iobroker.com/adapters/ai-assistant
 https://www.iobroker.com/adapters/ai-energy-manager
+https://www.iobroker.com/adapters/ai-server
 https://www.iobroker.com/adapters/ai-toolbox
 https://www.iobroker.com/adapters/ai-usage
 https://www.iobroker.com/adapters/aio
 https://www.iobroker.com/adapters/air-q
 https://www.iobroker.com/adapters/airconwithme
 https://www.iobroker.com/adapters/airly
+https://www.iobroker.com/adapters/airplay-receiver
 https://www.iobroker.com/adapters/airquality
 https://www.iobroker.com/adapters/airzone
 https://www.iobroker.com/adapters/al-ko
@@ -231,9 +233,11 @@ https://www.iobroker.com/adapters/alexa-shoppinglist
 https://www.iobroker.com/adapters/alexa-timer-vis
 https://www.iobroker.com/adapters/alexa2
 https://www.iobroker.com/adapters/alias-manager
+https://www.iobroker.com/adapters/alias-workbench
 https://www.iobroker.com/adapters/alpha-ess
 https://www.iobroker.com/adapters/alpha2
 https://www.iobroker.com/adapters/amazon-dash
+https://www.iobroker.com/adapters/amazon-kids
 https://www.iobroker.com/adapters/amtronwallbox
 https://www.iobroker.com/adapters/androidtv
 https://www.iobroker.com/adapters/anelhut
@@ -286,6 +290,7 @@ https://www.iobroker.com/adapters/bluetti
 https://www.iobroker.com/adapters/blustream-acm
 https://www.iobroker.com/adapters/blustream-mfp
 https://www.iobroker.com/adapters/bmw
+https://www.iobroker.com/adapters/bosch-buderus-wp
 https://www.iobroker.com/adapters/bosch-ebike
 https://www.iobroker.com/adapters/bosch-smart-home-camera
 https://www.iobroker.com/adapters/boschindego
@@ -319,6 +324,7 @@ https://www.iobroker.com/adapters/codesys-nvl
 https://www.iobroker.com/adapters/cometvisu
 https://www.iobroker.com/adapters/comfoair
 https://www.iobroker.com/adapters/comfoairq
+https://www.iobroker.com/adapters/conexa
 https://www.iobroker.com/adapters/consumption
 https://www.iobroker.com/adapters/contact
 https://www.iobroker.com/adapters/contactid
@@ -422,6 +428,7 @@ https://www.iobroker.com/adapters/foobar2000
 https://www.iobroker.com/adapters/ford
 https://www.iobroker.com/adapters/foxesscloud
 https://www.iobroker.com/adapters/freeair
+https://www.iobroker.com/adapters/freekiosk
 https://www.iobroker.com/adapters/frigate
 https://www.iobroker.com/adapters/fritzbox
 https://www.iobroker.com/adapters/fritzdect
@@ -441,6 +448,7 @@ https://www.iobroker.com/adapters/geofency
 https://www.iobroker.com/adapters/gira-iot
 https://www.iobroker.com/adapters/go-e
 https://www.iobroker.com/adapters/go-e-charger
+https://www.iobroker.com/adapters/go-e-wallbox
 https://www.iobroker.com/adapters/goodwe
 https://www.iobroker.com/adapters/goodwe-pv
 https://www.iobroker.com/adapters/goodwe-sems
@@ -591,6 +599,7 @@ https://www.iobroker.com/adapters/lupusec
 https://www.iobroker.com/adapters/luxtronik1
 https://www.iobroker.com/adapters/luxtronik2
 https://www.iobroker.com/adapters/luxtronik2-controller
+https://www.iobroker.com/adapters/mach
 https://www.iobroker.com/adapters/material
 https://www.iobroker.com/adapters/matrix-org
 https://www.iobroker.com/adapters/matter
@@ -673,6 +682,7 @@ https://www.iobroker.com/adapters/netro
 https://www.iobroker.com/adapters/nextcloud-monitoring
 https://www.iobroker.com/adapters/nextcloudtalk
 https://www.iobroker.com/adapters/nina
+https://www.iobroker.com/adapters/nintendo-switch-parental
 https://www.iobroker.com/adapters/nissan
 https://www.iobroker.com/adapters/niu
 https://www.iobroker.com/adapters/nmea
@@ -683,6 +693,8 @@ https://www.iobroker.com/adapters/notificationforandroidtv
 https://www.iobroker.com/adapters/nsclient
 https://www.iobroker.com/adapters/nspanel-lovelace-ui
 https://www.iobroker.com/adapters/ntfy-client
+https://www.iobroker.com/adapters/nuasense
+https://www.iobroker.com/adapters/nubert-sub
 https://www.iobroker.com/adapters/nuki
 https://www.iobroker.com/adapters/nuki-extended
 https://www.iobroker.com/adapters/nuki-local
@@ -756,6 +768,7 @@ https://www.iobroker.com/adapters/powerfox2
 https://www.iobroker.com/adapters/procon-ip
 https://www.iobroker.com/adapters/prometheus
 https://www.iobroker.com/adapters/proxmox
+https://www.iobroker.com/adapters/proxon-hesp
 https://www.iobroker.com/adapters/proxy
 https://www.iobroker.com/adapters/public-holidays
 https://www.iobroker.com/adapters/public-transport
@@ -765,6 +778,7 @@ https://www.iobroker.com/adapters/pushover
 https://www.iobroker.com/adapters/pushsafer
 https://www.iobroker.com/adapters/pv-notifications
 https://www.iobroker.com/adapters/pvforecast
+https://www.iobroker.com/adapters/pvnode
 https://www.iobroker.com/adapters/pvoutputorg
 https://www.iobroker.com/adapters/pwned-check
 https://www.iobroker.com/adapters/pylontech
@@ -794,6 +808,7 @@ https://www.iobroker.com/adapters/rpi2
 https://www.iobroker.com/adapters/rssfeed
 https://www.iobroker.com/adapters/s7
 https://www.iobroker.com/adapters/sainlogic
+https://www.iobroker.com/adapters/salus
 https://www.iobroker.com/adapters/samsung
 https://www.iobroker.com/adapters/samsung-mdc
 https://www.iobroker.com/adapters/samsung_tizen
@@ -809,6 +824,7 @@ https://www.iobroker.com/adapters/schedule-switcher
 https://www.iobroker.com/adapters/scheduler
 https://www.iobroker.com/adapters/schlueter-thermostat
 https://www.iobroker.com/adapters/schoolfree
+https://www.iobroker.com/adapters/schulportal-hessen
 https://www.iobroker.com/adapters/schwoerer-ventcube
 https://www.iobroker.com/adapters/script-restore
 https://www.iobroker.com/adapters/sehybrid
@@ -842,6 +858,7 @@ https://www.iobroker.com/adapters/slideshow
 https://www.iobroker.com/adapters/sma-em
 https://www.iobroker.com/adapters/smappee
 https://www.iobroker.com/adapters/smart-eq
+https://www.iobroker.com/adapters/smart-text2command
 https://www.iobroker.com/adapters/smartcontrol
 https://www.iobroker.com/adapters/smartfriends
 https://www.iobroker.com/adapters/smartgarden
@@ -849,6 +866,7 @@ https://www.iobroker.com/adapters/smartloadmanager
 https://www.iobroker.com/adapters/smartm
 https://www.iobroker.com/adapters/smartmeter
 https://www.iobroker.com/adapters/smartthings
+https://www.iobroker.com/adapters/smartvis
 https://www.iobroker.com/adapters/smoothed
 https://www.iobroker.com/adapters/snapmaker
 https://www.iobroker.com/adapters/snapmaker-u1
@@ -880,6 +898,7 @@ https://www.iobroker.com/adapters/squeezeboxrpc
 https://www.iobroker.com/adapters/srm
 https://www.iobroker.com/adapters/staleguard
 https://www.iobroker.com/adapters/starline
+https://www.iobroker.com/adapters/statechart
 https://www.iobroker.com/adapters/statistics
 https://www.iobroker.com/adapters/steam
 https://www.iobroker.com/adapters/stiebel-isg
@@ -889,6 +908,7 @@ https://www.iobroker.com/adapters/sunenergyxt500
 https://www.iobroker.com/adapters/sungrow-local
 https://www.iobroker.com/adapters/sunseeker
 https://www.iobroker.com/adapters/sureflap
+https://www.iobroker.com/adapters/suru-watermonitor
 https://www.iobroker.com/adapters/swiss-weather-api
 https://www.iobroker.com/adapters/synochat
 https://www.iobroker.com/adapters/synology
@@ -1003,6 +1023,7 @@ https://www.iobroker.com/adapters/vis-weather
 https://www.iobroker.com/adapters/vis2-materialdesign
 https://www.iobroker.com/adapters/vivitek
 https://www.iobroker.com/adapters/vofo-speedtest
+https://www.iobroker.com/adapters/voice
 https://www.iobroker.com/adapters/voltoplus
 https://www.iobroker.com/adapters/volumio
 https://www.iobroker.com/adapters/volvo

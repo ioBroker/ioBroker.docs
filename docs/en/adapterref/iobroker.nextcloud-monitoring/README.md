@@ -145,6 +145,10 @@ Verify if the token was correctly saved in Nextcloud using:
 If your Nextcloud is in maintenance mode, the adapter will not be able to fetch data and will log an info. This is normal behavior as the API is disabled during maintenance.
 
 ## Changelog
+### 3.0.2 (2026-11-26)
+* (H5N1v2) fix: a server that fails during initialization no longer stops the monitoring of the other configured Nextcloud servers; the error is logged with the server name and the remaining servers are still processed
+* (H5N1v2) fix: a failed scheduled update run is now logged as an error instead of ending as an unhandled promise rejection
+
 ### 3.0.1 (2026-11-09)
 * (H5N1v2) fix: [W1095] remove the unused legacy key `token` from `protectedNative` and from `native`; the adapter stores and protects the OCS token of the server table only (`servers.token`)
 * (H5N1v2) fix: [S5054] datapoints are created with `setObjectNotExistsAsync()` instead of `setObject()`
@@ -162,11 +166,6 @@ If your Nextcloud is in maintenance mode, the adapter will not be able to fetch 
 * (H5N1v2) chore: update dependencies
 * (H5N1v2) fix: [W5612] add translations for 'your-cloud.com' in multiple languages
 * (H5N1v2) fix: [E6025] README.md must contain exactly one H1 heading, but found 6.
-
-### 2.1.0 (2026-05-09)
-* (H5N1v2) widget toggleable in the admin area.
-* (H5N1v2) update dependencies.
-* (copilot) Adapter requires node.js >= 22 now.
 
 ## Support & Feedback
 

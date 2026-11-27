@@ -94,6 +94,8 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
 
 `sendTo('ping.0', 'help', {})` answers `{ help, commands }`: a description of the messages `ping` and `wakeOnLan` and of the device states, written for AI agents (e.g. ioBroker.pi-agent) and script authors; `commands` lists every message of the adapter with `write: true` if it changes something.
 
+`ping {host}` and `wake {mac, ip?}` follow the shared catalog of commands for network adapters (`network.ping`, `network.wake`) and carry `standard` in `commands`: `wake` does the same as `wakeOnLan` and answers `{ok: true, mac, ip?}` or `{error, reason: 'BAD_REQUEST'}`.
+
 ## Writing to alive states
 
 Every device state is writable and reacts to unacknowledged writes:
@@ -126,7 +128,8 @@ setState('ping.0.myHost.192_168_1_1', true);
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.5.0 (2026-11-23)
+- (@GermanBluefox) Added the standard commands of the shared catalog: network.ping (`ping` also takes `{host}`), network.wake (`wake`, an alias of `wakeOnLan`)
 - (@GermanBluefox) Fixed: Wake-on-LAN sends the right packet also for a MAC address with "-" or without separators (e.g. `01-23-45-67-89-ab`, `0123456789AB`); only ":" worked before
 - (@GermanBluefox) Fixed: the message `wakeOnLan` also accepts a MAC address separated by "." (`01.23.45.67.89.ab`, `0123.4567.89ab`) and answers "Invalid MAC address" for any other input instead of failing without an answer
 
@@ -150,9 +153,6 @@ setState('ping.0.myHost.192_168_1_1', true);
 - (@GermanBluefox) A TCP port outside 1-65535 (e.g. `192.168.1.1:99999`) no longer stops the adapter: the device is reported as offline and a warning is logged
 - (@GermanBluefox) IPv6 addresses are pinged with `ping6` on macOS and FreeBSD, and on Windows a device that answers over IPv6 is no longer reported as offline
 - (@GermanBluefox) Devices widget "Ping Device" shows the response time as soon as it is switched on in the settings; "Ping Overview" no longer fails when the instance cannot be read or has no device list
-
-### 3.1.5 (2026-10-30)
-- (@ipod86) Fixed crash "Invalid IP" when a device is configured with a host name (#445)
 
 ## License
 

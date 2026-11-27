@@ -172,6 +172,11 @@ sendTo('sayit.0', 'say', {
 parameters) for AI agents (e.g. pi-agent) and script authors, and the list of all commands with `write` (`true` if the
 command has an effect, e.g. plays something).
 
+The commands `speak {text, device?, room?, volume?, language?, priority?}`, `playSound {url | file, device?, room?,
+volume?}` and `synthesize {text, language?, voice?}` follow the shared catalog of ioBroker commands (family `speech`):
+they answer `{ok: true, devices}` (`synthesize`: `{data, contentType}` with base64 audio) or `{error, reason}`, and
+`help` marks them with `standard`.
+
 ### Priorities
 To immediately pronounce the text despite the queued texts, you have two possibilities:
 - place "!" as a first character in text, so this text will be pronounced immediately after the current one.
@@ -344,6 +349,12 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.8.0 (2026-11-23)
+- (@GermanBluefox) Added the standard commands of the shared catalog: speech.speak, speech.playSound, speech.synthesize
+
+### 5.7.1 (2026-11-21)
+- (@GermanBluefox) Corrected sonos browsing
+
 ### 5.7.0 (2026-11-19)
 - (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
 
@@ -360,15 +371,6 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 - (@GermanBluefox) Added the output type "Kodi" for the kodi adapter
 - (@GermanBluefox) Added the output type "Asterisk (phone call)": the text is played in a phone call of the asterisk adapter
 - (@GermanBluefox) The configuration shows a hint for the output types, which do not restore the playback (Google Home, Kodi)
-
-### 5.5.0 (2026-10-27)
-* (@hdering) Added the Aura dashboards as a target of the output type "Browser" (#518)
-* (@GermanBluefox) Added the output type "Fully Kiosk Browser" for the tablets of the fullybrowser adapter
-
-### 5.4.0 (2026-10-23)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
-* (@GermanBluefox) Added Piper as a new local TTS engine, e.g. with the voices of Thorsten-Voice (#398)
 
 ## License
 

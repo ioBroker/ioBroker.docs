@@ -922,6 +922,14 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2026-11-24)
+
+- (Lucky-ESA) Fixed: No longer possible to make changes using widgets
+- (@GermanBluefox) Added the message "help": a description of the schedules and of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
+- (@GermanBluefox) Fixed: a failed message (e.g. `change-name` without name) no longer blocks all later messages until a restart; it answers `{ error }`
+- (@GermanBluefox) Fixed: `update-trigger` without `objectId` (as in the documentation) works, the objectId is taken from `dataId`
+- (@GermanBluefox) Fixed: the messages no longer reset the flag `active` of a schedule (set by `change-active`)
+
 ### 0.2.2 (2026-10-08)
 
 - (Lucky-ESA) Condition crash fixed
@@ -946,10 +954,6 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Fixed small some bugs
 - (Lucky-ESA) History JSON changed
 - (Lucky-ESA) Using your own icons
-
-### 0.0.12 (2025-08-27)
-
-- (Lucky-ESA) Astro time in widget fixed
 
 ## License
 

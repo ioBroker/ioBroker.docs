@@ -46,6 +46,8 @@ you can select an icon or an image.
 
 **PIN** (all widgets with a lock): 1 to 12 digits, empty means no PIN. With a PIN, a tap on the locked widget opens a pad with the keys 1 to 9, Cancel, 0 and Delete; it checks as soon as the PIN is complete, shakes and clears on a wrong PIN. A hardware keyboard works too (digits, Backspace, Escape). The right PIN unlocks every widget with the same PIN in this browser until the lock time ends; a reload locks everything again. The PIN can be bound to a state to keep one central PIN. If the PIN is not 1 to 12 digits, or a bound PIN is empty, the widget stays locked and the pad says "PIN not set up". The editor already marks a typed invalid PIN in red; correct or clear it there. A numeric state loses leading zeros (0123 becomes 123); use a string state for such PINs. In the editor the pad never opens.
 
+<img src="../../media/vis2_pin_pad.png" width="230" alt="PIN pad with two of four digits entered">
+
 **Not a security feature:** the PIN stands in clear text in the project and in the state, and anyone who can write states bypasses every lock. It protects against accidental taps and children, not against attackers.
 
 ## Design style

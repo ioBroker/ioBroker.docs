@@ -9,7 +9,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.openmediavault.png?downloads=true)](https://nodei.co/npm/iobroker.openmediavault/)
 
-**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.openmediavault/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.openmediavault/workflows/Test%20and%20Release/badge.svg) ![Coverage](https://img.shields.io/badge/coverage-97%25-brightgreen)
 
 ## OpenMediaVault adapter for ioBroker
 
@@ -29,12 +29,57 @@ The reason is that this is inherent in the design of the rpc api.<br>
 To prevent this, the data can also be updated using a cron job.<br>
 For example, you can schedule the adapter query for a time when the hard disks are not in standby mode anyway, such as during backup time.
 
+## Development
+
+Tests against a real OpenMediaVault server and recorded fixtures:
+
+1. Create a git-ignored `.env` in the project root:
+
+    ```env
+    OMV_URL=https://omv.local
+    OMV_USER=admin
+    OMV_PASSWORD=your-password
+    # optional
+    OMV_IGNORE_SSL_CERTIFICATE=true
+    OMV_CONNECTION_TIMEOUT=10000
+    ```
+
+    - `OMV_URL`, `OMV_USER`, `OMV_PASSWORD`: required
+    - `OMV_IGNORE_SSL_CERTIFICATE`: optional, `true` skips the certificate check
+    - `OMV_CONNECTION_TIMEOUT`: optional, in milliseconds
+
+2. Record the API responses (read-only, writes `test/fixtures/local/<version>/api/`):
+
+    ```bash
+    npm run record:api
+    ```
+
+    - `-- --dry-run`: only shows which files would be written
+    - `-- --no-anonymize`: stores the raw data without anonymization
+
+3. Run the tests:
+
+    ```bash
+    npm run test:ts        # offline, uses recorded fixtures
+    npm run test:package   # validates the package files
+    npm run test:live      # against the server
+    npm run test:all       # all of the above
+    npm run test:coverage  # test:ts with coverage report (src/) in coverage/
+    ```
+
+Fixtures are stored in `test/fixtures/local/<version>/` and are git-ignored, as they contain server data. By default, the recorded values are anonymized (MAC, IP and UUID addresses, names, secrets, URL hosts). A leak check prevents writing a fixture if identifiers remain. The live tests need the credentials in the git-ignored `.env` file.
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2026-11-26)
+- (Scrounger) bug fixes
+- (Scrounger) dependencies updated
+- (Scrounger) momment replaced with day.js
+
 ### 1.5.0 (2026-07-13)
 - (Scrounger) dependencies updated
 - (Scrounger) typescript 6.x bug fixes
@@ -55,10 +100,6 @@ For example, you can schedule the adapter query for a time when the hard disks a
 ### 1.4.2 (2025-12-04)
 
 - (Scrounger) connection timeout bug fix
-
-### 1.4.1 (2025-12-02)
-
-- (Scrounger) session expired bug fix
 
 ## License
 

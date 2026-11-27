@@ -84,6 +84,12 @@ Cloud session polling is automatic by default. You can set a separate interval
 per charger in Admin; very short intervals are adjusted to avoid excessive
 requests.
 
+### Messages for scripts and AI agents
+
+`sendTo("easee.0", "help", {})` answers a description of the adapter for AI
+agents (e.g. pi-agent) and script authors: `{ help, commands }`, where
+`commands` lists every message with `write: true` if it changes something.
+
 ## Credits
 
 This adapter would not have been possible without the great work of @Newan (https://github.com/Newan), who developed former releases of this adapter.
@@ -93,6 +99,9 @@ This adapter would not have been possible without the great work of @Newan (http
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2026-11-22)
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
 ### 4.1.0 (2026-11-19)
 - (Voodoo2man) Added online/offline indicators for chargers in the Admin object browser.
 - (Voodoo2man) Improved cleanup of Bluetooth connections that complete while the adapter shuts down.
@@ -109,11 +118,6 @@ This adapter would not have been possible without the great work of @Newan (http
 - (Voodoo2man) Added the ability to change the charger name through the writable `<chargerId>.name` state.
 - (Voodoo2man) Replaced the adapter icon.
 - (Voodoo2man) Added an authorization token datapoint that is cleared when charging starts and set after the session, with a separate owner-name datapoint.
-
-### 3.1.0 (2026-11-01)
-- (Voodoo2man) Corrected cable-lock status reporting and improved the reliability of charger status updates.
-- (Voodoo2man) Added a readable and adjustable permanent cable-lock setting, kept separate from the actual cable-lock status.
-- (Voodoo2man) Improved recovery of live charger updates after connection interruptions while retaining regular status updates when live updates are disabled.
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

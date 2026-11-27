@@ -118,6 +118,23 @@ zum Beispiel
   },
 ```
 
+### Verfügbare Updates
+Mit der Option **Verfügbare Updates abfragen** liest der Adapter die verfügbaren Paket-Updates (apt) jedes Nodes, der online ist.
+Das geschieht in der ersten Abfrage nach dem Start und danach im eingestellten Intervall (Standard 60 Minuten, mindestens 10 Minuten).
+
+| State | Beschreibung |
+| --- | --- |
+| `node_<name>.updates.count` | Anzahl der verfügbaren Updates |
+| `node_<name>.updates.list` | Die Updates als JSON, zum Beispiel `[{"package": "pve-manager", "oldVersion": "9.0.1", "version": "9.0.2", "origin": "Proxmox"}]` |
+| `node_<name>.updates.refresh` | Button: aktualisiert die Paketliste des Nodes (wie `apt-get update`) und liest die Updates neu |
+
+Proxmox aktualisiert die Paketliste selbst einmal am Tag. Den Button braucht es nur, wenn neue Updates sofort erscheinen sollen.
+Im Device Manager stehen die Updates in den Details eines Nodes.
+
+Benötigte Rechte des Proxmox-Benutzers auf `/nodes/<name>`: `Sys.Audit` zum Lesen, `Sys.Modify` für den Button.
+
+Erkannt werden nur die Updates des Proxmox-Hosts. Was in einem Container oder einer VM installiert ist, liefert die Proxmox-API nicht.
+
 ## vis-2-Widget
 
 Der Widget-Satz „Proxmox“ enthält ein Widget für eine VM oder einen Container. Wähle die Maschine aus der Liste aus. Das Widget zeigt Zustand, Laufzeit, CPU und RAM und hat Tasten zum Starten und Stoppen.
@@ -128,11 +145,38 @@ Der Widget-Satz „Proxmox“ enthält ein Widget für eine VM oder einen Contai
 - **Stopp-Taste:** Standardmäßig fährt sie die Maschine sauber herunter. „Sofort ausschalten“ nutzt den Proxmox-Befehl `stop`, dabei können nicht gespeicherte Daten verloren gehen.
 - Nach einem Befehl aktualisiert sich der Zustand mit der nächsten Abfrage, also nach etwa 10 Sekunden. Bis dahin zeigt das Widget „Wird ausgeführt“.
 
+### Widget „Proxmox-Node“
+
+Das zweite Widget des Satzes zeigt einen Proxmox-Node: Zustand, Laufzeit, CPU und RAM und die verfügbaren Updates. Wähle den Node aus der Liste aus.
+
+- **Verfügbare Updates:** „Anzeigen und aktualisieren“ zeigt die Anzahl der Updates und eine Taste, die die Paketliste des Nodes aktualisiert (wie `apt update`). „Nur anzeigen“ zeigt nur die Anzahl, „Nicht anzeigen“ blendet beides aus. Die Pakete stehen im Tooltip der Anzeige.
+- Die Anzeige braucht im Adapter die Option **Verfügbare Updates abfragen**, die Taste dazu das Recht `Sys.Modify` des Proxmox-Benutzers.
+- Während die Paketliste aktualisiert wird, zeigt die Taste „Wird aktualisiert“. Das kann bis zu zwei Minuten dauern.
+- Installiert werden die Updates weiter in der Proxmox-Oberfläche, über die API ist das nicht möglich.
+- Laufzeit, Symbol, Icon, Bild und „Ohne Karte“ funktionieren wie beim Widget für VMs und Container.
+
+## Widgets für devices und Web-Komponenten
+
+Die beiden Widgets gibt es auch für den Adapter devices und als Web-Komponenten:
+
+- **devices:** „Proxmox-VM oder -Container“ und „Proxmox-Node“ im Satz „Proxmox“. Die Größe 1x1 ist eine Kachel mit dem Zustand und einer Taste, 2x0.5 eine Zeile, 2x1 eine Karte mit CPU und RAM.
+- **Web-Komponenten:** `<iob-proxmox-machine>` und `<iob-proxmox-node>` für Aura und jede andere Oberfläche, die Web-Komponenten anzeigt. Sie passen sich der Größe ihres Rahmens an: Ein kleiner zeigt eine Kachel, ein breiter eine Karte mit CPU und RAM. devices bietet statt ihrer die eigenen Widgets an.
+
+In devices wählst du zuerst die Instanz und dann die VM, den Container oder den Node aus der Liste. Die Liste liefert die Instanz, sie muss dafür laufen. Bei den Web-Komponenten wählst du im Objektbaum den Kanal aus, zum Beispiel `proxmox.0.lxc_web` oder `proxmox.0.node_pve`. Die übrigen Einstellungen sind dieselben wie bei den vis-2-Widgets. In devices kann ein Widget, das die Zugriffsrechte nur zum Lesen freigeben, keine Befehle senden. Die Rückfrage vor dem Stoppen ist kein Zugriffsschutz.
+
+Erscheinen die neuen Widgets nach einem Update des Adapters nicht, hilft `iobroker upload proxmox`.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) Added the detection of available package updates of the nodes (`node_<name>.updates`)
+- (bluefox) Added the vis-2 widget "Proxmox node" with the available updates and a button to refresh them
+- (bluefox) Added the widgets "Proxmox VM or container" and "Proxmox node" for the devices adapter and as web components for Aura and other UIs
+- (bluefox) Added a notice about the changed object IDs for users updating from 2.x (#717)
+
 ### 3.0.0 (2026-11-08)
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (bluefox) The adapter was refactored to TypeScript. It can only be installed from npm now, not from GitHub

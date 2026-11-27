@@ -384,6 +384,20 @@ Older entries are available in CHANGELOG_OLD.md.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.41 (2026-11-26)
+
+- Fixed video history updates when Blink returns HTTP 400/code 723
+  (`Media corrupt`) for a cloud recording.
+- Added a per-clip 24-hour retry cooldown while allowing valid
+  recordings to continue synchronizing.
+- Improved rollback of history MP4 files and ioBroker states.
+- Added per-camera synchronization locking and persistent backup
+  manifests. Leftover backups block further history changes until
+  they are checked; automatic recovery is not included.
+- Prevented snapshot cleanup from deleting active history files.
+- Added automated regression tests for history handling and recovery
+  safeguards.
+
 ### 0.0.40 (2026-11-01)
 * Improved fresh snapshot verification and capture timestamps.
 * Added live snapshot URLs for VIS through ioBroker storage.

@@ -144,8 +144,10 @@ the clip also contains the seconds **before** the event.
   Only key frames are decoded, so it costs almost no CPU and no second connection; the picture is at most one key
   frame interval old. For real live video use go2rtc; cam-recorder can then take its RTSP stream as camera URL.
 - **When something fails** (camera offline, stream stalled for 20 s), the process is restarted after 5 s, 10 s, 30 s,
-  60 s, then every 5 minutes, with a warning in the log. While the buffer is not running, clips are recorded from the
-  event on as without pre-recording, with a warning in the log. After a start of the adapter the buffer needs about
+  60 s, then every 5 minutes, with a warning in the log. While it restarts, a clip still takes the seconds before the
+  event from the pieces already on disk (the part after the event may then jump over the seconds of the restart).
+  Only when no piece reaches back to the event, the clip is recorded from the event on as without pre-recording,
+  with a warning in the log. After a start of the adapter the buffer needs about
   10 seconds (ffmpeg analyses the stream, then waits for key frames) until `prebuffer` shows `running`.
 - **Reading the warning.** It tells how long the stream ran and the last warnings of ffmpeg, e.g.
   `received no data for 20 s after 37 s of stream: [rtsp] RTP: missed 12 packets (5×)`. _before any data came_ means
@@ -564,6 +566,12 @@ adapter.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.8.6 (2026-11-23)
+
+- (sadam6752-tech) Pre-recording: while the buffer restarts, a clip still takes the seconds before the event from the
+  segments already on disk instead of starting at the event; a gif and an mp4 of the same event no longer share the
+  hold of their segments and both grow on a further ring
+
 ### 0.8.5 (2026-11-19)
 
 - (sadam6752-tech) The message `help` is declared (`supportedMessages.help`) and lists every command with `write`, so
@@ -585,11 +593,6 @@ adapter.
 - (sadam6752-tech) AI check: the new column _AI_ of the tab _Send_ lets a profile with criteria get the files only on a
   match or wait for the check and get one message with the description; `{description}` and `{matches}` in the text.
   The default keeps the files at once plus the extra message
-
-### 0.8.1 (2026-11-15)
-
-- (sadam6752-tech) Schedule: _Send only on an AI match_ sends a scheduled snapshot or clip only to the profiles whose
-  criterion pi-agent sees, and _Only if_ runs it only while a state meets a condition (e.g. nobody at home)
 
 Older changes are in CHANGELOG_OLD.md.
 

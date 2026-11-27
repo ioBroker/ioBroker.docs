@@ -8,7 +8,8 @@ chapters: {"pages":{"de/adapterref/iobroker.anomaly-detection/README.md":{"title
 [English](/#/adapters/anomaly-detection) · **Deutsch** ([README.de.md](/#/adapters/anomaly-detection))
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.anomaly-detection.svg?color=blue)](https://www.npmjs.com/package/iobroker.anomaly-detection)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.anomaly-detection.svg)](https://www.npmjs.com/package/iobroker.anomaly-detection)
+![Number of Installations](http://iobroker.live/badges/anomaly-detection-stable.svg)
+![Number of Installations](http://iobroker.live/badges/anomaly-detection-installed.svg)
 
 Learns the normal behaviour of selected numerical ioBroker states and reports statistically unusual values locally.
 
@@ -353,7 +354,9 @@ Processing and model storage are completely local to ioBroker. No monitored valu
 
 If you find this adapter useful, you can support its development with a donation:
 
-[![Donate with PayPal](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
+<a href="https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ">
+  <img src=".github/Donate_eng.png" alt="Mit PayPal spenden" width="220">
+</a>
 
 ## Changelog
 ### 0.5.1 (2026-10-26)

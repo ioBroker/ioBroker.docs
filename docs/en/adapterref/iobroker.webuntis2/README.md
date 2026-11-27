@@ -2,7 +2,9 @@
 
 # ioBroker.webuntis2
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.webuntis2.svg)](https://www.npmjs.com/package/iobroker.webuntis2)
+[![NPM version](http://img.shields.io/npm/v/iobroker.webuntis2.svg)](https://www.npmjs.com/package/iobroker.webuntis2)
+![Number of Installations](http://iobroker.live/badges/webuntis2-stable.svg)
+![Number of Installations](http://iobroker.live/badges/webuntis2-installed.svg)
 
 WebUntis2 connects ioBroker with WebUntis. It retrieves timetables for a
 student or family account and makes them available in ioBroker for
@@ -231,7 +233,9 @@ If the connection does not work, check the selected school and WebUntis login
 in a browser first. Then run the connection test in the adapter configuration
 and include only relevant, non-sensitive log messages when asking for help.
 
-[![Donate](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
+<a href="https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ">
+  <img src=".github/Donate_eng.png" alt="Mit PayPal spenden" width="220">
+</a>
 
 ## Changelog
 

@@ -65,6 +65,14 @@ Add private places not visible to Life360 cloud services. The adapter checks pre
 
 Choose which Life360 data to process: circles, places, people.
 
+Under **Refresh circles & app places** you can choose when the adapter reloads circle/place definitions from Life360:
+
+- **Only on instance restart** (default)
+- **Every X hours** (configurable)
+- **Once a day**
+
+Person locations still update on every poll. After changing circles or places in the Life360 app, restart the instance (startup mode) or wait for the next automatic refresh.
+
 ### Location-Tracking
 
 Enable location-tracking to add geo-positioning details (latitude, longitude, `locationName`) to the people data points.
@@ -211,15 +219,19 @@ Each person and the family group gets a dedicated map URL, stored as an ioBroker
 |---|---|
 | `tracker.<Name>.url` | Relative URL of the person's individual map |
 | `tracker.<Name>.urlLocal` | Full URL with ioBroker server IP and web adapter port |
+| `tracker.<Name>.dateFrom` | Writable `YYYY-MM-DD` — prefills the map From date and is appended as `?from=` |
+| `tracker.<Name>.dateTo` | Writable `YYYY-MM-DD` — prefills the map To date and is appended as `?to=` |
 | `tracker.circle.url` | Relative URL of the combined circle map |
 | `tracker.circle.urlLocal` | Full URL with ioBroker server IP and web adapter port |
+| `tracker.circle.dateFrom` / `dateTo` | Same writable date range for the circle map |
 
 The URL format is:
 ```
 /<namespace>/tracker/<name>.html
+/<namespace>/tracker/<name>.html?from=YYYY-MM-DD&to=YYYY-MM-DD
 ```
 
-Open this URL in any browser. The map auto-refreshes at the configured polling interval.
+Open this URL in any browser. The map auto-refreshes at the configured polling interval. Set `dateFrom`/`dateTo` from a script or Vis to control the visible range (e.g. set `dateFrom` to today when a hike starts).
 
 > **Note:** The tracker maps are served by the [ioBroker web adapter](https://github.com/ioBroker/ioBroker.web). Make sure it is installed and running. The `urlLocal` state is automatically built from the server's IP address and the web adapter port (default: 8082).
 >
@@ -250,7 +262,7 @@ All color and behavior settings can be changed at runtime — the maps are re-re
 
 | State | Type | Description |
 |---|---|---|
-| `tracker.config.enabled` | boolean | Enable / disable the route logger |as ghst
+| `tracker.config.enabled` | boolean | Enable / disable the route logger |
 
 ##### Per-Person Data (`tracker.<Name>.*`)
 
@@ -261,6 +273,8 @@ All color and behavior settings can be changed at runtime — the maps are re-re
 | `tracker.<Name>.mapSize` | number (KB) | File size of the generated HTML map |
 | `tracker.<Name>.url` | text.url | HTTP URL of the person's map |
 | `tracker.<Name>.urlLocal` | text.url | HTTP URL with the ioBroker server IP and web adapter port |
+| `tracker.<Name>.dateFrom` | string (YYYY-MM-DD) | Writable — map From date / `?from=` on url |
+| `tracker.<Name>.dateTo` | string (YYYY-MM-DD) | Writable — map To date / `?to=` on url |
 
 ##### Circle Map (`tracker.circle.*`)
 
@@ -271,13 +285,16 @@ All color and behavior settings can be changed at runtime — the maps are re-re
 | `tracker.circle.mapSize` | number (KB) | File size of the generated HTML map |
 | `tracker.circle.url` | text.url | HTTP URL of the combined circle map |
 | `tracker.circle.urlLocal` | text.url | HTTP URL with the ioBroker server IP and web adapter port |
+| `tracker.circle.dateFrom` | string (YYYY-MM-DD) | Writable — map From date / `?from=` on url |
+| `tracker.circle.dateTo` | string (YYYY-MM-DD) | Writable — map To date / `?to=` on url |
 
 #### Embedding in Vis / Jarvis
 
-Use the map URL in an **iFrame widget** (Vis) or a **URL tile** (Jarvis):
+Use the map URL in an **iFrame widget** (Vis) or a **URL tile** (Jarvis). Bind the iframe to `urlLocal` (or `url`) so date changes from scripts update the embedded map:
 
 ```
 /life360ng.0/tracker/<name>.html
+/life360ng.0/tracker/<name>.html?from=2026-11-22&to=2026-11-22
 ```
 
 The map refreshes itself — no additional configuration needed.
@@ -307,6 +324,13 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2026-11-26)
+- (skvarel) Add HTTPS request timeouts and recover from hung polls after network interruptions; set info.connection false after repeated poll failures (#51)
+
+### 1.12.0 (2026-11-22)
+- (skvarel) Configurable refresh for Life360 circles/app places in Integration tab: only on restart (default), every X hours, or once a day (person locations still every poll; reduces Cloudflare 429 on /circles)
+- (skvarel) Tracker maps: writable `dateFrom`/`dateTo` states and `?from=&to=` URL params to control the visible day range from scripts/Vis (#11)
+
 ### 1.11.9 (2026-11-18)
 - (skvarel) Skip Life360 places API calls when places processing is disabled; refresh circles less often in that case (60 min); persist circle IDs across restarts and still fetch members if /circles is rate-limited (fixes #48 follow-ups)
 
@@ -316,13 +340,6 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 
 ### 1.11.7 (2026-10-16)
 - (skvarel) Ignore Cloudflare Retry-After values below 60 seconds (including 0) and use the default 10-minute backoff instead, to avoid rapid re-polls that extend the rate-limit block
-
-### 1.11.6 (2026-10-16)
-- (skvarel) Use Retry-After (and log RateLimit headers) from Cloudflare 429 responses to choose the backoff delay instead of a fixed 10 minutes
-- (skvarel) Updated @iobroker/testing dependency from 6.2.2 to 6.3.0
-
-### 1.11.5 (2026-10-15)
-- (skvarel) Handle Cloudflare HTTP 429 / error 1015 rate limits: stop immediate retries, abort the current poll cycle, and delay the next poll by 10 minutes
 
 ## License
 

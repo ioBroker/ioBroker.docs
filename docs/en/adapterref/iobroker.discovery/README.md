@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.discovery/README.md":{"title":{"en":"ioBroker Discover Adapter"},"content":"en/adapterref/iobroker.discovery/README.md"},"en/adapterref/iobroker.discovery/DEVELOPMENT.md":{"title":{"en":"Extending discovery"},"content":"en/adapterref/iobroker.discovery/DEVELOPMENT.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.discovery/README.md":{"title":{"en":"ioBroker Discover Adapter"},"content":"en/adapterref/iobroker.discovery/README.md"},"en/adapterref/iobroker.discovery/DEVELOPMENT.md":{"title":{"en":"Development Guide"},"content":"en/adapterref/iobroker.discovery/DEVELOPMENT.md"},"en/adapterref/iobroker.discovery/doc/en/DEVELOPMENT.md":{"title":{"en":"Extending discovery"},"content":"en/adapterref/iobroker.discovery/doc/en/DEVELOPMENT.md"}}}
 ---
 ![Logo](admin/discovery.png)
 # ioBroker Discover Adapter
@@ -25,6 +25,7 @@ For more details and for information on how to disable the error reporting, see 
 
 - Agent DVR
 - Air-Q
+- Android TV / Google TV, incl. NVIDIA SHIELD (androidtv)
 - Autodarts
 - Awtrix 3 / Awtrix Light
 - Bambu Lab 3D printers
@@ -60,6 +61,7 @@ For more details and for information on how to disable the error reporting, see 
 - Epson Stylus PX830
 - ESPHome
 - evcc
+- Faikout / Faikin air-conditioner modules (faikout)
 - Fakeroku (harmony)
 - Feller zeptrion
 - FHEM
@@ -86,7 +88,9 @@ For more details and for information on how to disable the error reporting, see 
 - iiyama ProLite displays
 - InfluxDB
 - IOmeter
+- IPP/IPPS network printers (ipp)
 - Janitza GridVis
+- Jellyfin media servers (jellyfin)
 - Keba KeContact P30
 - KLF-200
 - KNX (disabled actually)
@@ -122,6 +126,7 @@ For more details and for information on how to disable the error reporting, see 
 - Nut
 - Onkyo
 - ONVIF cameras
+- OpenDTU for Hoymiles inverters (opendtu, when mDNS is switched on in OpenDTU)
 - OpenHAB
 - OpenKNX
 - Philips HUE
@@ -145,6 +150,7 @@ For more details and for information on how to disable the error reporting, see 
 - Sma-em
 - Smappee
 - Smart meter reading heads (SML)
+- Snapmaker U1 (snapmaker-u1)
 - Solakon ONE
 - Solarlog
 - Sonnen
@@ -155,6 +161,7 @@ For more details and for information on how to disable the error reporting, see 
 - SQL (MySQL, MSSQL, PostgreSQL)
 - SqueezeboxRPC
 - Stiebel-Eltron/Tecalor ISG (plus)
+- Sungrow hybrid inverters behind a WiNet-S/WiNet-S2 module (sungrow-local)
 - Synology
 - TP-Link Tapo
 - TR-064
@@ -260,6 +267,18 @@ Your device is not found? How to add the detection for an adapter is described i
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.6.0 (2026-11-26)
+* (GermanBluefox) Fixed crash of sma-em detection (addMembership EADDRINUSE) when several interfaces share the same IPv4 address (#513)
+* (@Schimi1983) Detect OpenDTU from its `_opendtu._tcp` mDNS announcement and propose one opendtu instance per OpenDTU, with its address filled in. The address is checked first, so an mDNS reflector never ends up as the OpenDTU's address
+* (Negalein) Detect Snapmaker U1 printers from their model-specific mDNS announcement or a read-only Moonraker system-info request, and propose one snapmaker-u1 instance per printer
+* (Schimi1983) Detect Android TV / Google TV devices (NVIDIA SHIELD, Google TV, Android TV sets) from their `_androidtvremote2._tcp` mDNS announcement and an open remote port 6466, and propose one androidtv instance with all of them as device type "standard" - pairing is done in the Devices tab of the adapter
+* (Schimi1983) Detect Jellyfin media servers by their client discovery on UDP 7359 (`who is JellyfinServer?`) and propose a jellyfin instance with the server address filled in - the API key still has to be entered
+* (SmarthomeElektroniker) Detect Sungrow WiNet-S/WiNet-S2 communication modules from their `WiNet-WebServer._http._tcp` mDNS announcement and propose a read-only sungrow-local instance with the module's address
+
+### 5.5.0 (2026-11-23)
+* (SmarthomeElektroniker) Detect Faikout (formerly Faikin) air-conditioner modules from their bare `_http._tcp` mDNS announcement and the RevK firmware footer of their start page (one `GET /`), and propose one faikout instance for all of them, with nothing pre-filled
+* (@Voodoo2man) Detect IPP and IPPS network printers from their `_ipp._tcp` / `_ipps._tcp` mDNS announcement and propose one ipp instance for all of them, with nothing pre-filled - the printers themselves are added in the Device Manager of the ipp adapter
+
 ### 5.4.1 (2026-11-19)
 * (@GermanBluefox) The build checks that every adapter discovery can propose exists in the latest repository, and a weekly workflow opens an issue when one leaves it (#508). The detections for hue-extended, landroid and zwave are removed: none of these adapters exists any more
 * (@GermanBluefox) A scan runs the detection for an adapter only when the adapter is in the active repository. With several active repositories their adapters now add up (before, every detection ran), a change of the active repository applies from the next scan on, and "Propose only adapters that are installed here" also holds while the repository has not been downloaded yet
@@ -276,15 +295,6 @@ Your device is not found? How to add the detection for an adapter is described i
 * (@GermanBluefox) The WLED detection no longer logs an error for every device with a single mDNS PTR record, finds a WLED that announces only its own service, and proposes one instance for all WLEDs, which is how the adapter works
 * (@GermanBluefox) The ping on Windows no longer reads `process.env`, which does not go with compact mode
 * (@GermanBluefox) `npm run test:integration` now runs every test file on Linux and macOS too - the shell had been expanding the pattern to `test/adapters` only
-
-### 5.2.0 (2026-10-08)
-* (nograx) Detect Zendure SolarFlow, Hyper and AIO devices with the local zenSDK API via mDNS and propose the zendure-solarflow adapter
-* (@GermanBluefox) The Zendure proposal sets `connectionMode: local` - in the default cloud mode the instance stops at the missing cloud key and never looks for devices
-
-### 5.1.2 (2026-10-02)
-* (ChrMaass) Detect SIKU / Oxxify Smart fans with a read-only UDP broadcast and propose one siku instance for all fans
-* (@GermanBluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
-* (@GermanBluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
 
 ## License
 

@@ -71,6 +71,10 @@ User-agent: WhatsApp
 User-agent: TelegramBot
 User-agent: Mastodon
 User-agent: redditbot
+# Pinterest - the pin of a link takes its title and picture from the page (added 27.11.2026).
+# "Pinterest" alone for the older agent "Pinterest/0.2" that checks the Rich Pins
+User-agent: Pinterestbot
+User-agent: Pinterest
 Crawl-delay: 1
 Allow: /
 # /docu/, the old documentation, is deliberately not disallowed: it is gone and answered with

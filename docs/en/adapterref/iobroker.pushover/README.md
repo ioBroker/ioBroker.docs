@@ -100,7 +100,9 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.3.0 (2026-11-23)
+* (@GermanBluefox) Added the full-name standard command of the shared catalog `message.send` (`{text, recipient?, title?, file?, priority?}`, one picture as `{data, contentType}`, data URL, `iobfile://` or URL; answers `{ok, sent}` or `{error, reason}`); `send` keeps its answer
+* (@GermanBluefox) The message `send` also takes `text` and `recipient` (= `device`), the names of the shared catalog of message commands, and answers a double message with `{error, reason: "DUPLICATE"}`
 * (@GermanBluefox) Fixed: the message `send` with `user` and `token` answers the error in `error` like the other messages (`err` is kept)
 * (@GermanBluefox) Fixed: the message `send` answers the text of a network error instead of an empty `error` object
 
@@ -124,10 +126,6 @@ sendTo('pushover', 'glances', {
 * (@GermanBluefox) Dropped support for node 18
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added the lowest priority to messages
-
-### 4.1.1 (2025-05-19)
-* (robseh) Added a field "tags" to hand over a tag to pushover-service
-* (@GermanBluefox) Updated packages
 
 ## License
 

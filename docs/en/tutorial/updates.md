@@ -1,10 +1,10 @@
 ---
 title: Install updates
-lastChanged: 08.09.2026
+lastChanged: 23.11.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/updates.md
-hash: X4dgZaG81VweC5T9bgg0bGEy+ndeXDc7Tb/nBYP3v2Y=
+hash: inCgnrjYOfvOH3BWNEVyCXRCiKfwZ8ENGw8HtlpalNs=
 ---
 # Install updates
 
@@ -25,11 +25,29 @@ _The system settings under Repositories show the source of the adapters. In ever
 
 ## The chronological order
 
-1. **Node.js** , in case a new version is available.
+1. **Adapter** .
 2. **js-controller** .
-3. **Adapter** .
+3. **Node.js** , last and only deliberately.
 
-Updating from the bottom up often works well and sometimes goes wrong: a new adapter may require a newer js-controller, and that in turn may require a newer Node.js version.
+A new JavaScript controller sometimes requires newer adapters, so the adapters are listed first. Changing the Node.js major version is the most significant change and has its own page: [Updating Node.js.](/docs/install/updatenode.md) More detailed information can be found under [Updating](/docs/install/update.md) .
+
+## If an adapter requires a newer Node.js version
+
+Some adapter versions require a newer Node.js or js-controller version. This is listed in the adapter's changelog or README under Requirements. There are then two options:
+
+- **Prefer Node.js** – back it up first, then [update as described under Node.js.](/docs/install/updatenode.md)
+- **Either stick with the current adapter version for now** , or specifically install an older, compatible version: in administrator mode under expert mode via _Install a specific version_ (see [Adapters](/docs/tutorial/adapter.md) ) or on the console:
+
+```bash
+iobroker upgrade <adaptername>@<version>
+```
+
+From js-controller 6 onwards, an unsuitable version can be hidden so that it is not constantly offered as an update, and later shown again:
+
+```bash
+iobroker version <adaptername> --ignore <version>
+iobroker version <adaptername> --recognize
+```
 
 ## Update adapter
 
@@ -59,6 +77,8 @@ iobroker nodejs-update
 
 Use only **even** version numbers, i.e., the LTS versions. Odd versions are not supported. [See Update Node.js](/docs/install/updatenode.md) for details.
 
+**Under Docker** (an image from buanet), Node.js comes with the image. `iobroker nodejs-update` That's not the way; instead, a new image is created and the container is recreated (`docker pull` and recreate containers or `docker compose pull && docker compose up -d` The data remains in the volume under `/opt/iobroker` - Back it up beforehand anyway. See [Docker](/docs/install/docker.md) and the [buanet documentation](https://docs.buanet.de/de/iobroker-docker-image/) .
+
 ## The operating system
 
 Under Linux, the underlying system also needs maintenance:
@@ -69,6 +89,8 @@ sudo apt upgrade
 ```
 
 A system that hasn't received security updates for years is a greater risk than an adapter that's one version behind.
+
+**Under Docker** , the operating system also comes with the image. Instead `apt` A new image is created and the container is rebuilt, as described above for Node.js. Adapters and js-controllers will continue to be updated as usual in the admin panel or on the console within the container.
 
 ## If an update goes wrong
 

@@ -1,7 +1,8 @@
 # ioBroker MG/SAIC
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.mg-saic.svg)](https://www.npmjs.com/package/iobroker.mg-saic)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.mg-saic.svg)](https://www.npmjs.com/package/iobroker.mg-saic)
+![Number of Installations](http://iobroker.live/badges/mg-saic-stable.svg)
+![Number of Installations](http://iobroker.live/badges/mg-saic-installed.svg)
 
 <img src="admin/MG.png" alt="MG" width="314">
 
@@ -42,7 +43,9 @@ The adapter is published on npm and available from ioBroker's Latest adapter rep
 
 ## Support
 
-[![Donate](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
+<a href="https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ">
+  <img src=".github/Donate_eng.png" alt="Mit PayPal spenden" width="220">
+</a>
 
 ## Changelog
 ### 0.1.4 (2026-11-11)

@@ -22,7 +22,7 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-ng/README.md":{"title":{"en":
 
 - nodejs 22 (or later)
 - js-controller 6.0.11 (or later)
-- Admin Adapter 7.6.20 (or later)
+- Admin Adapter 7.8.23 (or later)
 - _Awtrix NG_ device with firmware _1.2.3_ (or later) - e.g. Ulanzi TC001, Ulanzi TC002
 
 - Buy TC001: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) or [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) *(Affiliate-Links)*
@@ -34,23 +34,17 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-ng/README.md":{"title":{"en":
 2. Install the awtrix-ng adapter in ioBroker (and add a new instance)
 3. Open the instance configuration and enter the IP address of the device in your local network (and the port, if you changed it on the device - default is 80)
 
+The adapter automatically checks for firmware updates at startup. A manual check can be triggered with `device.firmware.checkUpdate`. The result is shown in `device.firmware.available`, and the latest version in `device.firmware.latestVersion`. `device.firmware.status` reports check/install progress and errors. Use `device.firmware.install` to download, verify, and install an available update. The device will reboot afterwards.
+
 ## FAQ
-
-**Can I use the adapter to disable the native apps (like battery state and sensor data)?**
-
-No, this feature has been removed in the awtrix light firmware. Please use the on screen menu to hide these apps.
 
 **Is it possible to replace boolean values with other text (not true/false)?**
 
 Just create an alias in `alias.0` of type `string` and convert your `boolean` value into any other text with a read function (like `val ? 'open' : 'closed'`). *This is an ioBroker feature and not related to this adapter.*
 
-**The device is getting hot while charging.**
-
-The hardware design is not the best. Please use a power supply which deliveres max. 1A.
-
 **Can I define a custom number format?**
 
-All states (of common.type `number`) are formatted as configured in the system settings of ioBroker. It is possible to override the system format (since adapter version 0.7.1) by using an expert option. Numbers can be formatted in the following styles:
+All states (of common.type `number`) are formatted in custom apps as configured in the system settings of ioBroker. It is possible to override the system format in the instance configuration (tab Apps). Numbers can be formatted in the following styles:
 
 - System default
 - `xx.xxx,xx`
@@ -60,7 +54,7 @@ All states (of common.type `number`) are formatted as configured in the system s
 
 **Is it possible to protect web ui of the device?**
 
-Yes, since firware version 0.82 it is possible to configure a user name and a password to protect the access. Since adapter version 0.8.0 it is also possible to enter these credentials in the instance configuration.
+Yes, access can be protected with a user name and a password on the device. These credentials must then also be entered in the instance configuration.
 
 **How does the hold option in notifications work?**
 
@@ -80,7 +74,7 @@ Example:
 2. Create a new instance for the second device (`awtrix-ng.1`)
 3. Choose `awtrix-ng.0` in the instance configuration of `awtrix-ng.1` to use the same apps on the second device
 
-Since version 0.15.0 (and later) the visibility of custom apps and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-ng.1` will be hidden automatically if the visibility state of an app in instance `awtrix-ng.0` changes.
+The visibility of custom apps and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-ng.1` will be hidden automatically if the visibility state of an app in instance `awtrix-ng.0` changes.
 
 ## Blockly and JavaScript
 
@@ -212,9 +206,8 @@ The selected state should have the data type `string` or `number`. Other tyes (l
 
 The following combinations will lead to a warning in the log:
 
-- A custom app with a selected object id of a state, but `%s` is missing in the text
+- A custom app with a selected object id of a state, but `%s` is missing in the text (state changes are ignored then)
 - A custom app with a selected object id of a state without a unit `common.unit`, but `%u` is used in the text
-- A custom app without a selected object, but `%s` has been used in the text
 
 ### History apps / graphs
 
@@ -224,7 +217,7 @@ TODO
 
 ### Expert apps
 
-Expert apps are available since apdater version 0.10.0. They allow to set all values manually and to implement your own logic by controlling all data via states. To create a new expert app
+Expert apps allow to set all values manually and to implement your own logic by controlling all data via states. To create a new expert app
 
 - Go to expert options in instance settings
 - Create a new expert app by choosing a name (e.g. `test`)
@@ -245,8 +238,9 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.0 (2026-11-26)
 
+* (@Voodoo2man) Added states to check for and install Awtrix NG firmware updates.
 * (@klein0r) Added state `display.overlay` to set a global weather overlay for all apps
 * (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.3
 
@@ -296,11 +290,6 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 * (@klein0r) Added additional meta information (soc and board type)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 0.1.0 (2026-08-11)
-
-* (@klein0r) Used new audio API endpoint for all types of sounds (file, mp3, rtttl)
-* (@klein0r) Recommended Awtrix NG version is now 1.1.0
 
 ## License
 

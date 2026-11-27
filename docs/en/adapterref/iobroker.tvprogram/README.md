@@ -282,9 +282,13 @@ Use these commands to build custom integrations:
 | `getServerBroadcastDate` | Channel IDs and date                 | Array                    |
 | `getServerBroadcastFind` | Filters and date range               | Array                    |
 | `getServerInfo`          | Empty object                         | Available broadcast days |
+| `help`                   | Empty object                         | `{ help, commands }`     |
 
 Parameters and runnable calls are documented in
 [`sendTo` command examples](/#/docs/adapterref/iobroker.tvprogram/docs/EXAMPLES.md#sendto-command-examples).
+
+`help` returns a description of all commands for AI agents (e.g. ioBroker.pi-agent) and scripts; `commands` lists
+every command with `write: true` if it changes something.
 
 ## Examples
 
@@ -321,6 +325,10 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.2.2 (2026-11-22)
+
+- (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and common.supportedMessages.help
+
 ### 6.2.1 (2026-10-29)
 
 - fix problem with loading channel logos while paging
@@ -342,10 +350,6 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
 - improve seperation of data
 - Improving the management of the selected channels
 - reduce amount of data transfered to widgets
-
-### 5.0.1 (2026-09-23)
-
-- fix tests
 
 ## License
 

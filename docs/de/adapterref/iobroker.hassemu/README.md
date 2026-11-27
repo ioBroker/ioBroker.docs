@@ -270,7 +270,7 @@ deckelt den Schaden — sie macht die Einstellung nicht sicher.
 | 5353 / UDP | eingehend | mDNS, damit Displays den Server von allein finden                        |
 
 Für Uptime-Monitore und Container-Healthchecks `http://<IP-deines-ioBroker>:8123/health`
-nehmen (mit HTTPS `https://`, mit anderem Port dieser Port). Diese Adresse antwortet, ohne etwas anzulegen. Ein `GET /` ist das, was ein Display
+nehmen (mit HTTPS `https://`, mit anderem Port dieser Port). Diese Adresse antwortet nur `running` und legt nichts an. Ein `GET /` ist das, was ein Display
 bei seinem ersten Besuch schickt — ein Monitor dort erschiene als neues Display; ein `HEAD /`
 legt nichts an.
 
@@ -384,6 +384,7 @@ App-Einstellungen erlauben.
 - Fixed: an update from 1.0 or 1.1 no longer resets the global URL choice on every start — the URL you had set before the update stays in place for good
 - Fixed: on iOS the Home Assistant app no longer keeps its loading screen over the dashboard, and on Android the bottom of the dashboard no longer hides behind the navigation bar
 - Fixed: uptime monitors and container health checks no longer create display entries, and the adapter settings name the /health address meant for them
+- Changed: /health answers only `running` (plain text) instead of a JSON object
 - Fixed: stopping the adapter no longer waits on open connections or hangs while a display is mid-request, and a stop during the start no longer brings the server up
 - Fixed: room and function assignments move along reliably when an old datapoint is replaced, and a read error no longer gives the server a new identity
 - Changed: the sign-in hands its code to an unknown address only after a click on Continue, and a signed-in app is disconnected when its display is removed

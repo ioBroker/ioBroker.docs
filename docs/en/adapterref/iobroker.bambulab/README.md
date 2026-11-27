@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.bambulab/README.md":{"title":{"en":"ioBroker.bambulab"},"content":"en/adapterref/iobroker.bambulab/README.md"},"en/adapterref/iobroker.bambulab/docs/CLOUD.md":{"title":{"en":"Cloud-Verbindung (Fork / geplanter Upstream)"},"content":"en/adapterref/iobroker.bambulab/docs/CLOUD.md"},"en/adapterref/iobroker.bambulab/DEV.md":{"title":{"en":"Entwicklung (Fork Cloud)"},"content":"en/adapterref/iobroker.bambulab/DEV.md"},"en/adapterref/iobroker.bambulab/MAINTAINER_HANDOFF.md":{"title":{"en":"Nachricht an Maintainer (Issue #186) – zum Kopieren"},"content":"en/adapterref/iobroker.bambulab/MAINTAINER_HANDOFF.md"}}}
+---
 <img src="admin/bambulab.png" alt="Logo" width="200"/>
 
 # ioBroker.bambulab
@@ -18,9 +21,23 @@
 With credits to [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), all other involved and inspired by [this forum thread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration)
 this adapter integrates Bambulab 3D-Printers into ioBroker.
 
-Please provide your Printer IP-Address, API token and serial number in adapter settings;
-these are required for a local connection (no cloud involved) to your printer.
-These credentials are stored locally and not shared to third parties.
+Choose **connection mode** in the adapter admin:
+
+### LAN (default)
+
+Provide printer **IP address**, **LAN access code** (API token), **serial number**, and **model**.  
+Required for **full control** (fans, temperatures, G-code). On **H2D**, enable **developer mode (3D print)** on the printer when using third-party control over LAN.
+
+Credentials are stored locally and not shared with third parties.
+
+### Cloud (optional, Bambu account)
+
+Uses the same cloud MQTT broker as the Bambu app / Home Assistant ([issue #186](https://github.com/DrozmotiX/ioBroker.bambulab/issues/186)):
+
+- **Email code login** (Google/OAuth-friendly); token stored under the adapter instance data directory.
+- **Default remains LAN** for new instances.
+- **Cloud** = mainly **monitoring** and **limited control** (e.g. chamber LED). On **H2D**, firmware often **rejects** remote `print.*` (fans, pause, G-code); see state `info.cloudPrintControlBlocked`.
+- Details: [`docs/CLOUD.md`](/#/docs/adapterref/iobroker.bambulab/docs/CLOUD.md) (German/English).
 
 ## Finding the API Token and Serial Number
 
@@ -41,13 +58,14 @@ The location of the API token and serial number depends on your printer model:
 2. The access token is directly visible in network settings
 3. Serial number can be found in the same menu or in device information
 
-**Note:** You must select your Printer model correctly in the adapter settings. Only the X1 series allows pushing of messages, P1x series needs to request by interval setting (default every 5 seconds)
+**Note:** You must select your Printer model correctly in the adapter settings. X1 and H2 series push messages after the initial request, while P1x series needs to request by interval setting (default every 5 seconds).
 
 ## Supported models
 | Printer-Model | Status                  |
 |---------------|-------------------------|
 | AMS           | :white_check_mark:      |
 | A1            | :white_check_mark:      |
+| H2C           | :white_check_mark:      |
 | P1p           | :white_check_mark:      |
 | P1s           | :white_check_mark:      |
 | X1            | :white_check_mark:      |
@@ -92,10 +110,21 @@ All of this helps me to provide error-free adapters that basically never crash.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (DutchmanNL & Copilot) Update all dependencies to latest versions, consolidating 17 Dependabot PRs
-* (DutchmanNL & Copilot) Synchronize admin translations with jsonConfig.json - add missing translations and remove orphaned keys (#202)
-* (DutchmanNL) Raise minimum Node.js to 22, modernise CI (Node 24, testing-action-check v2) and release tooling, and resolve repository checker findings
+### 0.5.0 (2026-11-25)
+* (crunchip77) Optional Bambu Cloud MQTT connection: email code login, credentials stored per adapter instance, LAN (printer IP + access code) stays the default. See `docs/CLOUD.md` for limits (#186, #294)
+* (crunchip77) H2D: cloud vs. LAN behaviour tested and documented, new state `info.cloudPrintControlBlocked` when the firmware rejects remote print commands (#294)
+* (FiraSenax) Add H2C printer support: local MQTT, firmware and module discovery, dual-nozzle current and target temperatures (#272)
+* (mono1982-runner1) Add state attribute for extruder `z_bias` (X2D/H2D dual nozzle) (#317)
+* (crunchip77) AMS empty slots: stale filament data (type, colour, weight, `remain_g`, H2D extras) is reset, also via `tray_exist_bits` when the firmware keeps old tray JSON (#204, #296)
+* (crunchip77) AMS/filament state names: `remain` in % instead of print time, drying profile vs. `dry_time`, clearer `tray_weight`/`total_len`, `remain_g` estimate (#295)
+* (crunchip77) Second AMS unit (`ams_exist_bits` 3) is processed again; MQTT type normalisation for `err2.err_code` and nozzle `tar_id` stops the log spam on H2D (#292, #295)
+* (FiraSenax) Restore JavaScript type checking and refresh the runtime dependency lock (#273, #274)
+* (DutchmanNL & Copilot) Update all dependencies to latest versions, consolidating 17 Dependabot PRs (#246)
+* (DutchmanNL & Copilot) Synchronize admin translations with jsonConfig.json, add missing translations and remove orphaned keys (#202, #248)
+* (DutchmanNL & Copilot) Fix ESLint errors and establish a lint-first validation workflow (#244)
+* (DutchmanNL) Raise minimum Node.js to 22, modernise CI (Node 24, testing-action-check v2) and release tooling, resolve repository checker findings (#277, #278)
+* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+* (ioBroker-Bot) Template updates: tests on Node.js 22 to 26, Dependabot automerge and settings, `CHANGELOG_OLD.md` (#279, #280, #281, #282, #285, #293)
 
 ### 0.4.3 (2025-09-16)
 * (DutchmanNL) Improve error messages if printer is offline or not reachable.

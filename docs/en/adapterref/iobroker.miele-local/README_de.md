@@ -79,7 +79,9 @@ Jedes Gerät wird ein Objekt mit seiner Seriennummer als Kennung. Darunter:
 | `progress` | Programmfortschritt in % (verstrichen / (verstrichen + Rest)), 0, solange nichts läuft |
 | `temperature`, `targetTemperature` (dazu Zone 2 und 3) | Temperaturen |
 | `signalDoor`, `signalInfo`, `signalFailure` | Tür- und Signalmerker |
-| `mobileStart` | ob das Gerät gerade Fernsteuerung annimmt |
+| `mobileStart` | MobileStart am Gerät freigegeben (drittes Element von `RemoteEnable`) |
+| `fullRemoteControl` | Fernsteuerung im Gerätemenü eingeschaltet (erstes Element) |
+| `smartGrid` | SmartGrid eingeschaltet, nur Waschmaschinen und Trockner (zweites Element) |
 | `light`, `spinningSpeed`, `dryingStepText` | gerätespezifisch |
 
 Rohwert und `…Text` stehen mit Absicht nebeneinander: Mit der Zahl rechnet und zeichnet man, den
@@ -373,6 +375,12 @@ Reverse-Engineering-Arbeit der Projekte `MieleRESTServer` (akappner),
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2026-11-24)
+- (SmarthomeElektroniker) `state.mobileStart` las das falsche Element von `RemoteEnable`. Das Gerät meldet `[Fernsteuerung, SmartGrid, MobileStart]` in derselben Reihenfolge wie die Miele-Cloud (`fullRemoteControl`, `smartGrid`, `mobileStart`); bisher erschien das zweite Element (SmartGrid) als MobileStart, MobileStart blieb also `false`, und Waschmaschinen mit eingeschaltetem SmartGrid zeigten `true`. Neue Datenpunkte `state.fullRemoteControl` (alle Geräte) und `state.smartGrid` (Waschmaschinen, Trockner, Waschtrockner). Danke an Reinfelderjung für den genauen Bericht mit Rohwerten
+- (SmarthomeElektroniker) Deutsch: Waschprogramm 50 (`dark_garments`) heißt jetzt „Dunkles“ (bisher „Dunkles/Jeans“, das ist Programm 10048 `dark_jeans`), wie am WCR860 angezeigt. **Sichtbare Änderung:** der deutsche `state.programText` ändert sich entsprechend
+- (SmarthomeElektroniker) Polnisch: „Expres 20“ (Waschmaschine) und „Expres“ (Trockner) mit einem s, die Schreibweise der neueren Geräte (Bedienblenden WWF 664 und TWF 760 WP). Danke an @KPIotr89 für die Rückmeldung
+- (SmarthomeElektroniker) Abfragetakt: Direkt nach dem Einschalten (Status 2 „Ein“) wird ein Gerät 5 Minuten lang im aktiven Takt abgefragt. Unmittelbar nach dem Einschalten meldet `/State` noch Programm 0; Status 3 „Programmiert“ mit dem gewählten Programm folgt erst später (WCR860: bei der nächsten Abfrage). Im Ruhetakt (2 min) konnte diese nächste Abfrage erst kommen, als das Gerät schon wieder aus war, sodass das gewählte Programm nie erschien
+
 ### 0.6.0 (2026-11-19)
 - (SmarthomeElektroniker) Der DOP2-Parser liest Typ 33 (Liste von Strukturen, AStruct). Bisher scheiterte ein Leaf, das ihn enthält (z. B. `2/1585`, `2/17`, `2/131`), komplett mit „Unknown DOP2 field type 33“.
 - (SmarthomeElektroniker) Der Gerätekontext `2/1585` (ersatzweise `2/391`) wird unabhängig vom Waschmaschinen-Leaf `2/6195` abgefragt. Werte des geräteeigenen EcoFeedback (Felder 6.3–6.6, 6.29, 6.31) beachten den Einheitentyp (121/46 = Wh, 45 = kWh, 44 = l) und entstehen nur, wenn das Gerät sie führt; TwinDos/AutoDos-Behälter (6.7) erscheinen als JSON. Geräte ohne `2/6195` (Spülmaschine) bekommen Energie und Wasser je Programm aus der Differenz der Lebenszähler 6.5/6.6. Die Werte „letztes Programm“ ersetzen `eco.*` im laufenden Programm nicht mehr.

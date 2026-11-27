@@ -225,6 +225,52 @@ current content cannot be read from the device, the restore is aborted.
      The file is fetched into the storage folder and restored in one step.
 3. For the first two ways: tab **Backup** → **Backup to restore** → **Restore the selected backup**.
 
+### Backup and restore from scripts, roll out to further sensors
+
+Backup and restore also work without the admin page, by states or by `sendTo`, e.g. to roll the
+fingers of one sensor out to further sensors automatically. Each sensor is an instance of its own
+(`fingerprint.0`, `fingerprint.1`, …) with its own storage folder; a restore can take the backup
+of another instance over.
+
+- `control.backup` (button): creates a backup like **Create backup now**.
+- `control.restore` (text): restores and replaces **all** fingers of the sensor. Write
+  - `latest` — the newest own backup,
+  - a backup file name, e.g. `fingerprint-backup-2026-11-21T10-00-00.json`,
+  - `fingerprint.0` — the newest backup of that instance,
+  - `fingerprint.0/<file name>` — a certain backup of that instance.
+
+  A backup of another instance is first copied into the own storage folder (same name), then
+  restored as usual, with the safety copy `fingerprint-prerestore-<time>.json` before.
+- `info.lastResult`: JSON `{ok, action, message, file, count, ts}` of the last backup or restore
+  started by one of these states, so a script can wait for it.
+- `sendTo`: `backupFingerprints` answers `{result, file, count}`; `restoreFingerprints` takes
+  `{file?, from?}` (`file`: backup file name or `latest`, `from`: another instance) and answers
+  `{result, file, count}` or `{error}`.
+
+Templates can only be moved between **identical sensor modules** (same model as the one that
+enrolled them). A sensor of another type rejects them or does not recognize the fingers.
+
+Example (JavaScript adapter): back up sensor 0 and write its fingers to sensors 1 and 2.
+
+```js
+const SOURCE = 'fingerprint.0';
+const TARGETS = ['fingerprint.1', 'fingerprint.2'];
+
+sendTo(SOURCE, 'backupFingerprints', {}, backup => {
+    if (backup.error) {
+        return log(`Backup failed: ${backup.error}`, 'warn');
+    }
+    for (const target of TARGETS) {
+        sendTo(target, 'restoreFingerprints', { from: SOURCE, file: backup.file }, res =>
+            log(`${target}: ${res.result || res.error}`, res.error ? 'warn' : 'info'),
+        );
+    }
+});
+```
+
+The same with states: press `fingerprint.0.control.backup`, then write `fingerprint.0` into
+`fingerprint.1.control.restore` and `fingerprint.2.control.restore`.
+
 ### Automatic backup
 
 The **Backup** tab of the instance settings can create the fingerprint backup automatically,
@@ -305,6 +351,13 @@ Control the sensor's RGB ring from ioBroker:
 
 Writing either state applies the ring immediately.
 
+## Help for AI agents and scripts
+
+The adapter answers the message `help` (`common.supportedMessages.help`) with a description of its
+commands and states and a list of the commands with whether they change something:
+`sendTo('fingerprint.0', 'help', {}, answer => log(answer.help))` → `{help, commands: [{command, write}]}`.
+AI agents such as ioBroker.pi-agent read it before they use the adapter.
+
 ## States
 
 | State | Type | Description |
@@ -318,6 +371,7 @@ Writing either state applies the ring immediately.
 | `info.lastBackup` | number | Time of the last fingerprint backup (by hand or automatic) |
 | `info.lastRemoteBackup` | string | Path of the last copy on the external SFTP server |
 | `info.remoteBackupError` | string | Error of the last copy to the external server (empty = fine) |
+| `info.lastResult` | string (JSON) | Outcome of the last backup or restore started by `control.backup` / `control.restore` |
 | `fingerprints.<id>.name` | string | Name of the enrolled finger with that ID |
 | `fingerprints.<id>.lastSeen` | number | Timestamp the finger was last matched |
 | `fingerprints.<id>.count` | number | How often the finger was matched |
@@ -341,6 +395,8 @@ Writing either state applies the ring immediately.
 | `control.enrollStart` | boolean (button) | Start enrollment (firmware ≥ v0.9.4) |
 | `control.ledMode` | number | LED ring mode 0–3 (firmware ≥ v0.9.4) |
 | `control.ledColor` | number | LED ring color 1–7 (firmware ≥ v0.9.4) |
+| `control.backup` | boolean (button) | Create a backup |
+| `control.restore` | string | Restore: `latest`, a backup file name, `fingerprint.N` or `fingerprint.N/<file>` (backup of another instance) |
 | `enroll.active` | boolean | Enrollment running (firmware ≥ v0.9.4) |
 | `enroll.step` | number | Current enrollment scan step 0–5 |
 | `enroll.status` | string | `idle` / `scanning` / `success` / `error` |
@@ -355,8 +411,12 @@ Writing either state applies the ring immediately.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.4
 
+- Backup and restore by states for scripts: `control.backup`, `control.restore` and `info.lastResult`
+- A restore can take the backup of another instance over (`control.restore` = `fingerprint.0`, or `restoreFingerprints` with `from`), to roll the fingers of one sensor out to further sensors of the same model
+- `backupFingerprints` and `restoreFingerprints` answer the file name and the number of fingers too
+- The adapter answers `help` for AI agents and script authors (`common.supportedMessages.help`)
 - `@iobroker/testing` 6.3.2 (repository checker W0037)
 
 ### 0.8.3

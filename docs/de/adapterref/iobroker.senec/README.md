@@ -596,6 +596,7 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- Dependency Updates
 
 ### 2.16.6 (2026-11-11)
 - Change: **The energy totals are grouped by direction.** One column lists where the energy came from — generation, grid draw, battery discharge — and the next where it went: consumption, feed-in and battery charge. The wallbox, when it reports a figure, is indented beneath consumption rather than listed as a destination of its own, because the energy-flow diagram above draws it as a branch off the house. Grouping the figures this way is also what keeps the card readable at any width, because a column is now a whole group rather than a single figure, which is what limits how many columns there can be.

@@ -96,6 +96,11 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.6 (2026-11-23)
+
+- (@GermanBluefox) Fixed adapter crash when showing image information on Docker Engine 29+ (containerd image store)
+- (@GermanBluefox) A failing command no longer terminates the adapter
+
 ### 1.0.5 (2026-10-13)
 
 - (@GermanBluefox) Cancel button and dialog closing are disabled while a request (pull, delete, prune, stop, restart) is running
@@ -112,10 +117,6 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 - (@GermanBluefox) Breaking: Node.js 22 is minimum requirement now
 
 ### 0.1.5 (2026-01-09)
-
-- (@GermanBluefox) Updated packages
-
-### 0.1.3 (2025-10-15)
 
 - (@GermanBluefox) Updated packages
 

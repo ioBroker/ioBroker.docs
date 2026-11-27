@@ -209,6 +209,11 @@ Under [Extra settings for roller shutters](#extra-settings-roller-shutter) Chris
 the function desired at this time is switched on and
 the desired roller shutter position.
 
+> :point_right: The data point ```shuttercontrol.x.info.Xmas``` shows whether the period is currently active.
+The Christmas mode itself is controlled by the switch ```shuttercontrol.x.control.Xmas```.
+It follows the configured period, but can also be switched manually or by a script
+(see [shuttercontrol0control](#shuttercontrol0control)).
+
 
 
 
@@ -775,6 +780,13 @@ Button to open **all** roller shutters in the living area
 * school free
 *Button to manually activate the holiday season and have the roller shutters open at the set time on the weekend*
 
+* Xmas
+*Switch for the Christmas mode. If ```true```, the roller shutters that use the Christmas level
+move to this level when closing.*
+> :point_right: The switch is set to ```true``` automatically at the start of the configured Christmas period
+and to ```false``` at its end. A manual change (e.g. by a script or VIS) is kept until the period starts
+or ends the next time - also over a restart of the adapter.
+
 * sunProtect
 *Button to move the roller shutters into the sun protection position*
 
@@ -799,6 +811,10 @@ Data points for displaying calculated values and checking configured ones
 Times:
 
 ![datapointsinfo](img/datapointsinfo.png)
+
+* Xmas
+*Is ```true``` while the period configured under [Christmas settings](#christmas-settings) is active
+(read only). Can be used e.g. to control the Christmas lights.*
 
 
 _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
@@ -832,7 +848,51 @@ or activated with ```true```.*
 _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (Schimi1983) Fix the close and sun protect buttons of an area: shutters with the "-auto" area are selected by their down area (#954)
+* (Schimi1983) Fix the sun protection end delay: an expired delay is reset when it gets bright again, so the next darker phase starts a new delay instead of ending the sun protection at once (#953)
+* (simatec) New state info.Xmas: true while the configured christmas period is active (#827)
+* (simatec) New switch control.Xmas: christmas mode follows the configured period and can be switched manually (#827)
+* (simatec) Fix christmas/summer period check: an end day 31 was shifted in shorter months (e.g. 24.12.-31.12. was active in February)
+
+### 3.0.1 (2026-11-24)
+* (simatec) Responsive design of the configuration according to the ioBroker responsive design initiative (cards instead of the table on narrow screens)
+* (simatec) New admin tab in React (replaces jsonTab)
+* (simatec) Fix reading of latitude/longitude from the system settings (js-controller 7)
+* (simatec) Fix crash when no coordinates are configured
+* (simatec) Skip the astro calculation when latitude/longitude are missing or invalid
+* (simatec) Admin configuration migrated from materialize to jsonConfig (custom React components for the shutter table and the shutter dialog)
+* (simatec) Accept latitude/longitude with a decimal comma
+* (simatec) Fix the delay of the complete down drive after the intermediate position
+* (simatec) Fix the check of the public holiday instance
+* (simatec) Backend migrated to TypeScript (src/ → build/)
+* (simatec) Use adapter.delay() and adapter.setTimeout() instead of custom sleep functions and plain timers
+* (simatec) Fix overlapping runs (e.g. sun protection, alarms, buttons) cancelling each other's wait, which skipped shutters
+* (simatec) Fix start-up checks of the control states and the initial brightness state
+* (simatec) Cancel the brightness down job on unload
+* (simatec) Unused translation helper (axios) removed
+* (simatec) i18n files migrated to the short format ({lang}.json)
+* (simatec) tsconfig.json added
+
+### 3.0.0 (2026-11-24)
+* (simatec) Responsive design of the configuration according to the ioBroker responsive design initiative (cards instead of the table on narrow screens)
+* (simatec) New admin tab in React (replaces jsonTab)
+* (simatec) Fix reading of latitude/longitude from the system settings (js-controller 7)
+* (simatec) Fix crash when no coordinates are configured
+* (simatec) Skip the astro calculation when latitude/longitude are missing or invalid
+* (simatec) Admin configuration migrated from materialize to jsonConfig (custom React components for the shutter table and the shutter dialog)
+* (simatec) Accept latitude/longitude with a decimal comma
+* (simatec) Fix the delay of the complete down drive after the intermediate position
+* (simatec) Fix the check of the public holiday instance
+* (simatec) Backend migrated to TypeScript (src/ → build/)
+* (simatec) Use adapter.delay() and adapter.setTimeout() instead of custom sleep functions and plain timers
+* (simatec) Fix overlapping runs (e.g. sun protection, alarms, buttons) cancelling each other's wait, which skipped shutters
+* (simatec) Fix start-up checks of the control states and the initial brightness state
+* (simatec) Cancel the brightness down job on unload
+* (simatec) Unused translation helper (axios) removed
+* (simatec) i18n files migrated to the short format ({lang}.json)
+* (simatec) tsconfig.json added
+
 ### 2.1.2 (2026-08-29)
 * (simatec) Update dependabot
 * (simatec) Fix jsonTab
@@ -847,19 +907,12 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 * (Eistee82) Add the ventilation height to the down automatics with an open window
 * (simatec) Update dependabot
 
-### 2.0.12 (2026-02-21)
-* (simatec) License updated
-* (simatec) Update dependabot
-
-### 2.0.11 (2025-12-21)
-* (simatec) Update dependabot
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019 - 2026 simatec
+Copyright (c) 2019 - 2026 simatec <shuttercontrol@simateccloud.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

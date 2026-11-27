@@ -25,10 +25,56 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   * max. 1 Split-Luft/Wasser-Wärmepumpe (BWL-1-S) hg(0)
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
-## Changelog
+## Werte schreiben
+Schreibbare Datenpunkte werden an das ISM8i gesendet, wenn ihr Wert ohne Bestätigung (`ack = false`) gesetzt wird.
+Der Adapter begrenzt und rundet den Wert auf den erlaubten Bereich (ISM8i-Handbuch, Kapitel 8.8) und bestätigt den State mit dem gesendeten Wert.
+Ungültige Werte werden nicht gesendet, sondern als Fehler geloggt.
 
-### **WORK IN PROGRESS**
-- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+| Datenpunkt                         | Werte                                                                         |
+|------------------------------------|-------------------------------------------------------------------------------|
+| Programmwahl Heizkreis / Mischer   | `0` / `Standby`, `1` / `Automatikbetrieb`, `2` / `Heizbetrieb`, `3` / `Sparbetrieb` |
+| Programmwahl Warmwasser            | `0` / `Standby`, `1` / `Automatikbetrieb`, `2` / `Dauerbetrieb`               |
+| Programmwahl CWL                   | `0` / `Automatikbetrieb`, `1` / `Nennlüftung`, `3` / `Reduzierte Lüftung`, `4` / `Feuchteschutz` |
+| Warmwassersolltemperatur           | 20...80 °C in Schritten von 1 °C                                              |
+| Sollwertkorrektur                  | -4...4 K in Schritten von 0,5 K                                               |
+| Sparfaktor                         | 0...10 K in Schritten von 0,5 K                                               |
+| Leistungsvorgabe, Gesamtmodulationsgradvorgabe | 0...100 %                                                         |
+| Kessel-/Sammlersolltemperaturvorgabe | 0...90 °C (das Gerät begrenzt auf TKmin/TKmax)                              |
+| Datum (Intensivlüftung, Feuchteschutz) | `JJJJ-MM-TT`, `TT.MM.JJJJ` oder jedes Format, das JavaScript `Date` lesen kann |
+| Uhrzeit (Intensivlüftung, Feuchteschutz) | `HH:MM`, `HH:MM:SS` oder jedes Format, das JavaScript `Date` lesen kann     |
+| Schalter (Zeitprogramme usw.)      | `On`, `1`, `true` = ein, alles andere = aus                                   |
+
+Die Zahlen der Programmwahl Heizkreis/Mischer/Warmwasser entsprechen der Nummerierung am Wolf-Bediengerät (ISM8i-Handbuch, Kapitel 8.7), nicht den KNX-Werten.
+
+## Verbindung
+Der Adapter ist ein TCP-Server, das ISM8i verbindet sich mit ihm (Standard-Port 12004).
+`info.connection` zeigt, ob ein ISM8i verbunden ist.
+Verbindet sich das ISM8i neu, wird die alte Verbindung von dieser Adresse geschlossen.
+
+## Changelog
+### 2.0.0 (2026-11-23)
+* (GermanBluefox) Breaking change: Node.js >= 22 and admin >= 7.0.0 are required now
+* (GermanBluefox) The adapter was refactored to TypeScript, the configuration dialog to JsonConfig
+* (GermanBluefox) Configurations of older versions are converted when the adapter starts (before: when the configuration dialog was opened)
+* (GermanBluefox) Added unit tests for the protocol and the value conversion, and an integration test with a simulated ISM8i
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (GermanBluefox) Updated @iobroker/adapter-core to 3.x (#132)
+* (GermanBluefox) Fixed boolean handling for DPT_Bool and type update of existing objects when the boolean option changes (#98)
+* (GermanBluefox) Unknown mode values of ISM8i are written as raw values instead of logging parse errors, telegrams without a value are skipped (#92, #124)
+* (GermanBluefox) Removed min/max from read-only states to avoid range warnings, min/max of writable states are updated to the real limits (#102, #109)
+* (GermanBluefox) Migrated deploy workflow to npm Trusted Publishing (#139)
+* (GermanBluefox) Fixed crash when a telegram was split over several TCP packets. All datapoints of a telegram are processed now (#107)
+* (GermanBluefox) Fixed connection handling: closed connections are removed, an old connection is closed when the ISM8i reconnects, polling and writing only use open connections (#154, #123)
+* (GermanBluefox) Added state `info.connection`
+* (GermanBluefox) An object of a datapoint at a path of an older version does not block creating the object at the current path anymore (#96)
+* (GermanBluefox) Added missing datapoints: 211 (Betriebsart Heizen/Kühlen, Kaskadenmodul), 365 (Kesselsolltemperatur HG2) and 372 (Zuletzt aktiver Störcode)
+* (GermanBluefox) Fixed writing: temperatures above 81.9 °C (e.g. Kesselsolltemperaturvorgabe 90 °C) were sent wrong, Leistungsvorgabe/Gesamtmodulationsgradvorgabe sent 40 % of the value, values were sent without limits, Sollwertkorrektur below -4 became +4, dates were sent with the weekday as day, writing a date or time terminated the adapter (#125)
+* (GermanBluefox) Sammlersolltemperaturvorgabe (DP 210) can be written now
+* (GermanBluefox) Invalid values for Programmwahl are not sent anymore (before: Automatikbetrieb or Sparbetrieb was sent). The numbers are unchanged (numbering of the Wolf control unit), see documentation
+* (GermanBluefox) Warmwassersolltemperatur can be set from 20 to 80 °C as described in the ISM8i manual (before: 0 to 65 °C)
+* (GermanBluefox) Percent values (DPT_Scaling) are calculated with 100/255 as described in the ISM8i manual, so 100 % is shown as 100 % (before: 102 %)
+* (GermanBluefox) Fixed decoding of the device detection: "Erkennung verfügbarer Geräte 2" (DP 356) was always empty, DP 355 showed wrong devices, DP 251 and 358 were empty if more than one circuit is available, "Zuletzt aktiver Störcode" (DP 372) had no value
+* (GermanBluefox) Unknown values of "Betriebsart" are shown with their KNX name or number instead of logging parse errors. "Programmwahl" shows "Permanent Kühlen"
 
 ### 1.7.0 (2023-01-26)
 * (fred0815) added missing ISM8i states
@@ -50,93 +96,12 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
 * (Apollon77) Drop support for Admin <3.0.0
 * (Apollon77) Fix crash cases reported by Sentry
 
-### 1.4.0 (2022-04-26)
-* IMPORTANT: Requires now at least js-controller 2.0
-* (Apollon77) Optimize Configuration UI to prevent people from selecting bind interfaces that do not allow external connections!
-* (Apollon77) Correctly create all objects when "Status as bool" is used
-* (Apollon77) Adjust some min/max values
-* (Apollon77/Dark-Tower-Coder) Fix parsing of DP 149
-* (Apollon77/Dark-Tower-Coder) Add encoding of DPT_Date type
-* (Dark-Tower-Coder) return value for DPT_Switch corrected from '0ff' to 'Off'
-* (Apollon77) Add sentry for crash reporting
-
-### 1.3.4 (2021-11-14)
-* (eifel-tech) Min value of outside temperature corrected
-
-### 1.3.2 (2021-08-31)
-* (eifel-tech/tobias) Corrected error: DP 149 with correct Type (Issue #30)
-* (eifel-tech/tobias) Changes for js-controller 3.3
-
-### 1.2.1 [2020.06.20]
-* (schweigel) Corrected error: DPT_Switch in boolean mode didn't work correct
-
-### 1.2.0 [2020.03.20]
-* (LHBL2003) Added for all variables "write" as Bool value
-* (bluefox) Admin3 compatibility
-
-### 1.1.1 [2019.12.02]
-* (schweigel) Fixed: DPT_Date is wrong
-* (schweigel) Fixed: CWL - DPT_TimeOfDay - error
-
-### 1.1.0 [2019.09.13]
-* (RustyThePropellerHead) ISM8i Firmware v1.50 Update to be able to use the new DataPoints (FW Released in 2016)
-                          * As a side note the GLT °C boiler set point is defined and read as a 1 °C resolution, but you can send the boiler set point commands with 0.1 °C resolution
-* (RustyThePropellerHead) DHW minimum value reduced from 20 °C to 0 °C to allow for deactivation                          
-* (RustyThePropellerHead) Reorganisation of the hg0 to have its own area on the adapter configuration webpage.
-* (RustyThePropellerHead) Scaling DPT_FlowRate_m3/h corrected
-* (RustyThePropellerHead) Lookup "Programmwahl CWL" corrected
-
-### 1.0.0 [2017.11.21]
-* (bluefox) resize logo
-
-### 0.9.1 [2016.12.19]
-* (smiling_Jack) Add Bool option
-* (smiling_Jack) Add Bar option
-* (smiling_Jack) Bugfix Type 5.001 Scaling
-
-### 0.1.0 [2015.12.01]
-* (smiling_Jack) Add writing to ism8
-
-### 0.0.9 [2015.11.06]
-* (smiling_Jack) Bugfix
-* (smiling_Jack) Add test output
-
-### 0.0.8 [2015.11.02]
-* (smiling_Jack) Bugfix io-package
-
-### 0.0.7 [2015.11.02]
-* (smiling_Jack) new object management
-* (smiling_Jack) Bugfixes
-
-### 0.0.6 [2015.10.20]
-* (smiling_Jack) Bugfix parsing
-
-### 0.0.5 [2015.10.16]
-* (smiling_Jack) Add support for multiple data
-* (smiling_Jack) Add debug output 
-* (smiling_Jack) Bugfixes
-
-### 0.0.4 [2015.10.15]
-* (smiling_Jack) Bugfix on parse error
-* (smiling_Jack) Add DPT_HVACContrMode
-* (smiling_Jack) Add DPT_HVACMode
-
-### 0.0.3 [2015.10.14]
-* (smiling_Jack) add CWL
-* (smiling_Jack) remove ISM8 ip
-
-### 0.0.2 [2015.10.12]
-* (smiling_Jack) add BWL-1-S
-* (smiling_Jack) update readme
-
-### 0.0.1 [2015.10.08]
-* (smiling_Jack) first release
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 smiling_Jack, ioBroker-Community
+Copyright (c) 2019-2026 ioBroker-Community
+              2015-2019 Smiling Jack
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

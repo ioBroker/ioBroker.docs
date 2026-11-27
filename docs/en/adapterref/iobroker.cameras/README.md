@@ -47,6 +47,10 @@ The result is always in `jpg` format.
 agents (e.g. ioBroker.pi-agent) and script authors, and the list of all commands, each with `write: true` if it has
 an effect beyond returning information.
 
+`getCameras` and `snapshot {camera, width?, height?, fileName?}` are the same as `list` and `image` in the form that
+other camera adapters share: `{cameras: [{id, name}]}` and `{data, contentType}`, the camera given by its name or
+description; errors come as `{error, reason}`.
+
 ### vis-2 widgets
 The adapter brings two widgets for vis-2: **Polling Camera** loads a new frame in the given interval
 (snapshot), **RTSP Camera** shows the live stream. Select the camera in the widget by its instance and
@@ -263,9 +267,9 @@ If the binary cannot be found or does not start, the adapter transparently falls
 -->
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 3.6.0 (2026-11-23)
 * (@GermanBluefox) Fixed: the message `image` answers the text of an error (e.g. a timeout of the camera) instead of an empty `error` object
+* (@GermanBluefox) Added the standard commands of the shared catalog: camera.getCameras (`getCameras`), camera.snapshot (`snapshot`)
 
 ### 3.5.0 (2026-11-19)
 * (@GermanBluefox) Added the message "help": a description of all messages for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
@@ -279,10 +283,6 @@ If the binary cannot be found or does not start, the adapter transparently falls
 
 ### 3.3.0 (2026-10-16)
 * (@GermanBluefox) Migrated widgets to React 19 - vis-2 >= 2.20.0 is required, if installed
-
-### 3.2.2 (2026-10-03)
-* (@hdering) Fixed: after a browser tab with a live stream was closed, "Cannot send to UI: ... is not registered" was logged for every frame and the stream kept running (#201)
-* (@GermanBluefox) Fixed: the live picture of a camera in ioBroker.devices froze after a minute - the widget did not renew its subscription
 
 ## License
 MIT License

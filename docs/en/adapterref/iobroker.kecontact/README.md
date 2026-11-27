@@ -88,6 +88,8 @@ battery storage should be used for charging your vehicle or not, depenent from t
 
 Due to german §14a EnWG there's an option to limit charging station to max. 6A fix or dynamically to grid consumption of 3x6A (4.140 watts)
 
+Additionally there's an option to activate the failsafe mode of the wallbox. If activated, the adapter configures the wallbox to stop charging (0 mA) if it receives no command for 60 seconds and stores this setting permanently in the wallbox (it survives a restart or power failure). To prevent the wallbox from falling into failsafe mode the adapter sends the enable state of the wallbox every 30 seconds as heartbeat. If the wallbox has fallen into failsafe mode (e.g. because the connection was lost) the adapter enables it again as soon as the connection is back, unless it is disabled by input X1. Deactivating the option disables the failsafe mode of the wallbox again.
+
 ### power limitation
 
 You can also limit max. power of your wallbox to limit main power. E.g. when running night-storage heaters you might have to respect a maximum power limitation.
@@ -126,6 +128,7 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
 -->
 
 ### **WORK IN PROGRESS**
+* (FernetMenta) new option to activate the failsafe mode of the wallbox for §14a EnWG
 * (Sneak-L8) fix host name issue [[#642](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues/642)]
 * (Sneak-L8) use build-in ioBroker messageBox to communicate between adapter instances instead of state internal.message (state can be deleted after update)
 * (GermanBluefox) respect automatic.1p3pCharging also when photovoltaics automatic is inactive (#643)

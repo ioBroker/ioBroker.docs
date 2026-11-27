@@ -129,15 +129,26 @@ This adapter would not have been possible without the great work of @Zefau (http
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22.19.0 now
-- (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.0 (2026-11-25)
 - (GermanBluefox) Added dashboard tiles for Aura and other dashboards: now playing with controls, recent activity and Tautulli watch statistics
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (ticaki) Player objects below `_playing` were created without an object type ("obj.type has to exist" warning); existing objects are repaired on start - fixed #618
+- (ticaki) Fixed: playlist states contained `[object Promise]` and the playlist item count was missing
+- (ticaki) Fixed: the `...Date` states (e.g. `addedAtDate`, `lastViewedAtDate`) were one month off
+- (ticaki) Fixed: the playback position follows jumps during playback now, and `viewOffsethuman` keeps running instead of staying at the value of the last Plex event
+- (ticaki) Fixed: possible crash when the adapter was stopped while the connection to the Plex server was still being established
+- (ticaki) Fixed: after a new playback started, states whose value had not changed were emptied until the next event
+- (ticaki) Fixed: players with a dot in their name could not be listed or removed in the cleanup tab
+- (ticaki) Fixed: names from plex.tv with characters like `&` were not decoded, and lists with more than 1000 entries overwrote their first entries
+- (ticaki) Web page: of two events of the same second the later one counts, and a stream whose end was never reported expires after 12 hours (paused: 24 hours)
+- (ticaki) Entries of `events.history` now contain the UUID of the player (`playerUuid`)
+- (ticaki) Counting library and playlist items no longer loads the complete listing: far fewer disk writes on the Plex server and no more "Missing X-Plex-Container-Size" warnings in its log
+- (ticaki) Token dialog: the PIN can now be copied when admin is opened via plain http (e.g. Safari), and admin offers to save the configuration right after a new token was retrieved
+- (ticaki) Dependencies have been updated
 
 ### 3.0.0 (2026-08-16)
 - (bluefox) Breaking: Admin 8 or newer is now required — the configuration UI no longer runs under Admin 7.
@@ -167,15 +178,10 @@ This adapter would not have been possible without the great work of @Zefau (http
 - (ticaki) New privacy option: media link states can store a placeholder instead of the real Plex token in plain text (configurable in adapter settings, enabled by default).
 - (ticaki) Adapter rewritten in TypeScript. Requires Node.js >= 22.
 
-### 1.1.5 (2024-12-11)
-- (ticaki) State _playing.*.Metadata.viewOffset is created.
-- (ticaki) Dependencies updated
-- (mcm1957) Adapter requires nodejs >= 18 now
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2026 iobroker-community-adapters  
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

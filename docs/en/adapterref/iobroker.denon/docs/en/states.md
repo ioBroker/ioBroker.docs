@@ -83,6 +83,9 @@ The video code consists of `0`, the digit of the input and the digit of the outp
 | `frontSpeaker` | front speakers `SPA` (A), `SPB` (B), `A+B`; only if "Front B" is assigned in the receiver's amp assign setup |
 | `mdax` | M-DAX (improves compressed music, Marantz): `OFF`, `LOW`, `MED`, `HI` |
 | `bassSync` | Bass Sync 0 ... 16 dB |
+| `bluetoothTransmitter` | Bluetooth transmitter for headphones on/off (newer models) |
+| `bluetoothOutput` | Bluetooth output `SP` (Bluetooth + speakers) or `BT` (Bluetooth only) |
+| `bluetoothLevel` | Bluetooth level -50 ... +10 dB |
 | `autoLipSync` | auto lip sync on/off (Marantz Cinema) |
 | `dacFilter` | DAC filter `MODE1`, `MODE2` (Marantz) |
 | `imax`, `imaxAudio` | IMAX Enhanced: mode `AUTO`, `ON`, `OFF`; audio settings `AUTO`, `MANUAL` |

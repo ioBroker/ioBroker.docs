@@ -24,7 +24,7 @@ language, so the screenshots are German.
 - **type of list** – applies to every row: `text`, `Button State`, `toggle Button`,
   `toggle Button (read only)`, `Button Navigation`, `Button Link`, `switch`,
   `Switch (read only)`, `checkbox` or `checkbox (read only)`. The read-only variants
-  show the state but write nothing.
+  show the state but write nothing; in Material 3 their checkbox or switch is dimmed, like a read-only Checkbox or Switch widget.
 - **layout** – `standard`, `card` or `cardOutlined`.
 - **divider style** – `standard`, `padded` or `inset`.
 

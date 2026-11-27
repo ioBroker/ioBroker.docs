@@ -28,7 +28,8 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.22.42 (2026-11-26)
+- (BenAhrdt) Restrict namespace checks to complete ioBroker ID segments so instance `lorawan.1` does not process objects or states from `lorawan.10` and higher instances.
 - (BenAhrdt) Append `3F` to the Vicki `ExternalTemperature` downlink payload.
 - (BenAhrdt) Update the development test framework dependency `@iobroker/testing` to version `6.3.2`.
 
@@ -46,9 +47,6 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 
 ### 1.22.38 (2026-10-13)
 - (BenAhrdt) Ignore adapter-internal and generated virtual bridge IDs when reporting missing foreign objects.
-
-### 1.22.37 (2026-10-13)
-- (BenAhrdt) Keep bridge configurations when referenced foreign objects are deleted and report missing IDs with device and attribute context.
 
 ## DISCLAIMER
 The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.

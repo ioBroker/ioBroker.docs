@@ -26,6 +26,8 @@ variant (target view, URL, object id and value, …).
 
 The icon button has no **labeling** group — it carries no text.
 
+- **Accessible name** – the name a screen reader announces. The icon button shows no text, so this is its name. Without an entry the button is announced as "Button". Picking the object id fills it with the object name.
+
 **icon**
 
 - **Image** / **active image** – Material Design icon name or image source, the
@@ -51,7 +53,7 @@ The **Slider** variant turns the button into a circular value slider:
 - **Show in front** puts the arc above the icon instead of below it, **Always
   show** keeps it visible; without it the arc only appears on hover or touch.
 - **Colorize** / **Colorize factor** – dims the icon as the value drops; the
-  factor (0.5 by default) sets how strongly.
+  factor (0.5 by default) sets how strongly; the icon never fades below 20 %.
 
 Material Design icon names, local image paths, URLs and data URLs are supported.
 Single-color SVGs can be recolored with the icon color.

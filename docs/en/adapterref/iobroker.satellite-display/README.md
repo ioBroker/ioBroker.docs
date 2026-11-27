@@ -34,27 +34,33 @@ ioBroker states  ──▶  satellite-display  ──▶  satellite (tile pages)
 Each satellite has up to **4 pages**. A page is a grid of 2 columns × 4 rows on the 320 × 240 screen and holds up
 to 8 tiles. Swipe left from the clock to reach them; a page without tiles is skipped.
 
-| Size   | Cells | Pixels    |
-| ------ | ----- | --------- |
-| small  | 1 × 1 | 151 × 52  |
-| square | 1 × 2 | 151 × 111 |
-| wide   | 2 × 1 | 308 × 52  |
-| large  | 2 × 2 | 308 × 111 |
+| Size       | Cells | Pixels    |
+| ---------- | ----- | --------- |
+| small      | 1 × 1 | 151 × 52  |
+| square     | 1 × 2 | 151 × 111 |
+| wide       | 2 × 1 | 308 × 52  |
+| large      | 2 × 2 | 308 × 111 |
+| tall       | 1 × 4 | 151 × 228 |
+| whole page | 2 × 4 | 308 × 228 |
 
-| Kind             | Shows                                                                             | Sizes               | A touch                            |
-| ---------------- | --------------------------------------------------------------------------------- | ------------------- | ---------------------------------- |
-| Value            | name, number with unit, or a text                                                 | all                 | –                                  |
-| Gauge            | name, arc from the scale start to its end, number                                 | square, large       | –                                  |
-| Value with bar   | name, number, bar along the scale                                                 | all                 | –                                  |
-| Value with chart | name, number, line of the last 60 values                                          | small, wide, large  | –                                  |
-| Switch           | name, toggle; the tile lights up when on                                          | small, square, wide | toggles the state                  |
-| Dimmer           | name, toggle, slider, percent                                                     | wide, large         | toggle and slider write the states |
-| Button           | icon, name                                                                        | small, square, wide | writes `true` to the state         |
-| Thermostat       | name, arc with the current temperature, − target +, a dot for the heating relay   | square, large       | − and + write the target           |
-| Group            | up to 4 values in one tile, each with its name: rows when tall, columns when flat | all                 | –                                  |
-| Tank             | name, a tank filled along the scale, the value, optional a second amount (litres) | square, large       | –                                  |
-| Battery          | name, a battery filled along the scale, a bolt while charging, optional the power | all                 | –                                  |
-| Status           | icon, name, a value or a text; the icon and the tile light up while on            | small, square, wide | –                                  |
+Tall and whole page are for a thermostat only and need the satellite firmware 2.6.2 (tall) and 2.6.0 (whole page); an
+older one refuses the tile. On the 1.54" panel (240 × 240) the cells are 111 px wide, so a tall tile is 111 × 228 and
+the whole page 228 × 228.
+
+| Kind             | Shows                                                                             | Sizes                     | A touch                            |
+| ---------------- | --------------------------------------------------------------------------------- | ------------------------- | ---------------------------------- |
+| Value            | name, number with unit, or a text                                                 | all                       | –                                  |
+| Gauge            | name, arc from the scale start to its end, number                                 | square, large             | –                                  |
+| Value with bar   | name, number, bar along the scale                                                 | all                       | –                                  |
+| Value with chart | name, number, line of the last 60 values                                          | small, wide, large        | –                                  |
+| Switch           | name, toggle; the tile lights up when on                                          | small, square, wide       | toggles the state                  |
+| Dimmer           | name, toggle, slider, percent                                                     | wide, large               | toggle and slider write the states |
+| Button           | icon, name                                                                        | small, square, wide       | writes `true` to the state         |
+| Thermostat       | name, arc with the current temperature, − target +, a dot for the heating relay   | square, tall, large, page | − and + write the target           |
+| Group            | up to 4 values in one tile, each with its name: rows when tall, columns when flat | all                       | –                                  |
+| Tank             | name, a tank filled along the scale, the value, optional a second amount (litres) | square, large             | –                                  |
+| Battery          | name, a battery filled along the scale, a bolt while charging, optional the power | all                       | –                                  |
+| Status           | icon, name, a value or a text; the icon and the tile light up while on            | small, square, wide       | –                                  |
 
 Four more kinds are drawn by **tablets only** (the web app and the ioBroker Visu app; a satellite leaves them out
 with a warning). A tablet has two more sizes for them: 3 × 2 and 4 × 3 cells.
@@ -231,7 +237,15 @@ Satellites and Tablets: add, remove and rename displays there. The tab works whi
   brightness of the display and the volume of the player.
 - **Actions**: "Send the tiles again" on every card; on a tablet, while the web app runs, "Link and QR code" and "New
   link" (asks first; the old link stops working at once, also on the home screen of the tablet).
-- **Details** (menu of the card): grid and pages, the number of tiles, and the link with the QR code of a tablet.
+- **Firmware update** (satellites with a release build of the firmware, which has the update entity "Firmware"): the
+  card shows the installed version and, when the release pages offer a newer one, the update sign with that version.
+  "Update the firmware" (or a click on the sign) asks first, then the satellite loads the firmware from the release
+  pages itself, writes it and restarts; a dialog follows the progress until the satellite is back with the new
+  version. The satellite looks for a new version every 6 hours; `firmware.check` looks at once. While it installs,
+  the adapter reads the log of the satellite: its lines about the download and the flashing go to the ioBroker log,
+  and when the update fails, the dialog names the error the satellite wrote.
+- **Details** (menu of the card): grid and pages, the number of tiles, the firmware and the offered version of a
+  satellite, and the link with the QR code of a tablet.
 - **Links of the tablets** in the bar above the cards: the QR codes of all tablets in one dialog.
 - **Pair a tablet** in the bar above the cards, while the web app runs: the one-time QR code of the pairing (see
   Tablets).
@@ -244,7 +258,7 @@ names what to ask the user (which satellite, which page when all are full).
 
 | Command        | Message                                                                                      | Does                                                                                                                                                  |
 | -------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `help`         | –                                                                                            | describes the commands, kinds, sizes, icons and the grid: `{help, commands: [{command, write}]}`, `write` = changes the tiles                          |
+| `help`         | –                                                                                            | describes the commands, kinds, sizes, icons and the grid: `{help, commands: [{command, write}]}`, `write` = changes the tiles                         |
 | `getTiles`     | `{satellite?}`                                                                               | lists the satellites and tablets, their grids, their tiles (with an `id`) and the free cells                                                          |
 | `addTile`      | `{satellite, type, state, size?, icon?, label?, unit?, state2?, state3?, page?, col?, row?}` | adds a tile, without a place in the first free cell; answers where it went (a group also takes `state4`, `title`, `label2`-`label4`, `unit2`-`unit4`) |
 | `updateTile`   | `{id, ...fields}`                                                                            | changes a tile                                                                                                                                        |
@@ -271,6 +285,11 @@ ioBroker.pi-agent the instance needs "Write allowed" in the write permissions.
 | `satellites.<name>.media.stop`                                  | button: stop playing                                                                                        |
 | `satellites.<name>.media.state`                                 | `play` (also while it announces), `pause` or `stop`                                                         |
 | `satellites.<name>.brightness`                                  | brightness of the display 0-100 %, 0 = dark (only displays that take it from ioBroker, e.g. the tile panel) |
+| `satellites.<name>.firmware.version`, `.latest`                 | installed firmware and the newest one on the release pages (only firmware with the update entity)           |
+| `satellites.<name>.firmware.available`                          | a newer firmware is offered                                                                                 |
+| `satellites.<name>.firmware.updating`, `.progress`              | the satellite installs an update now, and how far (0-100 %, when the firmware reports it)                   |
+| `satellites.<name>.firmware.check`                              | button: look for a new firmware now                                                                         |
+| `satellites.<name>.firmware.install`                            | button: install the offered firmware (the satellite restarts)                                               |
 | `tablets.<name>.connected`                                      | this tablet is connected and has its tiles (a sleeping tablet is not)                                       |
 | `tablets.<name>.lastTouch`, `.resend`, `.locked`, `.failedPins` | as for a satellite                                                                                          |
 
@@ -302,6 +321,17 @@ Older changes: CHANGELOG_OLD.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (sadam6752-tech) A thermostat can take the whole page of a satellite (size `f`, 2 × 4 cells, satellite firmware 2.6.0):
+  a big arc with the temperature and − target + along the bottom; the tile editor offers it for a thermostat and draws
+  it, the commands `addTile`/`updateTile` take it. On a tablet `f` stays 4 × 3 cells for every kind
+- (sadam6752-tech) A thermostat also comes tall (size `t`, 1 × 4 cells: one column over the whole page, satellite
+  firmware 2.6.2): the arc with the temperature at the top, the target under it, − and + below
+- (sadam6752-tech) Firmware update from the tab Devices: the card of a satellite shows its firmware version and a newer
+  one from the release pages; "Update the firmware" starts the installation on the satellite and follows it until the
+  satellite is back. New states `satellites.<name>.firmware.*` (version, offered version, progress, check, install)
 
 ### 0.4.3 (2026-11-20)
 

@@ -262,7 +262,7 @@ the setting safe.
 
 For uptime monitors and container health checks use `http://<ip-of-your-ioBroker>:8123/health`
 (with HTTPS `https://`, with another port that port).
-It answers without creating anything. A `GET /` is what a display sends on its first visit,
+It answers only `running` and creates nothing. A `GET /` is what a display sends on its first visit,
 so a monitor pointed there would show up as a new display; a `HEAD /` creates nothing.
 
 ## Updating from 1.x
@@ -370,6 +370,7 @@ the address entered by hand, it lacks _local network access_ — allow it in the
 - Fixed: an update from 1.0 or 1.1 no longer resets the global URL choice on every start — the URL you had set before the update stays in place for good
 - Fixed: on iOS the Home Assistant app no longer keeps its loading screen over the dashboard, and on Android the bottom of the dashboard no longer hides behind the navigation bar
 - Fixed: uptime monitors and container health checks no longer create display entries, and the adapter settings name the /health address meant for them
+- Changed: /health answers only `running` (plain text) instead of a JSON object
 - Fixed: stopping the adapter no longer waits on open connections or hangs while a display is mid-request, and a stop during the start no longer brings the server up
 - Fixed: room and function assignments move along reliably when an old datapoint is replaced, and a read error no longer gives the server a new identity
 - Changed: the sign-in hands its code to an unknown address only after a click on Continue, and a signed-in app is disconnected when its display is removed

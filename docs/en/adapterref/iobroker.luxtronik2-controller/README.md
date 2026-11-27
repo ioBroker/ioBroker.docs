@@ -106,27 +106,41 @@ _This project is not affiliated with Alpha Innotec, Novelan, ait-deutschland Gmb
 //### **WORK IN PROGRESS**
 
 ## Changelog
-### 1.0.3 (2026-11-18)
+### 1.3.2 (2026-11-27)
 
-- Fixed daily COP reset in `copManager.ts` so Heating and Hot Water values reset to `0` after midnight until an active cycle starts
+- Resolved ioBroker repository checker and i18n translation warnings (`W5604`, `W5606`, `W5611`, `W5612`, `E1144`)
 
-### 1.0.2 (2026-11-17)
+### 1.3.1 (2026-11-25)
 
-- Fixed `node:` protocol imports (`node:fs`, `node:path`) and repository checker lint issues
-- Completed and synchronized i18n translations across all supported languages
-- Fixed `jsonConfig` label keys in `generateConfig.ts` to prevent inline language object overrides during build
+- Fixed missing error and outage descriptions in `<luxtronik-diagnostics-feed>` by expanding the JSON parser with a generic text-field fallback
+- Marked `hours_compressor1` and `starts_compressor1` as `required: true` in `src/mapping/info.ts` so compressor start counts and average cycle duration (`Ø MIN / TAKT`) in `<luxtronik-health-monitor>` are always populated regardless of visibility flags
+- Added a target temperature stepper (`−` / input / `+`) to `<luxtronik-dhw-tank>` allowing direct adjustment of `temperature_hot_water_target` alongside the one-shot heating trigger
+- Switched PV surplus calculation in `src/pvManager.ts` to a signed net-balance (`grid + battery + heat pump power`) and added optional heat pump power consumption compensation (`pv_wp_power_active`, `pv_wp_power_dp`, `pv_wp_power_unit`) so an already running compressor cycle no longer cancels out available PV surplus
 
-### 1.0.1 (2026-11-16)
+### 1.3.0 (2026-11-25)
 
-- **Update of i10n files**
+- Fixed COP/JAZ datapoint paths (`Information.16_Efficiency.Total.*`) in `<luxtronik-status-card>` so daily COP and annual JAZ values populate correctly
+- Added shared Web Component base class (`luxtronik-base.js`) and two new `@iobroker/web-components` widgets for Aura, VIS-2, and WebUI:
+    - `<luxtronik-hydraulics-flow>`: animated hydraulics & energy flow diagram (heating, DHW, defrost reverse flow, ZWE1, dynamic inverter speed)
+    - `<luxtronik-dhw-tank>`: hot water tank level gauge with hysteresis recharge threshold, one-shot heating trigger, and animated ZIP countdown ring
 
-### 1.0.0 (2026-11-16)
+- Added five additional `@iobroker/web-components` widgets for Aura, VIS-2, and WebUI (completing the 8-widget suite):
+    - `<luxtronik-heatcurve-tuner>`: interactive live heating curve with hysteresis band, heating limit indicator, live operating point, and parallel offset slider with preview and apply controls
+    - `<luxtronik-cop-cockpit>`: COP/JAZ efficiency matrix (Total, Heating, Hot Water across Today, 7 Days, Month, Year) with live COP calculation and lifetime totals
+    - `<luxtronik-health-monitor>`: compressor cycle duration gauge (avg. min/cycle), context-aware active lock/delay/defrost timers, and EEPROM write cycle monitor
+    - `<luxtronik-schedule-radar>`: 24-hour schedule bars for heating reduction, hot water lock times, and circulation pump windows with a live time marker
+    - `<luxtronik-diagnostics-feed>`: switchable error log and outage history feed with firmware update banner, changelog preview, and optional Modbus error reset
 
-**STABLE**
+### 1.2.1 (2026-11-24)
 
-### 0.25.2 (2026-11-16)
+- Fixed `temperature_target_return` being overwritten with `35.0 °C` in SHI Modbus mode when `sync_modbus_holding_1` (`10060`, room thermostat target) is enabled by removing the duplicate Modbus mapping from `src/mapping/info.ts`
+- Cleaned up SHI holding register mapping in `src/modbusManager.ts` and added an SHI mode check (`10000 === 1`) when reading register `10001` for `heating_flow_out_temperature_target` (`sync_modbus_holding_2`) so its inactive `35.0 °C` default does not overwrite `P0017`
 
-- **Fix i18n**
+### 1.2.0 (2026-11-24)
+
+- Added configurable sunset cutoff buffer (`pv_sunset_cutoff_active`, `pv_sunset_buffer`) to PV surplus management to prevent starting new PV boosts shortly before local sunset using `system.config` coordinates
+- Added `@iobroker/web-components` status card (`<luxtronik-status-card>`) for Aura, VIS-2, and WebUI displaying live temperatures, operating mode, PV boost status, COP/JAZ values, and quick actions
+- Updated Cycle Optimization description in `jsonConfig.json` to reflect the dynamic hysteresis-based offset instead of the legacy `35 °C` wording
 
 ## License
 

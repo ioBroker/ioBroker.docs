@@ -30,7 +30,7 @@ language, so the screenshots are German.
 **Scale (ticks)**
 
 - **show steps** – `don't display`, `show when operated` or `always show`.
-- **text of steps (comma separated)** – the tick captions, e.g. `off, half, full`. The number of captions also decides how many ticks are drawn; without captions it follows min, max and step.
+- **text of steps (comma separated)** – the tick captions, e.g. `off, half, full`. The number of captions also decides how many ticks are drawn; without captions it follows min, max and step. Tick size, the tick colors before and after the knob and the caption color, font and size follow; empty fields keep the default look.
 
 <img src="../../media/vis2_slider_editor_2.png" width="340" alt="Slider label and thumb label options">
 
@@ -45,15 +45,17 @@ language, so the screenshots are German.
 
 - **show label** – `don't display`, `show when operated` or `always show`.
 - **use rules of the text** – the thumb label reuses the replacement texts of the value caption; without it, it always shows the bare number.
-- Thumb size, background and font colors follow.
+- Thumb size, background, font color, font and font size follow. Without a font color the text takes the color that reads best on the thumb background.
 
 ## Read only, locking and PIN
 
 **Read only** can be bound to a state: the checkbox next to it and vis-2's binding symbol switch the field to a binding. `{0_userdata.0.automatik}` blocks the widget while the state is on; `{a:0_userdata.0.automatik;!a}` inverts that and blocks it while the state is off. A bound string `true` or `1` counts as on. Only the binding is new; the slider shows no lock icon while read-only. Read only always wins over the lock: a read-only widget reacts to nothing and opens no PIN pad. Autofill ticks the box only for a non-writable object and never overwrites a binding.
 
-**Locking** (group under **show advanced options**): **enable Locking**, **auto Locking after [s]** (1 s to 24 h, default 10), **PIN**, **icon** and **icon color**. New for the slider. A tap unlocks without moving the knob. A drag in progress is never locked under your fingers; the widget locks once it ends.
+**Locking** (group under **show advanced options**): **enable Locking**, **auto Locking after [s]** (1 s to 24 h, default 10), **PIN**, **icon** and **icon color**. A tap unlocks without moving the knob. A drag in progress is never locked under your fingers; the widget locks once it ends.
 
 **PIN** (all widgets with a lock): 1 to 12 digits, empty means no PIN. With a PIN, a tap on the locked widget opens a pad with the keys 1 to 9, Cancel, 0 and Delete; it checks as soon as the PIN is complete, shakes and clears on a wrong PIN. A hardware keyboard works too (digits, Backspace, Escape). The right PIN unlocks every widget with the same PIN in this browser until the lock time ends; a reload locks everything again. The PIN can be bound to a state to keep one central PIN. If the PIN is not 1 to 12 digits, or a bound PIN is empty, the widget stays locked and the pad says "PIN not set up". The editor already marks a typed invalid PIN in red; correct or clear it there. A numeric state loses leading zeros (0123 becomes 123); use a string state for such PINs. In the editor the pad never opens.
+
+<img src="../../media/vis2_pin_pad.png" width="230" alt="PIN pad with two of four digits entered">
 
 **Not a security feature:** the PIN stands in clear text in the project and in the state, and anyone who can write states bypasses every lock. It protects against accidental taps and children, not against attackers.
 

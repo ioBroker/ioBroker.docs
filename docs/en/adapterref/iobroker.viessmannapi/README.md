@@ -111,7 +111,31 @@ var standard = '{"mon":[{"start":"00:00","end":"24:00","mode":"standard","positi
 setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSchedule.setValue", JSON.parse(standard));
 ```
 
+## Anzahl der Datenpunkte reduzieren
+
+Die Viessmann API liefert sehr viele Datenpunkte. In den Instanzeinstellungen lässt sich die Anzahl auf der Seite "Datenpunkte" reduzieren.
+Alle Optionen sind standardmäßig aus, ohne sie verhält sich der Adapter wie bisher. Die Pfade der verbleibenden Datenpunkte ändern sich nicht.
+
+| Einstellung | Wirkung |
+| --- | --- |
+| Nur diese Features (Erlaubnisliste) | Nur die genannten Features werden angelegt und aktualisiert, z.B. `heating.dhw.*, heating.circuits.0.*` |
+| Diese Features nicht (Ausschlussliste) | Die genannten Features werden nicht angelegt und aktualisiert, z.B. `device.messages.*` |
+| Nur Werte und Befehle (keine Metadaten) | Keine Datenpunkte für Metadaten: `feature`, `gatewayId`, `deviceId`, `apiVersion`, `isEnabled`, `isReady`, `uri` je Feature, `type` je Eigenschaft, `name` und `params` je Befehl. Werte (`properties`), `timestamp` und Befehle (`uri`, `isExecutable`, `setValue`) bleiben erhalten |
+| Gateway-Ereignisse nicht abrufen | Der Ordner `events` wird nicht mehr abgerufen |
+| Ausgefilterte Datenpunkte beim Adapterstart löschen | Löscht beim Start des Adapters die bereits vorhandenen Objekte, die durch die Einstellungen oben ausgeschlossen sind. Das gilt auch für die Features der Geräte, die nicht in der Geräte-Erlaubnisliste stehen, und für `events`. Objekte mit eigenen Einstellungen (z.B. History) werden nie gelöscht |
+
+Hinweise:
+
+- In beiden Listen ist `*` nur am Ende erlaubt: `heating.dhw.*` trifft `heating.dhw` und alles darunter. Ohne `*` muss der Name exakt stimmen.
+- Ohne die Lösch-Option bleiben ausgefilterte Datenpunkte mit ihrem letzten Wert stehen und werden nicht mehr aktualisiert.
+- Wird eine Option wieder abgeschaltet, legt der Adapter die Datenpunkte beim nächsten Start wieder an.
+
 ## Changelog
+### 2.6.0 (2026-11-24)
+
+- optional filters to reduce the number of objects: feature blocklist, skip metadata states, disable events, delete filtered objects
+- new settings page (jsonConfig) with grouped options, help texts and tooltips
+
 ### 2.5.0 (2026-07-16)
 
 - cleanup disabled features (e.g. unused RoomControl rooms) once and skip them server-side via skipDisabled

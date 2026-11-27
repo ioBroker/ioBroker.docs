@@ -49,7 +49,9 @@ text, the Object ID is displayed.
 | Minimum time interval | query step in seconds; empty or `0` lets the history instance decide |
 | Multiply | converts every valid value before display, for example `0.001` from W to kW |
 | Chart type | `line` (default) or `bar`. Bars share the time axis with the lines, for example daily energy as bars under a temperature line. They suit an aggregate like `total` or `average` with a minimum time interval such as `86400` (one bar per day); with `minmax` the bars get as thin as the points are dense. A bar is filled in the dataset color, or in the fill color when one is set |
-| Object ID / condition / value for visibility | hide the dataset while the condition does not hold, for example a heating line while `0_userdata.0.mode` is not `auto`. Accepted are `==` (default), `!=`, `<`, `<=`, `>`, `>=`, `consist`, `not consist`, `exist` and `not exist`. Without an object id the dataset stays visible. A hidden dataset leaves the legend and its own y-axis; the other lines keep their colors |
+| Object ID / condition / value for visibility | hide the dataset while the condition does not hold, for example a heating line while `0_userdata.0.mode` is not `auto`. The condition is one of `==` (default), `!=`, `<`, `<=`, `>`, `>=`, `consist`, `not consist`, `exist` and `not exist`. Without an object id the dataset stays visible. A hidden dataset leaves the legend, and its y-axis disappears once no visible dataset uses it. An axis that stays keeps title, position and range of its first dataset, even while that one is hidden; the other lines keep their colors |
+
+<img src="../../media/vis2_chart_line_history_bars.png" alt="Line History with a line and a dataset drawn as bars on a second y-axis">
 
 Non-numeric and `null` values are omitted. The chart remains empty when no
 history instance is selected or the history API is unavailable. For timeouts,

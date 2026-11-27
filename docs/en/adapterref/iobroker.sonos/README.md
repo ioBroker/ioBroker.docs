@@ -273,9 +273,19 @@ the one of the SONOS household.
 (e.g. ioBroker.pi-agent, or the MCP server with `send_to`) that describes the speakers and their states, groups,
 favorites and playlists, browsing the music library and the music services with `media_browse` and `media_play`,
 announcements, the alarms and the messages, and how to act (rooms instead of channels, changes only on request,
-check the result). `commands` lists the messages, `write: true` for the ones that change something (`send`).
+check the result). `commands` lists the messages, `write: true` for the ones that change something (`send`,
+`play`, `playSound`).
 An unknown message answers `{ error, commands }` with the list of all messages; before it answered with the message
 itself.
+
+The messages `getPlayers`, `getMedia`, `play` and `playSound` follow the shared catalog of commands of
+ioBroker.assistant (marked with `standard` in `commands`), so every player adapter can be called the same way:
+- `getPlayers` answers `{ players: [{ id, name, room, roomId, online, active, kinds }] }`.
+- `getMedia { list: "favorites" | "playlists", search?, limit?, offset? }` answers `{ items: [{ type, uri, name, image? }] }`.
+- `play { uri?, device?, positionSec?, shuffle? }` plays an item of `getMedia`, a URL or resumes, and answers
+  `{ ok: true, device }` when the speaker plays (`pending: true` after 12 s) or `{ error, reason }`.
+- `playSound { url | file, device?, room?, volume? }` plays a sound like `tts` on one speaker, the speakers of a room
+  or all, and answers `{ ok: true, devices }` when it was played.
 
 ## Using it with the sayIt adapter
 To use the [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) with this SONOS adapter, ensure that the [web adapter](https://github.com/ioBroker/ioBroker.web) is instantiated and running too. The web adapter is required to allow the SONOS adapter to read the generated MP3 file from the sayit adapter.
@@ -468,6 +478,12 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.8.1 (2026-11-23)
+* (@GermanBluefox) Updated `@iobroker/testing` to 6.3.3: the integration tests stop the adapter again with js-controller 8.0.0-alpha.23 and newer, which blocked the release of 4.8.0
+
+### 4.8.0 (2026-11-23)
+* (@GermanBluefox) Added the standard commands of the shared catalog: media.getPlayers, media.getMedia, media.play, speech.playSound
+
 ### 4.7.0 (2026-11-19)
 * (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 * (@GermanBluefox) Fixed the adapter stopping with "XmlError: Attribute value expected" when a speaker reports `<Cloud queue error>` (a queue of a streaming service started from the SONOS app that cannot be resumed): the value is kept as text and the rest of the event is processed. Reported to the library as [svrooij/node-sonos-ts#235](https://github.com/svrooij/node-sonos-ts/issues/235)
@@ -480,18 +496,6 @@ adapter to get a working state back.
 
 ### 4.5.1 (2026-11-04)
 * (@GermanBluefox) Fixed "Cannot process transport-state: Parameter "timeout" needs to be of type "number"": settings saved by the old admin page hold the update interval of the elapsed time as a string, which js-controller rejects. The error aborted every update of the playback, so title, artist and cover stayed at the first track after a restart
-
-### 4.5.0 (2026-11-04)
-* (@GermanBluefox) Stereo pairs are marked: `pair_role` (`left`/`right`) and `pair_partner` tell which speakers belong together, and the description of the channel says which of the two SONOS controls the pair through. The hidden speaker of a pair never got values and ignored commands without telling why - a command written to it now names the channel to use instead
-* (@GermanBluefox) A speaker that replaces another one at the same IP address takes over its channel once the old speaker is no longer part of the SONOS system. Since 4.4.0 the new speaker got no channel and the old channel stayed empty without a word in the log (#140)
-
-### 4.4.0 (2026-11-04)
-* (@GermanBluefox) A speaker that gets a new IP address keeps its channel and states: the channel is bound to the serial id of the speaker the first time it is found, and another speaker that gets the old address does not take it over (#140)
-* (@GermanBluefox) Errors of the `sonos-discovery` backend appear in the ioBroker log: the library wrote them to the console, so an event it could not process - which then never reached the states - left no trace (#177)
-* (@GermanBluefox) TTS (sayIt): a file the speaker cannot play, no longer leaves the volume at 0 and blocks every further announcement until a restart - the state before TTS is restored and the next announcement is played (#176)
-* (@GermanBluefox) A track without a cover of its own shows the cover of what was started - the station logo or the art Alexa sends along with Amazon Music and Sonos Radio. Only real images are cached as cover: an audio file or a stream answered for the cover URL shows the default cover instead of a broken one, and an aborted download no longer stays in the cache (#64)
-* (@GermanBluefox) A speaker that leaves a group no longer keeps the playback of the group (`state_simple` stayed `true`, the title of the group was shown): after the topology change its own state is read again (#121)
-* (@GermanBluefox) vis-2 player: the tabs of the source selection always fit into the widget - without room for the labels they show the icons only - and the mute button moved into the volume row instead of wrapping into a line of its own
 
 Older changes can be found in CHANGELOG_OLD.md
 

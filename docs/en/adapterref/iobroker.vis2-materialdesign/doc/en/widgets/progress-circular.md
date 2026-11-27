@@ -25,6 +25,7 @@ the ioBroker system language, so the screenshots are German.
   counts `true` as the maximum and `false` as the minimum.
 - **indeterminate - continuously animates** – a permanent rotation that ignores
   the value (busy indicator).
+- **Accessible name** – the name a screen reader announces for the ring, for example "Battery". Without an entry it is announced as "Progress". Picking the object id fills it with the object name.
 
 **layout**
 
@@ -44,7 +45,8 @@ the ioBroker system language, so the screenshots are German.
 **colors**
 
 - **color progress / background color** – the ring and its track.
-- **circle background color** – fills the area inside the ring.
+- **circle background color** – fills the area inside the ring; without a
+  **text color** the label then takes the color that reads best on it.
 - **condition for color 1 progress [>] / color 1 progress** and the same pair for
   color 2 – the condition is a **percentage**, not the state value.
 

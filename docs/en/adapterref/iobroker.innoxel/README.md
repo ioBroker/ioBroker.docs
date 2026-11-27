@@ -133,7 +133,10 @@ sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.1.0-beta.0 (2026-11-18)
+### 2.1.1 (2026-11-24)
+- (matthsc) update column sizes for static text in admin
+
+### 2.1.0 (2026-11-24)
 - (matthsc) call callbacks in onMessage
 - (matthsc) add connection test button to admin
 - (matthsc) make transient connection errors more resilient
@@ -143,17 +146,6 @@ sendTo("innoxel.0", "setTemperature", "0:setTemperatureHeating:20", () => {
 ### 2.0.0 (2026-05-16)
 - (matthsc) implement adapter checker feedback and create-adapter migrations
 - (copilot) Adapter requires node.js >= 22 now
-- (matthsc & dependabot) dependency updates
-
-### 1.0.1 (2024-12-09)
-- (matthsc) implement adapter checker feedback
-- (matthsc) cleanup changelog
-
-### 1.0.0 (2024-11-17)
-
-- (matthsc) drop support for Node 18
-- (matthsc) switch admin to json config
-- (matthsc) prepare for future controller versions (fix deprecation warnings)
 - (matthsc & dependabot) dependency updates
 
 ## License

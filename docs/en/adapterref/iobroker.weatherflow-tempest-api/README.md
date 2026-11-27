@@ -9,7 +9,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.weatherflow-tempest-api.png?downloads=true)](https://nodei.co/npm/iobroker.weatherflow-tempest-api/)
 
-**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.weatherflow-tempest-api/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.weatherflow-tempest-api/workflows/Test%20and%20Release/badge.svg) ![Coverage](https://img.shields.io/badge/coverage-99%25-brightgreen)
 
 ## weatherflow-tempest-api adapter for ioBroker
 
@@ -23,12 +23,62 @@ Get data for your [Tempest Weather Station](https://tempest.earth/tempest-home-w
 | stattions    | Rest |   tbd   |
 | forecast     | Rest |   ✔    |
 
+## Development
+
+Tests against the real WeatherFlow API and recorded fixtures:
+
+1. Create a git-ignored `.env` in the project root:
+
+    ```env
+	WFT_STATION_ID=your-station-id
+    WFT_ACCESS_TOKEN=your-access-token    
+    ```
+
+    - `WFT_ACCESS_TOKEN`: required, access token of your WeatherFlow account
+    - `WFT_STATION_ID`: required, ID of your Tempest station
+
+2. Record the API responses (read-only, writes `api/better_forecast.json`):
+
+    ```bash
+    npm run record:api
+    ```
+
+    - `-- --dry-run`: only shows which files would be written
+    - `-- --no-anonymize`: stores the raw data without anonymization (local debugging only, never commit)
+
+3. Run the tests:
+
+    ```bash
+    npm run test:ts        # offline, uses recorded fixtures
+    npm run test:package   # validates the package files
+    npm run test:live      # against the WeatherFlow API
+    npm run test:all       # test:ts, test:package and test:live
+    npm run test:coverage  # runs test:ts with coverage report in coverage/ and updates the coverage badge
+    ```
+
+4. Run the checks:
+
+    ```bash
+    npm run check          # TypeScript type check (adapter and tools)
+    npm run lint           # ESLint
+    ```
+
+Fixtures are stored in `test/fixtures/local/api/` and are git-ignored, as they contain station data. The live tests need the credentials in the git-ignored `.env` file. The coverage report is written to `coverage/` (git-ignored).
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2026-11-24)
+
+- (Scrounger) momment replaced with day.js
+- (Scrounger) bug fixes found by adapter checker
+- (Scrounger) bug fixes
+- (Scrounger) dependencies updated
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+
 ### 1.1.4 (2026-03-17)
 
 - (Scrounger) dependencies updated
@@ -47,34 +97,6 @@ Get data for your [Tempest Weather Station](https://tempest.earth/tempest-home-w
 ### 1.1.1 (2025-09-30)
 
 - (Scrounger) bug fixes
-
-### 1.1.0 (2025-09-29)
-
-- (Scrounger) code optimized
-- (Scrounger) roles added
-- (Scrounger) dependencies updated
-- (Scrounger) node minimum set to 20
-- (Scrounger) converted to esm
-- (Scrounger) eslint 9 added
-
-### 1.0.3 (2024-10-18)
-
-- (Scrounger) bug fixes
-
-### 1.0.2 (2024-09-17)
-
-- (Scrounger) bug fixes
-- (Scrounger) using cron for update interval
-
-### 1.0.1 (2024-09-15)
-
-- (Scrounger) bug fixes
-- (Scrounger) dependencies updated
-
-### 1.0.0 (2024-09-15)
-
-- (Scrounger) forecast api integrated
-- (Scrounger) initial release
 
 ## License
 

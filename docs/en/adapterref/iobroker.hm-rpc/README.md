@@ -213,10 +213,19 @@ Select the daemon **openccu-lite** and enter the address of the system in "HomeM
   Node.js, or the system is reached over HTTP).
 - **Take names, rooms and functions from the system** (default on): the devices, channels and states are named as on
   the system (`<channel name>.<DATAPOINT>` for the states, as hm-rega names them), and the rooms and functions of the
-  system fill `enum.rooms` and `enum.functions` - live, whenever a name or a room changes on the system. A room tree is
-  flattened: every node becomes an enum of its own, named by its path (`eg/wohnzimmer` → `enum.rooms.eg_wohnzimmer`),
-  and a channel is a member of its innermost room only. The adapter manages only the members of its own instance in an
-  enum, so devices of other adapters stay. Without this option the objects keep the address as name, as with a CCU.
+  system fill `enum.rooms` and `enum.functions` - live, whenever a name or a room changes on the system. The enums get
+  the ids hm-rega gives the rooms and functions of a CCU, so scripts and visualizations keep working after a move from a
+  CCU with hm-rega: the name as it is, only a dot (and a character an object id cannot hold) becomes `_` (room
+  "Living Room" → `enum.rooms.Living Room`). An enum that exists with that id - the one hm-rega made - is carried on:
+  its name, icon and the members of other adapters stay. The CCU's own rooms and functions that hm-rega named by their
+  key (`enum.rooms.LivingRoom`, `enum.functions.Light`, …) are taken for the rooms openccu-lite named "Wohnzimmer",
+  "Licht", … when no enum of that name exists. A room tree is flattened: every node becomes an enum of its own, a
+  nested one named by the names along its path (`EG` / `Bad` → `enum.rooms.EG_Bad`), and a channel is a member of its
+  innermost room only. A rename on the system gives a new enum, as with hm-rega. The adapter manages only the members
+  of its own instance, and only in the enums it manages (the ones of the system's rooms and functions, and the ones it
+  created): rooms and functions made in ioBroker keep what was put into them. An enum the adapter created is removed
+  when nothing is left in it; when another adapter still has members in it, it stays and the log names it once, so it
+  can be deleted by hand. Without this option the objects keep the address as name, as with a CCU.
 
 The devices are synchronized at every start of the instance (the system sends its device list with the stream), so
 "Synchronize objects (once)" is not needed on openccu-lite. "Don't delete devices" works as with a CCU. The values the
@@ -398,6 +407,13 @@ npm run update-images
 ```
 
 ## Changelog
+### 4.3.2 (2026-11-24)
+- (@hobbyquaker) openccu-lite: the rooms and functions of the system get the enum ids hm-rega gives them (`enum.rooms.Living Room` instead of `enum.rooms.living-room`), so the enums of a CCU with hm-rega are carried on after the move; enums the adapter does not manage (rooms made in ioBroker) are no longer emptied. Enums an earlier version created with the old ids are removed when nothing else is in them
+- (@hobbyquaker) openccu-lite: an enum the adapter created that is no longer a room or function of the system and stays because another adapter has members in it (also one with the ids of 4.3.0/4.3.1) is named in the log, so it can be deleted by hand
+- (@hobbyquaker) openccu-lite: the stale-object cleanup leaves the objects alone while the interface lists no device at all (e.g. right after its process on the system was restarted)
+- (@hobbyquaker) openccu-lite: the help text of the interface field is shown in the admin's language
+- (@GermanBluefox) `LEVEL` is sent together with `HUE` and `SATURATION`, HmIP-RGBW still rejected the color with `MISSING_NON_OPTIONAL_PARAMETER` (#1557)
+
 ### 4.3.1 (2026-11-21)
 - (@hobbyquaker) openccu-lite: a device paired later no longer deletes the objects of the other devices of the instance; objects of devices removed on the system are cleaned up when the instance connects, without leaving broken objects behind ("obj.type has to exist")
 
@@ -415,11 +431,6 @@ npm run update-images
 
 ### 4.2.3 (2026-10-19)
 * (@GermanBluefox) After an unclean stop, the CCU kept sending the events with the old interface ID and they were discarded silently. The adapter now removes an old registration before it registers, and registers again with a warning if events with an old ID of this instance arrive (#1542)
-
-### 4.2.2 (2026-10-13)
-* (@GermanBluefox) The virtual devices of CCU-Jack can be connected with the new daemon `CCU-Jack` (port 2121, HTTPS 2122, XML-RPC only) (#1003)
-* (@GermanBluefox) The state `updated` (new devices for hm-rega) is no longer marked as writable, as expected for the role `indicator`
-* (@GermanBluefox) Homebrew devices (AskSin++) of the add-ons from jp112sdl (JP-HB-Devices-addon) and TomMajor (HB-TM-Devices-AddOn) get the same icon as in the CCU WebUI (#903)
 
 ### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)

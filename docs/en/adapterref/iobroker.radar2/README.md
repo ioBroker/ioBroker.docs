@@ -70,6 +70,8 @@ Usually Noble is a bit better than hcitool lescan identifying devices but it gen
 Likewise l2ping is better finding normal BT devices but is not available on other platforms than linux.
 Therefore you can configure the usage separately in adapter config.
 
+Alternatively BT-LE devices can be received through the [ble-gateway](https://github.com/ioBroker/ioBroker.ble-gateway) adapter: it owns the Bluetooth stick and shares it with other adapters (e.g. ble, wattcycle), so radar2 does not need a stick of its own. Enter its instance (e.g. `ble-gateway.0`) as *BLE gateway instance*; Noble and hcitool are not used then. Normal BT devices are still found with l2ping.
+
 If you use multiple BT devices you can specify the device number in config, the defailt is '-1' which uses the first available. A list of all available devices can be seen on linux with `lescan dev`.
 In de same adapter you can use only one device, if you want to scan multiple devices you need to use differennt adapter(s or instances).
 
@@ -149,8 +151,8 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.5.0 (2026-11-23)
+- (GermanBluefox) BT-LE devices can be received through the ble-gateway adapter, which shares one Bluetooth stick with other adapters
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -173,51 +175,6 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 ### 2.2.0 (2024-04-13)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 2.1.0 (2023-10-29)
-* (mcm1957) Adapter has been moved to iobroker-community-adapters area
-* (mcm1957) Adapter requires nodejs 16 now
-* (mcm1957) Dependencies have been updated
-
-### 2.0.8
-* (ta2k) fix arp-scan detection for debian 12
-
-### 2.0.7 (2023-01-05)
-* (Apollon77) Upgrade noble
-
-### 2.0.5 (2022-12-31)
-* (Apollon77) Downgrade noble again
-
-### 2.0.4 (2022-12-22)
-* Update noble
-
-### 1.2.5
-
-* Updated to use the adapter for js-controller 3.0 
-* Updated HP printer routine to understand some newer inkjet printers
-
-### 1.2.0
-
-* You may use now hcitool as only BT scanner instead of noble on linux (standatd)
-* _LastHere will not be change on restart
-* Standard scan cycle set to 20 seconds
-* Removed the 'remove-end' field and replaced it with a debug flag
-
-### 1.0.7
-
-* check on linux the availability of BT-devices and if no devices are found do not run any BT scans to avoid SIGSEGV
-
-### 1.0.3
-
-* Added possibility to add more than one BT mac address for a device
-
-### 1.0.2
-
-* Corrected version which works with _lastHere and all new devices
-
-### 1.0.0
-
-* First public realease
 
 ## License
 

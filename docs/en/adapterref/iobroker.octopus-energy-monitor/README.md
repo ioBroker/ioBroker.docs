@@ -55,7 +55,10 @@ To install this adapter in your ioBroker environment:
    - Enter your Inexogy portal Email & Password. The adapter automatically manages Basic Auth parsing and translates it into Discovergy API queries.
 
 3. **General Settings:**
+   - **Update interval:** At least 5 minutes between sync runs (default: 60). This does not change the 15-minute consumption data resolution.
+   - **Historical sync days:** 1–731 days (default: 30), enough for two years including a leap day. Set data retention at least as high, or to 0 for unlimited retention.
    - **Discrepancy Threshold:** Defines how many `kWh` difference must be present between Octopus and Inexogy to trigger the `hasDiscrepancy: true` state flag. Default is `0.1 kWh`.
+     For flagged days in the sync window, the adapter rechecks Octopus against the cached Inexogy reading after one hour, then at most once per day while the discrepancy persists. Existing flags without a retry timestamp are eligible immediately. Each sync retries at most one cached day, newest first, and respects the Octopus API cooldown. Empty or zero replies do not replace positive cached readings. With interval database export enabled, corrected Octopus quarter hours are compared by timestamp: missing points are inserted and changed values updated. Unchanged and DB-only points are left alone. A daily-only response never generates interval points. Failed database repairs are retried after an hour without fetching Octopus again.
 
 4. **§14a EnWG Settings (Optional):**
    - **Enable § 14a EnWG Calculation:** If activated, calculates daily energy prices taking into account reduced grid fees for controllable consumption devices.
@@ -64,8 +67,10 @@ To install this adapter in your ioBroker environment:
    - **Configured Time Windows:** Define your local NT (low tariff) and HT (high tariff) times per month. Times that are not defined automatically fallback to ST (standard tariff). Windows must not overlap within the same month.
 6. **History Database Sync (Optional):**
    - **Enable Database Synchronization:** Select your target ioBroker history adapter (e.g., InfluxDB). The adapter will automatically register 15-minute states and push raw interval data points retroactively into the selected database.
+   - **Export Octopus daily values to the database:** Optional, independent of the 15-minute export. Uses the same database instance. Each completed Berlin calendar day contributes one point at local midnight per available series. For example, select `octopus-energy-monitor.0.octopus.daily.tariff.go.consumption` in a chart for daily GO kWh; use `tariff.go.cost` under the same daily channel for gross euros. Total series are `consumption` and `cost`; §14a series are `enwg.nt.consumption` and `enwg.nt.costGross` (likewise ST/HT). The chart objects are history series, not live readings.
+     Existing retained days are backfilled from local history (up to 30 changed days per sync) without additional Octopus requests. Unchanged values are not resent. Corrected or invalidated values update or remove only the original point where the backend supports it. Unsupported operations are reported, not replaced by duplicate or zero values. Local history retention does not delete old database points. Net costs, standing charges, comparisons and Inexogy are excluded.
 
-Once configured, the adapter handles the rest! It periodically syncs the last 30 days of data according to the configured update interval. Data manifests under the `octopus-energy-monitor.0.history.YYYY.MM.DD` path.
+The adapter syncs the configured lookback period and stores daily data under `octopus-energy-monitor.0.history.YYYY.MM.DD`.
 
 ### Historical pricing
 
@@ -83,17 +88,38 @@ Newly fetched interval days expose `quality` below each daily source: expected/r
 
 ### Automatic §14a grid fees
 
-Enable **Automatic Octopus Module 3 grid fees** only alongside the existing §14a calculation. It requires Octopus credentials, an account and a grid-operator code from the selected meter location. Inexogy-only operation continues to use manual settings. Keep valid manual fees and time windows configured: they remain the fallback and are never overwritten.
+With §14a and automatic retrieval selected, **Fetch and import Module 3 fees** queries the running instance's configured Octopus account before saving. The button copies today's validated Berlin schedule into the manual fallback fields as net EUR/kWh and replaces the time-window table with year-round NT/HT windows (`*` for all months). If Octopus reports another module with a valid schedule, a dialog shows the date, prices and time windows. In that dialog, **Cancel** dismisses the preview and **Import anyway** copies the displayed values to the manual fallback fields. Review the rates and month assignments before saving.
 
-The adapter requests the German OE backend's `variableGridFees` for each required Berlin calendar date. Only Module 3 responses with a complete, unambiguous quarter-hour schedule, matching operator, explicit timestamp validity and a unique standard-fee baseline are used. API amounts are treated as **net cents/kWh**, consistent with the Germany Home Assistant integration; automatic gross adjustments use the historical agreement's VAT. Overnight windows and daylight-saving days are supported. Unsupported schedules or failed requests fall back to manual settings with a warning.
+Enable **Automatic Octopus Module 3 grid fees** alongside the §14a calculation. The lookup requires Octopus credentials, an account and a grid-operator code from the selected meter location. Manual fees and time windows are optional in automatic mode. Inexogy-only operation uses manual settings.
 
-The in-memory cache is scoped by account, operator and date (24 hours for valid responses, 15 minutes for fallback results; at most 400 entries). The backend has its own retry/cooldown diagnostics under `info.api.gridFees`. Daily source objects record `gridFeeSource` (`api`, `manual`, `manual_fallback`), `gridFeeFallbackReason` and the applied `gridFeeSchedule`. These fields describe that day's calculation, not live tariffs.
+The adapter requests the German OE backend's `variableGridFees` for each required Berlin calendar date. Only Module 3 responses with a complete, unambiguous quarter-hour schedule, matching operator, explicit timestamp validity and a unique standard-fee baseline are used. API amounts are treated as **net cents/kWh**, consistent with the Germany Home Assistant integration; automatic gross adjustments use the historical agreement's VAT. Overnight windows and daylight-saving days are supported. If the API schedule cannot be applied, valid manual settings serve as a fallback. Without a fallback the adapter warns once per instance start, records regular consumption and tariff costs, and marks the day's §14a values unavailable.
+
+The in-memory cache is scoped by account, operator and date (24 hours for valid responses, 15 minutes for fallback results; at most 400 entries). The backend has its own retry/cooldown diagnostics under `info.api.gridFees`. Daily source objects record `gridFeeSource` (`api`, `manual`, `manual_fallback`, or `unavailable`), `gridFeeFallbackReason` and the applied `gridFeeSchedule`. These fields describe that day's calculation, not live tariffs.
 
 Changing §14a settings recalculates days within the configured sync/retention range. Per-source configuration markers resume unfinished recalculations after restarts or API limits without re-exporting cached database intervals. Positive days calculated with manual fallback remain cached; a later API recovery alone does not trigger another consumption download. Automatic fees are covered by simulated API tests but still require validation against a real Module 3 account and bill before release. Calculated costs remain estimates.
 
 The latest grid-fee lookup is inspectable under `info.api.gridFees`: `rawResponse` contains the API's `module` and `gridFees` fields before validation, `responseDate` is the requested Berlin day, `httpStatus` is the returned status (0 if no response), and `responseTimestamp` dates the diagnostic attempt. `rejectionReason` distinguishes missing data/module, a module other than Module 3, empty fees, invalid entries, validity errors, gaps and overlaps; entry indexes are zero-based. An empty reason means validation succeeded. Cache hits do not update these fields, and no additional requests are triggered for diagnostics. Failed attempts clear the response to JSON `null`. Authentication headers, tokens and account details are not included. These diagnostics report what the API says, not an independent confirmation of module enrollment.
 
 ## Changelog
+### 1.3.0 (2026-11-23)
+* (tipp88) Recheck cached Octopus days with an open consumption discrepancy and update corrected daily totals.
+* (tipp88) Repair changed and missing Octopus database intervals on discrepancy rechecks.
+* (tipp88) Handle sync cancellation on shutdown and keep scheduled syncs running after errors.
+* (tipp88) Use the configured sync interval for Octopus rate-limit cooldowns and the next-run estimate; honor longer Retry-After delays.
+* (tipp88) Preserve published Octopus billing periods and tariff totals when daily readings or tariff metadata are temporarily missing.
+* (tipp88) Allow sync intervals from 5 minutes and historical sync windows up to 731 days.
+* (tipp88) Batch daily history existence checks per series and warn only once per instance start when automatic grid fees fall back to manual settings.
+* (tipp88) Read daily export inputs by exact Octopus state IDs in monthly batches instead of wildcard searches.
+* (tipp88) Add an optional Octopus daily database export for total, tariff and §14a consumption and gross costs.
+* (tipp88) Make Cancel the primary action in the grid-fee import confirmation.
+* (tipp88) Select the grid-fee dialog language from the ioBroker system configuration, independently of the client language.
+* (tipp88) Import manual NT/HT time windows for all months (`*`) instead of the lookup month.
+* (tipp88) Use the Admin theme and language for the grid-fee dialog and distinguish connection, API and invalid-schedule errors.
+* (tipp88) Display the reported module, date, prices and windows in a dialog with an optional manual fallback import.
+* (tipp88) Add a settings button to import a validated Module 3 schedule into the unsaved manual fallback fields.
+* (tipp88) Fetch automatic grid fees without manual settings and report unavailable §14a pricing when neither source provides a valid schedule.
+* (tipp88) Initialize the current billing period on rollover before its first daily reading, resetting totals and tariff slots while preserving the completed period.
+
 ### 1.2.1 (2026-11-16)
 * (tipp88) Use adapter-managed timers for API retry and pagination delays while preserving cancellation on unload.
 * (tipp88) Add missing responsive layout sizes for historical repricing and automatic grid-fee checkboxes.
@@ -133,9 +159,6 @@ The latest grid-fee lookup is inspectable under `info.api.gridFees`: `rawRespons
 * (tipp88) Fixed consumption data for previous days not updating automatically when initially retrieved with 0 kWh (Issue #31).
 * (tipp88) Upgraded axios dependency to 1.20.0.
 * (tipp88) Upgraded `@iobroker/testing` devDependency to 6.1.0.
-
-### 1.0.0 (2026-08-27)
-* (tipp88) Fixed the three missing history database synchronization translations reported in issue #18.
 
 ## License
 MIT License

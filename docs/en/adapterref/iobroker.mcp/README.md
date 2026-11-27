@@ -377,10 +377,14 @@ tools rather than as subscribable resources.)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.9.1 (2026-11-24)
+* (@GermanBluefox) Release of 1.9.0, which was not published because the tests failed with the newest js-controller nightly (no changes in the adapter)
+
+### 1.9.0 (2026-11-24)
 * (@GermanBluefox) `get_script` returns a long source in parts (`offset`, `length`), like `read_file` (`@iobroker/mcp-server` 1.10.0)
 * (@MarcoHe85) `get_object` returns an object that is too large for one answer in base64 parts (`offset`, `length`), checked with SHA-256 (`sha256`), for clients that get no download links (`@iobroker/mcp-server` 1.10.0)
 * (@GermanBluefox) `list_devices`: a name (`smartName` without `smartType`) on one state of a detected device names that device instead of splitting the state off as a device of its own, and a room or function hidden from the smart home (`smartName: false`) is still the room or function of its devices (`@iobroker/mcp-server` 1.9.2)
+* (@GermanBluefox) The permissions tab shows a hint that the MCP client has to reload the tools after the permissions were changed
 
 ### 1.8.1 (2026-10-27)
 * (@GermanBluefox) Fixed: js-controller usually killed the instance with SIGKILL when stopping it, because the adapter never closed its server and the connections of the MCP clients
@@ -390,15 +394,6 @@ tools rather than as subscribable resources.)
 
 ### 1.7.1 (2026-10-26)
 * (@GermanBluefox) `find_orphan_states` no longer reports the upload progress of the adapters (`system.adapter.<adapter>.upload`), which js-controller writes without object on purpose (`@iobroker/mcp-server` 1.8.1)
-
-### 1.7.0 (2026-10-26)
-* (@GermanBluefox) Security: commands on a host need the "execute" right of the user, messages to adapters the "sendto" right, like in admin; a session is only offered the tools its user has the rights for (`@iobroker/mcp-server` 1.8.0)
-* (@GermanBluefox) Every change made via MCP is logged with the user, the tool and its arguments; `get_logs` searches the messages for a text or a regular expression (`@iobroker/mcp-server` 1.8.0)
-* (@GermanBluefox) `set_state` can wait for the confirmation of the device (`wait_ack`); new tools `wait_for_state` and `find_orphan_states` (`@iobroker/mcp-server` 1.8.0)
-* (@GermanBluefox) `install_package` reports a done installation even if the instances could not be restarted afterwards (`@iobroker/mcp-server` 1.8.0)
-
-### 1.6.2 (2026-10-26)
-* (@GermanBluefox) Fixed: `get_logs` always returned `size: null` for the log file (`@iobroker/mcp-server` 1.7.1)
 
 ## License
 

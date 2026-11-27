@@ -237,7 +237,17 @@ train it twice.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.15.1 (2026-11-26)
+* Added detection of volume commands
+
+### 1.15.0 (2026-11-26)
+* (@GermanBluefox) A wake word for free questions: the table of the wake words has a purpose, and with "Free questions only" a wake word ("Hey Bro, how old can cats get?") skips the commands of the house and asks the cloud tier without device list and tools, in a conversation of its own; its follow-ups and dialog mode keep it. Instructions of its own: `freeTalkPrompt`
+
+### 1.14.0 (2026-11-23)
+* (@GermanBluefox) Commands of other adapters by the shared catalog (`HELP.md`): the assistant asks the `help` of every instance and understands "ruf Anna an" (`phone.call`), "schick mir ein Bild der Haustür" (`camera.snapshot` → `message.send`), "zeige die Einfahrt auf dem Fernseher" (`screen.show`: camera, view, text) and plays music on the players of other adapters (`media.getPlayers`/`search`/`play`); message `getStandards`
+* (@GermanBluefox) The cloud tier (LLM or pi-agent) gets "answer in <language>" after a question whose language is clear (its letters, the wake word or its words): pi-agent answered a Russian question in German after German turns
+* (@GermanBluefox) Music and YouTube on the players of their tables are understood also with the rule-based commands switched off (pi-agent has no tools for them)
+* (@GermanBluefox) Music without a named player plays on the device that was spoken to (new column "Satellite" in the table, now "Music players", which also takes players of other adapters); "spiel die Piano Guys" works without a kind word and plays only something named like it
 * (@GermanBluefox) 3D plan: "zeig Unterdeck", "show the galley", "покажи кухню", "zeig das ganze Haus" make every open 3D view of home3d fly there (writes `home3d.N.show`); only names the plan knows (`home3d.N.places`) are taken, everything else goes on as before
 
 ### 1.13.0 (2026-11-20)
@@ -248,21 +258,6 @@ train it twice.
 * (@GermanBluefox) Voice per answer language: the language is a drop-down now. A language picked from the suggestions was saved as its label (e.g. "de – Deutsch") and the row was never used; such rows get the language code on the first start
 * (@GermanBluefox) Spoken requests: the speech recognition no longer waits for the device names it gets as hints (up to 3 s on large installations each time a minute had passed since the last request); the last list is used while a new one is built
 * (@GermanBluefox) Request details: the speech recognition step shows the language it really got (that of the wake word) and the ioBroker.voice instance instead of the unrelated Vosk model; the speech synthesis step shows the voice, model and language that really spoke (a row of "voice per answer language" or the reserve) instead of the main voice of the settings
-
-### 1.12.0 (2026-11-19)
-* (@GermanBluefox) Device commands can be understood by the adapter smart-text2command instead of the built-in rules (tab Commands, "Device commands understood by"): it runs only the actions approved there and asks back when the room or the device is unclear; the next utterance of the same satellite or chat answers. What it does not understand goes on to the local and the cloud model; timers, alarms, time, weather and volume stay with the built-in rules
-* (@GermanBluefox) New first tab "Flow": the way of a request as a diagram (sources → speech recognition → local decision → local LLM → cloud LLM / pi-agent → speech output), each step can be set up with a click
-
-### 1.11.0 (2026-11-18)
-* (@sadam6752-tech) ESPHome satellites: a language per wake word (tab Satellites, "Language per wake word", e.g. Alisa → Russian, Hey Bro → German): speech recognition, the reply voice and the follow-ups of that conversation use it, and pi-agent asks its yes/no questions in it
-* (@sadam6752-tech) ESPHome satellites on an ESP32: two wake words can be active at once (the firmware reports a limit of one, but runs every wake word it is sent)
-* (@sadam6752-tech) ioBroker.voice gets the language of the speech (its model Canary 1B v2 uses it, Parakeet ignores it) and only the hints in the alphabet of the language
-* (@sadam6752-tech) Whisper (OpenAI and compatible servers) gets only the device and room names in Latin letters as hints for a language written in them: Russian names pulled German speech towards Cyrillic letters
-
-### 1.10.0 (2026-11-17)
-* (@GermanBluefox) ESPHome satellites: the adapter ships microWakeWord models ("ioBroker", "Hey Bro", "Alisa"); one click in the satellite settings puts one on the device and switches it on, replacing an older version of the same word
-* (@GermanBluefox) Wake words from a training run get a short name with their date, e.g. `261103_iobroker` instead of "20261103 085427 9b0f Microwakeword Iobroker"
-* (@GermanBluefox) A wake word selected right after it was uploaded is no longer dropped as unknown
 
 ## License
 

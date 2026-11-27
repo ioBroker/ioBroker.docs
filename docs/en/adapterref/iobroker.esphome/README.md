@@ -76,6 +76,8 @@ The Dashboard IP setting in the adapter configuration serves different purposes:
 
 ![ESPHome Dashboard IP Configuration](admin/img/ESPhomeDashboardIP.png)
 
+**Dashboard tab:** The integrated dashboard needs some time to start, installing ESPHome takes several minutes on the first start or after a version change. Until it answers, the tab shows a hint and the start log instead of an empty page and then switches to the dashboard by itself, there is no need to reload the page or restart the instance (admin 8.0.12 or newer).
+
 **Note:** You can use this adapter to control ESPHome devices without configuring the Dashboard IP. The Dashboard IP is only needed if you want to integrate the ESPHome Dashboard interface into ioBroker's admin panel.
 
 ### Do I need the ESPHome Dashboard to use this adapter?
@@ -139,6 +141,34 @@ TLDR: You don't!
 
 The adapter does not care about your system's python installation. It will install and create its own python environment with the correct versions anyway. So please don't mess around with python commands on your system if you don't know what you are doing.
 
+### What does the "Reset Python environment" button do?
+
+The built-in ESPHome Dashboard runs in its own Python environment, which the adapter sets up with [autopy](https://github.com/tweaselORG/autopy). autopy stores it in its cache directory, which depends on the platform (in the home directory of the user running ioBroker):
+
+- Linux: `~/.cache/autopy` (usually `/home/iobroker/.cache/autopy`), or `$XDG_CACHE_HOME/autopy` if `XDG_CACHE_HOME` is set
+- macOS: `~/Library/Caches/autopy`
+- Windows: `%LOCALAPPDATA%\autopy\Cache`
+
+In there, `python/` holds the Python version downloaded by autopy and `venv/esphome/` the virtual environment with ESPHome, ESPHome Device Builder, Pillow and their dependencies.
+
+The button "Reset Python environment" (adapter settings, ESPHome Dashboard tab, only shown while the instance is running) removes the virtual environment `venv/esphome/`. The downloaded Python is kept. The state `esphome.X.info.clearAutopyCache` does the same, for example from a script (its id is kept from the former "Clear Autopy Cache" button).
+
+**When to use it:** only when the built-in dashboard does not start or does not load, and the log points to a broken Python environment, for example:
+
+- `"esphome" is missing in the Python environment` or `spawn esphome ENOENT`
+- pip errors or a dashboard that stops right after the start, after an interrupted installation (adapter stopped, power loss, full disk) or an update of ESPHome / Pillow that went wrong
+
+It is not needed to change the ESPHome version: the adapter updates the environment on every start.
+
+**What happens:**
+
+1. Restart the adapter instance after the reset. The running dashboard keeps using the removed files until then and may fail.
+2. On the next start the adapter installs ESPHome and its dependencies again. This takes several minutes (longer on a Raspberry Pi) and needs internet access, the dashboard is not available until it is finished. Follow the progress in the log.
+
+Your device configurations (YAML files) are **not** affected, they are stored in the ioBroker data directory, not in the Python environment. Devices connected to the adapter keep working, only the dashboard is affected.
+
+If the downloaded Python itself is broken (rare, e.g. an interrupted download), stop the adapter and delete the whole autopy cache directory listed above by hand.
+
 <!--
 ## [Documentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
@@ -147,7 +177,7 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
 
 ## Prerequisites
 
-    * NodeJS >= 22.x
+    * NodeJS >= 22.12
     * API is activated in YAML
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings
@@ -189,6 +219,34 @@ This adapter can optionally integrate the ESPHome Dashboard into ioBroker's admi
 - Uses integrated Python environment (no external setup required)
 - Dashboard runs on port 6052 by default
 - Set Dashboard IP to `127.0.0.1:6052` for admin integration
+
+**Option 1b: Built-in Dashboard in Docker (beta)**
+
+- Beta: the option "Use Docker Integration (Beta)" is only shown in the expert mode of admin. Enable the expert mode, then the dashboard
+  and "Use Docker Integration" in the "ESPHome Dashboard" tab of the adapter settings. To switch it off again, the expert mode is needed as well
+- Instead of a Python environment, the dashboard runs in the official ESPHome container (`ghcr.io/esphome/esphome`),
+  started and stopped together with the instance by the [docker plugin of ioBroker](https://github.com/ioBroker/plugin-docker)
+- Requires Docker on the ioBroker host (the checkbox is only available when Docker is found), not available e.g. on Windows without Docker.
+  In a multihost installation the checkbox checks Docker on the host of the admin instance showing the settings, which is not
+  necessarily the host of the ESPHome instance: the log of the instance reports when Docker is missing there
+- The image tag is the selected ESPHome Dashboard version ("Always last available" uses the newest ESPHome release, which can be a beta).
+  Only when no version is known at all (no release list from GitHub, nothing cached), the `stable` image is used and pulled again on every start.
+  The Pillow and ESPHome Device Builder versions are not used, the image brings its own
+- The container uses the host network (needed for the online status of the devices) and the port configured in the advanced settings.
+  Docker Desktop (Windows, macOS) does not support the host network by default, use a Linux host or the dashboard without Docker there
+- While the instance runs, a stopped container is started again within a minute. Docker itself does not restart it, e.g. after a reboot
+  it only runs once the instance starts it. When the instance starts without "Use Docker Integration" (or with the dashboard disabled),
+  a container it left behind is removed
+- The YAML files stay in `iobroker-data/esphome.<instance>`, the same directory as without Docker. When ioBroker itself runs in
+  a container, this path has to exist on the Docker host as well
+- PlatformIO, ESP-IDF and the other toolchains needed to compile (several GB) are kept in the Docker volume
+  `iob_esphome_<instance>_esphome_cache`, not in `iobroker-data`. It stays when Docker Integration is disabled, remove it with
+  `docker volume rm iob_esphome_<instance>_esphome_cache` if you do not need it any more
+- The dashboard in the container runs as the user of the ioBroker instance, so the YAML files and build directories it creates belong
+  to that user, like those of the dashboard without Docker. Files an earlier version left behind as `root` are handed over at the next
+  start of the container. Only when ioBroker itself runs as `root`, on Windows, or with rootless Docker, the container keeps running as its `root`
+- The container gets the time zone of the ioBroker host (`TZ`): ESPHome compiles the time zone of the system it runs on into a device
+  with a `time:` component but no `timezone:`, which would be UTC in a container
 
 **Option 2: External Dashboard**
 
@@ -273,34 +331,36 @@ api:
 
 > **💡 See FAQ above** for step-by-step guidance on adding devices to the adapter.
 
-The device Tab will show all current known devices; you can either wait for Devices to be autodetect
-(currently disabled, see #175) or add them manually by providing their IP-Address and credentials
-
-![DevicesTab](admin/img/deviceTabEmpty.png)
+Devices are managed in the ioBroker device manager, shown as the second tab ("Devices") of the adapter
+settings and in the "Devices" tab of admin. It lists all known devices with their connection status and, when auto discovery
+is enabled, the devices found on the network that are not added yet.
 
 > [!NOTE]
-> Buttons to add/modify/remove devices and load device table are only available if adapter is running!
-> You must refresh the device table manually by pressing "Refresh device Overview", all devices and their connection state will be shown
+> The device manager is only available while the adapter is running.
 
-Please enter IP-Address (if a device is already known, you can select it from the dropdown) and choose the proper actions:
+The card of a device shows its Wi-Fi signal strength (RSSI) when the device has a
+[`wifi_signal`](https://esphome.io/components/sensor/wifi_signal.html) sensor in dBm (the default unit):
 
-- ADD / Modify Devices
-    - Will send IP address and credentials to the backend and try to establish a connection
+```
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+```
+
+- Add device
+    - Enter the IP address and the encryption key (or API password of older firmware) of the device,
+      the adapter connects and reports whether the connection succeeded
+    - Discovered devices that are not added yet have a grey header and are marked "Not added" instead of
+      showing a connection status. They are added with their "Add" button, the IP address is filled in already
+- Change connection settings
+    - Enter new credentials, leave both fields empty to keep the current ones
     - When an encryption Key is provided, API-Password is ignored, please ensure proper YAML configuration!
-    - API-Password is only supported by devices running ESPHome versions before 2026.1, newer versions require an encryption key
-
-- Delete Device
-    - Will send a message to the backend to remove this device
+- Delete device
+    - Removes the device after confirmation
 
 > [!WARNING]
-> This action will remove a selected device and all its related states from ioBroker!
-
-> [!NOTE]
-> After a device has been added, a message will be indicated if successfully or error,
-> you can refresh the table to show current devices and their connection status
-
-![DevicesError](admin/img/connectionIssue.png)
-![DevicesOK](admin/img/connectionOK.png)
+> Deleting a device removes it and all its related states from ioBroker!
 
 If connection was successfully, the Device will be initiated and all related states created to control their attributes.  
 When making any changes to your YAML configuration, reboot of the ESP will disconnect and initiate a new connection.  
@@ -316,20 +376,25 @@ The adapter provides a convenient interface for managing YAML configuration file
 
 - **Upload YAML Files**: Paste your YAML configuration content directly into the admin interface and upload it to the ESPHome directory
 - **View File List**: See all YAML files currently stored in the ESPHome directory with file size and modification date
-- **Download Files**: Retrieve the content of any YAML file for editing or backup
+- **Edit Files**: Load the content of any YAML file into the editor, change it and upload it again
 - **Delete Files**: Remove YAML files that are no longer needed
 
 #### How to Use
 
-1. **Navigate to the "YAML Files" tab** in the adapter configuration
+The adapter instance must be running, the tab shows a note otherwise.
+
+1. **Navigate to the "YAML Files" tab** in the adapter configuration, the file list is loaded automatically
+   ("Refresh File List" reloads it, e.g. after files were changed in the ESPHome Dashboard)
 2. **Upload a new file**:
     - Enter a filename (must end with .yaml or .yml)
     - Paste your YAML configuration content
-    - Click "Upload File"
-3. **Refresh the file list** to see all available YAML files
-4. **Download or delete files**:
-    - Enter the filename in the "Select file" field
-    - Click "Download File" to view the content or "Delete File" to remove it
+    - Click "Upload File". An existing file with the same name is overwritten
+3. **Edit or delete a file**:
+    - Pick the file in the "YAML file" dropdown
+    - Click "Open in Editor" to load it into the upload fields, change it and click "Upload File" to save it,
+      or click "Delete File" to remove it
+
+The filename and content fields are only used to transfer files, they are not stored in the adapter settings.
 
 > [!NOTE]
 > Files are stored in the ESPHome directory: `/opt/iobroker/iobroker-data/esphome.<instance>/`
@@ -449,14 +514,63 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
-### __WORK IN PROGRESS__
+### **WORK IN PROGRESS**
+
+- (@DutchmanNL) **ENHANCED**: A message of a device the ESPHome API library cannot read (for example a date, time, valve, event or update entity, #566) is logged as one warning with the message type instead of two raw errors
+- (@DutchmanNL) **FIXED**: A release no longer ends with a failed deploy when the Sentry server cannot be reached. npm and the GitHub release were published, only the Sentry release information failed (2.0.0-beta.1, beta.2). Sentry is now informed in its own step, with retries
+
+### 2.0.0-beta.2 (2026-11-24)
+
+- (@DutchmanNL) **FIXED**: `info.connection` is a boolean again, as up to 1.0.1: `true` while the adapter runs, `false` when it stops. 2.0.0-beta.0 and beta.1 wrote the list of connected devices into it, programs that read it as the online state of the adapter showed the adapter as disconnected. The list of connected devices moved to the new state `info.connectedDevices`, whether a device is connected stays in `<device>.info._online`
+
+### 2.0.0-beta.1 (2026-11-24)
+
+- (@DutchmanNL) **FIXED**: The npm package 2.0.0-beta.0 was built from an older state of the source. In it the online state `info._online` had the role `state` again instead of `indicator.reachable` (1.0.1), and a command to an offline device was still acknowledged (#541). `npm pack` and `npm publish` now always build `build/` from the source first
+
+### 2.0.0-beta.0 (2026-11-22)
 
 - (@DutchmanNL) **FIXED**: A command to a device that is offline is no longer acknowledged. The state stays at `ack: false` and a warning is logged, so other adapters that wait for the acknowledgement see that the command did not reach the device (#541)
-
-### 1.0.1 (2026-11-09)
-
-- (@DutchmanNL) **BREAKING**: ESPHome 2026.1 removed API password authentication, devices updated to ESPHome 2026.1 or later must use an encryption key. The API password option is kept for devices running older ESPHome versions, see README (#410)
-- (@DutchmanNL) **ENHANCED**: The online state `info._online` of each device has the role `indicator.reachable` (was `state`), so other adapters and visualisations can see whether an ESPHome device is reachable. Existing installations get the new role at the next adapter start
+- (@SimonFischer04) **ENHANCED**: Docker Integration: the dashboard in the container runs as the user of the ioBroker instance instead of `root`. The YAML files and build directories it creates can then be changed by the YAML file management and used by the dashboard without Docker; files left behind as `root` are handed over at the next start of the container
+- (@SimonFischer04) **FIXED**: Docker Integration: devices with a `time:` component but no `timezone:` were compiled with UTC, the container now gets the time zone of the ioBroker host
+- (@SimonFischer04) **FIXED**: YAML file management: a file the adapter may not write, e.g. created by a dashboard container as `root`, is replaced on upload instead of failing with "permission denied"
+- (@SimonFischer04) **ENHANCED**: `@iobroker/plugin-docker` 1.3.1: a Docker daemon that accepts connections but does not answer no longer blocks the start of the instance
+- (@SimonFischer04) **ENHANCED**: The ESPHome Dashboard tab of admin waits for the dashboard: while it starts (installing ESPHome takes several minutes on the first start or after a version change), the tab shows a hint and the start log, and switches to the dashboard by itself as soon as it answers. It also tells when the dashboard is disabled, could not be started or the instance is not running. The status is in the states `_ESPHomeDashboard.status` and `_ESPHomeDashboard.startLog`. Needs admin 8.0.12 or newer, older versions show the dashboard with a hint to wait
+- (@SimonFischer04) **NEW**: The Python version of the ESPHome Dashboard environment can be selected in the advanced dashboard settings, a version (e.g. `3.13.2`) or a range (e.g. `3.12` for the newest 3.12.x). The default stays Python 3.13.2. Changing it creates the Python environment again on the next start
+- (@SimonFischer04) **FIXED**: Newer Python versions can be downloaded again: autopy 1.3.1 reads the `SHA256SUMS` checksum file of newer python-build-standalone releases
+- (@SimonFischer04) **NEW**: Optional login for the ESPHome Dashboard (username and password in the advanced dashboard settings, the password is stored encrypted). Without both, the dashboard stays unprotected as before. Works for the dashboard process and the Docker Integration
+- (@SimonFischer04) **NEW**: Any ESPHome Dashboard version can be typed into the version field of the adapter configuration, e.g. a beta release or a version not (yet) in the list
+- (@SimonFischer04) **ENHANCED**: Devices can be added by host name (e.g. `kitchen.local`) or IPv6 address, the device manager no longer only accepts IPv4 addresses
+- (@SimonFischer04) **ENHANCED**: The address field of the ESPHome Dashboard also suggests the IPv6 addresses of the host, an IPv6 address is put in brackets in the dashboard URL
+- (@SimonFischer04) **ENHANCED**: The listening address of the auto discovery can be an IPv6 address, the discovery then listens for devices on the network interface of this address. Devices announcing only an IPv6 address are discovered as well
+- (@SimonFischer04) **ENHANCED**: `info.connection` lists the connected devices by name (comma-separated, like the sonoff and miner adapters do) instead of always being `true`. The admin shows the instance green while at least one device is connected and shows which ones, an instance without a connected device is shown yellow
+- (@SimonFischer04) **FIXED**: The "Clear Autopy Cache" button did nothing on macOS, on Windows and on Linux with `XDG_CACHE_HOME` set: it always deleted `~/.cache/autopy`, autopy stores its files elsewhere there. The button is renamed to "Reset Python environment" and removes the Python environment of the dashboard through autopy now, wherever autopy stores it. The downloaded Python is kept, so the reinstallation is faster
+- (@SimonFischer04) **ENHANCED**: README: FAQ entry explaining the "Reset Python environment" button, when to use it and what happens afterwards
+- (@SimonFischer04) **FIXED**: ESPHome Dashboard versions 2026.7.0 and newer work again (#479). ESPHome removed the built-in dashboard in 2026.7.0, from this version on ESPHome Device Builder is installed and started in its place, by default in the newest version supporting the selected ESPHome version. Pillow is no longer installed separately: ESPHome installs the version it requires itself, a different selected version made the installation fail. The Pillow version is set to "Auto Detect" once
+- (@SimonFischer04) **NEW**: The Pillow and ESPHome Device Builder versions can be selected in the "Advanced" section of the dashboard settings, "Auto Detect" (default) leaves them to ESPHome and pip
+- (@SimonFischer04) **FIXED**: The adapter no longer terminates when the ESPHome Dashboard cannot be started (`spawn esphome ENOENT`), an error with the reason is logged instead. Errors of the dashboard, like the reason why it stops right after the start, are logged as well
+- (@SimonFischer04) **ENHANCED**: With the ESPHome Dashboard enabled, the instance only shows green once the dashboard is reachable, `info.connection` lists no devices before that and again when the dashboard stops or cannot be installed
+- (@copilot) **NEW**: Beta: the integrated ESPHome Dashboard can run in the official ESPHome Docker container instead of a Python environment, enable "Use Docker Integration (Beta)" in the ESPHome Dashboard settings (expert mode only). Requires Docker on the ioBroker host (#493)
+- (@SimonFischer04) **ENHANCED**: With js-controller 8, the port of the ESPHome Dashboard is registered as used by the instance, a warning is logged when another instance holds it
+- (@SimonFischer04) **FIXED**: Discovered devices show their MAC address with ":" separators again
+- (@SimonFischer04) **NEW**: Support for the ioBroker device manager (#203). ESPHome devices are listed with their online status and details, can be added, adopted after discovery, given new credentials and deleted there
+- (@SimonFischer04) **NEW**: The device manager shows the Wi-Fi signal strength (RSSI) of devices with a `wifi_signal` sensor
+- (@SimonFischer04) **BREAKING**: The device tables and the add / delete buttons were removed from the adapter settings. The device manager is shown in their place as the second tab ("Devices") of the adapter settings, the discovery settings and the ignore list (previously its own tab) moved to a section "Discovery" of the main settings, where the listening address and the ignore list are only shown while device discovery is enabled, followed by a section "Connection behavior for known devices" with the configuration states, reconnect and ping settings
+- (@SimonFischer04) **BREAKING**: Requires admin 7.8.20 or newer, the first version with the current device manager
+- (@SimonFischer04) **BREAKING**: Removed the default credentials (encryption key and API password) from the main settings. They have not been used since version 0.6, when discovered devices stopped being connected automatically. Settings no longer used are removed from the instance configuration once, the adapter restarts after that
+- (@SimonFischer04) **ENHANCED**: Moved all code for the integrated ESPHome Dashboard into its own module, no change in behavior
+- (@SimonFischer04) **ENHANCED**: Removed the fallback to the ws package for compiling and flashing with the ESPHome Dashboard, the adapter always uses the WebSocket support built into Node.js 22 now, and ws is no longer installed with the adapter
+- (@SimonFischer04) **ENHANCED**: Removed unused code for newly discovered devices
+- (@SimonFischer04) **ENHANCED**: The log message when the ESPHome Dashboard starts shows the ESPHome and Pillow version used
+- (@SimonFischer04) **FIXED**: When the ESPHome Dashboard stops, the log shows its exit code and signal. A handler that was meant to log them listened to an event the dashboard process never sends
+- (@SimonFischer04) **FIXED**: The debug log for rounded values showed "[object Object]" instead of the entity name
+- (@SimonFischer04) **FIXED**: Known devices were listed as "undefined" in the device table until they connected, because the device name was not stored in the device object any more
+- (@SimonFischer04) **FIXED**: YAML file management works again (fixes #419). The file list loads when the "YAML Files" tab is opened, files are picked from a dropdown, "Open in Editor" loads a file into the upload fields, and uploading YAML with several lines no longer fails with "Filename and content are required". The upload fields are no longer stored in the adapter settings
+- **FIXED**: The YAML Files tab still listed no files after that rewrite (#419). `getYamlFileList` called `I18n.translate()` before `I18n.init()` had finished (it is started in `onReady` and not awaited), the throw was answered as `{ error }` and json-config `textSendTo` stayed empty. The list now falls back to the English key, builds `{dataDir}/esphome.{instance}` with `path.join`, and reloads when the instance becomes alive
+- (@SimonFischer04) **FIXED**: The adapter requires Node.js 22.12 or newer. The ESPHome Dashboard could not start on Node.js 22.0 to 22.11, because the build loads the ESM-only autopy package with require(), which those versions do not support
+- (@SimonFischer04) **ENHANCED**: Adapter rebuilt on the current create-adapter template and moved to TypeScript, all code is type checked now
+- (@SimonFischer04) **FIXED**: Fan speed level could not be changed, current ESPHome reports `supportedSpeedCount` instead of `supportedSpeedLevels`, so `speedLevel` was created read-only
+- (@SimonFischer04) **FIXED**: Cover position and tilt are 0-100 % in ioBroker but were sent to ESPHome unscaled (it expects 0-1), so any value above 1 % fully opened the cover
+- (@SimonFischer04) **NEW**: End-to-end test workflow that builds a real ESPHome device with the host platform and tests the adapter against it
 - (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only
 - (@SimonFischer04) **ENHANCED**: Dependency autopy switched to @simonfischer04/autopy (npm) instead of a GitHub build so dev dependencies do not get installed on user systems #495
 
@@ -475,17 +589,6 @@ If you like my work, please consider a personal donation
 - (@DutchmanNL) **FIXED**: Falling back to the latest ESPHome or Pillow release no longer aborts the dashboard setup, the requirement was passed to pip without a version specifier
 - (@DutchmanNL) **FIXED**: Added the missing "pingInterval" and "pingAttempts" defaults to io-package.json, they were only defined in the admin configuration
 - (@DutchmanNL) **ENHANCED**: "npm run check" is free of type errors, so type regressions are visible again
-
-### 1.0.0-beta.1 (2026-07-28)
-
-- (@DutchmanNL) **FIXED**: Restored a green CI matrix, the dashboard integration tests no longer hang the test runner
-- (@DutchmanNL) **FIXED**: Corrected the changelog entry in io-package.json so it matches the published version
-- (@DutchmanNL) **FIXED**: Admin configuration is fully translated again, 29 texts were only available in English
-- (@DutchmanNL) **FIXED**: YAML upload field renders as a proper multi-line text area again
-- (@DutchmanNL) **ENHANCED**: Timers are now managed by the adapter, so they are always cleaned up on unload
-- (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
-- (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
-- (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
 
 ## License
 

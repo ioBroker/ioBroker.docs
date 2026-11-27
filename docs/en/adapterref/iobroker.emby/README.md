@@ -1,27 +1,15 @@
 ![Logo](admin/emby.png)
 # ioBroker.emby
 
-[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.emby)](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
+[![Stable version](https://iobroker.live/badges/emby-stable.svg)](https://github.com/ioBroker/ioBroker.repositories)
+[![Number of installations](https://iobroker.live/badges/emby-installed.svg)](https://www.iobroker.dev/adapter/iobroker-community-adapters/ioBroker.emby/statistics)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
-![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.emby)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/emby/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.emby)
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.emby/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.emby)
-![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.emby)
-</br>
-**Version:** </br>
-[![NPM version](http://img.shields.io/npm/v/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
-![Current version in stable repository](https://iobroker.live/badges/emby-stable.svg)
-![Number of Installations](https://iobroker.live/badges/emby-installed.svg)
-</br>
-**Tests:** </br>
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml)
+[![License](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.emby)](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/LICENSE)
 
 > [!IMPORTANT]
-> This adapter cannot be installed from GitHub. Install it from the adapter list in ioBroker Admin. The files on GitHub are only the source code, the program files are created when a release is published to npm.
-
-## Emby adapter for ioBroker
+> This adapter cannot be installed from GitHub. Install it from the adapter list in ioBroker Admin.
 
 Connects ioBroker to your [Emby](https://emby.media) media server. You see in ioBroker what is playing on your Emby apps (TV, phone, tablet, web browser) and can control them, for example:
 
@@ -29,10 +17,6 @@ Connects ioBroker to your [Emby](https://emby.media) media server. You see in io
 - pause the TV when the doorbell rings,
 - show a message on the TV ("Someone is at the door"),
 - turn the volume down at night.
-
-## Credits
-
-This adapter would not have been possible without the great work of @thewhobox <iobroker@mikegerst.de>, who wrote the initial versions of this adapter and donated it to the iobroker-community-adapters organization.
 
 ## Quick start
 
@@ -81,7 +65,7 @@ The tables are a reference for scripts and visualisations. `x` stands for the fo
 
 | Object | Description |
 | ------------- | ------------- |
-| info.connection | `true` while the WebSocket connection to the server is open |
+| info.connection | `true` while ioBroker is connected to the Emby server |
 | server.name | Name of the Emby server |
 | server.version | Version of the Emby server |
 | server.updateAvailable | `true` if a server update is available |
@@ -199,6 +183,10 @@ Web browsers may block playback that is started without a click in the tab (auto
 | A message disappears after 2-3 seconds | That is decided by the app. Use `command.dialog` or `sendTo` without `timeoutMs`, see [Messages from scripts](#messages-from-scripts-sendto). |
 | `media.state` jumps to `idle` between two episodes | Increase *Delay before "paused" / "idle"*. |
 | Old devices pile up | Delete them in Emby (*Settings > Devices*) or set *Remove inactive devices after (days)*. |
+
+## Credits
+
+This adapter would not have been possible without the great work of @thewhobox <iobroker@mikegerst.de>, who wrote the initial versions of this adapter and donated it to the iobroker-community-adapters organization.
 
 ## Changelog
 

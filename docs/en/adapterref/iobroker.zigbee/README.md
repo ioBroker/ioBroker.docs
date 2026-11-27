@@ -162,6 +162,10 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (schimi1983) Smoke and water leak sensors get the roles the device detector expects (sensor.alarm.fire / sensor.alarm.flood)
+* (MikeFTV) OTA: one write to info.ota or info.ota_available runs one scan or one update per device instead of two (#3059)
+
 ### 3.6.1 (2026-11-20)
 * (reloxx13) Add optional group membership restoration after rejoin or successful interview (disabled by default), and report membership update failures after synchronization.
 * (asgothian) cleanup, ZH11. ZHC 26.133

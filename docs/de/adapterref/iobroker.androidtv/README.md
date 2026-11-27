@@ -21,7 +21,7 @@ Produktseiten: [NVIDIA SHIELD TV](https://www.nvidia.com/de-de/shield/), [Androi
 
 ### 1. Gerät hinzufügen
 
-Instanz-Einstellungen › Reiter **Geräte** › **Gerät hinzufügen**: Namen und **IP-Adresse** des Geräts eintragen (steht in den Netzwerkeinstellungen des Geräts; am besten im Router eine feste IP vergeben). Dann den **Gerätetyp** wählen:
+Instanz-Einstellungen › Reiter **Geräte** › **Geräte suchen**: Der Adapter sucht ein paar Sekunden im Netzwerk und zeigt gefundene Android-TV- / Google-TV-Geräte (z. B. SHIELD). Gerät auswählen – Name und IP-Adresse sind dann schon eingetragen. Wird nichts gefunden (Gerät aus, anderes Netz/VLAN, Fire TV): **Gerät hinzufügen** und Namen und **IP-Adresse** selbst eintragen (steht in den Netzwerkeinstellungen des Geräts; am besten im Router eine feste IP vergeben). Dann den **Gerätetyp** wählen:
 
 | Gerätetyp | Für | Was geht | Was du einmalig machst |
 | --- | --- | --- | --- |
@@ -54,8 +54,9 @@ Jedes Gerät erscheint als `androidtv.0.<Name>`:
 | Ein-/ausschalten, ist es an? | `power` |
 | Welche App läuft? | `currentAppName` (z. B. `Netflix`), App-Kennung in `currentApp` |
 | App starten | Knöpfe in `apps` |
-| Fernbedienungstasten | Knöpfe in `keys` (z. B. `keys.home`, `keys.playPause`, `keys.volumeUp`) |
+| Fernbedienungstasten | Knöpfe in `keys` (z. B. `keys.home`, `keys.playPause`, `keys.volumeUp`, `keys.guide`, Farbtasten `keys.red` …) |
 | Text eingeben | `sendText` |
+| Sendernummer eingeben | `sendNumber` (z. B. `12` – die Ziffern werden nacheinander gedrückt) |
 | Was läuft gerade? | `media.title`, `media.state`, `media.position` (nicht bei *Standard*) |
 | Verbunden? | `info.connected`, lesbarer Status in `info.status` |
 
@@ -63,7 +64,7 @@ Diese Datenpunkte nutzt du in Skripten, Blockly, Szenen oder Visualisierungen wi
 
 ### Reiter Geräte
 
-Jedes Gerät ist eine Karte mit Status und laufender App. Der Schalter aktiviert/deaktiviert das Gerät, der Controller-Knopf öffnet die Schnellsteuerung (Ein/Aus, Stumm, Lautstärke, Wiedergabe/Pause, Startseite), weitere Knöpfe koppeln, verbinden neu, ändern die Einstellungen oder entfernen das Gerät. Änderungen werden sofort gespeichert und starten die Instanz neu – die Einstellungsseite danach ohne Speichern schließen, bevor du dort etwas anderes änderst.
+Jedes Gerät ist eine Karte mit Status und laufender App. Der Schalter aktiviert/deaktiviert das Gerät im Adapter (er schaltet nicht den Fernseher; die Datenpunkte bleiben erhalten), der Controller-Knopf öffnet die Schnellsteuerung (Ein/Aus, Stumm, Lautstärke, Wiedergabe/Pause, Startseite), weitere Knöpfe koppeln, verbinden neu, ändern die Einstellungen oder entfernen das Gerät. Änderungen werden sofort gespeichert und starten die Instanz neu – die Einstellungsseite danach ohne Speichern schließen, bevor du dort etwas anderes änderst.
 
 ### App-Favoriten
 
@@ -88,6 +89,7 @@ App-Kennungen funktionieren beim Fire TV und mit dem Gerätetyp *mit Titel und P
 - **Der Fernseher zeigt ständig „Tastatur auf Mobilgerät verwenden“**: in den Geräte-Einstellungen (Zahnrad auf der Karte) *Aktuelle App & Texteingabe* abwählen.
 - **Lautstärke zeigt nichts an**: Die Lautstärke regelt der Fernseher / AV-Receiver (HDMI-CEC); die Lautstärke-Tasten funktionieren trotzdem.
 - **Kein Titel bei Netflix oder Prime Video** (Prime Video zeigt nur „PrimeVideo“): Diese Apps geben den Titel nicht an Android weiter; Play/Pause und Position funktionieren. YouTube zeigt Titel und Kanal.
+- **Eine Taste tut nichts** (z. B. Farbtasten, HDMI-Eingänge): Nicht jedes Gerät kennt jede Taste – das hängt vom Hersteller ab.
 
 Technische Details, alle Datenpunkte und bekannte Einschränkungen: [README (englisch)](https://github.com/Schimi1983/ioBroker.androidtv/blob/main/README.md#technical-details).
 
@@ -105,10 +107,13 @@ Fehler und Ideen: [Issues](https://github.com/Schimi1983/ioBroker.androidtv/issu
 -->
 ### **WORK IN PROGRESS**
 
+- (@Voodoo2man) Added remote buttons (colour keys, guide, inputs/HDMI 1–4, TV, subtitles, audio track, enter) and `sendNumber` for channel numbers
+- (@Voodoo2man) Added the button "Search devices": finds Android TV / Google TV devices in the network and fills in the device settings
 - (@GermanBluefox) Added the message "help": a description of all messages and data points for AI agents (e.g. pi-agent), and `common.supportedMessages.help`
 - (Schimi) `currentAppName` shows "ORF ON" on Fire TV
 - (Schimi) Clearer log hint when an app ID is started without ADB
 - (Schimi) Setup hint: some TVs (e.g. Philips) also need USB debugging
+- (Schimi) Devices tab: explains that the switch on a card enables/disables the device in the adapter, not the TV
 - (Schimi) Playback info: if several apps report playback, the app in the foreground wins; changes of the playback info are written to the debug log
 
 ### 0.3.0 (2026-11-19)

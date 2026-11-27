@@ -171,11 +171,13 @@ sendTo(
         if (result.error) {
             console.error(result.error);
         } else {
-            console.log(result.data);
+            console.log(result.data); // data:image/svg+xml;base64,...
         }
     },
 );
 ```
+
+Besides `data` (a data URL), the answer carries `contentType` (e.g. `image/png`) and, with `fileName`, `file` (e.g. `echarts.0/agent/outside.png`, to send as `iobfile://echarts.0/agent/outside.png`): the fields for pictures of the shared catalog of ioBroker.assistant. A picture kept by `cache` has no `file`.
 
 The preset may also be a chart of its own, without a preset object, e.g. the outside temperature of the last 24 hours:
 
@@ -217,6 +219,10 @@ You can debug view charts locally with:
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) Live update does not start a new read while the previous one is still running (#1325)
+
+### 6.6.0 (2026-11-23)
+* (@GermanBluefox) The answer of `send` also carries `contentType` and, with `fileName`, `file` (the fields for pictures of the shared catalog of ioBroker.assistant); `data` stays a data URL
 * (GermanBluefox) The preset editor has a switch "Auto preview" and a button "Update preview": with the switch off, the preview is updated only by the button; with the switch on, the preview waits briefly after a change so fast changes cause only one reload (#1323)
 
 ### 6.5.1 (2026-11-20)
@@ -236,10 +242,6 @@ You can debug view charts locally with:
 - (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 - (@GermanBluefox) Updated packages
 - (@GermanBluefox) The editor lists the states of a running history instance from its answer to `getEnabledDPs` and no longer only from `common.custom`, so the states that the recorder selects by itself appear as well
-
-### 6.3.0 (2026-11-09)
-- (@GermanBluefox) Added web component `<iob-echarts-chart>` for Aura and other hosts (`common.webComponents`)
-- (@GermanBluefox) Fixed: a chart drawn without iframe kept the first fixed time range and ignored every later one
 
 ## License
 

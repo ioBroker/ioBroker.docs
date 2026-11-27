@@ -281,6 +281,22 @@ The adapter follows these principles:
 
 ## Changelog
 
+### 0.2.3
+
+- Strengthen security and reliability through safer log handling, improved API response handling and protection against excessive resource usage.
+- Improve device identification and replacement handling, including after adapter restarts.
+- Improve management of historical device data while protecting active devices and their existing values.
+- Ensure consistent handling of the operating mode reported by the Mill API.
+- Extend integration tests for security, reliability and device management.
+
+### 0.2.2
+
+- Improved API security and reliability: external response data is sanitized before logging, response sizes and total request durations are limited, and pending state changes are capped at 10 per device.
+
+### 0.2.1
+
+- Dependencies have been updated.
+
 ### 0.2.0
 
 - BREAKING: The adapter now supports multiple Mill devices within a single instance. The configuration and device
@@ -291,11 +307,6 @@ The adapter follows these principles:
 - Add the `pollWhenOff` option to control polling while a heater is switched off.
 - Improve device-specific state handling and write operations.
 - Improve configuration validation and polling behaviour.
-
-### 0.1.15
-
-- Use `setStateChanged()` for regular state updates to avoid unnecessary database writes and state change events.
-- Keep `setState()` for explicit state reset operations.
 
 ## License
 

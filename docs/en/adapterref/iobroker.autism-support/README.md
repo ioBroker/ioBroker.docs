@@ -91,6 +91,9 @@ npm run start
 ## Changelog
 
 See CHANGELOG_OLD.md for older entries.
+### 0.2.15 (2026-11-22)
+
+* Fix remaining widget i18n (schedule widgets full 11-language i18n, cognate keys); automerge on pull_request; bump @iobroker/testing
 
 ### 0.2.14
 
@@ -107,29 +110,6 @@ See CHANGELOG_OLD.md for older entries.
 ### 0.2.11
 
 * Latest repository review fixes: English package description, translations, remove unused custom config, responsive admin tabs
-
-### 0.2.10
-- Repo-check compliance: remove unpublished versions from `common.news`, update README changelog
-
-### 0.2.8
-- Fix startup crash/restart loop: no `system.adapter` native write on boot; cancel in-flight ready on unload
-
-### 0.2.7
-- Fix restart loop (native config diff) and CI lint formatting
-
-### 0.2.5
-- Fix `system.adapter` config path (`extendForeignObject`); trim news for E1032
-
-### 0.2.2
-- Fix object structure for latest-repo review: `timer` channel, `value.interval` roles, button `read: false`
-
-### 0.2.1
-- Weekly plans: weekday tabs in Config, copy to other days, named templates (save/load)
-- Admin: weekday colors + list of saved plans with active/loaded marker
-- New Live widget: week overview; optional daily sync from weekly plan
-
-### 0.1.27
-- ioBroker compliance: max 7 news entries, jsonConfig schema, admin i18n keys, English title/desc
 
 ## Author
 

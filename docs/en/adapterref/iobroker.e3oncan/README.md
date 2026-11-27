@@ -22,6 +22,7 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
 ## Table of contents
 
 - [Overview](#overview)
+- [What's new in v1.4.0](#whats-new-in-v140)
 - [What's new in v1.3.0](#whats-new-in-v130)
 - [What's new in v1.2.0](#whats-new-in-v120)
 - [Quick start](#quick-start)
@@ -31,7 +32,7 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
   - [Step 2 – Device scan and energy meter detection](#step-2--device-scan-and-energy-meter-detection)
   - [Step 3 – Data point scan](#step-3--data-point-scan)
   - [Step 4 – Assignments and schedules](#step-4--assignments-and-schedules)
-- [Bus topology analysis](#bus-topology-analysis)
+- [Bus topology analysis and plant profile](#bus-topology-analysis-and-plant-profile)
 - [e3oncan datapoints tab](#e3oncan-datapoints-tab)
 - [Reading data points](#reading-data-points)
 - [Writing data points](#writing-data-points)
@@ -61,6 +62,13 @@ Which modes are available depends on your device topology. See the [device topol
 
 > Important parts of this adapter are based on the [open3e](https://github.com/open3e) project.
 > A Python-based collect-only implementation using MQTT is available at [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
+
+---
+
+## What's new in v1.4.0
+
+- **Plant profile:** After a data point scan, the topology view (**Topology** button on the datapoints page) starts with a profile of the plant: heat generator, control units, refrigerant circuit or boiler, sensors, domestic hot water, buffer, electric heater, energy storage system, heating circuits and the actuators and sensors listed by the device itself. The profile is also stored as JSON in `info.plantProfile`. See [Bus topology analysis and plant profile](#bus-topology-analysis-and-plant-profile).
+- **Data points** updated to the current open3e state; DID 1238 now lists the actuators and sensors fitted to a device.
 
 ---
 
@@ -190,7 +198,7 @@ This option is useful if you want to avoid a large number of state writes during
 
 **Bus topology analysis**
 
-After the scan completes, the adapter automatically generates a bus topology summary and stores it in two states in the `info` channel: `info.topology` (JSON) and `info.topologyHtml` (HTML). See [Bus topology analysis](#bus-topology-analysis) below for details.
+After the scan completes, the adapter automatically generates a bus topology summary and a plant profile and stores them in the `info` channel: `info.topology` (JSON), `info.plantProfile` (JSON) and `info.topologyHtml` (HTML). See [Bus topology analysis and plant profile](#bus-topology-analysis-and-plant-profile) below for details.
 
 After the scan, browse and manage the discovered data points using the **e3oncan datapoints** page (see [below](#e3oncan-datapoints-tab)).
 
@@ -206,14 +214,23 @@ Press **Save & Close** when done. Check the object tree to verify that data is b
 
 ---
 
-## Bus topology analysis
+## Bus topology analysis and plant profile
 
-After the data point scan, the adapter analyses all bus topology data collected during the scan and stores the result in two states in the `info` channel:
+After the data point scan, the adapter analyses all bus topology data collected during the scan, derives a profile of the plant and stores the result in three states in the `info` channel:
 
 | State | Role | Content |
 |---|---|---|
 | `info.topology` | `json` | Structured JSON: list of UDS-accessible devices and all topology elements, deduplicated across all topology matrices |
-| `info.topologyHtml` | `html` | Rendered HTML table, color-coded by bus type, with a **UDS** badge on devices that are also UDS-accessible |
+| `info.plantProfile` | `json` | Structured JSON: plant profile (see below) |
+| `info.topologyHtml` | `html` | Rendered HTML: plant profile, then the tables of devices and topology elements, color-coded by bus type, with a **UDS** badge on devices that are also UDS-accessible |
+
+The **Topology** button on the [e3oncan datapoints page](#e3oncan-datapoints-tab) shows `info.topologyHtml`.
+
+**Plant profile**
+
+The plant profile describes the configuration of the plant: heat generator (heat pump or gas condensing boiler, with nominal capacity), the role of each control unit, refrigerant circuit or boiler, flow and pressure sensor, diverter valve, domestic hot water, circulation pump, buffer, solar, electric heater, energy storage system (e.g. Vitocharge VX3: inverter and battery), heating circuits and the actuators and sensors the device lists in DID 1238. An energy storage system on a CAN bus of its own also gets a profile.
+
+It is derived from which data points the scan found and from their values at scan time, for example a sensor that answers with status `not_available` is not fitted. This works with and without saving data point values during the scan. A scan limited to selected data points keeps the previous profile. The detection rules follow the plant view of [open3e-esp32](https://github.com/boonkerz/open3e-esp32) by boonkerz.
 
 **Displaying the HTML table**
 
@@ -254,7 +271,7 @@ Both options can be combined. Use the schedule filter (All / On Start / Interval
 
 **Topology**
 
-The **Topology** button in the toolbar opens the bus topology diagram in a modal dialog. The diagram is generated automatically after each data point scan (see [Bus topology analysis](#bus-topology-analysis)). The button is disabled until topology data is available.
+The **Topology** button in the toolbar opens the plant profile and the bus topology in a modal dialog. Both are generated automatically after each data point scan (see [Bus topology analysis and plant profile](#bus-topology-analysis-and-plant-profile)). The button is disabled until topology data is available.
 
 **Saving**
 
@@ -413,6 +430,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2026-11-25)
+* (MyHomeMyData) Plant profile: the data point scan derives the configuration of the plant (heat generator, control units, sensors, actuators, heating circuits, energy storage system) and shows it in the topology view; also stored as JSON in info.plantProfile. Detection rules after open3e-esp32 by boonkerz
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20261124 (common); DID 1238 is decoded as list of the actuators and sensors of a device, details see [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#v140-2026-11-24)
+* (MyHomeMyData) Update of enumerations: new device DCIOU
+* (MyHomeMyData) Dependency updates (mqtt 5.16.1)
+
 ### 1.3.0 (2026-11-17)
 * (MyHomeMyData) Device scan and data point scan run in the background; progress and result are shown in a new scan status line below the scan buttons (states info.scanStatus and info.scanStatusHtml), the result in green on success and in red on failure. Fixes an empty device list after a device scan with admin 7.8.25 or newer, which drops answers after 30 s (ioBroker.admin#3737)
 * (MyHomeMyData) The device scan saves the list of devices to the configuration itself, and restarts the instance
@@ -436,10 +459,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 1.1.2 (2026-07-16)
 * (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
-
-### 1.1.1 (2026-07-06)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
-* (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
 
 ### Older versions
 

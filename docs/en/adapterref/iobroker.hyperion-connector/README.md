@@ -27,15 +27,19 @@ If you require additional commands, please post in the forum or here.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2026-11-21)
 - (copilot) Adapter requires node.js >= 22 now
-* (ticaki) feat: controls/effect/* — start hyperion effects (name dropdown is auto-populated from serverinfo)
-* (ticaki) feat: multi-instance support — per-instance channels under instances/<id>/, instances.json metadata, controls/instance/{setinstance,start,stop} lifecycle commands
-* (ticaki) feat: convenience light role — light/{power,brightness,color} as a VIS/Alexa/Google-friendly projection over componentstate LEDDEVICE / adjustment.brightness / color
-* (ticaki) feat: writable controls/videomode/mode, controls/processing/mappingType, controls/leddevice/identify
-* (ticaki) chore: replaced silent catch blocks with debug logging so failures stop being invisible
-* (ticaki) test: added a reusable mock hyperion server (test/mock-hyperion-server.ts) and protocol-level specs (npm run test:hyperion-mock); the existing smoke test (test/integration.js) is unchanged
-* (ticaki) docs: added CLAUDE.md with project conventions, architecture map and Hyperion-API quick reference
+- (ticaki) New controls: start effects (dropdown with the server's effects), video mode, processing/mapping type and adjustment thresholds (Hyperion > 2.2.1)
+- (ticaki) Multi-instance support: every Hyperion instance gets its own channel under instances/<id>/ and can be switched, started and stopped
+- (ticaki) New light channel (power, brightness, color) for easy use with VIS, Alexa or Google
+- (ticaki) Admin: sysinfo, serverinfo, description and instances can be switched off; their states are removed on the next start
+- (ticaki) Authentication: a rejected token is discarded and a new one requested automatically, just confirm it in the Hyperion web UI
+- (ticaki) Compatibility with current Hyperion versions (tested with 2.2.1, supports 2.0.16 and newer): the server version is detected and commands are sent in the format that version expects
+- (ticaki) Fixed: color commands were rejected by Hyperion (empty origin, default is now 'ioBroker')
+- (ticaki) Fixed: adjustment commands were partly ignored or overwrote other values; only changed values are sent now
+- (ticaki) Fixed: activate buttons stayed on true
+- (ticaki) Fixed: server info was missing after a login with token, priorities were not updated live
+- (ticaki) Fixed: more reliable reconnect
 
 ### 0.2.1 (2025-11-11)
 * (ticaki) first latest release

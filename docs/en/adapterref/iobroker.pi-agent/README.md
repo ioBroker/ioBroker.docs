@@ -283,8 +283,18 @@ conversation, same confirmations, same limits.
   speech itself but understands more.
 - **OpenRouter:** its transcription models, `openai/whisper-large-v3-turbo` when none is chosen. Without a key in this
   block, the OpenRouter key of the agent (provider OpenRouter) or of the system settings of admin (tab "AI") is used.
-- **Language:** two letters (`de`, `ru`) or empty. Empty detects the language of every message, which costs a local
-  server extra time but understands messages in several languages.
+- **Language:** two letters (`de`, `ru`) or empty. Empty takes the language of the ioBroker system. It is always told
+  to the server: a model like Canary (ioBroker.voice) turns speech in another language into a translation or into
+  nothing, and Whisper does not need extra time to detect it.
+- **Several languages in one chat:** send `ru`, `de`, `en` (also `/ru`, or `/ru@bot` from the command menu of
+  telegram) as a message of its own. The voice messages of that chat are then recognized in this language until the
+  next such message, also after a restart; the bot confirms with e.g. "🎤 русский (ru)". The message does not reach
+  the model. Without one the language above applies. Taken are the languages of Canary 1B v2 (bg, cs, da, de, el, en,
+  es, et, fi, fr, hr, hu, it, lt, lv, mt, nl, pl, pt, ro, ru, sk, sl, sv, uk), so a greeting like "hi" stays a message.
+  The telegram adapter does not fill the command menu of the bot; to choose with a tap, send `/setcommands` to
+  @BotFather, pick the bot and send `ru - Голосовые на русском`, `de - Sprachnachrichten auf Deutsch`,
+  `en - Voice messages in English` (one per line). `/setcommands` replaces the whole list: add other commands of the
+  bot to the same message.
 - The column **Voice** of the table chooses the bots that take voice messages; the prefix does not apply to them. Only
   allowed users are heard. An older max adapter does not save voice messages; they are then ignored.
 - The text goes to the model as `🎤 <text>`; the instructions of the messenger chats tell it that such a text may contain
@@ -640,61 +650,27 @@ the last copy.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.12.3 (2026-11-20)
+### 0.12.8 (2026-11-25)
 
-- (sadam6752-tech) A conversation that used an adapter without a help, or heard from adapter_help that it has none, is now told when the adapter gains one (the same "UPDATED" line as after a changed help). Seen with movieswipe: a voice conversation had heard "takes no messages" from 1.1.6 and after the update to 1.2.0, which brought a movie search, kept answering that it has no access to the movie database.
-- (@GermanBluefox) `send_to`: a data URL in an answer (e.g. the picture echarts rendered) reaches the model as its
-  type and size instead of 4000 characters of base64
+- (GermanBluefox) get_history asks the history instance that logs the state (its custom settings, e.g. influxdb.0) first, and house_snapshot names the asked states that a history adapter logs instead of the recorder: the gusts of a weather station logged by influxdb were answered as "not recorded"
+- (sadam6752-tech) get_history leaves out a history instance that logs the state but is not running, so a stopped influxdb costs no wait for its answer
 
-### 0.12.2 (2026-11-20)
+### 0.12.7 (2026-11-25)
 
-- (@GermanBluefox) The helps of the adapters stay current: pi-agent reads them at its start and again after an
-  instance restarts or its object changes; an instance without a help any more leaves the list. A conversation that
-  used an instance whose help changed since is told to read it again, so it does not answer from what an older
-  version could do (seen with a voice satellite: "the TV takes only exact links" after youtube-remote learned to search)
-- (@GermanBluefox) The instructions name the instances that describe themselves; before telling the user that an
-  adapter cannot do something, the agent reads its help in that request
-- (sadam6752-tech) `@iobroker/testing` 6.3.2 (repository checker W0037); the changelog links to CHANGELOG_OLD.md
+- (sadam6752-tech) Code mode: `send_to` gives a script the answer of the adapter as a value, `{sent, instance, answer, note}`, instead of the text "Sent. Answer of …: {…}"; a script read `stations` of that text and found none. The chat keeps the text
+- (sadam6752-tech) The pi libraries (chord, pi-ai, pi-codemode, pi-durable, pi-schema) are updated from 1.5.0 to 1.5.2 together
 
-### 0.12.1 (2026-11-20)
+### 0.12.6 (2026-11-21)
 
-- (@GermanBluefox) `adapter_help` for adapters that take no messages (web-only ones such as home3d): their help is
-  the states they describe in their `io-package.json` (`instanceObjects` with `common.desc`), listed with type,
-  whether they are writable and the description; `list_instances` marks them with `"help": true` too
-- (sadam6752-tech) The help from states stays within 20000 characters like any other help; `list_updates` marks
-  a new web-only adapter that describes its states with `"help": true` in `newAdapters`
+- (sadam6752-tech) A request the model could not answer names the cause: "Request not answered (model_error: <error text of the model API>)" instead of only "model_error", in the chat, in the answer of sendTo and in the log
 
-### 0.12.0 (2026-11-20)
+### 0.12.5 (2026-11-21)
 
-- (sadam6752-tech) A recorder installed, switched on, off or removed while the agent runs restarts the agent, so its
-  tools come and go without a manual restart; `list_updates` names the adapters installed since the last look
-  (`newAdapters`, with `"help": true` when the adapter describes its commands for `adapter_help`)
-- (sadam6752-tech) A background job whose triggers are all times of day (a report every morning) runs up to 365 days
-  or without an end instead of 30 days; the agent asks "one year or without an end?" when the user did not say how
-  long, and the admin chat shows "no end"; every job conversation starts anew after 30 days, so a long report does
-  not send months of history; with a recorder, job reports use `house_events`, `house_anomalies` and `usual_value`
+- (sadam6752-tech) Voice messages in several languages: a chat chooses the language of its voice messages with a message `ru`, `de`, `en` (or `/ru`), kept until the next one and over restarts; without one the language of the settings applies, and with an empty field the language of the system (before, an empty field let the server decide). Canary needs the language told: a Russian voice message came back as "(nothing recognized)" while the system language is German
 
-### 0.11.1 (2026-11-19)
+### 0.12.4 (2026-11-21)
 
-- (@GermanBluefox) Tool `adapter_help`: before the first `send_to` to an adapter the agent reads the description the
-  adapter gives of its commands and states (message `help`, `common.supportedMessages.help`), without a write
-  permission; `list_instances` marks those adapters with `"help": true`; the description of `send_to` points to it
-  instead of telling the model to send `help` itself (that needed a write permission)
-
-### 0.11.0 (2026-11-18)
-
-- (sadam6752-tech) With ioBroker.recorder installed, four read-only tools: `house_events` (what was switched, when and by whom), `house_snapshot` (the house at a moment in the past), `house_anomalies` and `usual_value`; `get_history` reads from the recorder when the history instance has nothing for a state
-
-### 0.10.5 (2026-11-15)
-
-- (sadam6752-tech) New setting "Tokens per request (context)" (0 = as before): above it the older part of a
-  conversation is summarised, so a long satellite conversation no longer sends up to 100k tokens with every request.
-  The debug log shows the tokens of every model call (context, share from the cache, answer, cost)
-
-### 0.10.4 (2026-11-13)
-
-- (sadam6752-tech) Confirmation by voice: a bare yes or no keeps the language of the conversation. A spoken "Да" came
-  back from speech recognition as "Yeah.", and the confirmation that followed was asked in German instead of Russian
+- (sadam6752-tech) The instructions name the commands of each instance that describes itself (at most 12, e.g. `movieswipe.0 (suggest, search, …, openInLampa)`), so the agent finds the instance by what it can do: "open it in Lampa" led to nothing while only the name movieswipe.0 was listed
 
 Older changes are listed in CHANGELOG_OLD.md.
 

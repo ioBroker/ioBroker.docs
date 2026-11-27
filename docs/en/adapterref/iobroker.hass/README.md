@@ -99,6 +99,12 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 
 **Unfortunately only in German, but the [Google Translate works rather good](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)** 
 
+### Secure connection (wss)
+Enable **Secure** if Home Assistant is reachable via HTTPS. If Home Assistant uses a self-signed certificate or a certificate of your own (private) CA, the connection fails with `self-signed certificate` or `self-signed certificate in certificate chain`. In this case you can either
+
+- enable **Ignore certificate errors**. The certificate of Home Assistant is then not verified at all, so use this only in trusted networks, or
+- keep the verification and let Node.js trust the CA store of your operating system (where your own CA is installed): `iobroker object extend system.adapter.hass.0 '{"common":{"nodeProcessParams":["--use-system-ca"]}}'`
+
 ## Entity exclude filter
 
 Optionally, restrict which Home Assistant entities are synchronised into ioBroker.
@@ -170,6 +176,11 @@ with object path patterns (see above).
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2026-11-24)
+* (GermanBluefox) Do not show the misleading 'Allowed field keys' hint for services without fields (#79)
+* (GermanBluefox) Added the option "Ignore certificate errors" to connect to Home Assistant with a self-signed certificate (#88)
+* (GermanBluefox) Fixed the issues reported by the repository checker (#217)
+
 ### 2.2.1 (2026-11-18)
 * (GermanBluefox) Avoid unhandled promise rejections (DB closed) during shutdown (#184)
 
@@ -187,10 +198,7 @@ with object path patterns (see above).
 - (@rockbaer2007) Reduced resync noise and raised the default object warning limit to 30000 for large installations
 - (@GermanBluefox) State changes received during the initial synchronization are applied afterward instead of being lost
 
-### 2.1.0 (2026-05-16)
-* (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
-* (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
-* (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
+Older changes can be found in CHANGELOG_OLD.md.
 
 ## License
 

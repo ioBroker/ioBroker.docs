@@ -22,6 +22,7 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
+- [Was ist neu in v1.4.0](#was-ist-neu-in-v140)
 - [Was ist neu in v1.3.0](#was-ist-neu-in-v130)
 - [Was ist neu in v1.2.0](#was-ist-neu-in-v120)
 - [Schnellstart](#schnellstart)
@@ -31,7 +32,7 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
   - [Schritt 2 – Gerätescan und Energiezähler-Erkennung](#schritt-2--gerätescan-und-energiezähler-erkennung)
   - [Schritt 3 – Datenpunktscan](#schritt-3--datenpunktscan)
   - [Schritt 4 – Zuweisungen und Zeitpläne](#schritt-4--zuweisungen-und-zeitpläne)
-- [Bus-Topologie-Analyse](#bus-topologie-analyse)
+- [Bus-Topologie-Analyse und Anlagenprofil](#bus-topologie-analyse-und-anlagenprofil)
 - [e3oncan Datenpunkte-Seite](#e3oncan-datenpunkte-seite)
 - [Datenpunkte lesen](#datenpunkte-lesen)
 - [Datenpunkte schreiben](#datenpunkte-schreiben)
@@ -61,6 +62,13 @@ Welche Modi verfügbar sind, hängt von der Gerätekonfiguration ab. Weitere Det
 
 > Wichtige Teile dieses Adapters basieren auf dem [open3e](https://github.com/open3e)-Projekt.
 > Eine Python-basierte Collect-only-Implementierung mit MQTT ist unter [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) verfügbar.
+
+---
+
+## Was ist neu in v1.4.0
+
+- **Anlagenprofil:** Nach einem Datenpunktscan beginnt die Topologie-Ansicht (Schaltfläche **Topology** auf der Datenpunkte-Seite) mit einem Profil der Anlage: Wärmeerzeuger, Steuergeräte, Kältekreis oder Kessel, Fühler, Warmwasser, Puffer, Heizstab, Stromspeicher, Heizkreise und die Aktoren und Sensoren, die das Gerät selbst meldet. Das Profil steht außerdem als JSON in `info.plantProfile`. Siehe [Bus-Topologie-Analyse und Anlagenprofil](#bus-topologie-analyse-und-anlagenprofil).
+- **Datenpunkte** auf den aktuellen Stand von open3e gebracht; DID 1238 listet jetzt die verbauten Aktoren und Sensoren eines Geräts.
 
 ---
 
@@ -190,7 +198,7 @@ Diese Option ist nützlich, wenn eine große Anzahl von State-Schreibvorgängen 
 
 **Bus-Topologie-Analyse**
 
-Nach dem Scan erzeugt der Adapter automatisch eine Bus-Topologie-Zusammenfassung und speichert sie in zwei States im `info`-Kanal: `info.topology` (JSON) und `info.topologyHtml` (HTML). Weitere Details unter [Bus-Topologie-Analyse](#bus-topologie-analyse) weiter unten.
+Nach dem Scan erzeugt der Adapter automatisch eine Bus-Topologie-Zusammenfassung und ein Anlagenprofil und speichert sie im `info`-Kanal: `info.topology` (JSON), `info.plantProfile` (JSON) und `info.topologyHtml` (HTML). Weitere Details unter [Bus-Topologie-Analyse und Anlagenprofil](#bus-topologie-analyse-und-anlagenprofil) weiter unten.
 
 Nach dem Scan können die gefundenen Datenpunkte über die **e3oncan Datenpunkte**-Seite durchsucht und verwaltet werden (siehe [unten](#e3oncan-datenpunkte-seite)).
 
@@ -206,14 +214,23 @@ Wenn der Gerätescan E380- oder E3100CB-Energiezähler erkannt hat, erscheint f�
 
 ---
 
-## Bus-Topologie-Analyse
+## Bus-Topologie-Analyse und Anlagenprofil
 
-Nach dem Datenpunktscan wertet der Adapter alle während des Scans gesammelten Topologie-Daten aus und speichert das Ergebnis in zwei States im `info`-Kanal:
+Nach dem Datenpunktscan wertet der Adapter alle während des Scans gesammelten Topologie-Daten aus, leitet ein Profil der Anlage ab und speichert das Ergebnis in drei States im `info`-Kanal:
 
 | State | Rolle | Inhalt |
 |---|---|---|
 | `info.topology` | `json` | Strukturiertes JSON: Liste aller UDS-zugänglichen Geräte und aller Topologie-Elemente, dedupliziert über alle Topologie-Matrizen |
-| `info.topologyHtml` | `html` | Fertig gerenderte HTML-Tabelle, farbkodiert nach Bus-Typ, mit **UDS**-Badge für Geräte, die auch über UDS erreichbar sind |
+| `info.plantProfile` | `json` | Strukturiertes JSON: Anlagenprofil (siehe unten) |
+| `info.topologyHtml` | `html` | Fertig gerendertes HTML: Anlagenprofil, danach die Tabellen der Geräte und Topologie-Elemente, farbkodiert nach Bus-Typ, mit **UDS**-Badge für Geräte, die auch über UDS erreichbar sind |
+
+Die Schaltfläche **Topology** auf der [e3oncan Datenpunkte-Seite](#e3oncan-datenpunkte-seite) zeigt `info.topologyHtml` an.
+
+**Anlagenprofil**
+
+Das Anlagenprofil beschreibt die Konfiguration der Anlage: Wärmeerzeuger (Wärmepumpe oder Gas-Brennwertgerät, mit Nennleistung), die Rolle jedes Steuergeräts, Kältekreis oder Kessel, Durchfluss- und Drucksensor, Umschaltventil, Warmwasser, Zirkulationspumpe, Puffer, Solar, Heizstab, Stromspeicher (z. B. Vitocharge VX3: Wechselrichter und Batterie), Heizkreise sowie die Aktoren und Sensoren, die das Gerät in DID 1238 meldet. Auch ein Stromspeicher an einem eigenen CAN-Bus bekommt ein Profil.
+
+Es wird daraus abgeleitet, welche Datenpunkte der Scan gefunden hat und welche Werte sie beim Scan hatten; ein Fühler, der mit dem Status `not_available` antwortet, ist zum Beispiel nicht verbaut. Das funktioniert mit und ohne Speichern der Datenpunktwerte beim Scan. Ein Scan nur ausgewählter Datenpunkte behält das bisherige Profil. Die Erkennungsregeln folgen der Anlagenansicht von [open3e-esp32](https://github.com/boonkerz/open3e-esp32) von boonkerz.
 
 **Anzeige der HTML-Tabelle**
 
@@ -254,7 +271,7 @@ Beide Optionen können kombiniert werden. Den Zeitplan-Filter (Alle / Beim Start
 
 **Topologie**
 
-Die Schaltfläche **Topology** in der Toolbar öffnet das Bus-Topologie-Diagramm in einem modalen Dialog. Das Diagramm wird automatisch nach jedem Datenpunktscan erstellt (siehe [Bus-Topologie-Analyse](#bus-topologie-analyse)). Die Schaltfläche ist deaktiviert, solange noch keine Topologie-Daten vorliegen.
+Die Schaltfläche **Topology** in der Toolbar öffnet Anlagenprofil und Bus-Topologie in einem modalen Dialog. Beides wird automatisch nach jedem Datenpunktscan erstellt (siehe [Bus-Topologie-Analyse und Anlagenprofil](#bus-topologie-analyse-und-anlagenprofil)). Die Schaltfläche ist deaktiviert, solange noch keine Topologie-Daten vorliegen.
 
 **Speichern**
 

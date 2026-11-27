@@ -22,7 +22,7 @@ chapters: {"pages":{"de/adapterref/iobroker.awtrix-ng/README.md":{"title":{"de":
 
 - nodejs 22 (oder neuer)
 - js-controller 6.0.11 (oder neuer)
-- Admin Adapter 7.6.20 (oder neuer)
+- Admin Adapter 7.8.23 (oder neuer)
 - _Awtrix NG_ Gerät mit Firmware-Version _1.2.3_ (oder neuer) - z.B. Ulanzi TC001, Ulanzi TC002
 
 - TC001 kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) oder [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) *(Affiliate-Links)*
@@ -34,23 +34,17 @@ chapters: {"pages":{"de/adapterref/iobroker.awtrix-ng/README.md":{"title":{"de":
 2. Installiere den awtrix-ng Adapter im ioBroker (und erstelle eine neue Instanz)
 3. Öffne die Instanz-Konfiguration und hinterlege die IP-Adresse des Gerätes im lokalen Netzwerk (und den Port, falls dieser am Gerät geändert wurde - Standard ist 80)
 
+Beim Adapterstart wird automatisch nach Firmware-Updates gesucht. Eine manuelle Prüfung lässt sich über `device.firmware.checkUpdate` auslösen. Das Ergebnis wird in `device.firmware.available` und die neueste Version in `device.firmware.latestVersion` angezeigt. `device.firmware.status` zeigt den Prüf- bzw. Installationsstatus und mögliche Fehler. Mit `device.firmware.install` wird ein verfügbares Update heruntergeladen, geprüft und auf dem Gerät installiert. Das Gerät startet anschließend neu.
+
 ## FAQ (häufig gestellte Fragen)
-
-**Kann ich den Adapter verwenden, um die Standard-Apps zu deaktivieren (wie den Batteriestand oder die Sensordaten)?**
-
-Nein, dieses Feature wurde in der awtrix-ng Firmware mittlerweile entfernt. Nutze das Menu auf dem Gerät selbst um diese Apps dauerhaft zu verstecken.
 
 **Kann man Logikwerte (true/false) mit anderen Texten ersetzen?**
 
 Erstelle dafür einfach einen Alias in `alias.0` vom Typ `string` (Zeichenkette) und konvertiere den Logikwert mit einer Lesefunktion in einen beliebigen anderen Wert (beispielsweise `val ? 'offen' : 'geschlossen'`). *Das ist ein Standard-Feature vom ioBroker und hat nichts direkt mit diesem Adapter zu tun.*
 
-**Das Gerät wird heiß während es geladen wird.**
-
-Das Hardware-Design ist leider nicht optimal. Es wird empfohlen, ein möglichst schwaches Netzteil zu verwenden, welches maximal 1A liefern kann.
-
 **Kann ein anderes Zahlenformat hinterlegt werden?**
 
-Alle Zustände vom Typ Zahl (common.type `number`) werden so formatiert, wie es im ioBroker konfiguriert ist. Das Standard-Format des Systems kann mit einer Experten-Einstellung überschrieben werden (seit Adapter-Version 0.7.1). Zahlen können in den folgenden Formaten dargestellt werden:
+Alle Zustände vom Typ Zahl (common.type `number`) werden in benutzerdefinierten Apps so formatiert, wie es im ioBroker konfiguriert ist. Das Standard-Format des Systems kann in den Instanz-Einstellungen (Tab Apps) überschrieben werden. Zahlen können in den folgenden Formaten dargestellt werden:
 
 - System-Standard
 - `xx.xxx,xx`
@@ -60,13 +54,13 @@ Alle Zustände vom Typ Zahl (common.type `number`) werden so formatiert, wie es 
 
 **Kann man den Zugriff auf die Weboberfläche der awtrix-ng beschränken?**
 
-Ja, seit Firware-Version 0.82 kann der Zugriff mit einem Benutzernamen und Passwort geschützt werden. Seit Adapter-Version 0.8.0 können diese Benutzerdaten ebenfalls in den Instanz-Einstellungen hinterlegt werden.
+Ja, der Zugriff kann auf dem Gerät mit einem Benutzernamen und Passwort geschützt werden. Diese Zugangsdaten müssen dann ebenfalls in den Instanz-Einstellungen hinterlegt werden.
 
 **Wie funktioniert die halten-Option bei Benachrichtigungen?**
 
 Wenn eine Benachrichtigung mit der Option `hold: true` gesendet wird, bleibt der Text auf dem Display so lange stehen, bis die Benachrichtigung bestätigt wird. Das kann entweder über den mittleren Taster auf dem Gerät passieren, oder indem der Zustand `notification.dismiss` auf `true` gesetzt wird.
 
-**Einige Zustandsänderungen werden nich sofort dargestellt.**
+**Einige Zustandsänderungen werden nicht sofort dargestellt.**
 
 Falls ein Zustand sehr oft geändert wird (z.B. jede Sekunde), werden einige Änderungen ignoriert und nicht übertragen, damit die Last auf dem Gerät gering gehalten wird. Dafür hat jede App eine eigene "Block-Zeit", welche global in den Instanz-Einstellungen konfiguriert werden kann. Die Standard-Zeit ist 3 Sekunden. Es ist nicht empfohlen, ein Wert kleiner als 3 zu setzen.
 
@@ -80,7 +74,7 @@ Beispiel
 2. Lege eine weitere Instanz für das zweite Gerät an (`awtrix-ng.1`)
 3. Wähle `awtrix-ng.0` in den Instanz-Einstellungen von `awtrix-ng.1` um die gleichen Apps auf dem zweiten Gerät darzustellen
 
-Seit Version 0.15.0 (und neuer) wird die Sichtbarkeit von benutzerdefinierten Apps und alle Inhalte der Experten-Apps auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-ng.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-ng.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
+Die Sichtbarkeit von benutzerdefinierten Apps und alle Inhalte der Experten-Apps werden auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-ng.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-ng.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
 
 ## Blockly und JavaScript
 
@@ -212,9 +206,8 @@ Der ausgewählte Zustand sollte vom Datentyp Zeichenkette `string` oder Zahl `nu
 
 Die folgenden Kombinationen führen zu einer Warnung im Log:
 
-- Eine benutzerdefinierte App mit einer gewählten Objekt-ID enthält nicht den Platzhalter `%s` im Text
+- Eine benutzerdefinierte App mit einer gewählten Objekt-ID enthält nicht den Platzhalter `%s` im Text (Zustandsänderungen werden dann ignoriert)
 - Eine benutzerdefinierte App wird mit einer gewählten Objekt-ID ohne Einheit in `common.unit` angelegt, aber `%u` ist im Text enthalten
-- Es wird keine Objekt-ID ausgewählt, aber `%s` im Text verwendet
 
 ### Historische Apps / Graphen
 
@@ -224,7 +217,7 @@ TODO
 
 ### Experten Apps
 
-Experten-Apps sind seit Adapter-Version 0.10.0 verfügbar. Diese Apps erlauben es, alle Werte manuell über Zustände zu setzen und diese mit eigenen Logiken zu steuern. Um eine neue Experten-App zu erstellen:
+Experten-Apps erlauben es, alle Werte manuell über Zustände zu setzen und diese mit eigenen Logiken zu steuern. Um eine neue Experten-App zu erstellen:
 
 - Öffne das Tab Expertenoptionen in den Instanz-Einstellungen
 - Erstelle eine neue Experten-App mit einem frei wählbaren Namen (z.B. `test`)
@@ -245,8 +238,9 @@ Siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/reference/payload/)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.0 (2026-11-26)
 
+* (@Voodoo2man) Added states to check for and install Awtrix NG firmware updates.
 * (@klein0r) Added state `display.overlay` to set a global weather overlay for all apps
 * (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.3
 
@@ -296,11 +290,6 @@ Siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/reference/payload/)
 * (@klein0r) Added additional meta information (soc and board type)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 0.1.0 (2026-08-11)
-
-* (@klein0r) Used new audio API endpoint for all types of sounds (file, mp3, rtttl)
-* (@klein0r) Recommended Awtrix NG version is now 1.1.0
 
 ## License
 

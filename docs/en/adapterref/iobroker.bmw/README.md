@@ -172,7 +172,7 @@ The adapter receives real-time updates via MQTT streaming when:
 
 **Available Remote Controls:**
 
-The BMW CarData API is read-only, so this adapter does not provide vehicle command functionality. For remote control capabilities, use:
+The BMW CarData API is read-only, so this adapter does not provide vehicle command functionality directly. To trigger commands such as climate control from ioBroker, see the [iOS Shortcuts workaround](#ios-shortcuts-workaround) below. For remote control capabilities, use:
 
 **Official BMW Solutions:**
 
@@ -193,6 +193,42 @@ The BMW CarData API is read-only, so this adapter does not provide vehicle comma
 - `smartMaintenanceTyreDiagnosis` - Fetch tyre diagnosis data
 
 _Note: These are data retrieval commands only - no vehicle control commands are supported by the BMW CarData API._
+
+### iOS Shortcuts workaround
+
+You can use an iPhone with the My BMW app to trigger vehicle commands such as climate control from ioBroker. ioBroker sends an email or Telegram message to your iPhone, an automation in Apple's **Shortcuts** app matches it, and a BMW shortcut action starts climate control. The vehicle command is sent by the My BMW app; this does not add command support to the CarData API.
+
+#### Prepare the iPhone
+
+1. Open the **My BMW app**, go to your profile and set up or allow **"Siri und iOS-Steuerung"** (Siri and iOS controls).
+2. Open **Shortcuts** ("Kurzbefehle") and create an automation. Depending on your iOS version, use **Automation > +**, or create a shortcut with **+**, select **Edit** ("Bearbeiten") and add an automation trigger under **When** ("Wenn"). If your version offers AI-generated shortcuts, you can also describe the automation and then check its trigger, filters and BMW action in the editor.
+3. Add the My BMW action **"Klimaanlage starten"** or **"Climatize (Control Center)"** and select your vehicle if prompted. Use the BMW action itself, rather than an action that only opens the app. Run it once manually to grant any required permissions and verify that it works.
+4. Enable the automation and configure it to run without confirmation: select **Run Immediately** or disable **"Vor dem Ausführen bestätigen"**, depending on the interface. If needed, allow the shortcut to run while the iPhone is locked in its privacy settings. For unattended operation, the selected BMW action must also run without an additional Face ID check or other confirmation.
+
+#### Option 1: Email
+
+1. Configure the receiving mailbox in **Apple Mail** on the iPhone. The email must actually arrive in that mailbox on the device.
+2. Choose the **Email** trigger ("Wenn ich eine E-Mail erhalte"). Set both filters: **Sender** is the address used by ioBroker, and **Subject contains** `BMW Klima an`. Use a dedicated subject so unrelated emails do not trigger the command.
+3. Use the BMW climate action and the automatic execution settings described above.
+4. In ioBroker, send an email to that mailbox using your email adapter whenever your desired trigger occurs, for example a button press or a schedule. Use the configured sender and the subject `BMW Klima an`.
+
+The example below shows the sender/subject filters, the enabled automation, confirmation disabled and the BMW climate action:
+
+![iOS email automation with subject BMW Klima an and the BMW climate action](img/siri.png)
+
+#### Option 2: Telegram
+
+1. Configure your ioBroker Telegram adapter to send a message to the Telegram account on your iPhone. Make sure notifications for the receiving chat are enabled and reach the device.
+2. In Shortcuts, choose the **Notification** trigger ("Mitteilung") and select **Telegram**: **"Wenn ich eine Mitteilung von Telegram erhalte"**. This option requires an iOS version that offers the notification trigger. If it is not available on your device, use the email option instead.
+3. Filter the notification message so it matches your command text exactly, for example `BMW Klima an`. If needed, add an **If** ("Wenn") condition before the BMW action to compare the text. Only run the action when the text matches.
+4. Add **"Klimaanlage starten"** or **"Climatize (Control Center)"** from My BMW and enable automatic execution as described above.
+5. Have ioBroker send exactly `BMW Klima an` when your chosen trigger occurs. The incoming Telegram notification then triggers the BMW action.
+
+SMS is another option if your ioBroker setup can send SMS: use the **Message** trigger with the expected sender and command text, then run the same BMW action.
+
+Test the complete flow with the iPhone locked. The iPhone must be online and able to receive the email or notification; delivery delays also delay the vehicle command. Other commands can be set up in the same way if My BMW exposes a suitable shortcut action for your vehicle.
+
+Apple documents the automation setup and permissions in the [Shortcuts User Guide](https://support.apple.com/guide/shortcuts/add-automations-apdfbdbd7123/ios). Menu names and available triggers can differ between iOS and My BMW app versions.
 
 ## Troubleshooting
 
@@ -249,6 +285,10 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (hombach) retry vehicle discovery and always schedule periodic telematic updates when the vehicle lookup fails at startup (e.g. DNS not ready after a host reboot); network errors without a server response no longer count against the daily API quota
+
 ### 5.0.6 (2026-11-18)
 
 - (hombach) report MQTT as connected only after a successful subscription acknowledgement

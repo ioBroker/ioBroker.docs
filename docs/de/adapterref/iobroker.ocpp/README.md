@@ -23,7 +23,7 @@ BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.
 
 ## Haftungsausschluss (Disclaimer)
 
-Die Entwickler dieses Moduls werden in keiner Weise von der Open Charge Alliance oder verbundenen Unternehmen unterstützt und stehen in keiner offiziellen Verbindung zu deren Marken oder Logos.
+Die Entwickler dieses Adapters werden in keiner Weise von der Open Charge Alliance oder verbundenen Unternehmen unterstützt und stehen in keiner offiziellen Verbindung zu deren Marken oder Logos.
 
 ## OCPP-Adapter für ioBroker
 
@@ -36,9 +36,24 @@ Adapter zur lokalen Einbindung und Steuerung von OCPP 1.6-J kompatiblen Wallboxe
 
 ## Konfiguration
 
-- **Server-Port:** TCP-Port, auf dem der OCPP-WebSocket-Server lauscht (Standard: `9220`). In der Wallbox wird als OCPP-Backend-URL `ws://<iobroker-ip>:9220/<Wallbox-ID>` eingetragen.
+- **Server-Port:** TCP-Port, auf dem der OCPP-WebSocket-Server lauscht (Standard: `9220`).
+  In der Wallbox wird als OCPP-Backend-URL `ws://<iobroker-ip>:9220/<Wallbox-ID>` eingetragen (bzw. `wss://...`, wenn TLS aktiviert ist).
 - **Führenden Schrägstrich (`/`) aus Wallbox-IDs entfernen (`stripLeadingSlash`):** Für Neuinstallationen oder Node-RED-Kompatibilität aktivieren, damit Geräte-Objekte als `ocpp.0.EVB-P123456` statt `ocpp.0./EVB-P123456` (bzw. `ocpp.0.http://192_168_178_80:9220/EVB-P123456` bei Wallboxen wie EVBox, die beim Handshake eine komplette URL senden) angelegt werden. Bei Bestandsinstallationen deaktiviert lassen, um bestehende Objekt-IDs beizubehalten.
 - **Authentifizierung:** Optionale HTTP Basic-Authentifizierung (`username` und `password`) beim WebSocket-Verbindungsaufbau.
+- **TLS / Verschlüsseltes WebSocket (`wss://`, optional):**
+    - **TLS verwenden (`wss://`) (`secure`):** Im normalen Heimnetz reicht in der Regel das unverschlüsselte `ws://` völlig aus. Aktiviere diese Option nur, wenn deine Wallbox `wss://` voraussetzt oder du die Verbindung gezielt verschlüsseln möchtest.
+    - **So funktioniert die Zertifikatsauswahl in ioBroker:**
+        - Zertifikate werden in ioBroker zentral unter **Admin -> Systemeinstellungen -> Zertifikate** verwaltet (z. B. die bereits vorhandenen Standardzertifikate `defaultPublic` / `defaultPrivate`, eigene hochgeladene Zertifikate oder automatische Let's-Encrypt-Zertifikate über `iobroker.acme`).
+        - Sobald **TLS verwenden (`wss://`)** aktiviert ist, wählst du in den Adapter-Einstellungen einfach die passenden Einträge aus:
+            - **Öffentliches Zertifikat (`certPublic`):** Dein Server-Zertifikat.
+            - **Privates Zertifikat (`certPrivate`):** Der zugehörige private Schlüssel.
+            - **Verkettetes Zertifikat (`certChained`):** Optional, falls dein Zertifikatsanbieter eine zusätzliche Zertifikatskette verlangt.
+
+    - **Hilfreiche Tipps:**
+        - Viele Wallboxen akzeptieren im Auslieferungszustand nur offiziell signierte Zertifikate (z. B. Let's Encrypt) und lehnen selbstsignierte Zertifikate wie `defaultPublic` ab, solange sie nicht in der Wallbox hinterlegt wurden. Falls die Verbindung nicht klappt, hilft ein Blick ins Adapter-Log (`TLS handshake error`).
+        - Bei einem Domain-Zertifikat (z. B. Let's Encrypt) sollte sich die Wallbox über den passenden Domainnamen verbinden (`wss://deine-domain.example:9220/<Wallbox-ID>`), nicht über die lokale IP-Adresse.
+        - Nach einer Erneuerung oder Änderung eines Zertifikats in ioBroker reicht ein kurzer Neustart der `ocpp`-Instanz.
+        - Wenn du bereits einen Reverse-Proxy (z. B. Nginx, Traefik oder Caddy) für TLS nutzt, lasse **TLS verwenden** im Adapter einfach deaktiviert und leite auf `ws://<iobroker-ip>:9220` weiter.
 
 ## Smart Charging & PV-Überschussladen
 
@@ -70,18 +85,19 @@ Adapter zur lokalen Einbindung und Steuerung von OCPP 1.6-J kompatiblen Wallboxe
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	### 1.1.0 (2026-11-22)
 -->
 
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-11-22)
 
+* (meistermopper) Native TLS-Unterstützung (wss://) mit ioBroker-Zertifikaten ergänzt (#58)
 * (meistermopper) Weblate-Übersetzungs-Badge ergänzt
 
 ### 1.0.0 (2026-11-09)
 
-* (meistermopper) Repochecker-Warnungen behoben: nogit, info.connection-Rolle und ungenutzte Deps (#117)
-* (meistermopper) Workflow-Concurrency und Timer-Wrapper an Repochecker angepasst (#121)
-* (meistermopper) TxProfile-Schema korrigiert und ClearChargingProfile bei null chargeLimit ergänzt
+- (meistermopper) Repochecker-Warnungen behoben: nogit, info.connection-Rolle und ungenutzte Deps (#117)
+- (meistermopper) Workflow-Concurrency und Timer-Wrapper an Repochecker angepasst (#121)
+- (meistermopper) TxProfile-Schema korrigiert und ClearChargingProfile bei null chargeLimit ergänzt
 
 ### 1.0.0-alpha.4 (2026-11-09)
 
@@ -134,28 +150,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-11-22)
+
+* (meistermopper) add native TLS (wss://) certificate support (#58)
 * (meistermopper) add Weblate translation status badge
 
 ### 1.0.0 (2026-11-09)
-* (meistermopper) fix repochecker findings: nogit, info.connection role, and unused deps (#117)
-* (meistermopper) align workflow concurrency and timer wrappers with repochecker (#121)
-* (meistermopper) fix TxProfile schedule kind and add ClearChargingProfile on null chargeLimit
+
+- (meistermopper) fix repochecker findings: nogit, info.connection role, and unused deps (#117)
+- (meistermopper) align workflow concurrency and timer wrappers with repochecker (#121)
+- (meistermopper) fix TxProfile schedule kind and add ClearChargingProfile on null chargeLimit
 
 ### 1.0.0-alpha.4 (2026-11-09)
-* (meistermopper) migrate to ESLint 9 and @iobroker/eslint-config (#33)
-* (meistermopper) replace legacy `@ampeco/ocpp-eliftech` with native TypeScript OCPP 1.6J server
-* (meistermopper) fix SmartCharging removal when `GetConfigurationMaxKeys` truncates response (#65)
-* (meistermopper) use `TxProfile` for `RemoteStartTransaction` and track `transactionId` (#24, #65)
-* (meistermopper) prevent zombie sockets on reconnect (#20) and serialize outgoing OCPP commands
-* (meistermopper) support `DiagnosticsStatusNotification` and `FirmwareStatusNotification` (#32)
-* (meistermopper) add `stripLeadingSlash` option and responsive `jsonConfig` with i18n (#30, #60)
+
+- (meistermopper) migrate to ESLint 9 and @iobroker/eslint-config (#33)
+- (meistermopper) replace legacy `@ampeco/ocpp-eliftech` with native TypeScript OCPP 1.6J server
+- (meistermopper) fix SmartCharging removal when `GetConfigurationMaxKeys` truncates response (#65)
+- (meistermopper) use `TxProfile` for `RemoteStartTransaction` and track `transactionId` (#24, #65)
+- (meistermopper) prevent zombie sockets on reconnect (#20) and serialize outgoing OCPP commands
+- (meistermopper) support `DiagnosticsStatusNotification` and `FirmwareStatusNotification` (#32)
+- (meistermopper) add `stripLeadingSlash` option and responsive `jsonConfig` with i18n (#30, #60)
 
 ### 1.0.0-alpha.3 (2026-11-08)
+
 - (mcm1957) Adapter has been migrated to iobroker-communities organisation
 - (copilot) Adapter requires js-controller >= 7.2.5 now
 - (copilot) Adapter requires admin >= 8.3.5 now
@@ -163,12 +185,11 @@ SOFTWARE.
 - (mcm1957) Dependencies have been updated
 
 ### 0.12.5 (2023-02-09)
-* (foxriver76) revert changes of 0.12.4
 
-### 0.12.3 (2023-02-07)
-* (foxriver76) allow deactivating `numberPhases` by setting `null
+- (foxriver76) revert changes of 0.12.4
 
 ## License
+
 MIT License
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  

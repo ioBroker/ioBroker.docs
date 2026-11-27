@@ -206,7 +206,7 @@ Manufacturer: [Anker SOLIX](https://www.anker.com/anker-solix) ([support / downl
 | **smartmeter** | Anker 3-phase, US meter, Shelly 3EM / 3EM Pro, **Smart Meter Gen 2** (AE1X0) | yes | **Gen 2** (read-only) |
 | **inverter** | MI80 standalone (virtual site in API) | yes | — |
 | **smartplug** | Smart Plug 2500 W, **Smart Plug Gen 2** | yes | **Gen 2** (`power_switch`) |
-| **pps** / **solarbank_pps** | Portable power stations | mostly MQTT | — |
+| **pps** / **solarbank_pps** | Portable power stations, e.g. C300/C300X (A1722/A1723), **S2000** (AS220) | mostly MQTT | — |
 | **ev_charger** | V1 Smart EV Charger | mostly MQTT | **Modbus TCP** (local) |
 | **vehicle** | Virtual EVs for charger accounts | read-oriented | — |
 | **powerpanel** / **hes** | US Power Panel, X1 HES | limited API | **X1 Modbus TCP** (local) |
@@ -300,6 +300,10 @@ SOC reserve, PV/AC limits, grid export often need **API + MQTT** (hybrid). Third
 ### PPS / Solarbank PPS (F3000 + US meter)
 
 Automation-style home backup in US; control mainly via MQTT.
+
+### SOLIX C300X (A1723) / C300 (A1722) / S2000 (AS220)
+
+Enable **MQTT** for live telemetry and controls — the cloud API only exposes SOC for these portable power stations. Via MQTT: AC/DC output switches, light/display mode, display & device timeouts, AC (re)charge limit, port memory switch, plus sensors for temperature, remaining runtime, per-port USB-C/USB-A power, and charging status.
 
 ### EV charger (V1)
 
@@ -447,6 +451,33 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 ---
 
 ## Changelog
+
+### 0.10.114 (GitHub interim — not on npm yet)
+
+- **Fix (#24):** AS220 **SOLIX S2000** — MQTT `ac_charge_limit` / `ac_input_limit` minimum **100 W** (was 200 W); entity metadata max **2400 W** (device variant still clamps via `ac_input_limit_max`)
+
+### 0.10.113 (GitHub interim — not on npm yet)
+
+- **Feature (#26):** Push MQTT telemetry into ioBroker states between polls (~1.5s debounce) so PPS/live sensors update faster than `scanInterval` (still min 30s for cloud HTTP). Test via GitHub install before npm.
+
+### 0.10.112
+
+- **Feature (#24):** PPS **SOLIX S2000** (AS220) — MQTT map `_A1783_0421`: remaining runtime, AC output fields; sensors `pps_ac_output_power`, `pps_remaining_time_hours`; writable `pps_min_soc` / `pps_max_soc` via MQTT `soc_limits` (`python/solixapi/mqttmap.py`, `python/bridge.py`, `python/extended_entities.py`)
+
+### 0.10.111
+
+- **Fix (#24):** MQTT `realtime_trigger` refresh — PPS **SOLIX S2000** (AS220) and similar devices receive live telemetry over MQTT without keeping the Anker mobile app connected (`python/ha_api_client.py`)
+
+### 0.10.110
+
+- **Feature (#22):** Main battery SOC — `device_soc` sensor under Diagnostics (`value.battery`, %)
+- **Repo checker (#14):** `@iobroker/testing` 6.3.2 (E0036); macOS (`darwin`) added to `package.json` `os` and CI matrix; `testing-action-check@v2` (S3044)
+- **Workflows:** Dependabot automerge PR #21 closed — changes already covered by #14
+
+### 0.10.109
+
+- **Feature (#24):** PPS **SOLIX S2000** (AS220) — native MQTT device classification and telemetry map (reuses C2000 Gen 2 path where applicable)
+- **Feature (#25):** PPS **SOLIX C300X** (A1723) — expanded MQTT telemetry; writable AC/DC limits, light, and display controls
 
 ### 0.10.108
 

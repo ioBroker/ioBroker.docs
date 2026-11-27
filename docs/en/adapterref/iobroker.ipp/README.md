@@ -3,7 +3,8 @@
 ![Network printer monitoring illustration](admin/ipp-banner.jpg)
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.ipp.svg)](https://www.npmjs.com/package/iobroker.ipp)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.ipp.svg)](https://www.npmjs.com/package/iobroker.ipp)
+![Number of Installations](http://iobroker.live/badges/ipp-stable.svg)
+![Number of Installations](http://iobroker.live/badges/ipp-installed.svg)
 
 ## ioBroker Internet Printing Protocol Adapter
 
@@ -15,9 +16,17 @@ Node.js 22 or newer, Admin 8.2.0 or newer, and js-controller 7.2.2 or newer are 
 
 ## Configuration
 
-Configure polling interval and request timeout at the top of the adapter configuration page. Add and manage printers below using the Device Manager. Use its **Add printer**, **Edit**, and **Remove** actions; printer cards show the configured host, live connection state, and model when reported. During printer removal or legacy cleanup, the adapter preserves an object subtree if any descendant state has `common.custom` settings and logs a warning. A removed printer is no longer polled, so retained values may become stale; after transferring or removing the custom settings, delete the retained objects manually if desired.
+Configure polling interval and request timeout at the top of the adapter configuration page. Add and manage printers below using the Device Manager. Use its **Add printer**, **Discover printers**, **Edit**, and **Remove** actions; printer cards show the configured host, live connection state, and model when reported. During printer removal or legacy cleanup, the adapter preserves an object subtree if any descendant state has `common.custom` settings and logs a warning. A removed printer is no longer polled, so retained values may become stale; after transferring or removing the custom settings, delete the retained objects manually if desired.
 
-Printer configurations are stored in backed-up file storage per adapter instance (for example, at `ipp.0/printer-config.json`) so saving other instance settings in Admin cannot overwrite concurrent Device Manager changes. Existing `native.printers` configurations and per-instance legacy configurations stored at `ipp.0.info.printerConfig/printers.json` are migrated automatically on first startup. The former shared `ipp/printer-config.json` file is not migrated automatically because its owning instance cannot be determined safely; restore its printer list through the appropriate instance's Device Manager. Existing printers with the legacy ID `info` remain usable regardless of capitalization; new printers cannot use `info` in any capitalization.
+Printer configurations use backed-up file storage per instance (for example, `ipp.0/printer-config.json`). Legacy `native.printers` and per-instance files are migrated automatically. The former shared `ipp/printer-config.json` must be restored manually through the appropriate instance's Device Manager. Existing `info` IDs remain usable, but new printers cannot use `info`.
+
+## Automatic printer discovery
+
+Use **Discover printers** in the Device Manager to find `_ipp._tcp` and `_ipps._tcp` services via mDNS on available IPv4 and IPv6 interfaces (up to ten seconds). The scan combines records across responses, requests SRV/TXT details, and does not contact printers or submit print jobs.
+
+Review each result before adding it. The advertised SRV record supplies the host and port; TXT `rp` supplies the resource path. If `rp` is missing or invalid, verify the path before saving. IPPS is preferred when both protocols identify the same printer, and existing configurations are skipped. `ioBroker.discovery` can suggest an adapter instance, but add individual printers here.
+
+Discovery requires mDNS multicast to reach the printer network; firewalls or isolated VLANs may block it. There is no subnet or port scan. Debug logging reports response, service-record, and accepted-result counts.
 
 | Setting | Description |
 | --- | --- |
@@ -37,17 +46,30 @@ When a printer is switched off or temporarily unreachable, the adapter marks it 
 
 ## States
 
-Each configured printer gets a device with `status`, `supplies`, `counters`, and `details` channels. Supplementary scalar numeric, boolean, and string IPP attributes are created directly under `details` (for example, `details.printer_up_time`); string values are exposed as returned and may contain printer-localized text. Arrays and structured values are omitted, and attributes already represented by canonical status, model, and counter states are not duplicated. The adapter requests all IPP attributes and creates states for returned values except explicitly excluded capabilities, verbose attribute families, and raw marker values; selected capability/default attributes are retained. Canonical lower-case attribute names made of alphanumeric segments separated by single hyphens keep their normalized IDs; other source names receive deterministic suffixes. Previously published IDs can change if a source name was non-canonical or if collision handling had assigned a numeric suffix; old detail states are cleared after a successful poll, so automations using those IDs may need updating. `status.online` is always present; `status.model`, `status.message`, and numeric `status.state` are published when supported. The complete trimmed `printer-make-and-model` value is exposed as `status.model`. Status messages use English labels derived from IPP reason keywords, including recognized `-report`, `-warning`, and `-error` suffixes, or from the canonical printer state; the device-provided `printer-state-message` is not published. The state value is `0` (`off`) while the printer is unreachable, and returns to the reported IPP state when it reconnects. Previously read measurements remain available while offline, and the last toner readings are retained if a poll does not include valid supply data. Supply names use recognized English marker color/type labels instead of raw `marker-names`; an English generic name is used when those labels are unavailable. IPP `marker-levels` are already percentage values and are used directly; optional low/high marker levels do not rescale them. Invalid, reserved, or out-of-range values are skipped, while a supply keeps its original position in the printer's marker arrays. `pages_completed`, `impressions_completed`, and `media_sheets_completed` are created only when the printer reports them. Missing counter and detail values are cleared rather than replaced with zero during successful polls, including after adapter restarts. Request details are not logged.
+Each printer has `status`, `supplies`, `counters`, and `details` channels.
 
-For supply reporting, the adapter combines each `marker-names` entry with the same-position `marker-levels` entry; recognized `marker-types` and `marker-colors` provide an English display name, while the original marker name is retained for the existing state ID. If no recognized type is available, the display name is `Supply N`. A supply is skipped if its name or percentage value is missing, invalid, or outside 0-100. Counters map from `pages-completed`, `impressions-completed`, and `media-sheets-completed` to `pages_completed`, `impressions_completed`, and `media_sheets_completed`. When reporting missing values, include the printer model and firmware, which of these IPP attributes the printer returns, and the raw values or state IDs that are absent.
+- **Status:** `online` is always available; model, message, and numeric state are published when supported. An unreachable printer has state `0` (`off`), and its last readings are retained while offline. Model values use the complete `printer-make-and-model`; messages use English IPP reason/state labels.
+- **Supplies:** Toner and ink levels use IPP `marker-levels` directly as percentages. Display names use recognized marker type/color labels or fall back to `Supply N`.
+- **Counters:** `pages_completed`, `impressions_completed`, and `media_sheets_completed` are created only when reported. Missing counter and detail values are cleared after a successful poll, including after a restart.
+- **Details:** Returned scalar numeric, boolean, and string attributes not already represented elsewhere are exposed, except attributes the adapter explicitly excludes (such as capability/default fields and raw marker values); arrays and objects are omitted. IDs derive from attribute names and may change for non-canonical names or collisions.
 
-[![Donate with PayPal](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
+<a href="https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ">
+  <img src=".github/Donate_eng.png" alt="Mit PayPal spenden" width="220">
+</a>
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2026-11-25)
+
+- (Voodoo2man) Improved discovery across IPv4 addresses and scoped IPv6 interfaces, matched DNS-SD names case-insensitively, and combined split mDNS service records with diagnostics.
+
+### 0.4.0 (2026-11-22)
+
+- (Voodoo2man) Added manual IPP/IPPS printer discovery with review-before-save in the Device Manager and shared-instance detection support for `ioBroker.discovery`.
+
 ### 0.3.0 (2026-11-19)
 
 - (Voodoo2man) Exposed printer online/offline status in ioBroker Admin.
@@ -65,14 +87,6 @@ For supply reporting, the adapter combines each `marker-names` entry with the sa
 
 - (Voodoo2man) Hardened IPP response handling, corrected supply percentages and state clearing, preserved legacy printer configurations, normalized printer IDs, refreshed state metadata, localized Device Manager actions, scheduled polls after each completed cycle, and isolated Device Manager storage from Admin saves.
 - (Voodoo2man) Aligned saved endpoint validation with polling, made colliding dynamic detail IDs unique, and removed unused UI translation entries.
-
-### 0.1.1 (2026-11-07)
-
-- (Voodoo2man) Kept the last toner readings when printers temporarily omit supply data.
-
-### 0.1.0 (2026-11-03)
-
-- (Voodoo2man) Replaced the printer list with Device Manager configuration and split basic settings into a separate tab.
 
 Older release notes are available in CHANGELOG_OLD.md.
 

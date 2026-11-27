@@ -9,7 +9,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.unifi-network.png?downloads=true)](https://nodei.co/npm/iobroker.unifi-network/)
 
-**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg) ![Coverage](https://img.shields.io/badge/coverage-96%25-brightgreen)
+**Tests:** ![Test and Release](https://github.com/Scrounger/ioBroker.unifi-network/workflows/Test%20and%20Release/badge.svg) ![Coverage](https://img.shields.io/badge/coverage-98%25-brightgreen)
 
 ## unifi-network adapter for ioBroker
 
@@ -113,6 +113,13 @@ Fixtures are stored in `test/fixtures/local/` and are git-ignored, as they conta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.2 (2026-11-26)
+
+- (Scrounger) bug fixes in user sync, client updates, whitelist and API timeouts
+- (Scrounger) state properties (step, expert, icon) and timestamps updated correctly
+- (Scrounger) warning texts corrected
+- (Scrounger) performance optimizations
+
 ### 1.6.1 (2026-11-20)
 
 - (Scrounger) bug fixes found by adapter checker
@@ -156,13 +163,6 @@ Fixtures are stored in `test/fixtures/local/` and are git-ignored, as they conta
 - (Scrounger) event messages for dream machines compatibility < v10.x added #72
 - (Scrounger) weblate translation added
 - (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases #56
-
-### 1.3.1 (2025-12-01)
-
-- (Scrounger) null bug fix #48
-- (Scrounger) dependencies updated
-- (Scrounger) event messages improved #46
-- (Scrounger) bug fixes
 
 ## License
 

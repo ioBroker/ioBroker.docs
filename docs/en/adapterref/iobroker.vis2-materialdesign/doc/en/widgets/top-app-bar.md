@@ -83,6 +83,12 @@ drawer ignores it, and so does the editor. On phones with gesture navigation the
 same swipe is the system's "back" gesture, so the option suits wall tablets in
 kiosk mode more than phones.
 
+On the left the submenus unfold below their entry, over three levels; on the
+right the same selection with submenus in place of the list and the back row at
+the top:
+
+<img src="../../media/vis2_top_app_bar_levels.png" width="380" alt="Drawer with submenus unfolded over three levels"> <img src="../../media/vis2_top_app_bar_slide.png" width="380" alt="Drawer with the submenu EG in place of the list and the back row">
+
 <img src="../../media/vis2_top_app_bar_horizontal.png" alt="Top app bar with the layout horizontal and the list under Haus open">
 
 With the layout `horizontal` the top-level entries stand side by side in the bar,
@@ -93,7 +99,8 @@ click on the entry or scrolling closes it. The list opens at runtime only, not i
 the editor. Entries that do not fit into the bar move into **More ▾** at its end.
 The selected entry, or for a submenu entry its entry in the bar, is highlighted,
 and **More** when that entry sits inside it. Icons in the bar take the bar's text
-color. The title takes at most half of the bar.
+color. The entries take **font of list item** and **textsize of list item**, so an
+entry looks the same in the bar and in the drawer. The title takes at most half of the bar.
 
 Below the width in **layout 'auto' / 'horizontal': switch at a width of at least**
 (800 px by default) the bar shows the menu button and the drawer as with `modal`.
@@ -129,12 +136,13 @@ Menu entries come from the data and item groups:
 - **icon** with its colors and **submenus** – the latter a JSON array in the
   same format as above. A submenu entry can have `"subMenus"` of its own
   (building → ground floor → living room, up to ten levels); every level from the
-  second on is indented one step further. A submenu entry gets its icon from
+  second on is indented one step further. A level shows at most 100 entries and
+  the whole menu at most 1000; entries beyond that are left out. A submenu entry gets its icon from
   `"icon"` (color `"iconColor"`, otherwise the entry's **sub menu icon color**)
   and a separator below it from `"divider": true`, for example
   `[{ "text": "Living room", "icon": "sofa", "divider": true }, { "text": "Kitchen", "icon": "fridge" }]`.
   An entry with a submenu only expands on click; **set
-  value on click at item that toggle submenu** also writes its index.
+  value on click at item that toggle submenu** also writes its index, on opening and on closing alike, in the horizontal bar too.
 - **URL** / **open URL in** – an entry with a URL opens that page instead of
   selecting a view, in a `new tab` or the `same tab`; nothing is written to the
   object ids. In the JSON string this is `"url"` with `"urlTarget": "_self"` for

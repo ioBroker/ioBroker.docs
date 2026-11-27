@@ -164,6 +164,11 @@ General settings for the device can be made here. For example, the light of an o
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (eifel-tech) Flag for selecting program without starting it
+
 ### 1.7.1 (2026-10-08)
 
 - (eifel-tech) Optimizing heartbeat (Issue #566)

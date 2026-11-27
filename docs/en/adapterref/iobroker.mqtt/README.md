@@ -806,6 +806,9 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@Schimi1983) Server mode, QoS 1/2: MQTT 5 clients no longer get a message again while the connection stands, only after a reconnect with a kept session. After the client confirmed a QoS 2 message with PUBREC, only the PUBREL is repeated instead of the whole message. A message is marked as a duplicate only when it is really sent again. A QoS 2 message that a client sends twice, and a repeated PUBREL, are confirmed again instead of being ignored, so the client does not repeat them forever. Two QoS 2 messages completed at the same moment could deliver one twice and keep the other one in the queue
+
 ### 9.3.0 (2026-11-17)
 - (@GermanBluefox) Client mode reconnects after the broker refused the login (CONNACK error), e.g. while the broker is still starting (#703)
 - (@Schimi1983) Client mode: new setting "Do not subscribe" to only send ioBroker states to the broker; an empty pattern field still subscribes to all topics (#319)

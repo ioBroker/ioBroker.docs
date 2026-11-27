@@ -104,6 +104,16 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (Schimi1983) fixed calculator "best cost" switching ON when no current price is known - output now stays OFF
+- (Schimi1983) fixed live feed field "accumulatedReward" being requested by the "accumulatedCost" option instead of its own option
+- (Schimi1983) fixed calculator StopTime state not being written with the value rounded to 15 minutes
+- (Schimi1983) calculator "Active" states now also accept "true"/"false" strings (e.g. from VIS) and repair such values on start
+- (Schimi1983) fixed calculator output values like "12abc" or "12:00" being converted to numbers
+- (Schimi1983) fixed calculator error when price states are still empty after the first start
+- (Schimi1983) calculator StartTime/StopTime now require a time zone (e.g. "+01:00" or "Z") as the warning already stated - values without time zone are rejected with a warning
+
 ### 7.4.1 (2026-11-11)
 
 - (HombachC) added optional historical production (grid feed-in) data incl. profit as Homes.<id>.Production.\* (JSON per resolution, current month production and profit) based on tibber-api 6 getProduction - disabled by default

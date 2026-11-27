@@ -215,7 +215,7 @@ The API journey log is owner-only, so the adapter keeps its own logbook from pol
 - Trip start on movement (`currentSpeed > 0`, running engine, or odometer jump ≥ 0.1 km); trip end after 3 parked polls. Engine-on idle without distance (< 0.2 km) is discarded, not logged.
 - `trips.ownList` (last 20), `trips.ownCount`, last-trip distance/start/end/duration/avg speed/consumption/energy/cost, `trips.ownMonthKm`/`trips.ownMonthCount`/`trips.ownMonthUsedKwh`/`trips.ownMonthCost`, month consumption and cost per 100 km. Survives restarts (instance data dir).
 - No coordinates by default; enable `storeTripPositions` to also store rounded start/end positions.
-- Consumption/energy come from SoC delta × `batteryCapacityKwh` — set your real net capacity (e.g. 100 kWh for the 100 kWh pack, less for smaller packs), otherwise energy figures are wrong.
+- Consumption/energy come from SoC delta × `batteryCapacityKwh` — set your real **net** capacity, otherwise energy figures are wrong. Reference (usable kWh per openzeekr energy profiles): 7GT AWD/RWD 100, 7GT RWD 75, 7X 100, 001 RWD/AWD/FR 100, 009 116/140, X 66 (default 100 fits 7GT AWD, 7X and 001).
 
 ### Display in VIS (and other visualisations)
 

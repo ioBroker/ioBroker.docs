@@ -136,6 +136,9 @@ This adapter would not have been possible without the great work of @foxriver76 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.4 (2026-11-24)
+* (Schimi1983) new states for the Bluetooth transmitter (headphones): `main.audio.bluetoothTransmitter`, `bluetoothOutput`, `bluetoothLevel`
+
 ### 2.0.3 (2026-11-20)
 * (Schimi1983) README: hint to the HEOS adapter for playback and now playing on HEOS models
 * (Schimi1983) Marantz Cinema: new state `main.audio.autoLipSync`, `tuner.preset` shows `0` when no preset is selected (`TPANOFF`)

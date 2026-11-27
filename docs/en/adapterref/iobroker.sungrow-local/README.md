@@ -331,6 +331,15 @@ data points of `sungrow-local.0` – no scripts, no other adapters. Import instr
 - `43023` (battery level) is the usable level between min. and max. SoC; the battery's own level is `40744`
   (unit 2). Both agree as `40744 ≈ min SoC + 43023 × (max SoC − min SoC) / 100` as long as the level is inside the
   window.
+- **All-zero answers are read errors.** The WiNet-S2 sometimes answers a read of the battery (unit 2) with the
+  right length but only 0 words: SoC 0 %, voltage 0 V, totals 0 kWh and an empty software version for one round
+  (about three times a day at the reference installation, while `43023` showed 86.8 %). From 0.6.1 on such an
+  answer of an input-register block with at least 4 registers is held back: the states keep their last value,
+  the request counts in `info.groups.<group>.errorsToday` with the text in `lastError` and an info line in the
+  log. Only the third all-zero answer in a row is taken over (a block that really is 0, e.g. PV values at night,
+  is delayed by two rounds once). In the same way a number outside min … max of its row – or outside 0 … 100 for
+  the unit `%` when the row has no own limits – is published only when it comes three times in a row. The
+  number can be changed with the instance setting `plausibilityConfirm` (`0` or `1` = check off).
 
 ## Tests
 
@@ -349,6 +358,16 @@ requests, late answers, total failure and connection loss.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2026-11-25)
+
+- **All-zero answers of the battery are no longer published as values.** The WiNet-S2 sometimes answers the
+  battery block (unit 2) with the right length but only 0 words – SoC `40744` 0 % while `43023` showed 86.8 %;
+  at the reference installation 52 times in 16 days, mostly not near a timeout. Scripts that switch on the
+  SoC reacted to it. An all-zero answer of an input-register block (from 4 registers) is now held back as a read
+  error (old values stay, `errorsToday`/`lastError`, info log) and only taken over the third time in a row.
+- A value outside min … max of its row (or outside 0 … 100 for `%`) is published only the third time in a row.
+- Setting `plausibilityConfirm` (default 3, `0`/`1` = off); test of the simulated WiNet with all-zero answers.
+
 ### 0.6.0 (2026-11-14)
 
 - **Review fixes (Bluefox, forum thread 85824):** async work that is not awaited (setState from poller events,

@@ -35,7 +35,8 @@ Unlike the [List](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets
 - **oid** – state that drives the cell.
 - **Read only** – shows the state but writes nothing.
 - **icon / icon color** and **icon active / icon active color** – off- and on-state of the icon; without active values the normal ones stay.
-- **Label / second text** – the texts on the cell.
+- **Label / second text** – the texts on the cell. A cell without label, second text and icon shows `Item 0`, `Item 1` and so on, so a freshly inserted list is visible.
+- **background color of button / background color of active button** – fill of the button. Without any of them an active button is marked anyway: in Material 3 by the primary color (full width: a light tint of it), in Classic by a ring in the theme color. A **background color of button** of `transparent` switches the mark off.
 - **show value** (on by default) shows the state value, **text to append to value** adds a unit.
 - **status bar color (if active) / text of status bar (if active)** – narrow strip along the bottom of the cell.
 - **minimal width** and **use x percent of row** – width of this one cell, apart from the grid.
@@ -82,6 +83,8 @@ is cut off.
 **Read only** can be bound to a state: the checkbox next to it and vis-2's binding symbol switch the field to a binding. `{0_userdata.0.automatik}` blocks the widget while the state is on; `{a:0_userdata.0.automatik;!a}` inverts that and blocks it while the state is off. A bound string `true` or `1` counts as on. Applies per entry. Read only always wins over the lock: a read-only widget reacts to nothing and opens no PIN pad. A read-only widget shows no lock icon. Autofill ticks the box only for a non-writable object and never overwrites a binding.
 
 **PIN** (all widgets with a lock): 1 to 12 digits, empty means no PIN. With a PIN, a tap on the locked widget opens a pad with the keys 1 to 9, Cancel, 0 and Delete; it checks as soon as the PIN is complete, shakes and clears on a wrong PIN. A hardware keyboard works too (digits, Backspace, Escape). The right PIN unlocks every widget with the same PIN in this browser until the lock time ends; a reload locks everything again. The PIN can be bound to a state to keep one central PIN. If the PIN is not 1 to 12 digits, or a bound PIN is empty, the widget stays locked and the pad says "PIN not set up". The editor already marks a typed invalid PIN in red; correct or clear it there. A numeric state loses leading zeros (0123 becomes 123); use a string state for such PINs. In the editor the pad never opens.
+
+<img src="../../media/vis2_pin_pad.png" width="230" alt="PIN pad with two of four digits entered">
 
 **Not a security feature:** the PIN stands in clear text in the project and in the state, and anyone who can write states bypasses every lock. It protects against accidental taps and children, not against attackers.
 

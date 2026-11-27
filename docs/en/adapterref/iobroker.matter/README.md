@@ -59,7 +59,7 @@ For testing pre-release or community firmware:
 
 **Setup:**
 1. Go to **General** tab → **Custom OTA Updates** section
-2. Enable **Allow custom/unofficial OTA updates**
+2. Enable **Allow test devices and custom/unofficial OTA updates**
 3. Optionally set a custom path (default: `matter.<instance>.custom-ota` beside the instance data directory)
 4. The path will be created on the next restart of the adapter if not already existing
 
@@ -67,6 +67,23 @@ For testing pre-release or community firmware:
 - Place `.ota` files in the custom updates directory
 - Click **Import updates now** to scan for new files (Files are imported on adapter start automatically once)
 - The adapter extracts vendor/product IDs from file headers automatically and validates the files.
+- While the setting is disabled, files in the directory are not imported, and the log says so.
+
+### Pairing test devices
+
+When a device is paired from the adapter, the controller checks its device attestation: the PAA certificate, the
+Certification Declaration (CD) signer and, with network access, the revocation lists. The certificates come from a
+bundled copy and are updated from the production and the test DCL at each controller start and once a day.
+
+A device with a test or development certificate of the Matter test PKI (for example many development boards and DIY
+firmwares built with the CHIP SDK examples) is only paired while **Allow test devices and custom/unofficial OTA
+updates** is enabled. Then the development certificates from the CHIP SDK on GitHub are also fetched. Without the
+setting, pairing fails with a message that names it. A device whose certificates are not known at all, for example a
+firmware with its own PAA or CD signer, is refused also with the setting enabled.
+
+These checks apply to pairing from the adapter's admin. When a device is paired through the ioBroker app, the app
+runs the attestation part of the pairing, and the adapter does not apply these checks. Devices that are already paired
+are not checked again.
 
 ## ToDo
 * Texts are partially in english
@@ -144,6 +161,11 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22.19.0 now
 * (@Apollon77) **IMPORTANT:** Node.js 22 is now the minimum required version
+* (@Apollon77) Fixed the software version that bridges and devices report to Matter controllers getting smaller on minor and major adapter updates (1.3.1 was reported as 10301, 1.4.0 as 401). The version is now reported as major, minor and patch in groups of three digits (1.3.1 becomes 1003001), so it increases with every release as long as minor and patch stay below 1000
+* (@Apollon77) Device, bridge and bridged device names, vacuum cleaner mode labels and the controller fabric label are now cut to the Matter length limit in UTF-8 bytes instead of characters. A long name with umlauts or other non-ASCII characters could exceed the limit, which matter.js 0.18.1 rejects, so the device or bridge would not start or a bridged device was not added
+* (@Apollon77) The raw event states of a controller device now carry the absolute event time when a device reports a time relative to the previous event and matter.js can resolve it, in `epochTimestamp` or `systemTimestamp` instead of `deltaEpochTimestamp` or `deltaSystemTimestamp`. When it cannot be resolved, the relative time stays in the delta field
+* (@Apollon77) Fixed imported custom OTA update files not being offered to devices when the controller was enabled while the adapter was running. They were only offered after an adapter restart. With custom/unofficial OTA updates disabled, files in the custom OTA folder are now logged as not imported instead of being ignored silently
+* (@Apollon77) Pairing from the adapter now checks the device attestation (PAA, Certification Declaration signer and, with network access, revocation) against the certificates of the DCL, with a bundled copy for use without network, and refuses a device that fails a check. A device with a test certificate is only paired while the setting "Allow custom/unofficial OTA updates", now named "Allow test devices and custom/unofficial OTA updates", is enabled; the pairing error then names this setting. Before, every attestation problem was logged and the device was paired anyway. The controller now contacts the production and the test DCL at start and once a day, and with the setting enabled also GitHub for development certificates. Devices that are already paired are not affected
 * (@Apollon77) Matter robotic vacuum cleaners are now mapped to the ioBroker vacuumCleaner device type in controller mode, including run mode, cleaning mode, operational state and phase, cleaning progress and the pause and go-home commands
 * (@Apollon77) ioBroker vacuum cleaners can now be exposed to Matter as a robotic vacuum cleaner in bridge and device mode, with the run mode, cleaning mode, operational state and the pause and go-home commands. The cleaning phase and progress are not exposed in this direction, because Matter reports them per cleaning area and an ioBroker vacuum cleaner does not know its areas
 * (@Apollon77) Fixed several ioBroker states of a controller device never updating after the first read, because two states reading one Matter attribute silently replaced each other. This affected the actual-value states of lights, plugs, dimmers, locks and speakers
@@ -188,7 +210,7 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 * (@Apollon77) The ioBroker device model now covers the new states type detector v6 exposes on existing device types, such as signal strength, on-time countdown, separate heating and cooling setpoints, valve position, filter condition and alarm severity
 * (@Apollon77) Fixed several memory leaks: ioBroker device instances that were built but not adopted stayed registered with the state subscription manager, and listeners, timers, pending locks and custom state bookkeeping were not always released on teardown
 * (@Apollon77) Network visualization data is no longer assembled, and neither it nor Thread diagnostics data is serialized and sent, while no admin UI is listening
-* (@Apollon77) Updated matter.js to 0.18.0 and migrated the controller to its ClientNode API
+* (@Apollon77) Updated matter.js to 0.18.1 and migrated the controller to its ClientNode API
 * (@Apollon77) The files matter.js downloads (OTA images, certificates, vendor data) now live in `matter.<instance>.cache` beside the instance data directory, and the folder for hand-imported OTA images moves to `matter.<instance>.custom-ota`. Both are moved on the first start; a folder that cannot be moved, for example because its target already exists, is reported in the log and has to be sorted out by hand. A custom OTA path that pointed into the old folder keeps working
 * (@Apollon77) The raw cluster states of a paired node are now filled from the values it reported before, also while the node is not connected
 * (@Apollon77) Changing the subscription interval of a paired node no longer reconnects it
