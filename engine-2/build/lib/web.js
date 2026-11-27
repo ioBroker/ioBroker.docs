@@ -7,7 +7,7 @@ import http2Module from 'node:http2';
 import express from 'express';
 import { configurePrerender, crawlerName, isCrawler, pickLanguage, renderPage } from './prerender.js';
 import { DEFAULT_LANGUAGE, escapeHtml, isLanguage, readJson, walk } from './siteData.js';
-import { buildSitemap } from './sitemap.js';
+import { buildSitemapIndex, buildSitemapPart } from './sitemap.js';
 import { legacyTarget } from './legacyPages.js';
 import bodyParser from 'body-parser';
 import compression from 'compression';
@@ -199,6 +199,28 @@ export default function init(config) {
         res.set('X-Frame-Options', 'SAMEORIGIN');
         next();
     });
+    /*
+     * /docu/, the documentation of the old site, is gone for good (02.11.2026). It answers with
+     * 410 Gone instead of 404: Google treats 410 as "removed on purpose" and drops the addresses
+     * from the index and from crawling a little sooner, and it stops spending the crawl on the
+     * hundreds of `/docu/index-NNN.htm?page_id=...` it still knows. `noindex` on top for every other
+     * crawler. robots.txt keeps the path open, otherwise no crawler would ever see this answer.
+     *
+     * Registered before the sites below, so that an old config.json that still lists /docu/
+     * cannot bring it back.
+     */
+    app.app.use('/docu', (_req, res) => {
+        res.status(410)
+            .set('X-Robots-Tag', 'noindex')
+            .type('html')
+            .send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+            '<meta name="robots" content="noindex"><title>Gone | ioBroker</title></head>' +
+            '<body style="font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;line-height:1.5">' +
+            '<h1>This page no longer exists</h1>' +
+            '<p>The old documentation under /docu/ has been removed. The current documentation is at <a href="/docs">www.iobroker.com/docs</a>.</p>' +
+            '<p lang="de">Die alte Dokumentation unter /docu/ wurde entfernt. Die aktuelle Dokumentation finden Sie unter <a href="/docs?lang=de">www.iobroker.com/docs</a>.</p>' +
+            '</body></html>');
+    });
     config.sites?.forEach((site) => {
         console.log(`Install path ${site.route} => ${site.path}`);
         let redirects;
@@ -214,10 +236,9 @@ export default function init(config) {
         }
         app.app.use(site.route, (req, res, next) => {
             /*
-             * These are archives - the old documentation under /docu/ - kept for readers, not for
-             * search engines. robots.txt does not block them for that very reason: a crawler that
-             * may not fetch a page never sees this header, and an address known from a link stays in
-             * the index as "blocked by robots.txt".
+             * These are archives, kept for readers, not for search engines. robots.txt does not
+             * block them for that very reason: a crawler that may not fetch a page never sees this
+             * header, and an address known from a link stays in the index as "blocked by robots.txt".
              */
             res.setHeader('X-Robots-Tag', 'noindex');
             if (req.url.endsWith('.html')) {
@@ -468,10 +489,28 @@ export default function init(config) {
         }
         sendPage(req, res);
     });
-    /** Every page of the site in every language, with the other languages named beside each */
+    /**
+     * Every page of the site in every language, with the other languages named beside each: an
+     * index at the address robots.txt and Search Console know, and the parts it lists
+     * (see `sitemap.ts`).
+     */
     app.app.get('/sitemap.xml', (_req, res) => {
         try {
-            res.type('application/xml').send(buildSitemap(publicDir, siteOrigin));
+            res.type('application/xml').send(buildSitemapIndex(publicDir, siteOrigin));
+        }
+        catch (error) {
+            console.error(`Cannot build the sitemap: ${String(error)}`);
+            res.status(500).end();
+        }
+    });
+    app.app.get(/^\/sitemap-([a-z]+(?:-[a-z-]+)?)\.xml$/, (req, res, next) => {
+        try {
+            const xml = buildSitemapPart(publicDir, siteOrigin, req.params[0]);
+            if (xml === null) {
+                next();
+                return;
+            }
+            res.type('application/xml').send(xml);
         }
         catch (error) {
             console.error(`Cannot build the sitemap: ${String(error)}`);

@@ -143,7 +143,7 @@ function structuredData(kind, route, lang, origin, title, description, picture, 
  * list is deliberately generous: rendering a page for an agent that did not need it costs one
  * pass through the markdown, once, while missing one means that agent sees nothing.
  */
-const CRAWLERS = /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|screaming frog seo spider|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
+const CRAWLERS = /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|screaming frog seo spider|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|pinterest(bot)?|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
 export function isCrawler(userAgent) {
     return !!userAgent && CRAWLERS.test(userAgent);
 }
@@ -300,12 +300,18 @@ const PLAIN_PAGES = {
     '/productoverview': { en: 'Licenses', de: 'Lizenzen', ru: 'Лицензии' },
     '/imprint': { en: 'Imprint', de: 'Impressum', ru: 'О компании' },
     '/policy': { en: 'Privacy', de: 'Datenschutz', ru: 'Политика конфиденциальности' },
+    '/policy/google-photos': {
+        en: 'Privacy: Google Photos',
+        de: 'Datenschutz: Google Fotos',
+        ru: 'Конфиденциальность: Google Фото',
+    },
     '/search': { en: 'Search', de: 'Suche', ru: 'Поиск' },
 };
 /** The legal pages are documents of their own, kept next to the others in every language */
 const LEGAL_DOCUMENTS = {
     '/imprint': 'imprint.md',
     '/policy': 'privacy.md',
+    '/policy/google-photos': 'privacy-google-photos.md',
 };
 /**
  * What the address names.

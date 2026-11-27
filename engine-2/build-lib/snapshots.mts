@@ -120,15 +120,37 @@ function fileOf(address: Address): string {
     return `${[address.lang.replace(/[^\w-]/g, '_'), ...(segments.length ? segments : ['index'])].join('/')}.html`;
 }
 
-/** Every address of the site in every language, as the server lists them */
-async function addressesOf(settings: SnapshotSettings): Promise<Address[]> {
-    const response = await fetch(`${settings.base}/sitemap.xml`);
+/** The addresses a sitemap or a sitemap index lists in its `<loc>` */
+function locsOf(xml: string): string[] {
+    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1].replace(/&amp;/g, '&'));
+}
+
+/**
+ * One sitemap, read from the server drawn from. The index names its parts under the origin the site
+ * is published under (https://www.iobroker.com/sitemap-docs-en.xml), so only the path is kept.
+ */
+async function sitemapOf(settings: SnapshotSettings, address: string): Promise<string> {
+    const { pathname, search } = new URL(address, settings.base);
+    const response = await fetch(`${settings.base}${pathname}${search}`);
     if (!response.ok) {
-        throw new Error(`${settings.base}/sitemap.xml answered ${response.status}`);
+        throw new Error(`${settings.base}${pathname} answered ${response.status}`);
     }
-    const xml = await response.text();
-    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => {
-        const url = new URL(match[1].replace(/&amp;/g, '&'));
+    return response.text();
+}
+
+/**
+ * Every address of the site in every language, as the server lists them. /sitemap.xml is an index
+ * since 02.11.2026 - its parts (pages, docs, blog and adapters per language) hold the pages.
+ */
+async function addressesOf(settings: SnapshotSettings): Promise<Address[]> {
+    const xml = await sitemapOf(settings, '/sitemap.xml');
+    let locs = locsOf(xml);
+    if (xml.includes('<sitemapindex')) {
+        const parts = await Promise.all(locs.map(part => sitemapOf(settings, part)));
+        locs = parts.flatMap(part => locsOf(part));
+    }
+    return locs.map(loc => {
+        const url = new URL(loc);
         return {
             lang: url.searchParams.get('lang') || 'en',
             route: url.pathname.replace(/\/+$/, '') || '/',

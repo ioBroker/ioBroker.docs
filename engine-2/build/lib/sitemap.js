@@ -42,6 +42,7 @@ export function siteRoutes(publicDir) {
     ['/', '/installation', '/adapters', '/docs', '/blog', '/productoverview', '/statistics'].forEach(route => add({ route }));
     add({ route: '/imprint', file: 'imprint.md' });
     add({ route: '/policy', file: 'privacy.md' });
+    add({ route: '/policy/google-photos', file: 'privacy-google-photos.md' });
     walk(readJson(path.join(publicDir, 'adapters.json')), (key, page) => {
         if (page.content) {
             const entry = page;
@@ -61,33 +62,49 @@ export function siteRoutes(publicDir) {
     Object.entries(blog).forEach(([id, post]) => add({ route: `/blog/${encodeURIComponent(id)}`, file: `blog/${id}.md`, lastmod: dayOf(post.date) }));
     return [...routes.values()];
 }
+const SECTIONS_BY_LANGUAGE = ['docs', 'blog', 'adapters'];
+function sectionOf(route) {
+    if (route.startsWith('/adapters/')) {
+        return 'adapters';
+    }
+    if (route.startsWith('/docs/')) {
+        return 'docs';
+    }
+    if (route.startsWith('/blog/')) {
+        return 'blog';
+    }
+    // the start page, the lists of adapters, documents and posts and the pages of the app
+    return 'pages';
+}
+function partName(section, lang) {
+    return section === 'pages' ? 'pages' : `${section}-${lang}`;
+}
 let cached = null;
-/**
- * The sitemap as XML - built again only when one of the indexes changed.
- *
- * @param publicDir the directory the site is served from
- * @param origin scheme and host the site is published under
- */
-export function buildSitemap(publicDir, origin) {
+/** Every part of the sitemap by its name - built again only when one of the indexes changed */
+function sitemapParts(publicDir, origin) {
     const version = [
         origin,
         ...['adapters.json', 'content.json', 'blog.json'].map(file => versionOf(path.join(publicDir, file))),
     ].join('|');
     if (cached?.version === version) {
-        return cached.xml;
+        return cached.parts;
     }
-    const urls = siteRoutes(publicDir).flatMap(({ route, file, lastmod }) => {
+    // in a fixed order, so that the index lists the parts the same way every time
+    const parts = new Map([['pages', { urls: [] }]]);
+    SECTIONS_BY_LANGUAGE.forEach(section => LANGUAGES.forEach(lang => parts.set(partName(section, lang), { urls: [] })));
+    siteRoutes(publicDir).forEach(({ route, file, lastmod }) => {
         // a document that was not translated into a language has no page in it
         const languages = LANGUAGES.filter(lang => !file || fs.existsSync(path.join(publicDir, lang, file)));
         if (!languages.length) {
-            return [];
+            return;
         }
         const fallback = languages.includes('en') ? 'en' : languages[0];
         const alternates = [
             ...languages.map(lang => `<xhtml:link rel="alternate" hreflang="${lang}" href="${escapeHtml(origin + withLanguage(route, lang))}"/>`),
             `<xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(origin + withLanguage(route, fallback))}"/>`,
         ].join('');
-        return languages.map(lang => {
+        const section = sectionOf(route);
+        languages.forEach(lang => {
             /*
              * What the page says about itself first, then what the index knows: a documentation
              * page carries its own `lastChanged`, an adapter the date of its release, a blog post
@@ -95,16 +112,56 @@ export function buildSitemap(publicDir, origin) {
              * none, because a crawler believes it and comes back for nothing.
              */
             const day = (file ? documentDay(path.join(publicDir, lang, file)) : undefined) ?? lastmod;
-            return `<url><loc>${escapeHtml(origin + withLanguage(route, lang))}</loc>${day ? `<lastmod>${day}</lastmod>` : ''}${alternates}</url>`;
+            const part = parts.get(partName(section, lang));
+            part.urls.push(`<url><loc>${escapeHtml(origin + withLanguage(route, lang))}</loc>${day ? `<lastmod>${day}</lastmod>` : ''}${alternates}</url>`);
+            // the days are YYYY-MM-DD, so the later one is also the larger string
+            if (day && (!part.lastmod || day > part.lastmod)) {
+                part.lastmod = day;
+            }
         });
     });
-    const xml = [
+    // a part without a single page is left out of the index rather than listed empty
+    [...parts.keys()].forEach(name => {
+        if (!parts.get(name).urls.length) {
+            parts.delete(name);
+        }
+    });
+    cached = { version, parts };
+    return parts;
+}
+/**
+ * The sitemap index, served as /sitemap.xml - the address robots.txt and Search Console know.
+ *
+ * @param publicDir the directory the site is served from
+ * @param origin scheme and host the site is published under
+ */
+export function buildSitemapIndex(publicDir, origin) {
+    const entries = [...sitemapParts(publicDir, origin)].map(([name, part]) => `<sitemap><loc>${escapeHtml(`${origin}/sitemap-${name}.xml`)}</loc>${part.lastmod ? `<lastmod>${part.lastmod}</lastmod>` : ''}</sitemap>`);
+    return [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        ...entries,
+        '</sitemapindex>',
+    ].join('\n');
+}
+/**
+ * One part of the sitemap, served as /sitemap-<name>.xml.
+ *
+ * @param publicDir the directory the site is served from
+ * @param origin scheme and host the site is published under
+ * @param name the part, e.g. "pages" or "adapters-de"
+ * @returns the XML, or null when there is no part of that name
+ */
+export function buildSitemapPart(publicDir, origin, name) {
+    const part = sitemapParts(publicDir, origin).get(name);
+    if (!part) {
+        return null;
+    }
+    return [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-        ...urls,
+        ...part.urls,
         '</urlset>',
     ].join('\n');
-    cached = { version, xml };
-    return xml;
 }
 //# sourceMappingURL=sitemap.js.map
